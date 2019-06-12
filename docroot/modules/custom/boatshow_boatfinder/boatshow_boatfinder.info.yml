@@ -1,0 +1,5 @@
+name: 'Boat Finder'
+type: module
+description: 'Boat Finder for the Boat Show websites.'
+core: 8.x
+package: 'Boat Show'

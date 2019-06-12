@@ -1,0 +1,51 @@
+uuid: 8e55475a-a9d9-4c5c-ace0-c5ddd70f03dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.media.field_carousel
+    - field.field.node.media.field_videos
+    - node.type.media
+  module:
+    - panelizer
+    - user
+    - video_embed_field
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.media.default
+targetEntityType: node
+bundle: media
+mode: default
+content:
+  field_carousel:
+    type: entity_reference_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_videos:
+    weight: 1
+    label: hidden
+    settings:
+      responsive: true
+      width: 854
+      height: 480
+      autoplay: true
+    third_party_settings: {  }
+    type: video_embed_field_video
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  langcode: true

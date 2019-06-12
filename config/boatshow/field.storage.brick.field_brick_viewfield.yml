@@ -1,0 +1,21 @@
+uuid: 81afab4d-b1af-485d-8d6a-2eb0fa9a9742
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - viewfield
+    - views
+id: brick.field_brick_viewfield
+field_name: field_brick_viewfield
+entity_type: brick
+type: viewfield
+settings:
+  target_type: view
+module: viewfield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

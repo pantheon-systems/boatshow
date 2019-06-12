@@ -1,0 +1,19 @@
+uuid: 7f6356ac-22a6-4a69-a886-64666dc6466e
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - text
+id: brick.field_disruptor_callout
+field_name: field_disruptor_callout
+entity_type: brick
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

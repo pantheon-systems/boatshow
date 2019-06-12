@@ -1,0 +1,14 @@
+uuid: af78c55a-46cd-439b-b53f-3c12d6db10e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.exhibitor_reviewer
+  module:
+    - user
+id: user_remove_role_action.exhibitor_reviewer
+label: 'Remove the Exhibitor reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: exhibitor_reviewer

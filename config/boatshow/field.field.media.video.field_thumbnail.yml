@@ -1,0 +1,21 @@
+uuid: 0d7fbe6d-5351-4455-b15f-a4cee5394257
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_thumbnail
+    - media.type.video
+id: media.video.field_thumbnail
+field_name: field_thumbnail
+entity_type: media
+bundle: video
+label: Thumbnail
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: entity_reference

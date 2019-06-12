@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Contains nmma_video.module.
+ */
+
+use Drupal\media\Entity\Media;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_entity_presave().
+ */
+function nmma_video_entity_presave(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() !== 'node' || $entity->bundle() !== 'video') {
+    return;
+  }
+  // If the media entity reference (field_video_url) is not set and the video
+  // ID was set during import, use the video ID to construct the video URL and
+  // create the media entity reference and set the reference on the video node.
+  if (empty($entity->get('field_video_url')->first()) && !empty($entity->get('field_video_video_id')->first())) {
+    $videoId = $entity->get('field_video_video_id')->first()->getValue()['value'];
+
+    $videoUrl = 'https://www.youtube.com/watch?v=' . $videoId;
+    $query = Drupal::service('entity.query')
+      ->get('media')
+      ->condition('bundle', 'video')
+      ->condition('field_media_video_embed_field', $videoUrl);
+    $entityIds = $query->execute();
+    if (empty($entityIds)) {
+      // Create media entity with saved file.
+      $imageMedia = Media::create([
+        'bundle' => 'video',
+        'uid' => 1,
+        'status' => 1,
+        'name' => $entity->get('field_video_title')->first()->getValue()['value'],
+        'field_media_video_embed_field' => [
+          'value' => $videoUrl,
+        ],
+      ]);
+      $imageMedia->save();
+      $entity->set('field_video_url', $imageMedia->id());
+    }
+    else {
+      $entity->set('field_video_url', reset($entityIds));
+    }
+  }
+
+}

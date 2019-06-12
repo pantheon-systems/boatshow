@@ -1,0 +1,17 @@
+uuid: df941677-54eb-41fc-be5d-ebe453090f48
+langcode: en
+status: true
+dependencies: {  }
+id: speaker_reviewer
+label: 'Speaker reviewer'
+weight: 16
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'delete any speaker content'
+  - 'edit any speaker content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'view any unpublished content'
+  - 'view latest version'

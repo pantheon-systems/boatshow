@@ -1,0 +1,15 @@
+youtube_import.config:
+  path: '/admin/config/system/youtube_import'
+  defaults:
+    _title: 'STC Youtube Import Configuration'
+    _form: 'youtube_import.form'
+  requirements:
+    _permission: 'administer youtube_import module'
+youtube_import.run_now:
+  path: '/admin/config/system/youtube_import/run-now'
+  defaults:
+    _title: 'STC Youtube Import Run Now'
+    _title_context: 'Force the import to run now.'
+    _controller: 'youtube_import.controller:runNow'
+  requirements:
+    _permission: 'administer youtube_import module'

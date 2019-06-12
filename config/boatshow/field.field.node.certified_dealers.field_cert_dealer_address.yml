@@ -1,0 +1,39 @@
+uuid: 8b8a6bbc-1e39-4a93-9706-33f13f5a6275
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cert_dealer_address
+    - node.type.certified_dealers
+  module:
+    - address
+id: node.certified_dealers.field_cert_dealer_address
+field_name: field_cert_dealer_address
+entity_type: node
+bundle: certified_dealers
+label: Address
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_countries:
+    CA: CA
+    US: US
+  langcode_override: ''
+  field_overrides:
+    givenName:
+      override: hidden
+    additionalName:
+      override: hidden
+    familyName:
+      override: hidden
+    organization:
+      override: hidden
+    sortingCode:
+      override: hidden
+    dependentLocality:
+      override: hidden
+  fields: {  }
+field_type: address

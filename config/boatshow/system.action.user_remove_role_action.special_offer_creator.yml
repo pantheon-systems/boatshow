@@ -1,0 +1,14 @@
+uuid: 7c993fd5-798e-46e4-8406-8f9621e16493
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.special_offer_creator
+  module:
+    - user
+id: user_remove_role_action.special_offer_creator
+label: 'Remove the Special Offer creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: special_offer_creator

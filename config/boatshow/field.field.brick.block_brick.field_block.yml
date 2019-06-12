@@ -1,0 +1,22 @@
+uuid: f59ee281-48e2-4700-a2b6-5bdeee29c73a
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.block_brick
+    - field.storage.brick.field_block
+  module:
+    - block_field
+id: brick.block_brick.field_block
+field_name: field_block
+entity_type: brick
+bundle: block_brick
+label: Block
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  plugin_ids: {  }
+field_type: block_field

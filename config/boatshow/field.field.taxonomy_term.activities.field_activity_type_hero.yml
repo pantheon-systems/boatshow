@@ -1,0 +1,28 @@
+uuid: 826c5c3f-1dff-4770-8ea1-769e9b43e516
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_activity_type_hero
+    - media.type.image
+    - taxonomy.vocabulary.activities
+id: taxonomy_term.activities.field_activity_type_hero
+field_name: field_activity_type_hero
+entity_type: taxonomy_term
+bundle: activities
+label: 'Hero Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

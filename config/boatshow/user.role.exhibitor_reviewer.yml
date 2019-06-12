@@ -1,0 +1,17 @@
+uuid: 8e1a622d-a832-4d1b-a974-63344e3edc8b
+langcode: en
+status: true
+dependencies: {  }
+id: exhibitor_reviewer
+label: 'Exhibitor reviewer'
+weight: 14
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'delete any exhibitor content'
+  - 'edit any exhibitor content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'view any unpublished content'
+  - 'view latest version'

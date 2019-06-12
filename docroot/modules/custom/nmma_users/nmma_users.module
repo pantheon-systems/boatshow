@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains nmma_users.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function nmma_users_form_user_login_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+  $form['#submit'][] = '_nmma_users_form_user_login_submit';
+}
+
+/**
+ * Submit handler added to user_login_form form.
+ *
+ * @param array $form
+ *   The form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current form state.
+ */
+function _nmma_users_form_user_login_submit(array $form, FormStateInterface $form_state) {
+  $user = \Drupal::currentUser();
+  // If the current user can access admin/content, send them there after login.
+  if ($user->id() > 0 && $user->hasPermission('access content')) {
+    $url = Url::fromRoute('<front>');
+    $form_state->setRedirectUrl($url);
+  }
+}

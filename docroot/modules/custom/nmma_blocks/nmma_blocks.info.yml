@@ -1,0 +1,6 @@
+name: NMMA Blocks
+description: Handle the functionality for NMMA custom blocks.
+package: 'NMMA'
+
+type: module
+core: 8.x

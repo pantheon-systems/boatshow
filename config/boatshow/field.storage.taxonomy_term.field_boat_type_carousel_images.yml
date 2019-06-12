@@ -1,0 +1,20 @@
+uuid: cca4273e-88e8-48bc-b714-e0765c5c3b2a
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - taxonomy
+id: taxonomy_term.field_boat_type_carousel_images
+field_name: field_boat_type_carousel_images
+entity_type: taxonomy_term
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

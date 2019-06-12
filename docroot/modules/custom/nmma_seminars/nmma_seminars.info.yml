@@ -1,0 +1,6 @@
+name: NMMA Seminars
+description: Handle the functionality for NMMA Seminars.
+package: 'NMMA'
+
+type: module
+core: 8.x

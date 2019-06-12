@@ -1,0 +1,46 @@
+uuid: b454b8d4-3bfc-4090-baaf-ebe4777be96d
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.view
+    - field.storage.brick.field_brick_viewfield
+  module:
+    - viewfield
+id: brick.view.field_brick_viewfield
+field_name: field_brick_viewfield
+entity_type: brick
+bundle: view
+label: 'Brick Viewfield'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  force_default: 0
+  allowed_views:
+    contact_messages: 0
+    content: 0
+    block_content: 0
+    files: 0
+    frontpage: 0
+    media: 0
+    moderated_content: 0
+    moderation_history: 0
+    user_admin_people: 0
+    content_recent: 0
+    search: 0
+    taxonomy_term: 0
+    watchdog: 0
+    who_s_new: 0
+    who_s_online: 0
+  allowed_display_types:
+    block: block
+    page: page
+    entity_browser: 0
+    feed: 0
+    default: 0
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

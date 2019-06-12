@@ -1,0 +1,4 @@
+knockout:
+  version: 3.0.0
+  js:
+    https://cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js: {type: external}

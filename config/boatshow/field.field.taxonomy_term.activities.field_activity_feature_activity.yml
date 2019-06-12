@@ -1,0 +1,23 @@
+uuid: 19ad64f9-3f44-45a1-9f68-3c9fac52424e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_activity_feature_activity
+    - taxonomy.vocabulary.activities
+id: taxonomy_term.activities.field_activity_feature_activity
+field_name: field_activity_feature_activity
+entity_type: taxonomy_term
+bundle: activities
+label: 'Feature Activity'
+description: 'Feature this activity in teaser blocks throughout the site. '
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

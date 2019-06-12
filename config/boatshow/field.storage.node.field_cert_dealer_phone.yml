@@ -1,0 +1,19 @@
+uuid: 4198379d-1f67-4a03-8eef-ac56ae3bd612
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - telephone
+id: node.field_cert_dealer_phone
+field_name: field_cert_dealer_phone
+entity_type: node
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

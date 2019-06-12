@@ -1,0 +1,22 @@
+uuid: 00def31a-be4c-4921-b3a9-19d85c49fd2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.teaser_block
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.teaser_block.body
+field_name: body
+entity_type: block_content
+bundle: teaser_block
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

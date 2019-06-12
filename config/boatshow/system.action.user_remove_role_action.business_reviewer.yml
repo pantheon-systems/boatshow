@@ -1,0 +1,14 @@
+uuid: 2bb712e5-7430-4332-b18b-501728d7eb77
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.business_reviewer
+  module:
+    - user
+id: user_remove_role_action.business_reviewer
+label: 'Remove the Business reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: business_reviewer

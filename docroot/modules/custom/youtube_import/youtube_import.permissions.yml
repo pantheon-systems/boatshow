@@ -1,0 +1,4 @@
+administer youtube_import module:
+  title: 'Administer Youtube Import module'
+  description: 'Perform administration tasks for Youtube Import module.'
+  restrict access: true

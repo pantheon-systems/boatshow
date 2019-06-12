@@ -1,0 +1,60 @@
+.super-thursday {
+  color: #da5a3b;
+  font-family: "Proxima Nova Bold";
+  font-size: 1.25rem;
+  font-weight: bold;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #0d539b;
+    font-size: 115%;
+    text-transform: initial;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.alias--exhibitor-deals,
+.alias--special-offers {
+  // Scoped to this specific page for now, will attempt to generalize later if
+  // need be.
+  .views-row {
+    @include view-item;
+  }
+
+  .views-field-title,
+  .views-field-field-booth {
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .views-field-title {
+    color: $dark-gray;
+    font-family: $proxima-light;
+    font-weight: bold;
+    font-size: $font-size-h4-small;
+  }
+
+  .views-field-field-booth {
+    padding-bottom: 0.8em;
+    margin-bottom: 1.25em;
+    position: relative;
+
+    &::after {
+      content: "";
+      background: red;
+      height: 1px;
+      width: 80px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      margin-left: -40px;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+name: 'NMMA Brick Layouts'
+type: module
+description: 'NMMA Custom Bricks Layouts'
+core: 8.x
+package: 'NMMA'
+dependencies:
+  - bricks

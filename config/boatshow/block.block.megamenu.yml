@@ -1,0 +1,20 @@
+uuid: 0ad15286-8768-485a-a52e-8fd697aa4c4c
+langcode: en
+status: true
+dependencies:
+  module:
+    - nmma_megamenu
+  theme:
+    - nmma
+id: megamenu
+theme: nmma
+region: header
+weight: -4
+provider: null
+plugin: mega_menu
+settings:
+  id: mega_menu
+  label: 'Mega Menu'
+  provider: nmma_megamenu
+  label_display: '0'
+visibility: {  }

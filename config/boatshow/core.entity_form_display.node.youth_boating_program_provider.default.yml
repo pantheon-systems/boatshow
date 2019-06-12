@@ -1,0 +1,188 @@
+uuid: ffb01266-871a-4cfc-abd7-d3ca7db14bd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.youth_boating_program_provider.field_ybp_address
+    - field.field.node.youth_boating_program_provider.field_ybp_company_email
+    - field.field.node.youth_boating_program_provider.field_ybp_company_type
+    - field.field.node.youth_boating_program_provider.field_ybp_company_url
+    - field.field.node.youth_boating_program_provider.field_ybp_description
+    - field.field.node.youth_boating_program_provider.field_ybp_geolocation
+    - field.field.node.youth_boating_program_provider.field_ybp_nmma_id
+    - field.field.node.youth_boating_program_provider.field_ybp_phone
+    - field.field.node.youth_boating_program_provider.field_ybp_program_types
+    - node.type.youth_boating_program_provider
+  module:
+    - address
+    - field_group
+    - geolocation
+    - link
+    - path
+    - telephone
+    - text
+third_party_settings:
+  field_group:
+    group_ybp_assets:
+      children:
+        - group_program_info
+        - group_contact_info
+        - group_misc
+      parent_name: ''
+      weight: 1
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: 'YBP Assets'
+      region: content
+    group_contact_info:
+      children:
+        - field_ybp_address
+        - field_ybp_company_email
+        - field_ybp_company_url
+        - field_ybp_phone
+      parent_name: group_ybp_assets
+      weight: 10
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Contact Info'
+      region: content
+    group_program_info:
+      children:
+        - field_ybp_description
+        - field_ybp_program_types
+      parent_name: group_ybp_assets
+      weight: 9
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Program Info'
+      region: content
+    group_misc:
+      children:
+        - field_ybp_nmma_id
+        - field_ybp_company_type
+        - field_ybp_geolocation
+      parent_name: group_ybp_assets
+      weight: 11
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Misc
+      region: content
+id: node.youth_boating_program_provider.default
+targetEntityType: node
+bundle: youth_boating_program_provider
+mode: default
+content:
+  field_ybp_address:
+    weight: 2
+    settings:
+      default_country: null
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_ybp_company_email:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_ybp_company_type:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_ybp_company_url:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_ybp_description:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_ybp_geolocation:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: geolocation_latlng
+    region: content
+  field_ybp_nmma_id:
+    weight: 5
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_ybp_phone:
+    weight: 5
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_ybp_program_types:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  path:
+    type: path
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  moderation_state: true
+  promote: true
+  sticky: true
+  uid: true

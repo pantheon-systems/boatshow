@@ -1,0 +1,460 @@
+// Header Main Menu
+//
+// Header menus styling for main nav
+//
+// Markup: header.twig
+//
+// Style guide: components.header
+
+header.header {
+  @include font-aliasing();
+  align-items: center;
+  background: $white;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid $lighter-gray;
+  padding: 1rem 0;
+
+  & > .container {
+    height: 100%;
+  }
+
+  .header-wrap {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__right {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .region-header {
+      width: 100%;
+    }
+  }
+
+  .secondary-nav {
+    ul {
+      display: flex;
+      list-style: none;
+      margin-top: 0;
+      margin-bottom: 10px;
+      li {
+        & + li {
+          margin-left: 15px;
+        }
+      }
+    }
+
+    a {
+      font-family: $proxima-semibold;
+      font-size: 13px;
+      line-height: normal;
+      text-transform: uppercase;
+      &::after {
+        content: '\f054';
+        font-family: $font-awesome;
+        color: $red;
+        margin-left: 5px;
+        vertical-align: middle;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    @include media-breakpoint-down(sm) {
+      ul {
+        display: block;
+        padding: 0;
+        text-align: right;
+
+        li {
+          display: block;
+
+          & + li {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .logo {
+    align-items: center;
+    display: flex;
+    width: 242px;
+    & a {
+      display: block;
+      width: 100%;
+      min-width: 240px;
+      img.logo-color {
+        display: block;
+      }
+      img.logo-white {
+        display: none;
+      }
+    }
+  }
+
+  .block-colossal-menu-blockmain-navigation-boatshow {
+    @include media-breakpoint-down(lg) {
+      .mega-menu {
+        display: none;
+        background: #fff;
+        border-bottom: solid 1px #d8d8d8;
+        box-sizing: border-box;
+        position: absolute;
+        top: 114px;
+        left: 0;
+        width: 100%;
+        padding: 5px 20px 20px;
+
+        &.mobile-open {
+          display: block;
+        }
+      }
+
+      ul, li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      h2 {
+        // Copied from _base.scss h3 styles.
+        font-size: 140%;
+        line-height: 145%;
+      }
+
+      .menu-item.parent-item {
+        .menu-dropdown {
+          display: none;
+
+          &.open {
+            display: block;
+          }
+        }
+
+        &:not(:last-child) {
+          border-bottom: solid 1px #bdc2c7;
+          display: block;
+          margin: 0;
+
+          & > a {
+            font-size: 14px;
+            font-size: 0.875rem;
+            line-height: 1.2;
+            display: block;
+            padding: 15px 0;
+            text-transform: uppercase;
+
+            &:hover,
+            &:active {
+              text-decoration: none;
+            }
+          }
+
+          &:nth-last-child(2) {
+            border-bottom: none;
+          }
+        }
+
+        &:last-child {
+          & > a {
+            @include button--small;
+          }
+        }
+      }
+
+      nav.navigation {
+        margin-bottom: 1em;
+      }
+
+      // Collapse two-column layouts to one.
+      .two-columns {
+        & > div {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        &.mega-menu {
+          display: flex;
+          height: 100%;
+          justify-content: flex-end;
+          margin: 0 auto;
+          max-width: 1000px;
+          width: 100%;
+          align-items: center;
+          position: relative;
+          & > li {
+            transition: all .3s ease-in-out;
+            & + li {
+              margin-left: 40px;
+            }
+            & > a {
+              font-size: 13px;
+              font-family: $proxima-bold;
+              color: $blk;
+              text-transform: uppercase;
+              line-height: 2.615;
+              text-align: center;
+              position: relative;
+              &:hover,
+              &:focus {
+                text-decoration: none;
+              }
+              &.open {
+                &::after {
+                  height: 4px;
+                  content: '';
+                  background: $red;
+                  width: 100%;
+                  left: 0;
+                  position: absolute;
+                  bottom: -4px;
+                }
+              }
+            }
+            &:last-child {
+              & > a {
+                // TODO: Could we just change the class of the last element in the twig template?
+                @include button--small;
+              }
+            }
+          }
+          ul.menu-dropdown {
+            visibility: hidden;
+            position: absolute;
+            right: 185px;
+            padding-top: 26px;
+
+            .flex-container {
+              flex-wrap: inherit;
+            }
+            &.open {
+              visibility: visible;
+            }
+            .show-on-large {
+              border: 1px solid $lighter-gray;
+              border-top: 0;
+              box-shadow: rgba(0,0,0,0.5) 0px 6px 10px;
+              .margin-top-30 {
+                margin-top: 30px;
+              }
+              .field--name-field-bricks {
+                & > div > .nmma-layout {
+                  background: $white;
+                  > .column-item:last-child {
+                    background: $lighter-gray;
+                  }
+                  display: flex;
+                }
+                .one-column {
+                  flex-direction: column;
+                }
+                .column-item {
+                  &.col-6-sm {
+                    width: auto;
+                  }
+                  padding: 30px;
+                  .column-item {
+                    padding: 0;
+                  }
+                }
+                .field--name-field-text {
+                  span {
+                    line-height: normal;
+                  }
+                  .proxima-bold {
+                    font-size: 16px;
+                    font-family: $proxima-bold;
+                    padding: 0;
+                    margin: 0;
+                  }
+                  .proxima-light {
+                    font-size: 14px;
+                    color: $blk;
+                    font-family: $proxima-light;
+                  }
+                  .proxima-semibold {
+                    font-size: 14px;
+                    font-family: $proxima-semibold;
+                    &.blue {
+                      color: $blue;
+                    }
+                  }
+                  .proxima-reg {
+                    font-family: $proxima-reg;
+                    font-size: 13px;
+                  }
+                }
+                .field--type-block-field {
+                  .field--name-field-block {
+                    & + .field--name-field-block {
+                      .teaser-block-type {
+                        margin-top: 20px;
+                      }
+                    }
+                  }
+                  .block-menu {
+                    h2 {
+                      font-family: $proxima-bold;
+                      font-size: 18px;
+                      color: $blk;
+                      padding: 0;
+                    }
+                    ul {
+                      padding-left: 20px;
+                      li {
+                        margin: 5px 0;
+                        line-height: 1.3;
+                        a {
+                          font-family: $proxima-semibold;
+                          font-size: 14px;
+                        }
+                      }
+                    }
+                  }
+                  .menu--general-information,
+                  .menu--thing-to-do {
+                    min-width: 190px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Mobile nav
+  // NOTE: Not currently used. Due to an issue with getting all the links to
+  // display we opted to use media queries to restyle the desktop nav instead.
+  // This may be removed in the future.
+  .block-colossal-menu-blockmain-navigation-mobile {
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+
+    display: none; // Disable mobile menu
+    background: $color-white;
+    border-bottom: solid 1px #d8d8d8;
+    box-sizing: border-box;
+    position: absolute;
+    top: 114px;
+    left: 0;
+    width: 100%;
+    padding: 0 20px 20px;
+
+    ul, li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.mobile-trigger-wrap {
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+
+  .mobile-trigger {
+    border-left: solid 1px $lighter-gray;
+    font-size: 1.5rem;
+    padding: 0.15em 0 0.15em 0.5em;
+  }
+
+  .icon-db-menu {
+    display: inline-block;
+  }
+
+  .icon-db-close {
+    display: none;
+  }
+
+  .mobile-menu-active {
+    .icon-db-menu {
+      display: none;
+    }
+
+    .icon-db-close {
+      display: inline-block;
+    }
+  }
+}
+
+.frontpage {
+  .header {
+    border-bottom: none;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    background: transparent;
+    .logo {
+      img {
+        &.logo-color {
+          display: none;
+        }
+        &.logo-white {
+          display: block;
+        }
+      }
+    }
+
+    .header__right {
+      //
+    }
+
+    .secondary-nav {
+      a {
+        &::after {
+          color: $white;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      .block-colossal-menu {
+        ul {
+          &.mega-menu {
+            & > li {
+              & > a {
+                color: $white;
+              }
+            }
+            ul.menu-dropdown {
+              .show-on-large {
+                border: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Creating a new section for menu styles because I want to start un-nesting
+// things.
+.mega-menu {
+  h2 {
+    text-transform: initial;
+  }
+}

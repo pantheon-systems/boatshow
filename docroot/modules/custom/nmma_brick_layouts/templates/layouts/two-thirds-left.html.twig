@@ -1,0 +1,17 @@
+{% if content %}
+
+  <section {{ attributes.addClass('flex-container').addClass('nmma-layout') }}>
+    {% for region in content['#layout'].regions|keys if content[region] %}
+      {% if loop.index is odd %}
+      <div class="col-12-xs col-8-lg">
+        {{ content[region] }}
+      </div>
+      {% else %}
+      <div class="col-12-xs col-4-lg">
+        {{ content[region] }}
+      </div>
+      {% endif %}
+    {% endfor %}
+  </section>
+
+{% endif %}

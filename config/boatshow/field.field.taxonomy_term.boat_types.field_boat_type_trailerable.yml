@@ -1,0 +1,23 @@
+uuid: bee9d02b-9c72-450f-b225-c5bce56bfd23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_boat_type_trailerable
+    - taxonomy.vocabulary.boat_types
+id: taxonomy_term.boat_types.field_boat_type_trailerable
+field_name: field_boat_type_trailerable
+entity_type: taxonomy_term
+bundle: boat_types
+label: Trailerable
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Trailerable
+  off_label: 'Not Trailerable'
+field_type: boolean
