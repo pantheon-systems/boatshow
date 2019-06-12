@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uinstall functions for YouTube Import.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function youtube_import_requirements($phase) {
+  $requirements = [];
+
+  if ($phase == 'install' && !function_exists('curl_init')) {
+    $requirements['CURL Enabled'] = [
+      'title' => t('CURL Test Failed!'),
+      'description' => t('CURL must be enabled for YouTube Import to function properly.'),
+      'value' => 'Disabled',
+      'severity' => REQUIREMENT_ERROR,
+    ];
+  }
+
+  return $requirements;
+}

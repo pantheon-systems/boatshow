@@ -1,0 +1,20 @@
+uuid: d7b383e8-ec41-44f7-83ee-db5a1b1c52f2
+langcode: en
+status: true
+dependencies:
+  module:
+    - nmma_megamenu_blocks
+  theme:
+    - boatshow
+id: boatshow_discoverboatingmegamenublock
+theme: boatshow
+region: megamenu_1
+weight: 0
+provider: null
+plugin: discover_boating
+settings:
+  id: discover_boating
+  label: 'Discover Boating Megamenu Block'
+  provider: nmma_megamenu_blocks
+  label_display: '0'
+visibility: {  }

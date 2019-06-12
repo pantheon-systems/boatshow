@@ -1,0 +1,9 @@
+uuid: d71f4122-4647-4935-9984-1b3e1cdf91aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: Media
+type: media
+description: ''

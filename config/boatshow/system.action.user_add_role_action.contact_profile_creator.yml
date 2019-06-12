@@ -1,0 +1,14 @@
+uuid: f1b869a1-19dc-48b2-80e6-7830597c543a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.contact_profile_creator
+  module:
+    - user
+id: user_add_role_action.contact_profile_creator
+label: 'Add the Contact Profile creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: contact_profile_creator

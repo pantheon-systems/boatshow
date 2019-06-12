@@ -1,0 +1,36 @@
+.column-item {
+  .title {
+    color: $heading;
+    font-weight: 500;
+    font-family: $heading_font;
+    padding: 0 0 0.3em;
+    margin: 0;
+    font-size: 140%;
+    line-height: 145%;
+  }
+}
+
+// This is not a good way to handle this but it's expedient.
+.alias--hotels .block-system-main-block {
+  .column-item {
+    margin-bottom: 2rem;
+
+    img {
+      width: 400px;
+    }
+
+    .image-left {
+      img {
+        float: left;
+        margin-right: 2em;
+      }
+    }
+
+    .image-right {
+      img {
+        float: right;
+        margin-left: 2em;
+      }
+    }
+  }
+}

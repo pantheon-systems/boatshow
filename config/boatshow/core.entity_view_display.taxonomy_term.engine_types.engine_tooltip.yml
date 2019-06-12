@@ -1,0 +1,32 @@
+uuid: dd37b8dd-f345-4e51-8049-a79a9c9a3ed6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.engine_tooltip
+    - field.field.taxonomy_term.engine_types.field_engine_type_nmma_id
+    - taxonomy.vocabulary.engine_types
+  module:
+    - panelizer
+    - text
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.engine_types.engine_tooltip
+targetEntityType: taxonomy_term
+bundle: engine_types
+mode: engine_tooltip
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_engine_type_nmma_id: true
+  langcode: true

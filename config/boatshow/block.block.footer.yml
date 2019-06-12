@@ -1,0 +1,25 @@
+uuid: 31958044-10a5-4a14-8fb7-e4b5d1aef10d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:brick_block_:e7e0a2b6-8a7b-407a-aab9-0394545fbf5f'
+  module:
+    - block_content
+  theme:
+    - boatshow
+id: footer
+theme: boatshow
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:e7e0a2b6-8a7b-407a-aab9-0394545fbf5f'
+settings:
+  id: 'block_content:e7e0a2b6-8a7b-407a-aab9-0394545fbf5f'
+  label: Footer
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

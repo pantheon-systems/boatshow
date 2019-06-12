@@ -1,0 +1,9 @@
+uuid: db0d5c54-42e9-45a9-96bd-391ca003ea12
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Hero Carousel'
+type: carousel
+description: ''

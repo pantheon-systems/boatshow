@@ -1,0 +1,103 @@
+uuid: 5737349e-a3b4-4e5f-aeac-468c14c73242
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.video.field_media_in_library
+    - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_thumbnail
+    - field.field.media.video.field_video_id
+    - media.type.video
+  module:
+    - content_moderation
+    - datetime
+    - path
+    - video_embed_field
+_core:
+  default_config_hash: OUea_b_jf81XjPvIY9J8KrRUckqz2APuLv4bkxYfdT4
+id: media.video.default
+targetEntityType: media
+bundle: video
+mode: default
+content:
+  field_media_in_library:
+    type: boolean_checkbox
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    region: content
+  field_media_video_embed_field:
+    type: video_embed_field_textfield
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_thumbnail:
+    type: entity_browser_entity_reference
+    weight: 102
+    settings:
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      open: true
+    region: content
+    third_party_settings: {  }
+  field_video_id:
+    weight: 101
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  preview:
+    weight: 0
+    region: content
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

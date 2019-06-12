@@ -1,0 +1,5 @@
+name: 'YouTube Import'
+type: module
+description: 'Import a YouTube channel.'
+core: 8.x
+configure: youtube_import.config

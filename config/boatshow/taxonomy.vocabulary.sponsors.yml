@@ -1,0 +1,9 @@
+uuid: 2058b81d-5573-453b-bc73-cb754df88ba2
+langcode: en
+status: true
+dependencies: {  }
+name: Sponsors
+vid: sponsors
+description: 'BoatShow Sponsors'
+hierarchy: 0
+weight: 0

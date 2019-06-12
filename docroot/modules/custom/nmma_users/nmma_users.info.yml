@@ -1,0 +1,5 @@
+name: 'NMMA Users'
+type: module
+description: 'Functionality dealing with users'
+core: 8.x
+package: 'NMMA'

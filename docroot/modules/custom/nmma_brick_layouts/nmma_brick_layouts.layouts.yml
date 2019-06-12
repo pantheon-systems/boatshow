@@ -1,0 +1,293 @@
+single_column_grid:
+  label: 'Single column grid'
+  category: 'NMMA Layouts'
+  template: templates/layouts/single-column-grid
+  regions:
+    col1:
+      label: Column 1
+    col2:
+      label: Column 2
+    col3:
+      label: Column 3
+    col4:
+      label: Column 4
+    col5:
+      label: Column 5
+    col6:
+      label: Column 6
+    col7:
+      label: Column 7
+    col8:
+      label: Column 8
+    col9:
+      label: Column 9
+    col10:
+      label: Column 10
+    col11:
+      label: Column 11
+    col12:
+      label: Column 12
+two_column_grid:
+  label: 'Two column grid'
+  category: 'NMMA Layouts'
+  template: templates/layouts/two-column-grid
+  regions:
+    col1:
+      label: Column 1
+    col2:
+      label: Column 2
+    col3:
+      label: Column 3
+    col4:
+      label: Column 4
+    col5:
+      label: Column 5
+    col6:
+      label: Column 6
+    col7:
+      label: Column 7
+    col8:
+      label: Column 8
+    col9:
+      label: Column 9
+    col10:
+      label: Column 10
+    col11:
+      label: Column 11
+    col12:
+      label: Column 12
+three_column_grid:
+  label: 'Three column grid'
+  category: 'NMMA Layouts'
+  template: templates/layouts/three-column-grid
+  regions:
+    col1:
+      label: Column 1
+    col2:
+      label: Column 2
+    col3:
+      label: Column 3
+    col4:
+      label: Column 4
+    col5:
+      label: Column 5
+    col6:
+      label: Column 6
+    col7:
+      label: Column 7
+    col8:
+      label: Column 8
+    col9:
+      label: Column 9
+    col10:
+      label: Column 10
+    col11:
+      label: Column 11
+    col12:
+      label: Column 12
+    col13:
+      label: Column 13
+    col14:
+      label: Column 14
+    col15:
+      label: Column 15
+    col16:
+      label: Column 16
+    col17:
+      label: Column 17
+    col18:
+      label: Column 18
+    col19:
+      label: Column 19
+    col20:
+      label: Column 20
+    col21:
+      label: Column 21
+    col22:
+      label: Column 22
+    col23:
+      label: Column 23
+    col24:
+      label: Column 24
+    col25:
+      label: Column 25
+    col26:
+      label: Column 26
+    col27:
+      label: Column 27
+    col28:
+      label: Column 28
+    col29:
+      label: Column 29
+    col30:
+      label: Column 30
+    col31:
+      label: Column 31
+    col32:
+      label: Column 32
+    col33:
+      label: Column 33
+    col34:
+      label: Column 34
+    col35:
+      label: Column 35
+    col36:
+      label: Column 36
+four_column_grid:
+  label: 'Four column grid (30/20/20/30)'
+  category: 'NMMA Layouts'
+  template: templates/layouts/four-column-grid
+  regions:
+    col1:
+      label: Column 1
+    col2:
+      label: Column 2
+    col3:
+      label: Column 3
+    col4:
+      label: Column 4
+disruptor_one_column:
+  label: 'Disruptor Full Width'
+  category: 'NMMA Layouts'
+  template: templates/layouts/disruptor-one-column
+  regions:
+    1:
+      label: Column 1
+    2:
+      label: Column 2
+    3:
+      label: Column 3
+    4:
+      label: Column 4
+    5:
+      label: Column 5
+    6:
+      label: Column 6
+    7:
+      label: Column 7
+    8:
+      label: Column 8
+    9:
+      label: Column 9
+    10:
+      label: Column 10
+    11:
+      label: Column 11
+    12:
+      label: Column 12
+disruptor_two_column:
+  label: 'Disruptor'
+  category: 'NMMA Layouts'
+  template: templates/layouts/disruptor-two-column
+  regions:
+    1:
+      label: Column 1
+    2:
+      label: Column 2
+    3:
+      label: Column 3
+    4:
+      label: Column 4
+    5:
+      label: Column 5
+    6:
+      label: Column 6
+    7:
+      label: Column 7
+    8:
+      label: Column 8
+    9:
+      label: Column 9
+    10:
+      label: Column 10
+    11:
+      label: Column 11
+    12:
+      label: Column 12
+two_thirds_left:
+  label: '66/34 Layout'
+  category: 'NMMA Layouts'
+  template: templates/layouts/two-thirds-left
+  regions:
+    col1:
+      label: Column 1
+    col2:
+      label: Column 2
+    col3:
+      label: Column 3
+    col4:
+      label: Column 4
+    col5:
+      label: Column 5
+    col6:
+      label: Column 6
+    col7:
+      label: Column 7
+    col8:
+      label: Column 8
+    col9:
+      label: Column 9
+    col10:
+      label: Column 10
+    col11:
+      label: Column 11
+    col12:
+      label: Column 12
+two_thirds_right:
+  label: '34/66 Layout'
+  category: 'NMMA Layouts'
+  template: templates/layouts/two-thirds-right
+  regions:
+    col1:
+      label: Column 1
+    col2:
+      label: Column 2
+    col3:
+      label: Column 3
+    col4:
+      label: Column 4
+    col5:
+      label: Column 5
+    col6:
+      label: Column 6
+    col7:
+      label: Column 7
+    col8:
+      label: Column 8
+    col9:
+      label: Column 9
+    col10:
+      label: Column 10
+    col11:
+      label: Column 11
+    col12:
+      label: Column 12
+right_rail:
+  label: 'Right Rail Layout'
+  category: 'NMMA Layouts'
+  template: templates/layouts/right-rail
+  regions:
+    col1:
+      label: Column 1
+    col2:
+      label: Column 2
+    col3:
+      label: Column 3
+    col4:
+      label: Column 4
+    col5:
+      label: Column 5
+    col6:
+      label: Column 6
+    col7:
+      label: Column 7
+    col8:
+      label: Column 8
+    col9:
+      label: Column 9
+    col10:
+      label: Column 10
+    col11:
+      label: Column 11
+    col12:
+      label: Column 12

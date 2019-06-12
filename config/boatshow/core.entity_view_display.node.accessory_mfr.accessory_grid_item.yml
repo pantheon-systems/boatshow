@@ -1,0 +1,47 @@
+uuid: cdd3520e-58e2-415a-8ad9-7b5ff4fbb5e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.accessory_grid_item
+    - field.field.node.accessory_mfr.field_accessory_mfr_website
+    - field.field.node.accessory_mfr.field_accessory_type
+    - field.field.node.accessory_mfr.field_nmma_mfr_id
+    - node.type.accessory_mfr
+  module:
+    - link
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.accessory_mfr.accessory_grid_item
+targetEntityType: node
+bundle: accessory_mfr
+mode: accessory_grid_item
+content:
+  field_accessory_mfr_website:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  field_accessory_type: true
+  field_nmma_mfr_id: true
+  langcode: true

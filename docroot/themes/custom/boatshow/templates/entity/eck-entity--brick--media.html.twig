@@ -1,0 +1,12 @@
+{% if image_bkgrnd is not empty %}
+  {% set class = 'image-cover' %}
+{% endif %}
+
+<section {{ attributes.addClass(class) }}>
+  {{ context_links }}
+  {% if image_bkgrnd is not empty %}
+    <div class="fake-bg" style="background-image: url({{ image_bkgrnd }})"></div>
+  {% else %}
+    {{ entity.field_brick_media }}
+  {% endif %}
+</section>

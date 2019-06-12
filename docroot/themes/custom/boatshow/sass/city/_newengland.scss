@@ -1,0 +1,269 @@
+// City-specific styles
+//
+// - Duplicate this file for each city.
+// - Change the city name in the body class. E.g., "boatshow-city--miami".
+// - Use the $city- variables to set the color palette and hero image path.
+// - If necessary, additional city-specific overrides can also go here, but
+//   _use sparingly_. Modifying the variables should generally be enough.
+body.boatshow-city--newengland {
+// Using Chicago's palettzz   z¸že as a reference, primary is red, secondary is blue.
+  $city-color-primary: #72a493;
+  $city-color-secondary: #72a493;
+  $city-hero-bg: "../images/newengland/main-background.jpg";
+  // Set these vars to something that will make the header stand out from the
+  // hero on the homepage.
+  $city-header-gradient: rgba(0, 0, 0, 0.65);
+  $city-header-menu-item-color: #fff;
+
+  @mixin button--primary--override {
+    background: $city-color-primary;
+    border-color: $city-color-primary;
+    color: $color-button-primary-text;
+
+    &:hover,
+    &:focus {
+      background: $white;
+      border-color: $city-color-primary;
+      color: $city-color-primary;
+    }
+  }
+
+  @mixin button--secondary--override {
+    background: $color-button-secondary-fill;
+    border-color: $color-button-secondary-border;
+    color: $color-button-secondary-text;
+    font-family: $proxima-semibold;
+
+    &:hover,
+    &:active {
+      background: $city-color-primary;
+      border-color: transparent;
+      color: $color-white;
+    }
+  }
+
+  a {
+    color: $city-color-secondary;
+
+    &:hover,
+    &:focus {
+      color: $city-color-secondary;
+    }
+
+    &::after {
+      color: $city-color-primary;
+    }
+  }
+
+  .secondary-nav a::after,
+  .ui-accordion-header-collapsed .field-content::after, .ui-accordion-header-active .field-content::after {
+    color: $city-color-secondary;
+  }
+
+  i,
+  h2 {
+    &::before {
+      color: $city-color-secondary;
+    }
+  }
+
+  .region-footer .footer-social ul li a:hover i::after,
+  .region-footer .footer-social ul li a:focus i::after {
+    background: $city-color-secondary;
+  }
+
+  .teaser-block-type .text-wrap .field--name-field-link a::after {
+    color: $city-color-primary;
+  }
+
+  header.header .block-colossal-menu-blockmain-navigation-boatshow ul.mega-menu > li > a.open::after {
+    background: $city-color-primary;
+  }
+
+  .button,
+  a.button,
+  header.header .block-colossal-menu-blockmain-navigation-boatshow .menu-item.parent-item:last-child > a,
+  .disruptor-content--full-width .disruptor-card .button {
+    @include button--primary--override;
+  }
+
+  .button--secondary,
+  a.button--secondary,
+  &.frontpage .grid-item--content a,
+  .disruptor-card .button {
+    @include button--secondary--override;
+  }
+
+  .submit-input-field {
+    .icon {
+      background-color: $city-color-primary;
+      border: 1px solid $city-color-primary;
+
+      &::before {
+        color: inherit;
+      }
+    }
+
+    [disabled],
+    &:disabled,
+    &.disabled {
+      background: transparent;
+
+      & ~ .icon {
+        background-color: $color-gray;
+        border-color: $color-gray;
+        color: $color-button-disabled-text;
+
+        &:hover {
+          color: $color-button-disabled-text;
+        }
+
+        &::before {
+          color: inherit;
+        }
+      }
+    }
+
+    [type="text"] {
+      &:focus {
+        & ~ .icon {
+          border-color: $city-color-primary;
+        }
+      }
+    }
+  }
+
+  // Front page hero image.
+  &.frontpage {
+    // TODO: Clean this block up.
+    .header {
+      background: linear-gradient(to bottom, $city-header-gradient 65%, transparent 100%);
+
+      .secondary-nav {
+        a {
+          &::after {
+            color: $city-color-primary;
+          }
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        .block-colossal-menu {
+          ul {
+            &.mega-menu {
+              & > li {
+                & > a {
+                  color: $city-header-menu-item-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    #main {
+      .field--name-field-component-bricks {
+        & > div > section {
+          &.hero-background {
+            background-image: url($city-hero-bg);
+
+            .column-item:last-child {
+              background: rgba($city-color-secondary, 0.9);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Features page
+  .features-filter {
+    .grid-item--content {
+      .body {
+        p {
+          &::before,
+          &::after {
+            color: $city-color-primary;
+          }
+        }
+
+        &::before {
+          color: $city-color-secondary;
+        }
+      }
+
+      &:hover {
+        .field--name-image {
+          border-color: $city-color-primary;
+        }
+      }
+    }
+  }
+
+  .features-grid {
+    .grid-item--content {
+      .field--name-field-3-col-card-icon {
+        border-color: $city-color-secondary;
+      }
+
+      .body {
+        h3 {
+          color: $city-color-primary;
+        }
+      }
+    }
+  }
+
+  // Seminars page
+  .sem-filters {
+    label {
+      color: $city-color-secondary;
+    }
+  }
+
+  .sem-date-filter .chosen-single,
+  .sem-date-filter .chosen-container-active .chosen-single,
+  .sem-speaker-filter .btn {
+    background: $city-color-secondary;
+  }
+
+  .sem-image {
+    .date-formatted {
+      background: $city-color-secondary;
+    }
+  }
+
+  .sem-title,
+  .sem-details-link {
+    color: $city-color-secondary;
+  }
+
+  .seminar-body .btn-wrap {
+    a {
+      @include button--primary--override;
+    }
+  }
+
+  // Loan calculator
+  #loan-calc-wrapper {
+    .ui-tabs-nav li.ui-tab a {
+      color: $city-color-secondary;
+    }
+
+    .chosen-container-single {
+      .chosen-single,
+      &.chosen-container-active .chosen-single,
+      .btn {
+        background: $city-color-secondary;
+      }
+    }
+  }
+
+  .alias--exhibitor-deals,
+  .alias--special-offers {
+    .views-row {
+      border-color: $city-color-secondary;
+    }
+  }
+}

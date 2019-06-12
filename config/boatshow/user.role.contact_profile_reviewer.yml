@@ -1,0 +1,17 @@
+uuid: f49766b7-b56a-4603-8fcb-b9d73ced4e12
+langcode: en
+status: true
+dependencies: {  }
+id: contact_profile_reviewer
+label: 'Contact Profile reviewer'
+weight: 18
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'delete any contact_profile content'
+  - 'edit any contact_profile content'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'view any unpublished content'
+  - 'view latest version'

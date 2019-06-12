@@ -1,0 +1,7 @@
+name: 'NMMA Video'
+type: module
+description: 'Video functionality'
+core: 8.x
+package: 'NMMA'
+dependencies:
+    - youtube_import

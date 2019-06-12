@@ -1,0 +1,11 @@
+{% if content %}
+  <section {{ attributes.addClass('disruptor') }}>
+    <div class="container flex-container">
+    {% for region in content['#layout'].regions|keys if content[region] %}
+      <div class="disruptor-content--full-width">
+        {{ content[region] }}
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+{% endif %}

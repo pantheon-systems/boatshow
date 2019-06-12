@@ -1,0 +1,24 @@
+uuid: 0bd809de-ca72-406f-964b-52e7bf323d16
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+    - video_embed_media
+third_party_settings:
+  crop:
+    image_field: null
+_core:
+  default_config_hash: CDRaWPhGJXLhi1p3SiKLfu8Qq7S8OB3oG3DroYiiDjk
+id: video
+label: Video
+description: 'A video hosted by YouTube, Vimeo, or some other provider.'
+source: video_embed_field
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_video_embed_field
+field_map:
+  id: field_video_id
+  image_local: field_thumbnail
+  image_local_uri: field_thumbnail

@@ -1,0 +1,354 @@
+.frontpage {
+  .header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 65%, transparent 100%);
+  }
+
+  #main {
+    .field--name-field-component-bricks {
+      & > div > section {
+        &.hero-background {
+          background: url('../images/main-background.png') no-repeat center center;
+          background-size: cover;
+          @include media-breakpoint-up(lg) {
+            min-height: 535px;
+          }
+          padding: 115px 0 35px 0;
+          align-items: flex-end;
+          justify-content: center;
+
+          & > .column-item {
+            flex: 1;
+            padding: 20px 30px;
+            height: 294px; // Hacky, but works for now.
+            max-width: 345px;
+
+            &:first-child {
+              margin-right: 8px;
+              background: rgba(255,255,255, .9);
+
+              .brick--type--text {
+                justify-content: flex-end;
+                .progressive-card {
+                  line-height: 0;
+                }
+                p {
+                  margin: 0;
+                  font-size: 24px;
+                  font-family: $proxima-light;
+                  color: $blk;
+                  line-height: 1;
+                  text-align: left;
+                  &.bold {
+                    font-size: 30px;
+                    font-family: $proxima-bold;
+                    text-transform: uppercase;
+                    text-align: left;
+                    margin-bottom: 25px;
+                  }
+                }
+                .location-item {
+                  margin-top: 25px;
+                  display: flex;
+                  flex-wrap: wrap;
+                  .hydrated {
+                    flex: 1;
+                    max-width: 30px;
+                    height: 45px;
+                    margin-right: 10px;
+                    color: $blue;
+                  }
+                  span.bold {
+                    flex: 1;
+                    color: $blk;
+                    line-height: 1.3;
+                    font-size: 18px;
+                    font-family: $proxima-light;
+                    b {
+                      display: block;
+                      font-family: $proxima-reg;
+                    }
+                  }
+                }
+              }
+            }
+            &:last-child {
+              margin-left: 8px;
+              background: rgba(31, 185, 235, .9);
+            }
+          }
+          @include media-breakpoint-down(md) {
+            flex-direction: column;
+            align-items: center;
+
+            & > .column-item {
+              margin-top: 40px;
+              &:first-child {
+                margin-right: 0;
+              }
+              &:last-child {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+        &.debut-wrap {
+          @include container();
+          padding: 45px 0 65px;
+
+          .nmma-layout {
+            column-count: 3;
+            column-gap: 40px;
+            display: block;
+            .column-item {
+              width: 100%;
+              .grid-item--link {
+                a {
+                  display: block;
+                  .image {
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: cover;
+                    min-height: 250px;
+                    .item-title {
+                      display: none;
+                    }
+                  }
+                }
+              }
+            }
+            @include media-breakpoint-down(lg) {
+              column-count: 1;
+              column-gap: 20px;
+              .column-item {
+                & + .column-item {
+                  margin: 20px 0 0;
+                }
+                margin: 0;
+                a {
+                  max-width: 500px;
+                  margin: 0 auto;
+                  .image {
+                    min-height: 300px;
+                  }
+                }
+              }
+            }
+          }
+          .field--name-field-brick-link {
+            text-align: center;
+            a {
+              margin: 40px auto 0;
+            }
+          }
+
+          .grid-item--content {
+            a {
+              margin: unset;
+              border: unset;
+              padding: unset;
+              min-width: unset;
+              height: unset;
+
+              &:hover,
+              &:active {
+                border: unset;
+              }
+            }
+          }
+        }
+        &.gray-background {
+          background: rgb(127,127,127);
+          padding-top: 60px;
+          padding-bottom: 60px;
+          .nmma-layout {
+            column-count: 2;
+            column-gap: 80px;
+            display: block;
+            .column-item {
+              width: 100%;
+              .grid-item {
+                &--article {
+                  .title {
+                    font-size: 30px;
+                    font-family: $proxima-thin;
+                    color: $white;
+                    text-transform: uppercase;
+                    line-height: 1.2;
+                    text-align: center;
+                    margin-bottom: 35px;
+                    b {
+                      font-family: $proxima-bold;
+                    }
+                  }
+                }
+                &--content {
+                  img {
+                    width: 100%;
+                  }
+                  .body {
+                    background: $white;
+                    margin-top: -8px;
+                    min-height: 150px;
+                    padding: 25px 20px 30px;
+                    .body-wrap {
+                      min-height: 60px;
+                    }
+                    p {
+                      line-height: 1.3;
+                      margin: 0;
+                    }
+                  }
+                }
+              }
+            }
+            @include media-breakpoint-down(lg) {
+              column-count: 1;
+              column-gap: 20px;
+              .column-item {
+                & + .column-item {
+                  margin: 40px 0 0;
+                }
+                margin: 0;
+              }
+            }
+          }
+        }
+        &.light-gray-background {
+          .disruptor-content--full-width {
+            & > .nmma-layout {
+              & > .col-12-xs {
+                &:first-child {
+                  display: flex;
+                  &::after {
+                    content: '';
+                    height: 100%;
+                    width: 2px;
+                    background: #fff;
+                    margin: 0 10px 0px 60px;
+                    display: inline-block;
+                    @include media-breakpoint-down(lg) {
+                      display: none;
+                    }
+                  }
+                }
+                &:last-child {
+                  .brick--type--ad-item {
+                    padding: 45px 0;
+                  }
+                }
+              }
+              .nmma-layout {
+                padding-top: 45px;
+                padding-bottom: 45px;
+                align-items: center;
+                @include media-breakpoint-down (lg) {
+                  align-items: flex-start;
+                  padding-bottom: 0;
+                }
+                .field--name-field-text {
+                  padding-right: 20%;
+                  h3 {
+                    font-size: 30px;
+                    margin: 0;
+                    color: $blk;
+                    line-height: 1.3;
+                    padding: 0;
+                    font-weight: 600;
+                    font-family: $proxima-reg;
+                  }
+                  p {
+                    margin: 20px 0;
+                    font-family: $proxima-light;
+                    font-size: 16px;
+                    line-height: 1.2;
+                  }
+                  a {
+                    font-family: $proxima-semibold;
+                    font-weight: bold;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .brick--type--countdown {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+
+    > * {
+      flex-basis: 100%;
+    }
+
+    .countdown-title {
+      font-size: 28px;
+      font-family: $proxima-reg;
+      color: $blk;
+      text-transform: uppercase;
+      line-height: 1.417;
+      text-align: center;
+      margin: 0;
+    }
+
+    .countdown-date {
+      font-size: 16px;
+      display: block;
+      font-family: $proxima-light;
+      color: $blk;
+      line-height: 1;
+      text-align: center;
+      font-weight: bold;
+      margin: 3px 0;
+    }
+  }
+
+  .jquery-countdown {
+    display: flex;
+    text-align: center;
+    margin: 20px 0;
+
+    > span {
+      flex-grow: 1;
+    }
+
+    .countdown-value {
+      display: block;
+      font-size: 50px;
+      font-family: $proxima-semibold;
+      color: $white;
+      line-height: 1;
+    }
+
+    .countdown-label {
+      display: block;
+      font-size: 11px;
+      font-family: $proxima-light;
+      color: $white;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+  }
+
+  .countdown-button {
+    a {
+      @include button;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  // Fake buttons
+  // TODO: Replace these with actual button class if/when we can establish that it
+  // won't negatively impact Discover Boating.
+  .grid-item--content {
+    a {
+      @include button--secondary;
+      display: block;
+      margin: 20px auto 0;
+    }
+  }
+}

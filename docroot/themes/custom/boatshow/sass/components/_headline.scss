@@ -1,0 +1,27 @@
+.section-header {
+  text-align: center;
+  margin-bottom: 1.875em;
+
+  h2 {
+    font-size: 30px;
+    font-family: $proxima-thin;
+    color: $blk;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+
+    b {
+      font-family: $proxima-bold;
+    }
+  }
+
+  .subheading {
+    font-size: 16px;
+    font-family: $proxima-light;
+    color: $blk;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 1.25em 0 0 0;
+  }
+}

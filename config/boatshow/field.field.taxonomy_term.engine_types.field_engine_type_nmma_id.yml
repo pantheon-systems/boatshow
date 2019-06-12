@@ -1,0 +1,23 @@
+uuid: 41e2e5bb-5114-4f4a-b00d-0e3d613d3b03
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_engine_type_nmma_id
+    - taxonomy.vocabulary.engine_types
+id: taxonomy_term.engine_types.field_engine_type_nmma_id
+field_name: field_engine_type_nmma_id
+entity_type: taxonomy_term
+bundle: engine_types
+label: 'Engine Type NMMA ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

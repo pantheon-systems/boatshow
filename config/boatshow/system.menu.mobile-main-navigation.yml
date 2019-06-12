@@ -1,0 +1,8 @@
+uuid: 609fd637-9422-4ae2-9e55-301e6297cf47
+langcode: en
+status: true
+dependencies: {  }
+id: mobile-main-navigation
+label: 'Mobile Main Navigation'
+description: ''
+locked: false

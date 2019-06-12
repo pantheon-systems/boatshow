@@ -1,0 +1,23 @@
+uuid: e593d040-01aa-4f06-bb12-992e2c6476cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cert_mfr_type_id
+    - node.type.certified_mfrs
+id: node.certified_mfrs.field_cert_mfr_type_id
+field_name: field_cert_mfr_type_id
+entity_type: node
+bundle: certified_mfrs
+label: 'Type Id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

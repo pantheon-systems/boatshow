@@ -1,0 +1,21 @@
+uuid: e777f54e-c5de-4e76-b8f7-a1c2869d691d
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.disruptor_card
+    - field.storage.brick.field_disruptor_icon
+  module:
+    - options
+id: brick.disruptor_card.field_disruptor_icon
+field_name: field_disruptor_icon
+entity_type: brick
+bundle: disruptor_card
+label: 'Disruptor Icon'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

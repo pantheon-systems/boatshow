@@ -1,0 +1,17 @@
+uuid: 6d7a95e5-6551-4da1-ab8a-8fe18b06954d
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Multinational Site'
+type: multinational_site
+description: 'Represents another version of this site for a different country. This will allow a redirect to the created site if the current user is from the given country.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

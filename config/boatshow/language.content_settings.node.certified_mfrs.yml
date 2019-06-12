@@ -1,0 +1,11 @@
+uuid: 8e66a5cc-db34-457a-b273-0e1946e1b0a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.certified_mfrs
+id: node.certified_mfrs
+target_entity_type_id: node
+target_bundle: certified_mfrs
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @file
+ * Contains nmma_brick_layouts.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function nmma_brick_layouts_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the nmma_brick_layouts module.
+    case 'help.page.nmma_brick_layouts':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('NMMA Custom Bricks Layouts') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function nmma_brick_layouts_theme() {
+  return [
+    'nmma_brick_layouts' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function nmma_brick_layouts_preprocess_layout(&$variables) {
+  $content_array = $variables['content'];
+  $counter = 0;
+  if ($variables['theme_hook_original'] == 'disruptor_two_column') {
+    foreach ($content_array as $key => $val) {
+      if (is_int($key)) {
+        $counter++;
+      }
+      $variables['counter'] = $counter;
+    }
+  }
+}
+
+/**
+ * Implements hook_layout_alter().
+ */
+function nmma_brick_layouts_layout_alter(&$definitions) {
+  // Disable default layouts.
+  unset($definitions['layout_onecol']);
+  unset($definitions['layout_twocol']);
+  unset($definitions['layout_twocol_bricks']);
+  unset($definitions['layout_threecol_25_50_25']);
+  unset($definitions['layout_threecol_33_34_33']);
+}
