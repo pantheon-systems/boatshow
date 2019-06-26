@@ -1,0 +1,21 @@
+uuid: 6e93747b-92e8-4be0-9e25-143a911ac2df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bus_body
+    - node.type.business
+  module:
+    - text
+id: node.business.field_bus_body
+field_name: field_bus_body
+entity_type: node
+bundle: business
+label: 'Business Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

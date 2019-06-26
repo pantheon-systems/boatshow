@@ -1,0 +1,95 @@
+<?php
+
+/**
+ * @file
+ * Module file for NMMA Multinational.
+ */
+
+use Drupal\node\Entity\Node;
+use Drupal\nmma_custom_pages\EntityHelp;
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function nmma_multinational_page_attachments_alter(array &$attachments) {
+
+  // Don't show the popup on any admin page.
+  if (TRUE === \Drupal::service('router.admin_context')->isAdminRoute()) {
+    return;
+  }
+  // No point in showing the popup if there are no sites created yet.
+  if (empty(\Drupal::service('nmma_multinational.multinational_sites')->all())) {
+    return;
+  }
+
+  $attachments['#attached']['drupalSettings']['nmma_multinational'] = [
+    // Where to point at for the popup text.
+    'end_point' => '/multinational-message',
+    'cookie_name' => 'nmma_mn_shown',
+    // Don't use a session cookie.
+    'cookie_session' => 0,
+    // Message suppressed for 1 year.
+    'cookie_lifetime' => 365,
+  ];
+  $attachments['#attached']['library'][] = 'nmma_multinational/ip_locate_country';
+}
+
+/**
+ * Makes sure that the initial install node is ready to go.
+ *
+ * Since the hook_install fails to have all the fields ready, this is here
+ * to update it. The hook_install does not pass node and instead tries
+ * to create it. If the non initial install node is passed, it will
+ * simply return it without doing anything.
+ *
+ * @param null $node
+ *   If the UUID matches the installed and it's missing fields, update it.
+ *
+ * @return \Drupal\Core\Entity\EntityInterface|\Drupal\node\Entity\Node|null
+ *   The node given, updated with missing values if needed.
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function _nmma_multinational_ensure_content($node = NULL) {
+  $uuid = '80e5a03e-375d-4614-831f-884504d8666b';
+  if (isset($node)) {
+    if ($node->uuid() !== $uuid) {
+      return $node;
+    }
+    // Only update if the required field is missing, so editorial changes
+    // don't get set.
+    if (!empty(EntityHelp::getTextValue($node, 'field_multinational_country'))) {
+      return $node;
+    }
+  }
+
+  $message = <<<MESSAGE
+Thanks for your interest in boating you're almost there! It appears that your computer is located in Canada.
+
+To visit the Canadian Discover Boating website (DiscoverBoating.ca) and learn about the boating life in Canada, click OK.
+
+To visit the American Discover Boating website (DiscoverBoating.com) and learn about boating in the United States, click Cancel.
+MESSAGE;
+
+  $data = [
+    'uuid' => $uuid,
+    'title' => 'Canada',
+    'type' => 'multinational_site',
+    'field_multinational_country' => 'CA',
+    'field_multinational_message' => $message,
+    'field_multinational_url' => ['uri' => 'https://www.discoverboating.ca', 'title' => ''],
+    'status' => TRUE,
+  ];
+  // Do an update.
+  if (isset($node)) {
+    foreach ($data as $field => $value) {
+      $node->set($field, $value);
+    }
+  }
+  // Create the node.
+  else {
+    $node = Node::create($data);
+  }
+  $node->save();
+  return $node;
+}

@@ -1,0 +1,19 @@
+uuid: d6afc223-1249-4116-a941-38a0ba1309ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.pencil_ad
+    - field.storage.brick.field_large_ad_zone
+id: brick.pencil_ad.field_large_ad_zone
+field_name: field_large_ad_zone
+entity_type: brick
+bundle: pencil_ad
+label: 'Large Ad Zone'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

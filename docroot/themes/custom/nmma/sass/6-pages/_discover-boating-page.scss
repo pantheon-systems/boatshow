@@ -1,0 +1,20 @@
+
+
+#go-boating-inline {
+  margin: 0 auto;
+  max-width: susy-span(4 of 12);
+
+  .submit-input-field {
+    display: block;
+  }
+
+  .form-item {
+    position: relative;
+  }
+
+  .form-submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

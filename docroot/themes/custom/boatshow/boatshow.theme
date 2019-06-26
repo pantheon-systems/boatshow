@@ -1,0 +1,484 @@
+<?php
+
+/**
+ * @file
+ * Theme specific functionality.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Component\Utility\Xss;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Site\Settings;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function boatshow_preprocess_html(&$variables) {
+  $path = \Drupal::service('path.current')->getPath();
+  $alias = trim(\Drupal::service('path.alias_manager')
+    ->getAliasByPath($path), '/');
+  // Body classes for sidebars.
+  if (isset($variables['page']['sidebar_first']) && isset($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-both');
+  }
+  elseif (isset($variables['page']['sidebar_first'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-first');
+  }
+  elseif (isset($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-second');
+  }
+  else {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-none');
+  }
+  // Alias path class.
+  $alias_class = preg_replace("/\//", '-', $alias);
+  if (!empty($alias_class) && strpos($alias_class, 'node') !== 0) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('alias--' . $alias_class);
+  }
+  // If is homepage.
+  $variables['attributes']['class'][] = \Drupal::service('path.matcher')
+    ->isFrontPage() ? 'frontpage' : '';
+  // Node type class.
+  $variables['attributes']['class'][] = isset($variables['node_type']) ? 'nodetype--' . $variables['node_type'] : '';
+  // Logged in class.
+  $variables['attributes']['class'][] = $variables['logged_in'] ? 'logged-in' : 'logged-out';
+
+  // Add a city class.  This is used for city-specific styling.
+  $city_key = \Drupal::state()->get('boatshow.city.key');
+  if (empty($city_key)) {
+    // If for any reason the state is lost, we can still use the setting
+    // as a backup.  This is a best practice since state is considered
+    // transient information.
+    $city_key = Settings::get('boatshow.city.key');
+  }
+  $variables['attributes']['class'][] = 'boatshow-city--' . $city_key;
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function boatshow_preprocess_page(&$variables) {
+  // Check if page is panel pages.
+  $route_options = \Drupal::routeMatch()->getRouteObject()->getOptions();
+  if (isset($route_options['parameters']['page_manager_page'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('page-panel');
+  }
+  else {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('page-standard');
+  }
+
+  // Get city key.  This is used for logos and other city-specific images.
+  $city_key = \Drupal::state()->get('boatshow.city.key');
+  if (empty($city_key)) {
+    // If for any reason the state is lost, we can still use the setting
+    // as a backup.  This is a best practice since state is considered
+    // transient information.
+    $city_key = Settings::get('boatshow.city.key');
+  }
+  $variables['boatshow_city'] = $city_key;
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function boatshow_preprocess_block(&$variables) {
+  // Custom block type helper classes.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    $bundle = $variables['elements']['content']['#block_content']->bundle();
+    $bundle_class = str_replace('_', '-', $bundle);
+    if (isset($variables['attributes']['class'])) {
+      $variables['attributes']['class'][] = Html::cleanCssIdentifier('block--bundle-' . $bundle_class);
+      $variables['attributes']['data-bundle-class'] = $bundle_class;
+    }
+  }
+  // Add identified for colossal menu blocks.
+  if (isset($variables['elements']['#base_plugin_id']) &&
+    $variables['elements']['#base_plugin_id'] == 'colossal_menu_block') {
+    $variables['content']['#attributes']['colossal_menu'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function boatshow_theme_suggestions_menu_alter(&$suggestions, array $variables) {
+  if (!empty($variables['attributes']['colossal_menu'])) {
+    $suggestions[] = 'colossal_menu';
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function boatshow_preprocess_node(&$variables) {
+  // Helper variables for multiple nodes.
+  if (!empty($variables['elements']['#entity_type'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('entity--type-' . $variables['elements']['#entity_type']);
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for \Drupal\node\NodeForm.
+ *
+ * Changes vertical tabs to container and adds meta information.
+ * Code borrowed from Seven theme.
+ */
+function boatshow_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  $node = $form_state->getFormObject()->getEntity();
+  $form['#theme'] = ['node_edit_form'];
+  $form['advanced']['#type'] = 'container';
+  $is_new = !$node->isNew() ? format_date($node->getChangedTime(), 'short') : t('Not saved yet');
+  $form['meta'] = [
+    '#attributes' => ['class' => ['entity-meta__header']],
+    '#type'       => 'container',
+    '#group'      => 'advanced',
+    '#weight'     => -100,
+    'published'   => [
+      '#type'       => 'html_tag',
+      '#tag'        => 'h3',
+      '#value'      => $node->isPublished() ? t('Published') : t('Not published'),
+      '#access'     => !$node->isNew(),
+      '#attributes' => [
+        'class' => 'entity-meta__title',
+      ],
+    ],
+    'changed'     => [
+      '#type'               => 'item',
+      '#wrapper_attributes' => [
+        'class' => [
+          'entity-meta__last-saved',
+          'container-inline',
+        ],
+      ],
+      '#markup'             => '<h4 class="label inline">' . t('Last saved') . '</h4> ' . $is_new,
+    ],
+    'author'      => [
+      '#type'               => 'item',
+      '#wrapper_attributes' => [
+        'class' => [
+          'author',
+          'container-inline',
+        ],
+      ],
+      '#markup'             => '<h4 class="label inline">' . t('Author') . '</h4> ' . $node->getOwner()
+        ->getUsername(),
+    ],
+  ];
+  $form['revision_information']['#type'] = 'container';
+  $form['revision_information']['#group'] = 'meta';
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function boatshow_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (!empty($variables['elements']['#id']) && isset($variables['elements']['#id'])) {
+    $suggestions[] = 'block__' . $variables['elements']['#id'];
+  }
+
+  if (isset($variables['elements']['content']['#block_content'])) {
+    $bundle = $variables['elements']['content']['#block_content']->bundle();
+    $view_mode = $variables['elements']['#configuration']['view_mode'];
+    $block_name = str_replace(' ', '', $variables['elements']['content']['#block_content']->label());
+
+    array_splice($suggestions, 1, 0, 'block__bundle__' . $bundle);
+    array_splice($suggestions, 0, 1, 'block__' . strtolower($block_name));
+    array_splice($suggestions, 0, 1, 'block__bundle__' . $bundle . '__' . $view_mode);
+  }
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function boatshow_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // Get city key.  This is used for logos and other city-specific images.
+  $city_key = \Drupal::state()->get('boatshow.city.key');
+  if (empty($city_key)) {
+    // If for any reason the state is lost, we can still use the setting
+    // as a backup.  This is a best practice since state is considered
+    // transient information.
+    $city_key = Settings::get('boatshow.city.key');
+  }
+  $variables['boatshow_city'] = $city_key;
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $suggestions[] = 'page__front__' . $city_key;
+  }
+  else {
+    $suggestions[] = 'page__' . $city_key;
+  }
+  return $suggestions;
+}
+
+/**
+ * Implements hook_preprocess_entity().
+ */
+function boatshow_preprocess_eck_entity(&$variables) {
+  $entity = $variables['entity']['#entity'];
+  if ($entity->bundle() == '3_col_card') {
+
+    // Get title.
+    if (!$entity->get('field_3_col_card_title')->isEmpty()) {
+      $title = $entity->get('field_3_col_card_title')->getValue()[0]['value'];
+      $variables['card_title'] = html_entity_decode($title);
+    }
+
+    if (!$entity->get('field_3_col_card_image')->isEmpty()) {
+      $tsr_image = $entity->get('field_3_col_card_image')->getValue();
+      $image_id = $tsr_image[0]['target_id'];
+
+      $media = Media::load($image_id);
+      if (!is_null($media)) {
+        $file = $media->get('image')->getValue();
+        $file_id = $file[0]['target_id'];
+
+        $image_file = File::load($file_id);
+        $path = $image_file->getFileUri();
+        $variables['path'] = file_create_url($path);
+      }
+    }
+  }
+
+  if ($entity->bundle() == 'landing_page_grid_card') {
+    $tsr_image = $entity->get('field_lpg_media')->getValue();
+    $image_id = $tsr_image[0]['target_id'];
+    $link = $entity->get('field_lpg_url')->getValue();
+    $url = Url::fromUri($link[0]['uri']);
+
+    $media = Media::load($image_id);
+    if (!is_null($media)) {
+      $file = $media->get('image')->getValue();
+      $file_id = $file[0]['target_id'];
+
+      $image_file = File::load($file_id);
+      $path = $image_file->getFileUri();
+
+      $style = \Drupal::entityTypeManager()
+        ->getStorage('image_style')
+        ->load('cropped_grid_item');
+      $variables['path'] = $style->buildUrl($path);
+      $variables['link'] = $url;
+    }
+  }
+
+  if ($entity->bundle() == 'media') {
+    $entity = $variables['entity']['#brick'];
+    $cover = $entity->get('field_image_cover')->getValue();
+
+    if ($cover && $cover[0]['value'] == '1') {
+      $image = $entity->get('field_brick_media')->getValue();
+      if (!empty($image[0])) {
+        $image_id = $image[0]['target_id'];
+
+        $media = Media::load($image_id);
+        if (!is_null($media)) {
+          $file = $media->get('image')->getValue();
+          $file_id = $file[0]['target_id'];
+
+          $image_file = File::load($file_id);
+          $path = $image_file->getFileUri();
+
+          $variables['image_bkgrnd'] = file_create_url($path);
+        }
+      }
+    }
+  }
+
+  if ($entity->bundle() == 'ad_item') {
+    $entity = $variables['entity']['#brick'];
+
+    if (!$entity->get('field_image')->isEmpty()) {
+      $image = $entity->get('field_image')->entity;
+      $path = $image->getFileUri();
+      $variables['image_path'] = file_create_url($path);
+    }
+  }
+
+  if ($entity->bundle() == 'headline_brick') {
+    $entity = $variables['entity']['#brick'];
+    // Get title.
+    if (!$entity->get('field_brick_headline')->isEmpty()) {
+      $title = $entity->get('field_brick_headline')->getValue()[0]['value'];
+      $variables['headline_title'] = html_entity_decode($title);
+    }
+  }
+
+  // Add contextual links.
+  if (\Drupal::currentUser()->hasPermission('access contextual links')) {
+    $url = $entity->toUrl('edit-form');
+    $url->setOption('query', \Drupal::service('redirect.destination')->getAsArray());
+    $variables['context_links'] = [
+      '#theme' => 'links__contextual',
+      '#links' => [
+        [
+          'title' => t('Edit'),
+          'url' => $url,
+        ],
+      ],
+      '#attributes' => [
+        'class' => [
+          'custom-contextual-links',
+        ],
+      ],
+    ];
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function boatshow_preprocess_field(&$variables) {
+  if ($variables['element']['#field_name'] == 'field_component_bricks') {
+    $nid = $variables['element']['#object']->id();
+
+    $node = Node::load($nid);
+    if (isset($node->get('field_component_bricks')->getValue()[0])) {
+      $first_brick = $node->get('field_component_bricks')->getValue()[0]['target_id'];
+      $entity = \Drupal::entityTypeManager()->getStorage('brick')->load($first_brick);
+      if ($entity->bundle() == 'carousel') {
+        $variables['has_hero'] = TRUE;
+      }
+    }
+  }
+  if ($variables['element']['#field_name'] == 'field_disruptor_cta') {
+    $variables['items'][0]['content']['#options']['attributes']['class'][] = 'button';
+  }
+  if ($variables['element']['#field_name'] == 'field_brick_link') {
+    $variables['items'][0]['content']['#options']['attributes']['class'][] = 'button--secondary';
+  }
+}
+
+/**
+ * Prepares variables for unformatted summary view templates.
+ *
+ * Default template: views-view-summary-unformatted.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - view: A ViewExecutable object.
+ *   - rows: The raw row data.
+ *   - options: An array of options. Each option contains:
+ *     - separator: A string to be placed between inline fields to keep them
+ *       visually distinct.
+ */
+function boatshow_preprocess_views_view_summary_unformatted(&$variables) {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $variables['view'];
+  if ($view->id() == 'exhibitors') {
+    $argument = $view->argument[$view->build_info['summary_level']];
+
+    $url_options = [];
+
+    if (!empty($view->exposed_raw_input)) {
+      $url_options['query'] = $view->exposed_raw_input;
+    }
+
+    $count = 0;
+    $active_urls = [
+      // Force system path.
+      \Drupal::url('<current>', [], ['alias' => TRUE]),
+      // Could be an alias.
+      \Drupal::url('<current>'),
+    ];
+    $active_urls = array_combine($active_urls, $active_urls);
+    $variables['active_url'] = \Drupal::url('<current>');
+
+    // Determine the active filter.
+    $active_filter = isset($_GET['filter']) ? $_GET['filter'] : '';
+    $variables['active_url_is_link'] = !empty($_GET['filter']);
+
+    // Collect all arguments for each row, to be able to alter them for example
+    // by the validator. This is not done per single argument value, because
+    // this could cause performance problems.
+    $row_args = [];
+    foreach ($variables['rows'] as $id => $row) {
+      $row_args[$id] = $argument->summaryArgument($row);
+    }
+    $argument->processSummaryArguments($row_args);
+
+    foreach ($variables['rows'] as $id => $row) {
+      // Only false on first time.
+      if ($count++) {
+        $variables['rows'][$id]->separator = Xss::filterAdmin($variables['options']['separator']);
+      }
+      $variables['rows'][$id]->attributes = [];
+      $variables['rows'][$id]->link = $argument->summaryName($row);
+      $args = $view->args;
+      $args[$argument->position] = $row_args[$id];
+
+      if (!empty($argument->options['summary_options']['base_path'])) {
+        $base_path = $argument->options['summary_options']['base_path'];
+        $tokens = $view->getDisplay()->getArgumentsTokens();
+        $base_path = $argument->globalTokenReplace($base_path, $tokens);
+        // @todo Views should expect and store a leading /. See:
+        //   https://www.drupal.org/node/2423913
+        $url = Url::fromUserInput('/' . $base_path);
+        try {
+          /** @var \Symfony\Component\Routing\Route $route */
+          $route = \Drupal::service('router.route_provider')->getRouteByName($url->getRouteName());
+          $route_variables = $route->compile()->getVariables();
+          $parameters = $url->getRouteParameters();
+
+          foreach ($route_variables as $variable_name) {
+            $parameters[$variable_name] = array_shift($args);
+          }
+
+          $url->setRouteParameters($parameters);
+        }
+        catch (Exception $e) {
+          // If the given route doesn't exist, default to <front>.
+          $url = Url::fromRoute('<front>');
+        }
+      }
+      else {
+        $url = $view->getUrl($args)->setOptions($url_options);
+      }
+      $this_url = $url->toString();
+      $base_url = substr($this_url, 1);
+      $this_filter = substr($this_url, -1);
+      $variables['rows'][$id]->url = '/' . str_replace('/', '?filter=', $base_url);
+      $variables['rows'][$id]->count = intval($row->{$argument->count_alias});
+      $variables['rows'][$id]->active = ($this_filter == $active_filter);
+      $variables['rows'][$id]->attributes = new Attribute($variables['rows'][$id]->attributes);
+    }
+  }
+}
+
+/**
+ * Prepares variables for view templates.
+ *
+ * Default template: views-view.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - view: The ViewExecutable object.
+ */
+function boatshow_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+  if ($view->id() == 'seminars' && $view->current_display == 'block_1') {
+    // Show featured seminars if no filters are applied.
+    if ($view->exposed_raw_input['seminar_schedule'] !== 'All' ||
+      (count($view->exposed_raw_input) > 1)) {
+      $variables['filters_applied'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_taxonomy_term_alter().
+ */
+function boatshowtheme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables) {
+  /** @var \Drupal\taxonomy\TermInterface $term */
+  $term = $variables['elements']['#taxonomy_term'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+  // Add view mode theme suggestions.
+  $suggestions[] = 'taxonomy_term__' . $sanitized_view_mode;
+  $suggestions[] = 'taxonomy_term__' . $term->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'taxonomy_term__' . $term->id() . '__' . $sanitized_view_mode;
+}

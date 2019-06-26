@@ -1,0 +1,11 @@
+{% if content %}
+
+  <section {{ attributes.addClass('flex-container').addClass('nmma-layout one-column') }}>
+    {% for region in content['#layout'].regions|keys if content[region] %}
+      <div class="col-12-xs column-item">
+        {{ content[region] }}
+      </div>
+    {% endfor %}
+  </section>
+
+{% endif %}

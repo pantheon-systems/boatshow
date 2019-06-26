@@ -1,0 +1,14 @@
+uuid: 7f0e5396-7b6f-4b4c-9e71-1dfe361387b9
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: 'View mode for slides to show on a carousel'
+id: node.carousel_slide
+label: 'Carousel Slide'
+targetEntityType: node
+cache: true

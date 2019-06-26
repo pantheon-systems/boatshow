@@ -1,0 +1,38 @@
+
+{# Top Bar #}
+{#{% include componentroot ~ '/4-organisms/top_bar/top_bar.twig'  %}#}
+
+{# Header#}
+{% include componentroot ~ '/4-organisms/header/header.twig'  %}
+
+{# Main Page Content #}
+<div class="clearfix no-hero" id="main">
+  <section class="articles-header flex-container">
+    <div class="col-12-xs col-12-sm col-6-md">
+      <h2 class="small">Articles &amp; Resources</h2>
+    </div>
+    <div class="col-12-xs col-12-sm col-6-md">
+      <form action="">
+        <div class="flex-container">
+          <div class="col-12-xs col-12-sm col-6-md">
+            <label for="topicSelect" class="text-strong">Topic</label>
+            <select id="topicSelect" class="chosen-select block wide">
+              <option value="">All Topics</option>
+              <option value="1">Some topic</option>
+              <option value="2">Another topic</option>
+            </select>
+          </div>
+          <div class="col-12-xs col-12-sm col-6-md">
+            <label for="topicKeyword" class="text-strong">Keyword Refine</label>
+            <input id="topicKeyword" type="text" placeholder="e.g. Swordfish" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  {% include componentroot ~ '/4-organisms/articles_view/articles_view.twig' %}
+</div>
+
+{# Footer #}
+{% include componentroot ~ '/4-organisms/footer/footer.twig'  %}

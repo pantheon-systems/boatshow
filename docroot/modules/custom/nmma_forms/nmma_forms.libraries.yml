@@ -1,0 +1,15 @@
+toggle:
+  js:
+    js/nmma_forms.toggles.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+
+cshs:
+  js:
+    js/nmma_forms.cshs.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once

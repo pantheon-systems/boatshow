@@ -1,0 +1,44 @@
+uuid: eaf002e7-1077-4fa0-89e5-5309866ae504
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.layout
+  module:
+    - content_moderation
+    - datetime
+_core:
+  default_config_hash: mYQ3X7QSM9DnZxJDb-BlHsNYXjB-FQU4TCTQJm9AxsM
+id: block_content.layout.default
+targetEntityType: block_content
+bundle: layout
+mode: default
+content:
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

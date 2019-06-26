@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: Activities
+vid: activities
+description: 'Things to do while boating.'
+hierarchy: 0
+weight: 0

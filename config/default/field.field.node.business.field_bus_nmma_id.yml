@@ -1,0 +1,23 @@
+uuid: 0a768c58-b19a-4236-a39d-d8d2f9113519
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bus_nmma_id
+    - node.type.business
+id: node.business.field_bus_nmma_id
+field_name: field_bus_nmma_id
+entity_type: node
+bundle: business
+label: 'NMMA Id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

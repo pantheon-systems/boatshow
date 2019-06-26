@@ -1,0 +1,14 @@
+uuid: cb431fe5-c6be-477f-bd60-7e093a9b328c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.certified_mfrs_reviewer
+  module:
+    - user
+id: user_remove_role_action.certified_mfrs_reviewer
+label: 'Remove the Certified Mfrs reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: certified_mfrs_reviewer

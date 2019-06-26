@@ -1,0 +1,23 @@
+uuid: 81d93269-d927-4e06-95b5-f260b6c4dea1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_link_to_sponsor
+    - taxonomy.vocabulary.sponsors
+  module:
+    - link
+id: taxonomy_term.sponsors.field_link_to_sponsor
+field_name: field_link_to_sponsor
+entity_type: taxonomy_term
+bundle: sponsors
+label: 'Link to Sponsor'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

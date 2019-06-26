@@ -1,0 +1,20 @@
+uuid: 6c0b79d5-c860-46fb-a095-d313b44b4aad
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - eck
+id: brick.field_countdown_to
+field_name: field_countdown_to
+entity_type: brick
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

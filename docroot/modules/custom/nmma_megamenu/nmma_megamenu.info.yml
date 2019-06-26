@@ -1,0 +1,7 @@
+name: 'NMMA MegaMenu'
+type: module
+description: 'Custom Megamenu Implementation'
+core: 8.x
+package: 'NMMA'
+dependencies:
+  - twig_tweak

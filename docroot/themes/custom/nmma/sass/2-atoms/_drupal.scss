@@ -1,0 +1,70 @@
+body {
+  button.tabledrag-toggle-weight {
+    margin: 5px;
+  }
+
+  td.field-multiple-drag {
+    max-width: 30px;
+  }
+
+  .inline {
+    display: inline-block;
+  }
+
+  ul.links.inline {
+    margin: 0;
+    padding: 0;
+
+    li {
+      @extend .no-ul-list;
+
+      display: inline-block;
+      padding: 0 9px 3px 0;
+    }
+  }
+}
+
+form .form-item {
+  padding: 0 0 7px;
+
+  &.form-type-textarea {
+    padding-bottom: 0;
+  }
+}
+
+form .description {
+  font-size: 90%;
+  font-style: italic;
+  margin-bottom: 3px;
+}
+
+.layout-node-form .layout-region-node-secondary > .form-wrapper {
+  @extend .blocked-style;
+
+  h3,
+  h4 {
+    font-size: inherit;
+  }
+}
+
+.layout-node-form .layout-region-node-footer {
+  border-top: 1px solid $off-white;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+form details.js-form-wrapper {
+  cursor: pointer;
+}
+
+.js input.form-autocomplete,
+.js input.form-autocomplete.ui-autocomplete-loading {
+  background-position: 100% center;
+  background-repeat: no-repeat;
+}
+
+.js[dir="rtl"] input.form-autocomplete,
+.js[dir="rtl"] input.form-autocomplete.ui-autocomplete-loading {
+  background-position: 0% center;
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,21 @@
+uuid: d64a1a36-6cd2-45e9-aa34-5405480eac41
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_activity_type_tsr
+    - taxonomy.vocabulary.activities
+  module:
+    - text
+id: taxonomy_term.activities.field_activity_type_tsr
+field_name: field_activity_type_tsr
+entity_type: taxonomy_term
+bundle: activities
+label: Teaser
+description: 'Content displayed throughout the site when this content is referenced from other areas.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

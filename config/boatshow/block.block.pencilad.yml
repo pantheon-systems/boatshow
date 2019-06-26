@@ -1,0 +1,25 @@
+uuid: dfe1f354-8578-45cf-a18e-286a5d43923c
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:brick_block_:bf3cb644-2df0-4b17-a7e9-b0282145b667'
+  module:
+    - block_content
+  theme:
+    - boatshow
+id: pencilad
+theme: boatshow
+region: pre_header
+weight: 0
+provider: null
+plugin: 'block_content:bf3cb644-2df0-4b17-a7e9-b0282145b667'
+settings:
+  id: 'block_content:bf3cb644-2df0-4b17-a7e9-b0282145b667'
+  label: 'Pencil Ad'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

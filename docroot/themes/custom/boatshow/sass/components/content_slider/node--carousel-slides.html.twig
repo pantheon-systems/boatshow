@@ -1,0 +1,27 @@
+{% set classes = [
+'node',
+'node--type-' ~ node.bundle|clean_class,
+view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+'slide'
+] %}
+
+{% set image = 'image' %}
+<div {{ attributes.addClass(classes) }}>
+  {% if slide_type == image %}
+    <section class="flex-container" style="background-image: url('{{ slide_media_url }}');">
+      <div class="col-12-xs">
+        <h1 class="small screen-md-up">{{ content.field_carousel_headline }}</h1>
+        <h2 class="small screen-md-up-hidden">{{ content.field_carousel_headline }}</h2>
+        <h5>{{ content.field_carousel_callout }}</h5>
+        {% if node.field_carousel_link is not empty %}
+        <a href="{{ content.field_carousel_link[0]['#url'] }}" class="button--hero fixed" data-gtm-tracking="Navigation - {{ content.field_carousel_link[0]['#title'] }} - Carousel">{{ content.field_carousel_link[0]['#title'] }}</a>
+      {% endif %}
+      </div>
+    </section>
+  {% else %}
+    <section class="flex-container">
+      {{ content|without('comment', 'links') }}
+    </section>
+  {% endif %}
+</div>
+<!-- /article #node -->

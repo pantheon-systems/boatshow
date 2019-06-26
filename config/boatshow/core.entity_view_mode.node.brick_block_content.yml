@@ -1,0 +1,14 @@
+uuid: 0fde9955-43aa-4b64-a582-d967cd82cb98
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.brick_block_content
+label: 'Brick Block Content'
+targetEntityType: node
+cache: true

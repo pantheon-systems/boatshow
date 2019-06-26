@@ -1,0 +1,33 @@
+.block-views-exposed-filter-blockvideos-video-display-grid {
+  form {
+    margin-top: 10px;
+  }
+
+  .form-item {
+    width: 100%;
+  }
+}
+
+.block-views-blockvideos-video-display-grid,
+.block-entity-blocknode {
+  .play-block {
+    margin-bottom: 10px;
+
+    .image,
+    .image > div {
+      min-height: 240px;
+    }
+  }
+}
+
+//
+// Responsive breakpoints
+//
+
+// Tablet: > 768px
+
+@include media-breakpoint-up(md) {
+  .block-views-blockvideos-featured-video-block {
+    margin-bottom: 40px;
+  }
+}

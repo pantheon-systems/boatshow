@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region div.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+        {% if content is empty %}
+            <div class="megamenu__drawer">
+                <div class="flex-container">
+                    <div class="col-6-md">
+                        <div class="flex-container">
+                            {{ drupal_view('article_views', 'block_2') }}
+                        </div>
+                    </div>
+                    <div class="col-3-md">
+                        {{ drupal_view('article_views', 'block_3') }}
+                    </div>
+                    {# video-container will give these a GTM category of Video. #}
+                    <div class="col-3-md video-container">
+                      {{ drupal_view('video_views', 'block_1') }}
+                    </div>
+                </div>
+            </div>
+
+        {% else %}
+            {{ content }}
+        {% endif %}

@@ -1,0 +1,7 @@
+nmma_seminars.node_modal:
+  path: '/seminar/modal/{nid}'
+  defaults:
+    _title: 'Seminar Modal'
+    _controller: '\Drupal\nmma_seminars\Controller\SeminarModalNode::content'
+  requirements:
+    _permission: 'access content'

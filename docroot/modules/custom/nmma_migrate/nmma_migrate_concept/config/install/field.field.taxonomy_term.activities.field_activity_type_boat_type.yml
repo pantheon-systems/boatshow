@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_activity_type_boat_type
+    - taxonomy.vocabulary.activities
+    - taxonomy.vocabulary.boat_types
+id: taxonomy_term.activities.field_activity_type_boat_type
+field_name: field_activity_type_boat_type
+entity_type: taxonomy_term
+bundle: activities
+label: 'Boat Types'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      boat_types: boat_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

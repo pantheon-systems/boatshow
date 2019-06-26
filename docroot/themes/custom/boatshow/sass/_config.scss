@@ -1,0 +1,104 @@
+// Colors ///////////////
+// common colors
+$white: #fff;
+$red: #e61b3a;
+$yellow: #e8ed57;
+$blue: rgb(31, 185, 235);
+$color-white: #fff;
+// b&w colors as placeholders
+$blk: #000;
+$dark-gray: lighten($blk, 20%);
+$med-gray: lighten($blk, 40%);
+$light-gray: lighten($blk, 70%);
+$lighter-gray: rgb(231, 229, 229);
+$off-white: lighten($blk, 97%);
+
+$color-primary: #e61b3a;
+$color-secondary: rgb(31, 185, 235);
+
+// Utility color variables ///////////////
+$heading: $blk;
+$link: $color-secondary;
+$dimension-header-height: 115px;
+
+// Fonts ///////////////
+$opensans: 'Open Sans';
+$poppins: 'Poppins';
+
+$proxima-bold: 'Proxima Nova Bold';
+$proxima-reg: 'Proxima Nova Regular';
+$proxima-semibold: 'Proxima Nova Semibold';
+$proxima-light: 'Proxima Nova Light';
+$proxima-black: 'Proxima Nova Black';
+$proxima-thin: 'Proxima Nova Thin';
+$font-awesome: 'FontAwesome';
+$heading_font: $proxima-bold;
+$body_font: $proxima-reg;
+$font-line-height-standard: 1.6em;
+$font-size-body-copy: 16px;
+
+// EXAMPLE FOR MQ REFERENCES =>
+
+/*
+body {
+  background: green !important;
+  @include breakpoint($small)  { background: orange !important; }
+  @include breakpoint($medium) { background: teal !important; }
+  @include breakpoint($large)  { background: orchid !important; }
+  @include breakpoint($up-sm)  { background: aliceblue !important; }
+}
+*/
+
+// Example Mixins ///////////////
+@mixin opac-color($r, $g, $b, $pertc) {
+  background: rgb($r, $g, $b);
+  background: rgba($r, $g, $b, $pertc);
+}
+
+@mixin region-spacer($color, $direction: bottom) {
+  border-top: 1px dotted $color;
+
+  @if $direction == top {
+    padding-top: 25px;
+    margin-top: 25px;
+  }
+
+  @else {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+  }
+}
+
+@mixin borderradius($px: 5px) {
+  border-radius: $px;
+  // background-clip: padding-box;
+}
+// Example Placeholders ///////////////
+.no-ul-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  > li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 2px;
+  }
+}
+
+.tmp-shadow {
+  box-shadow: 0 0 2px 0 rgba($med-gray, 1);
+}
+
+.tmp-shadow-none {
+  box-shadow: none;
+}
+
+.blocked-style {
+  border: 1px solid $white;
+  padding: 12px;
+  border-radius: 5px;
+  background: $off-white;
+
+  @extend .tmp-shadow;
+}

@@ -1,0 +1,42 @@
+//Sub Nav styles
+
+.sub-nav--title {
+  font-size: 16px;
+  line-height: 1.375;
+  margin-top: rem-calc(40px);
+}
+
+.sub-nav--list {
+  li {
+    margin-top: rem-calc(17px);
+  }
+}
+
+//
+// Responsive breakpoints
+//
+
+// Mobile: > 576px
+
+//TODO commented out so empty blocks don't produce stylelint errors.
+//@include media-breakpoint-up(sm) {
+//
+//}
+//
+//// Tablet: > 768px
+//
+//@include media-breakpoint-up(md) {
+//
+//}
+//
+//// Desktop: > 992px
+//
+//@include media-breakpoint-up(lg) {
+//
+//}
+//
+//// Large: > 1200px
+//
+//@include media-breakpoint-up(xl) {
+//
+//}

@@ -1,0 +1,21 @@
+// Styles for breadcrumbs.
+
+#main > section#block-breadcrumbs {
+  margin-top: 0.1rem;
+  margin-bottom: 0;
+
+  .nmma-breadcrumb {
+    padding: 1rem 0 0;
+
+    li {
+      display: inline;
+      font-size: $font-size-body-copy-xsmall;
+      font-family: $font-bold;
+      color: $color-gray-medium;
+
+      &:not(:last-child)::after {
+        content: ">";
+      }
+    }
+  }
+}

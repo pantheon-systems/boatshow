@@ -1,0 +1,32 @@
+
+{# Top Bar #}
+{#{% include componentroot ~ '/4-organisms/top_bar/top_bar.twig'  %}#}
+
+{# Header#}
+{% include componentroot ~ '/4-organisms/header/header.twig'  %}
+
+{% include componentroot ~ '/4-organisms/hero/hero.twig'  %}
+
+{# Main Page Content #}
+<div class="clearfix" id="main">
+  <section class="section-header">
+    <h3>Find Your Perfect Boat</h3>
+    <p>Whether high speed or low key there's a boat for every lifestyle and occasion</p>
+  </section>
+  <section class="grid">
+    {% include componentroot ~ '/5-templates/grid_containers/3_up_news_items.twig' %}
+  </section>
+  <section class="disruptor">
+    {% include componentroot ~ '/4-organisms/disruptor/disruptor_owning.twig' %}
+  </section>
+  <section class="section-header">
+    <h3>Boating Stories &amp; Fish Tales</h3>
+    <p>Inspirational stories, educational articles, and tips for new &amp; experienced captains</p>
+  </section>
+  <section class="grid">
+    {% include componentroot ~ '/5-templates/grid_containers/3_up_news_items.twig' %}
+  </section>
+</div>
+
+{# Footer #}
+{% include componentroot ~ '/4-organisms/footer/footer.twig'  %}

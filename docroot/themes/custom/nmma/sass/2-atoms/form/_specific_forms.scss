@@ -1,0 +1,115 @@
+form.dealers-and-manufacturers,
+#boating-guide-form {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > div,
+  & > fieldset {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    &.full-width {
+      width: 100%;
+    }
+
+    .chosen-container {
+      width: 100% !important;
+    }
+  }
+
+  .blank {
+    display: none;
+  }
+  
+  .form-item {
+    margin-top: 20px;
+  }
+
+  .submit-container {
+    margin-top: 30px;
+    padding: 0;
+
+    p {
+      margin-top: 20px;
+    }
+  }
+
+  #edit-url {
+    display: none;
+  }
+}
+
+#boating-guide-form {
+  #edit-activities,
+  #edit-boat-types {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > div {
+      width: 100%;
+    }
+  }
+
+  #edit-agreed-container {
+    width: 100%;
+    padding: 0;
+  }
+
+  div.form-item:not(.js-form-type-checkbox):not(.js-form-type-radio) {
+    label {
+      display: block;
+    }
+  }
+}
+
+//
+// Responsive breakpoints
+//
+
+// Tablet and Above: > 768px
+
+@include media-breakpoint-up(md) {
+  form.dealers-and-manufacturers,
+  #boating-guide-form {
+    & > div,
+    & > fieldset {
+      width: 50%;
+
+      &:nth-child(odd):not(.submit-container):not(.no-pad) {
+        padding-right: 5%;
+      }
+
+      &.half-width {
+        width: 25%;
+
+        &:not(.no-pad) {
+          padding-right: 5%;
+        }
+      }
+    }
+  }
+
+  #boating-guide-form {
+    #edit-activities,
+    #edit-boat-types {
+      & > div {
+        width: 33%;
+      }
+    }
+  }
+}
+
+// Desktop: > 992px
+
+@include media-breakpoint-up(lg) {
+  #boating-guide-form {
+    #edit-activities,
+    #edit-boat-types {
+      & > div {
+        width: 25%;
+      }
+    }
+  }
+}

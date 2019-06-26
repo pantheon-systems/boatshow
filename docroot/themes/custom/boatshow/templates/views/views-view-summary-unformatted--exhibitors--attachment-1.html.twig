@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * Theme override for unformatted summary links.
+ *
+ * Available variables:
+ * - rows: The rows contained in this view.
+ *   - url: The URL to this row's content.
+ *   - count: The number of items this summary item represents.
+ *   - separator: A separator between each row.
+ *   - attributes: HTML attributes for a row.
+ *   - active: A flag indicating whether the row is active.
+ * - options: Flags indicating how each row should be displayed. This contains:
+ *   - count: A flag indicating whether the row's 'count' should be displayed.
+ *   - inline: A flag indicating whether the item should be wrapped in an inline
+ *     or block level HTML element.
+ *
+ * @see template_preprocess_views_view_summary_unformatted()
+ */
+#}
+<nav class="exhibitors-directory">
+  <span class="all-exhibitors">
+    {% if active_url_is_link %}
+      <a href="{{ active_url }}">{{ "All" |t }}</a>
+    {% else %}
+      {{ "All" |t }}
+    {% endif %}
+  </span>
+  {% for row in rows  %}
+    {{ options.inline ? '<span' : '<div' }} >
+    {% if row.separator -%}
+      {{ row.separator }}
+    {%- endif %}
+    {% if row.active %}
+      {{ row.link }}
+    {% else %}
+      <a href="{{ row.url }}"{{ row.attributes.addClass(row.active ? 'is-active')|without('href') }}>{{ row.link }}</a>
+    {% endif %}
+
+    {% if options.count %}
+      ({{ row.count }})
+    {% endif %}
+    {{ options.inline ? '</span>' : '</div>' }}
+  {% endfor %}
+</nav>

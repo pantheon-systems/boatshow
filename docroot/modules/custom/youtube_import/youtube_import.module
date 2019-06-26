@@ -1,0 +1,500 @@
+<?php
+
+/**
+ * @file
+ * The primary file in the YouTube module.
+ *
+ * With some user configuration, imports data from YouTube's
+ * latest API into a predefined content type. User is
+ * also able to determine which data is mapped
+ * which fields for the content type.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_cron().
+ */
+function youtube_import_cron() {
+  // Get the two import values for this process.
+  $lastrun = \Drupal::state()->get('youtube_import.lastrun', REQUEST_TIME);
+  $frequency = youtube_import_get('frequency', '3600');
+
+  // Check if it is time.
+  if ($frequency > (int) 0 && $lastrun < (time() - (int) $frequency)) {
+    youtube_import_videos();
+  }
+}
+
+/**
+ * Sends a curl request to a web address.
+ *
+ * @param string $url
+ *   The Youtube URL to hit.
+ *
+ * @return bool|\stdClass
+ *   False on error, a JSON object on success.
+ */
+function youtube_import_call($url) {
+  // Create curl request.
+  $curl = curl_init($url);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
+  curl_setopt($curl, CURL_HTTP_VERSION_1_1, 1);
+  curl_setopt($curl, CURLOPT_HEADER, 0);
+  curl_setopt($curl, CURLOPT_ENCODING, 'gzip, default');
+  curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3");
+
+  // Send the curl request.
+  $result = curl_exec($curl);
+
+  // Check for an error.
+  if ($error = curl_errno($curl)) {
+    // Close the request.
+    curl_close($curl);
+    // Let the user know of the error.
+    drupal_set_message($error, 'error');
+    // End this function on error.
+    return FALSE;
+  }
+
+  // Close the request.
+  curl_close($curl);
+
+  // Decode the response.
+  $json = json_decode($result);
+
+  // Check for errors.
+  if (isset($json->error)) {
+    // Let the user know what Google said.
+    drupal_set_message($json->error->message, 'error');
+  }
+
+  // Return the api result.
+  return $json;
+}
+
+/**
+ * Get the uploads playlist.
+ *
+ * Using the username and API Key, determine the
+ * playlistid for the "uploads" playlist.
+ */
+function youtube_import_playlist_id($username, $apikey, $retry = FALSE) {
+
+  /*
+   * When a youtube account has a custom URL, you can check for
+   * the playlist using the Username, but when it is a standard user,
+   * you must use the channel. So we start by trying to use the
+   * username and if that doesn't work, we use the channel.
+   */
+  if (!$retry) {
+    $data = youtube_import_call("https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername={$username}&key={$apikey}");
+  }
+  else {
+    $data = youtube_import_call("https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id={$username}&key={$apikey}");
+  }
+
+  // If we have results, lets use them.
+  if (isset($data->items) && count($data->items) > 0) {
+    return $data->items[0]->contentDetails->relatedPlaylists->uploads;
+  }
+  elseif (!$retry) {
+    // If we received nothing, lets try again.
+    return youtube_import_playlist_id($username, $apikey, TRUE);
+  }
+  else {
+    return '';
+  }
+}
+
+/**
+ * Fetches the comma separated video ids.
+ */
+function youtube_import_video_ids() {
+  return youtube_import_video_ids_page(youtube_import_get('playlistid'), youtube_import_get('apikey'), '');
+}
+
+/**
+ * Retrieve video IDs recursively.
+ *
+ * @param string $playlistid
+ *   The playlist ID.
+ * @param string $apikey
+ *   Youtube API key.
+ * @param string $pageToken
+ *   The token to retrieve the next page.
+ *
+ * @return array
+ *   An array of video IDs.
+ */
+function youtube_import_video_ids_page($playlistid, $apikey, $pageToken) {
+  $url = "https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=50&playlistId=%s&key=%s&pageToken=%s";
+  $data = youtube_import_call(sprintf($url, $playlistid, $apikey, $pageToken));
+
+  $videoIds = [];
+
+  if (!empty($data->items)) {
+    foreach ($data->items as $video) {
+      $videoIds[] = $video->contentDetails->videoId;
+    }
+  }
+  if (!empty($data->nextPageToken)) {
+    $videoIds = array_merge($videoIds, youtube_import_video_ids_page($playlistid, $apikey, $data->nextPageToken));
+  }
+
+  return $videoIds;
+}
+
+/**
+ * Return the field information about the mapped content type.
+ *
+ * @return \Drupal\Core\Field\FieldDefinitionInterface[]
+ *   Field information.
+ */
+function youtube_import_mapped_node_fields() {
+  /** @var \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager */
+  $entity_field_manager = \Drupal::service('entity_field.manager');
+  return $entity_field_manager
+    ->getFieldDefinitions('node', youtube_import_get('contenttype'));
+}
+
+/**
+ * Finds or creates node by YouTubeId.
+ *
+ * @param string $youtube_id
+ *   The Youtube video ID.
+ *
+ * @return \Drupal\node\Entity\Node
+ *   The corresponding entity.
+ *
+ * @throws \Exception
+ *   If the ID field cannot be found.
+ */
+function youtube_import_find($youtube_id) {
+  $mapping = youtube_import_get('mapping');
+  $contenttype = youtube_import_get('contenttype');
+
+  // Initialize the $id_field.
+  $id_field = '';
+  // Check for matches.
+  foreach (youtube_import_mapped_node_fields() as $fieldname => $field) {
+    if (!array_key_exists($fieldname, $mapping)) {
+      continue;
+    }
+    // Keep track of the YouTube ID field.
+    if ($mapping[$fieldname] == 'id' || $field->getType() == 'youtube') {
+      $id_field = $field->getName();
+      break;
+    }
+  }
+
+  /*
+   * If we found a field for the id, we will check for an existing node.
+   * If the user did not set this up properly, we are going to be adding
+   * new videos for every run. Can't be helped.
+   * New Bodero
+   *
+   */
+  if (strlen($id_field) > 0) {
+    /** @var \Drupal\Core\Entity\EntityStorageInterface $nodeStorage */
+    $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
+    $nodeIds = $nodeStorage->getQuery()
+      ->condition('type', $contenttype)
+      ->condition($id_field, $youtube_id, 'LIKE')
+      ->sort('created', 'DESC')
+      ->range(0, 1)
+      ->execute();
+
+    /** @var \Drupal\node\Entity\Node $node */
+    if (!empty($nodeIds)) {
+      $node = $nodeStorage->load(reset($nodeIds));
+    }
+    // There is no node that has the youtube ID saved to it. Make one that can
+    // be edited and saved.
+    else {
+      $node = $nodeStorage->create([
+        'type' => $contenttype,
+      ]);
+    }
+    return $node;
+  }
+
+  throw new \Exception('Unable to find the ID field.');
+}
+
+/**
+ * Does the actual importing.
+ */
+function youtube_import_videos() {
+
+  $drupal_user = youtube_import_get('drupal_user', 1);
+  $apikey = youtube_import_get('apikey');
+  $mapping = youtube_import_get('mapping');
+
+  // Get the ids for the videos.
+  $videoIds = youtube_import_video_ids();
+  $page = 0;
+  while ($videoIds) {
+    $page++;
+    $ids = implode(',', array_splice($videoIds, 0, 50, []));
+    // Get the video data.
+    $data = youtube_import_call("https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id={$ids}&key={$apikey}");
+
+    // Get the fields that are actually related to this content type.
+    $fieldinfo = array_keys(youtube_import_mapped_node_fields());
+
+    $fieldinfo[] = 'title';
+    $fieldinfo[] = 'created';
+
+    // Ensure the property exists.
+    if (empty($data->items)) {
+      $data->items = [];
+    }
+
+    // Loop through the data to create our nodes.
+    foreach ($data->items as $video) {
+      // Find the node or create a new one.
+      $node = youtube_import_find($video->id);
+
+      $node->set('status', 1);
+
+      // Loop through the field mapping.
+      foreach ($mapping as $fieldname => $property) {
+        // If the field isn't mapped, moved on.
+        if (empty($property)) {
+          continue;
+        }
+
+        // If the field isn't part of the content type, move on.
+        if (!in_array($fieldname, $fieldinfo)) {
+          continue;
+        }
+
+        // Set the default back to nothing.
+        $value = '';
+
+        // Check the JSON object loctations for the key and get the value.
+        $value = isset($video->$property) ? $video->$property : $value;
+        $value = isset($video->snippet->$property) ? $video->snippet->$property : $value;
+        $value = isset($video->contentDetails->$property) ? $video->contentDetails->$property : $value;
+        $value = isset($video->statistics->$property) ? $video->statistics->$property : $value;
+        $value = $property == 'url' ? 'https://www.youtube.com/v/' . $video->id : $value;
+
+        /*
+         * Thumbnails are really special and we want to get
+         * the best image to create the thumbnail
+         * so we go through the possible thumbnails and find the
+         * best one that actually exists.
+         */
+        if ($property == 'thumbnails') {
+
+          // Get the thumbnails object.
+          $thumbnails = $video->snippet->$property;
+
+          // Loop through possible values.
+          foreach ([
+            'maxres',
+            'standard',
+            'high',
+            'medium',
+            'default',
+          ] as $size) {
+            // Determine if it was found.
+            if (isset($thumbnails->$size)) {
+              // Make its url the value.
+              $value = $thumbnails->$size->url;
+              // Break away from the for loop.
+              break;
+            }
+          }
+
+        }
+
+        // If a value isn't found, move on.
+        if (empty($value)) {
+          continue;
+        }
+
+        try {
+          // If this field is the thumbnail.
+          if ($property == 'thumbnails') {
+            // Create the file location.
+            if (function_exists('transliteration_clean_filename')) {
+              $filename = "public://" . transliteration_clean_filename($video->id . '.jpg');
+            }
+            else {
+              $filename = "public://" . $video->id . '.jpg';
+            }
+            $file = youtube_import_thumbnail_exists($filename);
+            if (empty($file->id())) {
+              $file = file_save_data(file_get_contents($value), $filename, FILE_EXISTS_REPLACE);
+            }
+            // Make sure we haven't already done this.
+            if (!empty($file->id())) {
+              $node->set($fieldname, $file->id());
+            }
+          }
+          elseif ($fieldname == 'created') {
+            // Created date can be set directly.
+            $node->set($fieldname, strtotime($value));
+          }
+          elseif ($node->$fieldname->getFieldDefinition()
+            ->getType() == 'text' || $node->$fieldname->getFieldDefinition()
+            ->getType() == 'integer') {
+            // If this is a text or number.
+            $node->set($fieldname, $value);
+          }
+          elseif ($node->$fieldname->getFieldDefinition()->getType() == 'youtube') {
+            // Special functionality needed for youtube fields.
+            $node->set($fieldname, [
+              'input' => 'https://www.youtube.com/watch?v=' . $video->id,
+              'video_id' => $video->id,
+            ]);
+          }
+          else {
+            $node->set($fieldname, ['value' => $value]);
+          }
+        }
+        catch (Exception $ex) {
+          /*
+           * I can't guess at every possible field type and drupal
+           * doesn't seem to have an easy way to set values. Real
+           * pain in the ass. So, every thing else throws a pretty
+           * error and makes it the user's problem.
+           */
+          drupal_set_message(t("This module is unable to set the value for a field with of @type type. Please remove @field from the import.", [
+            '@type' => $node->$fieldname->getFieldDefinition()
+              ->getType(),
+            '@field' => $fieldname,
+          ]), 'error');
+        }
+      }
+
+      // Set the author.
+      if (!empty($drupal_user)) {
+        $node->set('uid', $drupal_user);
+      }
+      // Save the node.
+      $node->save();
+    }
+
+    // Tell how many we found.
+    drupal_set_message(Html::escape(count($data->items)) . ' videos found on page ' . $page . '.');
+  }
+
+  // Update the timestamp.
+  \Drupal::state()->set('youtube_import.lastrun', time());
+}
+
+/**
+ * Check if the thumbnail already exists.
+ *
+ * @param string $uri
+ *   Path to image.
+ *
+ * @return bool|\Drupal\file\Entity\File
+ *   The file on success, false on failure.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ */
+function youtube_import_thumbnail_exists($uri) {
+  /** @var \Drupal\Core\Entity\EntityStorageInterface $fileStorage */
+  $fileStorage = \Drupal::entityTypeManager()->getStorage('file');
+  $fids = $fileStorage->getQuery()
+    ->condition('uri', $uri, 'LIKE')
+    ->range(0, 1)
+    ->execute();
+  if (!empty($fids)) {
+    return reset($fileStorage->load($fids));
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Gets the settings from the database.
+ */
+function youtube_import_get($key, $value = NULL) {
+  $config = \Drupal::config('youtube_import.settings');
+  // Here are a few defaults.
+  $defaults = [
+    'apikey' => '',
+    'drupal_user' => '',
+    'username' => '',
+    'playlistid' => '',
+    'contenttype' => '',
+    'frequency' => 3600,
+    'mapping' => [],
+  ];
+  $return = $config->get($key);
+  if (NULL === $return) {
+    if (isset($value)) {
+      return $value;
+    }
+    if (isset($defaults[$key])) {
+      return $defaults[$key];
+    }
+  }
+  return $return;
+}
+
+/**
+ * Implements hook_help().
+ */
+function youtube_import_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the nmma_go_boating_map module.
+    case 'help.page.youtube_import':
+      $output = '';
+      // Determine the file path for README.md and CONFIGURATION.txt.
+      $filepathreadme = dirname(__FILE__) . '/README.md';
+      $filepathconfig = dirname(__FILE__) . '/CONFIGURATION.html';
+      // Ensure the file exists.
+      if (file_exists($filepathreadme)) {
+        // Get the contents of the file.
+        $readme = file_get_contents($filepathreadme);
+      }
+      if (file_exists($filepathconfig)) {
+        // Get the contents of the file.
+        $config = file_get_contents($filepathconfig);
+      }
+      // Make sure we have contents.
+      if (!isset($readme) && !isset($config)) {
+        // Return nothing if nothing was found.
+        return NULL;
+      }
+      // If markdown is installed, use markdown.
+      if (\Drupal::moduleHandler()->moduleExists('markdown')) {
+        // Get the markdown filter.
+        $filters = \Drupal::moduleHandler()->invoke('markdown', 'filter_info');
+        // Create our processing variable.
+        $info = $filters['filter_markdown'];
+
+        // Make sure we have what is needed to create this.
+        if (function_exists($info['process callback'])) {
+          // Get our markdown processed result.
+          $output = $info['process callback']($config, NULL);
+          $output .= $info['process callback']($readme, NULL);
+        }
+        else {
+          // Fail back to using pre.
+          $output = '<pre>' . $config . '</pre>';
+          $output .= '<pre>' . $readme . '</pre>';
+        }
+      }
+      else {
+        // Fail back to using pre tags.
+        $output = '<pre>' . $config . '</pre>';
+        $output .= '<pre>' . $readme . '</pre>';
+      }
+
+      // Return the help output.
+      return $output;
+
+  }
+
+  return '';
+}

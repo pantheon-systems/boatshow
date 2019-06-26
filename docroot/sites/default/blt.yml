@@ -1,0 +1,10 @@
+project:
+  local:
+    hostname: local.discoverboat.com
+    protocol: http
+  machine_name: discoverboat
+  human_name: 'Discover Boating'
+drush:
+  aliases:
+    local: self
+    remote: discoverboat.dev

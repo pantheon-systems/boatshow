@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Contains nmma_marina_finder.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function marina_finder_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the nmma_marina_finder module.
+    case 'help.page.nmma_marina_finder':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides custom block for Marina Finder iframe code.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function nmma_marina_finder_theme() {
+  return [
+    'marina_finder' => [
+      'variables' => [],
+      'template' => 'marina-finder',
+    ],
+  ];
+}

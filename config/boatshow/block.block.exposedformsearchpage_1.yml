@@ -1,0 +1,29 @@
+uuid: 1adebff9-adba-47f8-8e1f-9a7ce48e5610
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search
+  module:
+    - system
+    - views
+  theme:
+    - nmma
+id: exposedformsearchpage_1
+theme: nmma
+region: content
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:search-page_1'
+settings:
+  id: 'views_exposed_filter_block:search-page_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /search/resources
+    negate: false
+    context_mapping: {  }

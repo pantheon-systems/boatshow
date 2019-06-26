@@ -1,0 +1,14 @@
+uuid: ab216c3e-6f48-4394-b65c-646b75b2896e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.certified_dealers_creator
+  module:
+    - user
+id: user_remove_role_action.certified_dealers_creator
+label: 'Remove the Certified Dealers creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: certified_dealers_creator

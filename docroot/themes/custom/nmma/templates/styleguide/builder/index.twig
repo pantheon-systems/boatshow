@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ options.title }}</title>
+
+  <meta name="description" content="">
+  <meta name="generator" content="kss-node">
+  <meta name="viewport" content="width=device-width">
+  <link href="https://fonts.googleapis.com/css?family=Adamina|Muli:400,700,800" rel="stylesheet">
+  {{ styles|raw }}
+  <link rel="stylesheet" href="/core/themes/stable/css/system/components/hidden.module.css?p0lnl7">
+  <script src="/core/assets/vendor/modernizr/modernizr.min.js?v=3.3.1"></script>
+</head>
+<body id="kss-node">
+
+{% set componentroot = '../../../../../sass' %}
+{%
+set pages = [
+'page_home',
+'page_articles_resources',
+'page_article',
+'page_product',
+'page_activity',
+'page_boat_finder',
+'page_buying',
+'page_owning',
+'page_go_boating',
+'page_discover_boating',
+'page_subpage',
+]
+%}
+<div class="page-standard {{ classes }}" id="pg__c">
+  {% if homepage %}
+    <!-- ______________________ MAIN _______________________ -->
+
+    <div class="clearfix" id="main">
+      <div class="cog--mq mq-main">
+        <section id="content">
+          <div class="content-area" id="content-area">
+            <section class="kss-landing">
+              <h3>Discover Boating Styleguide</h3>
+              {% include 'styleguide_pages.twig' %}
+            </section>
+          </div>
+        </section>
+        <!-- /content-inner /content -->
+      </div>
+      <!-- /cog--mq -->
+    </div>
+    <!-- /main -->
+  {% elseif sections.0.reference in pages %}
+    {% include 'pages/' ~ sections.0.reference ~ '/' ~ sections.0.reference ~ '.twig' %}
+    {#{% else %}#}
+    {#{% include 'styleguide_sections.twig' %}#}
+  {% endif %}
+
+</div>
+<!-- /page -->
+{% include './components/scripts.twig' %}
+{{ scripts|raw }}
+</body>
+</html>

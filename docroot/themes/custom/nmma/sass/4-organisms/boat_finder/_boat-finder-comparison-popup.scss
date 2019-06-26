@@ -1,0 +1,268 @@
+
+
+.modal-context {
+  position: absolute;
+  left: 0;
+  background: $color-gray-dark;
+  height: 100%;
+  top: 0;
+  width: 100%;
+  z-index: 300;
+}
+
+body.mobile-compare {
+  //overflow: hidden;
+}
+
+@include media-breakpoint-up(lg) {
+  .modal-context {
+    background: $color-white;
+  }
+}
+
+//TODO make this mobile first
+//.boat-filter-mobile,
+.filter-mobile-header {
+  display: none;
+}
+
+.boat-compare,
+.compare-wrapper {
+  .curve-corner,
+  .curve-corner--gray,
+  .curve-corner--gray--white-lg {
+    min-height: 90px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      height: auto;
+      left: 50%;
+      max-width: none;
+      position: absolute;
+      transform: translate(-50%, 0);
+      width: 100%;
+    }
+  }
+
+  .compare-item {
+    @include font-size($font-size-body-copy-xsmall);
+
+    display: block;
+    height: 90px;
+    margin-bottom: 30px;
+    padding: 0 8px;
+    position: relative;
+    text-align: center;
+
+    a {
+      color: $color-white;
+    }
+
+    .item-remove {
+      position: absolute;
+      top: 10px;
+      right: 18px;
+
+      i {
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.75);
+      }
+    }
+
+    .compare-item-title {
+      font-family: $font-regular;
+      display: block;
+      margin-top: 10px;
+    }
+  }
+}
+
+.boat-compare {
+  background: $color-gray-dark;
+  bottom: 0;
+  color: $color-white;
+  left: 0;
+  height: 15%;
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 300;
+
+  .boat-compare-nav {
+    .label-container,
+    .button-container {
+      flex-direction: column;
+      font-family: $font-bold;
+      display: flex;
+      justify-content: center;
+    }
+
+    .label-container {
+      text-align: center;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .boat-compare-nav-body {
+      display: none;
+    }
+  }
+}
+
+.modal-compare .modal-content {
+  background: $color-gray-dark;
+  box-sizing: border-box;
+  color: $color-white;
+  left: 0;
+  height: 100%;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.compare-wrapper {
+  .compare-back-link {
+    display: block;
+    margin-top: 5px;
+
+    .icon {
+      font-size: 0.9em;
+      margin-right: 5px;
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  .compare-header {
+    margin-top: 40px;
+
+    .statistics-header {
+      align-items: flex-end;
+      display: flex;
+    }
+  }
+
+  .compare-header-empty-holder {
+    flex-grow: 1;
+  }
+
+  .compare-body {
+    border-bottom: solid 1px $color-gray;
+  }
+
+  .compare-header-item {
+    position: relative;
+  }
+
+  .compare-item-title {
+    @include font-size($font-size-body-copy-xsmall);
+
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .compare-row {
+    min-height: 80px;
+  }
+
+  .compare-value {
+    border-left: solid 1px $color-gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    ul {
+      width: 100%;
+    }
+  }
+
+  .compare-filter-title {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      font-size: 2.75em;
+      margin-right: 20px;
+    }
+  }
+}
+
+.compare-desktop {
+  display: none;
+}
+
+//
+// Responsive breakpoints
+//
+
+// Desktop and Above: > 992px
+
+@include media-breakpoint-up(lg) {
+  .boat-compare {
+    height: auto;
+    top: auto;
+
+    .boat-compare-nav {
+      .label-container,
+      .button-container {
+        flex-direction: column;
+        font-family: $font-bold;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+
+        & > div,
+        .button {
+          position: relative;
+          top: -10px;
+        }
+      }
+
+      .label-container {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .boat-compare-nav-body {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .label-container,
+      .button-container {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .modal-compare .modal-content {
+    background: transparent;
+    color: $color-gray-dark;
+    left: auto;
+    height: auto;
+    padding: 0;
+    position: relative;
+    top: auto;
+    width: auto;
+    z-index: 0;
+  }
+
+  .compare-desktop {
+    display: block;
+
+    .compare-filter-title {
+      min-width: 235px;
+    }
+
+    .compare-header {
+      border-bottom: solid 2px $color-gray-darkest;
+    }
+  }
+
+  .js-mobile-compare {
+    display: none;
+  }
+}

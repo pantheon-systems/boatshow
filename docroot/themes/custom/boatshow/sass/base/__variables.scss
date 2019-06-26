@@ -1,0 +1,150 @@
+// Typography
+
+$font-fallback: 'Helvetica', sans-serif;
+
+$font-thin: 'Proxima Nova Thin', $font-fallback;
+$font-light: 'Proxima Nova Light', $font-fallback;
+$font-light-italic: 'Antenna-LightItalic', $font-fallback;
+$font-regular: 'Proxima Nova Regular', $font-fallback;
+$font-regular-italic: 'Proxima Nova RegularIT', $font-fallback;
+$font-semibold: 'Proxima Nova Semibold', $font-fallback;
+$font-semibold-italic: 'Proxima Nova SemiboldIT', $font-fallback;
+$font-bold: 'Proxima Nova Bold', $font-fallback;
+$font-bold-italic: 'Proxima Nova BoldIT', $font-fallback;
+$font-black: 'Proxima Nova Black', $font-fallback;
+
+// TODO: No Proxima Condensed available. If these vars aren't referenced anywhere
+// we should remove them.
+$font-condensed-medium: 'AntennaCond-Medium', $font-fallback;
+$font-condensed-black: 'AntennaCond-Black', $font-fallback;
+
+// Colors - General
+
+$color-header-bg: rgba(0, 0, 0, 0.4);
+
+// Colors - Text
+
+$color-white: #fff;
+$color-aqua: #00a4c6;
+$color-blue: #004e9c;
+$color-yellow: #fbc441;
+$color-gray-light: #e7e5e5;
+$color-gray: #d8d8d8;
+$color-gray-medium: #a2a2a2;
+$color-gray-dark: #303b41;    // Default
+$color-gray-darkest: #1c1b1f;
+$color-status-green: #379811;
+$color-status-red: #d90a0a;
+
+// Colors - Forms
+
+$color-form-text-disabled: #c0c4c6;
+$color-form-text-placeholder: #979da0;
+
+$color-button-primary-fill: $color-status-red;
+$color-button-primary-text: $color-white;
+$color-button-primary-border: transparent;
+
+$color-button-secondary-fill: $color-white;
+$color-button-secondary-text: $color-gray-dark;
+// TODO: Make a color var for this gray.
+$color-button-secondary-border: #7f7f7f;
+
+$color-button-clear-fill: transparent;
+$color-button-clear-text: $color-white;
+$color-button-clear-border: $color-white;
+
+$color-button-hero-fill: rgba(0, 0, 0, 0.1);
+$color-button-hero-text: $color-white;
+$color-button-hero-border: $color-white;
+
+$color-button-disabled-fill: #d6d8d9;
+$color-button-disabled-text: #a3a9ac;
+$color-button-disabled-border: transparent;
+
+$color-input-default-fill: $color-white;
+$color-input-default-text: $color-gray-dark;
+$color-input-default-border: $color-gray;
+$color-input-default-border-focus: $color-aqua;
+$color-input-default-border-error: $color-status-red;
+
+$color-input-submittable-fill: $color-white;
+$color-input-submittable-text: $color-form-text-placeholder;
+$color-input-submittable-border: $color-gray;
+
+$color-input-submittable-clear-fill: transparent;
+$color-input-submittable-clear-border: $color-gray;
+
+$color-input-disabled-fill: $color-white;
+$color-input-disabled-border: $color-gray;
+
+$color-social-email: #8e1318;
+$color-social-facebook: #004e9c;
+$color-social-twitter: #00a6c9;
+$color-social-instagram: #517fa2;
+$color-social-google: #ef5947;
+$color-social-pinterest: #c92027;
+$color-social-youtube: #fc3432;
+
+// Colors - Ratings
+
+$color-star-yellow: #facf3d;
+
+// Colors - Borders
+
+$color-border-gray-transparent: rgba(189, 194, 199, 50);
+
+// Colors - Boat Finder
+
+$color-blue-gray: #f2f3f4;
+
+// Font Sizes
+
+$font-line-height-standard: 1.6em;
+
+// $font-size-body-copy: 16px;
+$font-size-body-copy-small: 14px;
+$font-size-body-copy-xsmall: 12px;
+
+$font-size-h1: 70px;
+$font-size-h1-small: 60px;
+
+$font-size-h2: 38px;
+$font-size-h2-small: 32px;
+
+$font-size-h3: 30px;
+$font-size-h3-small: 24px;
+
+$font-size-h4: 26px;
+$font-size-h4-small: 20px;
+
+$font-size-h5: 20px;
+$font-size-h5-small: 14px;
+
+$font-size-article-headline: 16px;
+$font-size-article-headline-small: 14px;
+$font-size-article-headline-xsmall: 10px;
+
+$font-size-quote: 24px;
+
+$font-size-button: 16px;
+$font-size-button-small: 13px;
+$font-size-button-xsmall: 12px;
+
+$font-size-input: 10px;
+$font-size-input-large: 12px;
+$font-size-input-xlarge: 14px;
+
+// Dimensions
+
+$dimension-button-width: 242px;
+
+$dimension-button-height: 52px;
+$dimension-button-height-small: 44px;
+$dimension-button-height-xsmall: 36px;
+
+$dimension-input-height: 36px;
+$dimension-input-height-large: 46px;
+$dimension-input-height-xlarge: 56px;
+
+$dimension-header-height: 70px;

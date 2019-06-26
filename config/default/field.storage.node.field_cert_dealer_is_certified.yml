@@ -1,0 +1,18 @@
+uuid: 9776a831-fd37-4cb0-a6fd-f9cb8f6f4230
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_cert_dealer_is_certified
+field_name: field_cert_dealer_is_certified
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

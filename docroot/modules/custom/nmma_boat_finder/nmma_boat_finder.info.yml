@@ -1,0 +1,7 @@
+name: 'NMMA Boat Finder'
+type: module
+description: 'Custom Boat Finder Application'
+core: 8.x
+package: 'NMMA'
+dependencies:
+  - knockout

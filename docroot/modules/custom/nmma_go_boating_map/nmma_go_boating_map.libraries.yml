@@ -1,0 +1,23 @@
+google_maps:
+  js:
+    https://maps.google.com/maps/api/js?v=3&libraries=places&key=AIzaSyCDlZzpLTpVIxteGhmpaA2Iglm0_zp_dbg&noCache=2018-03-13: {type: external}
+boating_map_util:
+  js:
+    js/boatingMapUtil.js: {}
+  dependencies:
+    - core/jquery
+    - clientside_validation_jquery/jquery.validate
+boating_map:
+  version: VERSION
+  js:
+    js/goBoatingTodayViewModel.js: {}
+    js/boatingMapCore.js: {}
+    js/boatingMapMain.js: {}
+  dependencies:
+    - knockout/knockout
+    - core/jquery
+    - core/jquery.ui
+    - core/jquery.ui.widget
+    - core/jquery.ui.tabs
+    - nmma_go_boating_map/google_maps
+    - nmma_go_boating_map/boating_map_util

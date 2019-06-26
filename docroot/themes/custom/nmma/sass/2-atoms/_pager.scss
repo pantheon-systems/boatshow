@@ -1,0 +1,37 @@
+nav.pager {
+  margin: 20px auto;
+  width: 100%;
+  
+  .pager__items {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .pager__item--previous {
+      margin-right: 20px;
+    }
+
+    .pager__item {
+      margin-right: 10px;
+    }
+  } 
+}
+
+//
+// Responsive breakpoints
+//
+
+// Tablet: > 768px
+
+@include media-breakpoint-up(md) {
+  nav.pager {
+    .pager__items {
+      margin-left: 25%;
+      width: 50%;
+    }
+
+    .pager__item {
+      margin-right: 20px;
+    }
+  }
+}

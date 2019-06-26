@@ -1,0 +1,31 @@
+uuid: c6e4c2ee-eae0-45fb-856f-9556bab0b01e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.accessory_types.field_nmma_term_id
+    - taxonomy.vocabulary.accessory_types
+  module:
+    - text
+id: taxonomy_term.accessory_types.default
+targetEntityType: taxonomy_term
+bundle: accessory_types
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_nmma_term_id:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true

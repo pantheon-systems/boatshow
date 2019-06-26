@@ -1,0 +1,182 @@
+local:
+  uri: discoverboat
+chicago-dev:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: discoverboat
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
+atlanta-dev:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: atlanta
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
+nashville-dev:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: nashville
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
+kansascity-dev:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: kansascity
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
+newyork-dev:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: newyork
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
+louisville-dev:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: louisville
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
+baltimore-dev:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: baltimore
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
+minneapolis-dev:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: minneapolis
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
+stlouis-dev:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: stlouis
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
+newengland-dev:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: newengland
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
+atlanticcity-dev:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: atlanticcity
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
+northwest-dev:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: northwest
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
+chicago-test:
+  root: /var/www/html/discoverboat.test/docroot
+  uri: discoverboat
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.test
+atlanta-test:
+  root: /var/www/html/discoverboat.test/docroot
+  uri: atlanta
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.test
+nashville-test:
+  root: /var/www/html/discoverboat.test/docroot
+  uri: nashville
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.test
+kansascity-test:
+  root: /var/www/html/discoverboat.test/docroot
+  uri: kansascity
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.test
+newyork-test:
+  root: /var/www/html/discoverboat.test/docroot
+  uri: newyork
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.test
+louisville-test:
+  root: /var/www/html/discoverboat.test/docroot
+  uri: louisville
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.test
+baltimore-test:
+  root: /var/www/html/discoverboat.test/docroot
+  uri: baltimore
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.test
+minneapolis-test:
+  root: /var/www/html/discoverboat.test/docroot
+  uri: minneapolis
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.test
+stlouis-test:
+  root: /var/www/html/discoverboat.test/docroot
+  uri: stlouis
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.test
+newengland-test:
+  root: /var/www/html/discoverboat.test/docroot
+  uri: newengland
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.test
+atlanticcity-test:
+  root: /var/www/html/discoverboat.test/docroot
+  uri: atlanticcity
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.test
+northwest-test:
+  root: /var/www/html/discoverboat.test/docroot
+  uri: northwest
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.test
+chicago-prod:
+  root: /var/www/html/discoverboat.prod/docroot
+  uri: discoverboat
+  host: ded-29722.prod.hosting.acquia.com
+  user: discoverboat.prod
+atlanta-prod:
+  root: /var/www/html/discoverboat.prod/docroot
+  uri: atlanta
+  host: ded-29722.prod.hosting.acquia.com
+  user: discoverboat.prod
+nashville-prod:
+  root: /var/www/html/discoverboat.prod/docroot
+  uri: nashville
+  host: ded-29722.prod.hosting.acquia.com
+  user: discoverboat.prod
+kansascity-prod:
+  root: /var/www/html/discoverboat.prod/docroot
+  uri: kansascity
+  host: ded-29722.prod.hosting.acquia.com
+  user: discoverboat.prod
+newyork-prod:
+  root: /var/www/html/discoverboat.prod/docroot
+  uri: newyork
+  host: ded-29722.prod.hosting.acquia.com
+  user: discoverboat.prod
+louisville-prod:
+  root: /var/www/html/discoverboat.prod/docroot
+  uri: louisville
+  host: ded-29722.prod.hosting.acquia.com
+  user: discoverboat.prod
+baltimore-prod:
+  root: /var/www/html/discoverboat.prod/docroot
+  uri: baltimore
+  host: ded-29722.prod.hosting.acquia.com
+  user: discoverboat.prod
+minneapolis-prod:
+  root: /var/www/html/discoverboat.prod/docroot
+  uri: minneapolis
+  host: ded-29722.prod.hosting.acquia.com
+  user: discoverboat.prod
+stlouis-prod:
+  root: /var/www/html/discoverboat.prod/docroot
+  uri: stlouis
+  host: ded-29722.prod.hosting.acquia.com
+  user: discoverboat.prod
+newengland-prod:
+  root: /var/www/html/discoverboat.prod/docroot
+  uri: newengland
+  host: ded-29722.prod.hosting.acquia.com
+  user: discoverboat.prod
+atlanticcity-prod:
+  root: /var/www/html/discoverboat.prod/docroot
+  uri: atlanticcity
+  host: ded-29722.prod.hosting.acquia.com
+  user: discoverboat.prod
+northwest-prod:
+  root: /var/www/html/discoverboat.prod/docroot
+  uri: northwest
+  host: ded-29722.prod.hosting.acquia.com
+  user: discoverboat.prod

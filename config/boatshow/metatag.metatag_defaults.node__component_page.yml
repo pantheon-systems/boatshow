@@ -1,0 +1,8 @@
+uuid: af9a9150-547b-4e93-8eae-402422d6c012
+langcode: en
+status: true
+dependencies: {  }
+id: node__component_page
+label: 'Content: Component Page'
+tags:
+  title: '[node:title] | [site:name]'

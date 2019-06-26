@@ -1,0 +1,47 @@
+<div class="col-12-xs col-12-sm col-4-md">
+  <div class="article-stack">
+    <h4 class="small">From the <a href="#">Video Library <i class="icon icon-db-arrow-right"></i></a></h4>
+    
+    <div class="play-block flex-container">
+      <div class="col-6-xs">
+        <a href="">
+          <div class="image curve-corner">
+            <div style="background-image: url(../templates/styleguide/builder/assets/grid-image.png);"></div>
+            {% if video %}
+              <div class="play-container">
+                <i class="icon icon-db-video-play"></i>
+              </div>
+            {% endif %}
+          </div>
+        </a>
+      </div>
+      <div class="link-container col-6-xs">
+        <a href="#" class="text-xsmall">Five Tips for First Time Wakesurfers</a>
+        {% if not video %}
+          <span class="byline text-xsmall">DATE 2018 | Author Name</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="play-block flex-container">
+      <div class="col-6-xs">
+        <a href="">
+          <div class="image curve-corner">
+            <div style="background-image: url(../templates/styleguide/builder/assets/grid-image.png);"></div>
+            {% if video %}
+              <div class="play-container">
+                <i class="icon icon-db-video-play"></i>
+              </div>
+            {% endif %}
+          </div>
+        </a>
+      </div>
+      <div class="link-container col-6-xs">
+        <a href="#" class="text-xsmall">Five Tips for First Time Wakesurfers</a>
+        {% if not video %}
+          <span class="byline text-xsmall">DATE 2018 | Author Name</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<?php
+
+/**
+ * @file
+ * Contains nmma_loan_calculator.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function nmma_loan_calculator_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the nmma_loan_calculator module.
+    case 'help.page.nmma_loan_calculator':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides custom loan calculator block and js.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function nmma_loan_calculator_theme() {
+  return [
+    'loan_calculator' => [
+      'variables' => [
+        'loan_term' => [
+          'lower_boundary' => 0,
+          'upper_boundary' => 20,
+        ],
+        'interest_rate' => [
+          'lower_boundary' => 0,
+          'upper_boundary' => 15,
+        ],
+      ],
+      'template' => 'loan-calculator',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function nmma_loan_calculator_preprocess_loan_calculator(&$variables) {
+
+  // Interest Rate.
+  $interest_rate_render = [
+    '#type' => 'select',
+    '#options' => [],
+    '#attributes' => [
+      'id' => 'interest-rate',
+      'name' => 'interest-rate',
+      'class' => ['select-main', 'chosen-select'],
+    ],
+  ];
+
+  // Loan term.
+  $loan_term_render = [
+    '#type' => 'select',
+    '#options' => [],
+    '#attributes' => [
+      'id' => 'loan-term',
+      'name' => 'loan-term',
+      'class' => ['select-main', 'chosen-select'],
+    ],
+  ];
+
+  $amount_interest_rate_render = [
+    '#type' => 'select',
+    '#options' => [],
+    '#attributes' => [
+      'id' => 'amount-interest-rate',
+      'name' => 'interest-rate',
+      'class' => ['select-main', 'chosen-select'],
+    ],
+  ];
+
+  $amount_loan_term_render = [
+    '#type' => 'select',
+    '#options' => [],
+    '#attributes' => [
+      'id' => 'amount-loan-term',
+      'name' => 'loan-term',
+      'class' => ['select-main', 'chosen-select'],
+    ],
+  ];
+
+  // Interest rates.
+  $interest_rate_opts = [];
+  $rates = $variables['interest_rate']['upper_boundary'] / 0.125;
+  for ($i = $variables['interest_rate']['lower_boundary']; $i <= $rates; $i++) {
+    $x = number_format($i * 0.125, 3);
+    $interest_rate_opts[strval($x)] = number_format($i * 0.125, 3);
+  }
+
+  // Loan term opts.
+  $loan_term_opts = [];
+  for ($i = $variables['loan_term']['lower_boundary']; $i <= $variables['loan_term']['upper_boundary']; $i++) {
+    $loan_term_opts[$i] = $i;
+  }
+
+  $interest_rate_render['#options'] = $interest_rate_opts;
+  $loan_term_render['#options'] = $loan_term_opts;
+  $amount_interest_rate_render['#options'] = $interest_rate_opts;
+  $amount_loan_term_render['#options'] = $loan_term_opts;
+
+  $variables['interest_rate_render'] = $interest_rate_render;
+  $variables['loan_term_render'] = $loan_term_render;
+  $variables['amount_interest_rate_render'] = $amount_interest_rate_render;
+  $variables['amount_loan_term_render'] = $amount_loan_term_render;
+}

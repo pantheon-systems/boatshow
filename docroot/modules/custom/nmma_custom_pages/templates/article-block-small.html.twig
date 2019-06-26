@@ -1,0 +1,19 @@
+{% if entity is not empty %}
+  <div class="col-12-xs col-12-sm col-4-md">
+    <div class="article-block--small">
+      <a href="{{ url }}" data-gtm-tracking="Navigation - {{ title }} - Featured Inline">
+        <div class="image curve-corner">
+          <div {% if image is not empty %} style="background-image: url({{ image }});"{% endif %}></div>
+        </div>
+        <div class="title">
+          {% if title is not empty %}
+            <span class="headline">
+              {{ title }}
+            </span>
+          {% endif %}
+          <span class="byline text-xsmall">Published on {{ created }}{% if author is not empty %} | {{ author }}{% endif %}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+{% endif %}

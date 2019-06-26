@@ -1,0 +1,484 @@
+form {
+  .form-item {
+    //padding: 0;
+  }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+  @include font-size($font-size-input);
+
+  background-color: $color-input-default-fill;
+  border: 1px solid $color-input-default-border;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: $color-input-default-text;
+  display: block;
+  font-family: $font-light;
+  height: $dimension-input-height;
+  outline: none;
+  padding: 0 10px;
+  transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
+  width: 100%;
+
+  &.large {
+    @include font-size($font-size-input-large);
+  }
+
+  &.xlarge {
+    @include font-size($font-size-input-xlarge);
+  }
+
+  &[disabled] {
+    color: $color-form-text-disabled;
+  }
+
+  &[readonly] {
+    &:hover,
+    &:focus {
+      border-color: $color-input-default-border;
+    }
+  }
+
+  &:focus {
+    border-color: $color-input-default-border-focus;
+    box-shadow: 0 1 3px $color-gray;
+  }
+}
+
+textarea {
+  line-height: 2.8;
+  height: auto;
+}
+
+input[type="file"],
+input[type="checkbox"],
+input[type="radio"],
+select {
+  margin: 0 0 1em;
+}
+
+input[type="file"] {
+  width: 100%;
+}
+
+.error {
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  textarea {
+    border-color: $color-status-red;
+
+    &:focus {
+      border-color: $color-gray-dark;
+    }
+  }
+}
+
+.error input:focus,
+.error textarea:focus,
+.error select:focus {
+  background: $color-gray-light;
+  border-color: $color-gray;
+}
+
+.error label,
+.error label.error {
+  color: $color-status-red;
+}
+
+.error > small,
+.error small.error {
+  background: $color-status-red;
+  color: #fff;
+  display: block;
+  font-size: 0.75em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  margin-top: 0;
+  padding: 0.375em 0.25em;
+}
+
+.error span.error-message {
+  color: $color-status-red;
+  display: block;
+  font-size: 14px;
+  font-size: rem-calc(14px);
+  line-height: 1;
+  margin-top: 10px;
+  padding: 0 20px;
+}
+
+input.error,
+textarea.error {
+  background-color: rgba(198, 15, 19, 0.1);
+  border-color: $color-status-red;
+  margin-bottom: 0;
+}
+
+input.error:focus,
+textarea.error:focus {
+  background: $color-gray-light;
+  border-color: $color-gray;
+}
+
+.error select {
+  background-color: rgba(198, 15, 19, 0.1);
+  border-color: $color-status-red;
+}
+
+.error select:focus {
+  background: $color-gray-light;
+  border-color: $color-gray;
+}
+
+label.error {
+  color: $color-status-red;
+  line-height: 1rem;
+  padding-left: rem-calc(12px);
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-family: $font-light-italic;
+  color: $color-form-text-disabled;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  font-family: $font-light-italic;
+  color: $color-form-text-disabled;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+  font-family: $font-light-italic;
+  color: $color-form-text-disabled;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  font-family: $font-light-italic;
+  color: $color-form-text-disabled;
+}
+
+.js input.form-autocomplete {
+  background: $color-white;
+}
+
+// Custom Fields - Submittable Input
+
+.submit-input-field {
+  display: flex;
+  position: relative;
+
+  .icon {
+    background-color: $color-aqua;
+    border: 1px solid $color-aqua;
+    border-radius: 0 3px 3px 0;
+    box-sizing: border-box;
+    color: $color-white;
+    height: $dimension-input-height;
+    padding: 9px 0 0 11px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.2s ease-in;
+    width: $dimension-input-height;
+
+    &.icon-db-search {
+      padding: 8px 0 0 10px;
+    }
+  }
+
+  .articles-resources-search-button {
+    .icon {
+      &.icon-db-search {
+        padding: 8px 0 0;
+      }
+    }
+  }
+
+  [type="submit"],
+  button {
+    background-color: transparent;
+    border: 0;
+    height: $dimension-input-height;
+    padding: 0;
+    width: $dimension-input-height;
+    z-index: 2;
+
+    &:hover {
+      background-color: transparent;
+
+      & ~ .icon {
+        background-color: $color-input-submittable-fill;
+        color: $color-aqua;
+      }
+    }
+
+    [disabled],
+    &:disabled,
+    &.disabled {
+      background: transparent;
+
+      & ~ .icon {
+        background-color: $color-gray;
+        border-color: $color-gray;
+        color: $color-button-disabled-text;
+      }
+    }
+  }
+
+  [type="text"] {
+    border: 1px solid $color-input-submittable-border;
+    border-right: none;
+    border-radius: 3px 0  0 3px;
+
+    &:focus {
+      & ~ .icon {
+        border-color: $color-aqua;
+      }
+    }
+  }
+}
+
+.submit-input-field--clear {
+  @extend .submit-input-field;
+
+  [type="text"] {
+    background-color: $color-input-submittable-clear-fill;
+    border: 1px solid $color-input-submittable-clear-border;
+  }
+}
+
+.submit-input-field--map {
+  @extend .submit-input-field;
+
+  .icon-db-location {
+    background-color: $color-white;
+    border: 1px solid $color-gray;
+    border-radius: 3px 0 0 3px;
+    color: $color-aqua;
+    left: 0;
+    padding-top: 11px;
+  }
+
+  [type="text"] {
+    padding-left: $dimension-input-height + 10px;
+    border-radius: 3px;
+  }
+
+  [type="submit"],
+  button {
+    position: absolute;
+  }
+
+  button {
+    left: 0;
+
+    &:hover {
+      & ~ .icon-db-search {
+        background-color: $color-aqua;
+        color: $color-white;
+      }
+
+      & ~ .icon-db-location {
+        background-color: $color-aqua;
+        color: $color-white;
+      }
+    }
+  }
+
+  [type="submit"] {
+    right: 0;
+    top: 0;
+
+    &:hover {
+      & ~ .icon-db-location {
+        background-color: $color-white;
+        color: $color-aqua;
+      }
+    }
+  }
+}
+
+// Custom Fields - Checkboxes and Radios
+
+.toggle-wrapper {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 22px;
+  padding-left: 30px;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  i {
+    background-color: $color-white;
+    border: 1px solid $color-gray;
+    height: 20px;
+    width: 20px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    transition: all 0.2s ease-in;
+
+    &::before {
+      color: $color-aqua;
+      display: none;
+      height: 10px;
+      line-height: 12px;
+      width: 5px;
+      left: 4px;
+      top: 4px;
+      position: absolute;
+    }
+  }
+
+  input {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+
+    &:checked ~ i::before {
+      display: block;
+    }
+
+    &[type="checkbox"] {
+      & ~ i {
+        border-radius: 3px;
+      }
+    }
+
+    &[type="radio"] {
+      & ~ i {
+        border-radius: 50%;
+        font-size: 13px;
+      }
+    }
+  }
+
+  &.active input,
+  input:checked {
+    & ~ i::before {
+      display: block;
+    }
+
+    &[type="checkbox"] {
+      & ~ i {
+        background-color: $color-aqua;
+
+        &::before {
+          color: $color-white;
+        }
+      }
+    }
+  }
+}
+
+// Custom Fields - Overrides for jQyuery Chosen Select Dropdown
+.chosen-container {
+  .chosen-single {
+    @include font-size($font-size-input);
+
+    background: $color-input-default-fill;
+    border: 1px solid $color-input-default-border;
+    border-radius: 3px;
+    box-shadow: none;
+    display: flex;
+    font-family: $font-light;
+    height: $dimension-input-height;
+    align-items: center;
+
+    div {
+      display: none;
+      top: auto;
+      width: 25px;
+      height: 25px;
+    }
+
+    i {
+      color: $color-aqua;
+      position: absolute;
+      right: 10px;
+      top: 12px;
+    }
+  }
+
+  &.chosen-container-active {
+    .chosen-single {
+      border-color: $color-input-default-border;
+      background: $color-input-default-fill;
+    }
+  }
+
+  .chosen-drop {
+    font-family: $font-light;
+    border: 1px solid $color-input-default-border;
+  }
+
+  // Fixes weird IE11 bug with readonly input field
+  .chosen-single input[type=text] {
+    display: none;
+  }
+
+  &.large .chosen-single {
+    @include font-size($font-size-input-large);
+
+    height: $dimension-input-height-large;
+
+    i {
+      top: 10px;
+    }
+  }
+
+  &.xlarge .chosen-single {
+    @include font-size($font-size-input-xlarge);
+
+    height: $dimension-input-height-xlarge;
+
+    i {
+      top: 15px;
+    }
+  }
+
+  &.block {
+    display: block;
+  }
+
+  &.wide {
+    width: 100% !important;
+  }
+}
+
+.chosen-container .chosen-results {
+  padding-top: 4px;
+
+  li {
+    &.highlighted {
+      background: $color-gray-light;
+      color: $color-gray-dark;
+    }
+  }
+}

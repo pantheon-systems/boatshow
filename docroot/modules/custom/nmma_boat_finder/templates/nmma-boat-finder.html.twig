@@ -1,0 +1,582 @@
+<div class="page-frame en-us" id="boat-selector">
+  <div class="boat-filter-block">
+    <div class="boat-filter-mobile">
+      <a data-bind="click: boatFinder.core.mobileFilters" href="#" class="js-mobile-filter-modal filter-modal-btn button--secondary">Search for Your Boat Now</a>
+      {#<a data-bind="click: comparison.CompareTrigger" href="#" class="js-compare-modal-link compare-modal-btn btn-secondary-small">Compare</a>#}
+      <div data-bind="'with': filters" class="boat-matches">
+        <div class="active-boats"><span data-bind="text: NumberOfActiveBoats"></span> Boats match your preferences</div>
+        <div>To compare features, check up to 4 boats below.</div>
+      </div>
+      <div style="display:none" class="compare-error">
+        <div class="inner">
+          <p data-bind="text: comparison.DesktopComparisonMessage"></p>
+        </div>
+      </div>
+    </div>
+    <!-- ko if: comparison.ComparableBoatsSelected -->
+    <div class="boat-compare clearfix">
+      <div class="container">
+      <div data-bind="css: comparison.OpenComparisonDockClass" class="js-boat-compare-nav boat-compare-nav flex-container">
+        <div class="label-container col-12-xs col-2-lg">
+          <div>
+            <span data-bind="html: comparison.ComparableBoatsLength">0</span> <span>of 4 Boat Types Selected</span>
+          </div>
+        </div>
+        <div class="boat-compare-nav-body col-12-xs col-8-lg flex-container">
+          <!-- ko foreach: comparison.ComparableBoatsViewModel  -->
+          <div data-bind="css: ActiveClass " class="compare-nav-item col-3-md">
+            <span class="compare-item">
+              <span data-bind="with:Boat" class="inner">
+                <div class="curve-corner--gray">
+                  <img data-bind="attr: { src: ImageUrl, alt: PluralName }">
+                </div>
+                <a data-bind="click: CompareTrigger" href="#" class="item-remove" title="Remove"><i class="icon icon-db-close"></i></a>
+                <a data-bind="text: PluralName, attr: { href: BoatDetailsUrl }" class="compare-item-title"></a>
+              </span>
+            </span>
+          </div>
+          <!-- /ko -->
+        </div>
+        <div class="button-container col-12-xs col-2-lg">
+          <a data-bind="css: comparison.CanBeComparedClass, click: comparison.CompareTrigger" href="#" class="js-compare-modal-link button">Compare</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /ko -->
+
+    <div data-bind="'with': filters" id="boat-filter" class="boat-filter clearfix">
+      <div class="filter-mobile-header">
+        <div class="filter-mobile-header-inner">
+          <div class="filter-items-count">
+            <div class="items-count" data-bind="text: NumberOfActiveBoats">22</div>
+            <div class="items-count-text"></div>
+          </div>
+          <a class="btn-secondary-small" href="#">apply filters</a>
+          <a href="#" class="js-mobile-filter-modal filter-close">Close</a>
+        </div>
+      </div>
+
+      <div class="boat-finder__tabs-wrapper">
+        <ul>
+          <li><h5><a href="#activities"><i class="icon icon-db-circle-activities-o"></i>Activities</a></h5></li>
+          <li><h5><a href="#passengers"><i class="icon icon-db-circle-passengers-o"></i>Passengers</a></h5></li>
+          <li><h5><a href="#boatlength"><i class="icon icon-db-circle-boat-o"></i>Boat Length</a></h5></li>
+          <li><h5><a href="#propulsion"><i class="icon icon-db-circle-propeller-o"></i>Propulsion</a></h5></li>
+          <li><h5><a href="#trailerable"><i class="icon icon-db-circle-trailer-o"></i>Trailerable</a></h5></li>
+        </ul>
+        <div id="activities">
+          <div class="filter-body">
+            <div class="filter-description">
+              <strong>What activities are you interested in</strong>
+            </div>
+            <div class="filter-options">
+              <ul data-bind="foreach: activityList" class="clearfix">
+                <li>
+                  <label data-bind="click: triggerClick, css: ActiveClass, attr: { 'data-gtm-tracking': GTM, 'data-id': Id, 'class': 'toggle-wrapper' }">
+                    <input type="checkbox" />
+                    <i class="icon icon-db-check"></i>
+                    <span data-bind="text: Name"></span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="passengers">
+          <div class="filter-body">
+            <div class="filter-description">
+              <strong>How many people do you want in your boat?</strong>
+            </div>
+            <div class="filter-options">
+              <div class="filter-range-option">
+                <div class="js-filter-passengers-slider"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="boatlength">
+          <div class="filter-body">
+            <div class="filter-description">
+              <strong>How long do you want boat to be?</strong>
+            </div>
+            <div class="filter-options">
+              <div class="filter-range-option">
+                <div class="js-filter-boat-length-slider"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="propulsion">
+          <div class="filter-body">
+            <div class="filter-description">
+              <strong>What types of engines are interested in?</strong>
+            </div>
+            <div class="filter-options">
+              <ul data-bind="foreach: propulsionList" class="clearfix">
+                <li>
+                  <label data-bind="click: triggerClick, css: ActiveClass, attr: { 'data-gtm-tracking': GTM, 'data-id': Id, 'class': 'toggle-wrapper' }">
+                    <input type="checkbox" />
+                    <i class="icon icon-db-check"></i>
+                    <span data-bind="text: Name"></span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="trailerable">
+          <div class="filter-body">
+            <div class="filter-description">
+              <strong>How do you want to transport your boat?</strong>
+            </div>
+            <div class="filter-options">
+              <ul data-bind="foreach: trailerabilityList" class="clearfix">
+                <li>
+                  <label data-bind="click: triggerClick, css: ActiveClass, attr: { 'data-gtm-tracking': GTM, 'data-id': Id, 'class': 'toggle-wrapper' }">
+                    <input type="checkbox" />
+                    <i class="icon icon-db-check"></i>
+                    <span data-bind="text: Name"></span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-bind="with: filters" class="boat-filter-keywords clearfix">
+      <!-- ko 'if': ShowReset -->
+      <strong class="filters-label">Filter</strong>
+      <!-- /ko -->
+
+      <!-- ko template: { name: 'filter-keyword', data: maxCapacity } -->
+      <!-- /ko -->
+
+      <!-- ko template: { name: 'filter-keyword', data: boatLength } -->
+      <!-- /ko -->
+
+      <!-- ko template: { name: 'filter-keyword', data: boatPrice } -->
+      <!-- /ko -->
+
+      <!-- ko template: { name: 'filter-keyword', foreach: activityList } -->
+      <!-- /ko -->
+
+      <!-- ko template: { name: 'filter-keyword', foreach: propulsionList } -->
+      <!-- /ko -->
+
+      <!-- ko template: { name: 'filter-keyword', foreach: trailerabilityList } -->
+      <!-- /ko -->
+    </div>
+
+    <div data-bind="with: filters" class="boat-filter-keywords clearfix">
+      <!-- ko 'if': ShowReset -->
+      <a data-bind="click: triggerFilterReset" href="#" class="btn-secondary-small btn-reset-filters">reset all</a>
+      <!-- /ko -->
+    </div>
+  </div>
+
+  <div class="page-inner clearfix">
+    <div class="main-content clearfix">
+      <div class="center-content">
+        <div class="user-messaging" data-bind="visible: widenSearchMessageVisible()" style="display: none;">
+          <p>Sorry, your criteria did not return any results. Please widen your search....</p>
+        </div>
+        <div class="boat-item-boxes" id="boats-container">
+          <!-- ko template: { name: 'boat-template', foreach: boatList, afterRender: BoatsAfterRender } -->
+          <!-- /ko -->
+          <div class="spacer boat-item-box col-12-xs col-6-sm col-4-md"></div>
+          <div class="loading-wrapper">
+            <div class="loading-big">
+              Loading...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/html" id="compare-modal-content">
+  <div data-bind="'with': comparison" id="compare-wrapper" class="compare-wrapper" style="display: none;">
+    <div class="compare-desktop">
+      <h2>Compare Boats</h2>
+      <a href="#" data-modal-control="close" class="compare-back-link"><i class="icon icon-db-arrow-left"></i> Back to Boat Finder</a>
+      <div class="compare-header flex-container">
+        <div class="statistics-header col-3-md">
+          <h4>Statistics</h4>
+        </div>
+        <div class="col-9-md items-container flex-container">
+          <!-- ko foreach: ComparableBoats  -->
+          <div class="compare-item col-12-xs col-3-lg">
+            <div class="curve-corner--gray--white-lg">
+              <img data-bind="attr: { src: ImageUrl, alt: PluralName }">
+            </div>
+            <a data-bind="click: CompareTrigger" href="#" class="item-remove" title="Remove"><i class="icon icon-db-close"></i></a>
+            <div class="compare-item-title">
+              <strong data-bind="text: PluralName">All-Purpose Fishing Boat</strong>
+            </div>
+          </div>
+          <!-- /ko -->
+          <!-- ko if: emptyComparisonSlot -->
+          <div class="compare-header-empty-holder">
+          </div>
+          <!-- /ko -->
+        </div>
+      </div>
+      <div class="compare-body">
+        <div class="compare-row flex-container">
+          <div class="compare-filter-title filter-activities col-3-md">
+            <i class="icon icon-db-circle-activities-o"></i> <h5 class="filter-header-title">Activities</h5>
+          </div>
+          <div class="col-9-md flex-container">
+          <!-- ko foreach: ComparableBoats  -->
+          <div class="compare-value col-3-md">
+            <ul data-bind="foreach: ActivityNames">
+              <li data-bind="text: $data"></li>
+            </ul>
+          </div>
+          <!-- /ko -->
+          <!-- ko if: emptyComparisonSlot -->
+          <div class="compare-header-empty-holder">
+          </div>
+          <!-- /ko -->
+          </div>
+        </div>
+        <div class="compare-row flex-container">
+          <div class="compare-filter-title filter-passengers col-3-md">
+            <i class="icon icon-db-circle-passengers-o"></i> <h5 class="filter-header-title">Passengers</h5>
+          </div>
+          <div class="flex-container col-9-md">
+          <!-- ko foreach: ComparableBoats  -->
+          <div class="compare-value col-3-md">
+            <span data-bind="text: MaxCapacityLabel"></span>
+          </div>
+          <!-- /ko -->
+          <!-- ko if: emptyComparisonSlot -->
+          <div class="compare-header-empty-holder">
+          </div>
+          <!-- /ko -->
+          </div>
+        </div>
+        <div class="compare-row flex-container">
+          <div class="compare-filter-title filter-boat-length col-3-md">
+            <i class="icon icon-db-circle-boat-o"></i> <h5 class="filter-header-title">Boat Length</h5>
+          </div>
+          <div class="col-9-md flex-container">
+          <!-- ko foreach: ComparableBoats  -->
+          <div class="compare-value col-3-md">
+            <span data-bind="html: LengthLabel"></span>
+          </div>
+          <!-- /ko -->
+          <!-- ko if: emptyComparisonSlot -->
+          <div class="compare-header-empty-holder">
+          </div>
+          <!-- /ko -->
+          </div>
+        </div>
+
+        <div class="compare-row flex-container">
+          <div class="compare-filter-title filter-propulsion col-3-md">
+            <i class="icon icon-db-circle-propeller-o"></i> <h5 class="filter-header-title">Propulsion</h5>
+          </div>
+          <div class="col-9-md flex-container">
+          <!-- ko foreach: ComparableBoats  -->
+          <div class="compare-value col-3-md">
+            <ul data-bind="foreach: PropulsionNames">
+              <li data-bind="text: $data"></li>
+            </ul>
+          </div>
+          <!-- /ko -->
+          <!-- ko if: emptyComparisonSlot -->
+          <div class="compare-header-empty-holder">
+          </div>
+          <!-- /ko -->
+          </div>
+
+        </div>
+        <div class="compare-row flex-container">
+          <div class="compare-filter-title filter-trailerable col-3-md">
+            <i class="icon icon-db-circle-trailer-o"></i> <h5 class="filter-header-title">Trailerable</h5>
+          </div>
+          <div class="col-9-md flex-container">
+          <!-- ko foreach: ComparableBoats  -->
+          <div class="compare-value col-3-md">
+            <span data-bind="text: TrailableLabel"></span>
+          </div>
+          <!-- /ko -->
+          <!-- ko if: emptyComparisonSlot -->
+          <div class="compare-header-empty-holder">
+          </div>
+          <!-- /ko -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="js-mobile-compare">
+      <div class="mobile-compare-header">
+        <div class="flex-container container">
+          <h3>Compare Boats</h3>
+          <a data-modal-control="close" href=""><i class="icon icon-db-close"></i></a>
+        </div>
+      </div>
+      <div class="mobile-compare-body">
+        <div class="js-mobile-compare-slider">
+          <div class="slide">
+            <div class="attribute-head">
+              <h4>Activities</h4>
+            </div>
+            <!-- ko foreach: ComparableBoats  -->
+            <div class="mobile-compare-item flex-container">
+              <div class="compare-item-boat">
+                <div class="curve-corner--gray--white-lg">
+                  <img data-bind="attr: { src: ImageUrl, alt: PluralName }">
+                </div>
+                <div class="compare-item-title">
+                  <span data-bind="text: PluralName">All-Purpose Fishing Boat</span>
+                </div>
+              </div>
+              <div class="mobile-compare-value">
+                <ul data-bind="foreach: ActivityNames">
+                  <li data-bind="text: $data"></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko if: emptyComparisonSlot -->
+            <div class="compare-header-empty-holder">
+              You have room for <span data-bind='text: slotsLeft'></span> more <span data-bind='text: slotsLeftPlural'></span> in your comparison dock.
+            </div>
+            <!-- /ko -->
+          </div>
+          <div class="slide">
+            <div class="attribute-head">
+              <h4>Max Capacity</h4>
+            </div>
+            <!-- ko foreach: ComparableBoats  -->
+            <div class="mobile-compare-item flex-container">
+              <div class="compare-item-boat">
+                <div class="curve-corner--gray--white-lg">
+                  <img data-bind="attr: { src: ImageUrl, alt: PluralName }">
+                </div>
+                <div class="compare-item-title">
+                  <span data-bind="text: PluralName">All-Purpose Fishing Boat</span>
+                </div>
+              </div>
+              <div class="mobile-compare-value">
+                <span data-bind="text: MaxCapacityLabel"></span>
+              </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko if: emptyComparisonSlot -->
+            <div class="compare-header-empty-holder">
+              You have room for <span data-bind='text: slotsLeft'></span> more <span data-bind='text: slotsLeftPlural'></span> in your comparison dock.
+            </div>
+            <!-- /ko -->
+          </div>
+          <div class="slide">
+            <div class="attribute-head">
+              <h4>Length</h4>
+            </div>
+            <!-- ko foreach: ComparableBoats  -->
+            <div class="mobile-compare-item flex-container">
+              <div class="compare-item-boat">
+                <div class="curve-corner--gray--white-lg">
+                  <img data-bind="attr: { src: ImageUrl, alt: PluralName }">
+                </div>
+                <div class="compare-item-title">
+                  <span data-bind="text: PluralName">All-Purpose Fishing Boat</span>
+                </div>
+              </div>
+              <div class="mobile-compare-value">
+                <span data-bind="html: LengthLabel"></span>
+              </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko if: emptyComparisonSlot -->
+            <div class="compare-header-empty-holder">
+              You have room for <span data-bind='text: slotsLeft'></span> more <span data-bind='text: slotsLeftPlural'></span> in your comparison dock.
+            </div>
+            <!-- /ko -->
+          </div>
+          <div class="slide">
+            <div class="attribute-head">
+              <h4>Propulsion</h4>
+            </div>
+            <!-- ko foreach: ComparableBoats  -->
+            <div class="mobile-compare-item flex-container">
+              <div class="compare-item-boat">
+                <div class="curve-corner--gray--white-lg">
+                  <img data-bind="attr: { src: ImageUrl, alt: PluralName }">
+                </div>
+                <div class="compare-item-title">
+                  <span data-bind="text: PluralName">All-Purpose Fishing Boat</span>
+                </div>
+              </div>
+              <div class="mobile-compare-value">
+                <ul data-bind="foreach: PropulsionNames">
+                  <li data-bind="text: $data"></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko if: emptyComparisonSlot -->
+            <div class="compare-header-empty-holder">
+              You have room for <span data-bind='text: slotsLeft'></span> more <span data-bind='text: slotsLeftPlural'></span> in your comparison dock.
+            </div>
+            <!-- /ko -->
+          </div>
+          <div class="slide">
+            <div class="attribute-head">
+              <h4>Trailerable</h4>
+            </div>
+            <!-- ko foreach: ComparableBoats  -->
+            <div class="mobile-compare-item flex-container">
+              <div class="compare-item-boat">
+                <div class="curve-corner--gray--white-lg">
+                  <img data-bind="attr: { src: ImageUrl, alt: PluralName }">
+                </div>
+                <div class="compare-item-title">
+                  <span data-bind="text: PluralName">All-Purpose Fishing Boat</span>
+                </div>
+              </div>
+              <div class="mobile-compare-value">
+                <span data-bind="html: TrailableLabel"></span>
+              </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko if: emptyComparisonSlot -->
+            <div class="compare-header-empty-holder">
+              You have room for <span data-bind='text: slotsLeft'></span> more <span data-bind='text: slotsLeftPlural'></span> in your comparison dock.
+            </div>
+            <!-- /ko -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type='text/template' id='boat-template'>
+  <div data-bind='visible: IsVisible' class='boat-item-box col-12-xs col-6-sm col-4-md'>
+    <a data-bind='attr: { href: BoatDetailsUrl }'>
+      <div class='curve-corner'>
+        <img data-bind='attr: { src: ImageUrl, alt: PluralName }'>
+      </div>
+      <h5 class='icon icon-db-arrow-right'><span data-bind='text:PluralName'></span></h5>
+    </a>
+    <div class='boat-item-box-actions'>
+      <a data-bind='css: ComparisonActiveClass, click: OpenComparison' href='#' class='boat-item-box-compare'>
+        <i class='icon icon-db-circle-plus-o'></i><span data-bind='text: CompareLabel'>Compare</span>
+      </a>
+    </div>
+  </div>
+</script>
+
+<script type='text/template' id='filter-keyword'>
+  <!-- ko if: IsActiveFilter -->
+  <span class='filter-keyword button'>
+    <span data-bind='text:CompareLabel' class='filter-keyword-title'></span>
+    <a data-bind="attr: { 'data-gtm-tracking': RemoveFilterGTM }, click: removeFilter" class='filter-keyword-remove' href='#'><i class='icon icon-db-close'></i></a>
+  </span>
+  <!-- /ko -->
+</script>
+
+<script type="text/template" id='mobile-filters'>
+  <div data-bind="'with': filters" id="mobile-filters-wrapper">
+    <div class="mobile-filters-header">
+      <div class="flex-container container">
+        <div data-modal-control="close" class="button">Apply Filters</div>
+        <div data-modal-control="close"><i class="icon icon-db-close"></i></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="boat-matches-top"><span data-bind="text: NumberOfActiveBoats"></span> Boats match your preferences</div>
+      <div>
+        <div class="mobile-filter-option" id="activities">
+          <div class="filter-body">
+            <div class="filter-description">
+              <h3>Activities</h3>
+            </div>
+            <div class="filter-options">
+              <ul data-bind="foreach: activityList" class="clearfix">
+                <li>
+                  <label data-bind="click: triggerClick, css: ActiveClass, attr: { 'data-id': Id }">
+                    <input type="checkbox" />
+                    <i class="icon icon-db-check"></i>
+                    <span data-bind="text: Name"></span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-filter-option" id="passengers">
+          <div class="filter-body">
+            <div class="filter-description">
+              <h3>Number of Passengers</h3>
+            </div>
+            <div class="filter-options">
+              <div class="filter-range-option">
+                <div class="js-filter-mobile-passengers-slider"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-filter-option" id="boatlength">
+          <div class="filter-body">
+            <div class="filter-description">
+              <h3>Boat Length</h3>
+            </div>
+            <div class="filter-options">
+              <div class="filter-range-option">
+                <div class="js-filter-mobile-boat-length-slider"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-filter-option" id="propulsion">
+          <div class="filter-body">
+            <div class="filter-description">
+              <h3>Engine Types</h3>
+            </div>
+            <div class="filter-options">
+              <ul data-bind="foreach: propulsionList" class="clearfix">
+                <li>
+                  <label data-bind="click: triggerClick, css: ActiveClass, attr: { 'data-id': Id }">
+                    <input type="checkbox" />
+                    <i class="icon icon-db-check"></i>
+                    <span data-bind="text: Name"></span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-filter-option" id="trailerable">
+          <div class="filter-body">
+            <div class="filter-description">
+              <h3>Transportation</h3>
+            </div>
+            <div class="filter-options">
+              <ul data-bind="foreach: trailerabilityList" class="clearfix">
+                <li>
+                  <label data-bind="click: triggerClick, css: ActiveClass, attr: { 'data-id': Id }">
+                    <input type="checkbox" />
+                    <i class="icon icon-db-check"></i>
+                    <span data-bind="text: Name"></span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-filters-footer">
+        <div class="boat-matches-bottom"><span data-bind="text: NumberOfActiveBoats"></span> Boats match your preferences</div>
+        <div><button data-modal-control="close" class="button">Apply Filters</button></div>
+      </div>
+    </div>
+  </div>
+</script>

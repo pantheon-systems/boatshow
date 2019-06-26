@@ -1,0 +1,117 @@
+.hero {
+  @include font-aliasing();
+
+  .slide {
+    align-items: center;
+    display: flex;
+    height: 400px; // TODO: remove this maybe?
+    text-align: center;
+
+    & > section {
+      align-items: center;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+    }
+
+    h1,
+    h2,
+    h5 {
+      color: $color-white;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
+
+      &.screen-md-up-hidden {
+        margin: 0 auto;
+        max-width: 300px;
+      }
+    }
+
+    h1 {
+      line-height: 1.25em;
+    }
+
+    h5 {
+      display: none;
+      margin-bottom: 40px;
+    }
+
+    a {
+      display: none;
+    }
+  }
+
+  .slick-dots {
+    bottom: 60px;
+    display: block;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+
+    li {
+      display: inline-block;
+
+      .slider-pager {
+        cursor: pointer;
+        display: inline-block;
+        height: 10px;
+        margin-left: 20px;
+        width: 10px;
+        border: 1px solid $color-white;
+        border-radius: 50%;
+        transition: all 0.2s ease-in;
+      }
+
+      &:first-child .slider-pager {
+        margin-left: 0;
+      }
+
+      &.slick-active {
+        .slider-pager {
+          background: $color-white;
+        }
+      }
+    }
+  }
+
+  &::after {
+    content: " ";
+    background: url('../images/header-curve.svg') no-repeat bottom;
+    background-size: 110%;
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+  }
+}
+
+//
+// Responsive breakpoints
+//
+
+// Tablet: > 768px
+
+@include media-breakpoint-up(md) {
+  .hero {
+    .slide {
+      height: 600px; // TODO: remove this maybe?
+
+      h5 {
+        display: block;
+      }
+
+      a {
+        display: inline-flex;
+      }
+    }
+
+    .slick-dots {
+      left: 40px;
+      width: auto;
+    }
+  }
+}

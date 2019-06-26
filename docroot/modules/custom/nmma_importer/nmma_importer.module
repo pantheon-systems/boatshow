@@ -1,0 +1,217 @@
+<?php
+
+/**
+ * @file
+ * Contains nmma_importer.module.
+ */
+
+use Drupal\migrate\MigrateExecutable;
+use Drupal\migrate\MigrateMessage;
+
+/**
+ * Update calls update Drupal content.
+ */
+
+/**
+ * Callback for Ultimate Cron update certified_mfrs content type.
+ */
+function nmma_importer_cert_mfrs_update_cron() {
+  nmma_importer_content_update('cert_mfrs');
+}
+
+/**
+ * Callback for Ultimate Cron update certified dealers.
+ */
+function nmma_importer_cert_dlrs_update_cron() {
+  nmma_importer_content_update('cert_dlrs');
+}
+
+/**
+ * Callback for Ultimate Cron update business content type.
+ */
+function nmma_importer_business_update_cron() {
+  nmma_importer_content_update('brands_en');
+  nmma_importer_content_update('business');
+}
+
+/**
+ * Callback for Ultimate Cron update youth programs content type.
+ */
+function nmma_importer_youth_programs_update_cron() {
+  nmma_importer_content_update('youthprograms');
+}
+
+/**
+ * Callback for Ultimate Cron update accessories content type.
+ */
+function nmma_importer_accessories_update_cron() {
+  nmma_importer_content_update('acc_terms');
+  nmma_importer_content_update('acc_mfr');
+}
+
+/**
+ * Refresh calls update source json.
+ */
+
+/**
+ * Callback for Ultimate cron refresh certified mfr json.
+ */
+function nmma_importer_refresh_cert_mfrs_cron() {
+  nmma_importer_source_update('cert_mfrs');
+}
+
+/**
+ * Callback for Ultimate cron refresh certified mfr json.
+ */
+function nmma_importer_refresh_cert_dlrs_cron() {
+  nmma_importer_source_update('cert_dlrs');
+}
+
+/**
+ * Callback for Ultimate Cron refresh business json.
+ */
+function nmma_importer_refresh_businesses_cron() {
+  nmma_importer_source_update('brands');
+  nmma_importer_source_update('businesses');
+}
+
+/**
+ * Callback for Ultimate Cron refresh youth program json.
+ */
+function nmma_importer_refresh_youth_programs_cron() {
+  nmma_importer_source_update('youth_programs');
+}
+
+/**
+ * Callback for Ultimate cron refresh Accessories json.
+ */
+function nmma_importer_refresh_accessories_cron() {
+  nmma_importer_source_update('acc_terms');
+  nmma_importer_source_update('acc_mfrs');
+}
+
+/**
+ * Opens nmma_client service connection.
+ */
+function nmma_importer_source_update($target) {
+  $client = Drupal::service('nmma_importer.client');
+  try {
+    $method = 'get';
+    $endpoint = 'index.php';
+    $query = ['action' => $target];
+    $client->connect($method, $endpoint, $query);
+  }
+  catch (RequestException $e) {
+    \Drupal::logger('nmma_importer')
+      ->error('Failed to complete middleware request. "%error"', ['%error' => $e->getMessage()]);
+  }
+}
+
+/**
+ * Executes Migration import.
+ *
+ * @param string $type
+ *   Migration id: business, acc_mfr, acc_terms, youthprograms.
+ */
+function nmma_importer_content_update($type) {
+  $migration = \Drupal::service('plugin.manager.migration')
+    ->createInstance($type);
+  $migration->getIdMap()->prepareUpdate();
+  $executable = new MigrateExecutable($migration, new MigrateMessage());
+  $executable->import();
+  $executable->rollbackMissingItems();
+}
+
+/**
+ * Used as a callback process plugin value to create a valid link url.
+ *
+ * @param string $url
+ *   The URL for the link.
+ *
+ * @return string
+ *   The values needed for a link field.
+ */
+function nmma_importer_link_create($url) {
+  if ($url) {
+    if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+      $url = "http://" . $url;
+    }
+    return $url;
+  }
+}
+
+/**
+ * Used as a callback process plugin value to create a valid countryCode.
+ *
+ * @param string $country
+ *   The country.
+ *
+ * @return string
+ *   Suitable country code.
+ */
+function nmma_importer_country_create($country) {
+  if ($country) {
+    $code = $country == 'United States' ? 'US' : 'CA';
+  }
+  return $code;
+}
+
+/**
+ * Used as a callback process plugin value to create a valid countryCode.
+ *
+ * @param string $countryid
+ *   The country.
+ *
+ * @return string
+ *   Suitable country code.
+ */
+function nmma_importer_country_from_id($countryid) {
+  if ($countryid) {
+    $code = $countryid == '223' ? 'US' : 'CA';
+  }
+  return $code;
+}
+
+/**
+ * Used as a callback process plugin to return boat types.
+ *
+ * @param string $country
+ *   The country.
+ *
+ * @return string
+ *   Suitable country code.
+ */
+function nmma_importer_boat_types_lookup($typestring) {
+  $types = explode(';', $typestring);
+  $ids = _boat_type_ids();
+  $terms = [];
+  foreach ($types as $type) {
+    if (array_key_exists($type, $ids)) {
+      $terms[] = $ids[$type];
+    }
+  }
+  return $terms;
+}
+
+/**
+ * Helper function to return an array of nmma boat type ids.
+ *
+ * @return array
+ *   Array of term ids.
+ */
+function _boat_type_ids() {
+
+  // Load the taxonomy tree with special parameters.
+  $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree(
+    'boat_types',
+    0,
+    2,
+    TRUE
+  );
+
+  $results = [];
+  foreach ($tree as $term) {
+    $results[$term->field_boat_type_nmma_id->value] = $term->tid->value;
+  }
+  return $results;
+}

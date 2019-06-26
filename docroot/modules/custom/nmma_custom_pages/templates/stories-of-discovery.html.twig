@@ -1,0 +1,151 @@
+{#
+/**
+ * @file
+ * Stories of discovery page.
+ */
+#}
+
+<section class="page-content stories article flex-container">
+  <div class="main-content col-12-xs">
+    <h1 class="discover-landing-header">
+      A story of discovery is out there
+    </h1>
+
+    <div class="article-share">
+      <ul>
+        <li><span class="facebook"><i class="icon icon-db-social-facebook"></i></span></li>
+        <li><a href="https://twitter.com/intent/tweet?url={{ url('<current>') }}&text=Stories%20of%20Discovery" class="twitter"><i class="icon icon-db-social-twitter"></i></a></li>
+        <li><a class="email" href="mailto:?subject=Stories%20of%20Discovery" target="_blank" re="noopener noreferrer"><i class="icon icon-db-social-email"></i></a></li>
+      </ul>
+    </div>
+
+    {% set videos_large = [
+      {'video_id': 'KEpDt41aun8', 'image_src': 'https://www.discoverboating.com/shared-site/static/images/anthem-video.jpg', 'title': 'Discover your story', 'subtitle': ''}
+    ] %}
+
+    {% set videos_small = [
+      {'video_id': '1sSq8qONefI', 'image_src': 'https://www.discoverboating.com/shared-site/static/images/ashley-landing.jpg', 'title': 'Ashley Rae: a fishing tale', 'subtitle': 'Angler and blogger Ashley Rae shares her love of fishing and being on the water'},
+      {'video_id': 'KO59ybRcgOI', 'image_src': 'https://www.discoverboating.com/shared-site/static/images/norwitch-landing.jpg', 'title': 'Fishing for adventure', 'subtitle': 'The Norwich family turns every boat trip into a new adventure'},
+      {'video_id': 'yuQ3TllX42M', 'image_src': 'https://www.discoverboating.com/shared-site/static/images/ader-landing.jpg', 'title': 'A legacy of boating', 'subtitle': 'A legacy of boating that spans three generations'},
+      {'video_id': 'ES8_v0eyUqA', 'image_src': 'https://www.discoverboating.com/shared-site/static/images/justin-landing.jpg', 'title': 'Breaking barriers', 'subtitle': 'A tale of recovery by young wakeboarder Justin Caskey'},
+      {'video_id': 'QtUvYPJIXwM', 'image_src': 'https://www.discoverboating.com/shared-site/static/images/velasquez-landing.jpg', 'title': 'Connected by water', 'subtitle': 'The Vazquez family creates priceless memories with each boat trip'},
+    ] %}
+
+    {% set intagram_photos = [
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_119_@becky_macvicar.jpg', 'user': 'becky_macvicar'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_024_@erhdemirhan.jpg', 'user': 'erhdemirhan'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_042_@bones_1218.jpg', 'user': 'bones_1218'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_041_@gavin_giglio.jpg', 'user': 'gavin_giglio'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_065_@chelse_em.jpg', 'user': 'chelse_em'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_117_@ladycoelho.jpg', 'user': 'ladycoelho'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_069_@malcyway.jpg', 'user': 'malcyway'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_081_@hayleycooper86.jpg', 'user': 'hayleycooper86'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_005_@kim_kennedy125.jpg', 'user': 'kim_kennedy125'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_076_@brayden_guenzi.jpg', 'user': 'brayden_guenzi'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_046_@hell_n.jpg', 'user': 'hell_n'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_063_@emkaii.jpg', 'user': 'emkaii'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_008_@smbxo.jpg', 'user': 'smbxo'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_057_@namsteady.jpg', 'user': 'namsteady'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_055_@egohitman.jpg', 'user': 'egohitman'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_002_@katereallylives.jpg', 'user': 'katereallylives'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_019_@desi_photo.jpg', 'user': 'desi_photo'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_091_@d_dagan.jpg', 'user': 'd_dagan'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_036_@tddionne.jpg', 'user': 'tddionne'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_048_@1captainbill.jpg', 'user': '1captainbill'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_047_@infinitephotography00.jpg', 'user': 'infinitephotography00'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_086_@tedmaas.jpg', 'user': 'tedmaas'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_050_@cfujarski.jpg', 'user': 'cfujarski'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_030_@lxvleydxys.jpg', 'user': 'lxvleydxys'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_077_@drsams0n.jpg', 'user': 'drsams0n'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_104_@danny_brown9.jpg', 'user': 'danny_brown9'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_073_@cameeweezee.jpg', 'user': 'cameeweezee'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_089_@jacktmarriott.jpg', 'user': 'jacktmarriott'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_051__@lg1493.jpg', 'user': 'lg1493'},
+      {'image_src': '/modules/custom/nmma_custom_pages/assets/sod/shared-site--static--images--parallax--SODRegram_027_@florensjo.jpg', 'user': 'florensjo'}
+    ] %}
+
+    {% for video in videos_large %}
+    <div class="play-block js-video-modal" data-videoid="{{video.video_id}}" data-videocontainer="true">
+      <div class="image curve-corner">
+        <div style="background-image: url('{{video.image_src}}')"></div>
+        <div class="play-container">
+          <i class="icon icon-db-video-play"></i>
+        </div>
+        <div class="item-title">
+          <span>{{video.title}}</span>
+          {% if video.subtitle != '' %}
+            <p>{{video.subtitle}}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    <div class="col-12-xs text-center">
+      <br/>
+      <h2 class="your-story-title">Your story awaits! Go boating today and start a new story away from the shore.</h2>
+      <p>
+        <br/>
+        <a href="/buying/boat-finder" class="button--secondary">Find Boat Rentals</a>
+        <br/><br/>
+      </p>
+    </div>
+
+    <div class="flex-container">
+      {% for video in videos_small %}
+      <div class="col-12-xs col-6-md">
+        <div class="play-block--sm js-video-modal" data-videoid="{{video.video_id}}" data-videocontainer="true">
+          <div class="image curve-corner">
+            <div style="background-image: url('{{video.image_src}}')"></div>
+            <div class="play-container">
+              <i class="icon icon-db-video-play"></i>
+            </div>
+            <div class="item-title">
+              <span>{{video.title}}</span>
+              {% if video.subtitle != '' %}
+                <p>{{video.subtitle}}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+      <div class="col-12-xs col-6-md">
+        <blockquote>
+          <span>&ldquo;</span>
+          Every man's life ends the same way. It is only the details of how he lived and how he died that distinguish one man from another.
+          <span>&rdquo;</span><br/>
+          <div class="text-right">— ERNEST HEMINGWAY</div>
+        </blockquote>
+      </div>
+
+      <div class="col-12-xs text-center">
+        <br/><br/>
+        <h1>Share your boating adventures</h1>
+        <p>
+          <br/>
+          <strong>Use #discoverboating</strong>
+          <br/><br/>
+        </p>
+      </div>
+
+      {% for photo in intagram_photos %}
+      <div class="col-12-xs col-3-md">
+        <div class="photo" style="background-image: url({{photo.image_src}})">
+          <span>@{{photo.user}}</span>
+        </div>
+      </div>
+      {% endfor %}
+
+      <div class="col-12-xs text-center">
+        <p>
+          <br/>
+          <a href="/articles-and-resources" class="button--secondary">Explore More Stories</a>
+          <br/>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+

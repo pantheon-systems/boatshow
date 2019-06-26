@@ -1,0 +1,31 @@
+
+.megamenu--region {
+  background: $color-white;
+  border-bottom: solid 1px $color-gray;
+  display: none;
+  left: 0;
+  padding: 20px 0;
+  position: absolute;
+  top: $dimension-header-height;
+  width: 100%;
+
+  & > section {
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+
+  &.active {
+    display: block;
+
+    & > section {
+      opacity: 1;
+    }
+  }
+}
+
+.megamenu--region-1,
+.megamenu--region-2,
+.megamenu--region-3,
+.megamenu--region-4 {
+  @extend .megamenu--region;
+}

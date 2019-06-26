@@ -1,0 +1,18 @@
+{% set classes = [
+'node',
+'node--type-' ~ node.bundle|clean_class,
+view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+] %}
+<section class="page-content video-page">
+  <h2>{{ content.title }}</h2>
+  <div class="play-block">
+    <a href="" class="js-video-modal" data-videoid="{{ video_id }}" data-videocontainer="true">
+      <div class="image">
+        {{ content.field_video_url }}
+        <div class="play-container">
+          <i class="icon icon-db-video-play"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>

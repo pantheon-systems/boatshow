@@ -1,0 +1,263 @@
+///*
+// //Header Main Menu
+// //
+// //Header menus styling for main nav
+// //
+// //Markup: header.twig
+// //
+// //Style guide: components.header
+// */
+
+header.header {
+  @include font-aliasing();
+
+  align-items: center;
+  background: $color-header-bg;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: $dimension-header-height;
+  //margin-bottom: 20px;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+
+  .logo {
+    a {
+      display: block;
+    }
+
+    img {
+      image-rendering: auto;
+    }
+  }
+
+  .container {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .search-trigger {
+    margin-top: 8px;
+  }
+
+  .header__right {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    .mobile-trigger {
+      border-left: solid 1px $color-gray;
+      height: 20px;
+      margin-left: 10px;
+      padding: 6px 0 0 15px;
+      position: relative;
+      top: 2px;
+      width: 20px;
+
+      .icon-db-menu {
+        @include font-size(16px);
+      }
+    }
+
+    .search-bar {
+      background-color: $color-white;
+      box-sizing: border-box;
+      display: none;
+      left: 0;
+      position: absolute;
+      top: 70px;
+      width: 100%;
+      padding: 0 20px 20px;
+
+      .form-item {
+        padding: 0;
+      }
+
+      input[type="submit"] {
+        display: none;
+        visibility: hidden;
+      }
+
+      .submit-input-field {
+        .icon {
+          background-color: transparent;
+        }
+      }
+    }
+
+    .icon-db-close {
+      display: none;
+    }
+  }
+
+  .logo {
+    align-items: center;
+    display: flex;
+
+    a {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  img.logo-color {
+    display: none;
+  }
+
+  img.logo-white {
+    display: block;
+  }
+
+  nav.menu li.menu-item > a,
+  .mobile-trigger,
+  .search-trigger {
+    .icon {
+      color: $color-white;
+    }
+  }
+
+  &.drawer-open,
+  &.mobile-menu-active,
+  &.search-active,
+  &.open,
+  &.no-hero {
+    background-color: $color-white;
+
+    nav.menu li.menu-item > a,
+    .mobile-trigger,
+    .search-trigger {
+      .icon {
+        color: $color-aqua;
+      }
+    }
+
+    img.logo-white {
+      display: none;
+    }
+
+    img.logo-color {
+      display: block;
+    }
+  }
+
+  &.drawer-open {
+    background: $color-white;
+  }
+
+  &.mobile-menu-active {
+    .header__right {
+      .mobile-trigger {
+        .icon-db-menu {
+          display: none;
+        }
+
+        .icon-db-close {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  &.search-active {
+    .header__right {
+      .search-bar {
+        display: block;
+      }
+
+      nav.menu {
+        display: none;
+      }
+
+      .search-trigger {
+        .icon-db-search {
+          display: none;
+        }
+
+        .icon-db-close {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+//
+// Responsive breakpoints
+//
+
+// Desktop and Above: > 992px
+
+@include media-breakpoint-up(lg) {
+  header.header {
+    .header__right {
+      .search-bar {
+        background-color: transparent;
+        position: relative;
+        top: auto;
+        padding: 0 10px 0 20px;
+      }
+
+      .search-trigger {
+        margin-top: 3px;
+
+        .icon-db-close {
+          margin-top: 3px;
+        }
+      }
+    }
+
+    nav.menu {
+      height: 100%;
+
+      li.menu-item > a {
+        color: $color-white;
+        display: block;
+        font-size: 14px;
+        font-size: rem-calc(14px);
+        padding: 0 20px;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        .icon {
+          font-size: 0.5em;
+          margin-left: 5px;
+        }
+
+        &.active {
+          font-family: $font-black;
+
+          .icon::before {
+            // Change to icon-db-triangle-up
+            content: '\0045';
+          }
+        }
+      }
+
+      ul.menu {
+        display: flex;
+        height: 100%;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: $content-max-width;
+        width: 100%;
+
+        li.menu-item {
+          align-items: center;
+          display: flex;
+          justify-content: flex-start;
+        }
+      }
+    }
+
+    &.drawer-open nav.menu {
+      li.menu-item > a {
+        &,
+        .icon {
+          color: $color-aqua;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Default theme implementation to each level of menu.
+ */
+#}
+
+<ul>
+    {% for key, item in items if key|first != '#' %}
+        {% set rendered_content = item.content|without('') %}
+        {% if item.content['#menu_link_content'].field_menu_descriptive_text is not empty %}
+            <lh class="{{ item['title']|lower|replace(' ', '-') }}">{{ link(item.title, item.url) }}</lh>
+            <li>{{ rendered_content }}</li>
+        {% else %}
+            <li>{{ link(item.title, item.url) }}</li>
+        {% endif %}
+
+    {% endfor %}
+</ul>

@@ -1,0 +1,7 @@
+name: 'NMMA Manufacturers'
+type: module
+description: 'Handles manufacture links and lead processing.'
+core: 8.x
+package: 'NMMA'
+dependencies:
+  - nmma_forms

@@ -1,0 +1,13 @@
+//Semi-transparent overlays
+
+$overlay-blue: rgba(0, 79, 158, 0.7);
+$overlay-aqua: rgba(0, 166, 201, 0.2);
+
+
+.overlay--blue {
+  background: $overlay-blue;
+}
+
+.overlay--aqua {
+  background: $overlay-aqua;
+}

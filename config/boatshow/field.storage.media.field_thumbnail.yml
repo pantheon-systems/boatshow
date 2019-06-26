@@ -1,0 +1,20 @@
+uuid: 3aa8f62b-3cf3-4385-9c7b-0e49b9bd4843
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - media
+id: media.field_thumbnail
+field_name: field_thumbnail
+entity_type: media
+type: entity_reference
+settings:
+  target_type: file
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

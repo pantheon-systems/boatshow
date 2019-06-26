@@ -1,0 +1,48 @@
+uuid: 39860496-ce64-4938-9b7d-41ac19486b4b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_ybp_program_types
+field_name: field_ybp_program_types
+entity_type: node
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 1
+      label: Sailing
+    -
+      value: 2
+      label: Rowing
+    -
+      value: 3
+      label: 'Kayaking, Canoeing & Stand Up Paddleboarding'
+    -
+      value: 4
+      label: 'Wakeboard & Waterski'
+    -
+      value: 5
+      label: Fishing
+    -
+      value: 6
+      label: 'Power Boating'
+    -
+      value: 7
+      label: 'Scuba Diving'
+    -
+      value: 8
+      label: 'Adult Programs'
+    -
+      value: 9
+      label: 'Youth Programs'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,8 @@
+name: 'NMMA Importer'
+type: module
+description: 'Imports Dynamic content from Middleware JSON Output'
+core: 8.x
+package: 'NMMA'
+dependencies:
+    - migrate_tools
+    - ultimate_cron

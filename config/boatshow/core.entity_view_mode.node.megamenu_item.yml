@@ -1,0 +1,14 @@
+uuid: 5a730732-2fd6-4c9d-b257-b8cf8c895356
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.megamenu_item
+label: 'Megamenu Item'
+targetEntityType: node
+cache: true

@@ -1,0 +1,6 @@
+services:
+  youtube_import.controller:
+    class: Drupal\youtube_import\Controller\YoutubeImportRun
+  youtube_import.form:
+    class: Drupal\youtube_import\Form\YoutubeImportForm
+    arguments: ['@config.factory', '@state', '@entity_type.manager', '@entity_field.manager', '@date.formatter']

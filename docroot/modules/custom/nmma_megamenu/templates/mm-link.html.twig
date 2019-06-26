@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ */
+#}
+{% for item in items %}
+  <a id="mm-dd-{{ index }}" href="{{ item.url }}" data-gtm-tracking="Navigation - Top Navigation - {{ item.title }}" {% if item.in_active_trail %} class="active"{% endif %}>
+    {{ item.title }}
+    <i class="icon icon-db-triangle-down"></i>
+  </a>
+{% endfor %}

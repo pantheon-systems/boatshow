@@ -1,0 +1,24 @@
+{% set classes = [
+'node',
+'node--type-' ~ node.bundle|clean_class,
+view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+] %}
+
+
+<article {{ attributes.addClass(classes) }}>
+  {% if title_prefix or title_suffix or display_submitted or unpublished or page is empty and label %}
+    <header>
+      {{ title_prefix }}
+      {% if not page and label %}
+        <a href="{{ url }}"{{ title_attributes }}>{{ label }}</a>
+      {% endif %}
+      {{ title_suffix }}
+      <div class="slugline text-small">{{ node.getCreatedTime|format_date('month_year') }}</div>
+    </header>
+  {% endif %}
+
+  <div class="content">
+    {{ content.field_component_teaser }}
+  </div>
+</article>
+<!-- /component-page #node -->

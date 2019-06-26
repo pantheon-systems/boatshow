@@ -1,0 +1,72 @@
+<div id="loan-calc-wrapper">
+  <ul>
+    <li><a href="#monthly-payment">Monthly Payment</a></li>
+    <li><a href="#total-loan-amount">Total Loan Amount</a></li>
+  </ul>
+  <div id="monthly-payment">
+    <div class="form-wrapper">
+      <form id="LoanAmountForm" class="js-monthly-calculator">
+        <div class="list-item clearfix">
+          <div class="form-field">
+            <label class="step-title" for="loan">Loan amount:</label>
+            <input class="text-field" type="number" id="loan" name="loan" min="1" placeholder="Dollar Amount" required>
+          </div>
+        </div>
+        <div class="list-item clearfix">
+          <div class="form-field js-interest-rate">
+            <label class="step-title" for="interest-rate">Select interest rate:</label>
+            {{ interest_rate_render }}
+          </div>
+        </div>
+        <div class="list-item clearfix">
+          <div class="form-field js-loan-term">
+            <label class="step-title" for="loan-term">Select loan term:</label>
+            {{ loan_term_render }}
+          </div>
+        </div>
+        <div class="clearfix total-price">
+          <label class="step-title">Your monthly payment:</label>
+          <p class="price">
+            <h5 class="total-cost js-calculation-result">$XX.XX</h5>
+          </p>
+        </div>
+        <div class="clearfix">
+          <button class="button js-calculate-monthly" type="button">Calculate</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="total-loan-amount">
+    <div class="form-wrapper">
+      <form id="PaymentAmountForm" class="js-amount-calculator">
+        <div class="list-item clearfix">
+          <div class="form-field">
+            <label class="step-title" for="month-payment">Desired monthly payment:</label>
+            <input class="text-field" type="number" id="month-payment" name="month-payment" placeholder="Dollar Amount" min="1"required>
+          </div>
+        </div>
+        <div class="list-item clearfix">
+          <div class="form-field js-interest-rate">
+            <label class="step-title" for="amount-interest-rate">Select interest rate:</label>
+            {{ amount_interest_rate_render }}
+          </div>
+        </div>
+        <div class="list-item clearfix js-loan-term">
+          <div class="form-field">
+            <label class="step-title" for="amount-loan-term">Select loan term:</label>
+            {{ amount_loan_term_render }}
+          </div>
+        </div>
+        <div class="clearfix total-price">
+          <label class="step-title">Your total loan amount:</label>
+          <p class="price">
+            <h5 class="total-cost js-calculation-result">$XX.XX</h5>
+          </p>
+        </div>
+        <div class="clearfix">
+          <button class="button js-calculate-amount" type="button">Calculate</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

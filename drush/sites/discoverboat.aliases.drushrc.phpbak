@@ -1,0 +1,89 @@
+<?php
+
+if (!isset($drush_major_version)) {
+  $drush_version_components = explode('.', DRUSH_VERSION);
+  $drush_major_version = $drush_version_components[0];
+}
+// Site discoverboat, environment dev.
+$aliases['dev'] = array(
+  'root' => '/var/www/html/discoverboat.dev/docroot',
+  'ac-site' => 'discoverboat',
+  'ac-env' => 'dev',
+  'ac-realm' => 'prod',
+  'uri' => 'discoverboatdev.prod.acquia-sites.com',
+  'remote-host' => 'discoverboatdev.ssh.prod.acquia-sites.com',
+  'remote-user' => 'discoverboat.dev',
+  'path-aliases' => array(
+    '%drush-script' => 'drush' . $drush_major_version,
+  ),
+);
+$aliases['dev.livedev'] = array(
+  'parent' => '@discoverboat.dev',
+  'root' => '/mnt/gfs/discoverboat.dev/livedev/docroot',
+);
+
+if (!isset($drush_major_version)) {
+  $drush_version_components = explode('.', DRUSH_VERSION);
+  $drush_major_version = $drush_version_components[0];
+}
+// Site discoverboat, environment prod.
+$aliases['prod'] = array(
+  'root' => '/var/www/html/discoverboat.prod/docroot',
+  'ac-site' => 'discoverboat',
+  'ac-env' => 'prod',
+  'ac-realm' => 'prod',
+  'uri' => 'discoverboat.prod.acquia-sites.com',
+  'remote-host' => 'discoverboat.ssh.prod.acquia-sites.com',
+  'remote-user' => 'discoverboat.prod',
+  'path-aliases' => array(
+    '%drush-script' => 'drush' . $drush_major_version,
+  ),
+);
+$aliases['prod.livedev'] = array(
+  'parent' => '@discoverboat.prod',
+  'root' => '/mnt/gfs/discoverboat.prod/livedev/docroot',
+);
+
+if (!isset($drush_major_version)) {
+  $drush_version_components = explode('.', DRUSH_VERSION);
+  $drush_major_version = $drush_version_components[0];
+}
+// Site discoverboat, environment ra.
+$aliases['ra'] = array(
+  'root' => '/var/www/html/discoverboat.ra/docroot',
+  'ac-site' => 'discoverboat',
+  'ac-env' => 'ra',
+  'ac-realm' => 'prod',
+  'uri' => 'discoverboatra.prod.acquia-sites.com',
+  'remote-host' => 'discoverboatra.ssh.prod.acquia-sites.com',
+  'remote-user' => 'discoverboat.ra',
+  'path-aliases' => array(
+    '%drush-script' => 'drush' . $drush_major_version,
+  ),
+);
+$aliases['ra.livedev'] = array(
+  'parent' => '@discoverboat.ra',
+  'root' => '/mnt/gfs/discoverboat.ra/livedev/docroot',
+);
+
+if (!isset($drush_major_version)) {
+  $drush_version_components = explode('.', DRUSH_VERSION);
+  $drush_major_version = $drush_version_components[0];
+}
+// Site discoverboat, environment test.
+$aliases['test'] = array(
+  'root' => '/var/www/html/discoverboat.test/docroot',
+  'ac-site' => 'discoverboat',
+  'ac-env' => 'test',
+  'ac-realm' => 'prod',
+  'uri' => 'discoverboatstg.prod.acquia-sites.com',
+  'remote-host' => 'discoverboatstg.ssh.prod.acquia-sites.com',
+  'remote-user' => 'discoverboat.test',
+  'path-aliases' => array(
+    '%drush-script' => 'drush' . $drush_major_version,
+  ),
+);
+$aliases['test.livedev'] = array(
+  'parent' => '@discoverboat.test',
+  'root' => '/mnt/gfs/discoverboat.test/livedev/docroot',
+);

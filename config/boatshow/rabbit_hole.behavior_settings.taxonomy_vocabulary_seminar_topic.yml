@@ -1,0 +1,9 @@
+uuid: 12fb40ad-4d62-4c60-b57f-51b5fb5fc330
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_seminar_topic
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301

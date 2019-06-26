@@ -1,0 +1,21 @@
+uuid: 5fcebf90-6d07-4d0b-9c65-c690e18aff86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_boat_type_activities_text
+    - taxonomy.vocabulary.boat_types
+  module:
+    - text
+id: taxonomy_term.boat_types.field_boat_type_activities_text
+field_name: field_boat_type_activities_text
+entity_type: taxonomy_term
+bundle: boat_types
+label: 'Activities Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

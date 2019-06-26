@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Handles installation tasks.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function nmma_multinational_install() {
+  _nmma_multinational_ensure_content();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function nmma_multinational_uninstall() {
+  // Delete the nodes created during install.
+  $storage = \Drupal::entityTypeManager()->getStorage('node');
+  $nodes = $storage->loadByProperties(['type' => 'multinational_site']);
+  $storage->delete($nodes);
+}

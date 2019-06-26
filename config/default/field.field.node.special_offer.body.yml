@@ -1,0 +1,22 @@
+uuid: b02b6e44-9ff4-4686-9d3c-74eba95793ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.special_offer
+  module:
+    - text
+id: node.special_offer.body
+field_name: body
+entity_type: node
+bundle: special_offer
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

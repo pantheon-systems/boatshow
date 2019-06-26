@@ -1,0 +1,21 @@
+<div class="col-12-xs">
+  <div class="grid-item--article">
+    {{ title_prefix }}
+    <div class="grid-item--content">
+      {% if content.field_article_tsr_image is not empty %}
+        <div class="image curve-corner" style="background-image: url({{ path }})">
+        </div>
+      {% endif %}
+      <div class="title"><a href="{{ url }}" rel="bookmark">{{ node.label }}</a></div>
+      <div class="slugline">{{ node.getCreatedTime|format_date('month_year') }}
+        {% if node.field_article_author is not empty %}
+          | {{ content.field_article_author }}
+        {% endif %}
+      </div>
+      <div class="body">
+        {{ content.field_article_teaser }}
+      </div>
+    </div>
+    {{ title_suffix }}
+  </div>
+</div>

@@ -1,0 +1,20 @@
+{% set classes = [
+'node',
+'node--type-' ~ node.bundle|clean_class,
+view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+'flex-container',
+] %}
+
+<section class="page-content article flex-container">
+  <article {{ attributes.addClass(classes) }}>
+    <div class="main-content col-12-xs col-12-sm col-8-md">
+      <h1>{{ label }}</h1>
+
+      {{ content.field_glossary_description }}
+
+    </div>
+  </article>
+</section>
+<!-- /content -->
+
+<!-- /glossary item #node -->

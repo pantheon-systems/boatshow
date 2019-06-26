@@ -1,0 +1,7 @@
+name: 'NMMA newsletter'
+type: module
+description: 'Handles newsletter signup. Passes data to Marketo endpoint.'
+core: 8.x
+package: 'NMMA'
+dependencies:
+    - marketo_ma

@@ -1,0 +1,151 @@
+.curve-corner {
+  height: 100%;
+  min-height: 180px;
+  position: relative;
+  overflow: hidden;
+
+  img {
+    display: block;
+    height: auto;
+    left: 50%;
+    max-width: none;
+    position: absolute;
+    transform: translate(-50%, 0);
+    width: 100%;
+  }
+
+  &::after {
+    background: url('../images/corner-curve.svg') no-repeat -1px -1px;
+    background-size: 20%;
+    content: " ";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &.no-minimum {
+    min-height: 0;
+
+    img {
+      position: relative;
+    }
+  }
+}
+
+.image {
+  background-position: 50% 50%;
+  background-size: cover;
+
+  .contextual-region {
+    position: static;
+  }
+
+  .item-title {
+    background: transparent;
+    background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.3) 100%);
+    bottom: 0;
+    box-sizing: border-box;
+    color: $color-white;
+    display: flex;
+    flex-direction: column;
+    font-family: $font-bold;
+    justify-content: flex-end;
+    padding: 15px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    .icon {
+      font-size: 10px;
+    }
+
+    p {
+      font-family: $font-light;
+      margin-top: 0;
+      text-transform: initial;
+    }
+  }
+}
+
+.curve-corner--gray,
+.curve-corner--gray--white-lg {
+  @extend .curve-corner;
+
+  &::after {
+    background-image: url('../images/corner-curve-gray.svg');
+  }
+}
+
+figure {
+  margin: 0;
+  position: relative;
+}
+
+figcaption {
+  font-family: $font-light-italic;
+  padding-top: rem-calc(15px);
+  padding-bottom: 20px;
+
+  a {
+    font-family: $font-light-italic;
+    font-weight: bolder;
+  }
+}
+
+figure::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: rem-calc(62px);
+  border-bottom: 1px solid $color-gray;;
+}
+
+//
+// Responsive breakpoints
+//
+
+// Tablet: > 768px
+
+@include media-breakpoint-up(md) {
+  .curve-corner {
+    min-height: 200px;
+
+    &.no-minimum {
+      min-height: 0;
+    }
+  }
+}
+
+// Desktop and Above: > 992px
+
+@include media-breakpoint-up(lg) {
+  .curve-corner {
+    background-color: $color-gray;
+    min-height: 240px;
+
+    &.no-minimum {
+      background: transparent;
+      min-height: 0;
+    }
+  }
+
+  .curve-corner--gray--white-lg {
+    &::after {
+      background-image: url('../images/corner-curve.svg');
+    }
+  }
+}
+
+.brick--type--media .image-cover {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}

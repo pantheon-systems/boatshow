@@ -1,0 +1,23 @@
+uuid: 57a603dd-3eb9-475b-b7b6-2464f963b869
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_available_in_canada
+    - node.type.certified_mfrs
+id: node.certified_mfrs.field_available_in_canada
+field_name: field_available_in_canada
+entity_type: node
+bundle: certified_mfrs
+label: 'Available in Canada'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

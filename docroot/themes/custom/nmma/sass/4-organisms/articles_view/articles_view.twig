@@ -1,0 +1,21 @@
+<section class="flex-container">
+  {% include './article_block_large.twig' %}
+  {% include './article_block_stack.twig' with { video: true } %}
+</section>
+
+<section class="flex-container">
+  {% include './article_block_small.twig' %}
+  {% include './article_block_small.twig' %}
+  {% include './article_block_small.twig' %}
+</section>
+
+<section class="flex-container">
+  {% include './article_block_small.twig' %}
+  {% include './article_block_large.twig' %}
+</section>
+
+<section class="flex-container">
+  {% include './article_block_small.twig' %}
+  {% include './article_block_small.twig' %}
+  {% include './article_block_stack.twig' with { video: false } %}
+</section>

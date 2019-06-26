@@ -1,0 +1,9 @@
+uuid: 42fb3a58-6f8d-4663-8133-8d537059c1f0
+langcode: en
+status: true
+dependencies: {  }
+name: 'Boat Types'
+vid: boat_types
+description: 'Describes boat categories, like Jetski, Pontoon, Speedboat, etc.'
+hierarchy: 0
+weight: -10

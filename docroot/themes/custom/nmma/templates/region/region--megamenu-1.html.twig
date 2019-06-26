@@ -1,0 +1,72 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region div.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+        {% if content is empty %}
+            <div class="megamenu__drawer">
+                <div class=" flex-container">
+                    <div class="col-6-md">
+                        <div class="flex-container">
+                            <div class="col-4-md">
+                                <img src="/themes/custom/nmma/images/megamenu/go_boating_today.png" alt="">
+                            </div>
+                            <div class="col-8-md">
+                                <h5 class="small">Go Boating Today</h5>
+                                <p>No boat? No problem. Enter your city or zip code to search for boat rentals and
+                                    charters near
+                                    you.</p>
+                                <br/>
+                                {{ go_boating_inline_form }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3-md">
+                        <ul>
+                            <lh>Life on the Water</lh>
+                            <li><a href="{{ path('entity.node.canonical', {'node': 17806}) }}">High Speed Holiday</a>
+                            </li>
+                            <li><a href="{{ path('entity.node.canonical', {'node': 17821}) }}">Get Away From it All</a>
+                            </li>
+                            <li><a href="{{ path('entity.node.canonical', {'node': 17826}) }}">Keys to the Good Life</a>
+                            </li>
+                            <li><a href="{{ path('entity.node.canonical', {'node': 17831}) }}">Refresh Your
+                                    Relationships</a>
+                            </li>
+                            <li><a href="{{ path('entity.node.canonical', {'node': 17836}) }}">A Family Tradition</a>
+                            </li>
+                            <li><a href="{{ path('entity.node.canonical', {'node': 17841}) }}">Weekends on the Water</a>
+                            </li>
+                            <li><a href="">Stories of Discovery</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-3-md">
+                        <ul>
+                            <lh>Activities &amp; Education</lh>
+                            <li><a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': 6}) }}">Freshwater
+                                    Fishing</a></li>
+                            <li><a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': 11}) }}">Saltwater
+                                    Fishing</a></li>
+                            <li><a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': 16}) }}">Watersports</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': 21}) }}">Sailing</a>
+                            </li>
+                            <li><a href="{{ path('entity.node.canonical', {'node': 17846}) }}">Education &amp;
+                                    Training</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            {{ content }}
+        {% endif %}

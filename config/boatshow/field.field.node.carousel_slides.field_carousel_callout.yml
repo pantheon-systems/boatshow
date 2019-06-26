@@ -1,0 +1,21 @@
+uuid: 7a59c31c-6dee-4b96-8397-685ed7cc5cea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carousel_callout
+    - node.type.carousel_slides
+  module:
+    - text
+id: node.carousel_slides.field_carousel_callout
+field_name: field_carousel_callout
+entity_type: node
+bundle: carousel_slides
+label: 'Slide Callout'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

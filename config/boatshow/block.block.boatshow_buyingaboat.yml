@@ -1,0 +1,20 @@
+uuid: 4592d538-d93c-41e1-8f9b-06b4a49273c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - nmma_megamenu_blocks
+  theme:
+    - boatshow
+id: boatshow_buyingaboat
+theme: boatshow
+region: megamenu_2
+weight: 0
+provider: null
+plugin: buying_a_boat
+settings:
+  id: buying_a_boat
+  label: 'Buying A Boat'
+  provider: nmma_megamenu_blocks
+  label_display: '0'
+visibility: {  }

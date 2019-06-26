@@ -1,0 +1,17 @@
+<div class="col-12-xs col-12-sm" data-gtm-tracking="Video - {{ node.label }} - Sub Menu">
+  <div>
+    {{ title_prefix }}
+    <div class="play-block js-video-modal" data-videoid="{{ video_id }}" data-videocontainer="true">
+      <div class="image curve-corner">
+        {{ content.field_video_url }}
+        <div class="play-container">
+          <i class="icon icon-db-video-play"></i>
+        </div>
+      </div>
+      <div class="link-container">
+        <span class="js-video-modal text-xsmall" data-videoid="{{ video_id }}" data-videocontainer="true" rel="bookmark">{{ node.label }}</a>
+      </div>
+    </div>
+    {{ title_suffix }}
+  </div>
+</div>

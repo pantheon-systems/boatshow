@@ -1,0 +1,5 @@
+name: 'NMMA Loan Calculator'
+type: module
+description: 'Provides custom loan calculator block and js.'
+core: 8.x
+package: 'NMMA'

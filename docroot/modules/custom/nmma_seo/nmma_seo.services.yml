@@ -1,0 +1,10 @@
+services:
+  nmma_seo.redirect:
+    class: Drupal\nmma_seo\EventSubscriber\Redirect
+    arguments:
+      - '@current_route_match'
+      - '@entity_type.manager'
+      - '@path.alias_manager'
+      - '@state'
+    tags:
+      - {name: event_subscriber}

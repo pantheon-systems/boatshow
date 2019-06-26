@@ -1,0 +1,20 @@
+uuid: 0bb6f58c-0add-47d0-b4e6-0a60f4e900d4
+langcode: en
+status: true
+dependencies:
+  module:
+    - nmma_megamenu_blocks
+  theme:
+    - nmma
+id: owningaboat
+theme: nmma
+region: megamenu_3
+weight: 0
+provider: null
+plugin: owning_a_boat
+settings:
+  id: owning_a_boat
+  label: 'Owning A Boat'
+  provider: nmma_megamenu_blocks
+  label_display: '0'
+visibility: {  }

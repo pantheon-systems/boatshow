@@ -1,0 +1,7 @@
+name: 'NMMA Go Boating Map'
+type: module
+description: 'Custom Implementation of Go Boating Map'
+core: 8.x
+package: 'NMMA'
+dependencies:
+  - knockout

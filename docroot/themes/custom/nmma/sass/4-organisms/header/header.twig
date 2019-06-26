@@ -1,0 +1,157 @@
+<header class="header {% if no_hero == 'true' %}no-hero{% endif %}">
+  <div class="container">
+    <div class="logo">
+      <a href="/" title="Discover Boating">
+        <img class="logo-white" src="/themes/custom/nmma/images/logo-white.png" alt="Discover Boating">
+        <img class="logo-color" src="/themes/custom/nmma/images/logo-color.png" alt="Discover Boating">
+      </a>
+    </div>
+    <div class="header__right">
+      <div class="search-bar">
+        <input type="text" id="inputSearch" placeholder="Search">
+      </div>
+      <nav class="menu screen-lg-up">
+        <ul class="menu">
+          <li class="menu-item">
+            <a id="mm-dd-1" href="">Discover Boating <i class="icon icon-db-triangle-down"></i></a> {#{{ mm_link(1) }}#}
+            <div class="megamenu--region megamenu--region-1">
+              {#{{ megamenu_region('megamenu_1') }}#}
+              {#{% include '../../../templates/region/region--megamenu-1.html.twig' %}#}
+            </div>
+          </li>
+          <li class="menu-item">
+            <a id="mm-dd-2" href="">Buying Your First Boat <i class="icon icon-db-triangle-down"></i></a> {#{{ mm_link(2) }}#}
+            <div class="megamenu--region megamenu--region-2">
+              {#{{ megamenu_region('megamenu_2') }}#}
+              {#{% include '../../../templates/region/region--megamenu-2.html.twig' %}#}
+            </div>
+          </li>
+          <li class="menu-item">
+            <a id="mm-dd-3" href="">Owning a Boat <i class="icon icon-db-triangle-down"></i></a>
+            <div class="megamenu--region megamenu--region-3"> {#{{ mm_link(3) }}#}
+              {#{{ megamenu_region('megamenu_3') }}#}
+              {#{% include '../../../templates/region/region--megamenu-3.html.twig' %}#}
+            </div>
+          </li>
+          <li class="menu-item">
+            <a id="mm-dd-4" href="">Boating Blog <i class="icon icon-db-triangle-down"></i></a> {#{{ mm_link(4) }}#}
+            <div class="megamenu--region megamenu--region-4">
+              {#{{  megamenu_region('megamenu_4') }}#}
+              {#{% include '../../../templates/region/region--megamenu-4.html.twig' %}#}
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="mobile-nav">
+        <nav>
+          <ul>
+            <li>
+              <a class="subnav__trigger" href="">Discover Boating <i class="icon icon-db-arrow-right"></i></a>
+              <nav class="subnav collapsed">
+                <h5><a href="">Go Boating Today</a></h5>
+                <h5>Life on the Water</h5>
+                <ul>
+                  <li><a href="">High Speed Holiday</a></li>
+                  <li><a href="">Get Away From it All</a></li>
+                  <li><a href="">Keys to the Good Life</a></li>
+                  <li><a href="">Refresh Your Relationships</a></li>
+                  <li><a href="">A Family Tradition</a></li>
+                  <li><a href="">Weekends on the Water</a></li>
+                  <li><a href="">Stories of Discovery</a></li>
+                </ul>
+                <h5>Activities &amp; Education</h5>
+                <ul>
+                  <li><a href="">Freshwater Fishing</a></li>
+                  <li><a href="">Saltwater Fishing</a></li>
+                  <li><a href="">Watersports</a></li>
+                  <li><a href="">Sailing</a></li>
+                  <li><a href="">Education &amp; Training</a></li>
+                </ul>
+              </nav>
+            </li>
+            <li>
+              <a class="subnav__trigger" href="">Buying a Boat <i class="icon icon-db-arrow-right"></i></a>
+              <nav class="subnav collapsed">
+                <h5>Boat Finder</h5>
+                <ul>
+                  <li><a href="">Boat Brands &amp; Manufacturers</a></li>
+                  <li><a href="">Certified Boats</a></li>
+                  <li><a href="">Certified Dealers</a></li>
+                  <li><a href="">Engines</a></li>
+                  <li><a href="">Glossary of Boating Terms</a></li>
+                  <li><a href="">FAQ</a></li>
+                </ul>
+                <h5>Boat Loan Calculator</h5>
+                <ul>
+                  <li><a href="">Dealer Finder</a></li>
+                  <li><a href="">Marina Finder</a></li>
+                  <li><a href="">Boat Shows</a></li>
+                </ul>
+                <h5>Shopping for a Boat</h5>
+                <ul>
+                  <li><a href="">Dealer Finder</a></li>
+                  <li><a href="">Marina Finder</a></li>
+                  <li><a href="">Boat Shows</a></li>
+                </ul>
+              </nav>
+            </li>
+            <li>
+              <a class="subnav__trigger" href="">Owning a Boat <i class="icon icon-db-arrow-right"></i></a>
+              <nav class="subnav collapsed">
+                <h5>Life on the Water</h5>
+                <ul>
+                  <li><a href="">Insuring your Boat</a></li>
+                  <li><a href="">Towing &amp; Trailering</a></li>
+                  <li><a href="">Storing Your Boat</a></li>
+                  <li><a href="">Boat Maintenance</a></li>
+                  <li><a href="">Safety</a></li>
+                  <li><a href="">Responsible Boating</a></li>
+                </ul>
+                <h5><a href="">Boating Destinations</a></h5>
+                <h5><a href="">Trade-in or Sell your Boat</a></h5>
+              </nav>
+            </li>
+            <li>
+              <a class="subnav__trigger" href="">Articles &amp; Resources <i class="icon icon-db-arrow-right"></i></a>
+              <nav class="subnav collapsed">
+                <h5><a href="">All Articles &amp; Resources</a></h5>
+                <h5><a href="">Boating Blog</a></h5>
+                <h5><a href="">Video Library</a></h5>
+              </nav>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="megamenu__container screen-lg-up hidden">
+        <div class="container">
+          <div class="megamenu--region-1">
+            {% include 'mm_regions/mm_region_1.twig' %}
+          </div>
+          <div class="megamenu--region-2">
+            {% include 'mm_regions/mm_region_2.twig' %}
+          </div>
+          <div class="megamenu--region-3">
+            {% include 'mm_regions/mm_region_3.twig' %}
+          </div>
+          <div class="megamenu--region-4">
+            {% include 'mm_regions/mm_region_4.twig' %}
+          </div>
+        </div>
+      </div>
+
+      <div class="search">
+        <a href="" class="search-trigger">
+          <i class="icon icon-db-search"></i>
+          <i class="icon icon-db-close"></i>
+        </a>
+      </div>
+
+      <div>
+        <a href="" class="mobile-trigger">
+          <i class="icon icon-db-menu"></i>
+          <i class="icon icon-db-close"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

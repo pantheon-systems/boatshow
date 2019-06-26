@@ -1,0 +1,11 @@
+jquery.hoverIntent:
+  version: 1.9.0
+  js:
+    js/jquery.hoverIntent.min.js: {}
+megamenu:
+  version: 1.x
+  js:
+    js/subnav.js: {}
+  dependencies:
+    - core/jquery
+    - nmma_megamenu/jquery.hoverIntent

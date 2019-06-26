@@ -1,0 +1,310 @@
+
+
+#main > section.disruptor {
+  max-width: none;
+}
+
+section.disruptor {
+  // margin-top: 60px;
+  position: relative;
+  // max-width: 1210px;
+  // margin: 0 auto;
+}
+
+.disruptor-stacked {
+  position: relative;
+}
+
+//Full Bleed 50/50 backgrounds
+.disruptor-bkgrnd {
+  height: 100%;
+  position: absolute;
+  width: 50%;
+  z-index: 0;
+}
+
+.disruptor-bkgrnd--left {
+  @extend .disruptor-bkgrnd;
+
+  background: $color-blue;
+  display: none;
+  left: 0;
+}
+
+.disruptor-bkgrnd--right {
+  @extend .disruptor-bkgrnd;
+
+  background: $color-aqua;
+  display: none;
+  right: 0;
+}
+
+.disruptor-bkgrnd--right-blue {
+  @extend .disruptor-bkgrnd;
+
+  background: $color-blue;
+  display: none;
+  right: 0;
+}
+
+.disruptor-bkgrnd--right-gray {
+  @extend .disruptor-bkgrnd;
+
+  background: $color-gray-light;
+  display: none;
+  right: 0;
+}
+
+
+
+.disruptor-bkgrnd--right .blue {
+  background: $color-blue;
+}
+
+.disruptor-bkgrnd--left-image {
+  @extend .disruptor-bkgrnd;
+
+  background: url('../templates/styleguide/builder/assets/product-disruptor.png') no-repeat;
+  background-size: cover;
+  display: none;
+  left: 0;
+}
+
+.disruptor-bkgrnd--right-image {
+  @extend .disruptor-bkgrnd;
+
+  background: url('../templates/styleguide/builder/assets/product-disruptor.png') no-repeat;
+  background-size: cover;
+  display: none;
+  right: 0;
+}
+
+//Disruptor Container
+.disruptor .container {
+  padding: 0;
+  position: relative;
+}
+
+.disruptor .container .disruptor-content--right-gray {
+  color: $color-gray-darkest;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $color-gray-darkest;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+}
+
+
+//Disruptor Content
+.disruptor-content {
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 0;
+
+  @media all and (min-width: 768px) {
+    width: 50%;
+  }
+
+  // Looks like at some point maybe it was possible to select the button style?
+  // .button {
+  // }
+
+  // .button--secondary {
+  // }
+
+  .brick--type--media {
+    min-height: 300px;
+  }
+}
+
+//Disruptor Content Full Width
+.disruptor-content--full-width {
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 0;
+  padding: 0 45px;
+
+  @media all and (min-width: 768px) {
+    width: 100%;
+  }
+
+  // .button {
+  // }
+
+  // .button--secondary {
+  // }
+
+  .brick--type--media {
+    min-height: 300px;
+  }
+}
+
+.disruptor-content--left {
+  @extend .disruptor-content;
+
+  i {
+    font-size: 49px;
+    line-height: 1px;
+  }
+
+  h3 {
+    // Copied from _base.scss
+    font-size: 140%;
+  }
+}
+
+.disruptor.white--left {
+  .disruptor-content--left {
+    background: $color-white;
+    border: 1px solid $color-gray;
+    color: $color-gray-dark;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $color-gray-dark;
+    }
+  }
+}
+
+.disruptor-content--right,
+.disruptor-content--right-gray,
+.disruptor-content--right-blue {
+  @extend .disruptor-content;
+
+  i {
+    font-size: 49px;
+    line-height: 1px;
+  }
+}
+
+.disruptor-content--right-gray {
+  background: $color-gray-light;
+}
+
+.disruptor-content--right-blue {
+  background: $color-blue;
+}
+
+.disruptor-content--image {
+  img {
+    display: block;
+  }
+}
+
+.disruptor--list {
+  margin-top: rem-calc(9px);
+}
+
+.disruptor-card {
+  padding-top: rem-calc(60px);
+  padding-bottom: rem-calc(60px);
+  padding-left: rem-calc(43px);
+  padding-right: rem-calc(43px);
+
+  // TODO: This should really be targeted to .icon
+  [class*='icon-db-'] {
+    color: $blue;
+    font-size: rem-calc(32px);
+    // Center icon
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  h2,
+  h3,
+  h4 {
+    text-align: center;
+  }
+
+  .inline-list {
+    & > li {
+      display: inline-block;
+    }
+  }
+
+  .bar-separator {
+    & > li:not(:last-child) {
+      &::after {
+        content: ' |';
+        margin: 0 0.5em;
+      }
+    }
+  }
+
+  // FIXME: Temporary solution for getting the secondary button into the disruptor.
+  // Need to find a solution that's configurable.
+  .button {
+    @include button--secondary;
+  }
+}
+
+.disruptor-content--full-width {
+  .disruptor-card {
+    // FIXME: Like with the secondary button above, we ideally need to find a
+    // solution that's configurable from the Drupal UI.
+    .button {
+      @include button;
+    }
+  }
+}
+
+//Disruptor media
+.disruptor-content .brick--type--media {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+
+  article {
+    height: 100%;
+    position: relative;
+    width: 100%;
+
+    img {
+      height: 100%;
+      max-width: none;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, 0);
+      width: auto;
+    }
+  }
+}
+
+//// Tablet: > 768px
+@include media-breakpoint-up(md) {
+  .disruptor-bkgrnd--left,
+  .disruptor-bkgrnd--left-image,
+  .disruptor-bkgrnd--right,
+  .disruptor-bkgrnd--right-blue,
+  .disruptor-bkgrnd--right-gray,
+  .disruptor-bkgrnd--right-image {
+    display: inline;
+  }
+
+  .disruptor-content--image {
+    img {
+      display: none;
+    }
+  }
+}
+
+// Large: > 1200px
+
+@include media-breakpoint-up(xl) {
+  #main > section.disruptor {
+    max-width: 980px; //Content Width
+  }
+}

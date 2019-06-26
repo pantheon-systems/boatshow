@@ -1,0 +1,21 @@
+<div class="col-12-xs">
+  {{ context_links }}
+  <div class="grid-item--disruptor-card">
+    <div class="icon {{ entity.field_disruptor_icon|render|striptags|trim }}"></div>
+    <div class="grid-item--content">
+      {% if entity.field_disruptor_headline is not empty %}
+        <div class="title">{{ entity.field_disruptor_headline }}</div>
+      {% endif %}
+      {% if entity.field_disruptor_callout is not empty %}
+        <div class="body">
+          {{ entity.field_disruptor_callout }}
+        </div>
+      {% endif %}
+      {% if entity. field_disruptor_cta is not empty %}
+        <div class="cta-link">
+          {{ entity.field_disruptor_cta }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

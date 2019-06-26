@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains nmma_boatfinder_endpoint.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function nmma_boatfinder_endpoint_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the nmma_boatfinder_endpoint module.
+    case 'help.page.nmma_boatfinder_endpoint':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('JSON endpoint for NMMA Boatfinder') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function nmma_boatfinder_endpoint_theme() {
+  return [
+    'nmma_boatfinder_endpoint' => [
+      'render element' => 'children',
+    ],
+  ];
+}

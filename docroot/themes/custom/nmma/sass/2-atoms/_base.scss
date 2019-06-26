@@ -1,0 +1,208 @@
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  padding: 0;
+}
+
+body {
+  @include font-aliasing();
+  @include font-size($font-size-body-copy);
+
+  background: $color-white;
+  color: $color-gray-dark;
+  font-family: $font-light;
+  line-height: $font-line-height-standard;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-gray-dark;
+  font-family: $font-bold;
+  margin: 0;
+
+  &.underline {
+    border-bottom: 2px solid $color-gray-dark;
+  }
+
+  &.pad-xs {
+    margin: 1em 0 0.5em;
+  }
+}
+
+h1 {
+  @include font-size(38px);
+
+  &.small {
+    @include font-size($font-size-h1-small);
+  }
+
+  @media all and (min-width: 768px) {
+    @include font-size($font-size-h1);
+  }
+}
+
+
+
+h2 {
+  @include font-size($font-size-h2);
+
+  &.small {
+    @include font-size($font-size-h2-small);
+  }
+}
+
+h3 {
+  @include font-size($font-size-h3);
+
+  &.small {
+    @include font-size($font-size-h3-small);
+  }
+}
+
+h4 {
+  @include font-size($font-size-h4);
+
+  &.small {
+    @include font-size($font-size-h4-small);
+  }
+}
+
+h5 {
+  @include font-size($font-size-h5);
+
+  &.small {
+    @include font-size($font-size-h5-small);
+  }
+}
+
+hr {
+  margin: 40px 0;
+  border: none;
+  border-bottom: 1px solid $color-border-gray-transparent;
+}
+
+a {
+  color: $color-aqua;
+  font-family: $font-bold;
+  text-decoration: none;
+}
+
+strong {
+  font-family: $font-bold;
+}
+
+p {
+  margin: 10px 0;
+}
+
+// Text helpers
+
+.text-small {
+  @include font-size($font-size-body-copy-small);
+}
+
+.text-xsmall {
+  @include font-size($font-size-body-copy-xsmall);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-strong {
+  font-family: $font-bold;
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+dd,
+dt {
+  margin: 0;
+}
+
+// Responsive Images
+
+img,
+svg {
+  height: auto;
+  max-width: 100%;
+}
+
+//Reduce fuzziness of downscaled images
+
+img {
+  @include crisp-edges();
+}
+
+//
+// Responsive breakpoints
+//
+
+// Mobile: > 576px
+
+@include media-breakpoint-up(sm) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    &.pad-xs {
+      margin: 0;
+    }
+  }
+}
+
+// Tablet: > 768px
+
+@include media-breakpoint-up(md) {
+  h1 {
+    font-size: 60px;
+    font-size: rem-calc(60px);
+  }
+}
+
+blockquote {
+  font-family: "Antenna-Bold", "Helvetica", sans-serif;
+  font-weight: 700;
+  margin: 20px 0;
+  padding: 15px 0;
+  position: relative;
+  width: 100%;
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  color: $color-blue;
+  line-height: 1.2;
+  border-top: 1px solid #004e9c;
+  border-bottom: 1px solid #004e9c;
+}
+
+// Desktop: > 992px
+
+//@include media-breakpoint-up(lg) {
+//
+//}
+
+// Large: > 1200px
+
+//@include media-breakpoint-up(xl) {
+//
+//}

@@ -1,0 +1,125 @@
+<!--THIS IS A STUB OF THE BODY FOR MOBILE COMPARISON POPUP-->
+<!--THIS SHOULD BE ADDED BACK TO THE MAIN TEMPLATE ABOVE THE 'COMPARE FOOTER` DIV-->
+
+<div class="js-mobile-compare-slider compare-body">
+    <div class="compare-row clearfix">
+        <div class="compare-filter-title filter-activities">
+            <span class="filter-header-image"></span>
+            <h3 class="filter-header-title">activities</h3>
+        </div>
+        <!-- ko foreach: ComparableBoats  -->
+        <div class="compare-value">
+            <div class="compare-mobile-header">
+                <div class="compare-item-image">
+                    <img data-bind="attr: { src: ImageUrl, alt: PluralName }">
+                </div>
+                <div class="compare-item-title">
+                    <h4 data-bind="text: PluralName"></h4>
+                </div>
+                <a data-bind="click: CompareTrigger" class="compare-item-remove" href="#" title="Remove">X</a>
+            </div>
+            <div class="compare-value-text">
+                <ul data-bind="foreach: ActivityNames">
+                    <li data-bind="text: $data"></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /ko -->
+
+
+    </div>
+    <div class="compare-row clearfix">
+        <div class="compare-filter-title filter-passengers">
+            <span class="filter-header-image"></span>
+            <h3 class="filter-header-title">passengers</h3>
+        </div>
+        <!-- ko foreach: ComparableBoats  -->
+        <div class="compare-value center">
+            <div class="compare-mobile-header">
+                <div class="compare-item-image">
+                    <img data-bind="attr: { src: ImageUrl, alt: PluralName }">
+                </div>
+                <div class="compare-item-title">
+                    <h4 data-bind="text: PluralName"></h4>
+                </div>
+                <a data-bind="click: CompareTrigger" class="compare-item-remove" href="#" title="Remove">X</a>
+            </div>
+            <div class="compare-value-text">
+                        <span data-bind="text: MaxCapacityLabel">
+                        </span>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+    <div class="compare-row clearfix">
+        <div class="compare-filter-title filter-boat-length">
+            <span class="filter-header-image"></span>
+            <h3 class="filter-header-title">boat length</h3>
+        </div>
+        <!-- ko foreach: ComparableBoats  -->
+        <div class="compare-value center">
+            <div class="compare-mobile-header">
+                <div class="compare-item-image">
+                    <img data-bind="attr: { src: ImageUrl, alt: PluralName }">
+                </div>
+                <div class="compare-item-title">
+                    <h4 data-bind="text: PluralName"></h4>
+                </div>
+                <a data-bind="click: CompareTrigger" class="compare-item-remove" href="#" title="Remove">X</a>
+            </div>
+            <div class="compare-value-text">
+                <span data-bind="html: LengthLabel"></span>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+
+    <div class="compare-row clearfix">
+        <div class="compare-filter-title filter-propulsion">
+            <span class="filter-header-image"></span>
+            <h3 class="filter-header-title">propulsion</h3>
+        </div>
+        <!-- ko foreach: ComparableBoats  -->
+        <div class="compare-value">
+            <div class="compare-mobile-header">
+                <div class="compare-item-image">
+                    <img data-bind="attr: { src: ImageUrl, alt: PluralName }">
+                </div>
+                <div class="compare-item-title">
+                    <h4 data-bind="text: PluralName"></h4>
+                </div>
+                <a data-bind="click: CompareTrigger" class="compare-item-remove" href="#" title="Remove">X</a>
+            </div>
+            <div class="compare-value-text">
+                <ul data-bind="foreach: PropulsionNames">
+                    <li data-bind="text: $data"></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /ko -->
+
+    </div>
+    <div class="compare-row clearfix">
+        <div class="compare-filter-title filter-trailerable">
+            <span class="filter-header-image"></span>
+            <h3 class="filter-header-title">trailerable</h3>
+        </div>
+        <!-- ko foreach: ComparableBoats  -->
+        <div class="compare-value center">
+            <div class="compare-mobile-header">
+                <div class="compare-item-image">
+                    <img data-bind="attr: { src: ImageUrl, alt: PluralName }">
+                </div>
+                <div class="compare-item-title">
+                    <h4 data-bind="text: PluralName"></h4>
+                </div>
+                <a data-bind="click: CompareTrigger" class="compare-item-remove" href="#" title="Remove">X</a>
+            </div>
+            <div class="compare-value-text">
+                <span  data-bind="text: TrailableLabel"></span>
+            </div>
+        </div>
+        <!-- /ko -->
+
+    </div>
+</div>

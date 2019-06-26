@@ -1,0 +1,20 @@
+name: NMMA Theme
+type: theme
+description: 'Custom Theme for NMMA based on Cog'
+core: 8.x
+base theme: cog
+libraries:
+  - nmma/fonts
+  - nmma/fontawesome
+  - nmma/global_styles
+  - nmma/javascript
+regions:
+  header: Header
+  megamenu_1: Megamenu Slot 1
+  megamenu_2: Megamenu Slot 2
+  megamenu_3: Megamenu Slot 3
+  megamenu_4: Megamenu Slot 4
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: Footer

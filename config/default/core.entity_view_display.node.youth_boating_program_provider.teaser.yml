@@ -1,0 +1,83 @@
+uuid: d8712ba5-245e-47d1-b7a1-c35cbea12010
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.youth_boating_program_provider.field_ybp_address
+    - field.field.node.youth_boating_program_provider.field_ybp_company_email
+    - field.field.node.youth_boating_program_provider.field_ybp_company_type
+    - field.field.node.youth_boating_program_provider.field_ybp_company_url
+    - field.field.node.youth_boating_program_provider.field_ybp_description
+    - field.field.node.youth_boating_program_provider.field_ybp_geolocation
+    - field.field.node.youth_boating_program_provider.field_ybp_nmma_id
+    - field.field.node.youth_boating_program_provider.field_ybp_phone
+    - field.field.node.youth_boating_program_provider.field_ybp_program_types
+    - node.type.youth_boating_program_provider
+  module:
+    - address
+    - link
+    - panelizer
+    - telephone
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.youth_boating_program_provider.teaser
+targetEntityType: node
+bundle: youth_boating_program_provider
+mode: teaser
+content:
+  field_ybp_address:
+    type: address_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_ybp_company_email:
+    type: basic_string
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_ybp_company_url:
+    type: link
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_ybp_description:
+    type: text_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_ybp_phone:
+    type: telephone_link
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  field_ybp_company_type: true
+  field_ybp_geolocation: true
+  field_ybp_nmma_id: true
+  field_ybp_program_types: true
+  langcode: true
+  links: true

@@ -1,0 +1,6 @@
+services:
+  nmma_migrate.commands:
+    class: \Drupal\nmma_migrate\Commands\NmmaMigrateCommands
+    arguments: ['@entity_type.manager', '@nmma_migrate.file', '@nmma_migrate.redirect', '@http_kernel', '@request_stack', '@session']
+    tags:
+      - { name: drush.command }

@@ -1,0 +1,28 @@
+uuid: f7bdcf48-3268-4203-aa4b-d7a56ce5f92a
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.carousel
+    - field.storage.brick.field_slides
+    - node.type.carousel_slides
+id: brick.carousel.field_slides
+field_name: field_slides
+entity_type: brick
+bundle: carousel
+label: Slides
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      carousel_slides: carousel_slides
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

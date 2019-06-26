@@ -1,0 +1,31 @@
+project:
+  local:
+    hostname: local.boatshow.com
+    protocol: http
+  machine_name: boatshow
+  human_name: 'Boat Show'
+drush:
+  aliases:
+    local: self
+    remote: boatshow.atlanta-dev
+cm:
+  allow-overrides: true
+  # Possible values: core-only, config-split, features, none.
+  strategy: core-only
+  core:
+    # The default config key to use for imports. This is the key used in Drupal's global $config_directories variable.
+    # E.g., $config_directories['sync']. It must have a corresponding key in cm.core.dirs. E.g., `cm.core.dirs.sync`.
+    key: default
+    dirs:
+      # Corresponding value is defined in config.settings.php.
+      default:
+        path: ${cm.core.path}/boatshow
+command-hooks:
+  frontend-reqs:
+    dir: '${docroot}/themes/custom/boatshow'
+    command: 'npm install && npm install gulp'
+  frontend-assets:
+    dir: '${docroot}/themes/custom/boatshow'
+    command: 'node_modules/.bin/gulp'
+  post-deploy-build:
+    dir: '${deploy.dir}'

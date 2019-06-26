@@ -1,0 +1,16 @@
+services:
+  nmma_multinational.ip_locator:
+    class: Drupal\nmma_multinational\MelissaData\IpLocator
+    arguments: ['@http_client', '@logger.factory']
+
+  nmma_multinational.multinational_sites:
+    class: Drupal\nmma_multinational\Content\MultinationalSites
+    arguments: ['@entity_type.manager', '@logger.factory', '@nmma_multinational.cache.multinational_sites']
+
+  nmma_multinational.cache.multinational_sites:
+    class: '\Drupal\Core\Cache\CacheBackendInterface'
+    tags:
+      - { name: cache.bin, default_backend: cache.backend.chainedfast }
+    factory: cache_factory:get
+    arguments:
+      - mulinational_sites

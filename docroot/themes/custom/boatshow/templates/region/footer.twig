@@ -1,0 +1,49 @@
+<script type="text/html" id="video-template">
+  <div id="modal-video" class="modal-context modal-video">
+    <div data-bind="css: FullScreenClass" class="modal-container" data-modal-control="container">
+      <div class="modal-close" data-modal-control="close">
+        <i class="icon icon-db-close"></i>
+      </div>
+
+      <div class="modal-content" data-modal-control="content">
+        <div id="video-holder" class="video-holder">
+          <div id="video">
+            <div id="video-iframe"></div>
+          </div>
+
+          <div class="video-overlay"></div>
+
+          <div class="video-actions">
+            <div data-bind="css: PauseClass" class="video-play">
+              <!-- Add class 'pause' when video is paused -->
+              <a class="button" data-bind="click: TriggerPlayPause, event: { touchstart: TriggerPlayPause }" id="video-play" href="#">
+                Play / Pause
+                <i class="icon icon-db-video-play"></i>
+              </a>
+            </div>
+
+            <div class="video-progress-bars" id="video-progress-total">
+              <div class="video-progress-full"></div>
+              <div data-bind="attr: { style: CurrentTimeProgressStyle }" class="video-progress-now" id="video-progress-current"></div>
+              <div class="video-times" data-bind="event: { mousedown: TriggerProgress, touchstart: TriggerProgress }">
+                <div data-bind="text: CurrentTimeLabel" class="video-time-now" id="video-time-current">
+                </div>
+                <div data-bind="text: TotalLengthLabel" class="video-time-full" id="video-time-total">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="video-volume" id="video-volume-total">
+              <span class="video-volume-bar" id="video-volume-current"></span>
+              <a data-bind="event: { mousedown: TriggerVolume, touchstart: TriggerVolume }" href="#">
+                Volume
+                <i class="icon icon-db-sound"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>

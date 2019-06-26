@@ -1,0 +1,14 @@
+boatshow_boatfinder.search:
+  path: '/boatfinder/search'
+  defaults:
+    _title: 'Boat Finder'
+    _form: 'Drupal\boatshow_boatfinder\Form\BoatFinder'
+  requirements:
+    _permission: 'access content'
+boatshow_boatfinder.boat:
+  path: '/boatfinder/boat/{code}'
+  defaults:
+    _title_callback: '\Drupal\boatshow_boatfinder\Controller\BoatFinderController::boatTitle'
+    _controller: '\Drupal\boatshow_boatfinder\Controller\BoatFinderController::boatView'
+  requirements:
+    _permission: 'access content'

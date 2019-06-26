@@ -1,0 +1,52 @@
+// jQuery UI Accordion Overrides
+
+.ui-accordion {
+  .ui-accordion-header {
+    border: 0;
+    border-bottom: 1px solid $color-border-gray-transparent;
+    outline: 0;
+    padding: 1em 20px;
+  }
+
+  .icon {
+    color: $color-aqua;
+    position: absolute;
+    right: 20px;
+  }
+
+  .ui-state-active .icon::before {
+    // Arrow up
+    content: '\0042';
+  }
+
+  ul {
+    list-style: disc;
+  }
+}
+
+.ui-widget-content {
+  border: none;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+  background: transparent;
+  color: $color-gray-dark;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+  background: transparent;
+}
+
+.grid .content {
+  padding: 0 !important;
+}

@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for NMMA Blocks module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function nmma_blocks_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the nmma blocks module.
+    case 'help.page.nmma_blocks':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('NMMA Blocks module.') . '</p>';
+
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function nmma_blocks_theme($existing, $type, $theme, $path) {
+  return [
+    'sponsors_block' => [
+      'variables' => [
+        'items' => NULL,
+        'featured' => NULL,
+      ],
+      'template' => 'sponsors-block',
+    ],
+  ];
+}

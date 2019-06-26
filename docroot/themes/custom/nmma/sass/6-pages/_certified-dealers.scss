@@ -1,0 +1,57 @@
+
+
+.view-dealer-search {
+  .views-exposed-form {
+    max-width: 262px;
+    margin: 0 auto 20px;
+  }
+
+  .form-item-field-bus-address-administrative-area {
+    align-items: center;
+    display: flex;
+    padding: 0;
+    width: 100%;
+
+    label {
+      margin-right: 5px;
+      min-width: 95px;
+      width: auto;
+    }
+
+    select {
+      flex-grow: 1;
+      margin-bottom: 0;
+    }
+  }
+
+  .form-actions {
+    input[type="submit"] {
+      margin-top: 15px;
+      max-width: 300px;
+      padding: 9px 30px;
+      width: 100%;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .view-dealer-search {
+    .views-exposed-form {
+      align-items: center;
+      display: flex;
+      margin: 0 0 20px;
+      max-width: none;
+    }
+
+    .form-item-field-bus-address-administrative-area {
+      display: block;
+      max-width: 274px;
+    }
+
+    .form-actions {
+      input[type="submit"] {
+        margin-top: 0;
+      }
+    }
+  }
+}

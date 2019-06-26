@@ -1,0 +1,14 @@
+uuid: 4703127b-4819-4d77-b3d5-2dc88e5e0440
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.seminar_reviewer
+  module:
+    - user
+id: user_add_role_action.seminar_reviewer
+label: 'Add the Seminar reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: seminar_reviewer

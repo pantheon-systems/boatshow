@@ -1,0 +1,110 @@
+langcode: en
+status: true
+dependencies: {  }
+id: blog_en
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: discoverboating_com
+label: 'Import blog entries from blog.discoverboating.com.'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  headers:
+      Accept: 'application/json'
+  urls:
+    - http://blog.discoverboating.com/wp-json/wp/v2/posts?page=1
+    - http://blog.discoverboating.com/wp-json/wp/v2/posts?page=2
+    - http://blog.discoverboating.com/wp-json/wp/v2/posts?page=3
+    - http://blog.discoverboating.com/wp-json/wp/v2/posts?page=4
+    - http://blog.discoverboating.com/wp-json/wp/v2/posts?page=5
+    - http://blog.discoverboating.com/wp-json/wp/v2/posts?page=6
+    - http://blog.discoverboating.com/wp-json/wp/v2/posts?page=7
+    - http://blog.discoverboating.com/wp-json/wp/v2/posts?page=8
+    - http://blog.discoverboating.com/wp-json/wp/v2/posts?page=9
+  ids:
+    id:
+      type: integer
+  fields:
+    -
+      name: id
+      label: ItemId
+      selector: id
+    -
+      name: title
+      label: Title
+      selector: title/rendered
+    -
+      name: body
+      label: Body
+      selector: content/rendered
+    -
+      name: excerpt
+      label: Teaser
+      selector: excerpt/rendered
+    -
+      name: date
+      label: Date Posted
+      selector: date
+    -
+      name: author
+      label: Author
+      selector: author
+
+  constants:
+    bool_0: 0
+    bool_1: 1
+    uid_root: 1
+process:
+  # Most fields can be mapped directly - we just specify the destination (D8)
+  # field and the corresponding field name from above, and the values will be
+  # copied in.
+  sticky: constants/bool_0
+  promote: constants/bool_0
+  uid: constants/uid_root
+  content_translation_uid: constants/uid_root
+  title: title
+  field_article_nmma_id: id
+  field_article_body:
+    -
+      plugin: text_format
+      source: body
+      format: 'rich_text'
+  #field_article_subhead: Subtitle
+  field_article_teaser:
+    -
+      plugin: text_format
+      source: excerpt
+      format: 'rich_text'
+  field_article_author:
+    -
+      plugin: static_map
+      source: author
+      map:
+        '7': Colleen Richardson
+        '2': Discover Boating
+        '5': Ellen Hopkins
+        '3': Guest Author
+        '41': Guest Author
+        '6': Kelly Kaylor
+        '1': Michael Perulli
+        '4': Nicki Belczak
+  field_article_meta_tags:
+      -
+        plugin: meta_tag
+        keywords: ''
+        description: excerpt
+  langcode:
+    plugin: default_value
+    default_value: 'en'
+  created:
+      plugin: callback
+      # The 'registered' timestamp in the source data is a string of the form
+      # 'yyyy-mm-dd hh:mm:ss', but Drupal wants a UNIX timestamp for 'created'.
+      source: date
+      callable: strtotime
+destination:
+  plugin: 'entity:node'
+  default_bundle: article

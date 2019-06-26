@@ -1,0 +1,12 @@
+
+.megamenu__container {
+  background: $color-white;
+  left: 0;
+  position: absolute;
+  top: $dimension-header-height;
+  width: 100%;
+
+  .flex-container {
+    @include container();
+  }
+}

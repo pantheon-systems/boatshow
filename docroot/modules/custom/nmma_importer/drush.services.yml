@@ -1,0 +1,6 @@
+services:
+  nmma_importer.commands:
+    class: \Drupal\nmma_importer\Commands\NmmaImporterCommands
+    arguments: ['@nmma_importer.client']
+    tags:
+      - { name: drush.command }

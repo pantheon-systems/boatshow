@@ -1,0 +1,141 @@
+langcode: en
+status: true
+dependencies: {  }
+id: business
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: discoverboating_importer
+label: 'Imports businesses from middleware DiscoverBoating.com.'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  urls: http://34.237.30.192:22000/middleware/json/businesses.json
+  ids:
+    Id:
+      type: integer
+  item_selector: /
+  fields:
+    -
+      name: Id
+      label: Id
+      selector: Id
+    -
+      name: SegmentId
+      label: SegmentId
+      selector: SegmentId
+    -
+      name: StatusId
+      label: StatusId
+      selector: StatusId
+    -
+      name: OfficialName
+      label: OfficialName
+      selector: OfficialName
+    -
+      name: DisplayName
+      label: DisplayName
+      selector: DisplayName
+    -
+      name: ShortDescription
+      label: ShortDescription
+      selector: ShortDescription
+    -
+      name: PrimaryWeb
+      label: PrimaryWeb
+      selector: PrimaryWeb
+    -
+      name: PrimaryPhone
+      label: PrimaryPhone
+      selector: PrimaryPhone
+    -
+      name: Address
+      label: Address
+      selector: Address
+    -
+      name: Address2
+      label: Address2
+      selector: Address2
+    -
+      name: City
+      label: City
+      selector: City
+    -
+      name: PostalCode
+      label: PostalCode
+      selector: PostalCode
+    -
+      name: Abbreviation
+      label: Abbreviation
+      selector: Abbreviation
+    -
+      name: CountryId
+      label: CountryId
+      selector: CountryId
+    -
+      name: TypeId
+      label: TypeId
+      selector: TypeId
+    -
+      name: Brands
+      label: Brands
+      selector: Brands
+  constants:
+    bool_0: 0
+    bool_1: 1
+    uid_root: 1
+process:
+  sticky: constants/bool_0
+  promote: constants/bool_0
+  uid: constants/uid_root
+  title: OfficialName
+  field_bus_nmma_id: Id
+  field_bus_segment: SegmentId
+  field_bus_address/country_code:
+      -
+        source: CountryId
+        plugin: callback
+        callable: 'nmma_importer_country_from_id'
+  field_bus_address/langcode:
+    plugin: default_value
+    default_value: en
+  field_bus_address/address_line1: Address
+  field_bus_address/address_line2: Address2
+  field_bus_address/locality: City
+  field_bus_address/administrative_area: Abbreviation
+  field_bus_address/postal_code: PostalCode
+  field_bus_body: ShortDescription
+  field_bus_display_name: DisplayName
+  field_bus_phone: PrimaryPhone
+  field_bus_type: TypeId
+  field_bus_url/title: PrimaryWeb
+  field_bus_url/uri:
+      -
+        source: PrimaryWeb
+        plugin: callback
+        callable: 'nmma_importer_link_create'
+  field_bus_brands:
+      -
+        plugin: explode
+        source: Brands
+        delimiter: ';'
+      -
+        plugin: migration_lookup
+        migration: brands_en
+        no_stub: true
+  status:
+    plugin: static_map
+    source:
+      - StatusId
+    map:
+      1: 1
+      # There is only 1 or 3 in their data, as far as i could tell, 3 is un-published.
+      3: 0
+  langcode:
+    plugin: default_value
+    default_value: en
+destination:
+  plugin: 'entity:node'
+  default_bundle: business

@@ -1,0 +1,6 @@
+nmma_multinational.ip_locate_country:
+  path: '/multinational-message'
+  defaults:
+    _controller: '\Drupal\nmma_multinational\Controller\IpLocatorController::multinationalMessage'
+  requirements:
+    _access: 'TRUE'

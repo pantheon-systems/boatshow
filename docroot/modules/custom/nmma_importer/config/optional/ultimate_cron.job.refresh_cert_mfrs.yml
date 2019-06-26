@@ -1,0 +1,25 @@
+langcode: en
+status: true
+title: 'NMMA: Refresh Certified Mfrs (Source)'
+id: nmma_refresh_certified_mfrs
+module: nmma_importer
+callback: nmma_importer_refresh_cert_mfrs_cron
+scheduler:
+  id: simple
+  configuration:
+    rules:
+      - '0+@ */12 * * *'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+      max_execution_time: 3600
+    launcher:
+      max_threads: 1
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

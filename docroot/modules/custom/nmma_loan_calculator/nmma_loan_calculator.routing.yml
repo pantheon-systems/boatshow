@@ -1,0 +1,7 @@
+nmma_loan_calculator.content:
+  path: '/embedded/buying/boat-loan-calculator'
+  defaults:
+    _controller: '\Drupal\nmma_loan_calculator\Controller\LoanCalculatorController::content'
+    _title: 'Find a Boat With Our Boat Selector'
+  requirements:
+    _permission: 'access content'

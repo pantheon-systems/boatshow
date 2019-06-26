@@ -1,0 +1,5 @@
+name: NMMA SEO
+type: module
+description: Any configuration required change SEO configuration.
+core: 8.x
+package: NMMA

@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * Theme override for views to display rows in a grid.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapping element.
+ * - title: The title of this group of rows.
+ * - view: The view object.
+ * - rows: The rendered view results.
+ * - options: The view plugin style options.
+ *   - row_class_default: A flag indicating whether default classes should be
+ *     used on rows.
+ *   - col_class_default: A flag indicating whether default classes should be
+ *     used on columns.
+ * - items: A list of grid items. Each item contains a list of rows or columns.
+ *   The order in what comes first (row or column) depends on which alignment
+ *   type is chosen (horizontal or vertical).
+ *   - attributes: HTML attributes for each row or column.
+ *   - content: A list of columns or rows. Each row or column contains:
+ *     - attributes: HTML attributes for each row or column.
+ *     - content: The row or column contents.
+ *
+ * @see template_preprocess_views_view_grid()
+ */
+#}
+
+<div class="col-12-xs col-6-sm col-4-md">
+    <div class="grid-item--link">
+        {{ fields.nothing.content }}
+        <div class="grid-item--content">
+
+            <div class="image curve-corner">
+
+                {{ fields.field_boat_type_tsr_image.content }}
+                <div class="item-title">
+                    <span>{{ fields.field_boat_type_plural.content }}</span>
+                </div>
+
+            </div>
+
+        </div>
+        </a>
+    </div>
+</div>

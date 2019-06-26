@@ -1,0 +1,21 @@
+<section class="styleguide-nav">
+  {% for menu_item in menu %}
+      <li class="kss-nav__menu-item">
+        <a class="kss-nav__menu-link" href="section-{{ menu_item.referenceURI }}.html">
+          <span class="kss-nav__ref">{{ menu_item.referenceNumber }}</span><span class="kss-nav__name">{{ menu_item.header }}</span>
+        </a>
+        {% if menu_item.isActive and menu_item.children is not empty %}
+          <ul class="kss-nav__menu-child">
+            {% for menu_child in menu_item.children %}
+              <li class="kss-nav__menu-item">
+                <a class="kss-nav__menu-link" href="section-{{ menu_item.referenceURI }}.html#kssref-{{ menu_child.referenceURI }}">
+                  <span class="kss-nav__ref {% if menu_child.isGrandChild %}kss-nav__ref-child{% endif %}">{{ menu_child.referenceNumber }}</span
+                  ><span class="kss-nav__name">{{ menu_child.header }}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+  {% endfor %}
+</section>

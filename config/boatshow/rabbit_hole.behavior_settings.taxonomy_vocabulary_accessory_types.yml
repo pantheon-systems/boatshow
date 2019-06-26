@@ -1,0 +1,9 @@
+uuid: 67456950-1a15-43ea-b875-ce952ba1598d
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_accessory_types
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301

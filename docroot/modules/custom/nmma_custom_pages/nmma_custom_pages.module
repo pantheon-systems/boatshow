@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Contains nmma_custom_pages.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function nmma_custom_pages_theme() {
+  $return = [
+    'articles_and_resources' => [
+      'template' => 'articles-and-resources',
+      'variables' => ['content' => NULL, 'title' => NULL, 'search_form' => NULL],
+    ],
+    'article_block_large' => [
+      'template' => 'article-block-large',
+      'variables' => ['entity' => NULL, 'full' => NULL],
+    ],
+    'article_block_small' => [
+      'template' => 'article-block-small',
+      'variables' => ['entity' => NULL],
+    ],
+    'article_block_stack' => [
+      'template' => 'article-block-stack',
+      'variables' => [
+        'entities' => NULL,
+        'title' => NULL,
+        'link_text' => NULL,
+        'link_url' => NULL,
+      ],
+    ],
+    'article_block_stack_item' => [
+      'template' => 'article-block-stack-item',
+      'variables' => ['entity' => NULL],
+    ],
+    'flex_container' => [
+      'template' => 'flex-container',
+      'variables' => ['content' => NULL],
+    ],
+    'stories_of_discovery' => [
+      'template' => 'stories-of-discovery',
+      'variables' => [],
+    ],
+  ];
+  foreach ($return as &$item) {
+    $item['file'] = 'nmma_custom_pages.theme.inc';
+  }
+  return $return;
+}
+
+/**
+ * Implements hook_eu_cookie_compliance_path_match().
+ */
+function nmma_custom_pages_eu_cookie_compliance_path_match_alter(&$excluded, $path, $exclude_paths) {
+  $pathArray = array_values(array_filter(explode('/', $path)));
+  $first = array_shift($pathArray);
+  if (!empty($first) && $first == 'embedded') {
+    $excluded = TRUE;
+  }
+}

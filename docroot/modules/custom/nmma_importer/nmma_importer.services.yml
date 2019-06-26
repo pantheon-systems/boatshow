@@ -1,0 +1,5 @@
+# Service definition in YAML.
+services:
+  nmma_importer.client:
+    class: '\Drupal\nmma_importer\Client\NmmaImporterClient'
+    arguments: ['@http_client']

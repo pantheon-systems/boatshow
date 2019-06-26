@@ -1,0 +1,14 @@
+uuid: 77aaaab8-0116-4e7a-ae99-7d67cb42e65f
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.special_offer_reviewer
+  module:
+    - user
+id: user_remove_role_action.special_offer_reviewer
+label: 'Remove the Special Offer reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: special_offer_reviewer

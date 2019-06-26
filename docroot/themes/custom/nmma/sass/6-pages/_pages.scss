@@ -1,0 +1,39 @@
+// Main Page-level Styles
+
+.page-error {
+  #main > section {
+    margin-bottom: 50px;
+
+    h3 {
+      margin: 60px 0 20px;
+
+      .icon {
+        position: relative;
+        top: 4px;
+      }
+    }
+  }
+}
+
+.page-search {
+  .views-exposed-form {
+    margin-bottom: 40px;
+  }
+
+  .node--view-mode-search-results {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}
+
+// Screen breakpoints
+
+// Mobile: > 576px
+// Tablet: > 768px
+// Desktop: > 992px
+
+@include media-breakpoint-up(lg) {
+  margin-bottom: 70px;
+}
+
+// Large: > 1200px

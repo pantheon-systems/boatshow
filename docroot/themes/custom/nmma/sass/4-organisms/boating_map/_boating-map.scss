@@ -1,0 +1,137 @@
+#go-boating-today {
+  border-bottom: solid 1px $color-gray;
+  border-top: solid 1px $color-gray;
+  max-width: none;
+}
+
+.filters-map-wrapper {
+  flex-direction: column-reverse;
+}
+
+.map__filters {
+  background: $color-gray-light;
+  padding: 20px;
+
+  .form-filters {
+    @include font-size($font-size-body-copy-small);
+
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+  }
+}
+
+.map__list {
+  padding: 0 20px;
+
+  .result-box {
+    border-bottom: 1px solid $color-gray;
+    margin-bottom: 20px;
+  }
+}
+
+.result-box {
+  dt.title {
+    font-family: $font-bold;
+  }
+
+  dd.address {
+    margin: 5px 0 10px;
+  }
+
+  .more-info {
+    .separator {
+      color: $color-gray;
+      display: inline-block;
+      margin: 0 10px;
+    }
+  }
+}
+
+.boat-map {
+  height: 100%;
+
+  iframe {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+#map-canvas {
+  height: 100%;
+  width: 100%;
+
+  .result-box {
+    dl {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  a {
+    color: $color-aqua !important;
+  }
+
+  .gm-style-iw > div {
+    padding-left: 0 !important;
+  }
+}
+
+.rating {
+  span::after {
+    display: inline-block;
+  }
+
+  .full::after {
+    content: "★ ";
+    color: $color-star-yellow;
+  }
+
+  .empty::after {
+    content: "☆ ";
+    color: $color-gray-dark;
+  }
+}
+
+.pagination {
+  letter-spacing: 0.2em;
+  margin: 20px 0;
+  text-align: center;
+
+  a.active {
+    color: $color-gray-dark;
+    cursor: default;
+  }
+
+  .icon {
+    font-size: 0.75em;
+  }
+}
+
+//
+// Responsive breakpoints
+//
+
+// Tablet: > 768px
+
+@include media-breakpoint-up(md) {
+  .filters-map-wrapper {
+    flex-direction: row;
+  }
+
+  .map__filters {
+    .form-filters {
+      @include font-size($font-size-body-copy);
+    }
+  }
+
+  .filter-column {
+    width: susy-span(5 of 12 set-gutters 0);
+  }
+
+  .map-column {
+    // TODO: Remove filter content min-height and redraw map after results load
+    min-height: 600px;
+    height: auto;
+    width: susy-span(7 of 12 set-gutters 0);
+  }
+}

@@ -1,0 +1,16 @@
+{# Header#}
+{% include componentroot ~ '/4-organisms/header/header.twig' with {'no_hero': 'true'} %}
+
+{# Main Page Content #}
+<div class="clearfix no-hero" id="main">
+  <section class="section-header">
+    <h3>Find Your Boat</h3>
+    <p>Select your preferences across 5 categories and discover the perfect boat for you. To compare features, select up to 4 boats below and click the Compare Boats button.</p>
+  </section>
+  <section class="boat-finder">
+    {% include componentroot ~ '/4-organisms/boat_finder/boat_finder.twig' %}
+  </section>
+</div>
+
+{# Footer #}
+{% include componentroot ~ '/4-organisms/footer/footer.twig'  %}

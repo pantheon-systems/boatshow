@@ -1,0 +1,74 @@
+
+{# Top Bar #}
+{#{% include componentroot ~ '/4-organisms/top_bar/top_bar.twig'  %}#}
+
+{# Header#}
+{% include componentroot ~ '/4-organisms/header/header.twig'  %}
+
+{% include componentroot ~ '/4-organisms/hero/hero.twig'  %}
+
+{# Main Page Content #}
+<div class="clearfix" id="main">
+  <section>
+    <div class="flex-container">
+      <div class="row">
+        <div class="col-12-xs col-12-sm col-4-md">
+          {% include componentroot ~ '/4-organisms/product_stats/product_stats.twig' %}
+        </div>
+        <div class="col-12-xs col-12-sm col-8-md">
+          <p>Jet boats rapidly earned a reputation as thrilling, high-performance rides but in recent years the platform has matured to the point that the boat’s jet power is now considered just another viable alternative to a sterndrive, outboard or even inboard. Yes, the high-performance reputation is still deserved; jets leap onto plane with little hesitation, boast thrilling speeds and handle with unparalleled agility.
+          </p>
+          <a href="" class="button">Find a Boat Manufacturer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    {% include componentroot ~ '/4-organisms/content_slider/content_slider.twig' %}
+  </section>
+  <section class="descriptor activities">
+    <div class="flex-container">
+      <div class="row">
+        <div class="col-12-xs col-12-sm col-4-md">
+          <h3>Activities You'll Most Enjoy</h3>
+        </div>
+        <div class="col-12-xs col-12-sm col-8-md">
+          <p>Most jet boats fall within the bowrider/deckboat mold, meaning you can do all of the popular activities, from hauling your kids on that wakeboard or tube to cruising the shore on a pleasant evening or heading to a waterfront restaurant. Fish? Of course, and there are even several center-console designs specifically made for the serious enthusiast. Wakeboard and wakesurf models are also available, adding ballast (extra weight for wake sports) and tow towers to enhance the ride. Current offerings can all be easily trailered to and from the water.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="descriptor engine">
+    <div class="flex-container">
+      <div class="row">
+          <div class="col-12-xs col-12-sm col-4-md">
+            <h3>Which Engine is Right For Your Boat?</h3>
+          </div>
+          <div class="col-12-xs col-12-sm col-8-md">
+            <p>There’s only one, and the name says it all — jet propulsion. Jet drive eschews propellers in favor of an impeller housed within an enclosed jet pump. Water is drawn into the pump through an intake under the hull (the boat’s bottom). That water is then pushed out through the pump’s venturi, a funnel-shaped cone that reduces the outlet diameter. The concept is much like placing a finger over the end of a garden hose. The velocity of the water is increased, and it’s that force that pushes the boat through the water.
+            </p>
+            <p>
+              Jet drives are touted for their safety advantages. There’s no exposed propeller, and the lack of hardware below the hull allows jet-drive boats to run in shallower water than their prop-driven counterparts. Jets also typically boast impressive acceleration and, thanks to a directional nozzle that redirects the thrust, nimble handling. Personal watercraft are most recognized for jet propulsion, but jets, with their compact footprint and impressive acceleration, have also proven to be a powerful force in the 17’-25’ sport boat market.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="brands-manufacturers">
+    <div class="row">
+      {% include componentroot ~ '/4-organisms/brand_grid/brand_grid.twig' %}
+    </div>
+  </section>
+  <section class="disruptor">
+    {% include componentroot ~ '/4-organisms/disruptor/disruptor_product.twig' %}
+  </section>
+  <section class="section-header">
+    <div class="row">
+      <h3>You Might Also Like:</h3>
+    </div>
+  </section>
+</div>
+
+{# Footer #}
+{% include componentroot ~ '/4-organisms/footer/footer.twig'  %}

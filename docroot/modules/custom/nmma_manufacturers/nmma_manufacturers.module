@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * Contains nmma_manufacturers.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function nmma_manufacturers_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the nmma_manufacturers module.
+    case 'help.page.nmma_manufacturers':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Handles manufacture links and lead processing.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function nmma_manufacturers_theme() {
+  return [
+    // Plain Block.
+    'nmma_manufacturers_signup' => [
+      'variables' => [
+        'linkbutton' => NULL,
+      ],
+      'template' => 'nmma-manufacturers-signup',
+    ],
+    // Modal Block.
+    'nmma_manufacturers_modal_trigger' => [
+      'variables' => [
+        'modalbutton' => NULL,
+      ],
+      'template' => 'nmma-manufacturers-modal-signup',
+    ],
+    // Form Page.
+    'nmma_manufacturers_landing_page' => [
+      'variables' => [
+        'content' => NULL,
+      ],
+      'template' => 'nmma-manufacturers',
+    ],
+
+  ];
+}

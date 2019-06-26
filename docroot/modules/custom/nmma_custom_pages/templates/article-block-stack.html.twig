@@ -1,0 +1,12 @@
+{% if content is not empty %}
+  <div class="col-12-xs col-12-sm col-4-md">
+    <div class="article-stack">
+      {% if title is not empty or (link_url is not empty and link_text is not empty) %}
+        <h4 class="small">{% if title is not empty %}{{ title }}{% endif %}{% if link_text is not empty %} 
+          <a href="{{ link_url }}">{{ link_text }} <i class="icon icon-db-arrow-right"></i></a>{% endif %}
+        </h4>
+      {% endif %}
+      {{ content }}
+    </div>
+  </div>
+{% endif %}

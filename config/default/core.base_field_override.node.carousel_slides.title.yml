@@ -1,0 +1,18 @@
+uuid: ff4891fe-4279-45af-b961-52580eff489c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.carousel_slides
+id: node.carousel_slides.title
+field_name: title
+entity_type: node
+bundle: carousel_slides
+label: 'Slide Title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

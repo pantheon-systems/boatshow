@@ -1,0 +1,18 @@
+uuid: f62c134f-49d5-4026-abb2-253240bb8f29
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.glossary_item
+id: node.glossary_item.title
+field_name: title
+entity_type: node
+bundle: glossary_item
+label: 'Glossary Term'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

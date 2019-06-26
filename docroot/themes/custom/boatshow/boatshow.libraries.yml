@@ -1,0 +1,48 @@
+fonts:
+  version: 1.0.0
+  css:
+    theme:
+      '//fonts.googleapis.com/css?family=Open+Sans:400,700,300': {type: external} # external font
+      '//unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css': {type: external}
+      fonts/poppins.css: {} # local font
+  js:
+    '//unpkg.com/ionicons@4.2.2/dist/ionicons.js': {type: external}
+fontawesome:
+  version: 4.7.0
+  css:
+    component:
+      '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css': {type: external}
+global_styles:
+  version: 1.0.0
+  css:
+    theme:
+      css/styles.css: {}
+javascript:
+  version: 1.0.0
+  js:
+    js/dist/global.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+    - core/jquery.cookie
+    - core/jquery.ui
+    - nmma/slick_carousel
+
+slick_carousel:
+  js:
+    libraries/slick/slick.min.js: {}
+  css:
+    theme:
+      libraries/slick/slick.css: {}
+  dependencies:
+    - core/jquery
+
+jcountdown:
+  version: 2.0.2
+  js:
+    js/libraries/jCountdown/jquery.jcountdown.min.js: {minified: external}
+  dependencies:
+    - core/jquery

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: discoverboating_com
+label: DiscoverBoating.com
+description: 'Content from DiscoverBoating.com'
+source_type: 'Custom CSV files from an Azure SqlServer database.'
+module: null
+shared_configuration: null
