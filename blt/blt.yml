@@ -24,12 +24,13 @@ multisites:
   - default
   - chicago
   - atlanta
-      disable-targets:
-        tests:
-          phpcs:
-            sniff:
-              all: true
-              files: true
+
+disable-targets:
+  tests:
+    phpcs: { sniff: { all: true } }
+    behat: { run: true }
+    security: { check: { updates: true } }
+
 modules:
   local:
     enable: [dblog, devel, seckit, views_ui]
