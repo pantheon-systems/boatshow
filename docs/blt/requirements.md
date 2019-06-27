@@ -136,3 +136,14 @@ run:
 nvm install 9.11.2
 nvm use 9.11.2
 ```
+
+
+## References
+Drupal VM Documentation
+http://docs.drupalvm.com/en/latest/
+
+Acquia BLT Documentation
+https://docs.acquia.com/blt/
+
+Acquia BLT Onboarding Documentation
+https://docs.acquia.com/blt/developer/onboarding/
