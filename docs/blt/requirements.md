@@ -1,4 +1,4 @@
-# General Requirements
+# BLT General Requirements
 
 ## Git
 To check if git is already installed
@@ -71,3 +71,68 @@ You might encounter an error during installation on Mac OS Morave. Try:
 - Reboot back into the Normal OS environment
 - Re-run the install
 
+## Python
+To check if Python is already installed
+```
+python –version    
+```
+To install Python, run:
+```
+sudo easy_install pip    
+```
+
+## Ansible
+To check if Ansible is already installed
+```
+ansible –version    
+```
+To install Ansible, run
+```
+sudo pip install ansible   
+```
+To update Ansible, run
+```
+sudo pip install ansible –upgrade   
+```
+
+## Drupal VM
+Check installation video for mac OS at: http://docs.drupalvm.com/en/latest/getting-started/installation-macos/
+Download Drupal VM at: https://www.drupalvm.com/
+Additional instruction can be found at:
+- http://docs.drupalvm.com/en/latest/
+- https://github.com/geerlingguy/drupal-vm#quick-start-guide
+
+## ssh-key
+Instruction about ssh-key can be found at: https://docs.acquia.com/acquia-cloud/manage/ssh/generate/
+To check if a public key already exists:
+```
+cd ~/.ssh ls -l 
+```
+To create an ssh-key: 
+```
+ssh-keygen -b 4096
+hit enter until done
+```
+To copy your key to the clipboard: 
+```
+pbcopy < ~/.ssh/id_rsa.pub
+```
+
+Your ssh-key needs to be added to:
+- Your Git profile
+- Your profile in Acquia (https://cloud.acquia.com)
+
+## Node.js & npm
+Use either
+```
+brew install nvm
+```
+Download Noje.js at: https://nodejs.org/en/
+
+or 
+
+run:
+```
+nvm install 9.11.2
+nvm use 9.11.2
+```
