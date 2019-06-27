@@ -1,1 +1,1 @@
-[`BLT requirements`](https://github.com/bazelbuild/rules_nodejs/tree/master/packages)
+[`BLT requirements`](https://github.com/NationalMarine/BoatShows/blob/master/docs/blt/requirements.md)
