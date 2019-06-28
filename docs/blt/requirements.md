@@ -68,7 +68,7 @@ You might encounter an error during installation on Mac OS Morave. Try:
 - Boot into Recovery Mode via Command-R
 - Open terminal
 - Run: spctl kext-consent add VB5E2TV963
-- Reboot back into the Normal OS environment
+- Reboot back into the normal OS environment
 - Re-run the install
 
 ## Python
