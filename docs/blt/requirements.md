@@ -96,14 +96,14 @@ sudo pip install ansible –upgrade
 ```
 
 ## Drupal VM
-Check installation video for mac OS at: http://docs.drupalvm.com/en/latest/getting-started/installation-macos/
-Download Drupal VM at: https://www.drupalvm.com/
-Additional instruction can be found at:
+Check installation video for mac OS at: http://docs.drupalvm.com/en/latest/getting-started/installation-macos/  
+Download Drupal VM at: https://www.drupalvm.com/  
+Additional instruction can be found at:  
 - http://docs.drupalvm.com/en/latest/
 - https://github.com/geerlingguy/drupal-vm#quick-start-guide
 
 ## ssh-key
-Instruction about ssh-key can be found at: https://docs.acquia.com/acquia-cloud/manage/ssh/generate/
+Instruction about ssh-key can be found at: https://docs.acquia.com/acquia-cloud/manage/ssh/generate/  
 To check if a public key already exists:
 ```
 cd ~/.ssh ls -l 
