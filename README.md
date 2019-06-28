@@ -1,6 +1,6 @@
-# My Project
+# Boat Shows
 
-A brief description of My Project.
+This is the home of [National Marine Manufacturers Association](https://www.nmma.org) ([NMMA](https://www.nmma.org)) [boat show websites](https://www.boatshows.com) and related websites.
 
 ## Using This Template
 
