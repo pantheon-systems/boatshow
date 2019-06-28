@@ -5,7 +5,7 @@ To check if git is already installed
 ```
 git –-version 
 ```
-https://git-scm.com/downloads
+download at: https://git-scm.com/downloads
 
 ## PHP
 Install PHP 7.1 or greater
@@ -13,14 +13,14 @@ To check if PHP is already installed
 ```
 php –version 
 ```
-https://php.net/manual/en/install.php
+download at: https://php.net/manual/en/install.php
 
 ## Composer
 To check if Composer is already installed
 ```
 composer
 ```
-https://getcomposer.org/download
+download at: https://getcomposer.org/download
 
 run:
 ```
@@ -29,7 +29,7 @@ composer global require hirak/prestissimo
 ```
 
 ## Xcode
-https://itunes.apple.com/us/app/xcode/id497799835?mt=12 
+download at: https://itunes.apple.com/us/app/xcode/id497799835?mt=12 
 
 ## Drush
 To check if Drush is already installed
@@ -49,7 +49,7 @@ To check if Vagrant is already installed
 ```
 vagrant version  
 ```
-https://www.vagrantup.com/downloads.html
+download at: https://www.vagrantup.com/downloads.html
 Then run:
 ```
 vagrant plugin install vagrant-cachier
@@ -62,7 +62,7 @@ To check if VirtualBox is already installed
 ```
 vboxmanage –version   
 ```
-https://www.virtualbox.org
+download at: https://www.virtualbox.org
 
 You might encounter an error during installation on Mac OS Morave. Try:
 - Boot into Recovery Mode via Command-R
