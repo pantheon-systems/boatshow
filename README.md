@@ -15,9 +15,10 @@ Search for and replace the following placeholders within this file:
 | `#GITHUB_ORG` | The "org" in https://github.com/nationalmarine |
 | `#GITHUB_PROJECT` | The "project" in https://github.com/nationalmarine/BoatShows |
 | `#JIRA_URL` | https://org.atlassian.net/projects/PROJ |
-| `#LOCAL_DEV_SITE_ALIAS` | `@example.local` |
-| `#LOCAL_DEV_URL` | http://local.example.com/ |
-| `#TRAVIS_URL` | https://travis-ci.com/org/PROJ |
+| `#LOCAL_DASHBOARD` | http://dashboard.local.atlanta.com/ |
+| `#LOCAL_DEV_SITE_ALIAS` | `@atlanta.local` |
+| `#LOCAL_DEV_URL` | http://local.atlanta.com/, http://local.chicago.com/, etc. |
+| `#TRAVIS_URL` | https://travis-ci.com/NationalMarine |
 
 # Getting Started
 
