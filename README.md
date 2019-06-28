@@ -10,10 +10,10 @@ Search for and replace the following placeholders within this file:
 
 | Placeholder | Example |
 | --- | --- |
-| `#ACQUIA_CLOUD_URL` | https://cloud.acquia.com/app/develop/applications/12345678-1234-1234-12345678901234567 |
-| `#GIT_PRIMARY_DEV_BRANCH` | `master` or `develop` |
-| `#GITHUB_ORG` | The "org" in https://github.com/org/project |
-| `#GITHUB_PROJECT` | The "project" in https://github.com/org/project |
+| `#ACQUIA_CLOUD_URL` | https://cloud.acquia.com/app/develop/applications/f2e0f526-ca95-47ff-a614-a415ef43ecda |
+| `#GIT_PRIMARY_DEV_BRANCH` | `develop` |
+| `#GITHUB_ORG` | The "org" in https://github.com/nationalmarine |
+| `#GITHUB_PROJECT` | The "project" in https://github.com/nationalmarine/BoatShows |
 | `#JIRA_URL` | https://org.atlassian.net/projects/PROJ |
 | `#LOCAL_DEV_SITE_ALIAS` | `@example.local` |
 | `#LOCAL_DEV_URL` | http://local.example.com/ |
