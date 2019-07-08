@@ -17,9 +17,8 @@ Search for and replace the following placeholders within this file:
 | `#GITHUB_ORG` | The "org" in https://github.com/nationalmarine |
 | `#GITHUB_PROJECT` | The "project" in https://github.com/nationalmarine/BoatShows |
 | `#JIRA_URL` | https://org.atlassian.net/projects/PROJ |
-| `#LOCAL_DASHBOARD` | http://dashboard.local.atlanta.com/ |
+| `#LOCAL_DASHBOARD` | http://dashboard.local.boatshows.com/ |
 | `#LOCAL_DEV_SITE_ALIAS` | `@atlanta.local` |
-| `#LOCAL_DEV_URL` | http://local.atlanta.com/, http://local.chicago.com/, etc. |
 | `#TRAVIS_URL` | https://travis-ci.com/NationalMarine |
 
 # Getting Started
@@ -80,7 +79,7 @@ Along with some configurable extra utilities listed in the `drupalvm/config.yml`
 
 Full [Drupal VM](http://www.drupalvm.com/) documentation is available at [http://docs.drupalvm.com/](http://docs.drupalvm.com/).
 
-[Detailed installation](docs/installation_readme.md)
+For a general list of steps, follow the steps below:
 
 1. Clone down the repo to your local/dev machine.
 2. Checkout the **develop** branch.
@@ -125,6 +124,9 @@ Access the site and do necessary work at #LOCAL_DEV_URL by running the following
     $ cd docroot
     $ drush uli
     ```
+
+[Go here for a detailed installation list](docs/installation_readme.md)
+
 
 ---
 ## Other Local Setup Steps
