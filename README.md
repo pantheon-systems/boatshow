@@ -57,6 +57,19 @@ This solution requires a handful of dependencies that must exist on your local m
 
 BLT provides an automation layer for testing, building, and launching Drupal 8 applications. For ease when updating codebase it is recommended to use  Drupal VM. If you prefer, you can use another tool such as Docker, [DDEV](https://blt.readthedocs.io/en/latest/alternative-environment-tips/ddev.md), [Docksal](https://blt.readthedocs.io/en/latest/alternative-environment-tips/docksal.md), [Lando](https://blt.readthedocs.io/en/latest/alternative-environment-tips/lando.md), (other) Vagrant, or your own custom LAMP stack, however support is very limited for these solutions.
 
+### Tools you will need
+
+The following dependencies must first be installed and available to the command line on your local machine.
+
+  * [Ansible](http://docs.ansible.com/intro_installation.html) 2.2.x
+  * [Composer](https://getcomposer.org/doc/00-intro.md) 1.8.x
+  * [Drush](http://www.drush.org/en/master) 9.x
+  * [Node.js](https://nodejs.org/en/) 9.11.x
+  * [PHP](http://php.net/manual/en/install.php) 7.2+
+  * [Vagrant](https://www.vagrantup.com/downloads.html) 2.2.x
+  * [VirtualBox](https://www.virtualbox.org/wiki/Downloads) 6.0.x
+
+
 The Boatshows websites utilizes [Drupal VM](http://www.drupalvm.com/) for local Drupal development, built with Vagrant + Ansible + VirtualBox.
 
 It will install the following on an Ubuntu 16.04 Linux VM:
