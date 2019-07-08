@@ -21,10 +21,23 @@ drush:
     ci: self
   default_alias: '${drush.aliases.local}'
 multisites:
+  - atlanta
+  - atlanticcity
+  - baltimore
+  - boatshow
   - default
   - chicago
-  - atlanta
-
+  - kansascity
+  - miami
+  - minneapolis
+  - nashville
+  - newengland
+  - newyork
+  - northwest
+  - norwalk
+  - sportshows
+  - stlouis
+  - tampa
 disable-targets:
   tests:
     phpcs: { sniff: { all: true } }

@@ -865,3 +865,11 @@ else {
 }
 //mjb must remove
 $settings['boatshow.city.searchId'] = '29';
+/**
+ * IMPORTANT.
+ *
+ * Do not include additional settings here. Instead, add them to settings
+ * included by `blt.settings.php`. See BLT's documentation for more detail.
+ *
+ * @link https://docs.acquia.com/blt/
+ */

@@ -24,9 +24,13 @@ Search for and replace the following placeholders within this file:
 
 # Getting Started
 
-This project is based on BLT, an open-source project template and tool that enables building, testing, and deploying Drupal installations following Acquia Professional Services best practices. While this is one of many methodologies, it is our recommended methodology. 
+This project is based on BLT, an open-source project template and tool that enables building, testing, and deploying Drupal installations following Acquia Professional Services best practices. While this is one of many methodologies, it is our recommended methodology.
 
-1. Review the [Required / Recommended Skills](http://blt.readthedocs.io/en/latest/readme/skills) for working with a BLT project.
+This solution requires a handful of dependencies that must exist on your local machine for the project to work. These include Vagrant, Virtual Box, Ansible, Drush, and composer. The following notes will help you install these dependencies to get up and running.
+
+##Overview
+
+1. Review the [Required / Recommended Skills](https://docs.acquia.com/blt/) for working with a BLT project.
 2. Ensure that your computer meets the minimum installation requirements (and then install the required applications). See the [System Requirements](http://blt.readthedocs.io/en/latest/INSTALL/#system-requirements).
 3. Request access to organization that owns the project repo in GitHub (if needed).
 4. Fork the project repository in GitHub.
@@ -45,36 +49,67 @@ This project is based on BLT, an open-source project template and tool that enab
 
 9. Update your the configuration located in the `/blt/blt.yml` file to match your site's needs. See [configuration files](#important-configuration-files) for other important configuration files.
 
+* Primary development branch: develop
+* Local environment: DrupalVM
+* Architecture: Drupal multisite
 
 ----
 # Setup Local Environment.
 
 BLT provides an automation layer for testing, building, and launching Drupal 8 applications. For ease when updating codebase it is recommended to use  Drupal VM. If you prefer, you can use another tool such as Docker, [DDEV](https://blt.readthedocs.io/en/latest/alternative-environment-tips/ddev.md), [Docksal](https://blt.readthedocs.io/en/latest/alternative-environment-tips/docksal.md), [Lando](https://blt.readthedocs.io/en/latest/alternative-environment-tips/lando.md), (other) Vagrant, or your own custom LAMP stack, however support is very limited for these solutions.
-1. Install Composer dependencies.
+
+The Boatshows websites utilizes [Drupal VM](http://www.drupalvm.com/) for local Drupal development, built with Vagrant + Ansible + VirtualBox.
+
+It will install the following on an Ubuntu 16.04 Linux VM:
+
+  * [Apache](https://httpd.apache.org/) 2.4.x
+  * [PHP](http://php.net/) 7.2.x
+  * [MySQL](https://www.mysql.com/products/community/) 5.7.x
+  * [Drupal](https://www.drupal.org/) 8.x (version defined in [composer.json](../composer.json))
+
+Along with some configurable extra utilities listed in the `drupalvm/config.yml` option `installed_extras`:
+
+  * [Adminer](https://www.adminer.org/)
+  * [Drupal Console](https://drupalconsole.com/)
+  * [Drush](http://www.drush.org/en/master/)
+  * [MailHog](https://github.com/mailhog/MailHog)
+  * [Node.js](https://nodejs.org/en/) 6.x
+  * [Selenium](http://www.seleniumhq.org/) (for [Behat](http://behat.org/en/latest/) testing)
+  * [Apache SOLR](http://lucene.apache.org/solr/) 5.5.3
+  * [XDebug](https://xdebug.org/)
+
+Full [Drupal VM](http://www.drupalvm.com/) documentation is available at [http://docs.drupalvm.com/](http://docs.drupalvm.com/).
+
+[Detailed installation](installation_readme.md)
+
+1. Clone down the repo to your local/dev machine.
+2. Checkout the **develop** branch.
+3. Install blt alias: `composer run-script blt-alias`. At this point you might need restart your shell in order for the alias work.
+4. Install Composer dependencies.
 After you have forked, cloned the project and setup your blt.yml file install Composer Dependencies. (Warning: this can take some time based on internet speeds.)
     ```
     $ composer install
     ```
-2. Setup VM.
+5. Setup VM.
 Setup the VM with the configuration from this repositories [configuration files](#important-configuration-files).
 
     ```
     $ vagrant up
     ```
 
-3. Setup a local blt alias.
+6. Setup a local blt alias.
 If the blt alias is not available use this command outside and inside vagrant (one time only).
     ```
     $ composer run-script blt-alias
     ```
 
-4. SSH into your VM.
+7. SSH into your VM.
 SSH into your localized Drupal VM environment automated with the BLT launch and automation tools.
     ```
     $ vagrant ssh
     ```
 
-5. Setup a local Drupal site with an empty database.
+8. Setup a local Drupal site with an empty database.
 Use BLT to setup the site with configuration.  If it is a multisite you can identify a specific site.
    ```
      $ blt setup
@@ -84,7 +119,7 @@ Use BLT to setup the site with configuration.  If it is a multisite you can iden
    $ blt setup --site=[sitename]
    ```
 
-6. Log into your site with drush.
+9. Log into your site with drush.
 Access the site and do necessary work at #LOCAL_DEV_URL by running the following commands.
     ```
     $ cd docroot
@@ -115,12 +150,12 @@ If you have an existing database you can use BLT to pull down the database from 
 
 ---
 
-# Resources 
+# Resources
 
 Additional [BLT documentation](http://blt.readthedocs.io) may be useful. You may also access a list of BLT commands by running this:
 ```
 $ blt
-``` 
+```
 
 Note the following properties of this project:
 * Primary development branch: #GIT_PRIMARY_DEV_BRANCH
@@ -129,7 +164,7 @@ Note the following properties of this project:
 
 ## Working With a BLT Project
 
-BLT projects are designed to instill software development best practices (including git workflows). 
+BLT projects are designed to instill software development best practices (including git workflows).
 
 Our BLT Developer documentation includes an [example workflow](http://blt.readthedocs.io/en/latest/readme/dev-workflow/#workflow-example-local-development).
 

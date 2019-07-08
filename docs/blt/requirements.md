@@ -3,15 +3,15 @@
 ## Git
 To check if git is already installed
 ```
-git –-version 
+git –-version
 ```
 download at: https://git-scm.com/downloads
 
 ## PHP
-Install PHP 7.1 or greater
+Install PHP 7.2 or greater
 To check if PHP is already installed
 ```
-php –version 
+php –version
 ```
 download at: https://php.net/manual/en/install.php
 
@@ -29,12 +29,12 @@ composer global require hirak/prestissimo
 ```
 
 ## Xcode
-download at: https://itunes.apple.com/us/app/xcode/id497799835?mt=12 
+download at: https://itunes.apple.com/us/app/xcode/id497799835?mt=12
 
 ## Drush
 To check if Drush is already installed
 ```
-drush –version 
+drush –version
 ```
 https://github.com/drush-ops/drush-launcher#installation---phar
 Installation should consist of:
@@ -106,14 +106,14 @@ Additional instruction can be found at:
 Instruction about ssh-key can be found at: https://docs.acquia.com/acquia-cloud/manage/ssh/generate/  
 To check if a public key already exists:
 ```
-cd ~/.ssh ls -l 
+cd ~/.ssh ls -l
 ```
-To create an ssh-key: 
+To create an ssh-key:
 ```
 ssh-keygen -b 4096
 hit enter until done
 ```
-To copy your key to the clipboard: 
+To copy your key to the clipboard:
 ```
 pbcopy < ~/.ssh/id_rsa.pub
 ```
@@ -129,7 +129,7 @@ brew install nvm
 ```
 Download Noje.js at: https://nodejs.org/en/
 
-or 
+or
 
 run:
 ```

@@ -40,9 +40,7 @@
         "drupal/address": "^1.7",
         "drupal/cog": "^1.0.0",
         "drupal/config_split": "^1.0.0",
-
         "drupal/core": "^8.6",
-
         "drupal/devel": "^2.0.0",
         "drupal/features": "^3.8.0",
         "drupal/memcache": "2.0-alpha7",
@@ -50,7 +48,8 @@
         "drupal/rabbit_hole": "^1.0",
         "drupal/seckit": "^1.0.0-alpha2",
         "drupal/shield": "^1.2.0",
-        "drush/drush": "^9.7"
+        "drush/drush": "^9.7",
+        "giggsey/libphonenumber-for-php": "^8.10"
     },
     "require-dev": {
         "acquia/blt-require-dev": "^10.0.0-alpha1",
