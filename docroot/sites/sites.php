@@ -71,6 +71,7 @@ $sites['local.newengland.com']      = 'newengland';
 $sites['local.newyork.com']      = 'newyork';
 $sites['local.northwest.com']      = 'northwest';
 $sites['local.norwalk.com']      = 'norwalk';
+$sites['local.sportshows.com']      = 'sportshows';
 $sites['local.stlouis.com']      = 'stlouis';
 $sites['local.tampa.com']      = 'tampa';
 
@@ -89,6 +90,7 @@ $sites['dev.newenglandboatshow.com']  = 'newengland';
 $sites['dev.nyboatshow.com']          = 'newyork';
 $sites['dev.northwestsportshow.com']  = 'northwest';
 $sites['dev.boatshownorwalk.com']  = 'norwalk';
+$sites['dev.sportshows.com']     = 'sportshows';
 $sites['dev.stlouisboatshow.com']     = 'stlouis';
 $sites['dev.tampaboatshow.com']     = 'tampa';
 
@@ -106,6 +108,7 @@ $sites['stage.newenglandboatshow.com']  = 'newengland';
 $sites['stage.nyboatshow.com']          = 'newyork';
 $sites['stage.northwestsportshow.com']  = 'northwest';
 $sites['stage.boatshownorwalk.com']  = 'norwalk';
+$sites['stage.sportshows.com']     = 'sportshows';
 $sites['stage.stlouisboatshow.com']     = 'stlouis';
 $sites['stage.tampaboatshow.com']     = 'tampa';
 
@@ -123,5 +126,6 @@ $sites['newenglandboatshow.com']  = 'newengland';
 $sites['nyboatshow.com']          = 'newyork';
 $sites['northwestsportshow.com']  = 'northwest';
 $sites['boatshownorwalk.com']  = 'norwalk';
+$sites['sportshows.com']     = 'sportshows';
 $sites['stlouisboatshow.com']     = 'stlouis';
 $sites['tampaboatshow.com']     = 'tampa';
