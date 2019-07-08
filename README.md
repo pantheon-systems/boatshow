@@ -80,7 +80,7 @@ Along with some configurable extra utilities listed in the `drupalvm/config.yml`
 
 Full [Drupal VM](http://www.drupalvm.com/) documentation is available at [http://docs.drupalvm.com/](http://docs.drupalvm.com/).
 
-[Detailed installation](installation_readme.md)
+[Detailed installation](docs/installation_readme.md)
 
 1. Clone down the repo to your local/dev machine.
 2. Checkout the **develop** branch.
