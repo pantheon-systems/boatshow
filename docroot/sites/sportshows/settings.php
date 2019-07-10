@@ -759,9 +759,9 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  */
 
 $settings['trusted_host_patterns'] = array(
-  '^local\.boatshow\.com$',
-  '^baltimoreboatshow\.com$',
-  '^.+\.baltimoreboatshow\.com$',
+  '^local\.chicago\.com$',
+  '^miamiboatshow\.com$',
+  '^.+\.miamiboatshow\.com$',
   '^.+\.devcloud\.acquia-sites\.com$',
   '^.+\.prod\.acquia-sites\.com$',
 );
@@ -825,7 +825,7 @@ $settings['encryption_key'] = 'D34Sl2EL+Eig0GMtI65ulImGQbDw0yfeZdA1MLlPm0w=';
  * Load multisite configuration, if available.
  */
 if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/boatshow/baltimore-settings.inc';
+  require '/var/www/site-php/boatshow/miami-settings.inc';
 }
 
 /**
@@ -848,11 +848,11 @@ $settings['install_profile'] = 'lightning';
 /**
  * Multisite variables.
  */
-$settings['boatshow.city.key'] = 'baltimore';
-$settings['boatshow.city.searchId'] = '5';
+$settings['boatshow.city.key'] = 'miami';
+$settings['boatshow.city.searchId'] = '28';
 $settings['seminar.registration.link'] = 'https://cbs19.fishsoftware.com/prereg/';
 
-$config['system.site']['name'] = 'Baltimore Boat Show';
+$config['system.site']['name'] = 'Chicago Boat Show';
 $config['gtm.settings']['google-tag'] = 'GTM-WSK6LG';
 
 /**
@@ -890,5 +890,5 @@ else {
  * Do not include additional settings here. Instead, add them to settings
  * included by `blt.settings.php`. See BLT's documentation for more detail.
  *
- * @link https://docs.acquia.com/blt/
+ * @link http://blt.readthedocs.io
  */

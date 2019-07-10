@@ -825,7 +825,7 @@ $settings['encryption_key'] = 'D34Sl2EL+Eig0GMtI65ulImGQbDw0yfeZdA1MLlPm0w=';
  * Load multisite configuration, if available.
  */
 if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/discoverboat/northwest-settings.inc';
+  require '/var/www/site-php/boatshow/northwest-settings.inc';
 }
 
 /**

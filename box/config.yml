@@ -1,5 +1,5 @@
-vagrant_hostname: local.atlanta.com
-vagrant_machine_name: atlanta
+vagrant_hostname: local.boatshows.com
+vagrant_machine_name: boatshows
 vagrant_ip: 10.102.200.4
 vagrant_box: geerlingguy/ubuntu1604
 workspace: /root
