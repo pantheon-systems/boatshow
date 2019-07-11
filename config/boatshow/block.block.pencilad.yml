@@ -1,6 +1,6 @@
 uuid: dfe1f354-8578-45cf-a18e-286a5d43923c
 langcode: en
-status: false
+status: true
 dependencies:
   content:
     - 'block_content:brick_block_:bf3cb644-2df0-4b17-a7e9-b0282145b667'

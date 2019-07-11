@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Seminar Topic'
 vid: seminar_topic
 description: ''
-hierarchy: 0
 weight: 0

@@ -60,7 +60,7 @@ media: 0.0.0
 quickedit: 0.0.0
 shortcut: 0.0.0
 rdf: 0.0.0
-views_ui: 8.5.3
+views_ui: 8.7.3
 metatag: 0.0.0
 panels: 0.0.0
 panels_ipe: 0.0.0
@@ -200,3 +200,9 @@ webform: 5.0.0-rc24
 webform_ui: 5.0.0-rc24
 boatshow_boatfinder: 0.0.0
 iframe: 1.9.0
+comment: 0.0.0
+tracker: 0.0.0
+openapi_ui: 1.0.0-rc1
+openapi_ui_redoc: 1.0.0-rc2
+openapi_ui_swagger: 1.0.0-rc3
+media_library: 8.7.3

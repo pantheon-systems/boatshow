@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_bus_brands
     - node.type.business
-    - taxonomy.vocabulary.brands
 id: node.business.field_bus_brands
 field_name: field_bus_brands
 entity_type: node
@@ -19,8 +18,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      brands: brands
+    target_bundles: {  }
     sort:
       field: name
       direction: asc

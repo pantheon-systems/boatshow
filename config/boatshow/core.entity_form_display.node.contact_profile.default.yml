@@ -3,16 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.image_browser
     - field.field.node.contact_profile.body
     - field.field.node.contact_profile.field_job_title
     - field.field.node.contact_profile.field_profile_email
     - field.field.node.contact_profile.field_profile_image
     - field.field.node.contact_profile.field_profile_phone
-    - image.style.thumbnail
     - node.type.contact_profile
   module:
     - content_moderation
-    - image
+    - entity_browser
     - path
     - text
 id: node.contact_profile.default

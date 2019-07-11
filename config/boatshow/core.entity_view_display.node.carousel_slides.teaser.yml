@@ -4,6 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.carousel_slides.field_carousel_active
+    - field.field.node.carousel_slides.field_carousel_callout
+    - field.field.node.carousel_slides.field_carousel_headline
+    - field.field.node.carousel_slides.field_carousel_link
+    - field.field.node.carousel_slides.field_carousel_media
     - node.type.carousel_slides
   module:
     - user
@@ -15,6 +20,8 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   addtoany: true
   field_carousel_active: true

@@ -7,8 +7,12 @@ dependencies:
     - field.field.node.article.field_article_activity
     - field.field.node.article.field_article_author
     - field.field.node.article.field_article_body
+    - field.field.node.article.field_article_call_out
+    - field.field.node.article.field_article_featured
     - field.field.node.article.field_article_image
     - field.field.node.article.field_article_meta_tags
+    - field.field.node.article.field_article_nmma_id
+    - field.field.node.article.field_article_popular
     - field.field.node.article.field_article_subhead
     - field.field.node.article.field_article_tags
     - field.field.node.article.field_article_teaser

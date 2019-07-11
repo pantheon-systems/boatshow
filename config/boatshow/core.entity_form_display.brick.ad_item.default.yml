@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - eck.eck_type.brick.ad_item
+    - entity_browser.browser.image_browser
     - field.field.brick.ad_item.field_ad_link
     - field.field.brick.ad_item.field_image
-    - image.style.thumbnail
   module:
-    - image
+    - entity_browser
     - link
 id: brick.ad_item.default
 targetEntityType: brick

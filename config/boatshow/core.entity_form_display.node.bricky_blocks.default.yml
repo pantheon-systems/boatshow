@@ -8,7 +8,6 @@ dependencies:
   module:
     - bricks_inline
     - content_moderation
-    - datetime
     - path
 _core:
   default_config_hash: FJiIqFi6LxUak9s-u5nC_aepsWJCgf9W8FXEpehXXPM
@@ -96,4 +95,6 @@ content:
   url_redirects:
     weight: 50
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

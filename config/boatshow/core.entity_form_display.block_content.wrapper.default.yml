@@ -4,9 +4,6 @@ status: true
 dependencies:
   config:
     - block_content.type.wrapper
-  module:
-    - content_moderation
-    - datetime
 _core:
   default_config_hash: mxghxLze-qwA_y7Jgu78bSGVlQIm19zuHdJXRvO5q2Y
 id: block_content.wrapper.default
@@ -28,12 +25,6 @@ content:
     region: content
     settings:
       include_locked: true
-    third_party_settings: {  }
-  moderation_state:
-    type: moderation_state_default
-    weight: 100
-    settings: {  }
-    region: content
     third_party_settings: {  }
   scheduled_publication:
     type: datetime_default

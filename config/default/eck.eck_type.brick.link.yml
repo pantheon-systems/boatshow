@@ -1,9 +1,0 @@
-uuid: cb5f166c-b8e7-4148-a379-f0ff513688a5
-langcode: en
-status: true
-dependencies:
-  config:
-    - eck.eck_entity_type.brick
-name: Link
-type: link
-description: ''

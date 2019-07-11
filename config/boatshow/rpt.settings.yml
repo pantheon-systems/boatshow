@@ -1,4 +1,4 @@
 password_generate: false
-password_length: 10
+password_length: 8
 _core:
   default_config_hash: Akz_9b9qnri5z70O86-vomcrmFP2dYKMMcxJ8IgSwrQ

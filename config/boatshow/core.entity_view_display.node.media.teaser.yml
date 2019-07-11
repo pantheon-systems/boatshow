@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.media.field_carousel
+    - field.field.node.media.field_videos
     - node.type.media
   module:
     - user
@@ -15,7 +17,10 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   addtoany: true
   field_carousel: true
+  field_videos: true
   langcode: true

@@ -9,7 +9,6 @@ dependencies:
     - node.type.landing_page
   module:
     - content_moderation
-    - datetime
     - metatag
     - panelizer
     - path
@@ -94,6 +93,8 @@ content:
   url_redirects:
     weight: 50
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   promote: true
   sticky: true

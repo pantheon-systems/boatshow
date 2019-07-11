@@ -1,9 +1,0 @@
-uuid: 71c05f33-c5cc-4692-a99a-366f344c3f6b
-langcode: en
-status: true
-dependencies: {  }
-name: Activities
-vid: activities
-description: 'Types of things to do on the water. For example, Freshwater fishing, Day Cruising, etc.'
-hierarchy: 0
-weight: -8

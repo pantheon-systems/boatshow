@@ -1,7 +1,0 @@
-allow_cli: false
-print: ''
-credential_provider: shield
-credentials:
-  shield:
-    user: chicagoboat
-    pass: chicagoboat

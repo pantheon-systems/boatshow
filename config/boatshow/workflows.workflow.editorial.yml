@@ -78,3 +78,4 @@ type_settings:
   entity_types:
     node:
       - landing_page
+  default_moderation_state: draft
