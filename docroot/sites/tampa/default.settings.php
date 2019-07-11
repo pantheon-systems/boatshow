@@ -225,16 +225,6 @@ $databases = array();
  *   );
  * @endcode
  */
-$databases['external']['default'] = array(
-  'database' => 'NMMA',
-  'username' => 'nmma',
-  'password' => 'B0@t1n9!',
-  'namespace' => 'Drupal\\Driver\\Database\\Driver\\sqlsrv',
-  'driver' => 'sqlsrv',
-  # /etc/freedts/freedts.cfg connection name.
-   'host' => 'discoverboating.database.windows.net',
-  'port' => '1433',
-);
 
 /**
  * Location of the site configuration files.
@@ -261,9 +251,7 @@ $databases['external']['default'] = array(
  *   );
  * @endcode
  */
-$config_directories = array(
-  'default' => DRUPAL_ROOT . '/../config/boatshow',
-);
+$config_directories = array();
 
 /**
  * Settings:
@@ -462,7 +450,7 @@ $settings['update_free_access'] = FALSE;
  *
  * @see \Drupal\Core\Form\FormCache::setCache()
  */
- $settings['form_cache_expiration'] = 3600;
+# $settings['form_cache_expiration'] = 21600;
 
 /**
  * Class Loader.
@@ -694,9 +682,9 @@ if ($settings['hash_salt']) {
  *
  * Remove the leading hash signs if you would like to alter this functionality.
  */
- $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
- $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
- $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
+# $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
+# $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
+# $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
 
 /**
  * Load services definition file.
@@ -752,19 +740,11 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  *   '^.+\.example\.com$',
  *   '^example\.org$',
  *   '^.+\.example\.org$',
- *);
+ * );
  * @endcode
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
  */
-
-$settings['trusted_host_patterns'] = array(
-  '^local\.boatshows\.com$',
-  '^kansascityboatshow\.com$',
-  '^.+\.kansascityboatshow\.com$',
-  '^.+\.devcloud\.acquia-sites\.com$',
-  '^.+\.prod\.acquia-sites\.com$',
-);
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
@@ -791,43 +771,6 @@ $settings['file_scan_ignore_directories'] = [
  */
 $settings['entity_update_batch_size'] = 50;
 
-/*
- * Enable Memcache
- */
-
-if (isset($settings['memcache']['servers'])) {
-  // Memcache settings
-  $settings['cache']['bins']['bootstrap'] = 'cache.backend.memcache';
-  $settings['cache']['bins']['discovery'] = 'cache.backend.memcache';
-  $settings['cache']['bins']['config'] = 'cache.backend.memcache';
-  // Use memcache as the default bin
-  $settings['cache']['default'] = 'cache.backend.memcache';
-  $settings['memcache']['stampede_protection'] = TRUE;
-}
-
-/**
- * Acquia Purge Settings
- */
-$settings['acquia_purge_https'] = TRUE;
-$settings['acquia_purge_http'] = FALSE;
-$settings['acquia_purge_log_success'] = FALSE;
-
-/**
- * Random hash for encryption module.
- *
- * This is a dependency of the Marketo MA module
- */
-
-$settings['encryption_key'] = 'D34Sl2EL+Eig0GMtI65ulImGQbDw0yfeZdA1MLlPm0w=';
-
-
-/**
- * Load multisite configuration, if available.
- */
-if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/boatshow/kansascity-settings.inc';
-}
-
 /**
  * Load local development override configuration, if available.
  *
@@ -842,52 +785,3 @@ if (file_exists('/var/www/site-php')) {
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
-$settings['install_profile'] = 'lightning';
-
-/**
- * Multisite variables.
- */
-$settings['boatshow.city.key'] = 'kansascity';
-$settings['boatshow.city.searchId'] = '30';
-
-$config['system.site']['name'] = 'Kansas City Boat Show';
-$config['gtm.settings']['google-tag'] = 'GTM-KZL2LRS';
-
-/**
- * Middleware configuration.
- * The hash value is hard coded in the middlware bootstrap.php file.
- * This value probably will never change.
- */
-
-
-
-/**
- * Load middleware connection IP configuration based on environment.
- * For more information about connecting to middleware, see the /middleware
- * directory readme.txt
- */
-if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
-  switch ($_ENV['AH_SITE_ENVIRONMENT']) {
-    case 'dev':
-    case 'test':
-    case 'prod':
-    case 'ra':
-      $settings['middlewareIP'] = '34.237.30.192:22000';
-      $settings['middlewareHash'] = 'v34-542-741';
-      break;
-  }
-}
-else {
-  // do something for a non-Acquia-hosted application (like a local dev install).
-  $settings['middlewareIP'] = '10.111.60.190:22000';
-  $settings['middlewareHash'] = 'v34-542-741';
-}
-/**
- * IMPORTANT.
- *
- * Do not include additional settings here. Instead, add them to settings
- * included by `blt.settings.php`. See BLT's documentation for more detail.
- *
- * @link https://docs.acquia.com/blt/
- */

@@ -163,80 +163,80 @@ tampa-test:
 atlanta-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: atlanta
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 atlanticcity-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: atlanticcity
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 baltimore-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: baltimore
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 boatshow-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: boatshow
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 chicago-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: chicago
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 kansascity-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: kansascity
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 louisville-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: louisville
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 miami-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: miami
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 minneapolis-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: minneapolis
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 nashville-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: nashville
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 newengland-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: newengland
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 newyork-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: newyork
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 northwest-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: northwest
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 norwalk-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: norwalk
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 stlouis-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: stlouis
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod
 tampa-prod:
   root: /var/www/html/boatshow.prod/docroot
   uri: tampa
-  host: staging-29724.prod.hosting.acquia.com
+  host: ded-29722.prod.hosting.acquia.com
   user: boatshow.prod

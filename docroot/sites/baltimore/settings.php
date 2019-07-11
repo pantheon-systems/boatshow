@@ -759,7 +759,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  */
 
 $settings['trusted_host_patterns'] = array(
-  '^local\.boatshow\.com$',
+  '^local\.boatshows\.com$',
   '^baltimoreboatshow\.com$',
   '^.+\.baltimoreboatshow\.com$',
   '^.+\.devcloud\.acquia-sites\.com$',
@@ -853,7 +853,7 @@ $settings['boatshow.city.searchId'] = '5';
 $settings['seminar.registration.link'] = 'https://cbs19.fishsoftware.com/prereg/';
 
 $config['system.site']['name'] = 'Baltimore Boat Show';
-$config['gtm.settings']['google-tag'] = 'GTM-WSK6LG';
+$config['gtm.settings']['google-tag'] = 'GTM-M95WKFF';
 
 /**
  * Middleware configuration.

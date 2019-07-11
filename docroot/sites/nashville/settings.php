@@ -759,7 +759,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  */
 
 $settings['trusted_host_patterns'] = array(
-  '^local\.nashville\.com$',
+  '^local\.boatshows\.com$',
   '^nashvilleboatshow\.com$',
   '^.+\.nashvilleboatshow\.com$',
   '^.+\.devcloud\.acquia-sites\.com$',
@@ -852,7 +852,7 @@ $settings['boatshow.city.key'] = 'nashville';
 $settings['boatshow.city.searchId'] = '31';
 
 $config['system.site']['name'] = 'Nashville Boat Show';
-$config['gtm.settings']['google-tag'] = 'GTM-P9BTC8C';
+$config['gtm.settings']['google-tag'] = 'GTM-NLZJRW5';
 
 /**
  * Middleware configuration.
@@ -883,3 +883,11 @@ else {
   $settings['middlewareIP'] = '10.111.60.190:22000';
   $settings['middlewareHash'] = 'v34-542-741';
 }
+/**
+ * IMPORTANT.
+ *
+ * Do not include additional settings here. Instead, add them to settings
+ * included by `blt.settings.php`. See BLT's documentation for more detail.
+ *
+ * @link https://docs.acquia.com/blt/
+ */

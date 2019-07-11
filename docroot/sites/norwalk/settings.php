@@ -760,8 +760,8 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 
 $settings['trusted_host_patterns'] = array(
   '^local\.boatshows\.com$',
-  '^kansascityboatshow\.com$',
-  '^.+\.kansascityboatshow\.com$',
+  '^boatshownorwalk\.com$',
+  '^.+\.boatshownorwalk\.com$',
   '^.+\.devcloud\.acquia-sites\.com$',
   '^.+\.prod\.acquia-sites\.com$',
 );
@@ -825,7 +825,7 @@ $settings['encryption_key'] = 'D34Sl2EL+Eig0GMtI65ulImGQbDw0yfeZdA1MLlPm0w=';
  * Load multisite configuration, if available.
  */
 if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/boatshow/kansascity-settings.inc';
+  require '/var/www/site-php/boatshow/norwalk-settings.inc';
 }
 
 /**
@@ -848,11 +848,11 @@ $settings['install_profile'] = 'lightning';
 /**
  * Multisite variables.
  */
-$settings['boatshow.city.key'] = 'kansascity';
+$settings['boatshow.city.key'] = 'norwalk';
 $settings['boatshow.city.searchId'] = '30';
 
-$config['system.site']['name'] = 'Kansas City Boat Show';
-$config['gtm.settings']['google-tag'] = 'GTM-KZL2LRS';
+$config['system.site']['name'] = 'Norwalk Boat Show';
+$config['gtm.settings']['google-tag'] = 'GTM-T5GHTJR';
 
 /**
  * Middleware configuration.

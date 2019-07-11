@@ -759,7 +759,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  */
 
 $settings['trusted_host_patterns'] = array(
-  '^local\.chicago\.com$',
+  '^local\.boatshows\.com$',
   '^miamiboatshow\.com$',
   '^.+\.miamiboatshow\.com$',
   '^.+\.devcloud\.acquia-sites\.com$',
@@ -848,12 +848,12 @@ $settings['install_profile'] = 'lightning';
 /**
  * Multisite variables.
  */
-$settings['boatshow.city.key'] = 'miami';
+$settings['boatshow.city.key'] = 'sportshows';
 $settings['boatshow.city.searchId'] = '28';
-$settings['seminar.registration.link'] = 'https://cbs19.fishsoftware.com/prereg/';
 
-$config['system.site']['name'] = 'Chicago Boat Show';
-$config['gtm.settings']['google-tag'] = 'GTM-WSK6LG';
+
+$config['system.site']['name'] = 'Sportshows';
+$config['gtm.settings']['google-tag'] = 'GTM-NTLWSMF';
 
 /**
  * Middleware configuration.

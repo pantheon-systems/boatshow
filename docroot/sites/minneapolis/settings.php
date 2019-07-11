@@ -759,7 +759,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  */
 
 $settings['trusted_host_patterns'] = array(
-  '^local\.boatshow\.com$',
+  '^local\.boatshows\.com$',
   '^minneapolisboatshow\.com$',
   '^.+\.minneapolisboatshow\.com$',
   '^.+\.devcloud\.acquia-sites\.com$',
@@ -853,7 +853,7 @@ $settings['boatshow.city.searchId'] = '5';
 $settings['seminar.registration.link'] = 'https://cbs19.fishsoftware.com/prereg/';
 
 $config['system.site']['name'] = 'Minneapolis Boat Show';
-$config['gtm.settings']['google-tag'] = 'GTM-WSK6LG';
+$config['gtm.settings']['google-tag'] = 'GTM-MK54G3X';
 
 /**
  * Middleware configuration.
@@ -884,3 +884,11 @@ else {
   $settings['middlewareIP'] = '10.111.60.190:22000';
   $settings['middlewareHash'] = 'v34-542-741';
 }
+/**
+ * IMPORTANT.
+ *
+ * Do not include additional settings here. Instead, add them to settings
+ * included by `blt.settings.php`. See BLT's documentation for more detail.
+ *
+ * @link https://docs.acquia.com/blt/
+ */

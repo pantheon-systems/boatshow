@@ -852,7 +852,7 @@ $settings['boatshow.city.searchId'] = '28';
 
 
 $config['system.site']['name'] = 'Sportshows';
-$config['gtm.settings']['google-tag'] = 'GTM-WSK6LG';
+$config['gtm.settings']['google-tag'] = 'GTM-PQV7CDQ';
 
 /**
  * Middleware configuration.
