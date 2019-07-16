@@ -1,0 +1,19 @@
+uuid: a406238b-7bb5-497a-a474-dabc8c69ebfe
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_bus_tsr
+field_name: field_bus_tsr
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

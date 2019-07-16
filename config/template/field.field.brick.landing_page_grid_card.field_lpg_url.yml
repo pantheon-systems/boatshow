@@ -1,0 +1,23 @@
+uuid: 7e399087-a367-4329-ab19-d2b24fa51bad
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.landing_page_grid_card
+    - field.storage.brick.field_lpg_url
+  module:
+    - link
+id: brick.landing_page_grid_card.field_lpg_url
+field_name: field_lpg_url
+entity_type: brick
+bundle: landing_page_grid_card
+label: URL
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

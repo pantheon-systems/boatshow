@@ -1,0 +1,28 @@
+uuid: 4580068d-eb65-4a23-8e3f-d552c0e254b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image
+    - field.field.block_content.image.field_image
+  module:
+    - image
+_core:
+  default_config_hash: f1lkkZccq1uKvDgcHswf4R2-G496vPCey41kmdwRmno
+id: block_content.image.default
+targetEntityType: block_content
+bundle: image
+mode: default
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  langcode: true
+  scheduled_publication: true

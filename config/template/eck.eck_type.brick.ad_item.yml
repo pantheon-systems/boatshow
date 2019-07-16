@@ -1,0 +1,9 @@
+uuid: 6733163f-72a7-4f49-9fcc-ad154f8a9d03
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Ad item'
+type: ad_item
+description: 'Contains linked image'

@@ -1,0 +1,21 @@
+uuid: 45bac879-c4b7-4403-82b1-9cffc2177405
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carousel_headline
+    - node.type.carousel_slides
+  module:
+    - text
+id: node.carousel_slides.field_carousel_headline
+field_name: field_carousel_headline
+entity_type: node
+bundle: carousel_slides
+label: 'Slide Headline'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

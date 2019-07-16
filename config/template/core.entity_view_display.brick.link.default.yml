@@ -1,0 +1,29 @@
+uuid: 4a1ae018-0c14-47a3-b363-5a952efe0cb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.link
+    - field.field.brick.link.field_brick_link
+  module:
+    - link
+id: brick.link.default
+targetEntityType: brick
+bundle: link
+mode: default
+content:
+  field_brick_link:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden:
+  langcode: true
+  title: true

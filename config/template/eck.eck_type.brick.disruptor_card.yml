@@ -1,0 +1,9 @@
+uuid: cbafea5b-38b8-47f5-8707-92e7010f6e87
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Disruptor Card'
+type: disruptor_card
+description: ''

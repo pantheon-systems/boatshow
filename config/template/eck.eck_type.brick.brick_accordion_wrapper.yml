@@ -1,0 +1,9 @@
+uuid: 29331e5b-f79c-459e-a667-242d43639fbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Accordion Wrapper'
+type: brick_accordion_wrapper
+description: ''

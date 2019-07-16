@@ -1,0 +1,58 @@
+uuid: 812cb557-c0f8-4f65-9ac5-13cc08bb0588
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_results
+    - field.field.node.article.field_article_activity
+    - field.field.node.article.field_article_author
+    - field.field.node.article.field_article_body
+    - field.field.node.article.field_article_call_out
+    - field.field.node.article.field_article_featured
+    - field.field.node.article.field_article_image
+    - field.field.node.article.field_article_meta_tags
+    - field.field.node.article.field_article_nmma_id
+    - field.field.node.article.field_article_popular
+    - field.field.node.article.field_article_subhead
+    - field.field.node.article.field_article_tags
+    - field.field.node.article.field_article_teaser
+    - field.field.node.article.field_article_tsr_image
+    - node.type.article
+  module:
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.article.search_results
+targetEntityType: node
+bundle: article
+mode: search_results
+content:
+  field_article_teaser:
+    type: text_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  field_article_activity: true
+  field_article_author: true
+  field_article_body: true
+  field_article_call_out: true
+  field_article_featured: true
+  field_article_image: true
+  field_article_meta_tags: true
+  field_article_nmma_id: true
+  field_article_popular: true
+  field_article_subhead: true
+  field_article_tags: true
+  field_article_tsr_image: true
+  langcode: true
+  links: true

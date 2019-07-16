@@ -1,0 +1,9 @@
+uuid: d080dfc8-6e58-43e7-bb39-3f969fefd1bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: Twig
+type: twig
+description: 'Mostly used to render something using twig_tweak functions'

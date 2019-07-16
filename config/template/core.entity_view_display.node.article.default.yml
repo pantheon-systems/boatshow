@@ -1,0 +1,96 @@
+uuid: 853c0597-35e3-44aa-8679-b9b279422507
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.article.field_article_activity
+    - field.field.node.article.field_article_author
+    - field.field.node.article.field_article_body
+    - field.field.node.article.field_article_call_out
+    - field.field.node.article.field_article_featured
+    - field.field.node.article.field_article_image
+    - field.field.node.article.field_article_meta_tags
+    - field.field.node.article.field_article_nmma_id
+    - field.field.node.article.field_article_popular
+    - field.field.node.article.field_article_subhead
+    - field.field.node.article.field_article_tags
+    - field.field.node.article.field_article_teaser
+    - field.field.node.article.field_article_tsr_image
+    - node.type.article
+  module:
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.article.default
+targetEntityType: node
+bundle: article
+mode: default
+content:
+  field_article_activity:
+    weight: 5
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_article_author:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_article_body:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_article_call_out:
+    type: text_default
+    weight: 7
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_article_image:
+    type: entity_reference_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_article_tags:
+    weight: 4
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  field_article_featured: true
+  field_article_meta_tags: true
+  field_article_nmma_id: true
+  field_article_popular: true
+  field_article_subhead: true
+  field_article_teaser: true
+  field_article_tsr_image: true
+  langcode: true

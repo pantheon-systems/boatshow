@@ -1,0 +1,27 @@
+uuid: 309e60ed-f575-40a2-aad8-ae43b057c8e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bus_brands
+    - node.type.business
+id: node.business.field_bus_brands
+field_name: field_bus_brands
+entity_type: node
+bundle: business
+label: Brands
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles: {  }
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

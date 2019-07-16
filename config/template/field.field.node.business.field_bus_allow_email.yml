@@ -1,0 +1,23 @@
+uuid: a2401cdc-958d-4e97-a2b2-43ba92065337
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bus_allow_email
+    - node.type.business
+id: node.business.field_bus_allow_email
+field_name: field_bus_allow_email
+entity_type: node
+bundle: business
+label: 'Allow Email'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean
