@@ -183,6 +183,7 @@ vm$ composer run-script blt-alias
 Use BLT to setup the sites for local development. These will be empty shell sites until content is synced down. TODO: we should have a shell script which does this for us.
 
 ```console
+vm$ blt setup -n --site=template
 vm$ blt setup -n --site=atlanta
 vm$ blt setup -n --site=chicago
 vm$ blt setup -n --site=kansascity
@@ -192,6 +193,9 @@ vm$ blt setup -n --site=nashville
 ### Sync local Drupal sites from dev content
 
 ```console
+vm$ blt sync:refresh -v --site=template
+vm$ blt sync:files -v --site=template
+
 vm$ blt sync:refresh -v --site=atlanta
 vm$ blt sync:files -v --site=atlanta
 
@@ -278,6 +282,9 @@ Note the following properties of this project:
   - Nashville
     - url: https://local.nashvilleboatshow.com
     - alias: @nashville.local
+  - Template
+    - url: https://local.template.boatshows.com
+    - alias: @template.local
 
 ## Working With a BLT Project
 

@@ -56,6 +56,10 @@
  * @see https://www.drupal.org/documentation/install/multi-site
  */
 
+// Template
+$sites['local.template.boatshows.com'] = 'template';
+$sites['template.boatshows.com'] = 'template';
+
 // Atlanta
 $sites['local.atlantaboatshow.com'] = 'atlanta';
 $sites['dev.atlantaboatshow.com'] = 'atlanta';

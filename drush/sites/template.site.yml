@@ -1,0 +1,12 @@
+local:
+  root: /var/www/boatshow/docroot
+  uri: template
+  host: 10.102.200.4
+  user: vagrant
+dev:
+  root: /var/www/html/boatshow.dev/docroot
+  uri: boatshow
+  host: staging-29724.prod.hosting.acquia.com
+  user: boatshow.dev
+  paths:
+    drush-script: /usr/local/bin/drush9

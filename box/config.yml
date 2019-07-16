@@ -46,7 +46,10 @@ apache_vhosts:
     servername: local.nashvilleboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
-
+  -
+    servername: local.template.boatshows.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
 apache_vhosts_ssl:
   -
     servername: '{{ drupal_domain }}'
@@ -71,7 +74,10 @@ mysql_databases:
     name: kansascity
     encoding: utf8
     collation: utf8_general_ci
-
+  -
+    name: template
+    encoding: utf8
+    collation: utf8_general_ci
 mysql_users:
   -
     name: chicago
@@ -93,6 +99,11 @@ mysql_users:
     host: '%'
     password: kansascity
     priv: 'kansascity.*:ALL'
+  -
+    name: template
+    host: '%'
+    password: template
+    priv: 'template.*:ALL'
 
 drupal_install_site: false
 configure_drush_aliases: false

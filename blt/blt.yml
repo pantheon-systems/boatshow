@@ -26,6 +26,7 @@ multisites:
   - chicago
   - kansascity
   - nashville
+  - template
 disable-targets:
   tests:
     phpcs: { sniff: { all: true } }
