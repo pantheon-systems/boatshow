@@ -1,0 +1,21 @@
+uuid: 03fa5d69-71ab-402f-ae2c-71a10a4829a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_activity_type_headline
+field_name: field_activity_type_headline
+entity_type: taxonomy_term
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

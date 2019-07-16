@@ -1,0 +1,30 @@
+uuid: a16b3957-2848-4904-8165-89d6436ac422
+langcode: en
+status: true
+dependencies:
+  config:
+    - colossal_menu.menu.main_navigation_mobile
+  module:
+    - colossal_menu
+    - system
+  theme:
+    - boatshow
+id: mainnavigationmobile
+theme: boatshow
+region: header
+weight: 0
+provider: null
+plugin: 'colossal_menu_block:main_navigation_mobile'
+settings:
+  id: 'colossal_menu_block:main_navigation_mobile'
+  label: 'Main Navigation Mobile'
+  provider: colossal_menu
+  label_display: '0'
+  level: '1'
+  depth: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /boat-show-pass
+    negate: true
+    context_mapping: {  }

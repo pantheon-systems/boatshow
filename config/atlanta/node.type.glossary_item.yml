@@ -1,0 +1,17 @@
+uuid: 69c116cf-d488-4d4c-b7a0-541958cf83f2
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Glossary Item'
+type: glossary_item
+description: 'Content for boating glossary pages. '
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

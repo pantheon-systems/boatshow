@@ -1,0 +1,22 @@
+uuid: ebece2a0-ce88-45e2-84d9-be32f5d0749b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.twig
+    - field.storage.brick.field_twig
+  module:
+    - twig_field
+id: brick.twig.field_twig
+field_name: field_twig
+entity_type: brick
+bundle: twig
+label: Twig
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_mode: ''
+field_type: twig

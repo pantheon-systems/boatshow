@@ -1,0 +1,21 @@
+uuid: 633e663a-88f6-4189-96dc-b457afd930d7
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: brick.field_disruptor_headline
+field_name: field_disruptor_headline
+entity_type: brick
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

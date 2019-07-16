@@ -1,0 +1,14 @@
+uuid: 56349355-9b77-4178-9a80-deb2dc846467
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.speaker_reviewer
+  module:
+    - user
+id: user_remove_role_action.speaker_reviewer
+label: 'Remove the Speaker reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: speaker_reviewer

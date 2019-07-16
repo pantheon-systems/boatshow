@@ -1,0 +1,126 @@
+uuid: 734f4a9f-0a0f-4048-adeb-03648e60c715
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - options
+id: brick.field_disruptor_icon
+field_name: field_disruptor_icon
+entity_type: brick
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: icon-db-arrow-down
+      label: 'Arrow Down'
+    -
+      value: icon-db-arrow-up
+      label: 'Arrow Up'
+    -
+      value: icon-db-arrow-left
+      label: 'Arrow Left'
+    -
+      value: icon-db-arrow-right
+      label: 'Arrow Right'
+    -
+      value: icon-db-triangle-up
+      label: 'Triangle Up'
+    -
+      value: icon-db-triangle-down
+      label: 'Triangle Down'
+    -
+      value: icon-db-close
+      label: Close
+    -
+      value: icon-db-menu
+      label: Menu
+    -
+      value: icon-db-search
+      label: Search
+    -
+      value: icon-db-location
+      label: Location
+    -
+      value: icon-db-circle-plus-o
+      label: 'Plus O'
+    -
+      value: icon-db-circle-plus
+      label: Plus
+    -
+      value: icon-db-check
+      label: Check
+    -
+      value: icon-db-checkbox-o
+      label: 'Checkbox O'
+    -
+      value: icon-db-checkbox
+      label: Checkbox
+    -
+      value: icon-db-circle-o
+      label: 'Circle O'
+    -
+      value: icon-db-circle
+      label: Circle
+    -
+      value: icon-db-star-o
+      label: 'Star O'
+    -
+      value: icon-db-star
+      label: Star
+    -
+      value: icon-db-circle-trailer-o
+      label: 'Trailer O'
+    -
+      value: icon-db-circle-passengers-o
+      label: 'Passengers O'
+    -
+      value: icon-db-circle-boat-o
+      label: 'Boat O'
+    -
+      value: icon-db-circle-acitivities-o
+      label: 'Activities O'
+    -
+      value: icon-db-circle-propesller-o
+      label: 'Propeller O'
+    -
+      value: icon-db-full-screen
+      label: 'Full Screen'
+    -
+      value: icon-db-steering-wheel
+      label: 'Steering Wheel'
+    -
+      value: icon-db-boat
+      label: Boat
+    -
+      value: icon-db-map-pin
+      label: 'Map Pin'
+    -
+      value: icon-db-clock
+      label: Clock
+    -
+      value: icon-db-ticket
+      label: Ticket
+    -
+      value: icon-db-help
+      label: Help
+    -
+      value: icon-db-parking
+      label: Parking
+    -
+      value: icon-db-car
+      label: Car
+    -
+      value: icon-db-bus
+      label: Bus
+    -
+      value: icon-db-train
+      label: Train
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,168 @@
+uuid: 9efc8323-10db-43b5-9931-990df9243130
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.media_browser
+    - field.field.taxonomy_term.brands.field_brand_boat_type
+    - field.field.taxonomy_term.brands.field_brand_business
+    - field.field.taxonomy_term.brands.field_brand_image
+    - field.field.taxonomy_term.brands.field_brand_nmma_id
+    - field.field.taxonomy_term.brands.field_brand_url
+    - field.field.taxonomy_term.brands.field_brands_meta_tags
+    - taxonomy.vocabulary.brands
+  module:
+    - entity_browser
+    - field_group
+    - link
+    - metatag
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_brand_info:
+      children:
+        - group_description
+        - group_brand_categories
+        - group_brand_misc
+      parent_name: ''
+      weight: 1
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: 'Brand Info'
+      region: content
+    group_description:
+      children:
+        - field_brand_image
+        - field_brand_url
+        - description
+      parent_name: group_brand_info
+      weight: 2
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Description
+      region: content
+    group_brand_categories:
+      children:
+        - field_brand_boat_type
+      parent_name: group_brand_info
+      weight: 3
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Categories
+      region: content
+    group_brand_misc:
+      children:
+        - field_brand_nmma_id
+        - langcode
+        - path
+        - field_brands_meta_tags
+      parent_name: group_brand_info
+      weight: 4
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Misc
+      region: content
+id: taxonomy_term.brands.default
+targetEntityType: taxonomy_term
+bundle: brands
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  field_brand_boat_type:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_brand_business:
+    weight: 6
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_brand_image:
+    type: entity_browser_entity_reference
+    weight: 3
+    settings:
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      open: false
+    region: content
+    third_party_settings: {  }
+  field_brand_nmma_id:
+    weight: 2
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_brand_url:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_brands_meta_tags:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
+  langcode:
+    type: language_select
+    weight: 3
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

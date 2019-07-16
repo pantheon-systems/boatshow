@@ -1,0 +1,63 @@
+uuid: b1edda1e-10c1-499f-bf67-838cba5650f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.certified_dealers.field_cert_dealer_address
+    - field.field.node.certified_dealers.field_cert_dealer_is_certified
+    - field.field.node.certified_dealers.field_cert_dealer_nmma_id
+    - field.field.node.certified_dealers.field_cert_dealer_phone
+    - field.field.node.certified_dealers.field_cert_dealer_url
+    - node.type.certified_dealers
+  module:
+    - address
+    - link
+    - panelizer
+    - telephone
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.certified_dealers.teaser
+targetEntityType: node
+bundle: certified_dealers
+mode: teaser
+content:
+  field_cert_dealer_address:
+    type: address_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_cert_dealer_phone:
+    type: telephone_link
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+  field_cert_dealer_url:
+    type: link
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      rel: nofollow
+      target: _blank
+      url_only: false
+      url_plain: false
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  field_cert_dealer_addresss: true
+  field_cert_dealer_is_certified: true
+  field_cert_dealer_nmma_id: true
+  langcode: true
+  links: true

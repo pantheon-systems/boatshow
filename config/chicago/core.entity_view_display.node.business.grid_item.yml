@@ -1,0 +1,68 @@
+uuid: 70cfc192-91dc-4ffa-8474-1588a66485f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.grid_item
+    - field.field.node.business.field_bus_address
+    - field.field.node.business.field_bus_allow_email
+    - field.field.node.business.field_bus_allow_fax
+    - field.field.node.business.field_bus_allow_mail
+    - field.field.node.business.field_bus_allow_phone
+    - field.field.node.business.field_bus_body
+    - field.field.node.business.field_bus_brands
+    - field.field.node.business.field_bus_display_name
+    - field.field.node.business.field_bus_is_certified
+    - field.field.node.business.field_bus_logo
+    - field.field.node.business.field_bus_map_data
+    - field.field.node.business.field_bus_nmma_id
+    - field.field.node.business.field_bus_phone
+    - field.field.node.business.field_bus_tsr
+    - field.field.node.business.field_bus_type
+    - field.field.node.business.field_bus_url
+    - node.type.business
+  module:
+    - address
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.business.grid_item
+targetEntityType: node
+bundle: business
+mode: grid_item
+content:
+  field_bus_address:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  links:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  field_bus_allow_email: true
+  field_bus_allow_fax: true
+  field_bus_allow_mail: true
+  field_bus_allow_phone: true
+  field_bus_body: true
+  field_bus_brands: true
+  field_bus_display_name: true
+  field_bus_is_certified: true
+  field_bus_logo: true
+  field_bus_map_data: true
+  field_bus_nmma_id: true
+  field_bus_phone: true
+  field_bus_tsr: true
+  field_bus_type: true
+  field_bus_url: true
+  langcode: true

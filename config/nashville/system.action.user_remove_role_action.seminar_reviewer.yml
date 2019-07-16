@@ -1,0 +1,14 @@
+uuid: 6fd24fbe-01ad-4f8e-b601-1b53add5ca0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.seminar_reviewer
+  module:
+    - user
+id: user_remove_role_action.seminar_reviewer
+label: 'Remove the Seminar reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: seminar_reviewer

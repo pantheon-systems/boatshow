@@ -1,0 +1,21 @@
+uuid: cb293435-2c8b-48e7-8b98-3e9262d72fc2
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricks
+    - eck
+    - taxonomy
+id: taxonomy_term.field_activity_bricks
+field_name: field_activity_bricks
+entity_type: taxonomy_term
+type: bricks
+settings:
+  target_type: brick
+module: bricks
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

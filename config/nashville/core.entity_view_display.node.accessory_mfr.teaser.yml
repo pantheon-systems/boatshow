@@ -1,0 +1,28 @@
+uuid: 4a5ae46d-bd62-41e2-b620-2a9dc9317678
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.accessory_mfr.field_accessory_mfr_website
+    - field.field.node.accessory_mfr.field_accessory_type
+    - field.field.node.accessory_mfr.field_nmma_mfr_id
+    - node.type.accessory_mfr
+  module:
+    - user
+id: node.accessory_mfr.teaser
+targetEntityType: node
+bundle: accessory_mfr
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  field_accessory_mfr_website: true
+  field_accessory_type: true
+  field_nmma_mfr_id: true
+  langcode: true

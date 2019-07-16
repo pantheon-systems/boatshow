@@ -1,0 +1,21 @@
+uuid: c1e62cec-5c42-47b4-965d-a41e2bdcc9d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_multinational_message
+    - node.type.multinational_site
+id: node.multinational_site.field_multinational_message
+field_name: field_multinational_message
+entity_type: node
+bundle: multinational_site
+label: Message
+description: 'The value here will be shown in the popup letting the user know about the multinational site they can visit. HTML cannot be used in this field.'
+required: true
+translatable: false
+default_value:
+  -
+    value: "Thanks for your interest in boating you're almost there! It appears that your computer is located in Canada.\r\n\r\nTo visit the Canadian Discover Boating website (DiscoverBoating.ca) and learn about the boating life in Canada, click OK.\r\n\r\nTo visit the American Discover Boating website (DiscoverBoating.com) and learn about boating in the United States, click Cancel."
+default_value_callback: ''
+settings: {  }
+field_type: string_long

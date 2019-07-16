@@ -7,43 +7,25 @@
 
 use Drupal\Component\Assertion\Handle;
 
-$db_name = '${drupal.db.database}';
-if (isset($acsf_site_name)) {
-  $db_name .= '_' . $acsf_site_name;
-}
-
 /**
  * Database configuration.
+ * Assumes dbname, dbpass, dbuser are all equal to the site name
  */
 $databases = array(
   'default' =>
   array(
     'default' =>
     array(
-      'database' => $db_name,
-      'username' => '${drupal.db.username}',
-      'password' => '${drupal.db.password}',
-      'host' => '${drupal.db.host}',
-      'port' => '${drupal.db.port}',
+      'database' => '${site}',
+      'username' => '${site}',
+      'password' => '${site}',
+      'host' => 'localhost',
+      'port' => '3306',
       'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
       'driver' => 'mysql',
       'prefix' => '',
     ),
   ),
-  'external' =>
-    array(
-      'default' =>
-        array(
-          'database' => 'nmma',
-          'username' => 'nmma',
-          'password' => 'B0@t1n9!',
-          'host' => 'discoverboating.database.windows.net',
-          'port' => '1433',
-          'namespace' => 'Drupal\\Driver\\Database\\sqlsrv',
-          'driver' => 'sqlsrv',
-          'prefix' => '',
-        ),
-    ),
 );
 
 $dir = dirname(DRUPAL_ROOT);
@@ -122,10 +104,10 @@ $settings['extension_discovery_scan_tests'] = FALSE;
 /**
  * Configure static caches.
  *
- * Note: you should test with the config, bootstrap, and discovery caches enabled to 
+ * Note: you should test with the config, bootstrap, and discovery caches enabled to
  * test that metadata is cached as expected. However, in the early stages of development,
- * you may want to disable them. Overrides to these bins must be explicitly set for each 
- * bin to change the default configuration provided by Drupal core in core.services.yml. 
+ * you may want to disable them. Overrides to these bins must be explicitly set for each
+ * bin to change the default configuration provided by Drupal core in core.services.yml.
  * See https://www.drupal.org/node/2754947
  */
 
@@ -156,15 +138,6 @@ $settings['rebuild_access'] = FALSE;
  * about global configuration override.
  */
 $config['system.file']['path']['temporary'] = '/tmp';
-
-/**
- * Private file path.
- */
-$settings['file_private_path'] = $dir . '/files-private';
-if (isset($acsf_site_name)) {
-  $settings['file_public_path'] = "sites/default/files/$acsf_site_name";
-  $settings['file_private_path'] = "$repo_root/files-private/$acsf_site_name";
-}
 
 /**
  * Trusted host configuration.

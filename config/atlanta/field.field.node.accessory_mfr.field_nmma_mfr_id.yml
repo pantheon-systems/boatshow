@@ -1,0 +1,23 @@
+uuid: bd2809e5-3773-44c4-a728-2ee0c793e944
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_nmma_mfr_id
+    - node.type.accessory_mfr
+id: node.accessory_mfr.field_nmma_mfr_id
+field_name: field_nmma_mfr_id
+entity_type: node
+bundle: accessory_mfr
+label: 'NMMA mfr ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

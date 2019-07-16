@@ -1,0 +1,14 @@
+uuid: 720389f2-a2ea-4fce-abe7-32c5b4bb83f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.speaker_creator
+  module:
+    - user
+id: user_remove_role_action.speaker_creator
+label: 'Remove the Speaker creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: speaker_creator

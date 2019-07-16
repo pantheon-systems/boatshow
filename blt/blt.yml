@@ -3,41 +3,29 @@ project:
   prefix: NMMA
   human_name: 'The BoatShows'
   profile:
-    name: lightning
+    name: minimal
   local:
-    protocol: http
+    protocol: https
     hostname: 'local.${project.machine_name}.com'
 git:
   default_branch: master
   remotes: {  }
   hooks:
     pre-commit: false
+    commit-msg: false
 deploy:
   tag_source: true
 drush:
   aliases:
-    remote: '${project.machine_name}.test'
-    local: self
-    ci: self
+    # remote: '${project.machine_name}.test'
+    # local: self
+    # ci: self
   default_alias: '${drush.aliases.local}'
 multisites:
   - atlanta
-  - atlanticcity
-  - baltimore
-  - boatshow
-  - default
   - chicago
   - kansascity
-  - miami
-  - minneapolis
   - nashville
-  - newengland
-  - newyork
-  - northwest
-  - norwalk
-  - sportshows
-  - stlouis
-  - tampa
 disable-targets:
   tests:
     phpcs: { sniff: { all: true } }

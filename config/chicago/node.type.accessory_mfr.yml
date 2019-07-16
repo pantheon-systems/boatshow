@@ -1,0 +1,17 @@
+uuid: a11754f0-dcfb-454e-81ca-223d6d7f951a
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Accessory Mfr'
+type: accessory_mfr
+description: 'Contains Manufacturer Information for Accessory Dealers'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

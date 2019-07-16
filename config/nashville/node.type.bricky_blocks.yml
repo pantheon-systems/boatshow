@@ -1,0 +1,20 @@
+uuid: ae974758-8b57-4e3e-be9f-c8a45fabf41d
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: Z3UiY5Vmi_zhNwdsHWsp0RU3hTlb4gDKrozZIgAwKgA
+name: 'Bricky blocks'
+type: bricky_blocks
+description: 'Use <em>bricky pages</em> for your flexible content, such as ''Home'' or ''Company'' pages.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

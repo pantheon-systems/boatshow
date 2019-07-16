@@ -1,0 +1,29 @@
+uuid: 5cc97e0e-b608-4562-9694-5706b9ab6d05
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search
+  module:
+    - system
+    - views
+  theme:
+    - boatshow
+id: boatshow_exposedformsearchpage_1
+theme: boatshow
+region: content
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:search-page_1'
+settings:
+  id: 'views_exposed_filter_block:search-page_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /search/resources
+    negate: false
+    context_mapping: {  }

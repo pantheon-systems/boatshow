@@ -1,0 +1,18 @@
+uuid: 322f4176-0751-48fe-91f3-b428b97feb54
+langcode: en
+status: true
+dependencies: {  }
+id: multinational_site_reviewer
+label: 'Multinational Site reviewer'
+weight: 8
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'delete any multinational_site content'
+  - 'edit any multinational_site content'
+  - 'nmma_multinational bypass'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'view any unpublished content'
+  - 'view latest version'

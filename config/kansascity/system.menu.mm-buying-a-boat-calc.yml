@@ -1,0 +1,8 @@
+uuid: b95116ef-61fc-4b2c-bec0-c2dc89a1c9a5
+langcode: en
+status: true
+dependencies: {  }
+id: mm-buying-a-boat-calc
+label: 'MM Buying A Boat Calculator'
+description: 'MM Buying A Boat Calculator'
+locked: false

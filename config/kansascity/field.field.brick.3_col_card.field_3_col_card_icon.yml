@@ -1,0 +1,29 @@
+uuid: a2fad4af-3443-464b-9e22-52fc1b6e5632
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.3_col_card
+    - field.storage.brick.field_3_col_card_icon
+    - media.type.image
+id: brick.3_col_card.field_3_col_card_icon
+field_name: field_3_col_card_icon
+entity_type: brick
+bundle: 3_col_card
+label: '3 Column card Icon'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

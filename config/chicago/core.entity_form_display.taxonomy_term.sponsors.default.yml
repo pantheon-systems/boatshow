@@ -1,0 +1,73 @@
+uuid: c77f7c5d-a87e-4e11-8dfe-aed9d9253c9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.sponsors.field_featured
+    - field.field.taxonomy_term.sponsors.field_link_to_sponsor
+    - field.field.taxonomy_term.sponsors.field_logo
+    - image.style.thumbnail
+    - taxonomy.vocabulary.sponsors
+  module:
+    - image
+    - link
+    - path
+    - text
+id: taxonomy_term.sponsors.default
+targetEntityType: taxonomy_term
+bundle: sponsors
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_featured:
+    weight: 32
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_link_to_sponsor:
+    weight: 33
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_logo:
+    weight: 31
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

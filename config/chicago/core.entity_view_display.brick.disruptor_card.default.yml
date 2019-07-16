@@ -1,0 +1,56 @@
+uuid: 55215883-4ef1-4e37-a936-51f92b219140
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.disruptor_card
+    - field.field.brick.disruptor_card.field_disruptor_callout
+    - field.field.brick.disruptor_card.field_disruptor_cta
+    - field.field.brick.disruptor_card.field_disruptor_headline
+    - field.field.brick.disruptor_card.field_disruptor_icon
+  module:
+    - link
+    - options
+    - text
+id: brick.disruptor_card.default
+targetEntityType: brick
+bundle: disruptor_card
+mode: default
+content:
+  field_disruptor_callout:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_disruptor_cta:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_disruptor_headline:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_disruptor_icon:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+hidden:
+  langcode: true
+  title: true

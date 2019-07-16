@@ -1,0 +1,14 @@
+uuid: 127ce9ad-8f51-4901-bb1f-664ac7b9c198
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.multinational_site_creator
+  module:
+    - user
+id: user_remove_role_action.multinational_site_creator
+label: 'Remove the Multinational Site creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: multinational_site_creator

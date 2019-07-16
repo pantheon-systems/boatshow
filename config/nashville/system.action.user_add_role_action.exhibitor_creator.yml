@@ -1,0 +1,14 @@
+uuid: f7c75255-802c-437c-941e-507fea46dde2
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.exhibitor_creator
+  module:
+    - user
+id: user_add_role_action.exhibitor_creator
+label: 'Add the Exhibitor creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: exhibitor_creator

@@ -1,0 +1,81 @@
+uuid: 297bb0f2-e683-40fc-96bf-2ac9ff5f7340
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.boat_type_grid
+    - field.field.taxonomy_term.boat_types.field_boat_featured_in_block
+    - field.field.taxonomy_term.boat_types.field_boat_type_activities_text
+    - field.field.taxonomy_term.boat_types.field_boat_type_activity_type
+    - field.field.taxonomy_term.boat_types.field_boat_type_body
+    - field.field.taxonomy_term.boat_types.field_boat_type_carousel_images
+    - field.field.taxonomy_term.boat_types.field_boat_type_engine_type
+    - field.field.taxonomy_term.boat_types.field_boat_type_headline
+    - field.field.taxonomy_term.boat_types.field_boat_type_hero_image
+    - field.field.taxonomy_term.boat_types.field_boat_type_length
+    - field.field.taxonomy_term.boat_types.field_boat_type_max_length
+    - field.field.taxonomy_term.boat_types.field_boat_type_meta_tags
+    - field.field.taxonomy_term.boat_types.field_boat_type_min_length
+    - field.field.taxonomy_term.boat_types.field_boat_type_nmma_id
+    - field.field.taxonomy_term.boat_types.field_boat_type_passengers
+    - field.field.taxonomy_term.boat_types.field_boat_type_plural
+    - field.field.taxonomy_term.boat_types.field_boat_type_propulsion_text
+    - field.field.taxonomy_term.boat_types.field_boat_type_related
+    - field.field.taxonomy_term.boat_types.field_boat_type_trailerable
+    - field.field.taxonomy_term.boat_types.field_boat_type_tsr
+    - field.field.taxonomy_term.boat_types.field_boat_type_tsr_headline
+    - field.field.taxonomy_term.boat_types.field_boat_type_tsr_image
+    - field.field.taxonomy_term.boat_types.field_boat_visible_in_finder
+    - taxonomy.vocabulary.boat_types
+  module:
+    - panelizer
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.boat_types.boat_type_grid
+targetEntityType: taxonomy_term
+bundle: boat_types
+mode: boat_type_grid
+content:
+  field_boat_type_carousel_image:
+    type: image
+    weight: 10
+    region: content
+    label: above
+  field_boat_type_tsr_image:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      view_mode: grid_item
+      link: false
+    third_party_settings: {  }
+hidden:
+  description: true
+  field_boat_featured_in_block: true
+  field_boat_type_activities_text: true
+  field_boat_type_activity_type: true
+  field_boat_type_body: true
+  field_boat_type_brand: true
+  field_boat_type_carousel_images: true
+  field_boat_type_engine_type: true
+  field_boat_type_headline: true
+  field_boat_type_hero_image: true
+  field_boat_type_length: true
+  field_boat_type_max_length: true
+  field_boat_type_meta_tags: true
+  field_boat_type_min_length: true
+  field_boat_type_nmma_id: true
+  field_boat_type_passengers: true
+  field_boat_type_plural: true
+  field_boat_type_propulsion_text: true
+  field_boat_type_related: true
+  field_boat_type_trailerable: true
+  field_boat_type_tsr: true
+  field_boat_type_tsr_headline: true
+  field_boat_visible_in_finder: true
+  langcode: true

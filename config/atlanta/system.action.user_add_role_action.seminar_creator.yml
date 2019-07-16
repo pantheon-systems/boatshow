@@ -1,0 +1,14 @@
+uuid: d5948e40-1e20-4b2f-ba40-530dd1bc0d22
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.seminar_creator
+  module:
+    - user
+id: user_add_role_action.seminar_creator
+label: 'Add the Seminar creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: seminar_creator

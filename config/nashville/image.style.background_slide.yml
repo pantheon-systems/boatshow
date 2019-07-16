@@ -1,0 +1,16 @@
+uuid: 17541569-3a84-4928-9e4c-28032dd1d4d0
+langcode: en
+status: true
+dependencies: {  }
+name: background_slide
+label: 'Background Slide'
+effects:
+  0a6d138d-74f8-44fb-8dec-4c9736bae45b:
+    uuid: 0a6d138d-74f8-44fb-8dec-4c9736bae45b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 600
+      anchor: center-center
+pipeline: media_optimize

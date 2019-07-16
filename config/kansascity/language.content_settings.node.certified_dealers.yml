@@ -1,0 +1,11 @@
+uuid: 1e77a982-3f2c-41b7-bb25-4c6b1fc57cd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.certified_dealers
+id: node.certified_dealers
+target_entity_type_id: node
+target_bundle: certified_dealers
+default_langcode: site_default
+language_alterable: false

@@ -7,19 +7,20 @@
 
 use Drupal\Component\Assertion\Handle;
 
+global $_acsf_site_name;
 $db_name = '${drupal.db.database}';
-if (isset($acsf_site_name)) {
-  $db_name .= '_' . $acsf_site_name;
+if (isset($_acsf_site_name)) {
+  $db_name .= '_' . $_acsf_site_name;
 }
 
 /**
  * Database configuration.
  */
-$databases = array(
+$databases = [
   'default' =>
-  array(
+  [
     'default' =>
-    array(
+    [
       'database' => $db_name,
       'username' => '${drupal.db.username}',
       'password' => '${drupal.db.password}',
@@ -28,23 +29,9 @@ $databases = array(
       'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
       'driver' => 'mysql',
       'prefix' => '',
-    ),
-  ),
-  'external' =>
-    array(
-      'default' =>
-        array(
-          'database' => 'nmma',
-          'username' => 'nmma',
-          'password' => 'B0@t1n9!',
-          'host' => 'discoverboating.database.windows.net',
-          'port' => '1433',
-          'namespace' => 'Drupal\\Driver\\Database\\sqlsrv',
-          'driver' => 'sqlsrv',
-          'prefix' => '',
-        ),
-    ),
-);
+    ],
+  ],
+];
 
 $dir = dirname(DRUPAL_ROOT);
 
@@ -122,18 +109,17 @@ $settings['extension_discovery_scan_tests'] = FALSE;
 /**
  * Configure static caches.
  *
- * Note: you should test with the config, bootstrap, and discovery caches enabled to 
- * test that metadata is cached as expected. However, in the early stages of development,
- * you may want to disable them. Overrides to these bins must be explicitly set for each 
- * bin to change the default configuration provided by Drupal core in core.services.yml. 
+ * Note: you should test with the config, bootstrap, and discovery caches
+ * enabled to test that metadata is cached as expected. However, in the early
+ * stages of development, you may want to disable them. Overrides to these bins
+ * must be explicitly set for each bin to change the default configuration
+ * provided by Drupal core in core.services.yml.
  * See https://www.drupal.org/node/2754947
  */
 
- // $settings['cache']['bins']['bootstrap'] = 'cache.backend.null';
- // $settings['cache']['bins']['discovery'] = 'cache.backend.null';
- // $settings['cache']['bins']['config'] = 'cache.backend.null';
-
-
+// $settings['cache']['bins']['bootstrap'] = 'cache.backend.null';
+// $settings['cache']['bins']['discovery'] = 'cache.backend.null';
+// $settings['cache']['bins']['config'] = 'cache.backend.null';
 /**
  * Enable access to rebuild.php.
  *
@@ -145,7 +131,19 @@ $settings['extension_discovery_scan_tests'] = FALSE;
 $settings['rebuild_access'] = FALSE;
 
 /**
- * Temporary file path:
+ * Skip file system permissions hardening.
+ *
+ * The system module will periodically check the permissions of your site's
+ * site directory to ensure that it is not writable by the website user. For
+ * sites that are managed with a version control system, this can cause problems
+ * when files in that directory such as settings.php are updated, because the
+ * user pulling in the changes won't have permissions to modify files in the
+ * directory.
+ */
+$settings['skip_permissions_hardening'] = TRUE;
+
+/**
+ * Temporary file path.
  *
  * A local file system path where temporary files will be stored. This
  * directory should not be accessible over the web.
@@ -161,9 +159,10 @@ $config['system.file']['path']['temporary'] = '/tmp';
  * Private file path.
  */
 $settings['file_private_path'] = $dir . '/files-private';
-if (isset($acsf_site_name)) {
-  $settings['file_public_path'] = "sites/default/files/$acsf_site_name";
-  $settings['file_private_path'] = "$repo_root/files-private/$acsf_site_name";
+if (isset($_acsf_site_name)) {
+  $settings['file_public_path'] = "sites/default/files/$_acsf_site_name";
+  // phpcs:ignore
+  $settings['file_private_path'] = "$repo_root/files-private/$_acsf_site_name";
 }
 
 /**
@@ -171,6 +170,6 @@ if (isset($acsf_site_name)) {
  *
  * See full description in default.settings.php.
  */
-$settings['trusted_host_patterns'] = array(
+$settings['trusted_host_patterns'] = [
   '^.+$',
-);
+];

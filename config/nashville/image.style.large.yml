@@ -1,0 +1,28 @@
+uuid: 41fb6fa8-1bf7-4a73-9551-446f6242f738
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.freeform
+  module:
+    - crop
+_core:
+  default_config_hash: J2n0RpFzS0-bgSyxjs6rSdgxB1rb-bTAgqywNx_964M
+name: large
+label: 'Large (480×480)'
+effects:
+  ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d:
+    uuid: ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d
+    id: image_scale
+    weight: -9
+    data:
+      width: 480
+      height: 480
+      upscale: false
+  a9a25a2a-bead-405a-8411-628a9f592f38:
+    uuid: a9a25a2a-bead-405a-8411-628a9f592f38
+    id: crop_crop
+    weight: -10
+    data:
+      crop_type: freeform
+pipeline: media_optimize

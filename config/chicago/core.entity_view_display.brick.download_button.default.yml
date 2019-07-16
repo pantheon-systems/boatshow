@@ -1,0 +1,33 @@
+uuid: 5312b46e-9c9e-4d5b-8cf2-f793a647e924
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.download_button
+    - field.field.brick.download_button.field_download_button_text
+    - field.field.brick.download_button.field_download_item
+  module:
+    - file
+id: brick.download_button.default
+targetEntityType: brick
+bundle: download_button
+mode: default
+content:
+  field_download_button_text:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_download_item:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: file_url_plain
+    region: content
+hidden:
+  langcode: true
+  title: true

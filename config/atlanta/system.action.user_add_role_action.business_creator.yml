@@ -1,0 +1,14 @@
+uuid: 633328c1-6c16-4c20-a25a-0c6826b2fff8
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.business_creator
+  module:
+    - user
+id: user_add_role_action.business_creator
+label: 'Add the Business creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: business_creator

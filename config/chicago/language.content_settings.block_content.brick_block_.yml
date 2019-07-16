@@ -1,0 +1,11 @@
+uuid: 3e437fa4-96c8-4720-971c-c5f03fe77047
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.brick_block_
+id: block_content.brick_block_
+target_entity_type_id: block_content
+target_bundle: brick_block_
+default_langcode: site_default
+language_alterable: false

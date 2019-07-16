@@ -1,0 +1,14 @@
+uuid: 2c6b90e7-5cb1-4f5e-810f-1a7d9e43d112
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.certified_dealers_creator
+  module:
+    - user
+id: user_add_role_action.certified_dealers_creator
+label: 'Add the Certified Dealers creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: certified_dealers_creator

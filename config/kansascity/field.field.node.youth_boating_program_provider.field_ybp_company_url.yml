@@ -1,0 +1,23 @@
+uuid: 43ecaee2-5a86-4185-a371-dd224905660b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ybp_company_url
+    - node.type.youth_boating_program_provider
+  module:
+    - link
+id: node.youth_boating_program_provider.field_ybp_company_url
+field_name: field_ybp_company_url
+entity_type: node
+bundle: youth_boating_program_provider
+label: 'Company URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

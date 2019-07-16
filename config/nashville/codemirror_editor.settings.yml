@@ -1,0 +1,11 @@
+cdn: false
+theme: default
+language_modes:
+  - clike
+  - css
+  - php
+  - twig
+  - xml
+  - yaml
+_core:
+  default_config_hash: jmSW3ENZnSRhjXRZMBmyvPIAFxruNQ0sFvIEts1uP2o

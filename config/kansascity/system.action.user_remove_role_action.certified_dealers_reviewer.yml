@@ -1,0 +1,14 @@
+uuid: a3a8e7e6-dde4-4044-8223-e6c7499f1c58
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.certified_dealers_reviewer
+  module:
+    - user
+id: user_remove_role_action.certified_dealers_reviewer
+label: 'Remove the Certified Dealers reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: certified_dealers_reviewer

@@ -1,0 +1,71 @@
+uuid: 9776364c-7c66-4c2f-9077-ec4b7fc11344
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.carousel_slides.field_carousel_active
+    - field.field.node.carousel_slides.field_carousel_callout
+    - field.field.node.carousel_slides.field_carousel_headline
+    - field.field.node.carousel_slides.field_carousel_link
+    - field.field.node.carousel_slides.field_carousel_media
+    - node.type.carousel_slides
+  module:
+    - link
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.carousel_slides.default
+targetEntityType: node
+bundle: carousel_slides
+mode: default
+content:
+  field_carousel_callout:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_carousel_headline:
+    type: text_default
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_carousel_link:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_carousel_media:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: full
+      link: false
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  field_carousel_active: true
+  langcode: true

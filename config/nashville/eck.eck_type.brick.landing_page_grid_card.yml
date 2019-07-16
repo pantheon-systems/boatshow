@@ -1,0 +1,9 @@
+uuid: e63c74e8-7c4a-4a10-8906-37f8a55fcec9
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Landing Page Grid Card'
+type: landing_page_grid_card
+description: ''

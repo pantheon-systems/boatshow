@@ -1,0 +1,22 @@
+uuid: 601b0fee-d5b4-4453-8d27-a35468e4e2a6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: glossary_item_pattern
+label: 'Glossary Item Pattern'
+type: 'canonical_entities:node'
+pattern: 'glossary/[node:title]'
+selection_criteria:
+  b7e1cc33-3682-4cff-8c91-b17d2d81f1ac:
+    id: node_type
+    bundles:
+      glossary_item: glossary_item
+    negate: false
+    context_mapping:
+      node: node
+    uuid: b7e1cc33-3682-4cff-8c91-b17d2d81f1ac
+selection_logic: and
+weight: -5
+relationships: {  }

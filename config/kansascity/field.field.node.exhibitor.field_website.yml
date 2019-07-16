@@ -1,0 +1,23 @@
+uuid: f2014716-e3e6-4a5c-b477-7bf9b98eccc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_website
+    - node.type.exhibitor
+  module:
+    - link
+id: node.exhibitor.field_website
+field_name: field_website
+entity_type: node
+bundle: exhibitor
+label: Website
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

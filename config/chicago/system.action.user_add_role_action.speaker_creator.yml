@@ -1,0 +1,14 @@
+uuid: 3cdbe1fa-cf32-41d9-9923-14bd395f0b9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.speaker_creator
+  module:
+    - user
+id: user_add_role_action.speaker_creator
+label: 'Add the Speaker creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: speaker_creator

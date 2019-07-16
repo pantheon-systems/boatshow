@@ -1,0 +1,19 @@
+uuid: 1b73e20a-ce4e-4b41-980b-3e2e04eb8bf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_activity_type_headline
+    - taxonomy.vocabulary.activities
+id: taxonomy_term.activities.field_activity_type_headline
+field_name: field_activity_type_headline
+entity_type: taxonomy_term
+bundle: activities
+label: Headline
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

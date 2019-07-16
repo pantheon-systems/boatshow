@@ -1,0 +1,26 @@
+uuid: b3778f82-d9e5-46c7-bfbd-946602852797
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.mm-buying-a-boat-finder.field_menu_descriptive_text
+    - system.menu.mm-buying-a-boat-finder
+id: menu_link_content.mm-buying-a-boat-finder.default
+targetEntityType: menu_link_content
+bundle: mm-buying-a-boat-finder
+mode: default
+content:
+  children:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_menu_descriptive_text:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  langcode: true

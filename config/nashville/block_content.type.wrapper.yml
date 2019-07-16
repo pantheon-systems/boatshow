@@ -1,0 +1,10 @@
+uuid: f4cc3fbd-ed05-4148-abc8-18b106926057
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: YviExmmkVDm4e4erLoWT1-chO-ZwQ4u1d5X0w4jhv3w
+id: wrapper
+label: Wrapper
+revision: 0
+description: 'Special entity for wrapping or grouping other entities.'

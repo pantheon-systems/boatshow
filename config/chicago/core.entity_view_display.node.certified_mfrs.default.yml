@@ -1,0 +1,77 @@
+uuid: 88a9a687-f794-4bd3-8f5c-3ce23157c164
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.certified_mfrs.field_available_in_canada
+    - field.field.node.certified_mfrs.field_available_in_us
+    - field.field.node.certified_mfrs.field_cert_mfr_nmma_id
+    - field.field.node.certified_mfrs.field_cert_mfr_type_id
+    - field.field.node.certified_mfrs.field_cert_mfr_url
+    - node.type.certified_mfrs
+  module:
+    - link
+    - user
+id: node.certified_mfrs.default
+targetEntityType: node
+bundle: certified_mfrs
+mode: default
+content:
+  field_available_in_canada:
+    weight: 106
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_available_in_us:
+    weight: 105
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_cert_mfr_nmma_id:
+    weight: 107
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_cert_mfr_type_id:
+    weight: 108
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_cert_mfr_url:
+    weight: 103
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  langcode: true

@@ -1,0 +1,45 @@
+uuid: 6c79c606-858e-4a16-8d61-56e684e8f460
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.headline_brick
+    - field.field.brick.headline_brick.field_brick_headline
+    - field.field.brick.headline_brick.field_brick_subhead
+id: brick.headline_brick.default
+targetEntityType: brick
+bundle: headline_brick
+mode: default
+content:
+  field_brick_headline:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_brick_subhead:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 3
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

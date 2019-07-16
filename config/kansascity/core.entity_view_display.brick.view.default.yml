@@ -1,0 +1,59 @@
+uuid: 400d6753-991e-4ca2-99cd-5330a1325bb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.view
+    - field.field.brick.view.field_brick_headline
+    - field.field.brick.view.field_brick_link
+    - field.field.brick.view.field_brick_subhead
+    - field.field.brick.view.field_brick_viewfield
+  module:
+    - link
+    - viewfield
+id: brick.view.default
+targetEntityType: brick
+bundle: view
+mode: default
+content:
+  field_brick_headline:
+    type: string
+    weight: 0
+    region: content
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_brick_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_brick_subhead:
+    type: string
+    weight: 1
+    region: content
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_brick_viewfield:
+    weight: 2
+    label: hidden
+    settings:
+      view_title: hidden
+      always_build_output: '1'
+      empty_view_title: hidden
+    third_party_settings: {  }
+    type: viewfield_default
+    region: content
+hidden:
+  langcode: true
+  title: true

@@ -1,0 +1,14 @@
+uuid: f1b278c6-6777-4aa7-85a6-70928ecc1369
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.contact_profile_reviewer
+  module:
+    - user
+id: user_add_role_action.contact_profile_reviewer
+label: 'Add the Contact Profile reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: contact_profile_reviewer

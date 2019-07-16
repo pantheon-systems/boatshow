@@ -1,0 +1,8 @@
+uuid: a767d2bb-7017-42ec-99a7-096c0db51903
+langcode: en
+status: true
+dependencies: {  }
+id: activities-and-education
+label: 'Activities and Education'
+description: 'Mega Menu: Activities and Education menu'
+locked: false

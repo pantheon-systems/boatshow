@@ -1,0 +1,23 @@
+uuid: fb5e1538-f438-420a-8597-bf61c6bd1da8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cert_mfr_nmma_id
+    - node.type.certified_mfrs
+id: node.certified_mfrs.field_cert_mfr_nmma_id
+field_name: field_cert_mfr_nmma_id
+entity_type: node
+bundle: certified_mfrs
+label: 'NMMA Id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,19 @@
+uuid: b3796ff8-db33-4bd9-be4c-73ea5da6a6e8
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: -16
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'restful get nmma_boatfinder_resource'
+  - 'search content'
+  - 'view any brick entities'
+  - 'view colossal_menu'
+  - 'view enabled colossal_menu_link'
+  - 'view media'

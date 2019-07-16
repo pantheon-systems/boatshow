@@ -1,0 +1,23 @@
+uuid: 9a8f4c2c-254b-4758-8f8a-31039aa5af22
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cert_dealer_url
+    - node.type.certified_dealers
+  module:
+    - link
+id: node.certified_dealers.field_cert_dealer_url
+field_name: field_cert_dealer_url
+entity_type: node
+bundle: certified_dealers
+label: URL
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

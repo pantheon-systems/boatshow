@@ -1,0 +1,22 @@
+uuid: 9c496e61-f221-490d-ba92-3948b06a54f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.contact_profile
+  module:
+    - text
+id: node.contact_profile.body
+field_name: body
+entity_type: node
+bundle: contact_profile
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

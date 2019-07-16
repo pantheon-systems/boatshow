@@ -1,0 +1,34 @@
+uuid: c4a06aa1-0336-4a62-ac1f-d880b4a2e0d9
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.exhibitor.field_address
+    - field.field.node.exhibitor.field_booth
+    - field.field.node.exhibitor.field_bus_brands
+    - field.field.node.exhibitor.field_fax_number
+    - field.field.node.exhibitor.field_phone_number
+    - field.field.node.exhibitor.field_website
+    - node.type.exhibitor
+  module:
+    - user
+id: node.exhibitor.teaser
+targetEntityType: node
+bundle: exhibitor
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  field_address: true
+  field_booth: true
+  field_bus_brands: true
+  field_fax_number: true
+  field_phone_number: true
+  field_website: true
+  langcode: true

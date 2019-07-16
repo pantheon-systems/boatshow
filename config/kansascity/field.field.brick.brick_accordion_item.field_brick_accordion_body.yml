@@ -1,0 +1,21 @@
+uuid: f67e1a73-63ed-49a1-872a-df1a43b3ade8
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.brick_accordion_item
+    - field.storage.brick.field_brick_accordion_body
+  module:
+    - text
+id: brick.brick_accordion_item.field_brick_accordion_body
+field_name: field_brick_accordion_body
+entity_type: brick
+bundle: brick_accordion_item
+label: 'Accordion Brick Body'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

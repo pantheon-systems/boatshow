@@ -1,0 +1,90 @@
+uuid: 5cfbbe39-8659-486b-8fc2-0c5851c7b281
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.exhibitor.field_address
+    - field.field.node.exhibitor.field_booth
+    - field.field.node.exhibitor.field_bus_brands
+    - field.field.node.exhibitor.field_fax_number
+    - field.field.node.exhibitor.field_phone_number
+    - field.field.node.exhibitor.field_website
+    - node.type.exhibitor
+  module:
+    - address
+    - link
+    - telephone
+id: node.exhibitor.default
+targetEntityType: node
+bundle: exhibitor
+mode: default
+content:
+  field_address:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_booth:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_bus_brands:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_fax_number:
+    weight: 4
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_phone_number:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_website:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  moderation_state: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true
+  url_redirects: true

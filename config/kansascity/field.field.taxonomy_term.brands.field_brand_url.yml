@@ -1,0 +1,23 @@
+uuid: 91fa5daf-b1d6-4862-be25-ee48b58be5e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_brand_url
+    - taxonomy.vocabulary.brands
+  module:
+    - link
+id: taxonomy_term.brands.field_brand_url
+field_name: field_brand_url
+entity_type: taxonomy_term
+bundle: brands
+label: 'Brand Url'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

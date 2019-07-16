@@ -1,0 +1,110 @@
+uuid: d591e97d-014c-4493-be46-fe6278fd73f8
+langcode: en
+status: true
+dependencies: {  }
+id: cert_dlrs
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: discoverboating_importer
+label: 'Imports certified dealers from middleware DiscoverBoating.com.'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  urls: 'http://34.237.30.192:22000/middleware/json/cert_dlrs.json'
+  ids:
+    Id:
+      type: integer
+  item_selector: /
+  fields:
+    -
+      name: Id
+      label: Id
+      selector: Id
+    -
+      name: DisplayName
+      label: DisplayName
+      selector: DisplayName
+    -
+      name: Certified
+      label: Certified
+      selector: Certified
+    -
+      name: PrimaryWeb
+      label: PrimaryWeb
+      selector: PrimaryWeb
+    -
+      name: Web
+      label: Web
+      selector: Web
+    -
+      name: Address
+      label: Address
+      selector: Address
+    -
+      name: Address2
+      label: Address2
+      selector: Address2
+    -
+      name: City
+      label: City
+      selector: City
+    -
+      name: State
+      label: State
+      selector: State
+    -
+      name: StateAbbreviation
+      label: StateAbbreviation
+      selector: StateAbbreviation
+    -
+      name: Country
+      label: Country
+      selector: Country
+    -
+      name: PostalCode
+      label: PostalCode
+      selector: PostalCode
+    -
+      name: Phone
+      label: Phone
+      selector: Phone
+  constants:
+    bool_0: 0
+    bool_1: 1
+    uid_root: 1
+process:
+  sticky: constants/bool_0
+  promote: constants/bool_0
+  uid: constants/uid_root
+  title: DisplayName
+  field_cert_dealer_nmma_id: Id
+  field_cert_dealer_address/country_code:
+    -
+      source: Country
+      plugin: callback
+      callable: nmma_importer_country_create
+  field_cert_dealer_address/langcode:
+    plugin: default_value
+    default_value: en
+  field_cert_dealer_address/address_line1: Address
+  field_cert_dealer_address/address_line2: Address2
+  field_cert_dealer_address/locality: City
+  field_cert_dealer_address/administrative_area: StateAbbreviation
+  field_cert_dealer_address/postal_code: PostalCode
+  field_cert_dealer_phone: Phone
+  field_cert_dealer_url/title: Web
+  field_cert_dealer_url/uri:
+    -
+      source: PrimaryWeb
+      plugin: callback
+      callable: nmma_importer_link_create
+  langcode:
+    plugin: default_value
+    default_value: en
+destination:
+  plugin: 'entity:node'
+  default_bundle: certified_dealers
+migration_dependencies: null

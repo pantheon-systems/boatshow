@@ -1,0 +1,28 @@
+uuid: 9e10c7f5-26ab-494b-83de-db099e2c14d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carousel
+    - media.type.image
+    - node.type.media
+id: node.media.field_carousel
+field_name: field_carousel
+entity_type: node
+bundle: media
+label: Carousel
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

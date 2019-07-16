@@ -1,0 +1,26 @@
+local:
+  root: /var/www/boatshow/docroot
+  uri: nashville
+  host: 10.102.200.4
+  user: vagrant
+dev:
+  root: /var/www/html/boatshow.dev/docroot
+  uri: nashville
+  host: staging-29724.prod.hosting.acquia.com
+  user: boatshow.dev
+  paths:
+    drush-script: /usr/local/bin/drush9
+stage:
+  root: /var/www/html/boatshow.test/docroot
+  uri: nashville
+  host: staging-29724.prod.hosting.acquia.com
+  user: boatshow.test
+  paths:
+    drush-script: /usr/local/bin/drush9
+prod:
+  root: /var/www/html/boatshow.prod/docroot
+  uri: nashville
+  host: ded-29722.prod.hosting.acquia.com
+  user: boatshow.prod
+  paths:
+    drush-script: /usr/local/bin/drush9

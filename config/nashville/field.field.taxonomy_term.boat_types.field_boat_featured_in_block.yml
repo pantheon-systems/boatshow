@@ -1,0 +1,23 @@
+uuid: 861dc3e9-ca61-4dc2-bd7a-22e2b6eeb1eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_boat_featured_in_block
+    - taxonomy.vocabulary.boat_types
+id: taxonomy_term.boat_types.field_boat_featured_in_block
+field_name: field_boat_featured_in_block
+entity_type: taxonomy_term
+bundle: boat_types
+label: 'Featured in Finder Block'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

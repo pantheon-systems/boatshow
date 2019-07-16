@@ -1,0 +1,67 @@
+uuid: 753b119c-df24-4e85-93ee-e75e399c235a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.megamenu_small_item
+    - field.field.node.article.field_article_activity
+    - field.field.node.article.field_article_author
+    - field.field.node.article.field_article_body
+    - field.field.node.article.field_article_call_out
+    - field.field.node.article.field_article_featured
+    - field.field.node.article.field_article_image
+    - field.field.node.article.field_article_meta_tags
+    - field.field.node.article.field_article_nmma_id
+    - field.field.node.article.field_article_popular
+    - field.field.node.article.field_article_subhead
+    - field.field.node.article.field_article_tags
+    - field.field.node.article.field_article_teaser
+    - field.field.node.article.field_article_tsr_image
+    - node.type.article
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.article.megamenu_small_item
+targetEntityType: node
+bundle: article
+mode: megamenu_small_item
+content:
+  field_article_image:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      view_mode: grid_item
+      link: false
+    third_party_settings: {  }
+  field_article_tsr_image:
+    type: entity_reference_entity_view
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      view_mode: grid_item
+      link: false
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  field_article_activity: true
+  field_article_author: true
+  field_article_body: true
+  field_article_call_out: true
+  field_article_featured: true
+  field_article_meta_tags: true
+  field_article_nmma_id: true
+  field_article_popular: true
+  field_article_subhead: true
+  field_article_tags: true
+  field_article_teaser: true
+  langcode: true
+  links: true

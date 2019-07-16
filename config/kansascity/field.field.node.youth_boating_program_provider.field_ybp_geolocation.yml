@@ -1,0 +1,21 @@
+uuid: 83813afb-11ae-49c0-84ff-f6e7b5ee9d8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ybp_geolocation
+    - node.type.youth_boating_program_provider
+  module:
+    - geolocation
+id: node.youth_boating_program_provider.field_ybp_geolocation
+field_name: field_ybp_geolocation
+entity_type: node
+bundle: youth_boating_program_provider
+label: Geolocation
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geolocation

@@ -1,0 +1,14 @@
+uuid: 849fef13-bbf2-42d0-a078-ef2cd4889d81
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.faq_creator
+  module:
+    - user
+id: user_remove_role_action.faq_creator
+label: 'Remove the FAQ creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: faq_creator

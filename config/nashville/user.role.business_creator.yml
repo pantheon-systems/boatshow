@@ -1,0 +1,28 @@
+uuid: 59b5ac41-e82c-4272-ac4a-0ce9a879647d
+langcode: en
+status: true
+dependencies: {  }
+id: business_creator
+label: 'Business creator'
+weight: 3
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node business content'
+  - 'administer panelizer node business layout'
+  - 'change layouts in place editing'
+  - 'create business content'
+  - 'create url aliases'
+  - 'edit own business content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view business revisions'
+  - 'view latest version'
+  - 'view own unpublished content'

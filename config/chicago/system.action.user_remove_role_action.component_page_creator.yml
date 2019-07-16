@@ -1,0 +1,14 @@
+uuid: 10b77c59-a286-464a-a776-f34e432aa1bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.component_page_creator
+  module:
+    - user
+id: user_remove_role_action.component_page_creator
+label: 'Remove the Component Page creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: component_page_creator

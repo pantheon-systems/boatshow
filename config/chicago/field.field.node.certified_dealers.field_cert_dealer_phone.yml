@@ -1,0 +1,21 @@
+uuid: 2db03bef-c6be-4145-b046-64138654b0dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cert_dealer_phone
+    - node.type.certified_dealers
+  module:
+    - telephone
+id: node.certified_dealers.field_cert_dealer_phone
+field_name: field_cert_dealer_phone
+entity_type: node
+bundle: certified_dealers
+label: Phone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

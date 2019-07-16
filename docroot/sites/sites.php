@@ -56,75 +56,26 @@
  * @see https://www.drupal.org/documentation/install/multi-site
  */
 
- /*  local */
- $sites['local.atlantaboatshow.com']     = 'atlanta';
- $sites['local.acboatshow.com']          = 'atlanticcity';
- $sites['local.baltimoreboatshow.com']   = 'baltimore';
- $sites['local.chicagoboatshow.com']     = 'chicago';
- $sites['local.kansascitysportshow.com'] = 'kansascity';
- $sites['local.louisvilleboatshow.com']  = 'louisville';
- $sites['local.minneapolisboatshow.com'] = 'minneapolis';
- $sites['local.miamiboatshow.com']   = 'miami';
- $sites['local.nashvilleboatshow.com']   = 'nashville';
- $sites['local.newenglandboatshow.com']  = 'newengland';
- $sites['local.nyboatshow.com']          = 'newyork';
- $sites['local.northwestsportshow.com']  = 'northwest';
- $sites['local.boatshownorwalk.com']  = 'norwalk';
- $sites['local.sportshows.com']     = 'sportshows';
- $sites['local.stlouisboatshow.com']     = 'stlouis';
- $sites['local.tampaboatshow.com']     = 'tampa';
+// Atlanta
+$sites['local.atlantaboatshow.com'] = 'atlanta';
+$sites['dev.atlantaboatshow.com'] = 'atlanta';
+$sites['stage.atlantaboatshow.com'] = 'atlanta';
+$sites['www.atlantaboatshow.com'] = 'atlanta';
 
-/* dev */
-$sites['dev.atlantaboatshow.com']     = 'atlanta';
-$sites['dev.acboatshow.com']          = 'atlanticcity';
-$sites['dev.baltimoreboatshow.com']   = 'baltimore';
-$sites['template.boatshows.com']     = 'boatshow';
-$sites['dev.chicagoboatshow.com']     = 'chicago';
+// Chicago
+$sites['local.chicagoboatshow.com'] = 'chicago';
+$sites['dev.chicagoboatshow.com'] = 'chicago';
+$sites['stage.chicagoboatshow.com'] = 'chicago';
+$sites['www.chicagoboatshow.com'] = 'chicago';
+
+// Kansas City
+$sites['local.kansascitysportshow.com'] = 'kansascity';
 $sites['dev.kansascitysportshow.com'] = 'kansascity';
-$sites['dev.louisvilleboatshow.com']  = 'louisville';
-$sites['dev.minneapolisboatshow.com'] = 'minneapolis';
-$sites['dev.miamiboatshow.com']   = 'miami';
-$sites['dev.nashvilleboatshow.com']   = 'nashville';
-$sites['dev.newenglandboatshow.com']  = 'newengland';
-$sites['dev.nyboatshow.com']          = 'newyork';
-$sites['dev.northwestsportshow.com']  = 'northwest';
-$sites['dev.boatshownorwalk.com']  = 'norwalk';
-$sites['dev.sportshows.com']     = 'sportshows';
-$sites['dev.stlouisboatshow.com']     = 'stlouis';
-$sites['dev.tampaboatshow.com']     = 'tampa';
-
-/* stage */
-$sites['stage.atlantaboatshow.com']     = 'atlanta';
-$sites['stage.acboatshow.com']          = 'atlanticcity';
-$sites['stage.baltimoreboatshow.com']   = 'baltimore';
-$sites['stage.chicagoboatshow.com']     = 'chicago';
 $sites['stage.kansascitysportshow.com'] = 'kansascity';
-$sites['stage.louisvilleboatshow.com']  = 'louisville';
-$sites['stage.minneapolisboatshow.com'] = 'minneapolis';
-$sites['stage.miamiboatshow.com']   = 'miami';
-$sites['stage.nashvilleboatshow.com']   = 'nashville';
-$sites['stage.newenglandboatshow.com']  = 'newengland';
-$sites['stage.nyboatshow.com']          = 'newyork';
-$sites['stage.northwestsportshow.com']  = 'northwest';
-$sites['stage.boatshownorwalk.com']  = 'norwalk';
-$sites['stage.sportshows.com']     = 'sportshows';
-$sites['stage.stlouisboatshow.com']     = 'stlouis';
-$sites['stage.tampaboatshow.com']     = 'tampa';
+$sites['www.kansascitysportshow.com'] = 'kansascity';
 
-/* prod */
-$sites['atlantaboatshow.com']     = 'atlanta';
-$sites['acboatshow.com']          = 'atlanticcity';
-$sites['baltimoreboatshow.com']   = 'baltimore';
-$sites['chicagoboatshow.com']     = 'chicago';
-$sites['kansascitysportshow.com'] = 'kansascity';
-$sites['louisvilleboatshow.com']  = 'louisville';
-$sites['minneapolisboatshow.com'] = 'minneapolis';
-$sites['miamiboatshow.com']   = 'miami';
-$sites['nashvilleboatshow.com']   = 'nashville';
-$sites['newenglandboatshow.com']  = 'newengland';
-$sites['nyboatshow.com']          = 'newyork';
-$sites['northwestsportshow.com']  = 'northwest';
-$sites['boatshownorwalk.com']  = 'norwalk';
-$sites['sportshows.com']     = 'sportshows';
-$sites['stlouisboatshow.com']     = 'stlouis';
-$sites['tampaboatshow.com']     = 'tampa';
+// Nashville
+$sites['local.nashvilleboatshow.com'] = 'nashville';
+$sites['dev.nashvilleboatshow.com'] = 'nashville';
+$sites['stage.nashvilleboatshow.com'] = 'nashville';
+$sites['www.nashvilleboatshow.com'] = 'nashville';

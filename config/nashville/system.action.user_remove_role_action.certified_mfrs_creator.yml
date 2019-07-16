@@ -1,0 +1,14 @@
+uuid: 22e2db00-6686-43fb-8be7-6f954b3955bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.certified_mfrs_creator
+  module:
+    - user
+id: user_remove_role_action.certified_mfrs_creator
+label: 'Remove the Certified Mfrs creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: certified_mfrs_creator

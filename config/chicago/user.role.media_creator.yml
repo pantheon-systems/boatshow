@@ -1,0 +1,28 @@
+uuid: 6f2c0e5c-924e-4fa9-849a-cef474d0d3dc
+langcode: en
+status: true
+dependencies: {  }
+id: media_creator
+label: 'Media creator'
+weight: 17
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node media content'
+  - 'administer panelizer node media layout'
+  - 'change layouts in place editing'
+  - 'create media content'
+  - 'create url aliases'
+  - 'edit own media content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view media revisions'
+  - 'view own unpublished content'

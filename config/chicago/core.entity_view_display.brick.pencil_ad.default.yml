@@ -1,0 +1,48 @@
+uuid: 83f204d4-a3b0-43de-bba3-b3222326eff9
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.pencil_ad
+    - field.field.brick.pencil_ad.field_large_ad_zone
+    - field.field.brick.pencil_ad.field_medium_ad_zone
+    - field.field.brick.pencil_ad.field_small_ad_zone
+id: brick.pencil_ad.default
+targetEntityType: brick
+bundle: pencil_ad
+mode: default
+content:
+  field_large_ad_zone:
+    weight: -2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_medium_ad_zone:
+    weight: -3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_small_ad_zone:
+    weight: -4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  langcode: true

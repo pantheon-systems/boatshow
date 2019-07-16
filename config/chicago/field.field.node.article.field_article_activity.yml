@@ -1,0 +1,29 @@
+uuid: 003f611d-5878-4c61-908c-fedd2729cb48
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_article_activity
+    - node.type.article
+    - taxonomy.vocabulary.activities
+id: node.article.field_article_activity
+field_name: field_article_activity
+entity_type: node
+bundle: article
+label: 'Activity Tag'
+description: 'You may optionally associate this article with an activity type.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      activities: activities
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

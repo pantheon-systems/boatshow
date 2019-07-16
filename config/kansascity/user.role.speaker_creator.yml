@@ -1,0 +1,28 @@
+uuid: 5815de26-22d3-4710-9a6f-8aa952416efa
+langcode: en
+status: true
+dependencies: {  }
+id: speaker_creator
+label: 'Speaker creator'
+weight: 15
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node speaker content'
+  - 'administer panelizer node speaker layout'
+  - 'change layouts in place editing'
+  - 'create speaker content'
+  - 'create url aliases'
+  - 'edit own speaker content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view speaker revisions'

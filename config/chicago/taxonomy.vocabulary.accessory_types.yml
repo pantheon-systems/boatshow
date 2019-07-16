@@ -1,0 +1,8 @@
+uuid: 7f8fa3d4-3fb5-44a1-b6fb-b00f8fee25cb
+langcode: en
+status: true
+dependencies: {  }
+name: 'Accessory Types'
+vid: accessory_types
+description: 'Accessory Categories and Types'
+weight: 0

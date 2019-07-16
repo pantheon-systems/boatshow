@@ -1,0 +1,18 @@
+uuid: d3c700a4-4cd4-40c6-8446-e24a8733ae47
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Certified Dealers'
+type: certified_dealers
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
