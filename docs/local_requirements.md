@@ -1,4 +1,4 @@
-# BLT General Requirements
+# Local Development General Requirements
 
 ## Git
 To check if git is already installed
@@ -47,7 +47,7 @@ sudo mv drush.phar /usr/local/bin/drush
 ## Vagrant
 To check if Vagrant is already installed
 ```
-vagrant version  
+vagrant version
 ```
 download at: https://www.vagrantup.com/downloads.html
 Then run:
@@ -60,7 +60,7 @@ vagrant plugin install vagrant-hostsupdater
 ## VirtualBox
 To check if VirtualBox is already installed
 ```
-vboxmanage –version   
+vboxmanage –version
 ```
 download at: https://www.virtualbox.org
 
@@ -74,36 +74,36 @@ You might encounter an error during installation on Mac OS Morave. Try:
 ## Python
 To check if Python is already installed
 ```
-python –version    
+python –version
 ```
 To install Python, run:
 ```
-sudo easy_install pip    
+sudo easy_install pip
 ```
 
 ## Ansible
 To check if Ansible is already installed
 ```
-ansible –version    
+ansible –version
 ```
 To install Ansible, run
 ```
-sudo pip install ansible   
+sudo pip install ansible
 ```
 To update Ansible, run
 ```
-sudo pip install ansible –upgrade   
+sudo pip install ansible –upgrade
 ```
 
 ## Drupal VM
-Check installation video for mac OS at: http://docs.drupalvm.com/en/latest/getting-started/installation-macos/  
-Download Drupal VM at: https://www.drupalvm.com/  
-Additional instruction can be found at:  
+Check installation video for mac OS at: http://docs.drupalvm.com/en/latest/getting-started/installation-macos/
+Download Drupal VM at: https://www.drupalvm.com/
+Additional instruction can be found at:
 - http://docs.drupalvm.com/en/latest/
 - https://github.com/geerlingguy/drupal-vm#quick-start-guide
 
 ## ssh-key
-Instruction about ssh-key can be found at: https://docs.acquia.com/acquia-cloud/manage/ssh/generate/  
+Instruction about ssh-key can be found at: https://docs.acquia.com/acquia-cloud/manage/ssh/generate/
 To check if a public key already exists:
 ```
 cd ~/.ssh ls -l
@@ -139,11 +139,11 @@ nvm use 9.11.2
 
 ---
 ## Ressources
-Drupal VM Documentation  
+Drupal VM Documentation
 http://docs.drupalvm.com/en/latest/
 
-Acquia BLT Documentation  
+Acquia BLT Documentation
 https://docs.acquia.com/blt/
 
-Acquia BLT Onboarding Documentation  
+Acquia BLT Onboarding Documentation
 https://docs.acquia.com/blt/developer/onboarding/
