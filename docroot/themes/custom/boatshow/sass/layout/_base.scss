@@ -207,7 +207,7 @@ table {
 li > a[href$=".pdf"]::before {
   content: " ";
   display: inline-block;
-  background: url("../images/pdf_20.gif");
+  background: url("../../images/pdf_20.gif");
   width: 20px;
   height: 20px;
   vertical-align: middle;

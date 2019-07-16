@@ -16,11 +16,11 @@ global_styles:
   version: 1.0.0
   css:
     theme:
-      css/styles.css: {}
+      assets-dist/css/styles.css: {}
 javascript:
   version: 1.0.0
   js:
-    js/dist/global.js: {}
+    assets-dist/js/global.js: {}
   dependencies:
     - core/jquery
     - core/drupal.ajax

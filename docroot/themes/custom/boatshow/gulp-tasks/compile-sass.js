@@ -23,7 +23,7 @@ module.exports = function (gulp, plugins, options) {
         browsers: ['last 2 versions'],
         cascade: false
       }))
-      .pipe(plugins.sourcemaps.write())
+      .pipe(plugins.sourcemaps.write('./'))
       .pipe(gulp.dest(options.sass.destination));
   });
 };

@@ -90,12 +90,12 @@ var path = require('path');
 var paths = {
   styles: {
     source: 'sass/',
-    destination: 'css/'
+    destination: 'assets-dist/css/'
   },
   scripts: {
     libraries: 'js/libraries',
-    source: 'js/src',
-    destination: 'js/dist'
+    source: 'js/custom',
+    destination: 'assets-dist/js'
   },
   images: 'img/',
   styleGuide: 'styleguide',

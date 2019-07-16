@@ -7,7 +7,7 @@
     .field--name-field-component-bricks {
       & > div > section {
         &.hero-background {
-          background: url('../images/main-background.png') no-repeat center center;
+          background: url('../../images/main-background.png') no-repeat center center;
           background-size: cover;
           @include media-breakpoint-up(lg) {
             min-height: 535px;
