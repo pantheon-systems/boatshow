@@ -130,6 +130,13 @@ For a general list of steps, follow the steps below:
 host$ git clone git@github.com:NationalMarine/Boatshows.git
 ```
 
+### Disable tracking permissions in git for this repo
+
+```console
+host$ cd path/to/freshly/cloned/repo
+host$ git config core.fileMode false
+```
+
 ### Checkout the **develop** branch
 
 ```console
@@ -155,9 +162,7 @@ host$ vagrant up
 To prevent headaches, from your project's root directory, run the following commands:
 
 ```console
-host$ sudo chmod +w docroot/sites/default/
-host$ sudo chmod +w docroot/sites/default/settings.php
-host$ git reset --hard origin/develop
+host$ sudo chmod -R +w docroot/sites/
 ```
 
 **NOTE:** *You can also have Vagrant automatically assign an available IP address to your VM if you install the `auto_network` plugin (`vagrant plugin install vagrant-auto_network`), and set `vagrant_ip` to `0.0.0.0` inside a `drupalvm/local.config.yml` file.*
