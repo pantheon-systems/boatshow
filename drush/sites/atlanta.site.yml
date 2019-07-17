@@ -1,8 +1,6 @@
 local:
   root: /var/www/boatshow/docroot
   uri: atlanta
-  host: 10.102.200.4
-  user: vagrant
 dev:
   root: /var/www/html/boatshow.dev/docroot
   uri: atlanta
