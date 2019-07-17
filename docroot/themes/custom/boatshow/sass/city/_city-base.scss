@@ -1,20 +1,18 @@
-// City-specific styles
-//
-// - Duplicate this file for each city.
-// - Change the city name in the body class. E.g., "boatshow-city--miami".
-// - Use the $city- variables to set the color palette and hero image path.
-// - If necessary, additional city-specific overrides can also go here, but
-//   _use sparingly_. Modifying the variables should generally be enough.
-body.boatshow-city--kansascity {
-// Using Chicago's palettzz   z¸že as a reference, primary is red, secondary is blue.
-  $city-color-primary: #0e753c;
-  $city-color-secondary: #005da8;
-  $city-hero-bg: "../../images/kansascity/main-background.jpg";
-  // Set these vars to something that will make the header stand out from the
-  // hero on the homepage.
-  $city-header-gradient: rgba(0, 0, 0, 0.65);
-  $city-header-menu-item-color: #fff;
+@import '../config';
+@import '../base/_variables';
+@import '../base/breakpoints';
+// TODO: might need to figure out better organization for this.
 
+$city-color-primary: #fdb713 !default;
+$city-color-secondary: #0075bf !default;
+$city-hero-bg: '../../../images/atlanticcity/main-background.jpg' !default;
+// Set these vars to something that will make the header stand out from the
+// hero on the homepage.
+$city-header-gradient: rgba(0, 0, 0, 0.65) !default;
+$city-header-menu-item-color: #fff !default;
+
+
+body {
   @mixin button--primary--override {
     background: $city-color-primary;
     border-color: $city-color-primary;

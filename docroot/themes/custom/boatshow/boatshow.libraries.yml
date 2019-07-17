@@ -46,3 +46,23 @@ jcountdown:
     js/libraries/jCountdown/jquery.jcountdown.min.js: {minified: external}
   dependencies:
     - core/jquery
+
+#
+# City site-specific libraries
+#
+atlanta:
+  css:
+    theme:
+      assets-dist/css/city/atlanta.css: {}
+# chicago:
+#   css:
+#     theme:
+#       assets-dist/css/city/chicago.css: {}
+kansascity:
+  css:
+    theme:
+      assets-dist/css/city/kansascity.css: {}
+nashville:
+  css:
+    theme:
+      assets-dist/css/city/nashville.css: {}

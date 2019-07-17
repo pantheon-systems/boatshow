@@ -81,6 +81,26 @@ function boatshow_preprocess_page(&$variables) {
     $city_key = Settings::get('boatshow.city.key');
   }
   $variables['boatshow_city'] = $city_key;
+
+  if ($city_key === 'atlanta') {
+    $variables['#attached']['library'][] =  'boatshow/atlanta';
+  }
+
+  // Add city-site specific library depending on the site.
+  switch ($city_key) {
+    case 'atlanta':
+      $variables['#attached']['library'][] =  'boatshow/atlanta';
+      break;
+    case 'chicago':
+      $variables['#attached']['library'][] =  'boatshow/chicago';
+      break;
+    case 'kansascity':
+      $variables['#attached']['library'][] =  'boatshow/kansascity';
+      break;
+    case 'nashville':
+      $variables['#attached']['library'][] =  'boatshow/nashville';
+      break;
+  }
 }
 
 /**
@@ -346,9 +366,9 @@ function boatshow_preprocess_field(&$variables) {
       }
     }
   }
-  if ($variables['element']['#field_name'] == 'field_disruptor_cta') {
-    $variables['items'][0]['content']['#options']['attributes']['class'][] = 'button';
-  }
+  // if ($variables['element']['#field_name'] == 'field_disruptor_cta') {
+  //   $variables['items'][0]['content']['#options']['attributes']['class'][] = 'button';
+  // }
   if ($variables['element']['#field_name'] == 'field_brick_link') {
     $variables['items'][0]['content']['#options']['attributes']['class'][] = 'button--secondary';
   }
