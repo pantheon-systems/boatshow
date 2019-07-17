@@ -187,6 +187,8 @@ vm$ composer run-script blt-alias
 
 Use BLT to setup the sites for local development. These will be empty shell sites until content is synced down. TODO: we should have a shell script which does this for us.
 
+**NOTE**: If this gives you an error about the database not existing "Failed to drop or create the database" OR any other errors, you may either need to run `host$ vagrant provision` again to install the databases, or you may need to delete all of the local files that BLT has generated inside the sites directory and start from scratch. To do this, run `host$ rm -rf path/to/repo/docroot/sites` and then `host$ git checkout path/to/repo/docroot/sites`
+
 ```console
 vm$ blt setup -n --site=template
 vm$ blt setup -n --site=atlanta
@@ -222,6 +224,8 @@ vm$ blt sync:files -v --site=nashville
 vm$ cd /var/www/boatshow/docroot/themes/custom/boatshow
 vm$ npm install && gulp
 ```
+
+**NOTE**: If NPM stalls out during during the node-gyp rebuild command, you can hit ctrl-c and then run `npm update` again before redoing the `npm install && gulp` command. [Reference](https://github.com/sass/node-sass/issues/1579#issuecomment-263048192)
 
 ### Log into your site with drush
 
