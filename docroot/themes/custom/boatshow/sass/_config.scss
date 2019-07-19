@@ -23,8 +23,8 @@ $color-primary: #e61b3a;
 $color-secondary: #1fb9eb;
 
 // Utility color variables ///////////////
-$heading: $colorname-black;
-$link: $color-secondary;
+$color-headings: $colorname-black;
+$color-links: $color-secondary;
 $dimension-header-height: 115px;
 
 // Fonts ///////////////
@@ -38,8 +38,8 @@ $proxima-light: 'Proxima Nova Light';
 $proxima-black: 'Proxima Nova Black';
 $proxima-thin: 'Proxima Nova Thin';
 $font-awesome: 'FontAwesome';
-$heading_font: $proxima-bold;
-$body_font: $proxima-reg;
+$font-headings: $proxima-bold;
+$font-primary: $proxima-reg;
 $font-line-height-standard: 1.6em;
 $font-size-body-copy: 16px;
 

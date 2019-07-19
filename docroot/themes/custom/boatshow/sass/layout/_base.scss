@@ -9,7 +9,7 @@ body {
 body {
   @include font-aliasing();
   @include font-size($font-size-body-copy);
-  font-family: $body_font;
+  font-family: $font-primary;
   line-height: $font-line-height-standard
 }
 // Base Headings
@@ -23,9 +23,9 @@ h3,
 h4,
 h5,
 h6 {
-  color: $heading;
+  color: $color-headings;
   font-weight: 500;
-  font-family: $heading_font;
+  font-family: $font-headings;
   padding: 0 0 0.3em;
   margin: 0;
 }
@@ -78,11 +78,11 @@ a,
 a:link,
 a:visited {
   text-decoration: none;
-  color: $link;
+  color: $color-links;
   cursor: pointer;
 
   &:hover {
-    color: $link;
+    color: $color-links;
     text-decoration: underline;
   }
 }
