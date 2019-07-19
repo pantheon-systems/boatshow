@@ -17,7 +17,8 @@ module.exports = function (gulp, plugins, options) {
       .pipe(plugins.sassGlob())
       .pipe(plugins.sass({
         errLogToConsole: true,
-        outputStyle: 'expanded'
+        outputStyle: 'expanded',
+        importer: plugins.nodeSassGlobbing
       }))
       .pipe(plugins.autoprefixer({
         browsers: ['last 2 versions'],

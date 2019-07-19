@@ -9,9 +9,14 @@
 @import "reset";
 
 /**
-  Config file that contains centralized variables
+  Mixins
 */
-@import "config";
+@import "mixins";
+
+/**
+  Variables
+*/
+@import "variables-default";
 
 // Base
 //
@@ -47,3 +52,5 @@
 //
 // Style guide: states
 @import "state/**/*";
+
+@import "legacy-city-overrides";

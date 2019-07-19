@@ -54,10 +54,10 @@ atlanta:
   css:
     theme:
       assets-dist/css/city/atlanta.css: {}
-# chicago:
-#   css:
-#     theme:
-#       assets-dist/css/city/chicago.css: {}
+chicago:
+  css:
+    theme:
+      assets-dist/css/city/chicago.css: {}
 kansascity:
   css:
     theme:

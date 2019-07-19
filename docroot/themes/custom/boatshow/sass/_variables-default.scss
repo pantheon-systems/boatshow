@@ -1,0 +1,177 @@
+/////////////////////////
+/// City Variables
+/////////////////////////
+$city-color-primary: magenta !default;
+$city-color-secondary: magenta !default;
+$city-hero-bg: '../../../images/atlanticcity/main-background.jpg' !default;
+// Set these vars to something that will make the header stand out from the
+// hero on the homepage.
+$city-header-gradient: rgba(magenta, 0.65) !default;
+$city-header-menu-item-color: cyan !default;
+
+// Typography
+
+///////////////////////////
+// Font Names
+// These have no semantic value and should only be used to populate other variables
+///////////////////////////
+
+// Global fallback
+$font-fallback: 'Helvetica', sans-serif !default;
+
+// Proxima Nova
+$fontname-proxima-thin: 'Proxima Nova Thin', $font-fallback !default;
+$fontname-proxima-light: 'Proxima Nova Light', $font-fallback !default;
+$fontname-proxima-regular: 'Proxima Nova Regular', $font-fallback !default;
+$fontname-proxima-semibold: 'Proxima Nova Semibold', $font-fallback !default;
+$fontname-proxima-bold: 'Proxima Nova Bold', $font-fallback !default;
+
+// FontAwesome
+$fontname-fontawesome: 'FontAwesome' !default;
+
+///////////////////////////
+// Fonts
+// Font variables with semantic names related to their purpose
+///////////////////////////
+$font-headings: $fontname-proxima-bold !default;
+$font-primary: $fontname-proxima-regular !default;
+
+///////////////////////////
+// Color Names
+// These have no semantic value and should only be used to populate other variables
+///////////////////////////
+
+// Template grays
+$colorname-white: #fff !default;
+$colorname-black: #000 !default;
+$colorname-dark-gray: lighten($colorname-black, 20%) !default;
+$colorname-med-gray: lighten($colorname-black, 40%) !default;
+$colorname-light-gray: lighten($colorname-black, 70%) !default;
+$colorname-lighter-gray: #e7e5e5 !default;
+$colorname-off-white: lighten($colorname-black, 97%) !default;
+
+/// Other grays
+$colorname-gray: #d8d8d8 !default;
+$colorname-gray-medium: #a2a2a2 !default;
+$colorname-gray-dark: #303b41 !default;    // Default
+$colorname-gray-darkest: #1c1b1f !default;
+$colorname-gray-silver-sand: #c0c4c6 !default;
+$colorname-gray-oslo: #979da0 !default;
+$colorname-gray-unleaded: #7f7f7f !default;
+$colorname-gray-iron: #d6d8d9 !default;
+$colorname-gray-chateau: #a3a9ac !default;
+$colorname-gray-silver-sand-alt: #bdc2c7 !default;
+
+// Other colors
+$colorname-alizarin-red: #e61b3a !default;
+$colorname-confetti-yellow: #e8ed57 !default;
+$colorname-picton-blue: #1fb9eb !default;
+$colorname-aqua: #00a4c6 !default;
+$colorname-blue: #004e9c !default;
+$colorname-monza-red: #d90a0a !default;
+
+///////////////////////////
+// Colors
+// Color variables with semantic names related to their purpose
+///////////////////////////
+
+// Utility color variables ///////////////
+$color-headings: $colorname-black !default;
+$color-links: $city-color-secondary !default;
+
+// Colors - General
+$color-header-bg: rgba($colorname-black, 0.4) !default;
+
+// Colors - Forms
+$color-status-error: $colorname-monza-red !default;
+
+$color-form-text-disabled: $colorname-gray-silver-sand !default;
+$color-form-text-placeholder: $colorname-gray-oslo !default;
+
+$color-button-primary-fill: $colorname-monza-red !default;
+$color-button-primary-text: $colorname-white !default;
+$color-button-primary-border: transparent !default;
+
+$color-button-secondary-fill: $colorname-white !default;
+$color-button-secondary-text: $colorname-gray-dark !default;
+// TODO: Make a color var for this gray.
+$color-button-secondary-border: $colorname-gray-unleaded !default;
+
+$color-button-clear-fill: transparent !default;
+$color-button-clear-text: $colorname-white !default;
+$color-button-clear-border: $colorname-white !default;
+
+$color-button-hero-fill: rgba(0, 0, 0, 0.1) !default;
+$color-button-hero-text: $colorname-white !default;
+$color-button-hero-border: $colorname-white !default;
+
+$color-button-disabled-fill: $colorname-gray-iron !default;
+$color-button-disabled-text: $colorname-gray-chateau !default;
+$color-button-disabled-border: transparent !default;
+
+$color-input-default-fill: $colorname-white !default;
+$color-input-default-text: $colorname-gray-dark !default;
+$color-input-default-border: $colorname-gray !default;
+$color-input-default-border-focus: $colorname-aqua !default;
+$color-input-default-border-error: $color-status-error !default;
+
+$color-input-submittable-fill: $colorname-white !default;
+$color-input-submittable-text: $color-form-text-placeholder !default;
+$color-input-submittable-border: $colorname-gray !default;
+
+$color-input-submittable-clear-fill: transparent !default;
+$color-input-submittable-clear-border: $colorname-gray !default;
+
+$color-input-disabled-fill: $colorname-white !default;
+$color-input-disabled-border: $colorname-gray !default;
+
+// Font Sizes
+
+$font-line-height-standard: 1.6em !default;
+
+$font-size-body-copy: 16px !default;
+$font-size-body-copy-small: 14px !default;
+$font-size-body-copy-xsmall: 12px !default;
+
+$font-size-h1: 70px !default;
+$font-size-h1-small: 60px !default;
+
+$font-size-h2: 38px !default;
+$font-size-h2-small: 32px !default;
+
+$font-size-h3: 30px !default;
+$font-size-h3-small: 24px !default;
+
+$font-size-h4: 26px !default;
+$font-size-h4-small: 20px !default;
+
+$font-size-h5: 20px !default;
+$font-size-h5-small: 14px !default;
+
+$font-size-article-headline: 16px !default;
+$font-size-article-headline-small: 14px !default;
+$font-size-article-headline-xsmall: 10px !default;
+
+$font-size-quote: 24px !default;
+
+$font-size-button: 16px !default;
+$font-size-button-small: 13px !default;
+$font-size-button-xsmall: 12px !default;
+
+$font-size-input: 10px !default;
+$font-size-input-large: 12px !default;
+$font-size-input-xlarge: 14px !default;
+
+// Dimensions
+
+$dimension-button-width: 242px !default;
+
+$dimension-button-height: 52px !default;
+$dimension-button-height-small: 44px !default;
+$dimension-button-height-xsmall: 36px !default;
+
+$dimension-input-height: 36px !default;
+$dimension-input-height-large: 46px !default;
+$dimension-input-height-xlarge: 56px !default;
+
+$dimension-header-height: 70px !default;
