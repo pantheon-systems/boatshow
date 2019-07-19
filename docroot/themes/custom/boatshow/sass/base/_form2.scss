@@ -62,7 +62,7 @@ textarea {
 
   &:focus {
     border-color: $color-input-default-border-focus;
-    box-shadow: 0 1 3px $color-gray;
+    box-shadow: 0 1 3px $colorname-gray;
   }
 }
 
@@ -97,10 +97,10 @@ input[type="file"] {
   input[type="time"],
   input[type="url"],
   textarea {
-    border-color: $color-status-red;
+    border-color: $color-status-error;
 
     &:focus {
-      border-color: $color-gray-dark;
+      border-color: $colorname-gray-dark;
     }
   }
 }
@@ -108,18 +108,18 @@ input[type="file"] {
 .error input:focus,
 .error textarea:focus,
 .error select:focus {
-  background: $color-gray-light;
-  border-color: $color-gray;
+  background: $colorname-lighter-gray;
+  border-color: $colorname-gray;
 }
 
 .error label,
 .error label.error {
-  color: $color-status-red;
+  color: $color-status-error;
 }
 
 .error > small,
 .error small.error {
-  background: $color-status-red;
+  background: $color-status-error;
   color: #fff;
   display: block;
   font-size: 0.75em;
@@ -130,7 +130,7 @@ input[type="file"] {
 }
 
 .error span.error-message {
-  color: $color-status-red;
+  color: $color-status-error;
   display: block;
   font-size: 14px;
   font-size: rem-calc(14px);
@@ -142,28 +142,28 @@ input[type="file"] {
 input.error,
 textarea.error {
   background-color: rgba(198, 15, 19, 0.1);
-  border-color: $color-status-red;
+  border-color: $color-status-error;
   margin-bottom: 0;
 }
 
 input.error:focus,
 textarea.error:focus {
-  background: $color-gray-light;
-  border-color: $color-gray;
+  background: $colorname-lighter-gray;
+  border-color: $colorname-gray;
 }
 
 .error select {
   background-color: rgba(198, 15, 19, 0.1);
-  border-color: $color-status-red;
+  border-color: $color-status-error;
 }
 
 .error select:focus {
-  background: $color-gray-light;
-  border-color: $color-gray;
+  background: $colorname-lighter-gray;
+  border-color: $colorname-gray;
 }
 
 label.error {
-  color: $color-status-red;
+  color: $color-status-error;
   line-height: 1rem;
   padding-left: rem-calc(12px);
 }
@@ -244,8 +244,8 @@ label.error {
       background: transparent;
 
       & ~ .icon {
-        background-color: $color-gray;
-        border-color: $color-gray;
+        background-color: $colorname-gray;
+        border-color: $colorname-gray;
         color: $color-button-disabled-text;
 
         &:hover {
@@ -282,7 +282,7 @@ label.error {
 
   .icon-db-location {
     background-color: $colorname-white;
-    border: 1px solid $color-gray;
+    border: 1px solid $colorname-gray;
     border-radius: 3px 0 0 3px;
     // color: $colorname-picton-blue;
     left: 0;
@@ -483,8 +483,8 @@ label.error {
 
   li {
     &.highlighted {
-      background: $color-gray-light;
-      color: $color-gray-dark;
+      background: $colorname-lighter-gray;
+      color: $colorname-gray-dark;
     }
   }
 }

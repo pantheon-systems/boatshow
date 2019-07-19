@@ -1,33 +1,3 @@
-///////////////////////////
-// Color Names
-// These have no semantic value and should only be used to populate other variables
-///////////////////////////
-// common colors
-$colorname-alizarin-red: #e61b3a;
-$colorname-confetti-yellow: #e8ed57;
-$colorname-picton-blue: #1fb9eb;
-// b&w colors as placeholders
-$colorname-white: #fff;
-$colorname-black: #000;
-$colorname-dark-gray: lighten($colorname-black, 20%);
-$colorname-med-gray: lighten($colorname-black, 40%);
-$colorname-light-gray: lighten($colorname-black, 70%);
-$colorname-lighter-gray: #e7e5e5;
-$colorname-off-white: lighten($colorname-black, 97%);
-
-///////////////////////////
-// Colors
-// Color variables with semantic names related to their purpose
-///////////////////////////
-$color-primary: #e61b3a;
-$color-secondary: #1fb9eb;
-
-// Utility color variables ///////////////
-$color-headings: $colorname-black;
-$color-links: $color-secondary;
-$dimension-header-height: 115px;
-
-
 // EXAMPLE FOR MQ REFERENCES =>
 
 /*

@@ -26,7 +26,7 @@ section.disruptor {
 .disruptor-bkgrnd--left {
   @extend .disruptor-bkgrnd;
 
-  background: $color-blue;
+  background: $colorname-blue;
   display: none;
   left: 0;
 }
@@ -34,7 +34,7 @@ section.disruptor {
 .disruptor-bkgrnd--right {
   @extend .disruptor-bkgrnd;
 
-  background: $color-aqua;
+  background: $colorname-aqua;
   display: none;
   right: 0;
 }
@@ -42,7 +42,7 @@ section.disruptor {
 .disruptor-bkgrnd--right-blue {
   @extend .disruptor-bkgrnd;
 
-  background: $color-blue;
+  background: $colorname-blue;
   display: none;
   right: 0;
 }
@@ -50,7 +50,7 @@ section.disruptor {
 .disruptor-bkgrnd--right-gray {
   @extend .disruptor-bkgrnd;
 
-  background: $color-gray-light;
+  background: $colorname-lighter-gray;
   display: none;
   right: 0;
 }
@@ -58,7 +58,7 @@ section.disruptor {
 
 
 .disruptor-bkgrnd--right .blue {
-  background: $color-blue;
+  background: $colorname-blue;
 }
 
 .disruptor-bkgrnd--left-image {
@@ -86,7 +86,7 @@ section.disruptor {
 }
 
 .disruptor .container .disruptor-content--right-gray {
-  color: $color-gray-darkest;
+  color: $colorname-gray-darkest;
 
   h1,
   h2,
@@ -94,7 +94,7 @@ section.disruptor {
   h4,
   h5,
   h6 {
-    color: $color-gray-darkest;
+    color: $colorname-gray-darkest;
   }
 
   h4 {
@@ -164,8 +164,8 @@ section.disruptor {
 .disruptor.white--left {
   .disruptor-content--left {
     background: $colorname-white;
-    border: 1px solid $color-gray;
-    color: $color-gray-dark;
+    border: 1px solid $colorname-gray;
+    color: $colorname-gray-dark;
 
     h1,
     h2,
@@ -173,7 +173,7 @@ section.disruptor {
     h4,
     h5,
     h6 {
-      color: $color-gray-dark;
+      color: $colorname-gray-dark;
     }
   }
 }
@@ -190,11 +190,11 @@ section.disruptor {
 }
 
 .disruptor-content--right-gray {
-  background: $color-gray-light;
+  background: $colorname-lighter-gray;
 }
 
 .disruptor-content--right-blue {
-  background: $color-blue;
+  background: $colorname-blue;
 }
 
 .disruptor-content--image {

@@ -106,7 +106,7 @@ svg {
 blockquote {
   padding: 0 15px;
   color: $colorname-dark-gray;
-  border-left: 4px solid $color-gray-light;
+  border-left: 4px solid $colorname-lighter-gray;
 
   &:last-child {
     margin-bottom: 0;
@@ -119,7 +119,7 @@ pre {
 
   code {
     border: 1px dotted $colorname-dark-gray;
-    background: $color-gray-light;
+    background: $colorname-lighter-gray;
     padding: 2px 9px;
     display: block;
     font-size: 85%;
@@ -149,7 +149,7 @@ table {
   th {
     font-weight: 600;
     text-align: left;
-    background-color: $color-gray-light;
+    background-color: $colorname-lighter-gray;
     padding: 4px 5px;
   }
 
@@ -160,18 +160,18 @@ table {
   }
 
   thead {
-    border: 1px solid $color-gray-light;
+    border: 1px solid $colorname-lighter-gray;
     border-bottom: 0;
   }
 
   tbody {
-    border: 1px solid $color-gray-light;
+    border: 1px solid $colorname-lighter-gray;
   }
 
   tbody tr:nth-child(even) {
-    background-color: $color-gray-light;
-    border-top: 1px solid $color-gray-light;
-    border-bottom: 1px solid $color-gray-light;
+    background-color: $colorname-lighter-gray;
+    border-top: 1px solid $colorname-lighter-gray;
+    border-bottom: 1px solid $colorname-lighter-gray;
   }
 }
 
@@ -180,7 +180,7 @@ table {
 }
 
 .light-gray-background {
-  background: $color-gray-light;
+  background: $colorname-lighter-gray;
 }
 
 .gray-background {
@@ -191,7 +191,7 @@ table {
 
 .section-header {
   .subheading {
-    color: $color-gray-medium;
+    color: $colorname-gray-medium;
     font-size: rem-calc(17px);
     margin-bottom: 1em;
   }

@@ -110,8 +110,8 @@ body.boatshow-city--newengland {
       background: transparent;
 
       & ~ .icon {
-        background-color: $color-gray;
-        border-color: $color-gray;
+        background-color: $colorname-gray;
+        border-color: $colorname-gray;
         color: $color-button-disabled-text;
 
         &:hover {

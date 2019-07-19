@@ -24,40 +24,69 @@ $fontname-fontawesome: 'FontAwesome';
 ///////////////////////////
 $font-headings: $fontname-proxima-bold;
 $font-primary: $fontname-proxima-regular;
-$font-line-height-standard: 1.6em;
-$font-size-body-copy: 16px;
+
+///////////////////////////
+// Color Names
+// These have no semantic value and should only be used to populate other variables
+///////////////////////////
+
+// Template grays
+$colorname-white: #fff;
+$colorname-black: #000;
+$colorname-dark-gray: lighten($colorname-black, 20%);
+$colorname-med-gray: lighten($colorname-black, 40%);
+$colorname-light-gray: lighten($colorname-black, 70%);
+$colorname-lighter-gray: #e7e5e5;
+$colorname-off-white: lighten($colorname-black, 97%);
+
+/// Other grays
+$colorname-gray: #d8d8d8;
+$colorname-gray-medium: #a2a2a2;
+$colorname-gray-dark: #303b41;    // Default
+$colorname-gray-darkest: #1c1b1f;
+$colorname-gray-silver-sand: #c0c4c6;
+$colorname-gray-oslo: #979da0;
+$colorname-gray-unleaded: #7f7f7f;
+$colorname-gray-iron: #d6d8d9;
+$colorname-gray-chateau: #a3a9ac;
+$colorname-gray-silver-sand-alt: #bdc2c7;
+
+// Other colors
+$colorname-alizarin-red: #e61b3a;
+$colorname-confetti-yellow: #e8ed57;
+$colorname-picton-blue: #1fb9eb;
+$colorname-aqua: #00a4c6;
+$colorname-blue: #004e9c;
+$colorname-monza-red: #d90a0a;
+
+///////////////////////////
+// Colors
+// Color variables with semantic names related to their purpose
+///////////////////////////
+$color-primary: #e61b3a;
+$color-secondary: #1fb9eb;
+
+// Utility color variables ///////////////
+$color-headings: $colorname-black;
+$color-links: $color-secondary;
 
 // Colors - General
-
-$color-header-bg: rgba(0, 0, 0, 0.4);
-
-// Colors - Text
-
-$colorname-white: #fff;
-$color-aqua: #00a4c6;
-$color-blue: #004e9c;
-$color-yellow: #fbc441;
-$color-gray-light: #e7e5e5;
-$color-gray: #d8d8d8;
-$color-gray-medium: #a2a2a2;
-$color-gray-dark: #303b41;    // Default
-$color-gray-darkest: #1c1b1f;
-$color-status-green: #379811;
-$color-status-red: #d90a0a;
+$color-header-bg: rgba($colorname-black, 0.4);
 
 // Colors - Forms
+$color-status-error: $colorname-monza-red;
 
-$color-form-text-disabled: #c0c4c6;
-$color-form-text-placeholder: #979da0;
+$color-form-text-disabled: $colorname-gray-silver-sand;
+$color-form-text-placeholder: $colorname-gray-oslo;
 
-$color-button-primary-fill: $color-status-red;
+$color-button-primary-fill: $colorname-monza-red;
 $color-button-primary-text: $colorname-white;
 $color-button-primary-border: transparent;
 
 $color-button-secondary-fill: $colorname-white;
-$color-button-secondary-text: $color-gray-dark;
+$color-button-secondary-text: $colorname-gray-dark;
 // TODO: Make a color var for this gray.
-$color-button-secondary-border: #7f7f7f;
+$color-button-secondary-border: $colorname-gray-unleaded;
 
 $color-button-clear-fill: transparent;
 $color-button-clear-text: $colorname-white;
@@ -67,51 +96,31 @@ $color-button-hero-fill: rgba(0, 0, 0, 0.1);
 $color-button-hero-text: $colorname-white;
 $color-button-hero-border: $colorname-white;
 
-$color-button-disabled-fill: #d6d8d9;
-$color-button-disabled-text: #a3a9ac;
+$color-button-disabled-fill: $colorname-gray-iron;
+$color-button-disabled-text: $colorname-gray-chateau;
 $color-button-disabled-border: transparent;
 
 $color-input-default-fill: $colorname-white;
-$color-input-default-text: $color-gray-dark;
-$color-input-default-border: $color-gray;
-$color-input-default-border-focus: $color-aqua;
-$color-input-default-border-error: $color-status-red;
+$color-input-default-text: $colorname-gray-dark;
+$color-input-default-border: $colorname-gray;
+$color-input-default-border-focus: $colorname-aqua;
+$color-input-default-border-error: $color-status-error;
 
 $color-input-submittable-fill: $colorname-white;
 $color-input-submittable-text: $color-form-text-placeholder;
-$color-input-submittable-border: $color-gray;
+$color-input-submittable-border: $colorname-gray;
 
 $color-input-submittable-clear-fill: transparent;
-$color-input-submittable-clear-border: $color-gray;
+$color-input-submittable-clear-border: $colorname-gray;
 
 $color-input-disabled-fill: $colorname-white;
-$color-input-disabled-border: $color-gray;
-
-$color-social-email: #8e1318;
-$color-social-facebook: #004e9c;
-$color-social-twitter: #00a6c9;
-$color-social-instagram: #517fa2;
-$color-social-google: #ef5947;
-$color-social-pinterest: #c92027;
-$color-social-youtube: #fc3432;
-
-// Colors - Ratings
-
-$color-star-yellow: #facf3d;
-
-// Colors - Borders
-
-$color-border-gray-transparent: rgba(189, 194, 199, 50);
-
-// Colors - Boat Finder
-
-$color-blue-gray: #f2f3f4;
+$color-input-disabled-border: $colorname-gray;
 
 // Font Sizes
 
 $font-line-height-standard: 1.6em;
 
-// $font-size-body-copy: 16px;
+$font-size-body-copy: 16px;
 $font-size-body-copy-small: 14px;
 $font-size-body-copy-xsmall: 12px;
 

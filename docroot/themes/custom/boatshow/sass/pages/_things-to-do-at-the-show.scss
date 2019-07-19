@@ -12,8 +12,8 @@
 
     // I don't like duplicating the dimensions here, but I need to move on.
     .field--name-image {
-      border: 2px solid $color-gray-medium;
-      box-shadow: $color-gray-medium 0px 0px 14px;
+      border: 2px solid $colorname-gray-medium;
+      box-shadow: $colorname-gray-medium 0px 0px 14px;
       height: 85px;
       width: 85px;
       border-radius: 50%;
@@ -28,7 +28,7 @@
     }
 
     .body {
-      color: $color-gray-medium;
+      color: $colorname-gray-medium;
       font-family: $fontname-proxima-bold;
       text-transform: uppercase;
 
@@ -79,7 +79,7 @@
   margin: -1em -1em;
 
   .column-item {
-    background: $color-gray-light;
+    background: $colorname-lighter-gray;
     border-left: 1em solid white;
     border-top: 1em solid white;
 

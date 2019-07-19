@@ -33,7 +33,7 @@ a.ui-button:active,
 .ui-button:active,
 .ui-button.ui-state-active:hover {
   background: transparent;
-  color: $color-gray-dark;
+  color: $colorname-gray-dark;
 }
 
 .ui-state-default,
@@ -51,7 +51,7 @@ html .ui-button.ui-state-disabled:active {
 
 // New stuff
 .ui-accordion .views-row > .views-row {
-  border-bottom: 1px solid $color-border-gray-transparent;
+  border-bottom: 1px solid $colorname-gray-silver-sand-alt;
   text-align: left;
   padding-top: 1rem;
 
