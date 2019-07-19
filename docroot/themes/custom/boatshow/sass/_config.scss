@@ -27,19 +27,23 @@ $color-headings: $colorname-black;
 $color-links: $color-secondary;
 $dimension-header-height: 115px;
 
-// Fonts ///////////////
-$opensans: 'Open Sans';
-$poppins: 'Poppins';
+///////////////////////////
+// Font Names
+// These have no semantic value and should only be used to populate other variables
+///////////////////////////
+$fontname-proxima-bold: 'Proxima Nova Bold';
+$fontname-proxima-regular: 'Proxima Nova Regular';
+$fontname-proxima-semibold: 'Proxima Nova Semibold';
+$fontname-proxima-light: 'Proxima Nova Light';
+$fontname-proxima-thin: 'Proxima Nova Thin';
+$fontname-fontawesome: 'FontAwesome';
 
-$proxima-bold: 'Proxima Nova Bold';
-$proxima-reg: 'Proxima Nova Regular';
-$proxima-semibold: 'Proxima Nova Semibold';
-$proxima-light: 'Proxima Nova Light';
-$proxima-black: 'Proxima Nova Black';
-$proxima-thin: 'Proxima Nova Thin';
-$font-awesome: 'FontAwesome';
-$font-headings: $proxima-bold;
-$font-primary: $proxima-reg;
+///////////////////////////
+// Fonts
+// Font variables with semantic names related to their purpose
+///////////////////////////
+$font-headings: $fontname-proxima-bold;
+$font-primary: $fontname-proxima-regular;
 $font-line-height-standard: 1.6em;
 $font-size-body-copy: 16px;
 

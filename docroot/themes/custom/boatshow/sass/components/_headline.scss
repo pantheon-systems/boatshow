@@ -4,7 +4,7 @@
 
   h2 {
     font-size: 30px;
-    font-family: $proxima-thin;
+    font-family: $fontname-proxima-thin;
     color: $colorname-black;
     text-transform: uppercase;
     line-height: 1.2;
@@ -12,13 +12,13 @@
     padding: 0;
 
     b {
-      font-family: $proxima-bold;
+      font-family: $fontname-proxima-bold;
     }
   }
 
   .subheading {
     font-size: 16px;
-    font-family: $proxima-light;
+    font-family: $fontname-proxima-light;
     color: $colorname-black;
     line-height: 1.2;
     font-weight: 600;

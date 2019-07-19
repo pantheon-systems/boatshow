@@ -57,7 +57,7 @@
     border-radius: 0;
     border-width: 2px;
     color: $color-button-secondary-text;
-    font-family: $proxima-reg;
+    font-family: $fontname-proxima-regular;
   }
 
   .chosen-container-single .chosen-single div b {
@@ -125,7 +125,7 @@
 
   .boat-name a {
     color: $colorname-alizarin-red;
-    font-family: $proxima-bold;
+    font-family: $fontname-proxima-bold;
     text-transform: uppercase;
   }
 
@@ -208,7 +208,7 @@
   color: #666;
   margin-bottom: 1em;
   text-transform: uppercase;
-  font-family: $proxima-semibold;
+  font-family: $fontname-proxima-semibold;
 }
 
 .details-field {
@@ -219,7 +219,7 @@
   }
 
   .label {
-    font-family: $proxima-bold;
+    font-family: $fontname-proxima-bold;
   }
 
   .field {
@@ -234,6 +234,6 @@
   }
 
   &.name {
-    font-family: $proxima-bold;
+    font-family: $fontname-proxima-bold;
   }
 }

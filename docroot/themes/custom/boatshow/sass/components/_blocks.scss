@@ -2,7 +2,7 @@
 .teaser-block-type {
   h2 {
     font-size: 16px;
-    font-family: $proxima-bold;
+    font-family: $fontname-proxima-bold;
     color: $colorname-black;
     line-height: 1.2;
     text-align: left;
@@ -20,7 +20,7 @@
     flex-direction: column;
     .field--name-body {
       font-size: 13px;
-      font-family: $proxima-reg;
+      font-family: $fontname-proxima-regular;
       color: $colorname-black;
       line-height: 1.2;
       p {
@@ -31,12 +31,12 @@
     .field--name-field-link {
       a {
         font-size: 14px;
-        font-family: $proxima-semibold;
+        font-family: $fontname-proxima-semibold;
         line-height: 1.2;
         text-align: left;
         text-transform: lowercase;
         &::after {
-          font-family: $font-awesome;
+          font-family: $fontname-fontawesome;
           font-size: 10px;
           content: '\f054';
           color: $colorname-alizarin-red;
