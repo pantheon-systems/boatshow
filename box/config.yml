@@ -9,6 +9,7 @@ vagrant_synced_folders:
     local_path: .
     destination: /var/www/boatshow
     type: nfs
+    mount_options: ['actimeo=2']
 drupal_build_composer_project: false
 drupal_build_composer: false
 drupal_composer_path: false
