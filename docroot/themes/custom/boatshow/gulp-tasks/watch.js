@@ -18,26 +18,7 @@ module.exports = function (gulp, plugins, options) {
     gulp.watch([options.sass.files], ['compile:sass']);
   });
 
-  gulp.task('watch:styleguide', function () {
-    return gulp.watch([
-      options.styleGuide.files
-    ], function () {
-      plugins.runSequence(
-        'compile:styleguide'
-      );
-    });
-  });
-
   gulp.task('watch:lint', function () {
     gulp.watch([options.sass.files, options.js.files], ['lint:css', 'lint:js']);
-  });
-
-  var connect = require('gulp-connect');
-
-  gulp.task('watch:connect', function() {
-    connect.server({
-      root: 'styleguide',
-      port: 8000
-    });
   });
 };

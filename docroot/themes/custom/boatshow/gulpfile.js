@@ -11,9 +11,7 @@
 //   `gulp build:dev`
 //   `gulp clean`
 //   `gulp clean:css`
-//   `gulp clean:styleguide`
 //   `gulp compile:sass`
-//   `gulp compile:styleguide`
 //   `gulp lint:js`
 //   `gulp lint:css`
 //   `gulp minify:css`
@@ -23,7 +21,6 @@
 //   `gulp watch`
 //   `gulp watch:js`
 //   `gulp watch:sass`
-//   `gulp watch:styleguide`
 //
 // -------------------------------------
 
@@ -98,7 +95,6 @@ var paths = {
     destination: 'assets-dist/js'
   },
   images: 'img/',
-  styleGuide: 'styleguide',
   templates: 'templates'
 };
 
@@ -160,27 +156,6 @@ var options = {
     }
 
   },
-
-  // ----- KSS Node ----- //
-  styleGuide: {
-    source: [
-      paths.styles.source
-    ],
-    builder: 'builder/twig',
-    destination: 'styleguide/',
-    css: [
-      path.relative(paths.templates, paths.scripts.libraries + '/slick/slick.css'),
-      path.relative(paths.styleGuide, paths.styles.destination + 'styles.css'),
-      path.relative(paths.styleGuide, paths.styles.destination + 'style-guide-only/kss-only.css')
-    ],
-    js: [
-      path.relative(paths.templates, paths.scripts.libraries + '/slick/slick.min.js'),
-      path.relative(paths.styleGuide, paths.scripts.destination + '/global.js'),
-    ],
-    homepage: 'style-guide-only/homepage.md',
-    title: 'Living Style Guide'
-  },
-
   // ------ pa11y ----- //
   pa11y: {
     urls: [ // An array of urls to test.
@@ -220,10 +195,8 @@ require('./gulp-tasks/browser-sync')(gulp, plugins, options);
 require('./gulp-tasks/build')(gulp, plugins, options);
 require('./gulp-tasks/clean')(gulp, plugins, options);
 require('./gulp-tasks/clean-css')(gulp, plugins, options);
-require('./gulp-tasks/clean-styleguide')(gulp, plugins, options);
 require('./gulp-tasks/compile-sass')(gulp, plugins, options);
 require('./gulp-tasks/compile-js')(gulp, plugins, options);
-require('./gulp-tasks/compile-styleguide')(gulp, plugins, options);
 require('./gulp-tasks/default')(gulp, plugins, options);
 require('./gulp-tasks/lint-js')(gulp, plugins, options);
 require('./gulp-tasks/lint-css')(gulp, plugins, options);
