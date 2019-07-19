@@ -24,8 +24,8 @@ h4,
 h5,
 h6 {
   color: $color-headings;
-  font-weight: 500;
   font-family: $font-headings;
+  font-weight: $font-weight-bold; //todo: faux 500
   padding: 0 0 0.3em;
   margin: 0;
 }
@@ -36,16 +36,11 @@ h1 {
 }
 
 h2 {
-  // font-family: $fontname-proxima-light;
-  font-family: $fontname-proxima-bold;
+  font-weight: $font-weight-bold;
   // There should be a var for font-size we can use.
   font-size: rem-calc(30px);
   line-height: 145%;
   text-transform: uppercase;
-
-  b {
-    font-family: $fontname-proxima-bold;
-  }
 }
 
 h3 {
@@ -54,7 +49,7 @@ h3 {
 }
 
 h4 {
-  font-family: $fontname-proxima-regular;
+  font-weight: $font-weight-normal;
   font-size: 120%;
   line-height: 145%;
 }
@@ -147,7 +142,7 @@ table {
   margin-bottom: 3rem;
 
   th {
-    font-weight: 600;
+    font-weight: $font-weight-normal; //todo: faux semibold
     text-align: left;
     background-color: $colorname-lighter-gray;
     padding: 4px 5px;

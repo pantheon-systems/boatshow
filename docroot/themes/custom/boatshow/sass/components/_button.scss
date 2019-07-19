@@ -1,5 +1,5 @@
 @mixin button {
-  font-family: $fontname-proxima-bold;
+  font-weight: $font-weight-bold;
   @include font-size($font-size-button);
   @include font-aliasing();
 
@@ -89,7 +89,7 @@
   background: $color-button-secondary-fill;
   border-color: $color-button-secondary-border;
   color: $color-button-secondary-text;
-  font-family: $fontname-proxima-semibold;
+  font-weight: $font-weight-semibold;
 
   &:hover,
   &:active {

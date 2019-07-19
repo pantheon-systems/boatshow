@@ -38,8 +38,7 @@ $context-btn-border-color: white;
     a {
       color: $context-btn-fg-color !important;
       font-size: 0.9rem !important;
-      font-family: $fontname-proxima-bold !important;
-      font-weight: bold !important;
+      font-weight: $font-weight-bold !important;
       text-decoration: inherit !important;
 
       &:hover,

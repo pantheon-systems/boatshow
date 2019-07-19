@@ -64,7 +64,7 @@ html .ui-button.ui-state-disabled:active {
   .field-content {
     color: $colorname-black;
     font-size: rem-calc(16px);
-    font-weight: bold;
+    font-weight: $font-weight-normal; //todo: faux bold
   }
 }
 
@@ -76,7 +76,7 @@ html .ui-button.ui-state-disabled:active {
 .ui-accordion-header-active {
   .field-content::after {
     color: $colorname-picton-blue;
-    font-weight: bold;
+    font-weight: $font-weight-normal; //todo: faux bold
     font-size: rem-calc(26px);
     margin-left: rem-calc(3px);
     vertical-align: -3px;

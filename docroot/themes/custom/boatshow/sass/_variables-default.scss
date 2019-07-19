@@ -16,15 +16,8 @@ $city-header-menu-item-color: cyan !default;
 // These have no semantic value and should only be used to populate other variables
 ///////////////////////////
 
-// Global fallback
-$font-fallback: 'Helvetica', sans-serif !default;
-
 // Proxima Nova
-$fontname-proxima-thin: 'Proxima Nova Thin', $font-fallback !default;
-$fontname-proxima-light: 'Proxima Nova Light', $font-fallback !default;
-$fontname-proxima-regular: 'Proxima Nova Regular', $font-fallback !default;
-$fontname-proxima-semibold: 'Proxima Nova Semibold', $font-fallback !default;
-$fontname-proxima-bold: 'Proxima Nova Bold', $font-fallback !default;
+$fontname-proximanova: 'Proxima Nova', 'Helvetica', sans-serif !default;
 
 // FontAwesome
 $fontname-fontawesome: 'FontAwesome' !default;
@@ -33,8 +26,8 @@ $fontname-fontawesome: 'FontAwesome' !default;
 // Fonts
 // Font variables with semantic names related to their purpose
 ///////////////////////////
-$font-headings: $fontname-proxima-bold !default;
-$font-primary: $fontname-proxima-regular !default;
+$font-primary: $fontname-proximanova !default;
+$font-headings: $font-primary !default;
 
 ///////////////////////////
 // Color Names
@@ -162,6 +155,12 @@ $font-size-input: 10px !default;
 $font-size-input-large: 12px !default;
 $font-size-input-xlarge: 14px !default;
 
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-normal: normal;
+$font-weight-semibold: 600;
+$font-weight-bold: bold;
+
 // Dimensions
 
 $dimension-button-width: 242px !default;
@@ -175,3 +174,8 @@ $dimension-input-height-large: 46px !default;
 $dimension-input-height-xlarge: 56px !default;
 
 $dimension-header-height: 70px !default;
+
+
+// Effect: Contrast Headline
+$effect-contrast-headline-base-font-weight: $font-weight-thin !default;
+$effect-contrast-headline-emphasis-font-weight: $font-weight-bold !default;

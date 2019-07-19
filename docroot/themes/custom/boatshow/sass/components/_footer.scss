@@ -74,7 +74,7 @@
       width: 100%;
       float: left;
       font-size: 20px;
-      font-family: $fontname-proxima-light;
+      font-weight: $font-weight-light;
       color: $colorname-black;
     }
     .featured-logo {
@@ -99,12 +99,12 @@
         display: block;
         line-height: 1.2;
         margin: 0;
-        font-family: $fontname-proxima-light;
+        font-weight: $font-weight-light;
         // TODO: :first-child here replaces the .first class. If we ever
         // get a chance to do some housekeeping we should remove it (and
         // the .proxi-bold class it's paired with) from the template.
         &:first-child {
-          font-family: $fontname-proxima-bold;
+          font-weight: $font-weight-bold;
         }
       }
       margin-top: 30px;
@@ -250,7 +250,7 @@
   .copyright {
     margin-top: 45px;
     color: $colorname-white;
-    font-family: $fontname-proxima-light;
+    font-weight: $font-weight-light;
     font-size: 14px;
     a {
       text-decoration: underline;

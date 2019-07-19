@@ -1,8 +1,8 @@
 .column-item {
   .title {
     color: $color-headings;
-    font-weight: 500;
     font-family: $font-headings;
+    font-weight: $font-weight-bold; //todo: faux 500
     padding: 0 0 0.3em;
     margin: 0;
     font-size: 140%;

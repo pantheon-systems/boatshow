@@ -1,27 +1,37 @@
+// Provides the 2-weight headline effect
+
+@mixin effect-contrast-headline {
+  font-weight: $effect-contrast-headline-base-font-weight;
+
+  & b,
+  & i,
+  & strong,
+  & em {
+    font-style: normal;
+    font-weight: $effect-contrast-headline-emphasis-font-weight;
+  }
+}
+
 .section-header {
   text-align: center;
   margin-bottom: 1.875em;
 
   h2 {
+    @include effect-contrast-headline();
+
     font-size: 30px;
-    font-family: $fontname-proxima-thin;
     color: $colorname-black;
     text-transform: uppercase;
     line-height: 1.2;
     margin: 0;
     padding: 0;
-
-    b {
-      font-family: $fontname-proxima-bold;
-    }
   }
 
   .subheading {
     font-size: 16px;
-    font-family: $fontname-proxima-light;
+    font-weight: $font-weight-light; //todo: faux 600
     color: $colorname-black;
     line-height: 1.2;
-    font-weight: 600;
     margin: 1.25em 0 0 0;
   }
 }

@@ -16,7 +16,7 @@ body {
     background: $color-button-secondary-fill;
     border-color: $color-button-secondary-border;
     color: $color-button-secondary-text;
-    font-family: $fontname-proxima-semibold;
+    font-weight: $font-weight-semibold;
 
     &:hover,
     &:active {

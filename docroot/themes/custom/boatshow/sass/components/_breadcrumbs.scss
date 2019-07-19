@@ -10,7 +10,7 @@
     li {
       display: inline;
       font-size: $font-size-body-copy-xsmall;
-      font-family: $fontname-proxima-bold;
+      font-weight: $font-weight-bold;
       color: $colorname-med-gray;
 
       &:not(:last-child)::after {

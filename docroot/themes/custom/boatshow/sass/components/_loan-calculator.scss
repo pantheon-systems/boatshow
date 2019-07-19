@@ -26,7 +26,7 @@
           b {
             background-image: none;
             font-size: 14px;
-            font-weight: bold;
+            font-weight: $font-weight-normal; //todo: faux bold
 
             &::after {
               content: "\0041";
@@ -44,8 +44,7 @@
 
       padding: 0 1em;
       line-height: 2.75;
-      font-weight: bold;
-      font-family: $fontname-proxima-semibold;
+      font-weight: $font-weight-semibold; //todo: faux bold
       min-width: 300px;
       height: 50px;
       position: relative;
@@ -73,7 +72,7 @@
 
       i {
         font-size: 14px;
-        font-weight: bold;
+        font-weight: $font-weight-normal; //todo: faux bold
 
         &::before {
           content: "";
@@ -138,7 +137,7 @@
     padding: 10px 0 20px;
   }
   .step-title {
-    font-weight: bold;
+    font-weight: $font-weight-normal; //todo: faux bold
     min-width: 6.25rem;
     max-width: 6.25rem;
     line-height: 1rem;

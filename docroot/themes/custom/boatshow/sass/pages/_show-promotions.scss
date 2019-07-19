@@ -1,8 +1,7 @@
 .super-thursday {
   color: #da5a3b;
-  font-family: $fontname-proxima-bold;
   font-size: 1.25rem;
-  font-weight: bold;
+  font-weight: $font-weight-bold; //todo: faux bold
 
   h1,
   h2,
@@ -36,8 +35,7 @@
 
   .views-field-title {
     color: $colorname-dark-gray;
-    font-family: $fontname-proxima-light;
-    font-weight: bold;
+    font-weight: $font-weight-light; //todo: faux bold
     font-size: $font-size-h4-small;
   }
 

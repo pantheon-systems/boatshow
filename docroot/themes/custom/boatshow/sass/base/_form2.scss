@@ -34,7 +34,7 @@ textarea {
   box-sizing: border-box;
   color: $color-input-default-text;
   display: block;
-  font-family: $fontname-proxima-light;
+  font-weight: $font-weight-light;
   height: $dimension-input-height;
   outline: none;
   padding: 0 10px;
@@ -123,7 +123,7 @@ input[type="file"] {
   color: #fff;
   display: block;
   font-size: 0.75em;
-  font-weight: bold;
+  font-weight: $font-weight-normal; //todo: faux bold
   margin-bottom: 1em;
   margin-top: 0;
   padding: 0.375em 0.25em;
@@ -414,7 +414,7 @@ label.error {
     border-radius: 3px;
     box-shadow: none;
     display: flex;
-    font-family: $fontname-proxima-light;
+    font-weight: $font-weight-light;
     height: $dimension-input-height;
     align-items: center;
 
@@ -440,7 +440,7 @@ label.error {
   }
 
   .chosen-drop {
-    font-family: $fontname-proxima-light;
+    font-weight: $font-weight-light;
     border: 1px solid $color-input-default-border;
   }
 
