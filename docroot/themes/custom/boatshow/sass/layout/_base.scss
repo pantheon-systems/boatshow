@@ -25,7 +25,7 @@ h5,
 h6 {
   color: $color-headings;
   font-family: $font-headings;
-  font-weight: $font-weight-bold; //todo: faux 500
+  font-weight: $font-weight-bold;
   padding: 0 0 0.3em;
   margin: 0;
 }
@@ -36,7 +36,6 @@ h1 {
 }
 
 h2 {
-  font-weight: $font-weight-bold;
   // There should be a var for font-size we can use.
   font-size: rem-calc(30px);
   line-height: 145%;
@@ -142,7 +141,7 @@ table {
   margin-bottom: 3rem;
 
   th {
-    font-weight: $font-weight-normal; //todo: faux semibold
+    font-weight: $font-weight-semibold;
     text-align: left;
     background-color: $colorname-lighter-gray;
     padding: 4px 5px;
