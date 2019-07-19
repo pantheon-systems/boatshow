@@ -93,9 +93,9 @@
 
   &:hover,
   &:active {
-    background: $blue;
+    background: $colorname-picton-blue;
     border-color: transparent;
-    color: $color-white;
+    color: $colorname-white;
   }
 }
 
@@ -108,9 +108,9 @@
 
   &:hover,
   &:active {
-    background: $blue;
+    background: $colorname-picton-blue;
     border-color: transparent;
-    color: $color-white;
+    color: $colorname-white;
   }
 }
 
@@ -141,13 +141,13 @@ a.button--cta {
 .button--cta-alt,
 a.button--cta-alt {
   @include button;
-  background-color: $blue;
-  color: $white;
+  background-color: $colorname-picton-blue;
+  color: $colorname-white;
 
   &:hover,
   &:focus {
-    border-color: $blue;
-    color: $blue;
+    border-color: $colorname-picton-blue;
+    color: $colorname-picton-blue;
   }
 }
 

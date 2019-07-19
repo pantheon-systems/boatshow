@@ -11,7 +11,7 @@
       display: inline;
       font-size: $font-size-body-copy-xsmall;
       font-family: $font-bold;
-      color: $med-gray;
+      color: $colorname-med-gray;
 
       &:not(:last-child)::after {
         content: ">";

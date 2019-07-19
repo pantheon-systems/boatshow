@@ -189,7 +189,7 @@ label.error {
 }
 
 .js input.form-autocomplete {
-  background: $color-white;
+  background: $colorname-white;
 }
 
 // Custom Fields - Submittable Input
@@ -199,10 +199,10 @@ label.error {
   position: relative;
 
   .icon {
-    background-color: $blue;
-    border: 1px solid $blue;
+    background-color: $colorname-picton-blue;
+    border: 1px solid $colorname-picton-blue;
     box-sizing: border-box;
-    color: $color-white;
+    color: $colorname-white;
     height: $dimension-input-height;
     // padding: 9px 0 0 11px;
     position: absolute;
@@ -238,7 +238,7 @@ label.error {
 
       & ~ .icon {
         // background-color: $color-input-submittable-fill;
-        // color: $blue;
+        // color: $colorname-picton-blue;
       }
     }
 
@@ -266,7 +266,7 @@ label.error {
 
     &:focus {
       & ~ .icon {
-        border-color: $blue;
+        border-color: $colorname-picton-blue;
       }
     }
   }
@@ -285,10 +285,10 @@ label.error {
   @extend .submit-input-field;
 
   .icon-db-location {
-    background-color: $color-white;
+    background-color: $colorname-white;
     border: 1px solid $color-gray;
     border-radius: 3px 0 0 3px;
-    // color: $blue;
+    // color: $colorname-picton-blue;
     left: 0;
     padding-top: 11px;
   }
@@ -308,13 +308,13 @@ label.error {
 
     &:hover {
       & ~ .icon-db-search {
-        background-color: $blue;
-        color: $color-white;
+        background-color: $colorname-picton-blue;
+        color: $colorname-white;
       }
 
       & ~ .icon-db-location {
-        background-color: $blue;
-        color: $color-white;
+        background-color: $colorname-picton-blue;
+        color: $colorname-white;
       }
     }
   }
@@ -325,8 +325,8 @@ label.error {
 
     &:hover {
       & ~ .icon-db-location {
-        // background-color: $color-white;
-        // color: $blue;
+        // background-color: $colorname-white;
+        // color: $colorname-picton-blue;
       }
     }
   }
@@ -346,8 +346,8 @@ label.error {
   user-select: none;
 
   i {
-    background-color: $color-white;
-    border: 1px solid $blue;
+    background-color: $colorname-white;
+    border: 1px solid $colorname-picton-blue;
     font-size: 12px;
     height: 20px;
     width: 20px;
@@ -356,7 +356,7 @@ label.error {
     position: absolute;
 
     &::before {
-      // color: $blue;
+      // color: $colorname-picton-blue;
       display: none;
       height: 10px;
       line-height: 12px;
@@ -398,10 +398,10 @@ label.error {
 
     &[type="checkbox"] {
       & ~ i {
-        background-color: $blue;
+        background-color: $colorname-picton-blue;
 
         &::before {
-          color: $color-white;
+          color: $colorname-white;
         }
       }
     }
@@ -429,7 +429,7 @@ label.error {
     }
 
     i {
-      // color: $blue;
+      // color: $colorname-picton-blue;
       position: absolute;
       right: 10px;
       top: 12px;

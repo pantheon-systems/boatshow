@@ -7,7 +7,7 @@
 .eu-cookie-compliance-banner,
 .eu-cookie-withdraw-wrapper {
   background: $color-gray-dark;
-  color: $color-white;
+  color: $colorname-white;
   padding: 20px 0;
 
   h2,
@@ -15,7 +15,7 @@
   h4,
   h5,
   p {
-    color: $color-white;
+    color: $colorname-white;
     line-height: 1;
   }
 }

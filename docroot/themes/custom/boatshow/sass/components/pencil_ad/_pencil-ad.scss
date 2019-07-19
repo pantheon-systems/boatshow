@@ -18,8 +18,8 @@
 
   .button--secondary {
     @include button--small;
-    background-color: $blue;
-    color: $white;
+    background-color: $colorname-picton-blue;
+    color: $colorname-white;
     font-size: 13px;
     font-family: "Proxima Nova Light";
     min-width: initial;

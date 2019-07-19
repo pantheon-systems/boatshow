@@ -22,7 +22,7 @@ body.boatshow-city--louisville {
 
     &:hover,
     &:focus {
-      background: $white;
+      background: $colorname-white;
       border-color: $city-color-primary;
       color: $city-color-primary;
     }
@@ -38,7 +38,7 @@ body.boatshow-city--louisville {
     &:active {
       background: $city-color-primary;
       border-color: transparent;
-      color: $color-white;
+      color: $colorname-white;
     }
   }
 

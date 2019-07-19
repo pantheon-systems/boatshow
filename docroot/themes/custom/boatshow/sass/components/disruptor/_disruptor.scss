@@ -163,7 +163,7 @@ section.disruptor {
 
 .disruptor.white--left {
   .disruptor-content--left {
-    background: $color-white;
+    background: $colorname-white;
     border: 1px solid $color-gray;
     color: $color-gray-dark;
 
@@ -215,7 +215,7 @@ section.disruptor {
 
   // TODO: This should really be targeted to .icon
   [class*='icon-db-'] {
-    color: $blue;
+    color: $colorname-picton-blue;
     font-size: rem-calc(32px);
     // Center icon
     display: block;

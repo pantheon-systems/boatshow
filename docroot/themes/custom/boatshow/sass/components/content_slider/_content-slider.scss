@@ -34,7 +34,7 @@
         height: 15px;
         margin-left: 20px;
         width: 15px;
-        border: 1px solid $color-white;
+        border: 1px solid $colorname-white;
         border-radius: 50%;
         transition: all 0.2s ease-in;
       }
@@ -45,7 +45,7 @@
 
       &.slick-active {
         .slider-pager {
-          background: $color-white;
+          background: $colorname-white;
         }
       }
     }
@@ -75,7 +75,7 @@
   text-align: center;
 
   &::before {
-    color: $color-white;
+    color: $colorname-white;
     display: none;
     font-family: "boatshow-icons";
     font-size: 30px;

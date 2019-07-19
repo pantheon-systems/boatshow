@@ -20,7 +20,7 @@ body {
 
     &:hover,
     &:focus {
-      background: $white;
+      background: $colorname-white;
       border-color: $city-color-primary;
       color: $city-color-primary;
     }
@@ -36,7 +36,7 @@ body {
     &:active {
       background: $city-color-primary;
       border-color: transparent;
-      color: $color-white;
+      color: $colorname-white;
     }
   }
 

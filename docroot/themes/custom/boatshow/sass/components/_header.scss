@@ -9,12 +9,12 @@
 header.header {
   @include font-aliasing();
   align-items: center;
-  background: $white;
+  background: $colorname-white;
   box-sizing: border-box;
   position: relative;
   width: 100%;
   z-index: 100;
-  border-bottom: 1px solid $lighter-gray;
+  border-bottom: 1px solid $colorname-lighter-gray;
   padding: 1rem 0;
 
   & > .container {
@@ -61,7 +61,7 @@ header.header {
       &::after {
         content: '\f054';
         font-family: $font-awesome;
-        color: $red;
+        color: $colorname-alizarin-red;
         margin-left: 5px;
         vertical-align: middle;
       }
@@ -209,7 +209,7 @@ header.header {
             & > a {
               font-size: 13px;
               font-family: $proxima-bold;
-              color: $blk;
+              color: $colorname-black;
               text-transform: uppercase;
               line-height: 2.615;
               text-align: center;
@@ -222,7 +222,7 @@ header.header {
                 &::after {
                   height: 4px;
                   content: '';
-                  background: $red;
+                  background: $colorname-alizarin-red;
                   width: 100%;
                   left: 0;
                   position: absolute;
@@ -250,7 +250,7 @@ header.header {
               visibility: visible;
             }
             .show-on-large {
-              border: 1px solid $lighter-gray;
+              border: 1px solid $colorname-lighter-gray;
               border-top: 0;
               box-shadow: rgba(0,0,0,0.5) 0px 6px 10px;
               .margin-top-30 {
@@ -258,9 +258,9 @@ header.header {
               }
               .field--name-field-bricks {
                 & > div > .nmma-layout {
-                  background: $white;
+                  background: $colorname-white;
                   > .column-item:last-child {
-                    background: $lighter-gray;
+                    background: $colorname-lighter-gray;
                   }
                   display: flex;
                 }
@@ -288,14 +288,14 @@ header.header {
                   }
                   .proxima-light {
                     font-size: 14px;
-                    color: $blk;
+                    color: $colorname-black;
                     font-family: $proxima-light;
                   }
                   .proxima-semibold {
                     font-size: 14px;
                     font-family: $proxima-semibold;
                     &.blue {
-                      color: $blue;
+                      color: $colorname-picton-blue;
                     }
                   }
                   .proxima-reg {
@@ -315,7 +315,7 @@ header.header {
                     h2 {
                       font-family: $proxima-bold;
                       font-size: 18px;
-                      color: $blk;
+                      color: $colorname-black;
                       padding: 0;
                     }
                     ul {
@@ -353,7 +353,7 @@ header.header {
     }
 
     display: none; // Disable mobile menu
-    background: $color-white;
+    background: $colorname-white;
     border-bottom: solid 1px #d8d8d8;
     box-sizing: border-box;
     position: absolute;
@@ -376,7 +376,7 @@ header.header {
   }
 
   .mobile-trigger {
-    border-left: solid 1px $lighter-gray;
+    border-left: solid 1px $colorname-lighter-gray;
     font-size: 1.5rem;
     padding: 0.15em 0 0.15em 0.5em;
   }
@@ -425,7 +425,7 @@ header.header {
     .secondary-nav {
       a {
         &::after {
-          color: $white;
+          color: $colorname-white;
         }
       }
     }
@@ -436,7 +436,7 @@ header.header {
           &.mega-menu {
             & > li {
               & > a {
-                color: $white;
+                color: $colorname-white;
               }
             }
             ul.menu-dropdown {

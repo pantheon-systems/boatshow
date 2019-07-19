@@ -1,23 +1,29 @@
-// Colors ///////////////
+///////////////////////////
+// Color Names
+// These have no semantic value and should only be used to populate other variables
+///////////////////////////
 // common colors
-$white: #fff;
-$red: #e61b3a;
-$yellow: #e8ed57;
-$blue: rgb(31, 185, 235);
-$color-white: #fff;
+$colorname-alizarin-red: #e61b3a;
+$colorname-confetti-yellow: #e8ed57;
+$colorname-picton-blue: #1fb9eb;
 // b&w colors as placeholders
-$blk: #000;
-$dark-gray: lighten($blk, 20%);
-$med-gray: lighten($blk, 40%);
-$light-gray: lighten($blk, 70%);
-$lighter-gray: rgb(231, 229, 229);
-$off-white: lighten($blk, 97%);
+$colorname-white: #fff;
+$colorname-black: #000;
+$colorname-dark-gray: lighten($colorname-black, 20%);
+$colorname-med-gray: lighten($colorname-black, 40%);
+$colorname-light-gray: lighten($colorname-black, 70%);
+$colorname-lighter-gray: #e7e5e5;
+$colorname-off-white: lighten($colorname-black, 97%);
 
+///////////////////////////
+// Colors
+// Color variables with semantic names related to their purpose
+///////////////////////////
 $color-primary: #e61b3a;
-$color-secondary: rgb(31, 185, 235);
+$color-secondary: #1fb9eb;
 
 // Utility color variables ///////////////
-$heading: $blk;
+$heading: $colorname-black;
 $link: $color-secondary;
 $dimension-header-height: 115px;
 
@@ -87,7 +93,7 @@ body {
 }
 
 .tmp-shadow {
-  box-shadow: 0 0 2px 0 rgba($med-gray, 1);
+  box-shadow: 0 0 2px 0 rgba($colorname-med-gray, 1);
 }
 
 .tmp-shadow-none {
@@ -95,10 +101,10 @@ body {
 }
 
 .blocked-style {
-  border: 1px solid $white;
+  border: 1px solid $colorname-white;
   padding: 12px;
   border-radius: 5px;
-  background: $off-white;
+  background: $colorname-off-white;
 
   @extend .tmp-shadow;
 }

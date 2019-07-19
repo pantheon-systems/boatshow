@@ -23,7 +23,7 @@
   }
 
   label {
-    color: $blue;
+    color: $colorname-picton-blue;
     font-family: $proxima-bold;
     font-weight: bold;
     text-transform: uppercase;
@@ -38,7 +38,7 @@
 .topic-filters .fieldset-legend,
 .sem-date-filter label,
 .sem-speaker-filter h4 {
-  color: $blk;
+  color: $colorname-black;
   display: block;
   font-size: 13px;
   font-family: $proxima-bold;
@@ -58,10 +58,10 @@
 .sem-date-filter .chosen-container-active .chosen-single,
 .sem-speaker-filter .btn {
   // @include button--secondary;
-  background: $blue;
+  background: $colorname-picton-blue;
   border: none;
   border-radius: 0;
-  color: $color-white;
+  color: $colorname-white;
   font-size: 17px;
 
   padding: 0 1em;
@@ -80,7 +80,7 @@
 
   &:hover,
   &:active {
-    color: $color-white;
+    color: $colorname-white;
     text-decoration: none;
   }
 
@@ -176,12 +176,12 @@
   // Hack to make it look like .sem-image is outside of .seminar-body
   width: calc(100% + 2rem);
   margin-left: -1rem;
-  background: $color-white;
+  background: $colorname-white;
   text-align: center;
 
   .date-formatted {
-    background: $blue;
-    color: $color-white;
+    background: $colorname-picton-blue;
+    color: $colorname-white;
     display: block;
     font-size: $font-size-body-copy-small;
     line-height: 1.25;
@@ -225,7 +225,7 @@
 
 .sem-title,
 .sem-details-link {
-  color: $blue;
+  color: $colorname-picton-blue;
 }
 
 .sem-title {

@@ -105,7 +105,7 @@ svg {
 // Style guide: base.blockquote
 blockquote {
   padding: 0 15px;
-  color: $dark-gray;
+  color: $colorname-dark-gray;
   border-left: 4px solid $color-gray-light;
 
   &:last-child {
@@ -118,7 +118,7 @@ pre {
   overflow-x: auto;
 
   code {
-    border: 1px dotted $dark-gray;
+    border: 1px dotted $colorname-dark-gray;
     background: $color-gray-light;
     padding: 2px 9px;
     display: block;
@@ -176,7 +176,7 @@ table {
 }
 
 .white-background {
-  background-color: $color-white;
+  background-color: $colorname-white;
 }
 
 .light-gray-background {
@@ -184,7 +184,7 @@ table {
 }
 
 .gray-background {
-  // background-color: $light-gray;
+  // background-color: $colorname-light-gray;
   // Copied from homepage
   background: rgb(127,127,127);
 }

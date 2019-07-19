@@ -75,7 +75,7 @@
       float: left;
       font-size: 20px;
       font-family: $proxima-light;
-      color: $blk;
+      color: $colorname-black;
     }
     .featured-logo {
       margin: 25px 0 65px;
@@ -94,7 +94,7 @@
     ul {
       li,
       label {
-        color: $white;
+        color: $colorname-white;
         font-size: 14px;
         display: block;
         line-height: 1.2;
@@ -136,7 +136,7 @@
           line-height: 1.2;
           height: 36px;
           background-color: #fff;
-          border: 1px solid $lighter-gray;
+          border: 1px solid $colorname-lighter-gray;
           border-radius: 0px;
           -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -154,10 +154,10 @@
         z-index: 99;
         border-radius: 0;
         &:not([disabled]):hover {
-          // background: $blue;
-          // color: $white;
+          // background: $colorname-picton-blue;
+          // color: $colorname-white;
           // & ~ i::before {
-          //   color: $white;
+          //   color: $colorname-white;
           // }
         }
 
@@ -174,7 +174,7 @@
         // width: 36px;
         // height: 36px;
         // right: 0;
-        // background: $blue;
+        // background: $colorname-picton-blue;
         // transition: all .3s ease-in-out;
         // line-height: 36px;
         // font-size: $font-size-body-copy-xsmall;
@@ -204,7 +204,7 @@
           &:hover,
           &:focus {
             i::after {
-              background: $blue;
+              background: $colorname-picton-blue;
             }
           }
           i {
@@ -213,7 +213,7 @@
             &:after {
               transition: all .3s ease-in-out;
               background: #78797a;
-              color: $white;
+              color: $colorname-white;
               width: 38px;
               height: 38px;
               content: '';
@@ -249,7 +249,7 @@
 
   .copyright {
     margin-top: 45px;
-    color: $white;
+    color: $colorname-white;
     font-family: $proxima-light;
     font-size: 14px;
     a {

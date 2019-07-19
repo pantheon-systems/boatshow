@@ -3,7 +3,7 @@
   h2 {
     font-size: 16px;
     font-family: $proxima-bold;
-    color: $blk;
+    color: $colorname-black;
     line-height: 1.2;
     text-align: left;
     padding: 0;
@@ -21,7 +21,7 @@
     .field--name-body {
       font-size: 13px;
       font-family: $proxima-reg;
-      color: $blk;
+      color: $colorname-black;
       line-height: 1.2;
       p {
         margin: 0;
@@ -39,7 +39,7 @@
           font-family: $font-awesome;
           font-size: 10px;
           content: '\f054';
-          color: $red;
+          color: $colorname-alizarin-red;
           margin-left: 5px;
         }
       }

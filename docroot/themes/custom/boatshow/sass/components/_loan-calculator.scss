@@ -36,10 +36,10 @@
         }
       }
       // @include button--secondary;
-      background: $blue;
+      background: $colorname-picton-blue;
       border: none;
       border-radius: 0;
-      color: $color-white;
+      color: $colorname-white;
       font-size: 17px;
 
       padding: 0 1em;
@@ -58,7 +58,7 @@
 
       &:hover,
       &:active {
-        color: $color-white;
+        color: $colorname-white;
         text-decoration: none;
       }
 

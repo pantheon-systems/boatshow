@@ -12,17 +12,17 @@
   }
 
   &.messages--status {
-    background: $off-white;
-    color: $dark-gray;
+    background: $colorname-off-white;
+    color: $colorname-dark-gray;
   }
 
   &.messages--warning {
-    background: rgba($yellow, 0.3);
-    color: $dark-gray;
+    background: rgba($colorname-confetti-yellow, 0.3);
+    color: $colorname-dark-gray;
   }
 
   &.messages--error {
-    background: rgba($red, 0.3);
-    color: $red;
+    background: rgba($colorname-alizarin-red, 0.3);
+    color: $colorname-alizarin-red;
   }
 }

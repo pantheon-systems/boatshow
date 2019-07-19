@@ -24,7 +24,7 @@ $color-header-bg: rgba(0, 0, 0, 0.4);
 
 // Colors - Text
 
-$color-white: #fff;
+$colorname-white: #fff;
 $color-aqua: #00a4c6;
 $color-blue: #004e9c;
 $color-yellow: #fbc441;
@@ -42,40 +42,40 @@ $color-form-text-disabled: #c0c4c6;
 $color-form-text-placeholder: #979da0;
 
 $color-button-primary-fill: $color-status-red;
-$color-button-primary-text: $color-white;
+$color-button-primary-text: $colorname-white;
 $color-button-primary-border: transparent;
 
-$color-button-secondary-fill: $color-white;
+$color-button-secondary-fill: $colorname-white;
 $color-button-secondary-text: $color-gray-dark;
 // TODO: Make a color var for this gray.
 $color-button-secondary-border: #7f7f7f;
 
 $color-button-clear-fill: transparent;
-$color-button-clear-text: $color-white;
-$color-button-clear-border: $color-white;
+$color-button-clear-text: $colorname-white;
+$color-button-clear-border: $colorname-white;
 
 $color-button-hero-fill: rgba(0, 0, 0, 0.1);
-$color-button-hero-text: $color-white;
-$color-button-hero-border: $color-white;
+$color-button-hero-text: $colorname-white;
+$color-button-hero-border: $colorname-white;
 
 $color-button-disabled-fill: #d6d8d9;
 $color-button-disabled-text: #a3a9ac;
 $color-button-disabled-border: transparent;
 
-$color-input-default-fill: $color-white;
+$color-input-default-fill: $colorname-white;
 $color-input-default-text: $color-gray-dark;
 $color-input-default-border: $color-gray;
 $color-input-default-border-focus: $color-aqua;
 $color-input-default-border-error: $color-status-red;
 
-$color-input-submittable-fill: $color-white;
+$color-input-submittable-fill: $colorname-white;
 $color-input-submittable-text: $color-form-text-placeholder;
 $color-input-submittable-border: $color-gray;
 
 $color-input-submittable-clear-fill: transparent;
 $color-input-submittable-clear-border: $color-gray;
 
-$color-input-disabled-fill: $color-white;
+$color-input-disabled-fill: $colorname-white;
 $color-input-disabled-border: $color-gray;
 
 $color-social-email: #8e1318;

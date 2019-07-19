@@ -106,8 +106,8 @@
 .search-result {
   width: 33.3333%;
   background: $color-gray-light;
-  border-bottom: 1.5rem solid $color-white;
-  border-left: 1.5rem solid $color-white;
+  border-bottom: 1.5rem solid $colorname-white;
+  border-left: 1.5rem solid $colorname-white;
   box-sizing: border-box;
 
   @include media-breakpoint-down(md) {
@@ -124,7 +124,7 @@
   position: relative;
 
   .boat-name a {
-    color: $red;
+    color: $colorname-alizarin-red;
     font-family: $proxima-bold;
     text-transform: uppercase;
   }
@@ -138,7 +138,7 @@
   .boat-length {
     &::after {
       content: "|";
-      color: $blue;
+      color: $colorname-picton-blue;
       margin: 0 0.5em;
     }
   }
@@ -148,7 +148,7 @@
 
     a {
       display: inline-block;
-      border: 1px solid $blue;
+      border: 1px solid $colorname-picton-blue;
       border-radius: 50%;
       width: 1.5em;
       height: 1.5em;
@@ -165,7 +165,7 @@
 
 .boat-details {
   h1 {
-    color: $red;
+    color: $colorname-alizarin-red;
     text-align: center;
   }
 }
