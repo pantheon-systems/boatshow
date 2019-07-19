@@ -36,15 +36,15 @@ h1 {
 }
 
 h2 {
-  // font-family: $font-light;
-  font-family: $font-bold;
+  // font-family: $fontname-proxima-light;
+  font-family: $fontname-proxima-bold;
   // There should be a var for font-size we can use.
   font-size: rem-calc(30px);
   line-height: 145%;
   text-transform: uppercase;
 
   b {
-    font-family: $font-bold;
+    font-family: $fontname-proxima-bold;
   }
 }
 

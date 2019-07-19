@@ -1,22 +1,31 @@
 // Typography
 
+///////////////////////////
+// Font Names
+// These have no semantic value and should only be used to populate other variables
+///////////////////////////
+
+// Global fallback
 $font-fallback: 'Helvetica', sans-serif;
 
-$font-thin: 'Proxima Nova Thin', $font-fallback;
-$font-light: 'Proxima Nova Light', $font-fallback;
-$font-light-italic: 'Antenna-LightItalic', $font-fallback;
-$font-regular: 'Proxima Nova Regular', $font-fallback;
-$font-regular-italic: 'Proxima Nova RegularIT', $font-fallback;
-$font-semibold: 'Proxima Nova Semibold', $font-fallback;
-$font-semibold-italic: 'Proxima Nova SemiboldIT', $font-fallback;
-$font-bold: 'Proxima Nova Bold', $font-fallback;
-$font-bold-italic: 'Proxima Nova BoldIT', $font-fallback;
-$font-black: 'Proxima Nova Black', $font-fallback;
+// Proxima Nova
+$fontname-proxima-thin: 'Proxima Nova Thin', $font-fallback;
+$fontname-proxima-light: 'Proxima Nova Light', $font-fallback;
+$fontname-proxima-regular: 'Proxima Nova Regular', $font-fallback;
+$fontname-proxima-semibold: 'Proxima Nova Semibold', $font-fallback;
+$fontname-proxima-bold: 'Proxima Nova Bold', $font-fallback;
 
-// TODO: No Proxima Condensed available. If these vars aren't referenced anywhere
-// we should remove them.
-$font-condensed-medium: 'AntennaCond-Medium', $font-fallback;
-$font-condensed-black: 'AntennaCond-Black', $font-fallback;
+// FontAwesome
+$fontname-fontawesome: 'FontAwesome';
+
+///////////////////////////
+// Fonts
+// Font variables with semantic names related to their purpose
+///////////////////////////
+$font-headings: $fontname-proxima-bold;
+$font-primary: $fontname-proxima-regular;
+$font-line-height-standard: 1.6em;
+$font-size-body-copy: 16px;
 
 // Colors - General
 

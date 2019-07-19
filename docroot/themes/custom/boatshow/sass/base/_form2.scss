@@ -34,7 +34,7 @@ textarea {
   box-sizing: border-box;
   color: $color-input-default-text;
   display: block;
-  font-family: $font-light;
+  font-family: $fontname-proxima-light;
   height: $dimension-input-height;
   outline: none;
   padding: 0 10px;
@@ -169,22 +169,18 @@ label.error {
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  font-family: $font-light-italic;
   color: $color-form-text-disabled;
 }
 
 ::-moz-placeholder { /* Firefox 19+ */
-  font-family: $font-light-italic;
   color: $color-form-text-disabled;
 }
 
 :-ms-input-placeholder { /* IE 10+ */
-  font-family: $font-light-italic;
   color: $color-form-text-disabled;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-  font-family: $font-light-italic;
   color: $color-form-text-disabled;
 }
 
@@ -418,7 +414,7 @@ label.error {
     border-radius: 3px;
     box-shadow: none;
     display: flex;
-    font-family: $font-light;
+    font-family: $fontname-proxima-light;
     height: $dimension-input-height;
     align-items: center;
 
@@ -444,7 +440,7 @@ label.error {
   }
 
   .chosen-drop {
-    font-family: $font-light;
+    font-family: $fontname-proxima-light;
     border: 1px solid $color-input-default-border;
   }
 
