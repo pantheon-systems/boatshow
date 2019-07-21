@@ -229,21 +229,6 @@ body {
     }
   }
 
-  // Loan calculator
-  #loan-calc-wrapper {
-    .ui-tabs-nav li.ui-tab a {
-      color: $city-color-secondary;
-    }
-
-    .chosen-container-single {
-      .chosen-single,
-      &.chosen-container-active .chosen-single,
-      .btn {
-        background: $city-color-secondary;
-      }
-    }
-  }
-
   .alias--exhibitor-deals,
   .alias--special-offers {
     .views-row {
