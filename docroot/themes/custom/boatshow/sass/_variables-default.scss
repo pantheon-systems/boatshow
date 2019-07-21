@@ -71,6 +71,7 @@ $colorname-monza-red: #d90a0a !default;
 // Utility color variables ///////////////
 $color-headings: $colorname-black !default;
 $color-links: $city-color-secondary !default;
+$color-links-icon: $city-color-primary !default;
 
 // Colors - General
 $color-header-bg: rgba($colorname-black, 0.4) !default;
@@ -81,9 +82,9 @@ $color-status-error: $colorname-monza-red !default;
 $color-form-text-disabled: $colorname-gray-silver-sand !default;
 $color-form-text-placeholder: $colorname-gray-oslo !default;
 
-$color-button-primary-fill: $colorname-monza-red !default;
+$color-button-primary-fill: $city-color-primary !default;
 $color-button-primary-text: $colorname-white !default;
-$color-button-primary-border: transparent !default;
+$color-button-primary-border: $city-color-primary !default;
 
 $color-button-secondary-fill: $colorname-white !default;
 $color-button-secondary-text: $colorname-gray-dark !default;
@@ -110,7 +111,7 @@ $color-input-default-border-error: $color-status-error !default;
 
 $color-input-submittable-fill: $colorname-white !default;
 $color-input-submittable-text: $color-form-text-placeholder !default;
-$color-input-submittable-border: $colorname-gray !default;
+$color-input-submittable-border: $city-color-primary !default;
 
 $color-input-submittable-clear-fill: transparent !default;
 $color-input-submittable-clear-border: $colorname-gray !default;

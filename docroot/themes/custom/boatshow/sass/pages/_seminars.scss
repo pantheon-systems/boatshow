@@ -23,7 +23,7 @@
   }
 
   label {
-    color: $colorname-picton-blue;
+    color: $color-links;
     font-weight: $font-weight-bold;
     text-transform: uppercase;
 
@@ -56,7 +56,7 @@
 .sem-date-filter .chosen-container-active .chosen-single,
 .sem-speaker-filter .btn {
   // @include button--secondary;
-  background: $colorname-picton-blue;
+  background: $city-color-secondary;
   border: none;
   border-radius: 0;
   color: $colorname-white;
@@ -177,7 +177,7 @@
   text-align: center;
 
   .date-formatted {
-    background: $colorname-picton-blue;
+    background: $city-color-secondary;
     color: $colorname-white;
     display: block;
     font-size: $font-size-body-copy-small;
@@ -222,7 +222,7 @@
 
 .sem-title,
 .sem-details-link {
-  color: $colorname-picton-blue;
+  color: $color-links;
 }
 
 .sem-title {

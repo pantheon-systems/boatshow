@@ -195,8 +195,8 @@ label.error {
   position: relative;
 
   .icon {
-    background-color: $colorname-picton-blue;
-    border: 1px solid $colorname-picton-blue;
+    background-color: $city-color-primary;
+    border: 1px solid $city-color-primary;
     box-sizing: border-box;
     color: $colorname-white;
     height: $dimension-input-height;
@@ -209,6 +209,10 @@ label.error {
 
     &.icon-db-search {
       padding: 8px 0 0 10px;
+    }
+
+    &::before {
+      color: inherit;
     }
   }
 

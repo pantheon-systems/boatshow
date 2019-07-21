@@ -7,7 +7,8 @@
     .field--name-field-component-bricks {
       & > div > section {
         &.hero-background {
-          background: url('../../images/main-background.png') no-repeat center center;
+
+          background: url($city-hero-bg) no-repeat center center;
           background-size: cover;
           @include media-breakpoint-up(lg) {
             min-height: 535px;
@@ -73,7 +74,7 @@
             }
             &:last-child {
               margin-left: 8px;
-              background: rgba(31, 185, 235, .9);
+              background: rgba($city-color-secondary, 0.9);
             }
           }
           @include media-breakpoint-down(md) {

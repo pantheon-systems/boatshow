@@ -61,7 +61,7 @@ header.header {
       &::after {
         content: '\f054';
         font-family: $fontname-fontawesome;
-        color: $colorname-alizarin-red;
+        color: $city-color-secondary;
         margin-left: 5px;
         vertical-align: middle;
       }
@@ -222,7 +222,7 @@ header.header {
                 &::after {
                   height: 4px;
                   content: '';
-                  background: $colorname-alizarin-red;
+                  background: $city-color-primary;
                   width: 100%;
                   left: 0;
                   position: absolute;
@@ -406,7 +406,7 @@ header.header {
     position: absolute;
     width: 100%;
     z-index: 100;
-    background: transparent;
+    background: linear-gradient(to bottom, $city-header-gradient 65%, transparent 100%);
     .logo {
       img {
         &.logo-color {
@@ -422,12 +422,8 @@ header.header {
       //
     }
 
-    .secondary-nav {
-      a {
-        &::after {
-          color: $colorname-white;
-        }
-      }
+    .secondary-nav a::after {
+      color: $city-color-primary;
     }
 
     @include media-breakpoint-up(lg) {
@@ -436,7 +432,7 @@ header.header {
           &.mega-menu {
             & > li {
               & > a {
-                color: $colorname-white;
+                color: $city-header-menu-item-color;
               }
             }
             ul.menu-dropdown {

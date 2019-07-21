@@ -75,7 +75,7 @@ html .ui-button.ui-state-disabled:active {
 .ui-accordion-header-collapsed,
 .ui-accordion-header-active {
   .field-content::after {
-    color: $colorname-picton-blue;
+    color: $city-color-secondary;
     font-weight: $font-weight-bold;
     font-size: rem-calc(26px);
     margin-left: rem-calc(3px);

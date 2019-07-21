@@ -37,7 +37,7 @@
 
         &::before,
         &::after {
-          color: $colorname-alizarin-red;
+          color: $city-color-primary;
           display: inline;
           vertical-align: 1px;
         }
@@ -52,7 +52,7 @@
       }
 
       &::before {
-        color: $colorname-picton-blue;
+        color: $city-color-secondary;
         content: '\004e';
         display: block;
         font-family: "boatshow-icons";
@@ -64,7 +64,7 @@
 
     &:hover {
       .field--name-image {
-        border-color: $colorname-alizarin-red;
+        border-color: $city-color-primary;
       }
     }
   }
@@ -101,7 +101,7 @@
     // TODO: Hopefully we can create a twig for this...
     .field--name-field-3-col-card-icon {
       background: white;
-      border: $colorname-picton-blue 5px solid;
+      border: $city-color-secondary 5px solid;
       border-radius: 50%;
       height: 100px;
       width: 100px;

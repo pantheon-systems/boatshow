@@ -75,9 +75,15 @@ a:visited {
   color: $color-links;
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $color-links;
     text-decoration: underline;
+  }
+
+  &::after,
+  &::before {
+    color: $color-links-icon;
   }
 }
 
@@ -206,4 +212,12 @@ li > a[href$=".pdf"]::before {
   height: 20px;
   vertical-align: middle;
   margin-right: 0.25em;
+}
+
+// This is somewhat mysterious, was from the legacy city overrides stylesheet. May need refactoring into later patterns to work correctly
+i,
+h2 {
+  &::before {
+    color: $city-color-secondary;
+  }
 }
