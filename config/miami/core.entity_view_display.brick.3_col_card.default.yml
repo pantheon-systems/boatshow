@@ -1,0 +1,53 @@
+uuid: 9ef80d1a-585d-4ce8-82ac-7b0928b7a70e
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.3_col_card
+    - field.field.brick.3_col_card.field_3_col_card_icon
+    - field.field.brick.3_col_card.field_3_col_card_image
+    - field.field.brick.3_col_card.field_3_col_card_text
+    - field.field.brick.3_col_card.field_3_col_card_title
+  module:
+    - text
+id: brick.3_col_card.default
+targetEntityType: brick
+bundle: 3_col_card
+mode: default
+content:
+  field_3_col_card_icon:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_3_col_card_image:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_3_col_card_text:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_3_col_card_title:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true
+  title: true

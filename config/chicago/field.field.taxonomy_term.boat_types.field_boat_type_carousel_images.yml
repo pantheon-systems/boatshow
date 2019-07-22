@@ -1,0 +1,28 @@
+uuid: d45ba334-007a-496a-afdd-c4bfeb97f4d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_boat_type_carousel_images
+    - media.type.image
+    - taxonomy.vocabulary.boat_types
+id: taxonomy_term.boat_types.field_boat_type_carousel_images
+field_name: field_boat_type_carousel_images
+entity_type: taxonomy_term
+bundle: boat_types
+label: 'Carousel Images'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

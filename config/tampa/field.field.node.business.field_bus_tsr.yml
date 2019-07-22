@@ -1,0 +1,21 @@
+uuid: edf126d1-a6bd-44e9-805b-da650281d3d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bus_tsr
+    - node.type.business
+  module:
+    - text
+id: node.business.field_bus_tsr
+field_name: field_bus_tsr
+entity_type: node
+bundle: business
+label: 'Business Teaser'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

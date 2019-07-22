@@ -1,0 +1,23 @@
+uuid: f1396abd-1e89-4b10-ba52-2b14aef57e3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.media
+    - field.storage.brick.field_image_cover
+id: brick.media.field_image_cover
+field_name: field_image_cover
+entity_type: brick
+bundle: media
+label: 'Image Cover'
+description: 'Check this to make the image behave as a background image'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

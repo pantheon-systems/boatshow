@@ -1,0 +1,14 @@
+uuid: 3d9413d3-ba57-4afc-b32f-aad6a1129977
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.multinational_site_reviewer
+  module:
+    - user
+id: user_add_role_action.multinational_site_reviewer
+label: 'Add the Multinational Site reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: multinational_site_reviewer

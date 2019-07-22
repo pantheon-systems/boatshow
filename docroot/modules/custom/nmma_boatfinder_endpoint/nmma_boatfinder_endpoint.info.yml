@@ -1,7 +1,0 @@
-name: 'NMMA Boatfinder Endpoint'
-type: module
-description: 'JSON endpoint for NMMA Boatfinder'
-core: 8.x
-package: 'NMMA'
-dependencies:
-  - rest

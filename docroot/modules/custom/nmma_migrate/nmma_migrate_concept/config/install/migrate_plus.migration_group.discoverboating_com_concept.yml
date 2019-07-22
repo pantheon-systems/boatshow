@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: discoverboating_com_concept
-label: DiscoverBoating.com Concept
-description: 'Content from DiscoverBoating.com'
-source_type: 'Custom CSV files from an Azure SqlServer database.'
-module: null
-shared_configuration: null

@@ -1,0 +1,21 @@
+uuid: 4e812dff-5f6a-42ea-a01f-2ae84bd5edef
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.media
+  module:
+    - user
+id: node.media.teaser
+targetEntityType: node
+bundle: media
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_carousel: true
+  langcode: true

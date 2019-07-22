@@ -1,0 +1,23 @@
+uuid: d250b13d-e6d2-41c8-b125-2099dc2e5dd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carousel_active
+    - node.type.carousel_slides
+id: node.carousel_slides.field_carousel_active
+field_name: field_carousel_active
+entity_type: node
+bundle: carousel_slides
+label: Active
+description: 'Should this slide appear in the carousel?'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

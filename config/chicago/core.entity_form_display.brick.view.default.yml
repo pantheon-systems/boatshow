@@ -1,0 +1,64 @@
+uuid: 0658884a-0314-4916-94fd-a632998b1ba5
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.view
+    - field.field.brick.view.field_brick_headline
+    - field.field.brick.view.field_brick_link
+    - field.field.brick.view.field_brick_subhead
+    - field.field.brick.view.field_brick_viewfield
+  module:
+    - link
+    - viewfield
+id: brick.view.default
+targetEntityType: brick
+bundle: view
+mode: default
+content:
+  field_brick_headline:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_brick_link:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_brick_subhead:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_brick_viewfield:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: viewfield_select
+    region: content
+  langcode:
+    type: language_select
+    weight: 5
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

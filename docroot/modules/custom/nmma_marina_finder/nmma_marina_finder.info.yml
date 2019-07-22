@@ -1,5 +1,0 @@
-name: 'Marina Finder'
-type: module
-description: 'Provides custom block for Marina Finder iframe code.'
-core: 8.x
-package: 'NMMA'

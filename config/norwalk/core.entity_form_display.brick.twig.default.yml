@@ -1,0 +1,44 @@
+uuid: 82c206cf-5385-4eae-bebb-e2413ee44dc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.twig
+    - field.field.brick.twig.field_twig
+  module:
+    - twig_field
+id: brick.twig.default
+targetEntityType: brick
+bundle: twig
+mode: default
+content:
+  field_twig:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+      mode: html_twig
+      toolbar: true
+      autoCloseTags: true
+      lineNumbers: false
+      foldGutter: false
+      styleActiveLine: false
+    third_party_settings: {  }
+    type: twig
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

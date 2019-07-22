@@ -1,0 +1,14 @@
+uuid: 5045ada1-917d-4708-9611-b929261285a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - taxonomy
+third_party_settings:
+  lightning_core:
+    description: 'An engine type that includes a tooltip.'
+id: taxonomy_term.engine_tooltip
+label: 'Engine Type with Tooltip'
+targetEntityType: taxonomy_term
+cache: true

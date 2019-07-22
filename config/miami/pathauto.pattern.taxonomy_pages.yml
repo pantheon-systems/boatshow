@@ -1,0 +1,25 @@
+uuid: ee99ccc1-60e6-4fd2-aba5-1d90bb02a4fa
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: taxonomy_pages
+label: 'taxonomy pages'
+type: 'canonical_entities:taxonomy_term'
+pattern: '[term:vocabulary]/[term:name]'
+selection_criteria:
+  e9979601-26e4-4d1b-a4e0-de5c17d6d73c:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      activities: activities
+      brands: brands
+      tags: tags
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: e9979601-26e4-4d1b-a4e0-de5c17d6d73c
+selection_logic: and
+weight: -5
+relationships: {  }

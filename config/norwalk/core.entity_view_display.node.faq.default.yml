@@ -1,0 +1,40 @@
+uuid: 437d47ce-9467-481f-a08e-e6becaaab984
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.faq.field_faq
+    - node.type.faq
+  module:
+    - faqfield
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.faq.default
+targetEntityType: node
+bundle: faq
+mode: default
+content:
+  field_faq:
+    weight: 0
+    label: hidden
+    settings:
+      active: 0
+      heightStyle: auto
+      collapsible: false
+      event: click
+      animate:
+        easing: linear
+        duration: 200
+    third_party_settings: {  }
+    type: faqfield_accordion
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  links: true

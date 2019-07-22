@@ -1,0 +1,23 @@
+uuid: 3379dae6-a16e-4891-8dfe-8f1dc64efb75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bus_type
+    - node.type.business
+  module:
+    - options
+id: node.business.field_bus_type
+field_name: field_bus_type
+entity_type: node
+bundle: business
+label: 'Business Type'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

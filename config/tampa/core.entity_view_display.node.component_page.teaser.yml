@@ -1,0 +1,35 @@
+uuid: 1b841413-151e-4c97-b90d-f33342f5658b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.component_page.field_component_bricks
+    - field.field.node.component_page.field_component_page_meta_tags
+    - field.field.node.component_page.field_component_teaser
+    - node.type.component_page
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.component_page.teaser
+targetEntityType: node
+bundle: component_page
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  field_component_bricks: true
+  field_component_page_meta_tags: true
+  field_component_teaser: true
+  langcode: true

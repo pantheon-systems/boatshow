@@ -1,0 +1,9 @@
+uuid: 3c842270-994b-4eac-8100-a7f3d5072ad6
+langcode: en
+status: true
+dependencies: {  }
+id: fr-CA
+label: 'Canadian French'
+direction: ltr
+weight: 2
+locked: false

@@ -57,22 +57,23 @@
  */
 
  /*  local */
- $sites['local.atlantaboatshow.com']     = 'atlanta';
- $sites['local.acboatshow.com']          = 'atlanticcity';
- $sites['local.baltimoreboatshow.com']   = 'baltimore';
- $sites['local.chicagoboatshow.com']     = 'chicago';
- $sites['local.kansascitysportshow.com'] = 'kansascity';
- $sites['local.louisvilleboatshow.com']  = 'louisville';
- $sites['local.minneapolisboatshow.com'] = 'minneapolis';
- $sites['local.miamiboatshow.com']   = 'miami';
- $sites['local.nashvilleboatshow.com']   = 'nashville';
- $sites['local.newenglandboatshow.com']  = 'newengland';
- $sites['local.nyboatshow.com']          = 'newyork';
- $sites['local.northwestsportshow.com']  = 'northwest';
- $sites['local.boatshownorwalk.com']  = 'norwalk';
- $sites['local.sportshows.com']     = 'sportshows';
- $sites['local.stlouisboatshow.com']     = 'stlouis';
- $sites['local.tampaboatshow.com']     = 'tampa';
+$sites['local.atlanta.com']     = 'atlanta';
+$sites['local.atlanticcity.com']      = 'atlanticcity';
+$sites['local.baltimore.com']      = 'baltimore';
+$sites['local.boatshows.com']     = 'boatshow';
+$sites['local.chicago.com']      = 'chicago';
+$sites['local.kansascity.com']     = 'kansascity';
+$sites['local.louisville.com']      = 'louisville';
+$sites['local.minneapolis.com']      = 'minneapolis';
+$sites['local.miami.com']     = 'miami';
+$sites['local.nashville.com']     = 'nashville';
+$sites['local.newengland.com']      = 'newengland';
+$sites['local.newyork.com']      = 'newyork';
+$sites['local.northwest.com']      = 'northwest';
+$sites['local.norwalk.com']      = 'norwalk';
+$sites['local.sportshows.com']      = 'sportshows';
+$sites['local.stlouis.com']      = 'stlouis';
+$sites['local.tampa.com']      = 'tampa';
 
 /* dev */
 $sites['dev.atlantaboatshow.com']     = 'atlanta';

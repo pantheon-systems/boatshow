@@ -1,0 +1,22 @@
+uuid: e662bfc9-a158-4a89-80a3-cbf5e64d6ac2
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - nmma
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: nmma_help
+theme: nmma
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

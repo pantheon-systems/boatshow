@@ -1,0 +1,31 @@
+uuid: a8699182-fd7a-4062-b6c8-12929c6c639b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+  theme:
+    - nmma
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: nmma_page_title
+theme: nmma
+region: content
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      component_page: component_page
+      landing_page: landing_page
+      manufacturer: manufacturer
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

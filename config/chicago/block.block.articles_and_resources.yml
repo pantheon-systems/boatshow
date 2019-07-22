@@ -1,0 +1,20 @@
+uuid: 806305db-5488-4b99-b356-54ff80c20bc2
+langcode: en
+status: true
+dependencies:
+  module:
+    - nmma_megamenu_blocks
+  theme:
+    - nmma
+id: articles_and_resources
+theme: nmma
+region: megamenu_4
+weight: 0
+provider: null
+plugin: articles_and_resources
+settings:
+  id: articles_and_resources
+  label: Articles_and_resources
+  provider: nmma_megamenu_blocks
+  label_display: '0'
+visibility: {  }

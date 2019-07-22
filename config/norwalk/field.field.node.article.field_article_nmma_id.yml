@@ -1,0 +1,23 @@
+uuid: 9d3a7791-be8b-430c-8404-310ac4f7da19
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_article_nmma_id
+    - node.type.article
+id: node.article.field_article_nmma_id
+field_name: field_article_nmma_id
+entity_type: node
+bundle: article
+label: 'NMMA ID'
+description: 'The source ID on the old DiscoverBoating.com site.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

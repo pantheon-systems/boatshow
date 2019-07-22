@@ -1,0 +1,37 @@
+uuid: af6abf9b-a5d4-47d0-8f6a-472775c9b728
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.brick_accordion_wrapper
+    - field.field.brick.brick_accordion_wrapper.field_brick_accordion_item
+  module:
+    - inline_entity_form
+id: brick.brick_accordion_wrapper.default
+targetEntityType: brick
+bundle: brick_accordion_wrapper
+mode: default
+content:
+  field_brick_accordion_item:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

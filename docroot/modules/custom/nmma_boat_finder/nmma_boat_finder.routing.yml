@@ -1,7 +1,0 @@
-nmma_boat_finder.content:
-  path: '/embedded/buying/boat-finder'
-  defaults:
-    _controller: '\Drupal\nmma_boat_finder\Controller\BoatFinderController::content'
-    _title: 'Find a Boat With Our Boat Selector'
-  requirements:
-    _permission: 'access content'

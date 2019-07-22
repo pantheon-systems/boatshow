@@ -1,0 +1,11 @@
+uuid: 7bdc3054-0ee5-4c0f-b885-21f0b758f067
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.seminar_topic
+id: taxonomy_term.seminar_topic
+target_entity_type_id: taxonomy_term
+target_bundle: seminar_topic
+default_langcode: site_default
+language_alterable: false

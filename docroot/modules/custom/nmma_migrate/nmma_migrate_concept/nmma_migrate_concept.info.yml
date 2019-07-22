@@ -1,7 +1,0 @@
-name: 'NMMA Migrate Concept (Depreciated)'
-type: module
-description: 'Facilitate migration from DiscoverBoating.com. Legacy module available for reference.'
-core: 8.x
-package: 'NMMA'
-dependencies:
-    - migrate_tools

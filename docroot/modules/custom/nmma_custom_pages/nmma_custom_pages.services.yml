@@ -1,7 +1,0 @@
-services:
-  nmma_custom_pages.embedded:
-    class: Drupal\nmma_custom_pages\EventSubscriber\Embedded
-    arguments:
-      - '@current_route_match'
-    tags:
-      - {name: event_subscriber}

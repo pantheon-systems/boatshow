@@ -1,0 +1,46 @@
+uuid: 5161c6dc-f053-4976-8aaa-ad373715cb31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.special_offer.body
+    - field.field.node.special_offer.field_booth
+    - node.type.special_offer
+  module:
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.special_offer.default
+targetEntityType: node
+bundle: special_offer
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_booth:
+    weight: 102
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  langcode: true

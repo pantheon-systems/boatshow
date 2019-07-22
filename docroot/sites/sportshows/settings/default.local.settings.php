@@ -53,7 +53,7 @@ $settings['container_yamls'][] = $dir . '/docroot/sites/development.services.yml
 $settings['container_yamls'][] = $dir . '/docroot/sites/blt.development.services.yml';
 
 // Allow access to update.php.
-$settings['update_free_access'] = TRUE;
+$settings['update_free_access'] = FALSE;
 
 /**
  * Assertions.

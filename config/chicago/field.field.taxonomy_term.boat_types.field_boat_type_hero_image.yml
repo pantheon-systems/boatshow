@@ -1,0 +1,28 @@
+uuid: 7212e47c-1433-4ab7-97c4-47bf41d52e2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_boat_type_hero_image
+    - media.type.image
+    - taxonomy.vocabulary.boat_types
+id: taxonomy_term.boat_types.field_boat_type_hero_image
+field_name: field_boat_type_hero_image
+entity_type: taxonomy_term
+bundle: boat_types
+label: 'Hero Image'
+description: 'Add a large image displayed at the top of boat type pages'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

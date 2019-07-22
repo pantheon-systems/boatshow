@@ -134,6 +134,7 @@ class BoatFinder extends FormBase implements ContainerInjectionInterface {
       '#title' => $this->t('NMMA Certified'),
       '#default_value' => $this->getDefault($form_state, 'certified'),
       '#suffix' => '</div>',
+      '#title_display' => 'before',
     ];
     $form['wrapper']['submit']['search'] = [
       '#prefix' => '<div class="search-form-row">',

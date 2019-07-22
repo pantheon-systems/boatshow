@@ -1,0 +1,9 @@
+uuid: 32da4543-a6c5-4718-906d-488adcad7a51
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Card - 3 Column'
+type: 3_col_card
+description: 'A card for the 3 column layout that mimics an article teaser.'

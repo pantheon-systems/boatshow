@@ -1,0 +1,19 @@
+uuid: c2bed513-a634-4f8b-bc97-3aa952c1074b
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_bus_url
+field_name: field_bus_url
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

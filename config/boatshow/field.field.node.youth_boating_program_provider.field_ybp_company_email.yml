@@ -1,0 +1,19 @@
+uuid: 368ce965-976a-43d2-b930-6d679a3bce0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ybp_company_email
+    - node.type.youth_boating_program_provider
+id: node.youth_boating_program_provider.field_ybp_company_email
+field_name: field_ybp_company_email
+entity_type: node
+bundle: youth_boating_program_provider
+label: 'Company Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

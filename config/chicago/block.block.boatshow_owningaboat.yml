@@ -1,0 +1,20 @@
+uuid: 3b72a12b-a465-4d06-9353-916d3e0aa1fc
+langcode: en
+status: true
+dependencies:
+  module:
+    - nmma_megamenu_blocks
+  theme:
+    - boatshow
+id: boatshow_owningaboat
+theme: boatshow
+region: megamenu_3
+weight: 0
+provider: null
+plugin: owning_a_boat
+settings:
+  id: owning_a_boat
+  label: 'Owning A Boat'
+  provider: nmma_megamenu_blocks
+  label_display: '0'
+visibility: {  }

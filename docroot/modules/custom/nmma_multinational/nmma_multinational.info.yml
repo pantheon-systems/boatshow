@@ -1,5 +1,0 @@
-name: 'NMMA Multinational'
-type: module
-description: "Handles redirecting users to their country specific website."
-core: 8.x
-package: 'NMMA'

@@ -1,0 +1,19 @@
+uuid: 5a6564c3-9ba4-45ca-84a3-5d9886e2ba14
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.pencil_ad
+    - field.storage.brick.field_small_ad_zone
+id: brick.pencil_ad.field_small_ad_zone
+field_name: field_small_ad_zone
+entity_type: brick
+bundle: pencil_ad
+label: 'Small Ad Zone'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

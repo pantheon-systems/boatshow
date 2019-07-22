@@ -1,0 +1,19 @@
+uuid: 96d5e0e3-a4fb-410b-bcaf-8bb8b553f276
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - taxonomy
+id: taxonomy_term.field_link_to_sponsor
+field_name: field_link_to_sponsor
+entity_type: taxonomy_term
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

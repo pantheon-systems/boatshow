@@ -1,0 +1,23 @@
+uuid: ee5cf1cf-77a4-413a-9ad5-a473cd6fa9a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bus_allow_phone
+    - node.type.business
+id: node.business.field_bus_allow_phone
+field_name: field_bus_allow_phone
+entity_type: node
+bundle: business
+label: 'Allow Phone'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

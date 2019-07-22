@@ -1,0 +1,7 @@
+uuid: aa5466a1-9ba6-46b5-a939-12ab72e2cc39
+langcode: en
+status: false
+dependencies: {  }
+formId: node_glossary_item_form
+captchaType: default
+label: null

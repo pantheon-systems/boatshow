@@ -1,0 +1,32 @@
+uuid: 9cc55c40-34d8-4793-83fe-37b9cd1c46d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.brick_accordion_item
+    - field.field.brick.brick_accordion_item.field_brick_accordion_body
+  module:
+    - text
+id: brick.brick_accordion_item.default
+targetEntityType: brick
+bundle: brick_accordion_item
+mode: default
+content:
+  field_brick_accordion_body:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

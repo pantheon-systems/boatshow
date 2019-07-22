@@ -1,0 +1,9 @@
+uuid: df1444ba-20e2-46ad-a6e2-aa4438fc1c2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Responsive Ad'
+type: responsive_ad
+description: 'Responsive ads using the iframe media query technique.'

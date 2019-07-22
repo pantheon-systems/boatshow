@@ -759,7 +759,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  */
 
 $settings['trusted_host_patterns'] = array(
-  '^local\.boatshows\.com$',
+  '^local\.chicago\.com$',
   '^chicagoboatshow\.com$',
   '^.+\.chicagoboatshow\.com$',
   '^.+\.devcloud\.acquia-sites\.com$',
@@ -825,7 +825,7 @@ $settings['encryption_key'] = 'D34Sl2EL+Eig0GMtI65ulImGQbDw0yfeZdA1MLlPm0w=';
  * Load multisite configuration, if available.
  */
 if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/boatshow/boatshow-settings.inc';
+  require '/var/www/site-php/boatshow/chicago-settings.inc';
 }
 
 /**
@@ -842,7 +842,7 @@ if (file_exists('/var/www/site-php')) {
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
+# require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
 $settings['install_profile'] = 'lightning';
 
 /**
@@ -868,22 +868,7 @@ $config['gtm.settings']['google-tag'] = 'GTM-WSK6LG';
  * For more information about connecting to middleware, see the /middleware
  * directory readme.txt
  */
-if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
-  switch ($_ENV['AH_SITE_ENVIRONMENT']) {
-    case 'dev':
-    case 'test':
-    case 'prod':
-    case 'ra':
-      $settings['middlewareIP'] = '34.237.30.192:22000';
-      $settings['middlewareHash'] = 'v34-542-741';
-      break;
-  }
-}
-else {
-  // do something for a non-Acquia-hosted application (like a local dev install).
-  $settings['middlewareIP'] = '10.111.60.190:22000';
-  $settings['middlewareHash'] = 'v34-542-741';
-}
+
 /**
  * IMPORTANT.
  *

@@ -1,0 +1,14 @@
+uuid: 67e8c78b-e791-44b1-8217-982d1820e006
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.media_reviewer
+  module:
+    - user
+id: user_remove_role_action.media_reviewer
+label: 'Remove the Media reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: media_reviewer

@@ -1,0 +1,20 @@
+uuid: 0213a827-f31e-4ada-8755-05dc118030c0
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - media
+id: brick.field_lpg_media
+field_name: field_lpg_media
+entity_type: brick
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

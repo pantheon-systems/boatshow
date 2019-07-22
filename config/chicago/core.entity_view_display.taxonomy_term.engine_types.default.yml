@@ -1,0 +1,31 @@
+uuid: b717aa11-6429-4f26-842f-e61320af8fe1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.engine_types.field_engine_type_nmma_id
+    - taxonomy.vocabulary.engine_types
+  module:
+    - panelizer
+    - text
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.engine_types.default
+targetEntityType: taxonomy_term
+bundle: engine_types
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_engine_type_nmma_id: true
+  langcode: true

@@ -1,0 +1,23 @@
+uuid: 7f7d6c01-3214-484f-96b1-38a5f1a9dfab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bus_allow_fax
+    - node.type.business
+id: node.business.field_bus_allow_fax
+field_name: field_bus_allow_fax
+entity_type: node
+bundle: business
+label: 'Allow Fax'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

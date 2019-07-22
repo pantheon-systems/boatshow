@@ -1,0 +1,11 @@
+uuid: 3f5c5173-6675-49c7-a4fb-971279fe18f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+_core:
+  default_config_hash: Yi9EMU4_bNoYOljxKWEKJ83ZBN1P4nte0cfYmdJSSZA
+name: Image
+type: image
+description: ''

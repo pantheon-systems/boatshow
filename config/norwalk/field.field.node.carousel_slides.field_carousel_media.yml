@@ -1,0 +1,30 @@
+uuid: 1625f018-2a72-4cb6-8b0c-6ab96a4ea85b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carousel_media
+    - media.type.image
+    - media.type.video
+    - node.type.carousel_slides
+id: node.carousel_slides.field_carousel_media
+field_name: field_carousel_media
+entity_type: node
+bundle: carousel_slides
+label: 'Slide Media'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      video: video
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: image
+field_type: entity_reference

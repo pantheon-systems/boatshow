@@ -1,0 +1,11 @@
+uuid: 48eadadd-60d2-4cbb-bdd4-6757e771e8a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.business
+id: node.business
+target_entity_type_id: node
+target_bundle: business
+default_langcode: site_default
+language_alterable: false

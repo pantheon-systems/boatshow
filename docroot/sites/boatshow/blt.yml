@@ -3,11 +3,11 @@ project:
     hostname: local.boatshow.com
     protocol: http
   machine_name: boatshow
-  human_name: 'Boat Show'
+  human_name: 'Template Boat Show'
 drush:
   aliases:
     local: self
-    remote: boatshow.chicago-dev
+    remote: boatshow.boatshow-dev
 cm:
   allow-overrides: true
   # Possible values: core-only, config-split, features, none.

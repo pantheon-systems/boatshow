@@ -88,7 +88,7 @@
  * );
  * @endcode
  */
-$databases = array();
+$databases = [];
 
 /**
  * Customizing database settings.
@@ -225,16 +225,6 @@ $databases = array();
  *   );
  * @endcode
  */
-$databases['external']['default'] = array(
-  'database' => 'NMMA',
-  'username' => 'nmma',
-  'password' => 'B0@t1n9!',
-  'namespace' => 'Drupal\\Driver\\Database\\Driver\\sqlsrv',
-  'driver' => 'sqlsrv',
-  # /etc/freedts/freedts.cfg connection name.
-   'host' => 'discoverboating.database.windows.net',
-  'port' => '1433',
-);
 
 /**
  * Location of the site configuration files.
@@ -261,7 +251,7 @@ $databases['external']['default'] = array(
  *   );
  * @endcode
  */
-$config_directories = array();
+$config_directories = [];
 
 /**
  * Settings:
@@ -272,23 +262,6 @@ $config_directories = array();
  *
  * @see \Drupal\Core\Site\Settings::get()
  */
-
-/**
- * The active installation profile.
- *
- * Changing this after installation is not recommended as it changes which
- * directories are scanned during extension discovery. If this is set prior to
- * installation this value will be rewritten according to the profile selected
- * by the user.
- *
- * @see install_select_profile()
- *
- * @deprecated in Drupal 8.3.0 and will be removed before Drupal 9.0.0. The
- *   install profile is written to the core.extension configuration. If a
- *   service requires the install profile use the 'install_profile' container
- *   parameter. Functional code can use \Drupal::installProfile().
- */
-# $settings['install_profile'] = '';
 
 /**
  * Salt for one-time login links, cancel links, form tokens, etc.
@@ -307,7 +280,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = '8VBw_GxR3yUexqf1Ek_p2vFXi2AlaDRbxxjW2h6_Fhu10qiS_q_VHpMVDmmdBz42vbst57oKuQ';
 
 /**
  * Deployment identifier.
@@ -369,11 +342,10 @@ $settings['update_free_access'] = FALSE;
  * configuration requires the IP addresses of all remote proxies to be
  * specified in $settings['reverse_proxy_addresses'] to work correctly.
  *
- * Enable this setting to get Drupal to determine the client IP from
- * the X-Forwarded-For header (or $settings['reverse_proxy_header'] if set).
- * If you are unsure about this setting, do not have a reverse proxy,
- * or Drupal operates in a shared hosting environment, this setting
- * should remain commented out.
+ * Enable this setting to get Drupal to determine the client IP from the
+ * X-Forwarded-For header. If you are unsure about this setting, do not have a
+ * reverse proxy, or Drupal operates in a shared hosting environment, this
+ * setting should remain commented out.
  *
  * In order for this setting to be used you must specify every possible
  * reverse proxy IP address in $settings['reverse_proxy_addresses'].
@@ -389,37 +361,38 @@ $settings['update_free_access'] = FALSE;
  * Specify every reverse proxy IP address in your environment.
  * This setting is required if $settings['reverse_proxy'] is TRUE.
  */
-# $settings['reverse_proxy_addresses'] = array('a.b.c.d', ...);
+# $settings['reverse_proxy_addresses'] = ['a.b.c.d', ...];
 
 /**
- * Set this value if your proxy server sends the client IP in a header
- * other than X-Forwarded-For.
+ * Reverse proxy trusted headers.
+ *
+ * Sets which headers to trust from your reverse proxy.
+ *
+ * Common values are:
+ * - \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL
+ * - \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
+ *
+ * Note the default value of
+ * @code
+ * \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL | \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
+ * @endcode
+ * is not secure by default. The value should be set to only the specific
+ * headers the reverse proxy uses. For example:
+ * @code
+ * \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL
+ * @endcode
+ * This would trust the following headers:
+ * - X_FORWARDED_FOR
+ * - X_FORWARDED_HOST
+ * - X_FORWARDED_PROTO
+ * - X_FORWARDED_PORT
+ *
+ * @see \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL
+ * @see \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
+ * @see \Symfony\Component\HttpFoundation\Request::setTrustedProxies
  */
-# $settings['reverse_proxy_header'] = 'X_CLUSTER_CLIENT_IP';
+# $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL | \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED;
 
-/**
- * Set this value if your proxy server sends the client protocol in a header
- * other than X-Forwarded-Proto.
- */
-# $settings['reverse_proxy_proto_header'] = 'X_FORWARDED_PROTO';
-
-/**
- * Set this value if your proxy server sends the client protocol in a header
- * other than X-Forwarded-Host.
- */
-# $settings['reverse_proxy_host_header'] = 'X_FORWARDED_HOST';
-
-/**
- * Set this value if your proxy server sends the client protocol in a header
- * other than X-Forwarded-Port.
- */
-# $settings['reverse_proxy_port_header'] = 'X_FORWARDED_PORT';
-
-/**
- * Set this value if your proxy server sends the client protocol in a header
- * other than Forwarded.
- */
-# $settings['reverse_proxy_forwarded_header'] = 'FORWARDED';
 
 /**
  * Page caching:
@@ -460,7 +433,7 @@ $settings['update_free_access'] = FALSE;
  *
  * @see \Drupal\Core\Form\FormCache::setCache()
  */
- $settings['form_cache_expiration'] = 3600;
+# $settings['form_cache_expiration'] = 21600;
 
 /**
  * Class Loader.
@@ -583,10 +556,10 @@ if ($settings['hash_salt']) {
  * The "en" part of the variable name, is dynamic and can be any langcode of
  * any added language. (eg locale_custom_strings_de for german).
  */
-# $settings['locale_custom_strings_en'][''] = array(
+# $settings['locale_custom_strings_en'][''] = [
 #   'forum'      => 'Discussion board',
 #   '@count min' => '@count minutes',
-# );
+# ];
 
 /**
  * A custom theme for the offline page:
@@ -640,7 +613,7 @@ if ($settings['hash_salt']) {
  *   override in a services.yml file in the same directory as settings.php
  *   (definitions in this file will override service definition defaults).
  */
-# $settings['bootstrap_config_storage'] = array('Drupal\Core\Config\BootstrapConfigStorageFactory', 'getFileStorage');
+# $settings['bootstrap_config_storage'] = ['Drupal\Core\Config\BootstrapConfigStorageFactory', 'getFileStorage'];
 
 /**
  * Configuration overrides.
@@ -692,9 +665,9 @@ if ($settings['hash_salt']) {
  *
  * Remove the leading hash signs if you would like to alter this functionality.
  */
- $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
- $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
- $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
+# $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
+# $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
+# $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
 
 /**
  * Load services definition file.
@@ -750,18 +723,11 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  *   '^.+\.example\.com$',
  *   '^example\.org$',
  *   '^.+\.example\.org$',
- *);
+ * );
  * @endcode
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
  */
-$settings['trusted_host_patterns'] = array(
-  '^local\.discoverboat\.com$',
-  '^discoverboating\.com$',
-  '^www\.discoverboating.com$',
-  '^.+\.devcloud\.acquia-sites\.com$',
-  '^.+\.prod\.acquia-sites\.com$',
-);
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
@@ -788,34 +754,14 @@ $settings['file_scan_ignore_directories'] = [
  */
 $settings['entity_update_batch_size'] = 50;
 
-/*
- * Enable Memcache
- */
-
-if (isset($settings['memcache']['servers'])) {
-  // Memcache settings
-  $settings['cache']['bins']['bootstrap'] = 'cache.backend.memcache';
-  $settings['cache']['bins']['discovery'] = 'cache.backend.memcache';
-  $settings['cache']['bins']['config'] = 'cache.backend.memcache';
-  // Use memcache as the default bin
-  $settings['cache']['default'] = 'cache.backend.memcache';
-  $settings['memcache']['stampede_protection'] = TRUE;
-}
-
 /**
- * Acquia Purge Settings
- */
-$settings['acquia_purge_https'] = TRUE;
-$settings['acquia_purge_http'] = FALSE;
-$settings['acquia_purge_log_success'] = FALSE;
-
-/**
- * Random hash for encryption module.
+ * Entity update backup.
  *
- * This is a dependency of the Marketo MA module
+ * This is used to inform the entity storage handler that the backup tables as
+ * well as the original entity type and field storage definitions should be
+ * retained after a successful entity update process.
  */
-
-$settings['encryption_key'] = 'D34Sl2EL+Eig0GMtI65ulImGQbDw0yfeZdA1MLlPm0w=';
+$settings['entity_update_backup'] = TRUE;
 
 /**
  * Load local development override configuration, if available.
@@ -831,45 +777,22 @@ $settings['encryption_key'] = 'D34Sl2EL+Eig0GMtI65ulImGQbDw0yfeZdA1MLlPm0w=';
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
-$settings['install_profile'] = 'lightning';
-
-/**
- * Middleware configuration.
- * The hash value is hard coded in the middlware bootstrap.php file.
- * This value probably will never change.
- */
-
-
-
-/**
- * Load middleware connection IP configuration based on environment.
- * For more information about connecting to middleware, see the /middleware
- * directory readme.txt
- */
-if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
-  switch ($_ENV['AH_SITE_ENVIRONMENT']) {
-    case 'dev':
-    case 'test':
-    case 'prod':
-    case 'ra':
-      $settings['middlewareIP'] = '34.237.30.192:22000';
-      $settings['middlewareHash'] = 'v34-542-741';
-      break;
-  }
-}
-else {
-  // do something for a non-Acquia-hosted application (like a local dev install).
-  $settings['middlewareIP'] = '10.111.60.190:22000';
-  $settings['middlewareHash'] = 'v34-542-741';
-}
-//mjb must remove
-$settings['boatshow.city.searchId'] = '29';
+# require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
 /**
  * IMPORTANT.
  *
  * Do not include additional settings here. Instead, add them to settings
  * included by `blt.settings.php`. See BLT's documentation for more detail.
  *
- * @link https://docs.acquia.com/blt/
+ * @link http://blt.readthedocs.io
  */
+$databases['default']['default'] = array (
+  'database' => 'drupal',
+  'username' => 'drupal',
+  'password' => 'drupal',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);

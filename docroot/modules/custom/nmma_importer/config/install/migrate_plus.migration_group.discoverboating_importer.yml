@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: discoverboating_importer
-label: DiscoverBoating.com
-description: 'Dynamic Content for DiscoverBoating.com'
-source_type: 'Json from middleware layer'
-module: null
-shared_configuration: null

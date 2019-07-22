@@ -1,0 +1,19 @@
+uuid: 727e9eaf-a0e8-4636-94e4-1c4d10496d96
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.pencil_ad
+    - field.storage.brick.field_medium_ad_zone
+id: brick.pencil_ad.field_medium_ad_zone
+field_name: field_medium_ad_zone
+entity_type: brick
+bundle: pencil_ad
+label: 'Medium Ad Zone'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

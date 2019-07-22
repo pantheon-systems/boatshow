@@ -1,6 +1,0 @@
-services:
-  nmma_megamenu.twig.extension:
-    class: Drupal\nmma_megamenu\TwigExtension\MegamenuTwigExtension
-    arguments: []
-    tags:
-      - { name: twig.extension }

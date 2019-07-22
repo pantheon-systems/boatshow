@@ -1,0 +1,24 @@
+uuid: 673a3776-5678-42de-b8ac-a92467bf4655
+langcode: en
+status: true
+dependencies:
+  config:
+    - colossal_menu.link_type.sub_menu
+    - field.field.colossal_menu_link.sub_menu.field_bricks
+  module:
+    - bricks
+id: colossal_menu_link.sub_menu.default
+targetEntityType: colossal_menu_link
+bundle: sub_menu
+mode: default
+content:
+  field_bricks:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: bricks_nested
+    region: content
+hidden: {  }

@@ -1,0 +1,28 @@
+uuid: 63e0dd06-3329-44e6-8176-d2b2d399c2f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_multinational_url
+    - node.type.multinational_site
+  module:
+    - link
+id: node.multinational_site.field_multinational_url
+field_name: field_multinational_url
+entity_type: node
+bundle: multinational_site
+label: URL
+description: 'The value here will be the URL the user is redirected to when they confirm the popup for the multinational site they can visit.'
+required: true
+translatable: false
+default_value:
+  -
+    attributes: {  }
+    uri: 'https://www.discoverboating.ca'
+    title: ''
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

@@ -1,0 +1,14 @@
+uuid: 67dea990-76de-44f4-a4d2-b068517c1738
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media
+third_party_settings:
+  lightning_core:
+    description: ''
+id: media.grid_item
+label: 'Grid Item'
+targetEntityType: media
+cache: true

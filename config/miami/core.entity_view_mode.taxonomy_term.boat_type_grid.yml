@@ -1,0 +1,14 @@
+uuid: 108ac0ec-c2fc-4239-9077-e94826a3f17f
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - taxonomy
+third_party_settings:
+  lightning_core:
+    description: 'Boat type grid -- used on the boat type/brand display'
+id: taxonomy_term.boat_type_grid
+label: 'Boat Type Grid'
+targetEntityType: taxonomy_term
+cache: true

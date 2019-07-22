@@ -1,0 +1,23 @@
+uuid: 1e65837c-5d37-4209-b303-72563d279a93
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accessory_mfr_website
+    - node.type.accessory_mfr
+  module:
+    - link
+id: node.accessory_mfr.field_accessory_mfr_website
+field_name: field_accessory_mfr_website
+entity_type: node
+bundle: accessory_mfr
+label: 'Accessory MFR Website'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link
