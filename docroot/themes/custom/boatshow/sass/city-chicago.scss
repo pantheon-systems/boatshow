@@ -3,7 +3,7 @@
 ///////////////////////////////
 $city-color-primary: #d90a0a;
 $city-color-secondary: #1fb9eb;
-$city-hero-bg: '../../../images/atlanta/main-background.jpg';
+$city-hero-bg: '../../images/atlanta/main-background.jpg';
 // Set these vars to something that will make the header stand out from the
 // hero on the homepage.
 $city-header-gradient: rgba(0, 0, 0, 0.65);
@@ -12,7 +12,7 @@ $city-header-menu-item-color: #fff;
 ///////////////////////////////
 /// 2. Include Stylesheet
 ///////////////////////////////
-@import '../styles';
+@import 'styles';
 
 ///////////////////////////////
 /// 3. City Override CSS Rules

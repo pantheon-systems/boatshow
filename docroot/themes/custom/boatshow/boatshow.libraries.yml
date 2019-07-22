@@ -49,20 +49,20 @@ jcountdown:
 atlanta:
   css:
     theme:
-      assets-dist/css/city/atlanta.css: {}
+      assets-dist/css/city-atlanta.css: {}
 chicago:
   css:
     theme:
-      assets-dist/css/city/chicago.css: {}
+      assets-dist/css/city-chicago.css: {}
 kansascity:
   css:
     theme:
-      assets-dist/css/city/kansascity.css: {}
+      assets-dist/css/city-kansascity.css: {}
 nashville:
   css:
     theme:
-      assets-dist/css/city/nashville.css: {}
+      assets-dist/css/city-nashville.css: {}
 miami:
   css:
     theme:
-      assets-dist/css/city/miami.css: {}
+      assets-dist/css/city-miami.css: {}
