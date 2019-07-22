@@ -36,16 +36,16 @@ disable-targets:
 modules:
   local:
     enable: [dblog, devel, seckit, views_ui]
-    uninstall: [acquia_connector, shield]
+    uninstall: [acquia_connector, shield, acquia_lift, acquia_lift_inspector]
   ci:
     enable: {  }
-    uninstall: [acquia_connector, shield]
+    uninstall: [acquia_connector, shield, acquia_lift, acquia_lift_inspector]
   dev:
-    enable: [acquia_connector, shield]
+    enable: [acquia_connector, shield, acquia_lift, acquia_lift_inspector]
     uninstall: {  }
   test:
-    enable: [acquia_connector, shield]
+    enable: [acquia_connector, shield, acquia_lift, acquia_lift_inspector]
     uninstall: [devel, views_ui]
   prod:
-    enable: [acquia_connector, shield]
+    enable: [acquia_connector, shield, acquia_lift, acquia_lift_inspector]
     uninstall: [devel, views_ui]

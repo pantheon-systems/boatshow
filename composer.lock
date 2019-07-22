@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "623446cc06774932a0c3b8eb21ce71a8",
+    "content-hash": "80bbcc0b1e0fb2d55315036ff0557e1f",
     "packages": [
         {
             "name": "acquia/blt",
@@ -868,7 +868,7 @@
             "version": "3.4.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:jquery/jquery-dist.git",
+                "url": "https://github.com/jquery/jquery-dist.git",
                 "reference": "15bc73803f76bc53b654b9fdbbbc096f56d7c03d"
             },
             "dist": {
@@ -3239,6 +3239,82 @@
             "homepage": "https://www.drupal.org/project/acquia_connector",
             "support": {
                 "source": "https://git.drupalcode.org/project/acquia_connector"
+            }
+        },
+        {
+            "name": "drupal/acquia_lift",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/acquia_lift.git",
+                "reference": "8.x-4.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/acquia_lift-8.x-4.0.zip",
+                "reference": "8.x-4.0",
+                "shasum": "b367a6677c883ade990aafff7be2f589e64f75f7"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-4.x": "4.x-dev",
+                    "dev-8.x-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-4.0",
+                    "datestamp": "1563463985",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Dave.Ingram",
+                    "homepage": "https://www.drupal.org/user/352282"
+                },
+                {
+                    "name": "JakeWilund",
+                    "homepage": "https://www.drupal.org/user/1448388"
+                },
+                {
+                    "name": "abarrios",
+                    "homepage": "https://www.drupal.org/user/109765"
+                },
+                {
+                    "name": "japerry",
+                    "homepage": "https://www.drupal.org/user/45640"
+                },
+                {
+                    "name": "k.dani",
+                    "homepage": "https://www.drupal.org/user/874262"
+                },
+                {
+                    "name": "scor",
+                    "homepage": "https://www.drupal.org/user/52142"
+                },
+                {
+                    "name": "tottey",
+                    "homepage": "https://www.drupal.org/user/3234583"
+                },
+                {
+                    "name": "ynx",
+                    "homepage": "https://www.drupal.org/user/3161427"
+                }
+            ],
+            "description": "Provides integration to the Acquia Lift service for personalization and visitor data collection.",
+            "homepage": "https://www.drupal.org/project/acquia_lift",
+            "support": {
+                "source": "https://git.drupalcode.org/project/acquia_lift"
             }
         },
         {
