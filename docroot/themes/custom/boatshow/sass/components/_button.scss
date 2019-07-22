@@ -13,7 +13,8 @@
   padding: 0 2.25em;
 
   background: $color-button-primary-fill;
-  border: 2px solid $color-button-primary-border;
+  border: $button-border-width solid $color-button-primary-border;
+  border-radius: $button-border-radius;
   box-sizing: border-box;
   color: $color-button-primary-text;
 

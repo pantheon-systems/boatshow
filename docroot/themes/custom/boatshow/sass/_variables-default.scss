@@ -78,6 +78,10 @@ $color-status-error: $colorname-monza-red !default;
 $color-form-text-disabled: $colorname-gray-silver-sand !default;
 $color-form-text-placeholder: $colorname-gray-oslo !default;
 
+// Button Variables
+$button-border-radius: 0 !default;
+$button-border-width: 2px !default;
+
 $color-button-primary-fill: $city-color-primary !default;
 $color-button-primary-text: $colorname-white !default;
 $color-button-primary-border: $city-color-primary !default;
@@ -99,6 +103,7 @@ $color-button-disabled-fill: $colorname-gray-iron !default;
 $color-button-disabled-text: $colorname-gray-chateau !default;
 $color-button-disabled-border: transparent !default;
 
+// Input Variables
 $color-input-default-fill: $colorname-white !default;
 $color-input-default-text: $colorname-gray-dark !default;
 $color-input-default-border: $colorname-gray !default;

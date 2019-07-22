@@ -1,14 +1,30 @@
 ///////////////////////////////
 /// 1. City Override Variables
 ///////////////////////////////
-$city-color-primary: limegreen;
+$colorname-miami-magenta: #e12b6e;
+
+$city-color-primary: $colorname-miami-magenta;
 $city-color-secondary: slategray;
 $city-hero-bg: '../../../images/atlanta/main-background.jpg';
 // Set these vars to something that will make the header stand out from the
 // hero on the homepage.
 $city-header-gradient: rgba(0, 0, 0, 0.65);
 $city-header-menu-item-color: #fff;
+
+// Font
 $font-primary: 'CircularStd', 'Helvetica', sans-serif !default;
+
+// All buttons
+$button-border-radius: 5px;
+$button-border-width: 1px;
+
+// Button Primary
+$color-button-primary-border: #fff;
+$color-button-secondary-fill: transparent;
+
+// Button Secondary
+$color-button-secondary-border: $city-color-primary;
+$color-button-secondary-text: $city-color-primary;
 
 ///////////////////////////////
 /// 2. Include Stylesheet
