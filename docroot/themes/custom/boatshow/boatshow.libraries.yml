@@ -25,7 +25,7 @@ javascript:
     - core/jquery.once
     - core/jquery.cookie
     - core/jquery.ui
-    - nmma/slick_carousel
+    - boatshow/slick_carousel
 
 slick_carousel:
   js:
