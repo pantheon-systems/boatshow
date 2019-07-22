@@ -237,6 +237,24 @@ vm$ drush @chicago.local uli
 vm$ drush @atlanta.local uli
 ```
 
+### Export Config
+
+If you have made changes on a multisite which need to be shared with the team, e.g. for the chicago site:
+
+```console
+vm$ cd docroot
+vm$ drush -l chicago cex -y
+```
+
+### Import Config
+
+If you need to import changes on a multisite which are different in your local environment branch from what has been synced down dev, e.g. for chicago:
+
+```console
+vm$ cd docroot
+vm$ drush -l chicago cim -y
+```
+
 ## Other Notes
 
 - To shut down the virtual machine, enter `vagrant halt` in the Terminal in from the root of the project repo. To destroy it completely (if you want to save a little disk space, or want to rebuild it from scratch with `vagrant up` again), type in `vagrant destroy`.
