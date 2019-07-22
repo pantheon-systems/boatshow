@@ -10,7 +10,8 @@ body {
   @include font-aliasing();
   @include font-size($font-size-body-copy);
   font-family: $font-primary;
-  line-height: $font-line-height-standard
+  line-height: $font-line-height-standard;
+  color: $color-text;
 }
 // Base Headings
 //

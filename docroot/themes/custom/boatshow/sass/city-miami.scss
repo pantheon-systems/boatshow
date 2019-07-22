@@ -4,6 +4,7 @@
 $colorname-miami-magenta: #e12b6e;
 $colorname-miami-aqua: #2dace3;
 $colorname-miami-orange: #f87f0f;
+$colorname-miami-gray: #4d4d4d;
 
 $city-color-primary: $colorname-miami-magenta;
 $city-color-secondary: $colorname-miami-aqua;
@@ -12,6 +13,9 @@ $city-hero-bg: '../../images/atlanta/main-background.jpg';
 // hero on the homepage.
 $city-header-gradient: rgba(0, 0, 0, 0.65);
 $city-header-menu-item-color: #fff;
+
+// Text
+$color-text: $colorname-miami-gray;
 
 // Font
 $font-primary: 'CircularStd', 'Helvetica', sans-serif !default;
