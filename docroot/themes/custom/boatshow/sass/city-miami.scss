@@ -43,3 +43,6 @@ $color-homepage-countdown-background: $colorname-miami-orange;
 ///////////////////////////////
 /// 3. City Override CSS Rules
 ///////////////////////////////
+section.hero-background > .column-item:last-child {
+  @include slab-inverted();
+}

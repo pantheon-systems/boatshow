@@ -24,8 +24,8 @@
             max-width: 345px;
 
             &:first-child {
+              @include slab-white();
               margin-right: 8px;
-              background: rgba(255,255,255, .9);
 
               .brick--type--text {
                 justify-content: flex-end;

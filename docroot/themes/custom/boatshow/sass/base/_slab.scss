@@ -1,0 +1,84 @@
+////////////////////
+/// Slab Mixins
+////////////////////
+@mixin slab-white {
+  background-color: $colorname-white;
+}
+
+@mixin slab-light-gray {
+  background-color: $colorname-lighter-gray;
+}
+
+@mixin slab-dark-gray {
+  background-color: $colorname-gray-unleaded;
+}
+
+@mixin slab-primary {
+  background-color: $city-color-primary;
+}
+
+@mixin slab-secondary {
+  background-color: $city-color-secondary;
+}
+
+@mixin slab-inverted {
+  &,
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    color: $color-text-inverted;
+  }
+
+  & a {
+    &,
+    &:hover,
+    &:focus {
+      color: $color-text-inverted;
+    }
+  }
+}
+
+////////////////////
+/// Slab Declarative Classes
+////////////////////
+.slab-white {
+  @include slab-white;
+}
+
+.slab-light-gray {
+  @include slab-light-gray;
+}
+
+.slab-dark-gray {
+  @include slab-dark-gray;
+}
+
+.slab-primary {
+  @include slab-primary;
+}
+
+.slab-secondary {
+  @include slab-secondary;
+}
+
+.slab-inverted {
+  @include slab-inverted;
+}
+
+////////////////////////////
+/// LEGACY SLAB NAMES - *-background
+////////////////////////////
+.gray-background {
+  @extend .slab-dark-gray;
+}
+
+.light-gray-background {
+  @extend .slab-light-gray;
+}
+
+.white-background {
+  @extend .slab-white;
+}

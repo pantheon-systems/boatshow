@@ -176,20 +176,6 @@ table {
   }
 }
 
-.white-background {
-  background-color: $colorname-white;
-}
-
-.light-gray-background {
-  background: $colorname-lighter-gray;
-}
-
-.gray-background {
-  // background-color: $colorname-light-gray;
-  // Copied from homepage
-  background: rgb(127,127,127);
-}
-
 .section-header {
   .subheading {
     color: $colorname-gray-medium;
