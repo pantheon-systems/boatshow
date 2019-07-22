@@ -72,9 +72,10 @@
                 }
               }
             }
+            // The brick on the right, usually a countdown.
             &:last-child {
               margin-left: 8px;
-              background: rgba($city-color-secondary, 0.9);
+              background: rgba($color-homepage-countdown-background, 0.9);
             }
           }
           @include media-breakpoint-down(md) {
