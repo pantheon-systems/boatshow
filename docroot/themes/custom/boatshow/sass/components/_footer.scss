@@ -189,6 +189,7 @@
   }
 
   .footer-social {
+    margin-top: 20px;
     ul {
       margin-top: 0;
       display: inline-flex;
@@ -224,18 +225,27 @@
               font-size: 26px;
             }
             &.icon-db-social-facebook {
+              &:before {
+                content: none; //Reset to remove before icon
+              }
               &:after {
                 content: "\f09a";
                 font-family: $fontname-fontawesome;
               }
             }
             &.icon-db-social-twitter {
+              &:before {
+                content: none; //Reset to remove before icon
+              }
               &:after {
                 content: '\f099';
                 font-family: $fontname-fontawesome;
               }
             }
             &.icon-db-social-instagram {
+              &:before {
+                content: none; //Reset to remove before icon
+              }
               &:after {
                 content: '\f16d';
                 font-family: $fontname-fontawesome;
