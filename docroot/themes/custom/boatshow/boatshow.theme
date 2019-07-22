@@ -95,6 +95,9 @@ function boatshow_preprocess_page(&$variables) {
     case 'kansascity':
       $override_library =  'boatshow/kansascity';
       break;
+    case 'miami':
+      $override_library =  'boatshow/miami';
+      break;
     case 'nashville':
       $override_library =  'boatshow/nashville';
       break;

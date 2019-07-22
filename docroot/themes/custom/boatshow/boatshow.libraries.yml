@@ -62,3 +62,7 @@ nashville:
   css:
     theme:
       assets-dist/css/city/nashville.css: {}
+miami:
+  css:
+    theme:
+      assets-dist/css/city/miami.css: {}

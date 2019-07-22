@@ -15,10 +15,6 @@ $city-header-menu-item-color: cyan !default;
 // Font Names
 // These have no semantic value and should only be used to populate other variables
 ///////////////////////////
-
-// Proxima Nova
-$fontname-proximanova: 'Proxima Nova', 'Helvetica', sans-serif !default;
-
 // FontAwesome
 $fontname-fontawesome: 'FontAwesome' !default;
 
@@ -26,7 +22,7 @@ $fontname-fontawesome: 'FontAwesome' !default;
 // Fonts
 // Font variables with semantic names related to their purpose
 ///////////////////////////
-$font-primary: $fontname-proximanova !default;
+$font-primary: 'Proxima Nova', 'Helvetica', sans-serif !default;
 $font-headings: $font-primary !default;
 
 ///////////////////////////
