@@ -8,7 +8,7 @@ fontawesome:
   css:
     component:
       '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css': {type: external}
-global_styles:
+default_global_styles:
   version: 1.0.0
   css:
     theme:

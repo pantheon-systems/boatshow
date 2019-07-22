@@ -6,7 +6,6 @@ base theme: cog
 libraries:
   - boatshow/fonts
   - boatshow/fontawesome
-  - boatshow/global_styles
   - boatshow/javascript
 regions:
   pre_header: 'Pre-Header'

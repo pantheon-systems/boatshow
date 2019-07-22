@@ -82,20 +82,29 @@ function boatshow_preprocess_page(&$variables) {
   }
   $variables['boatshow_city'] = $city_key;
 
+  $override_library = NULL;
+
   // Add city-site specific library depending on the site.
   switch ($city_key) {
     case 'atlanta':
-      $variables['#attached']['library'][] =  'boatshow/atlanta';
+      $override_library =  'boatshow/atlanta';
       break;
     case 'chicago':
-      $variables['#attached']['library'][] =  'boatshow/chicago';
+      $override_library =  'boatshow/chicago';
       break;
     case 'kansascity':
-      $variables['#attached']['library'][] =  'boatshow/kansascity';
+      $override_library =  'boatshow/kansascity';
       break;
     case 'nashville':
-      $variables['#attached']['library'][] =  'boatshow/nashville';
+      $override_library =  'boatshow/nashville';
       break;
+  }
+
+  if (!empty($override_library)) {
+    $variables['#attached']['library'][] = $override_library;
+  }
+  else {
+    $variables['#attached']['library'][] = 'boatshow/default_global_styles';
   }
 }
 
