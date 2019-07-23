@@ -3,7 +3,7 @@
 (function($, Drupal) {
 
   // Example of Drupal behavior loaded.
-  Drupal.behaviors.boatshowAds = {
+  Drupal.behaviors.boatshowAdvertisements = {
     attach: function attach(context, settings) {
 
       $('.pencil-ad')

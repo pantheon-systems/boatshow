@@ -2,7 +2,7 @@
 
 (function($, Drupal) {
 
-  Drupal.behaviors.boatshowGlobalHeader = {
+  Drupal.behaviors.boatshowSiteNavigation = {
     attach: function attach(context, settings) {
       // NOTE: Due to problems with the mobile-specific menu HTML, we've reverted
       // to using the desktop menu. We check the width of the window to determine

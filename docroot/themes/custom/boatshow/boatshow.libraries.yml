@@ -19,7 +19,9 @@ javascript:
     assets-dist/js/globalHeader.js: {}
     assets-dist/js/globalFooter.js: {}
     assets-dist/js/featuresFilter.js: {}
-    assets-dist/js/ads.js: {}
+    assets-dist/js/advertisements.js: {}
+    assets-dist/js/carousel.js: {}
+    assets-dist/js/newsletter.js: {}
   dependencies:
     - core/jquery
     - core/drupal.ajax
