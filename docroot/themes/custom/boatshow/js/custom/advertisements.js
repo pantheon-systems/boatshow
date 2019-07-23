@@ -1,17 +1,24 @@
-'use strict';
+window.BoatShows = window.BoatShows || {};
 
-(function($, Drupal) {
+(function ($, Drupal, BoatShows) {
+  'use strict';
 
-  // Example of Drupal behavior loaded.
-  Drupal.behaviors.boatshowAdvertisements = {
-    attach: function attach(context, settings) {
+  Drupal.behaviors.boatShowAds = {
+    attach: function (context, settings) {
+      $('.pencil-ad', context).once('ads').each(function() {
+        var $pencilAd = $(this);
+        var $adCloseBtn = $pencilAd.find('.field > div').append('<div class="pencil-ad-close icon-db-close"></div>');
 
-      $('.pencil-ad')
-        .find('.field > div')
-        .append('<div class="pencil-ad-close icon-db-close"></div>')
-        .on('click', function() {
-          $('.pencil-ad').hide();
+        $adCloseBtn.click(function() {
+          $pencilAd.hide();
+
+          if (BoatShows.hasOwnProperty('Header')) {
+            // Set state of header to be fixed if ad is closed
+            BoatShows.Header.setStateFixed();
+          }
         });
+      });
     }
   };
-})(jQuery, Drupal);
+
+})(jQuery, Drupal, BoatShows);

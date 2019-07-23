@@ -91,7 +91,7 @@ var paths = {
   },
   scripts: {
     libraries: 'js/libraries',
-    source: 'js/custom',
+    source: 'js/custom/',
     destination: 'assets-dist/js'
   },
   images: 'img/',
