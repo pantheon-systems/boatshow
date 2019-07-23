@@ -108,7 +108,8 @@
         "drupal/webform": "^5.0@rc",
         "drupal/xmlsitemap": "1.x-dev#23b04ea6b7a577f5cc9531dcd18488bab01e65a6",
         "drush/drush": "^9.7",
-        "giggsey/libphonenumber-for-php": "^8.10"
+        "giggsey/libphonenumber-for-php": "^8.10",
+        "symfony/property-access": "^4.3"
     },
     "require-dev": {
         "acquia/blt-require-dev": "^10.0.0-alpha1",
