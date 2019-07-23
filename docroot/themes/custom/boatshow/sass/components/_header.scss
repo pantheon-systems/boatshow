@@ -406,53 +406,6 @@ header.header {
   }
 }
 
-// .frontpage {
-//   .header {
-//     border-bottom: none;
-//     position: absolute;
-//     width: 100%;
-//     z-index: 100;
-//     background: linear-gradient(to bottom, $city-header-gradient 65%, transparent 100%);
-//     .logo {
-//       img {
-//         &.logo-color {
-//           display: none;
-//         }
-//         &.logo-white {
-//           display: block;
-//         }
-//       }
-//     }
-
-//     .header__right {
-//       //
-//     }
-
-//     .secondary-nav a::after {
-//       color: $city-color-primary;
-//     }
-
-//     @include media-breakpoint-up(lg) {
-//       .block-colossal-menu {
-//         ul {
-//           &.mega-menu {
-//             & > li {
-//               & > a {
-//                 color: $city-header-menu-item-color;
-//               }
-//             }
-//             ul.menu-dropdown {
-//               .show-on-large {
-//                 border: none;
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
 // Creating a new section for menu styles because I want to start un-nesting
 // things.
 .mega-menu {
