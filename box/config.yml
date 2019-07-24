@@ -44,6 +44,10 @@ apache_vhosts:
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   -
+    servername: local.miamiboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  -
     servername: local.nashvilleboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
@@ -60,19 +64,23 @@ apache_vhosts_ssl:
     extra_parameters: "{{ apache_vhost_php_fpm_parameters }}\n\nProxyPassMatch ^/(.*\\.php(/.*)?)$ \"fcgi://127.0.0.1:9000{{ drupal_core_path }}\"\n"
 mysql_databases:
   -
-    name: chicago
-    encoding: utf8
-    collation: utf8_general_ci
-  -
     name: atlanta
     encoding: utf8
     collation: utf8_general_ci
   -
-    name: nashville
+    name: chicago
     encoding: utf8
     collation: utf8_general_ci
   -
     name: kansascity
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: miami
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: nashville
     encoding: utf8
     collation: utf8_general_ci
   -
@@ -81,25 +89,30 @@ mysql_databases:
     collation: utf8_general_ci
 mysql_users:
   -
-    name: chicago
-    host: '%'
-    password: chicago
-    priv: 'chicago.*:ALL'
-  -
     name: atlanta
     host: '%'
     password: atlanta
     priv: 'atlanta.*:ALL'
   -
-    name: nashville
+    name: chicago
     host: '%'
-    password: nashville
-    priv: 'nashville.*:ALL'
+    password: chicago
+    priv: 'chicago.*:ALL'
   -
     name: kansascity
     host: '%'
     password: kansascity
     priv: 'kansascity.*:ALL'
+  -
+    name: miami
+    host: '%'
+    password: miami
+    priv: 'miami.*:ALL'
+  -
+    name: nashville
+    host: '%'
+    password: nashville
+    priv: 'nashville.*:ALL'
   -
     name: template
     host: '%'

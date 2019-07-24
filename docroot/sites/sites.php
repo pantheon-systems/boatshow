@@ -77,6 +77,13 @@ $sites['dev2.kansascitysportshow.com'] = 'kansascity';
 $sites['stage.kansascitysportshow.com'] = 'kansascity';
 $sites['www.kansascitysportshow.com'] = 'kansascity';
 
+// Miami
+$sites['local.miamiboatshow.com'] = 'miami';
+$sites['dev.miamiboatshow.com'] = 'miami';
+$sites['dev2.miamiboatshow.com'] = 'miami';
+$sites['stage.miamiboatshow.com'] = 'miami';
+$sites['www.miamiboatshow.com'] = 'miami';
+
 // Nashville
 $sites['local.nashvilleboatshow.com'] = 'nashville';
 $sites['dev.nashvilleboatshow.com'] = 'nashville';

@@ -37,7 +37,7 @@ This solution requires a handful of dependencies that must exist on your local m
   host$ git clone git@github.com:NationalMarine/BoatShows.git
   ```
 
-- Primary development branch: develop
+- Primary development branch: 2.x
 - Local environment: DrupalVM
 - Architecture: Drupal multisite
 
@@ -137,10 +137,10 @@ host$ cd path/to/freshly/cloned/repo
 host$ git config core.fileMode false
 ```
 
-### Checkout the **develop** branch
+### Checkout the **2.x** branch
 
 ```console
-host$ git checkout develop
+host$ git checkout 2.x
 ```
 
 ### Install Composer dependencies (Warning: this can take some time based on internet speeds)
@@ -194,6 +194,7 @@ vm$ blt setup -n --site=template
 vm$ blt setup -n --site=atlanta
 vm$ blt setup -n --site=chicago
 vm$ blt setup -n --site=kansascity
+vm$ blt setup -n --site=miami
 vm$ blt setup -n --site=nashville
 ```
 
@@ -211,6 +212,9 @@ vm$ blt sync:files -v --site=chicago
 
 vm$ blt sync:refresh -v --site=kansascity
 vm$ blt sync:files -v --site=kansascity
+
+vm$ blt sync:refresh -v --site=miami
+vm$ blt sync:files -v --site=miami
 
 vm$ blt sync:refresh -v --site=nashville
 vm$ blt sync:files -v --site=nashville
@@ -295,7 +299,7 @@ vm$ blt
 
 Note the following properties of this project:
 
-- Primary development branch: develop
+- Primary development branch: 2.x
 - Local environments:
   - Atlanta Boat Show
     - url: https://local.atlantaboatshow.com
@@ -306,6 +310,9 @@ Note the following properties of this project:
   - Kansas City Sport Show
     - url: https://local.kansascitysportshow.com
     - alias: @kansascity.local
+  - Miami
+    - url: https://local.miamiboatshow.com
+    - alias: @miami.local
   - Nashville
     - url: https://local.nashvilleboatshow.com
     - alias: @nashville.local

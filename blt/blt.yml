@@ -25,6 +25,7 @@ multisites:
   - atlanta
   - chicago
   - kansascity
+  - miami
   - nashville
   - template
 disable-targets:

@@ -1,0 +1,31 @@
+project:
+  local:
+    hostname: local.miami.boatshows.com
+    protocol: https
+  machine_name: miami
+  human_name: 'Miami City Boat Show'
+drush:
+  aliases:
+    local: self
+    remote: miami.dev2
+cm:
+  allow-overrides: false
+  # Possible values: core-only, config-split, features, none.
+  strategy: none
+  core:
+    # The default config key to use for imports. This is the key used in Drupal's global $config_directories variable.
+    # E.g., $config_directories['sync']. It must have a corresponding key in cm.core.dirs. E.g., `cm.core.dirs.sync`.
+    key: sync
+    dirs:
+      # Corresponding value is defined in config.settings.php.
+      sync:
+        path: ${cm.core.path}/miami
+command-hooks:
+  frontend-reqs:
+    # dir: '${docroot}/themes/custom/boatshow'
+    # command: 'npm install && npm install gulp'
+  frontend-assets:
+    # dir: '${docroot}/themes/custom/boatshow'
+    # command: 'node_modules/.bin/gulp'
+  post-deploy-build:
+    # dir: '${deploy.dir}'
