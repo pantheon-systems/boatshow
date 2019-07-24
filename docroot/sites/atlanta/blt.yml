@@ -7,7 +7,7 @@ project:
 drush:
   aliases:
     local: self
-    remote: atlanta.dev
+    remote: atlanta.dev2
 cm:
   allow-overrides: false
   # Possible values: core-only, config-split, features, none.

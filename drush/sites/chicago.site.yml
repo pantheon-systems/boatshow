@@ -8,6 +8,13 @@ dev:
   user: boatshow.dev
   paths:
     drush-script: /usr/local/bin/drush9
+dev2:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: chicago
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
+  paths:
+    drush-script: /usr/local/bin/drush9
 stage:
   root: /var/www/html/boatshow.test/docroot
   uri: chicago

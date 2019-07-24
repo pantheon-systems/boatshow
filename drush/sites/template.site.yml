@@ -6,5 +6,10 @@ dev:
   uri: boatshow
   host: staging-29724.prod.hosting.acquia.com
   user: boatshow.dev
+dev2:
+  root: /var/www/html/discoverboat.dev/docroot
+  uri: boatshow
+  host: staging-29724.prod.hosting.acquia.com
+  user: discoverboat.dev
   paths:
     drush-script: /usr/local/bin/drush9
