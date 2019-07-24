@@ -1,0 +1,27 @@
+uuid: 6597fce5-2add-40ab-84ac-d415342c4676
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_boat_type_engine_type
+    - taxonomy.vocabulary.boat_types
+id: taxonomy_term.boat_types.field_boat_type_engine_type
+field_name: field_boat_type_engine_type
+entity_type: taxonomy_term
+bundle: boat_types
+label: 'Engine Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles: {  }
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

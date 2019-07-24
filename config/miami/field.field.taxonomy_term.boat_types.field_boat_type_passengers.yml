@@ -1,0 +1,23 @@
+uuid: a754c858-fbd3-46ab-ae38-dcb88993ce33
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_boat_type_passengers
+    - taxonomy.vocabulary.boat_types
+id: taxonomy_term.boat_types.field_boat_type_passengers
+field_name: field_boat_type_passengers
+entity_type: taxonomy_term
+bundle: boat_types
+label: Passengers
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

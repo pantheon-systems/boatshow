@@ -1,0 +1,19 @@
+uuid: 3aa8d045-3c14-4bb7-80c9-bc66e3245ee6
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_boat_type_related
+field_name: field_boat_type_related
+entity_type: taxonomy_term
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 3
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

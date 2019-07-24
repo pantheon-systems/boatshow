@@ -1,0 +1,29 @@
+uuid: b237fd14-c8fc-4687-a4f3-f26ec24613ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.iframe
+    - field.storage.brick.field_iframe
+  module:
+    - iframe
+id: brick.iframe.field_iframe
+field_name: field_iframe
+entity_type: brick
+bundle: iframe
+label: Iframe
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  class: ''
+  frameborder: '0'
+  scrolling: auto
+  transparency: '0'
+  tokensupport: '0'
+  title: ''
+  height: ''
+  width: ''
+field_type: iframe

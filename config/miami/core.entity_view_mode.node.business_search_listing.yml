@@ -1,0 +1,14 @@
+uuid: d143bd75-0fd6-4cd2-89f5-e4633357c0b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: 'Results displayed for dealer search, manufacturer search, etc.'
+id: node.business_search_listing
+label: 'Business Search Listing'
+targetEntityType: node
+cache: true

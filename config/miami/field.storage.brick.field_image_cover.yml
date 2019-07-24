@@ -1,0 +1,18 @@
+uuid: 6ceb5ab6-52a4-4cd3-981a-af15019a7cf3
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: brick.field_image_cover
+field_name: field_image_cover
+entity_type: brick
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,7 @@
+uuid: 71f8d365-e599-4a69-aa2e-93ea2df45af9
+langcode: en
+status: false
+dependencies: {  }
+formId: node_accessory_mfr_form
+captchaType: default
+label: null

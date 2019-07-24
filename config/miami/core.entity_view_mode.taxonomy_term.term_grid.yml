@@ -1,0 +1,14 @@
+uuid: 09c1adba-7847-4661-8911-7ce0ea2901ef
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - taxonomy
+third_party_settings:
+  lightning_core:
+    description: 'Grid for viewing all terms of a vocabulary'
+id: taxonomy_term.term_grid
+label: 'Term Grid'
+targetEntityType: taxonomy_term
+cache: true
