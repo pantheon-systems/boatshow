@@ -1,0 +1,55 @@
+uuid: 2d5269c0-7696-4ec4-a308-f9bfd706d1a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.section
+    - entity_browser.browser.media_browser
+    - field.field.brick.section.field_background
+    - field.field.brick.section.field_background_image
+  module:
+    - entity_browser
+id: brick.section.default
+targetEntityType: brick
+bundle: section
+mode: default
+content:
+  field_background:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_background_image:
+    type: entity_browser_entity_reference
+    weight: 6
+    settings:
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      open: true
+      field_widget_replace: false
+    region: content
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,21 @@
+uuid: 32a191c6-d40f-477c-8552-8f627ec75931
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: brick.field_background
+field_name: field_background
+entity_type: brick
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

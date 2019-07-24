@@ -248,7 +248,68 @@ function boatshow_theme_suggestions_page_alter(array &$suggestions, array $varia
  * Implements hook_preprocess_entity().
  */
 function boatshow_preprocess_eck_entity(&$variables) {
+  // Prepare to add classes
+  if (!isset($variables['attributes']['class'])) {
+    $variables['attributes']['class'] = [];
+  }
+
   $entity = $variables['entity']['#entity'];
+
+  ////////////////////////////
+  /// Background Color
+  ////////////////////////////
+  if ($entity->hasField('field_background')) {
+
+    switch ($entity->field_background->value) {
+      case 'color-brand-primary':
+        $variables['attributes']['class'][] = 'slab-primary';
+        break;
+      case 'color-brand-secondary':
+        $variables['attributes']['class'][] = 'slab-secondary';
+        break;
+      case 'color-light-gray':
+        $variables['attributes']['class'][] = 'slab-light-gray';
+        break;
+      case 'color-dark-gray':
+        $variables['attributes']['class'][] = 'slab-dark-gray';
+        break;
+    }
+  }
+
+  if ($entity->hasField('field_background_image')) {
+    if (!empty($entity->field_background_image->getValue())) {
+      $background_image_media_id = $entity->field_background_image->first()->getValue()['target_id'];
+
+      // var_dump($background_image_media_id);die();
+
+      $background_image_media_entity = \Drupal::entityTypeManager()->getStorage('media')->load($background_image_media_id);
+
+
+      // var_dump($background_image_media_entity);die();
+
+      $background_image_file_id = $background_image_media_entity->image->first()->getValue()['target_id'];
+
+
+      $background_image_file_entity = \Drupal\file\Entity\File::load($background_image_file_id);
+
+      $background_image_render_array = [
+        '#theme' => 'image_style',
+        '#style_name' => 'background_slide',
+        '#uri' => $background_image_file_entity->getFileUri()
+      ];
+
+      $variables['brick_background_image'] = $background_image_render_array;
+    }
+  }
+
+  if (true) {
+    // switch ($entity->field_background->value) {
+
+    // }
+    // $variables['attributes']['class'][] = 'brick-background-add-transparency';
+  }
+
+
   if ($entity->bundle() == '3_col_card') {
 
     // Get title.
