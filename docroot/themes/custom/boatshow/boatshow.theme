@@ -302,6 +302,14 @@ function boatshow_preprocess_eck_entity(&$variables) {
     }
   }
 
+  if ($entity->hasField('field_link')) {
+    $link_uri = $entity->field_link->uri;
+    $link_url = \Drupal\Core\Url::fromUri($link_uri)->toString();
+
+    // Set primary call-to-action URL
+    $variables['primary_cta_url'] = $link_url;
+  }
+
   if (true) {
     // switch ($entity->field_background->value) {
 

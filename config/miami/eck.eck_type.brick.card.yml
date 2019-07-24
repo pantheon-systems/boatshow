@@ -1,0 +1,9 @@
+uuid: 53ad05f2-86d4-4784-9b07-592fdeeed159
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: Card
+type: card
+description: ''

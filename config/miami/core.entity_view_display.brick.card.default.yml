@@ -1,0 +1,59 @@
+uuid: cfeda2be-0761-465b-81a3-3596c00627fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.card
+    - field.field.brick.card.field_background
+    - field.field.brick.card.field_body
+    - field.field.brick.card.field_icon
+    - field.field.brick.card.field_link
+    - field.field.brick.card.field_media
+  module:
+    - link
+    - text
+id: brick.card.default
+targetEntityType: brick
+bundle: card
+mode: default
+content:
+  field_body:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_icon:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_background: true
+  langcode: true
+  title: true

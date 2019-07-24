@@ -21,3 +21,15 @@
     font-family: "object-fit:cover; object-position: center center;"; //OFI polyfill
   }
 }
+
+.brick--type--card {
+  background-color: $colorname-white;
+
+  .card-body {
+    padding: 30px;
+  }
+
+  .field--name-field-link > a {
+    @include button--secondary;
+  }
+}

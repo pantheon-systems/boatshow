@@ -7,6 +7,7 @@ dependencies:
     - eck.eck_type.brick.ad_item
     - eck.eck_type.brick.block_brick
     - eck.eck_type.brick.brick_accordion_wrapper
+    - eck.eck_type.brick.card
     - eck.eck_type.brick.carousel
     - eck.eck_type.brick.countdown
     - eck.eck_type.brick.disruptor_card
@@ -42,6 +43,7 @@ settings:
       brick_accordion_wrapper: brick_accordion_wrapper
       ad_item: ad_item
       block_brick: block_brick
+      card: card
       3_col_card: 3_col_card
       countdown: countdown
       disruptor_card: disruptor_card
