@@ -182,6 +182,7 @@ $site-maxout-width: 1600px !default;
 /// Brick: Card
 $dimension-card-padding: 30px !default;
 $dimension-section-vertical-padding: 45px !default;
+$dimension-section-horizontal-padding: $dimension-section-vertical-padding !default;
 $brick-card-aspect-ratio: 16 / 9 !default;
 $brick-card-icon-color: $city-color-primary !default;
 $brick-card-icon-size: 60px !default;
@@ -199,3 +200,6 @@ $headline-effect-thickthin-color: null !default;
 $context-btn-bg-color: $city-color-secondary !default;
 $context-btn-fg-color: $color-text-inverted !default;
 $context-btn-border-color: $color-text-inverted !default;
+
+// Masthead Settings
+$masthead-min-height: 515px !default;

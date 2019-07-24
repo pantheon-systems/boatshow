@@ -1,0 +1,21 @@
+uuid: d5bb0575-38ca-43cf-a9f9-f09adb4398f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.masthead
+    - field.storage.brick.field_background_color
+  module:
+    - options
+id: brick.masthead.field_background_color
+field_name: field_background_color
+entity_type: brick
+bundle: masthead
+label: 'Background Color'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

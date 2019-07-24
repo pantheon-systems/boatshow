@@ -1,0 +1,23 @@
+uuid: 1a7fcf1a-3ffe-40c2-a7e8-87448817b2fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.masthead
+    - field.storage.brick.field_invert_text
+id: brick.masthead.field_invert_text
+field_name: field_invert_text
+entity_type: brick
+bundle: masthead
+label: 'Invert Text'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

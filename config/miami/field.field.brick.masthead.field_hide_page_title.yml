@@ -1,0 +1,23 @@
+uuid: bea271d9-0935-4d92-b787-81e3fd353f7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.masthead
+    - field.storage.brick.field_hide_page_title
+id: brick.masthead.field_hide_page_title
+field_name: field_hide_page_title
+entity_type: brick
+bundle: masthead
+label: 'Hide Page Title'
+description: 'Check this field to hide the page title from within the masthead.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Title Hidden'
+  off_label: 'Title Shown'
+field_type: boolean

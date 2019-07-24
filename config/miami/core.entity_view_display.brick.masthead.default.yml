@@ -1,0 +1,32 @@
+uuid: 757e3da7-3463-47ec-abff-3fdcbac26d8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.masthead
+    - field.field.brick.masthead.field_background_color
+    - field.field.brick.masthead.field_background_image
+    - field.field.brick.masthead.field_hide_page_title
+    - field.field.brick.masthead.field_invert_text
+    - field.field.brick.masthead.field_vertical_pull
+  module:
+    - options
+id: brick.masthead.default
+targetEntityType: brick
+bundle: masthead
+mode: default
+content:
+  field_vertical_pull:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden:
+  field_background_color: true
+  field_background_image: true
+  field_hide_page_title: true
+  field_invert_text: true
+  langcode: true
+  title: true

@@ -248,6 +248,15 @@ function boatshow_theme_suggestions_page_alter(array &$suggestions, array $varia
  * Implements hook_preprocess_entity().
  */
 function boatshow_preprocess_eck_entity(&$variables) {
+
+
+  // Make the current page title available as a variable
+  // @see https://drupal.stackexchange.com/questions/193764/how-to-get-the-front-page-title-in-page-html-twig
+  $request = \Drupal::request();
+  $route_match = \Drupal::routeMatch();
+  $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+  $variables['current_page_title'] = $page_title;
+
   // Prepare to add classes
   if (!isset($variables['attributes']['class'])) {
     $variables['attributes']['class'] = [];
@@ -256,12 +265,13 @@ function boatshow_preprocess_eck_entity(&$variables) {
   $entity = $variables['entity']['#entity'];
 
   ////////////////////////////
-  /// Contatiner Type
+  /// Container Type
   ////////////////////////////
   if ($entity->hasField('field_container_type')) {
     $container_type = $entity->field_container_type->value;
     $variables['container_type'] = $container_type;
 
+    $variables['attributes']['class'][] = 'container-type--'.$container_type;
     // Normal containers get the container class applied to the element
     if ($container_type === 'normal') {
       $variables['attributes']['class'][] = 'container';
@@ -274,6 +284,26 @@ function boatshow_preprocess_eck_entity(&$variables) {
   if ($entity->hasField('field_invert_text') && $entity->field_invert_text->value === '1') {
     $variables['attributes']['class'][] = 'slab-inverted';
   }
+
+  ////////////////////////////
+  /// Hide Page Title (Masthead)
+  ////////////////////////////
+  if ($entity->hasField('field_hide_page_title')){
+    if ($entity->field_hide_page_title->value == '0') {
+      $variables['attributes']['class'][] = 'has-page-title';
+      $variables['field_hide_page_title'] = false;
+    } else {
+      $variables['field_hide_page_title'] = true;
+    }
+
+  }
+  ////////////////////////////
+  /// Vertical Pull
+  ////////////////////////////
+    if ($entity->hasField('field_vertical_pull') && !empty($entity->field_vertical_pull->value) && $entity->field_vertical_pull->value != 'none') {
+      $variables['vertical_pull'] = $entity->field_vertical_pull->value;
+      $variables['attributes']['class'][] = 'vertical-'.$entity->field_vertical_pull->value;
+    }
 
   ////////////////////////////
   /// Headline Effect
@@ -337,8 +367,9 @@ function boatshow_preprocess_eck_entity(&$variables) {
     }
   }
 
-  if ($entity->hasField('field_link')) {
+  if ($entity->hasField('field_link') && !empty($entity->field_link->uri)) {
     $link_uri = $entity->field_link->uri;
+
     $link_url = \Drupal\Core\Url::fromUri($link_uri)->toString();
 
     // Set primary call-to-action URL

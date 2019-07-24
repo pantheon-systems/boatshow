@@ -206,3 +206,4 @@ openapi_ui: 1.0.0-rc1
 openapi_ui_redoc: 1.0.0-rc2
 openapi_ui_swagger: 1.0.0-rc3
 media_library: 8.7.3
+hierarchical_taxonomy_importer: 1.0.0

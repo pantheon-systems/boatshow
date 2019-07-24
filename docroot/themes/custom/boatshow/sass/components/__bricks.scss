@@ -16,6 +16,11 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
+
+  &.container-type--contract {
+    padding-right: $dimension-section-horizontal-padding;
+    padding-left: $dimension-section-horizontal-padding;
+  }
 }
 
 .brick--background-image {

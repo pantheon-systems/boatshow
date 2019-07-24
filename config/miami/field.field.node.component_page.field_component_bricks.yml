@@ -18,6 +18,7 @@ dependencies:
     - eck.eck_type.brick.landing_page_grid_card
     - eck.eck_type.brick.layout
     - eck.eck_type.brick.link
+    - eck.eck_type.brick.masthead
     - eck.eck_type.brick.media
     - eck.eck_type.brick.section
     - eck.eck_type.brick.text
@@ -56,6 +57,7 @@ settings:
       landing_page_grid_card: landing_page_grid_card
       layout: layout
       link: link
+      masthead: masthead
       media: media
       section: section
       text: text

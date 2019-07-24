@@ -1,0 +1,27 @@
+uuid: a62fee76-041f-47b1-9f5d-d21c090f9dda
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - options
+id: brick.field_vertical_pull
+field_name: field_vertical_pull
+entity_type: brick
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: pull
+      label: Pull
+    -
+      value: push
+      label: Push
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

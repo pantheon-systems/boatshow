@@ -1,0 +1,19 @@
+uuid: f5982179-f6ac-4b77-92c6-61e2cbf8d7a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_boat_type_length
+    - taxonomy.vocabulary.boat_types
+id: taxonomy_term.boat_types.field_boat_type_length
+field_name: field_boat_type_length
+entity_type: taxonomy_term
+bundle: boat_types
+label: Length
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,9 @@
+uuid: 4a54b674-9d0f-4e62-91f5-fe3a7e491a41
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: Masthead
+type: masthead
+description: 'A full screen width hero image'

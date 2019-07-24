@@ -1,0 +1,76 @@
+uuid: 71dc8ca1-fbfb-4a8c-b00a-af03ada60342
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.masthead
+    - entity_browser.browser.media_browser
+    - field.field.brick.masthead.field_background_color
+    - field.field.brick.masthead.field_background_image
+    - field.field.brick.masthead.field_hide_page_title
+    - field.field.brick.masthead.field_invert_text
+    - field.field.brick.masthead.field_vertical_pull
+  module:
+    - entity_browser
+id: brick.masthead.default
+targetEntityType: brick
+bundle: masthead
+mode: default
+content:
+  field_background_color:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_background_image:
+    type: entity_browser_entity_reference
+    weight: 3
+    settings:
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      open: true
+      field_widget_replace: false
+    region: content
+    third_party_settings: {  }
+  field_hide_page_title:
+    weight: 6
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_invert_text:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_vertical_pull:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

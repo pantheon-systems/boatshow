@@ -1,0 +1,21 @@
+uuid: 84d2198b-4943-48be-a279-789e422a53bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.masthead
+    - field.storage.brick.field_vertical_pull
+  module:
+    - options
+id: brick.masthead.field_vertical_pull
+field_name: field_vertical_pull
+entity_type: brick
+bundle: masthead
+label: 'Vertical Pull'
+description: 'how this brick effects the next brick to follow. <strong>None</strong> for no vertical interaction. <strong>Pull</strong> to pull the next brick up vertically into this one. <strong>Push</strong> to add space below, between this and the next brick.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
