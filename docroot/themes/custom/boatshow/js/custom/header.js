@@ -7,7 +7,7 @@ window.BoatShows = window.BoatShows || {};
     var $header, $contentRegion, headerOffset, thisContext, $window;
 
     Drupal.behaviors.boatShowHeader = {
-      attach: function attach(context, settings) {
+      attach: function (context, settings) {
         thisContext = context
         $header = $('header.header', context);
         $contentRegion = $('.region.region-content', context);
