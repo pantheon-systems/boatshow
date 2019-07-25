@@ -16,11 +16,11 @@ default_global_styles:
 javascript:
   version: 1.0.0
   js:
-    assets-dist/js/globalHeader.js: {}
+    assets-dist/js/header.js: {}
+    assets-dist/js/siteNavigation.js: {}
+    assets-dist/js/advertisements.js: {}
     assets-dist/js/globalFooter.js: {}
     assets-dist/js/featuresFilter.js: {}
-    assets-dist/js/header.js: {}
-    assets-dist/js/advertisements.js: {}
     assets-dist/js/carousel.js: {}
     assets-dist/js/newsletter.js: {}
   dependencies:
@@ -31,14 +31,14 @@ javascript:
     - core/jquery.once
     - core/jquery.cookie
     - core/jquery.ui
-    - boatshow/slick_carousel
+    # - boatshow/slick_carousel
 
 slick_carousel:
   js:
-    libraries/slick/slick.min.js: {}
+    libraries/slick-carousel/slick/slick.min.js: {}
   css:
     theme:
-      libraries/slick/slick.css: {}
+      libraries/slick-carousel/slick/slick.css: {}
   dependencies:
     - core/jquery
 
