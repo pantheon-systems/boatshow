@@ -69,9 +69,7 @@ body .menu-item {
 // Markup: text.twig
 //
 // Style guide: base.text
-a,
-a:link,
-a:visited {
+a {
   text-decoration: none;
   color: $color-links;
   cursor: pointer;

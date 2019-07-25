@@ -48,6 +48,25 @@
 
   }
 
+  .card-header {
+    display: block; //Sometimes this is an <a> element
+    position: relative;
+
+    & .icon-markup {
+      color: $brick-card-icon-color;
+      font-size: $brick-card-icon-size;
+      line-height: 1;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+
+      &::before {
+        color: inherit; //override a nasty global color setting of i::before
+      }
+    }
+  }
+
   // Padding on body
   .card-body {
     padding: $dimension-card-padding;

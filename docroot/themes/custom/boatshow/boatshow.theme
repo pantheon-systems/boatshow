@@ -310,6 +310,31 @@ function boatshow_preprocess_eck_entity(&$variables) {
     $variables['primary_cta_url'] = $link_url;
   }
 
+  if ($entity->hasField('field_icon')) {
+    $requested_icon = $entity->field_icon->value;
+
+    if (!empty($requested_icon)) {
+
+      if(strpos($requested_icon, 'fa-') === 0) {
+        $icon_markup = [
+          '#markup' => t('<i class="icon-markup fa @requested_icon"></i>', [
+            '@requested_icon' => $requested_icon
+          ])
+        ];
+      }
+      else {
+        $icon_markup = [
+          '#markup' => t('<!-- Unknown icon: @requested_icon -->', [
+            '@requested_icon' => $requested_icon
+          ])
+        ];
+      }
+
+      $variables['icon_markup'] = $icon_markup;
+
+    }
+  }
+
   if (true) {
     // switch ($entity->field_background->value) {
 
