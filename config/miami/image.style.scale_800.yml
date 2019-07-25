@@ -1,0 +1,16 @@
+uuid: 842f44c5-5f10-4901-a538-d10a1190e912
+langcode: en
+status: true
+dependencies: {  }
+name: scale_800
+label: scale_800
+effects:
+  d7a07277-2e01-4bf0-aa71-8fa1b2390ae9:
+    uuid: d7a07277-2e01-4bf0-aa71-8fa1b2390ae9
+    id: image_scale
+    weight: 1
+    data:
+      width: 800
+      height: null
+      upscale: false
+pipeline: media_optimize

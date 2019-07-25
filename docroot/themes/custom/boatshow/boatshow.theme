@@ -293,8 +293,8 @@ function boatshow_preprocess_eck_entity(&$variables) {
       $background_image_file_entity = \Drupal\file\Entity\File::load($background_image_file_id);
 
       $background_image_render_array = [
-        '#theme' => 'image_style',
-        '#style_name' => 'background_slide',
+        '#theme' => 'responsive_image',
+        '#responsive_image_style_id' => 'scale_simple',
         '#uri' => $background_image_file_entity->getFileUri()
       ];
 
