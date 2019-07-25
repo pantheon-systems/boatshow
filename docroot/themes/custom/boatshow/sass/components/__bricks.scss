@@ -16,19 +16,44 @@
     position: relative;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    font-family: "object-fit:cover; object-position: center center;"; //OFI polyfill
+    @include object-fit-cover;
   }
 }
 
 .brick--type--card {
   background-color: $colorname-white;
 
-  .card-body {
-    padding: 30px;
+  // Aspect ratio trick for image
+  .field--name-field-media {
+    width: 100%;
+
+    & > article {
+      width: 100%;
+      padding-top: 100% / $brick-card-aspect-ratio;
+      position: relative;
+    }
+
+    & > article > .field--name-image,
+    & > article > .field--name-image > img {
+      height: 100%;
+      width: 100%;
+    }
+
+    & > article > .field--name-image > img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include object-fit-cover;
+    }
+
   }
 
+  // Padding on body
+  .card-body {
+    padding: $dimension-card-padding;
+  }
+
+  // Apply button style to link
   .field--name-field-link > a {
     @include button--secondary;
   }

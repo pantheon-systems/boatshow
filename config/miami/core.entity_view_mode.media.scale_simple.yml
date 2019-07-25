@@ -1,0 +1,14 @@
+uuid: f3c4eb48-53d0-4075-ab6f-d1d5ca7ee229
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media
+third_party_settings:
+  lightning_core:
+    description: ''
+id: media.scale_simple
+label: 'Scale Simple'
+targetEntityType: media
+cache: true

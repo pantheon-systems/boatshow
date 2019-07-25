@@ -72,3 +72,12 @@ body {
   font-size: rem-calc($size);
   line-height: 1.2;
 }
+
+/**
+ * Mixin for cover-sized images, with object-fit-image polyfill bonus
+ */
+@mixin object-fit-cover {
+  object-fit: cover;
+  object-position: center center;
+  font-family: "object-fit:cover; object-position: center center;"; //OFI polyfill
+}
