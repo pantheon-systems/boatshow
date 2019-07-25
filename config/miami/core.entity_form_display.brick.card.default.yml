@@ -1,0 +1,81 @@
+uuid: 738cb9e6-7291-4a37-8e57-a7415f8fc79b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.card
+    - field.field.brick.card.field_background_color
+    - field.field.brick.card.field_body
+    - field.field.brick.card.field_icon
+    - field.field.brick.card.field_invert_text
+    - field.field.brick.card.field_link
+    - field.field.brick.card.field_media
+  module:
+    - link
+    - media_library
+    - text
+id: brick.card.default
+targetEntityType: brick
+bundle: card
+mode: default
+content:
+  field_background_color:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_body:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_icon:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_invert_text:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_link:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_media:
+    type: media_library_widget
+    weight: 2
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

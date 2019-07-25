@@ -1,0 +1,22 @@
+uuid: e3d3ca93-730c-4704-b332-568825d9ae83
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.section
+    - field.field.brick.section.field_background_color
+    - field.field.brick.section.field_background_image
+    - field.field.brick.section.field_container_type
+    - field.field.brick.section.field_invert_text
+id: brick.section.default
+targetEntityType: brick
+bundle: section
+mode: default
+content: {  }
+hidden:
+  field_background_color: true
+  field_background_image: true
+  field_container_type: true
+  field_invert_text: true
+  langcode: true
+  title: true

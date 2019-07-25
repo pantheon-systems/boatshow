@@ -1,0 +1,16 @@
+uuid: 0ab6ce2a-e245-4a48-affb-d78bc4f062c6
+langcode: en
+status: true
+dependencies: {  }
+name: scale_400
+label: scale_400
+effects:
+  f3a719eb-d5f2-4f57-aa88-d1242562d85b:
+    uuid: f3a719eb-d5f2-4f57-aa88-d1242562d85b
+    id: image_scale
+    weight: 1
+    data:
+      width: 400
+      height: null
+      upscale: false
+pipeline: media_optimize

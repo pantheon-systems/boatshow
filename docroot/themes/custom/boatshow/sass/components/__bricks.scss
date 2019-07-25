@@ -1,0 +1,83 @@
+.brick--type--section {
+  max-width: $site-maxout-width;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.brick--background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  & > img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @include object-fit-cover;
+  }
+}
+
+.brick--type--card {
+
+  // Aspect ratio trick for image
+  .field--name-field-media {
+    width: 100%;
+
+    & > article {
+      width: 100%;
+      padding-top: 100% / $brick-card-aspect-ratio;
+      position: relative;
+    }
+
+    & > article > .field--name-image,
+    & > article > .field--name-image > img {
+      height: 100%;
+      width: 100%;
+    }
+
+    & > article > .field--name-image > img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include object-fit-cover;
+    }
+
+  }
+
+  .card-header {
+    display: block; //Sometimes this is an <a> element
+    position: relative;
+
+    & .icon-markup {
+      color: $brick-card-icon-color;
+      font-size: $brick-card-icon-size;
+      line-height: 1;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+
+      &::before {
+        color: inherit; //override a nasty global color setting of i::before
+      }
+    }
+  }
+
+  .card-body {
+    //todo: this may need a class to control it, as some cards are left-aligned (e.g. on hotels page)
+    text-align: center;
+  }
+
+  // Padding on body for cards with backgrounds (we assume these need to stand out somewhat)
+  &.has-background-color .card-body {
+    padding: $dimension-card-padding;
+  }
+
+  // Apply button style to link
+  .field--name-field-link > a {
+    @include button--secondary;
+  }
+}

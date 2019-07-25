@@ -1,0 +1,23 @@
+uuid: b6b839d3-4779-4fd1-b570-5766491f5840
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.section
+    - field.storage.brick.field_invert_text
+id: brick.section.field_invert_text
+field_name: field_invert_text
+entity_type: brick
+bundle: section
+label: 'Invert Text'
+description: 'This will invert the text color (make text white) for this brick and all children. If you don''t want all children to be inverted, make a sub-brick and invert that.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

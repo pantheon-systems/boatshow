@@ -1,0 +1,28 @@
+uuid: 0e6b4030-c870-48ab-be3c-cef388613dd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.card
+    - field.storage.brick.field_media
+    - media.type.image
+id: brick.card.field_media
+field_name: field_media
+entity_type: brick
+bundle: card
+label: Media
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

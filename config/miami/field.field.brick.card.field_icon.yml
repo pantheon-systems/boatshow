@@ -1,0 +1,19 @@
+uuid: 268e6059-3062-4d3e-a978-1fe13947464b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.card
+    - field.storage.brick.field_icon
+id: brick.card.field_icon
+field_name: field_icon
+entity_type: brick
+bundle: card
+label: Icon
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -7,6 +7,7 @@ dependencies:
     - eck.eck_type.brick.ad_item
     - eck.eck_type.brick.block_brick
     - eck.eck_type.brick.brick_accordion_wrapper
+    - eck.eck_type.brick.card
     - eck.eck_type.brick.carousel
     - eck.eck_type.brick.countdown
     - eck.eck_type.brick.disruptor_card
@@ -17,6 +18,7 @@ dependencies:
     - eck.eck_type.brick.layout
     - eck.eck_type.brick.link
     - eck.eck_type.brick.media
+    - eck.eck_type.brick.section
     - eck.eck_type.brick.text
     - eck.eck_type.brick.view
     - eck.eck_type.brick.wrapper
@@ -41,6 +43,7 @@ settings:
       brick_accordion_wrapper: brick_accordion_wrapper
       ad_item: ad_item
       block_brick: block_brick
+      card: card
       3_col_card: 3_col_card
       countdown: countdown
       disruptor_card: disruptor_card
@@ -52,11 +55,12 @@ settings:
       layout: layout
       link: link
       media: media
+      section: section
       text: text
       view: view
       wrapper: wrapper
     sort:
       field: _none
-    auto_create: 1
+    auto_create: 0
     auto_create_bundle: text
 field_type: bricks

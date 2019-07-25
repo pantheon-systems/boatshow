@@ -1,0 +1,21 @@
+uuid: ca36ef7a-41ba-4eef-a201-9410bea295ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.headline_brick
+    - field.storage.brick.field_headline_effect
+  module:
+    - options
+id: brick.headline_brick.field_headline_effect
+field_name: field_headline_effect
+entity_type: brick
+bundle: headline_brick
+label: 'Headline Effect'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

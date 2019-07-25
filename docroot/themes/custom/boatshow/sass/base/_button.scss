@@ -7,10 +7,9 @@
   align-items: center;
   justify-content: center;
 
-  height: $dimension-button-height;
   min-width: $dimension-button-width;
   // max-width: 300px;
-  padding: 0 2.25em;
+  padding: .6em 2.25em;
 
   background: $color-button-primary-fill;
   border: $button-border-width solid $color-button-primary-border;
@@ -20,10 +19,8 @@
 
   outline: 0;
 
-  line-height: 48px;
   text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
   transition: all 0.3s ease-in-out;
 
   // Header "buy tickets" button is the model for this.

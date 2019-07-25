@@ -1,0 +1,39 @@
+uuid: c4aa9ce1-22c2-4d4f-b3bf-8d7acb206cf6
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - options
+id: brick.field_background_color
+field_name: field_background_color
+entity_type: brick
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: white
+      label: white
+    -
+      value: dark-gray
+      label: dark-gray
+    -
+      value: light-gray
+      label: light-gray
+    -
+      value: city-primary
+      label: city-primary
+    -
+      value: city-secondary
+      label: city-secondary
+    -
+      value: city-tertiary
+      label: 'city-tertiary (where available)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

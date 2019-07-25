@@ -70,8 +70,8 @@
             }
             // The brick on the right, usually a countdown.
             &:last-child {
+              @include slab-city-tertiary;
               margin-left: 8px;
-              background: rgba($color-homepage-countdown-background, 0.9);
             }
           }
           @include media-breakpoint-down(md) {
@@ -167,7 +167,7 @@
               .grid-item {
                 &--article {
                   .title {
-                    @include effect-contrast-headline();
+                    @include headline-effect-thickthin();
                     font-size: 30px;
                     color: $colorname-white;
                     text-transform: uppercase;

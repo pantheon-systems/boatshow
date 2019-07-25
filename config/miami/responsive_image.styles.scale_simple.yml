@@ -1,0 +1,27 @@
+uuid: e1b3ef79-d2a0-481b-86c1-bc81633bae65
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.scale_1600
+    - image.style.scale_2400
+    - image.style.scale_400
+    - image.style.scale_800
+  theme:
+    - boatshow
+id: scale_simple
+label: scale_simple
+image_style_mappings:
+  -
+    breakpoint_id: boatshow.xs
+    multiplier: 2x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - scale_1600
+        - scale_2400
+        - scale_400
+        - scale_800
+breakpoint_group: boatshow
+fallback_image_style: scale_400

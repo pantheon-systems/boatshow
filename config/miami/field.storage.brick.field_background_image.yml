@@ -1,0 +1,20 @@
+uuid: ba972849-3806-47fb-9004-8453910372f5
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - media
+id: brick.field_background_image
+field_name: field_background_image
+entity_type: brick
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

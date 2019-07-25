@@ -3,6 +3,7 @@
 /////////////////////////
 $city-color-primary: magenta !default;
 $city-color-secondary: magenta !default;
+$city-color-tertiary: $city-color-secondary !default;
 $city-hero-bg: '../../../images/atlanticcity/main-background.jpg' !default;
 
 // Typography
@@ -176,10 +177,18 @@ $dimension-input-height-xlarge: 56px !default;
 $dimension-header-height: 70px !default;
 
 
+$site-maxout-width: 1600px !default;
+$dimension-card-padding: 30px !default;
+$brick-card-aspect-ratio: 16 / 9 !default;
+$brick-card-icon-color: $city-color-primary !default;
+$brick-card-icon-size: 60px !default;
+
 // Effect: Contrast Headline
-$effect-contrast-headline-base-font-weight: $font-weight-thin !default;
-$effect-contrast-headline-emphasis-font-weight: $font-weight-bold !default;
+$headline-effect-thickthin-weight-thin: $font-weight-thin !default;
+$headline-effect-thickthin-weight-thick: $font-weight-bold !default;
+$headline-effect-thickthin-color: null !default;
 
-
-// Homepage
-$color-homepage-countdown-background: $city-color-secondary !default;
+// Contextual links
+$context-btn-bg-color: $city-color-secondary !default;
+$context-btn-fg-color: $color-text-inverted !default;
+$context-btn-border-color: $color-text-inverted !default;

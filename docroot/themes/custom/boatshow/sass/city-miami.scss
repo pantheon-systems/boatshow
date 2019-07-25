@@ -8,6 +8,8 @@ $colorname-miami-gray: #4d4d4d;
 
 $city-color-primary: $colorname-miami-magenta;
 $city-color-secondary: $colorname-miami-aqua;
+$city-color-tertiary: $colorname-miami-orange;
+
 $city-hero-bg: '../../images/atlanta/main-background.jpg';
 
 // Text
@@ -18,7 +20,7 @@ $font-primary: 'CircularStd', 'Helvetica', sans-serif !default;
 
 // All buttons
 $button-border-radius: 5px;
-$button-border-width: 1px;
+$button-border-width: 2px;
 
 // Button Primary
 $color-button-primary-border: #fff;
@@ -28,8 +30,8 @@ $color-button-secondary-fill: transparent;
 $color-button-secondary-border: $city-color-primary;
 $color-button-secondary-text: $city-color-primary;
 
-// Homepage
-$color-homepage-countdown-background: $colorname-miami-orange;
+// Headline effects
+$headline-effect-thickthin-color: $city-color-primary;
 
 ///////////////////////////////
 /// 2. Include Stylesheet
