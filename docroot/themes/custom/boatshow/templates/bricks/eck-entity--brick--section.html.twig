@@ -1,3 +1,7 @@
+{% if container_type == 'contract' %}
+<div class="container">
+{% endif %}
+
 <section {{ attributes }}>
   {{ context_links }}
 
@@ -7,12 +11,22 @@
   </div>
   {% endif %}
 
+  {% if container_type == 'expand' %}
   <div class="container">
+  {% endif %}
+
     <div class="brick--fields">
       {{ entity|without('childs')}}
     </div>
     <div class="brick--children">
       {{ entity.childs }}
     </div>
+
+  {% if container_type == 'expand' %}
   </div>
+  {% endif %}
 </section>
+
+{% if container_type == 'contract' %}
+</div>
+{% endif %}

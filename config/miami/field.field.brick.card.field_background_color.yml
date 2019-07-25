@@ -1,0 +1,21 @@
+uuid: 6382c6b9-a1ae-4418-ac8b-f9ac638e7e17
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.card
+    - field.storage.brick.field_background_color
+  module:
+    - options
+id: brick.card.field_background_color
+field_name: field_background_color
+entity_type: brick
+bundle: card
+label: 'Background Color'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

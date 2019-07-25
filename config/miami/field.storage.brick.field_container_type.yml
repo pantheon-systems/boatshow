@@ -1,0 +1,30 @@
+uuid: 4ea2efa5-1fe4-4f03-8fe1-cd5eb9c7b68c
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - options
+id: brick.field_container_type
+field_name: field_container_type
+entity_type: brick
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: normal
+      label: normal
+    -
+      value: expand
+      label: expand
+    -
+      value: contract
+      label: contract
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

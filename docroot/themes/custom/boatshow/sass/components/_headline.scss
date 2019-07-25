@@ -1,15 +1,46 @@
 // Provides the 2-weight headline effect
+@mixin headline-effect-thickthin {
+  font-weight: $headline-effect-thickthin-weight-thin;
+  text-transform: uppercase;
 
-@mixin effect-contrast-headline {
-  font-weight: $effect-contrast-headline-base-font-weight;
+  @if ($headline-effect-thickthin-color) {
+    color: $headline-effect-thickthin-color;
+  }
 
   & b,
   & i,
   & strong,
   & em {
     font-style: normal;
-    font-weight: $effect-contrast-headline-emphasis-font-weight;
+    font-weight: $headline-effect-thickthin-weight-thick;
   }
+}
+
+@mixin headline-effect-city-color {
+  color: $city-color-primary;
+}
+
+@mixin headline-effect-labelmaker {
+  & span {
+    @include subtle-text-shadow;
+    display: inline-block;
+    text-transform: uppercase;
+    background-color: $city-color-primary;
+    color: $color-text-inverted;
+    padding: 0.3em 1ex;
+  }
+}
+
+.headline-effect-thickthin {
+  @include headline-effect-thickthin;
+}
+
+.headline-effect-city-color {
+  @include headline-effect-city-color;
+}
+
+.headline-effect-labelmaker {
+  @include headline-effect-labelmaker;
 }
 
 .section-header {
@@ -17,11 +48,6 @@
   margin-bottom: 1.875em;
 
   h2 {
-    @include effect-contrast-headline();
-
-    font-size: 30px;
-    color: $colorname-black;
-    text-transform: uppercase;
     line-height: 1.2;
     margin: 0;
     padding: 0;
@@ -33,5 +59,12 @@
     color: $colorname-black;
     line-height: 1.2;
     margin: 1.25em 0 0 0;
+  }
+
+  &.slab-inverted,
+  .slab-inverted & {
+    h2 {
+      @include subtle-text-shadow;
+    }
   }
 }

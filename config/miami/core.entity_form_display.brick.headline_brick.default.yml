@@ -6,6 +6,8 @@ dependencies:
     - eck.eck_type.brick.headline_brick
     - field.field.brick.headline_brick.field_brick_headline
     - field.field.brick.headline_brick.field_brick_subhead
+    - field.field.brick.headline_brick.field_headline_effect
+    - field.field.brick.headline_brick.field_invert_text
 id: brick.headline_brick.default
 targetEntityType: brick
 bundle: headline_brick
@@ -26,6 +28,19 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_headline_effect:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_invert_text:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   langcode:
     type: language_select

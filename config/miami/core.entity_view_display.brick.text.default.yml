@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - eck.eck_type.brick.text
+    - field.field.brick.text.field_invert_text
     - field.field.brick.text.field_text
   module:
     - text
@@ -15,12 +16,13 @@ bundle: text
 mode: default
 content:
   field_text:
-    weight: 2
+    weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
 hidden:
+  field_invert_text: true
   langcode: true
   title: true

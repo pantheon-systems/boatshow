@@ -4,9 +4,10 @@ status: true
 dependencies:
   config:
     - eck.eck_type.brick.card
-    - field.field.brick.card.field_background
+    - field.field.brick.card.field_background_color
     - field.field.brick.card.field_body
     - field.field.brick.card.field_icon
+    - field.field.brick.card.field_invert_text
     - field.field.brick.card.field_link
     - field.field.brick.card.field_media
   module:
@@ -18,16 +19,14 @@ targetEntityType: brick
 bundle: card
 mode: default
 content:
-  field_background:
-    weight: 7
-    settings:
-      size: 60
-      placeholder: ''
+  field_background_color:
+    weight: 6
+    settings: {  }
     third_party_settings: {  }
-    type: string_textfield
+    type: options_select
     region: content
   field_body:
-    weight: 6
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
@@ -35,15 +34,22 @@ content:
     type: text_textarea
     region: content
   field_icon:
-    weight: 5
+    weight: 3
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_invert_text:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_link:
-    weight: 4
+    weight: 5
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -52,21 +58,21 @@ content:
     region: content
   field_media:
     type: media_library_widget
-    weight: 3
+    weight: 2
     settings:
       media_types: {  }
     third_party_settings: {  }
     region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 1
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60

@@ -1,0 +1,23 @@
+uuid: 48f40554-9afd-419c-91c9-d8352dc2c9b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.text
+    - field.storage.brick.field_invert_text
+id: brick.text.field_invert_text
+field_name: field_invert_text
+entity_type: brick
+bundle: text
+label: 'Invert Text'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -21,7 +21,6 @@
 }
 
 .brick--type--card {
-  background-color: $colorname-white;
 
   // Aspect ratio trick for image
   .field--name-field-media {
@@ -67,8 +66,13 @@
     }
   }
 
-  // Padding on body
   .card-body {
+    //todo: this may need a class to control it, as some cards are left-aligned (e.g. on hotels page)
+    text-align: center;
+  }
+
+  // Padding on body for cards with backgrounds (we assume these need to stand out somewhat)
+  &.has-background-color .card-body {
     padding: $dimension-card-padding;
   }
 

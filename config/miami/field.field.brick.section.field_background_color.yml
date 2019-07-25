@@ -1,0 +1,21 @@
+uuid: 959fd984-0b89-4c63-9a3e-aa2aee497d38
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.section
+    - field.storage.brick.field_background_color
+  module:
+    - options
+id: brick.section.field_background_color
+field_name: field_background_color
+entity_type: brick
+bundle: section
+label: 'Background Color'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

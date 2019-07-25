@@ -13,12 +13,16 @@
   background-color: $colorname-gray-unleaded;
 }
 
-@mixin slab-primary {
-  background-color: $city-color-primary;
+@mixin slab-city-primary {
+  background-color: rgba($city-color-primary, 0.8);
 }
 
-@mixin slab-secondary {
-  background-color: $city-color-secondary;
+@mixin slab-city-secondary {
+  background-color: rgba($city-color-secondary, 0.8);
+}
+
+@mixin slab-city-tertiary {
+  background-color: rgba($city-color-tertiary, 0.8);
 }
 
 @mixin slab-inverted {
@@ -56,12 +60,16 @@
   @include slab-dark-gray;
 }
 
-.slab-primary {
-  @include slab-primary;
+.slab-city-primary {
+  @include slab-city-primary;
 }
 
-.slab-secondary {
-  @include slab-secondary;
+.slab-city-secondary {
+  @include slab-city-secondary;
+}
+
+.slab-city-tertiary {
+  @include slab-city-tertiary;
 }
 
 .slab-inverted {

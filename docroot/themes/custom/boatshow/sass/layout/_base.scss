@@ -38,13 +38,12 @@ h1 {
 
 h2 {
   // There should be a var for font-size we can use.
-  font-size: rem-calc(30px);
+  font-size: rem-calc(35px);
   line-height: 145%;
-  text-transform: uppercase;
 }
 
 h3 {
-  font-size: 140%;
+  font-size: rem-calc(30px);
   line-height: 145%;
 }
 
@@ -171,14 +170,6 @@ table {
     background-color: $colorname-lighter-gray;
     border-top: 1px solid $colorname-lighter-gray;
     border-bottom: 1px solid $colorname-lighter-gray;
-  }
-}
-
-.section-header {
-  .subheading {
-    color: $colorname-gray-medium;
-    font-size: rem-calc(17px);
-    margin-bottom: 1em;
   }
 }
 

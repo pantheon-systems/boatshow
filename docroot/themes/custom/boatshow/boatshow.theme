@@ -256,22 +256,58 @@ function boatshow_preprocess_eck_entity(&$variables) {
   $entity = $variables['entity']['#entity'];
 
   ////////////////////////////
+  /// Contatiner Type
+  ////////////////////////////
+  if ($entity->hasField('field_container_type')) {
+    $container_type = $entity->field_container_type->value;
+    $variables['container_type'] = $container_type;
+
+    // Normal containers get the container class applied to the element
+    if ($container_type === 'normal') {
+      $variables['attributes']['class'][] = 'container';
+    }
+  }
+
+  ////////////////////////////
+  /// Invert Text
+  ////////////////////////////
+  if ($entity->hasField('field_invert_text') && $entity->field_invert_text->value === '1') {
+    $variables['attributes']['class'][] = 'slab-inverted';
+  }
+
+  ////////////////////////////
+  /// Headline Effect
+  ////////////////////////////
+  if ($entity->hasField('field_headline_effect') && !empty($entity->field_headline_effect->value)) {
+    $variables['headline_effect_class'] = 'headline-effect-' . $entity->field_headline_effect->value;
+  }
+
+  ////////////////////////////
   /// Background Color
   ////////////////////////////
-  if ($entity->hasField('field_background')) {
+  if ($entity->hasField('field_background_color') && !empty($entity->field_background_color->value)) {
 
-    switch ($entity->field_background->value) {
-      case 'color-brand-primary':
-        $variables['attributes']['class'][] = 'slab-primary';
+    $variables['background_color'] = $entity->field_background_color->value;
+    $variables['attributes']['class'][] = 'has-background-color';
+
+    switch ($entity->field_background_color->value) {
+      case 'white':
+        $variables['attributes']['class'][] = 'slab-white';
         break;
-      case 'color-brand-secondary':
-        $variables['attributes']['class'][] = 'slab-secondary';
+      case 'dark-gray':
+        $variables['attributes']['class'][] = 'slab-dark-gray';
         break;
-      case 'color-light-gray':
+      case 'light-gray':
         $variables['attributes']['class'][] = 'slab-light-gray';
         break;
-      case 'color-dark-gray':
-        $variables['attributes']['class'][] = 'slab-dark-gray';
+      case 'city-primary':
+        $variables['attributes']['class'][] = 'slab-city-primary';
+        break;
+      case 'city-secondary':
+        $variables['attributes']['class'][] = 'slab-city-secondary';
+        break;
+      case 'city-tertiary':
+        $variables['attributes']['class'][] = 'slab-city-tertiary';
         break;
     }
   }
@@ -280,15 +316,9 @@ function boatshow_preprocess_eck_entity(&$variables) {
     if (!empty($entity->field_background_image->getValue())) {
       $background_image_media_id = $entity->field_background_image->first()->getValue()['target_id'];
 
-      // var_dump($background_image_media_id);die();
-
       $background_image_media_entity = \Drupal::entityTypeManager()->getStorage('media')->load($background_image_media_id);
 
-
-      // var_dump($background_image_media_entity);die();
-
       $background_image_file_id = $background_image_media_entity->image->first()->getValue()['target_id'];
-
 
       $background_image_file_entity = \Drupal\file\Entity\File::load($background_image_file_id);
 
@@ -334,14 +364,6 @@ function boatshow_preprocess_eck_entity(&$variables) {
 
     }
   }
-
-  if (true) {
-    // switch ($entity->field_background->value) {
-
-    // }
-    // $variables['attributes']['class'][] = 'brick-background-add-transparency';
-  }
-
 
   if ($entity->bundle() == '3_col_card') {
 

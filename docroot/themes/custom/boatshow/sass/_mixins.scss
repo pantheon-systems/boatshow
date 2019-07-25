@@ -81,3 +81,7 @@ body {
   object-position: center center;
   font-family: "object-fit:cover; object-position: center center;"; //OFI polyfill
 }
+
+@mixin subtle-text-shadow  {
+  text-shadow: 0 3px 0.2em rgba(#000, 0.16);
+}

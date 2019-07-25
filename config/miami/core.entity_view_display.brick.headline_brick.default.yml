@@ -6,13 +6,17 @@ dependencies:
     - eck.eck_type.brick.headline_brick
     - field.field.brick.headline_brick.field_brick_headline
     - field.field.brick.headline_brick.field_brick_subhead
+    - field.field.brick.headline_brick.field_headline_effect
+    - field.field.brick.headline_brick.field_invert_text
+  module:
+    - options
 id: brick.headline_brick.default
 targetEntityType: brick
 bundle: headline_brick
 mode: default
 content:
   field_brick_headline:
-    weight: -4
+    weight: 0
     label: hidden
     settings:
       link_to_entity: false
@@ -20,20 +24,21 @@ content:
     type: string
     region: content
   field_brick_subhead:
-    weight: -3
+    weight: 1
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  title:
-    label: hidden
-    type: string
-    weight: -5
-    region: content
-    settings:
-      link_to_entity: false
+  field_headline_effect:
+    weight: 2
+    label: above
+    settings: {  }
     third_party_settings: {  }
+    type: list_default
+    region: content
 hidden:
+  field_invert_text: true
   langcode: true
+  title: true
