@@ -22,17 +22,20 @@
           </a>
         </div>
         <div class="header__right">
-          <div class="secondary-nav">
-            {{ drupal_menu('header-secondary-nav') }}
-          </div>
-          {{ page.header }}
+
           <div class="mobile-trigger-wrap">
             <a class="mobile-trigger" href="">
               <i class="icon icon-db-menu"></i>
               <i class="icon icon-db-close"></i>
             </a>
           </div>
+
+          <div class="secondary-nav">
+            {{ drupal_menu('header-secondary-nav') }}
+          </div>
+
         </div>
+        {{ page.header }}
       </div>
     </div>
   </header>

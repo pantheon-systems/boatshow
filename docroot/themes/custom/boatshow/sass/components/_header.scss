@@ -32,6 +32,7 @@ header.header {
     height: 100%;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   .header__right {
@@ -40,10 +41,10 @@ header.header {
     width: 100%;
     flex-direction: column;
     align-items: flex-end;
+  }
 
-    .region-header {
-      width: 100%;
-    }
+  .region-header {
+    width: 100%;
   }
 
   .secondary-nav {

@@ -42,9 +42,19 @@ window.BoatShows = window.BoatShows || {};
       $window.off();
     }
 
+    function resetContentPadding() {
+      $header = $('header.header', thisContext);
+      if ($header.hasClass('fixed-header')) {
+        $contentRegion.css('margin-top', $header.outerHeight());
+      }
+    }
+
     return {
       setStateFixed: function() {
         setStateFixed();
+      },
+      resetContentPadding: function() {
+        resetContentPadding();
       }
     };
   };
