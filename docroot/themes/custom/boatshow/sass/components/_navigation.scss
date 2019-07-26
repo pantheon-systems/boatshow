@@ -5,32 +5,46 @@
 body.mobile-open {
   overflow: hidden;
 
-  .block-colossal-menu-blockmain-navigation-boatshow {
+  .header-modal-wrap {
     position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
     overflow: auto;
+    z-index: 1000;
 
-    .main-nav {
-      position: relative;
-      top: 10%;
-      max-width: 90%;
-      left: 50%;
-      transform: translateX(-50%);
-      margin-bottom: 200px;
+    header.header {
+      position: static;
     }
   }
 
-  .mobile-menu-close {
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-  }
+  // .block-colossal-menu-blockmain-navigation-boatshow {
+    // position: fixed;
+    // z-index: 1000;
+    // top: 0;
+    // left: 0;
+    // width: 100%;
+    // height: 100%;
+    // background-color: rgba(0,0,0,0.5);
+    // overflow: auto;
+
+  //   .main-nav {
+  //     position: relative;
+  //     top: 10%;
+  //     max-width: 90%;
+  //     left: 50%;
+  //     transform: translateX(-50%);
+  //     margin-bottom: 200px;
+  //   }
+  // }
+
+  // .mobile-menu-close {
+  //   display: block;
+  //   position: absolute;
+  //   right: 20px;
+  //   top: 20px;
+  // }
 }
 
 .block-colossal-menu-blockmain-navigation-boatshow {
@@ -41,7 +55,6 @@ body.mobile-open {
     background: #fff;
     border-bottom: solid 1px #d8d8d8;
     box-sizing: border-box;
-    // position: absolute;
     top: 114px;
     left: 0;
     width: 100%;
@@ -73,29 +86,6 @@ body.mobile-open {
       }
     }
 
-    &:not(:last-child) {
-      border-bottom: solid 1px #bdc2c7;
-      display: block;
-      margin: 0;
-
-      & > a {
-        font-size: 14px;
-        font-size: 0.875rem;
-        line-height: 1.2;
-        display: block;
-        padding: 15px 0;
-        text-transform: uppercase;
-
-        &:hover,
-        &:active {
-          text-decoration: none;
-        }
-      }
-
-      &:nth-last-child(2) {
-        border-bottom: none;
-      }
-    }
 
     &:last-child {
       & > a {
@@ -117,152 +107,171 @@ body.mobile-open {
   }
 
   @include media-breakpoint-up(lg) {
-    ul {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      &.mega-menu {
-        display: flex;
-        height: 100%;
-        justify-content: flex-end;
-        margin: 0 auto;
-        max-width: 1000px;
-        width: 100%;
-        align-items: center;
-        position: relative;
-        & > li {
-          transition: all .3s ease-in-out;
-          & + li {
-            margin-left: 40px;
+    .mega-menu {
+      position: static;
+      margin: 0 auto;
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      & > li {
+        transition: all .3s ease-in-out;
+
+        & + li {
+          margin-left: 40px;
+        }
+
+        & > a {
+          font-size: 13px;
+          font-weight: $font-weight-bold;
+          color: $colorname-black;
+          text-transform: uppercase;
+          line-height: 2.615;
+          text-align: center;
+          position: relative;
+
+          &:hover,
+          &:focus {
+            text-decoration: none;
           }
-          & > a {
-            font-size: 13px;
-            font-weight: $font-weight-bold;
-            color: $colorname-black;
-            text-transform: uppercase;
-            line-height: 2.615;
-            text-align: center;
-            position: relative;
-            &:hover,
-            &:focus {
-              text-decoration: none;
-            }
-            &.open {
-              &::after {
-                height: 4px;
-                content: '';
-                background: $city-color-primary;
-                width: 100%;
-                left: 0;
-                position: absolute;
-                bottom: -4px;
-              }
-            }
-          }
-          &:last-child {
-            & > a {
-              // TODO: Could we just change the class of the last element in the twig template?
-              @include button--small;
+
+          &.open {
+            &::after {
+              height: 4px;
+              content: '';
+              background: $city-color-primary;
+              width: 100%;
+              left: 0;
+              position: absolute;
+              bottom: -4px;
             }
           }
         }
-        ul.menu-dropdown {
-          visibility: hidden;
-          position: absolute;
-          right: 185px;
-          padding-top: 26px;
 
-          .flex-container {
-            flex-wrap: inherit;
+        &:last-child {
+          & > a {
+            // TODO: Could we just change the class of the last element in the twig template?
+            @include button--small;
           }
-          &.open {
-            visibility: visible;
+        }
+      }
+
+      ul.menu-dropdown {
+        visibility: hidden;
+        position: absolute;
+        right: 185px;
+        padding-top: 26px;
+
+        &.open {
+          visibility: visible;
+        }
+
+        .flex-container {
+          flex-wrap: inherit;
+        }
+
+        .show-on-large {
+          border: 1px solid $colorname-lighter-gray;
+          border-top: 0;
+          box-shadow: rgba(0,0,0,0.5) 0px 6px 10px;
+          .margin-top-30 {
+            margin-top: 30px;
           }
-          .show-on-large {
-            border: 1px solid $colorname-lighter-gray;
-            border-top: 0;
-            box-shadow: rgba(0,0,0,0.5) 0px 6px 10px;
-            .margin-top-30 {
-              margin-top: 30px;
+
+          .field--name-field-bricks {
+            & > div > .nmma-layout {
+              background: $colorname-white;
+
+              & > .column-item:last-child {
+                background: $colorname-lighter-gray;
+              }
+              display: flex;
             }
-            .field--name-field-bricks {
-              & > div > .nmma-layout {
-                background: $colorname-white;
-                > .column-item:last-child {
-                  background: $colorname-lighter-gray;
-                }
-                display: flex;
+
+            .one-column {
+              flex-direction: column;
+            }
+
+            .column-item {
+              padding: 30px;
+
+              &.col-6-sm {
+                width: auto;
               }
-              .one-column {
-                flex-direction: column;
-              }
+
               .column-item {
-                &.col-6-sm {
-                  width: auto;
-                }
-                padding: 30px;
-                .column-item {
-                  padding: 0;
+                padding: 0;
+              }
+            }
+            .field--name-field-text {
+              span {
+                line-height: normal;
+              }
+
+              .proxima-bold {
+                font-size: 16px;
+                font-weight: $font-weight-bold;
+                padding: 0;
+                margin: 0;
+              }
+
+              .proxima-light {
+                font-size: 14px;
+                color: $colorname-black;
+                font-weight: $font-weight-light;
+              }
+
+              .proxima-semibold {
+                font-size: 14px;
+                font-weight: $font-weight-semibold;
+
+                &.blue {
+                  color: $colorname-picton-blue;
                 }
               }
-              .field--name-field-text {
-                span {
-                  line-height: normal;
+
+              .proxima-reg {
+                font-weight: $font-weight-normal;
+                font-size: 13px;
+              }
+            }
+            .field--type-block-field {
+              .field--name-field-block {
+                & + .field--name-field-block {
+                  .teaser-block-type {
+                    margin-top: 20px;
+                  }
                 }
-                .proxima-bold {
-                  font-size: 16px;
+              }
+              .block-menu {
+                h2 {
                   font-weight: $font-weight-bold;
-                  padding: 0;
-                  margin: 0;
-                }
-                .proxima-light {
-                  font-size: 14px;
+                  font-size: 18px;
                   color: $colorname-black;
-                  font-weight: $font-weight-light;
+                  padding: 0;
                 }
-                .proxima-semibold {
-                  font-size: 14px;
-                  font-weight: $font-weight-semibold;
-                  &.blue {
-                    color: $colorname-picton-blue;
+
+                ul {
+                  padding-left: 20px;
+
+                  li {
+                    margin: 5px 0;
+                    line-height: 1.3;
+
+                    a {
+                      font-weight: $font-weight-bold;
+                      font-size: 14px;
+                    }
                   }
-                }
-                .proxima-reg {
-                  font-weight: $font-weight-normal;
-                  font-size: 13px;
                 }
               }
-              .field--type-block-field {
-                .field--name-field-block {
-                  & + .field--name-field-block {
-                    .teaser-block-type {
-                      margin-top: 20px;
-                    }
-                  }
-                }
-                .block-menu {
-                  h2 {
-                    font-weight: $font-weight-bold;
-                    font-size: 18px;
-                    color: $colorname-black;
-                    padding: 0;
-                  }
-                  ul {
-                    padding-left: 20px;
-                    li {
-                      margin: 5px 0;
-                      line-height: 1.3;
-                      a {
-                        font-weight: $font-weight-bold;
-                        font-size: 14px;
-                      }
-                    }
-                  }
-                }
-                .menu--general-information,
-                .menu--thing-to-do {
-                  min-width: 190px;
-                }
+
+              .menu--general-information,
+              .menu--thing-to-do {
+                min-width: 190px;
               }
             }
           }

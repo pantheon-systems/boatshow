@@ -38,17 +38,18 @@ window.BoatShows = window.BoatShows || {};
 
         $mobileMenuOpen.click(function(event) {
           event.preventDefault();
-          $menu.addClass('mobile-open');
-          $('body').addClass('mobile-open');
+          $menu.toggleClass('mobile-open');
+          $('body').toggleClass('mobile-open');
         });
 
-        $mobileMenuCloseBtn.click(function() {
-          $menu.removeClass('mobile-open');
-          $('body').removeClass('mobile-open');
-          if (BoatShows.hasOwnProperty('Header')) {
-            BoatShows.Header.resetContentPadding();
-          }
-        });
+        // $mobileMenuCloseBtn.click(function() {
+        //   $menu.removeClass('mobile-open');
+        //   $('body').removeClass('mobile-open');
+        // TODO: re add
+        //   if (BoatShows.hasOwnProperty('Header')) {
+        //     BoatShows.Header.resetContentPadding();
+        //   }
+        // });
       });
 
       // function getScrollbarWidth() {
