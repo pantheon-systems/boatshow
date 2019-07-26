@@ -1,0 +1,9 @@
+uuid: 40379f46-9d6a-4e33-b1ce-f509ac9c8ba0
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Card: Call-to-Action'
+type: card_cta
+description: ''

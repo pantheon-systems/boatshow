@@ -1,0 +1,40 @@
+uuid: 8c5e7ea5-5213-4155-93f8-1008f2fbc1e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.card_cta
+    - field.field.brick.card_cta.field_background_image
+    - field.field.brick.card_cta.field_brick_headline
+    - field.field.brick.card_cta.field_link
+  module:
+    - link
+id: brick.card_cta.default
+targetEntityType: brick
+bundle: card_cta
+mode: default
+content:
+  field_brick_headline:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_link:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden:
+  field_background_image: true
+  langcode: true
+  title: true

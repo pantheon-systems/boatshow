@@ -1,0 +1,28 @@
+uuid: 6e47b91e-0dc6-40b0-aed7-ad3f76a04cf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.card_cta
+    - field.storage.brick.field_background_image
+    - media.type.image
+id: brick.card_cta.field_background_image
+field_name: field_background_image
+entity_type: brick
+bundle: card_cta
+label: 'Background Image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

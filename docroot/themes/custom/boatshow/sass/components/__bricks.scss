@@ -81,3 +81,57 @@
     @include button--secondary;
   }
 }
+
+.brick--type--card-cta {
+  & .card-cta-header {
+    @include slab-inverted;
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-top: 100% / $brick-card-cta-aspect-ratio;
+
+    & > img {
+      @include object-fit-cover;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+    }
+
+    // gradient effect
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 75%;
+      background-image: linear-gradient(to top, rgba($city-color-primary, 1) 0%, rgba($city-color-primary, 0) 100%);
+      z-index: 2;
+      clip-path: polygon(0% 100%, 0% 84%, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    & > .headline {
+      box-sizing: border-box;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      padding: $brick-card-cta-header-padding;
+      text-align: center;
+      z-index: 3;
+    }
+  }
+
+  & .card-cta-body {
+    @include slab-white;
+    text-align: center;
+    padding: $dimension-card-padding;
+  }
+
+  & .field--name-field-link a {
+    @include button--secondary;
+  }
+}

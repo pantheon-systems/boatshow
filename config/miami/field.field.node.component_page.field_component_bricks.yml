@@ -8,6 +8,7 @@ dependencies:
     - eck.eck_type.brick.block_brick
     - eck.eck_type.brick.brick_accordion_wrapper
     - eck.eck_type.brick.card
+    - eck.eck_type.brick.card_cta
     - eck.eck_type.brick.carousel
     - eck.eck_type.brick.countdown
     - eck.eck_type.brick.disruptor_card
@@ -45,6 +46,7 @@ settings:
       block_brick: block_brick
       card: card
       3_col_card: 3_col_card
+      card_cta: card_cta
       countdown: countdown
       disruptor_card: disruptor_card
       download_button: download_button
