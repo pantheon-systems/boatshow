@@ -13,7 +13,7 @@
   <!-- ______________________ HEADER _______________________ -->
 
     <header class="header header-modal-wrap header-wrap {% if hero is empty %}no-hero{% endif %} hide-on-embed">
-      <div class="header-bar">
+      <div class="header-bar container">
         <div class="logo">
           <a href="/" data-gtm-tracking="Navigation - Top Navigation - Homepage">
             <img class="logo-white" src="/themes/custom/boatshow/images/{{ boatshow_city }}/boatshow_logo_white.png" alt="Boat Show">
@@ -23,10 +23,10 @@
         <div class="header__right">
 
           <div class="mobile-trigger-wrap">
-            <a class="mobile-trigger" href="">
+            <button class="mobile-trigger">
               <i class="icon icon-db-menu"></i>
               <i class="icon icon-db-close"></i>
-            </a>
+            </button>
           </div>
 
           <div class="secondary-nav">
@@ -35,7 +35,7 @@
 
         </div>
       </div>
-      {{ page.header }}
+      <div class="container">{{ page.header }}</div>
     </header>
   <!-- /header -->
 

@@ -16,10 +16,6 @@ header.header {
   z-index: 100;
   border-bottom: 1px solid $colorname-lighter-gray;
 
-  & > .container {
-    height: 100%;
-  }
-
   &.fixed-header {
     position: fixed;
     top: 0;
