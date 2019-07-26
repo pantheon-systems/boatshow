@@ -42,7 +42,43 @@
 
     .mega-menu {
       display: block;
-      background-color: gray;
+      background-color: $color-mobile-nav-background;
+      padding: 20px;
+      left: 0;
+
+      .menu-item.parent-item {
+        text-transform: uppercase;
+        border-bottom: 1px solid $color-nav-border;
+
+        & > a {
+          display: block;
+          padding: 20px 0;
+        }
+
+        & > .menu-dropdown {
+          background-color: $color-mobile-subnav-background;
+          margin: 0 -20px;
+          padding: 5px 40px;
+
+          .menu {
+            padding: 5px 30px;
+
+            li {
+              padding: 5px 0;
+            }
+          }
+        }
+      }
+    }
+
+    a {
+      color: inherit;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: inherit;
+      }
     }
   }
 }
@@ -57,13 +93,9 @@
 
   .mega-menu {
     display: none;
-    // background: #fff;
     border-bottom: solid 1px #d8d8d8;
     box-sizing: border-box;
-    top: 114px;
-    left: 0;
     width: 100%;
-    padding: 5px 20px 20px;
   }
 
   ul, li {

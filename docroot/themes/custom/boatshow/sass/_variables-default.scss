@@ -47,6 +47,7 @@ $colorname-gray-unleaded: #7f7f7f !default;
 $colorname-gray-iron: #d6d8d9 !default;
 $colorname-gray-chateau: #a3a9ac !default;
 $colorname-gray-silver-sand-alt: #bdc2c7 !default;
+$colorname-gray-wild-sand: #F5F5F5 !default;
 
 // Other colors
 $colorname-alizarin-red: #e61b3a !default;
@@ -118,6 +119,12 @@ $color-input-submittable-clear-border: $colorname-gray !default;
 
 $color-input-disabled-fill: $colorname-white !default;
 $color-input-disabled-border: $colorname-gray !default;
+
+
+// Header/Nav Colors
+$color-mobile-subnav-background: $colorname-white !default;
+$color-mobile-nav-background: $colorname-gray-wild-sand !default;
+$color-nav-border: #AAA;
 
 // Font Sizes
 
