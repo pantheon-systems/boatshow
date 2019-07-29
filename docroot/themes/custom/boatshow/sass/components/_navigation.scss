@@ -21,7 +21,7 @@
     }
 
     .header-bar {
-      background-color: magenta;
+      background-color: $colorname-white;
       position: relative;
       z-index: 300;
       overflow-y: scroll;
@@ -30,7 +30,7 @@
     .region-header {
       width: 100%;
       height: 100%;
-      padding-top: 113px;
+      // padding-top: 113px;
       position: absolute;
       top: 0;
       left: 0;

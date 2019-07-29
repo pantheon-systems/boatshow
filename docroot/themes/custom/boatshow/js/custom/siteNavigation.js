@@ -10,7 +10,8 @@ window.BoatShows = window.BoatShows || {};
         var $header = $(this);
         var $menu = $header.find('.mega-menu');
         var $mobileMenuOpen = $header.find('.mobile-trigger');
-        var $mobileMenuCloseBtn = $header.find('.mobile-menu-close');
+        var $regionHeader = $header.find('.region-header');
+        console.log($header.offset().top);
 
         $menu.find('.parent-item').each(function() {
           var $thisMenuItem = $(this);
@@ -38,42 +39,30 @@ window.BoatShows = window.BoatShows || {};
 
         $mobileMenuOpen.click(function(event) {
           event.preventDefault();
-          $menu.toggleClass('mobile-open');
-          $('body').toggleClass('mobile-open');
+
+          if (!$(context).find('body').hasClass('mobile-open')) {
+            $menu.addClass('mobile-open');
+            $('body').addClass('mobile-open');
+
+            $header.css('top', $header.offset().top + 'px');
+
+            if (BoatShows.hasOwnProperty('Header')) {
+              $regionHeader.css('top', BoatShows.Header.getHeaderBarHeight());
+
+            }
+          }
+          else {
+            $menu.removeClass('mobile-open');
+            $('body').removeClass('mobile-open');
+
+            if (BoatShows.hasOwnProperty('Header')) {
+              BoatShows.Header.resetContentPadding();
+            }
+
+            $header.css('top', 0);
+          }
         });
-
-        // $mobileMenuCloseBtn.click(function() {
-        //   $menu.removeClass('mobile-open');
-        //   $('body').removeClass('mobile-open');
-        // TODO: re add
-        //   if (BoatShows.hasOwnProperty('Header')) {
-        //     BoatShows.Header.resetContentPadding();
-        //   }
-        // });
       });
-
-      // function getScrollbarWidth() {
-
-      //   // Creating invisible container
-      //   const outer = document.createElement('div');
-      //   outer.style.visibility = 'hidden';
-      //   outer.style.overflow = 'scroll'; // forcing scrollbar to appear
-      //   outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
-      //   document.body.appendChild(outer);
-
-      //   // Creating inner element and placing it in the container
-      //   const inner = document.createElement('div');
-      //   outer.appendChild(inner);
-
-      //   // Calculating difference between container's full width and the child width
-      //   const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
-
-      //   // Removing temporary elements from the DOM
-      //   outer.parentNode.removeChild(outer);
-
-      //   return scrollbarWidth;
-
-      // }
 
       function openSubmenu($selector) {
         $selector.siblings('a').addClass('open');

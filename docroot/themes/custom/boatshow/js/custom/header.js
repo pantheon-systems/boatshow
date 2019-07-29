@@ -4,14 +4,12 @@ window.BoatShows = window.BoatShows || {};
   'use strict';
 
   var Header = function() {
-    var $header, $contentRegion, headerOffset, thisContext, $window;
+    var $preHeader, $header, $headerBar, $contentRegion, headerOffset, $thisContext, $window;
 
     Drupal.behaviors.boatShowHeader = {
       attach: function (context, settings) {
-        thisContext = context
-        $header = $('header.header', context);
-        $contentRegion = $('.region.region-content', context);
-        headerOffset = $header.offset().top;
+        $thisContext = $(context);
+        updateState();
         $window = $(window, context);
 
         if ($window.scrollTop() >= headerOffset) {
@@ -35,15 +33,24 @@ window.BoatShows = window.BoatShows || {};
       }
     };
 
+    function updateState() {
+      $preHeader = $thisContext.find('.pre-header-wrapper');
+      $header = $thisContext.find('header.header');
+      $headerBar = $header.find('.header-bar');
+      $contentRegion = $thisContext.find('.region.region-content');
+      headerOffset = $header.offset().top;
+      console.log(headerOffset);
+    }
+
     function setStateFixed() {
-      $header = $('header.header', thisContext);
+      updateState();
       $header.addClass('fixed-header');
       $contentRegion.css('margin-top', $header.outerHeight());
       $window.off();
     }
 
     function resetContentPadding() {
-      $header = $('header.header', thisContext);
+      updateState();
       if ($header.hasClass('fixed-header')) {
         $contentRegion.css('margin-top', $header.outerHeight());
       }
@@ -55,6 +62,14 @@ window.BoatShows = window.BoatShows || {};
       },
       resetContentPadding: function() {
         resetContentPadding();
+      },
+      getHeaderBarHeight: function() {
+        updateState();
+        return $headerBar.outerHeight();
+      },
+      getHeaderOffset: function() {
+        updateState();
+        return headerOffset;
       }
     };
   };
