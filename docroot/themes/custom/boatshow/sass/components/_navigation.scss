@@ -2,11 +2,15 @@
   display: none;
 }
 
+* {
+  // box-sizing: border-box;
+}
+
 @include media-breakpoint-down(lg) {
   body.mobile-open {
     overflow: hidden;
 
-    .header-modal-wrap {
+    .header {
       position: fixed;
       width: 100%;
       height: 100%;
@@ -14,9 +18,6 @@
       left: 0;
       overflow: hidden;
       z-index: 1000;
-    }
-
-    .header {
       background-color: transparent;
     }
 
@@ -30,7 +31,6 @@
     .region-header {
       width: 100%;
       height: 100%;
-      // padding-top: 113px;
       position: absolute;
       top: 0;
       left: 0;
@@ -44,6 +44,7 @@
       display: block;
       background-color: $color-mobile-nav-background;
       padding: 20px;
+      margin-bottom: 50px;
       left: 0;
 
       .menu-item.parent-item {
