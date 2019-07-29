@@ -20,10 +20,3 @@ $config_directories = [
  * Private file path.
  */
 $settings['file_private_path'] = DRUPAL_ROOT . '/../files-private/nashville';
-
-/**
- * Load multisite configuration, if available.
- */
-if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/boatshow/nashville-settings.inc';
-}
