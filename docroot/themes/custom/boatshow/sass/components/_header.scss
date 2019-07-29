@@ -48,6 +48,7 @@ header.header {
       list-style: none;
       margin-top: 0;
       margin-bottom: 10px;
+
       li {
         & + li {
           margin-left: 15px;
@@ -60,19 +61,23 @@ header.header {
       font-size: 13px;
       line-height: normal;
       text-transform: uppercase;
-      &::after {
+      color: inherit;
+
+      &:after {
         content: '\f054';
         font-family: $fontname-fontawesome;
         color: $city-color-secondary;
         margin-left: 5px;
         vertical-align: middle;
       }
+
       &:hover {
         text-decoration: none;
+        color: $city-color-secondary;
       }
     }
 
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
       ul {
         display: block;
         padding: 0;

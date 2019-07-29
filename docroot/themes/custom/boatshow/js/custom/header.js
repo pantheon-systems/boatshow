@@ -71,6 +71,8 @@ window.BoatShows = window.BoatShows || {};
           $mobileMenuOpen.click(function(event) {
             event.preventDefault();
 
+            $mobileMenuOpen.toggleClass('mobile-menu-active');
+
             if (!$(context).find('body').hasClass('mobile-open')) {
               if (!$header.hasClass('fixed-header')) {
                 $header.css('top', $header.offset().top + 'px');
