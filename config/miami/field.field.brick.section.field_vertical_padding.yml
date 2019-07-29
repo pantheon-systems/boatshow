@@ -1,0 +1,21 @@
+uuid: 099a54e5-2ca2-4c49-bb02-32d489ea14ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.section
+    - field.storage.brick.field_vertical_padding
+  module:
+    - options
+id: brick.section.field_vertical_padding
+field_name: field_vertical_padding
+entity_type: brick
+bundle: section
+label: 'Vertical Padding'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

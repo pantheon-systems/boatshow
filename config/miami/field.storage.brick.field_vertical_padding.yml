@@ -1,0 +1,30 @@
+uuid: 34bf77cc-c92b-4c8f-8f61-34f79181eb62
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - options
+id: brick.field_vertical_padding
+field_name: field_vertical_padding
+entity_type: brick
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: both
+      label: both
+    -
+      value: top
+      label: top
+    -
+      value: bottom
+      label: bottom
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,3 +1,16 @@
+.section-vertical-padding-top {
+  padding-top: $dimension-section-vertical-padding;
+}
+
+.section-vertical-padding-bottom {
+  padding-bottom: $dimension-section-vertical-padding;
+}
+
+.section-vertical-padding-both {
+  @extend .section-vertical-padding-top;
+  @extend .section-vertical-padding-bottom;
+}
+
 .brick--type--section {
   max-width: $site-maxout-width;
   margin-left: auto;

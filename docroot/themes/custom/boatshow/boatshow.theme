@@ -378,6 +378,20 @@ function boatshow_preprocess_eck_entity(&$variables) {
     $variables['headline_title'] = html_entity_decode($headline_title);
   }
 
+  /////////////////////////
+  /// Vertical Padding
+  /////////////////////////
+  if ($entity->hasField('field_vertical_padding')) {
+    if (!empty($entity->field_vertical_padding->value)) {
+      $vertical_padding = $entity->field_vertical_padding->value;
+    }
+    else {
+      $vertical_padding = 'none';
+    }
+
+    $variables['attributes']['class'][] = 'section-vertical-padding-' . $vertical_padding;
+  }
+
   if ($entity->bundle() == '3_col_card') {
 
     // Get title.
