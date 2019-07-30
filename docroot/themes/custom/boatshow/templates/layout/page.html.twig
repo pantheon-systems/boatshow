@@ -12,7 +12,7 @@
 
   <!-- ______________________ HEADER _______________________ -->
 
-  <header class="header {% if hero is empty %}no-hero{% endif %} hide-on-embed">
+  <header class="header {% if hero is empty %}no-hero{% endif %}">
     <div class="container">
       <div class="header-wrap">
         <div class="logo">
@@ -52,9 +52,11 @@
   <!-- ______________________ MAIN _______________________ -->
 
   <div class="clearfix" id="main">
-    <section id='block-breadcrumbs' class="breadcrumbs hide-on-embed">
+    {% if not is_front_page %}
+    <section id='block-breadcrumbs' class="breadcrumbs">
       {{ drupal_block('system_breadcrumb_block') }}
     </section>
+    {% endif %}
       {% if page.sidebar_first %}
         <aside class="sidebar-first sidebars" id="sidebar-first">
           {{ page.sidebar_first }}
@@ -71,7 +73,7 @@
 
           {{ title_prefix }}
 
-          {% if title %}
+          {% if not is_front_page and title %}
             <h1 class="title">{{ title }}</h1>
           {% endif %}
 
@@ -106,7 +108,7 @@
   <!-- /main -->
 
   <!-- ______________________ FOOTER _______________________ -->
-  <footer class="footer hide-on-embed">
+  <footer class="footer">
     {{ page.footer }}
     {% include componentroot ~ '/region/footer.twig' %}
   </footer>

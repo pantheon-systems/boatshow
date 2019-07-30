@@ -109,6 +109,9 @@ function boatshow_preprocess_page(&$variables) {
   else {
     $variables['#attached']['library'][] = 'boatshow/default_global_styles';
   }
+
+  // Add check for front page
+  $variables['is_front_page'] = \Drupal::service('path.matcher')->isFrontPage();
 }
 
 /**
