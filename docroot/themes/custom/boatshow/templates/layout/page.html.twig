@@ -12,9 +12,8 @@
 
   <!-- ______________________ HEADER _______________________ -->
 
-  <header class="header">
-    <div class="container">
-      <div class="header-wrap">
+    <header class="header header-wrap">
+      <div class="header-bar container">
         <div class="logo">
           <a href="/" data-gtm-tracking="Navigation - Top Navigation - Homepage">
             <img class="logo-white" src="/themes/custom/boatshow/images/{{ boatshow_city }}/boatshow_logo_white.png" alt="Boat Show">
@@ -24,22 +23,20 @@
         <div class="header__right">
 
           <div class="mobile-trigger-wrap">
-            <a class="mobile-trigger" href="">
+            <button class="mobile-trigger">
               <i class="icon icon-db-menu"></i>
               <i class="icon icon-db-close"></i>
-            </a>
+            </button>
           </div>
 
           <div class="secondary-nav">
             {{ drupal_menu('header-secondary-nav') }}
           </div>
 
-          {{ page.header }}
-
         </div>
       </div>
-    </div>
-  </header>
+      <div class="container">{{ page.header }}</div>
+    </header>
   <!-- /header -->
 
   <!-- ______________________ HERO _______________________ -->
@@ -52,11 +49,11 @@
   <!-- ______________________ MAIN _______________________ -->
 
   <div class="clearfix" id="main">
-    {% if not is_front_page %}
-    <section id='block-breadcrumbs' class="breadcrumbs">
-      {{ drupal_block('system_breadcrumb_block') }}
-    </section>
-    {% endif %}
+      {% if not is_front_page %}
+      <section id='block-breadcrumbs' class="breadcrumbs">
+        {{ drupal_block('system_breadcrumb_block') }}
+      </section>
+      {% endif %}
       {% if page.sidebar_first %}
         <aside class="sidebar-first sidebars" id="sidebar-first">
           {{ page.sidebar_first }}
