@@ -6,16 +6,12 @@
 //
 // Style guide: components.header
 
+$site-header-z-index-base: 10000;
 $site-header-breakpoint-main: lg !default;
 
 ////////////////////////
 /// COMMON STYLES
 ////////////////////////
-.header-bar {
-  display: flex;
-  padding: 10px;
-}
-
 
 .site-header {
   @include font-aliasing();
@@ -24,240 +20,211 @@ $site-header-breakpoint-main: lg !default;
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  z-index: 100;
-  border-bottom: 1px solid $colorname-lighter-gray;
+  z-index: $site-header-z-index-base;
 
   &.fixed-header {
     position: fixed;
     top: 0;
     left: 0;
   }
+}
 
-  .header__right {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  .region-header {
-    width: 100%;
-  }
-
-  .logo {
-    align-items: center;
-    display: flex;
-    width: 242px;
-    & a {
-      display: block;
-      width: 100%;
-      min-width: 240px;
-      img.logo-color {
-        display: block;
-      }
-      img.logo-white {
-        display: none;
-      }
-    }
+// Reset link colors
+.site-header a {
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    color: inherit;
   }
 }
 
-.block-colossal-menu-blockmain-navigation-boatshow {
-  width: 100%;
+.header-bar {
+  @include slab-white;
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
 
-  .mega-menu {
-    display: none;
-    border-bottom: solid 1px #d8d8d8;
-    box-sizing: border-box;
-    width: 100%;
+.header-bar .logo {
+  display: flex;
+  width: 242px;
+
+  & img {
+    display: inline-block;
+    max-width: 100%;
   }
 
-  ul, li {
+  & img.logo-color {
+    display: block;
+  }
+  & img.logo-white {
+    display: none;
+  }
+}
+
+.region-header {
+  width: 100%;
+}
+
+[id="block-mainnavigationboatshow"],
+[id="block-headersecondarynav"] {
+  & > ul,
+  & > ul > li,
+  & > ul > li > ul,
+  & > ul > li > ul > li {
+    //Reset list styles
     list-style: none;
     margin: 0;
     padding: 0;
   }
+}
 
-  h2 {
-    // Copied from _base.scss h3 styles.
-    font-size: 140%;
-    line-height: 145%;
-  }
+[id="block-mainnavigationboatshow"] {
+  display: flex;
+  width: 100%;
 
-  .menu-item.parent-item {
-    .menu-dropdown {
-      display: none;
+  // Hide and show
+  & > ul > li > ul {
+    display: none;
+    visibility: hidden;
 
-      &.open {
-        display: block;
-      }
-    }
-
-
-    &:last-child {
-      & > a {
-        @include button--small;
-      }
-    }
-  }
-
-  nav.navigation {
-    margin-bottom: 1em;
-  }
-
-  // Collapse two-column layouts to one.
-  .two-columns {
-    & > div {
+    &.open {
       display: block;
-      width: 100%;
+      visibility: visible;
     }
   }
 }
-
-// Creating a new section for menu styles because I want to start un-nesting
-// things.
-.mega-menu {
-  h2 {
-    text-transform: initial;
-  }
-}
-
 
 ////////////////////////
 /// MOBILE-ONLY STYLES
 ////////////////////////
-
-// Mobile nav
-// NOTE: Not currently used. Due to an issue with getting all the links to
-// display we opted to use media queries to restyle the desktop nav instead.
-// This may be removed in the future.
-.block-colossal-menu-blockmain-navigation-mobile {
-  @include media-breakpoint-up(lg) {
-    display: none;
-  }
-
-  display: none; // Disable mobile menu
-  background: $colorname-white;
-  border-bottom: solid 1px #d8d8d8;
-  box-sizing: border-box;
-  position: absolute;
-  top: 114px;
-  left: 0;
-  width: 100%;
-  padding: 0 20px 20px;
-
-  ul, li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-
 @include media-breakpoint-down($site-header-breakpoint-main) {
-  .mobile-trigger-wrap {
-    display: block;
+  .site-header {
+    flex-wrap: wrap;
   }
 
-  .mobile-trigger {
-    border-left: solid 1px $colorname-lighter-gray;
-    font-size: 1.5rem;
-    border: 0;
-    height: 35px;
+  .header-bar {
+    position: relative;
+    z-index: $site-header-z-index-base + 10;
   }
 
-  .icon-db-menu {
-    display: inline-block;
-  }
-
-  .icon-db-close {
+  .region-header {
     display: none;
+    z-index: $site-header-z-index-base + 2;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    overflow-y: scroll;
+    box-sizing: border-box;
   }
 
-  .mobile-menu-active {
-    .icon-db-menu {
-      display: none;
+  // Shared styles between primary and secondary
+  [id="block-mainnavigationboatshow"],
+  [id="block-headersecondarynav"] {
+    & > ul,
+    & > ul > li {
+      // Reset lists
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .icon-db-close {
-      display: inline-block;
+    & > ul {
+      padding: 0 20px; //todo: match grid
+      display: block;
+      width: 100%;
+    }
+
+    & > ul > li {
+      border-style: solid;
+      border-width: 1px 0 0;
+
+      &:first-child {
+        border-width: 0;
+      }
+    }
+
+    & > ul > li > a {
+      text-transform: uppercase;
+      display: block;
+      padding: 20px 0;
+    }
+  }
+
+  // Primary-only styles
+  [id="block-mainnavigationboatshow"] {
+    @include slab-light-gray;
+    padding-top: 20px;
+
+    & > ul {
+      //sass-lint:disable no-empty
+    }
+
+    & > ul > li {
+      //sass-lint:disable no-empty
+      border-color: rgba(#000, 0.2);
+    }
+
+    & > ul > li > a {
+      //sass-lint:disable no-empty
+      font-weight: $font-weight-semibold;
+    }
+
+    // Dropdown menu
+    & > ul > li > ul {
+      background-color: $color-mobile-subnav-background;
+      margin: 0 -20px;
+      padding: 5px 40px;
+
+      .menu {
+        padding: 5px 30px;
+
+        li {
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+
+  // Secondary-only styles
+  [id="block-headersecondarynav"] {
+    @include slab-very-dark-gray;
+    @include slab-inverted;
+
+    & > ul {
+      //sass-lint:disable no-empty
+    }
+
+    & > ul > li {
+      //sass-lint:disable no-empty
+      border-color: rgba(#fff, 0.2);
+    }
+
+    & > ul > li > a {
+      //sass-lint:disable no-empty
     }
   }
 
   body.mobile-open {
     overflow: hidden;
 
-    .header {
+    .site-header {
       position: fixed;
       width: 100%;
       height: 100%;
       top: 0;
       left: 0;
       overflow: hidden;
-      z-index: 1000;
       background-color: transparent;
     }
 
-    .header-bar {
-      background-color: $colorname-white;
-      position: relative;
-      z-index: 300;
-      overflow-y: scroll;
-    }
-
     .region-header {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: rgba(0,0,0,0.5);
-      overflow-y: scroll;
-      box-sizing: border-box;
       display: block;
-    }
-
-    .mega-menu {
-      display: block;
-      background-color: $color-mobile-nav-background;
-      padding: 20px;
-      margin-bottom: 50px;
-      left: 0;
-
-      .menu-item.parent-item {
-        text-transform: uppercase;
-        border-bottom: 1px solid $color-nav-border;
-
-        & > a {
-          display: block;
-          padding: 20px 0;
-        }
-
-        & > .menu-dropdown {
-          background-color: $color-mobile-subnav-background;
-          margin: 0 -20px;
-          padding: 5px 40px;
-
-          .menu {
-            padding: 5px 30px;
-
-            li {
-              padding: 5px 0;
-            }
-          }
-        }
-      }
-    }
-
-    a {
-      color: inherit;
-
-      &:hover,
-      &:active,
-      &:focus {
-        color: inherit;
-      }
     }
   }
 }
@@ -267,50 +234,34 @@ $site-header-breakpoint-main: lg !default;
 ////////////////////////
 
 @include media-breakpoint-up ($site-header-breakpoint-main) {
-
-  .mobile-trigger-wrap {
-    display: none;
-  }
-
-  .secondary-nav {
-    ul {
-      display: flex;
-      list-style: none;
-      margin-top: 0;
-      margin-bottom: 10px;
-
-      li {
-        & + li {
-          margin-left: 15px;
-        }
-      }
-    }
-
-    a {
-      font-weight: $font-weight-semibold;
-      font-size: 13px;
-      line-height: normal;
-      text-transform: uppercase;
-      color: inherit;
-
-      &:after {
-        content: '\f054';
-        font-family: $fontname-fontawesome;
-        color: $city-color-secondary;
-        margin-left: 5px;
-        vertical-align: middle;
-      }
-
-      &:hover {
-        text-decoration: none;
-        color: $city-color-secondary;
-      }
-    }
+  .site-header {
+    display: flex;
+    flex-direction: row;
 
   }
 
-  .block-colossal-menu-blockmain-navigation-boatshow {
-    .mega-menu {
+  .header-bar {
+    flex: 25%;
+  }
+
+  .region-header {
+    flex: 75%;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+  }
+
+  [id="block-mainnavigationboatshow"],
+  [id="block-headersecondarynav"] {
+    //sass-lint:disable no-empty
+  }
+
+  [id="block-mainnavigationboatshow"] {
+    & {
+      order: 2;
+    }
+
+    & > ul {
       position: static;
       margin: 0 auto;
       max-width: 100%;
@@ -319,185 +270,271 @@ $site-header-breakpoint-main: lg !default;
       display: flex;
       justify-content: flex-end;
       align-items: center;
+    }
 
-      & > li {
-        transition: all .3s ease-in-out;
+    & > ul > li {
+      transition: all .3s ease-in-out;
+      margin-left: 40px;
 
-        & + li {
-          margin-left: 40px;
-        }
+      &:first-child {
+        margin-left: 40px;
+      }
+    }
 
-        & > a {
-          font-size: 13px;
-          font-weight: $font-weight-bold;
-          color: $colorname-black;
-          text-transform: uppercase;
-          line-height: 2.615;
-          text-align: center;
-          position: relative;
+    & > ul > li > a {
+      font-size: 13px;
+      font-weight: $font-weight-bold;
+      color: $colorname-black;
+      text-transform: uppercase;
+      line-height: 2.615;
+      text-align: center;
+      position: relative;
 
-          &:hover,
-          &:focus {
-            text-decoration: none;
-          }
-
-          &.open {
-            &::after {
-              height: 4px;
-              content: '';
-              background: $city-color-primary;
-              width: 100%;
-              left: 0;
-              position: absolute;
-              bottom: -4px;
-            }
-          }
-        }
-
-        &:last-child {
-          & > a {
-            // TODO: Could we just change the class of the last element in the twig template?
-            @include button--small;
-          }
-        }
+      &:hover,
+      &:focus {
+        text-decoration: none;
       }
 
-      ul.menu-dropdown {
-        visibility: hidden;
-        position: absolute;
-        right: 185px;
-        z-index: 100;
-
-        &.open {
-          visibility: visible;
+      &.open {
+        &::after {
+          height: 4px;
+          content: '';
+          background: $city-color-primary;
+          width: 100%;
+          left: 0;
+          position: absolute;
+          bottom: -4px;
         }
+      }
+    }
 
-        .flex-container {
-          flex-wrap: inherit;
-        }
+    // Menu Dropdowns
+    & > ul > li > ul {
+      position: absolute;
+      right: 185px;
+      z-index: $site-header-z-index-base + 2;
 
-        .show-on-large {
-          border: 1px solid $colorname-lighter-gray;
-          border-top: 0;
-          box-shadow: rgba(0,0,0,0.5) 0px 6px 10px;
-          .margin-top-30 {
-            margin-top: 30px;
-          }
+      .flex-container {
+        flex-wrap: inherit;
+      }
+    }
 
-          .field--name-field-bricks {
-            & > div > .nmma-layout {
-              background: $colorname-white;
+    & > ul > li > ul > li {
+      border: 1px solid $colorname-lighter-gray;
+      border-top: 0;
+      box-shadow: rgba(0,0,0,0.5) 0px 6px 10px;
+      .margin-top-30 {
+        margin-top: 30px;
+      }
+    }
+  }
 
-              & > .column-item:last-child {
-                background: $colorname-lighter-gray;
-              }
-              display: flex;
-            }
+  [id="block-headersecondarynav"] {
+    & {
+      order: 1;
+    }
 
-            .one-column {
-              flex-direction: column;
-            }
+    & > ul {
+      display: flex;
+      float: right;
+      flex-direction: row;
+      list-style: none;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
 
-            .column-item {
-              padding: 30px;
+    & > ul > li {
+      margin-left: 15px;
 
-              &.col-6-sm {
-                width: auto;
-              }
+      &:first-child {
+        margin-left: 0;
+      }
+    }
 
-              .column-item {
-                padding: 0;
-              }
-            }
-            .field--name-field-text {
-              span {
-                line-height: normal;
-              }
+    & > ul > li > a {
+      font-weight: $font-weight-semibold;
+      font-size: 13px;
+      line-height: normal;
+      text-transform: uppercase;
+      color: inherit;
 
-              .proxima-bold {
-                font-size: 16px;
-                font-weight: $font-weight-bold;
-                padding: 0;
-                margin: 0;
-              }
+      &::after {
+        content: '\f054'; // chevron-right
+        display: inline-block;
+        font-family: $fontname-fontawesome;
+        color: $color-links;
+        margin-left: 5px;
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+      }
 
-              .proxima-light {
-                font-size: 14px;
-                color: $colorname-black;
-                font-weight: $font-weight-light;
-              }
-
-              .proxima-semibold {
-                font-size: 14px;
-                font-weight: $font-weight-semibold;
-
-                &.blue {
-                  color: $colorname-picton-blue;
-                }
-              }
-
-              .proxima-reg {
-                font-weight: $font-weight-normal;
-                font-size: 13px;
-              }
-            }
-            .field--type-block-field {
-              .field--name-field-block {
-                & + .field--name-field-block {
-                  .teaser-block-type {
-                    margin-top: 20px;
-                  }
-                }
-              }
-              .block-menu {
-                h2 {
-                  font-weight: $font-weight-bold;
-                  font-size: 18px;
-                  color: $colorname-black;
-                  padding: 0;
-                }
-
-                ul {
-                  padding-left: 20px;
-
-                  li {
-                    margin: 5px 0;
-                    line-height: 1.3;
-
-                    a {
-                      font-weight: $font-weight-bold;
-                      font-size: 14px;
-                    }
-                  }
-                }
-              }
-
-              .menu--general-information,
-              .menu--thing-to-do {
-                min-width: 190px;
-              }
-            }
-          }
-        }
+      &:hover {
+        color: $color-links;
       }
     }
   }
 }
-////////////////////
-/// EXTRA CRAP
-////////////////////
-  @include media-breakpoint-down(md) {
-    ul {
-      display: block;
-      padding: 0;
-      text-align: right;
 
-      li {
-        display: block;
+///////////////////////////////
+/// Styles for the mobile trigger
+///////////////////////////////
+.mobile-trigger {
+  display: inline-block;
+  font-size: 1.5rem;
+  border: 0;
+  height: 35px;
+  color: $color-links;
 
-        & + li {
-          margin-left: 0;
+  &::before {
+    display: inline-block;
+    font-family: 'boatshow-icons';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    // icon-db-menu
+    content: '\0048';
+  }
+
+  &.mobile-menu-active::before {
+    content: '\0047';
+  }
+
+  // Hide on desktop
+   @include media-breakpoint-up($site-header-breakpoint-main) {
+     display: none;
+   }
+}
+
+///////////////////////////////
+/// Styles for the mega menu submenu panels
+///////////////////////////////
+[id="block-mainnavigationboatshow"] > ul > li > ul > li {
+  @include slab-white;
+
+  .field--name-field-bricks {
+    & > div > .nmma-layout {
+      background: $colorname-white;
+
+
+      @include media-breakpoint-up($site-header-breakpoint-main) {
+        & > .column-item:last-child {
+          background: $colorname-lighter-gray;
         }
+      }
+      display: flex;
+    }
+
+    .one-column {
+      flex-direction: column;
+    }
+
+    .column-item {
+      padding: 30px;
+
+      .column-item {
+        padding: 0;
+      }
+    }
+    .field--name-field-text {
+      span {
+        line-height: normal;
+      }
+
+      .proxima-bold {
+        font-size: 16px;
+        font-weight: $font-weight-bold;
+        padding: 0;
+        margin: 0;
+      }
+
+      .proxima-light {
+        font-size: 14px;
+        color: $colorname-black;
+        font-weight: $font-weight-light;
+      }
+
+      .proxima-semibold {
+        font-size: 14px;
+        font-weight: $font-weight-semibold;
+
+        &.blue {
+          color: $colorname-picton-blue;
+        }
+      }
+
+      .proxima-reg {
+        font-weight: $font-weight-normal;
+        font-size: 13px;
+      }
+    }
+    .field--type-block-field {
+      .field--name-field-block {
+        & + .field--name-field-block {
+          .teaser-block-type {
+            margin-top: 20px;
+          }
+        }
+      }
+      .block-menu {
+        h2 {
+          font-weight: $font-weight-bold;
+          font-size: 18px;
+          color: $colorname-black;
+          padding: 0;
+        }
+
+        ul {
+          padding-left: 20px;
+
+          li {
+            margin: 5px 0;
+            line-height: 1.3;
+
+            a {
+              font-weight: $font-weight-bold;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      .menu--general-information,
+      .menu--thing-to-do {
+        min-width: 190px;
+      }
+    }
+
+    // Collapse two-column layouts to one on mobile
+    @include media-breakpoint-down($site-header-breakpoint-main) {
+      & .two-columns > div {
+        display: block;
+        width: 100%;
       }
     }
   }
+
+  // Child navs loaded via brick blocks
+  & .block-menu {
+    & {
+      margin-bottom: 1em;
+    }
+    h2 {
+      // Copied from _base.scss h3 styles.
+      font-size: 140%;
+      line-height: 145%;
+    }
+
+    & ul,
+    & ul li,
+    & ol,
+    & ol li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

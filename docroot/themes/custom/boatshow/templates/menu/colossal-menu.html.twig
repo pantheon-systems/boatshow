@@ -43,9 +43,9 @@
           {% if item.below %}
             <ul class="menu-dropdown" role="menubar">
               {% for item_below in item.below %}
-                <div class="show-on-large" role="menuitem">
+                <li role="menuitem">
                   {{ item_below.content|without('url, title') }}
-                </div>
+                </li>
               {% endfor %}
             </ul>
           {% endif %}

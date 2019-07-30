@@ -13,6 +13,10 @@
   background-color: $colorname-gray-unleaded;
 }
 
+@mixin slab-very-dark-gray {
+  background-color: $colorname-gray-dark;
+}
+
 @mixin slab-city-primary {
   background-color: rgba($city-color-primary, 0.8);
 }
@@ -70,6 +74,10 @@
 
 .slab-city-tertiary {
   @include slab-city-tertiary;
+}
+
+.slab-very-dark-gray {
+  @include slab-very-dark-gray;
 }
 
 .slab-inverted {
