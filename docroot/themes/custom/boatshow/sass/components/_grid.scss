@@ -37,10 +37,6 @@ $content-max-width: 1170px;
     @include container();
   }
 
-  &.no-hero {
-    padding-top: $dimension-header-height + 60px;
-  }
-
   & > article {
     margin-top: 30px;
   }

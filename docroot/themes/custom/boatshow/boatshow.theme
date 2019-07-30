@@ -488,9 +488,6 @@ function boatshow_preprocess_field(&$variables) {
     if (isset($node->get('field_component_bricks')->getValue()[0])) {
       $first_brick = $node->get('field_component_bricks')->getValue()[0]['target_id'];
       $entity = \Drupal::entityTypeManager()->getStorage('brick')->load($first_brick);
-      if ($entity->bundle() == 'carousel') {
-        $variables['has_hero'] = TRUE;
-      }
     }
   }
   if ($variables['element']['#field_name'] == 'field_disruptor_cta') {
