@@ -4,39 +4,48 @@ window.BoatShows = window.BoatShows || {};
   'use strict';
 
   var Header = function() {
-    var $preHeader, $header, $headerBar, $menu, $mobileMenuOpen, $regionHeader, $contentRegion, headerOffset, $window, $thisContext;
+    var $preHeader,
+      $siteHeader,
+      $headerBar,
+      $menu,
+      $mobileMenuOpen,
+      $regionHeader,
+      $contentRegion,
+      headerOffset,
+      $window,
+      $thisContext;
 
     function updateState() {
       $preHeader = $thisContext.find('.pre-header-wrapper');
-      $header = $thisContext.find('header.header');
-      $headerBar = $header.find('.header-bar');
+      $siteHeader = $thisContext.find('.site-header');
+      $headerBar = $siteHeader.find('.header-bar');
       $contentRegion = $thisContext.find('.region.region-content');
-      headerOffset = $header.offset().top;
-      $menu = $header.find('.mega-menu');
-      $mobileMenuOpen = $header.find('.mobile-trigger');
-      $regionHeader = $header.find('.region-header');
+      headerOffset = $siteHeader.offset().top;
+      $menu = $siteHeader.find('.mega-menu');
+      $mobileMenuOpen = $siteHeader.find('.mobile-trigger');
+      $regionHeader = $siteHeader.find('.region-header');
     }
 
     Drupal.behaviors.boatShowHeader = {
       attach: function (context, settings) {
         $thisContext = $(context);
-        $thisContext.find('header.header').once('boatshow-nav').each(function() {
+        $thisContext.find('.site-header').once('boatshow-nav').each(function() {
           updateState();
 
           if ($(window).scrollTop() >= headerOffset) {
-            $header.addClass('fixed-header');
+            $siteHeader.addClass('fixed-header');
             $contentRegion.css('margin-top', $headerBar.outerHeight());
           }
 
           if ($preHeader.outerHeight() > 0) {
             // Attach window scroll event listener
             $(window).scroll(function() {
-              if ($(window).scrollTop() >= headerOffset && !$header.hasClass('fixed-header')) {
-                $header.addClass('fixed-header');
+              if ($(window).scrollTop() >= headerOffset && !$siteHeader.hasClass('fixed-header')) {
+                $siteHeader.addClass('fixed-header');
                 $contentRegion.css('margin-top', $headerBar.outerHeight());
               }
-              else if ($(window).scrollTop() < headerOffset && $header.hasClass('fixed-header')) {
-                $header.removeClass('fixed-header');
+              else if ($(window).scrollTop() < headerOffset && $siteHeader.hasClass('fixed-header')) {
+                $siteHeader.removeClass('fixed-header');
                 $contentRegion.css('margin-top', '0');
               }
             });
@@ -74,8 +83,8 @@ window.BoatShows = window.BoatShows || {};
             $mobileMenuOpen.toggleClass('mobile-menu-active');
 
             if (!$(context).find('body').hasClass('mobile-open')) {
-              if (!$header.hasClass('fixed-header')) {
-                $header.css('top', $header.offset().top + 'px');
+              if (!$siteHeader.hasClass('fixed-header')) {
+                $siteHeader.css('top', $siteHeader.offset().top + 'px');
               }
 
               $('body').addClass('mobile-open');
@@ -83,7 +92,7 @@ window.BoatShows = window.BoatShows || {};
             }
             else {
               $('body').removeClass('mobile-open');
-              $header.css('top', 0);
+              $siteHeader.css('top', 0);
               $regionHeader.css('padding-top', 0);
 
               if (BoatShows.hasOwnProperty('Header')) {
@@ -117,15 +126,15 @@ window.BoatShows = window.BoatShows || {};
 
     function setStateFixed() {
       updateState();
-      $header.addClass('fixed-header');
-      $header.css('top', 0);
+      $siteHeader.addClass('fixed-header');
+      $siteHeader.css('top', 0);
       $contentRegion.css('margin-top', $headerBar.outerHeight());
       $(window).off();
     }
 
     function resetContentPadding() {
       updateState();
-      if ($header.hasClass('fixed-header')) {
+      if ($siteHeader.hasClass('fixed-header')) {
         $contentRegion.css('margin-top', $headerBar.outerHeight());
       }
     }
