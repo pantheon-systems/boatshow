@@ -6,6 +6,17 @@
 //
 // Style guide: components.header
 
+$site-header-breakpoint-main: lg !default;
+
+////////////////////////
+/// COMMON STYLES
+////////////////////////
+.header-bar {
+  display: flex;
+  padding: 10px;
+}
+
+
 header.header {
   @include font-aliasing();
   align-items: center;
@@ -42,58 +53,6 @@ header.header {
     width: 100%;
   }
 
-  .secondary-nav {
-    ul {
-      display: flex;
-      list-style: none;
-      margin-top: 0;
-      margin-bottom: 10px;
-
-      li {
-        & + li {
-          margin-left: 15px;
-        }
-      }
-    }
-
-    a {
-      font-weight: $font-weight-semibold;
-      font-size: 13px;
-      line-height: normal;
-      text-transform: uppercase;
-      color: inherit;
-
-      &:after {
-        content: '\f054';
-        font-family: $fontname-fontawesome;
-        color: $city-color-secondary;
-        margin-left: 5px;
-        vertical-align: middle;
-      }
-
-      &:hover {
-        text-decoration: none;
-        color: $city-color-secondary;
-      }
-    }
-
-    @include media-breakpoint-down(md) {
-      ul {
-        display: block;
-        padding: 0;
-        text-align: right;
-
-        li {
-          display: block;
-
-          & + li {
-            margin-left: 0;
-          }
-        }
-      }
-    }
-  }
-
   .logo {
     align-items: center;
     display: flex;
@@ -112,9 +71,128 @@ header.header {
   }
 }
 
+.block-colossal-menu-blockmain-navigation-boatshow {
+  width: 100%;
+
+  .mega-menu {
+    display: none;
+    border-bottom: solid 1px #d8d8d8;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    // Copied from _base.scss h3 styles.
+    font-size: 140%;
+    line-height: 145%;
+  }
+
+  .menu-item.parent-item {
+    .menu-dropdown {
+      display: none;
+
+      &.open {
+        display: block;
+      }
+    }
 
 
-@include media-breakpoint-down(lg) {
+    &:last-child {
+      & > a {
+        @include button--small;
+      }
+    }
+  }
+
+  nav.navigation {
+    margin-bottom: 1em;
+  }
+
+  // Collapse two-column layouts to one.
+  .two-columns {
+    & > div {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+// Creating a new section for menu styles because I want to start un-nesting
+// things.
+.mega-menu {
+  h2 {
+    text-transform: initial;
+  }
+}
+
+
+////////////////////////
+/// MOBILE-ONLY STYLES
+////////////////////////
+
+// Mobile nav
+// NOTE: Not currently used. Due to an issue with getting all the links to
+// display we opted to use media queries to restyle the desktop nav instead.
+// This may be removed in the future.
+.block-colossal-menu-blockmain-navigation-mobile {
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+
+  display: none; // Disable mobile menu
+  background: $colorname-white;
+  border-bottom: solid 1px #d8d8d8;
+  box-sizing: border-box;
+  position: absolute;
+  top: 114px;
+  left: 0;
+  width: 100%;
+  padding: 0 20px 20px;
+
+  ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+@include media-breakpoint-down($site-header-breakpoint-main) {
+  .mobile-trigger-wrap {
+    display: block;
+  }
+
+  .mobile-trigger {
+    border-left: solid 1px $colorname-lighter-gray;
+    font-size: 1.5rem;
+    border: 0;
+    height: 35px;
+  }
+
+  .icon-db-menu {
+    display: inline-block;
+  }
+
+  .icon-db-close {
+    display: none;
+  }
+
+  .mobile-menu-active {
+    .icon-db-menu {
+      display: none;
+    }
+
+    .icon-db-close {
+      display: inline-block;
+    }
+  }
+
   body.mobile-open {
     overflow: hidden;
 
@@ -192,63 +270,54 @@ header.header {
   }
 }
 
-.header-bar {
-  display: flex;
-  padding: 10px;
-}
+////////////////////////
+/// DESKTOP-ONLY STYLES
+////////////////////////
 
-.block-colossal-menu-blockmain-navigation-boatshow {
-  width: 100%;
+@include media-breakpoint-up ($site-header-breakpoint-main) {
 
-  .mega-menu {
+  .mobile-trigger-wrap {
     display: none;
-    border-bottom: solid 1px #d8d8d8;
-    box-sizing: border-box;
-    width: 100%;
   }
 
-  ul, li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+  .secondary-nav {
+    ul {
+      display: flex;
+      list-style: none;
+      margin-top: 0;
+      margin-bottom: 10px;
 
-  h2 {
-    // Copied from _base.scss h3 styles.
-    font-size: 140%;
-    line-height: 145%;
-  }
-
-  .menu-item.parent-item {
-    .menu-dropdown {
-      display: none;
-
-      &.open {
-        display: block;
+      li {
+        & + li {
+          margin-left: 15px;
+        }
       }
     }
 
+    a {
+      font-weight: $font-weight-semibold;
+      font-size: 13px;
+      line-height: normal;
+      text-transform: uppercase;
+      color: inherit;
 
-    &:last-child {
-      & > a {
-        @include button--small;
+      &:after {
+        content: '\f054';
+        font-family: $fontname-fontawesome;
+        color: $city-color-secondary;
+        margin-left: 5px;
+        vertical-align: middle;
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: $city-color-secondary;
       }
     }
+
   }
 
-  nav.navigation {
-    margin-bottom: 1em;
-  }
-
-  // Collapse two-column layouts to one.
-  .two-columns {
-    & > div {
-      display: block;
-      width: 100%;
-    }
-  }
-
-  @include media-breakpoint-up(lg) {
+  .block-colossal-menu-blockmain-navigation-boatshow {
     .mega-menu {
       position: static;
       margin: 0 auto;
@@ -422,72 +491,21 @@ header.header {
     }
   }
 }
+////////////////////
+/// EXTRA CRAP
+////////////////////
+  @include media-breakpoint-down(md) {
+    ul {
+      display: block;
+      padding: 0;
+      text-align: right;
 
-// Mobile nav
-// NOTE: Not currently used. Due to an issue with getting all the links to
-// display we opted to use media queries to restyle the desktop nav instead.
-// This may be removed in the future.
-.block-colossal-menu-blockmain-navigation-mobile {
-  @include media-breakpoint-up(lg) {
-    display: none;
-  }
+      li {
+        display: block;
 
-  display: none; // Disable mobile menu
-  background: $colorname-white;
-  border-bottom: solid 1px #d8d8d8;
-  box-sizing: border-box;
-  position: absolute;
-  top: 114px;
-  left: 0;
-  width: 100%;
-  padding: 0 20px 20px;
-
-  ul, li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-
-.mobile-trigger-wrap {
-  @include media-breakpoint-up(lg) {
-    display: none;
-  }
-
-  .mobile-trigger {
-    border-left: solid 1px $colorname-lighter-gray;
-    font-size: 1.5rem;
-    border: 0;
-    height: 35px;
-  }
-
-  .icon-db-menu {
-    display: inline-block;
-  }
-
-  .icon-db-close {
-    display: none;
-  }
-
-  .mobile-menu-active {
-    .icon-db-menu {
-      display: none;
-    }
-
-    .icon-db-close {
-      display: inline-block;
+        & + li {
+          margin-left: 0;
+        }
+      }
     }
   }
-}
-
-// Creating a new section for menu styles because I want to start un-nesting
-// things.
-.mega-menu {
-  h2 {
-    text-transform: initial;
-  }
-}
-
-
-
