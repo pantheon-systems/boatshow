@@ -1,36 +1,4 @@
-
-
-#sliding-popup.sliding-popup-top {
-  position: static;
-}
-
-.eu-cookie-compliance-banner,
-.eu-cookie-withdraw-wrapper {
-  background: $colorname-gray-dark;
-  color: $colorname-white;
-  padding: 20px 0;
-
-  h2,
-  h3,
-  h4,
-  h5,
-  p {
-    color: $colorname-white;
-    line-height: 1;
-  }
-}
-
-.eu-cookie-compliance-message {
-  float: none;
-  max-width: none;
-}
-
-.eu-cookie-compliance-buttons {
-  float: none;
-  margin-top: 20px;
-  max-width: none;
-
-  button {
-    margin-right: 10px;
-  }
+.cc-revoke,
+.cc-window {
+  z-index: 200 !important; //Override dynamically loaded stylesheet
 }
