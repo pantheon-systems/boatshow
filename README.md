@@ -380,3 +380,12 @@ All project and Drupal (module, themes, libraries) dependencies are managed via 
 Modules, themes, and other contributed Drupal projects can be added as dependencies in the root `composer.json` file.
 
 For step-by-step instructions on how to update dependencies, see [dependency-management.md](dependency-management.md).
+
+## Deploying to Acquia Cloud
+
+BLT will package up the code and dependencies into a folder named "deploy" then commit and push the code to the specified branch.
+The Acquia repository is specified in the "blt/blt.yml" file under the git remotes settings.
+
+```console
+host$ blt artifact:deploy --commit-msg "[NMMA-XX] COMMIT MESSAGE" --branch "BRANCH-TO-PUSH-TO" --no-interaction
+```
