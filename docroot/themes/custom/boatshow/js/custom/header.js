@@ -19,10 +19,10 @@ window.BoatShows = window.BoatShows || {};
       $siteHeader = $thisContext.find('.site-header');
       $headerBar = $siteHeader.find('.header-bar');
       $contentRegion = $thisContext.find('.region.region-content');
-      headerOffset = $siteHeader.offset().top;
       $menu = $siteHeader.find('.mega-menu');
       $mobileMenuOpen = $siteHeader.find('.mobile-trigger');
       $regionHeader = $siteHeader.find('.region-header');
+      headerOffset = $preHeader.outerHeight();
     }
 
     Drupal.behaviors.boatShowHeader = {
@@ -36,17 +36,14 @@ window.BoatShows = window.BoatShows || {};
             toggleFixedHeaderDesktop(true);
           }
 
-          if ($preHeader.outerHeight() > 0) {
-            // Attach window scroll event listener
-            $(window).scroll(function() {
-              if ($(window).scrollTop() >= headerOffset && !$siteHeader.hasClass('fixed-header')) {
-                toggleFixedHeaderDesktop(true);
-              }
-              else if ($(window).scrollTop() < headerOffset && $siteHeader.hasClass('fixed-header')) {
-                toggleFixedHeaderDesktop(false);
-              }
-            });
-          }
+          $(window).scroll(function() {
+            if ($(window).scrollTop() >= headerOffset && !$siteHeader.hasClass('fixed-header')) {
+              toggleFixedHeaderDesktop(true);
+            }
+            else if ($(window).scrollTop() < headerOffset && $siteHeader.hasClass('fixed-header')) {
+              toggleFixedHeaderDesktop(false);
+            }
+          });
 
           // mobile menu submenu dropdown
           $menu.find('.parent-item').each(function() {
@@ -126,11 +123,12 @@ window.BoatShows = window.BoatShows || {};
     }
 
     function toggleMobileMenu(active) {
+      // Open
       if (active) {
         $mobileMenuOpen.addClass('mobile-menu-active');
 
         if (!$siteHeader.hasClass('fixed-header')) {
-          $siteHeader.css('top', $siteHeader.offset().top + 'px');
+          $siteHeader.css('top', $siteHeader.offset().top - $(window).scrollTop());
         }
 
         $('body').addClass('mobile-open');
@@ -138,6 +136,7 @@ window.BoatShows = window.BoatShows || {};
         $contentRegion.css('margin-top', $headerBar.outerHeight());
         resizeWindowCloseMobileMenu();
       }
+      // Close
       else {
         $mobileMenuOpen.removeClass('mobile-menu-active');
         $('body').removeClass('mobile-open');
@@ -149,7 +148,6 @@ window.BoatShows = window.BoatShows || {};
 
       updateState();
     }
-
 
     function toggleFixedHeaderDesktop(active) {
       if (active) {

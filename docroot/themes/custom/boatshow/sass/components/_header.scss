@@ -52,6 +52,7 @@
   justify-content: space-between;
   width: 100%;
   padding: 10px;
+  border-bottom: 1px solid #EFEFEF;
 }
 
 .header-bar .logo {
@@ -116,7 +117,21 @@
   h2 {
     font-size: 20px;
     font-weight: $font-weight-normal;
+  }
 
+  h2 + .menu {
+    padding-left: 20px;
+    padding-bottom: 20px;
+
+    li {
+      margin: 0;
+      line-height: 30px;
+
+      a {
+        font-weight: 400;
+        font-size: 15px;
+      }
+    }
   }
 }
 
@@ -126,11 +141,13 @@
 @include media-breakpoint-down($site-header-breakpoint-main) {
   .site-header {
     flex-wrap: wrap;
+    border-bottom: 1px solid #EFEFEF;
   }
 
   .header-bar {
     position: relative;
     z-index: $site-header-z-index-base + 10;
+    border-bottom: 0;
   }
 
   .region-header {
@@ -194,7 +211,6 @@
     & > ul > li[class*="button"] {
       order: -1; //pull to top of menu
       border: 0;
-      padding: $main-navigation-item-padding-mobile 0;
     }
 
     & > ul > li:not([class*="button"]) > a {
@@ -247,6 +263,7 @@
       left: 0;
       overflow: hidden;
       background-color: transparent;
+      border-bottom: 0;
     }
 
     .header-bar {
@@ -254,6 +271,7 @@
       margin-right: -20px;
       padding-left: 30px;
       padding-right: 30px;
+      border-bottom: 1px solid #EFEFEF;
     }
 
     .region-header {
@@ -281,6 +299,7 @@
   .header-bar {
     flex: 25%;
     padding: 0;
+    border-bottom: 0;
   }
 
   .region-header {
@@ -288,6 +307,12 @@
     align-self: flex-end;
     display: flex;
     flex-direction: column;
+  }
+
+  .menu-dropdown .block-menu {
+    h2 + .menu > li > a {
+      color: $city-color-secondary;
+    }
   }
 
   [id="block-mainnavigationboatshow"],
@@ -479,7 +504,7 @@
     }
 
     .column-item {
-      padding: 30px;
+      padding: 10px 30px;
 
       .column-item {
         padding: 0;
@@ -508,7 +533,7 @@
         font-weight: $font-weight-semibold;
 
         &.blue {
-          color: $colorname-picton-blue;
+          color: $city-color-secondary;
         }
       }
 
@@ -523,22 +548,6 @@
         & + .field--name-field-block {
           .teaser-block-type {
             margin-top: 20px;
-          }
-        }
-      }
-      .block-menu {
-
-        ul {
-          padding-left: 20px;
-
-          li {
-            margin: 5px 0;
-            line-height: 1.3;
-
-            a {
-              font-weight: $font-weight-bold;
-              font-size: 14px;
-            }
           }
         }
       }
@@ -560,10 +569,6 @@
 
   // Child navs loaded via brick blocks
   & .block-menu {
-    & {
-      margin-bottom: 1em;
-    }
-
     & ul,
     & ul li,
     & ol,
