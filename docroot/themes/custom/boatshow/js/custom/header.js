@@ -12,7 +12,6 @@ window.BoatShows = window.BoatShows || {};
       $regionHeader,
       $contentRegion,
       headerOffset,
-      $window,
       $thisContext;
 
     function updateState() {
@@ -32,26 +31,24 @@ window.BoatShows = window.BoatShows || {};
         $thisContext.find('.site-header').once('boatshow-nav').each(function() {
           updateState();
 
+          // Fixed header stuff
           if ($(window).scrollTop() >= headerOffset) {
-            $siteHeader.addClass('fixed-header');
-            $contentRegion.css('margin-top', $headerBar.outerHeight());
+            toggleFixedHeaderDesktop(true);
           }
 
           if ($preHeader.outerHeight() > 0) {
             // Attach window scroll event listener
             $(window).scroll(function() {
               if ($(window).scrollTop() >= headerOffset && !$siteHeader.hasClass('fixed-header')) {
-                $siteHeader.addClass('fixed-header');
-                $contentRegion.css('margin-top', $headerBar.outerHeight());
+                toggleFixedHeaderDesktop(true);
               }
               else if ($(window).scrollTop() < headerOffset && $siteHeader.hasClass('fixed-header')) {
-                $siteHeader.removeClass('fixed-header');
-                $contentRegion.css('margin-top', '0');
+                toggleFixedHeaderDesktop(false);
               }
             });
           }
 
-          //
+          // mobile menu submenu dropdown
           $menu.find('.parent-item').each(function() {
             var $thisMenuItem = $(this);
             var $thisSubMenu = $thisMenuItem.find('.menu-dropdown');
@@ -77,37 +74,26 @@ window.BoatShows = window.BoatShows || {};
             });
           });
 
+          // Mobile menu button toggle
           $mobileMenuOpen.click(function(event) {
             event.preventDefault();
 
-            $mobileMenuOpen.toggleClass('mobile-menu-active');
-
             if (!$(context).find('body').hasClass('mobile-open')) {
-              if (!$siteHeader.hasClass('fixed-header')) {
-                $siteHeader.css('top', $siteHeader.offset().top + 'px');
-              }
-
-              $('body').addClass('mobile-open');
-              $regionHeader.css('padding-top', $headerBar.outerHeight());
+              toggleMobileMenu(true);
             }
             else {
-              $('body').removeClass('mobile-open');
-              $siteHeader.css('top', 0);
-              $regionHeader.css('padding-top', 0);
-
-              if (BoatShows.hasOwnProperty('Header')) {
-                resetContentPadding();
-              }
+              toggleMobileMenu(false);
             }
           });
         });
 
+        // Desktop mega menu hover
         $menu.find('.parent-item > a').each(function() {
           var $thisMenuLink = $(this);
           var $submenu = $thisMenuLink.siblings('.menu-dropdown');
 
           if ($submenu.length) {
-            $thisMenuLink.off();
+            $thisMenuLink.off('click');
           }
 
           $thisMenuLink.click(function(event) {
@@ -125,29 +111,69 @@ window.BoatShows = window.BoatShows || {};
             }
           });
         });
-
-        // $('#block-mainnavigationboatshow .mega-menu .parent-item > a').on('click', function(event) {
-        //   // Sometimes links are links and sometimes they're menu headers, and
-        //   // there's no way to tell them apart! As a workaround, disable preventDefault
-        //   // when
-        //   var $this = $(this);
-
-        // });
       }
     };
 
+    function resizeWindowCloseMobileMenu() {
+      $(window).resize(function() {
+        var $thisWindow = $(this);
+
+        if ($thisWindow.width() > 992) {
+          toggleMobileMenu(false);
+          $thisWindow.off('resize');
+        }
+      });
+    }
+
+    function toggleMobileMenu(active) {
+      if (active) {
+        $mobileMenuOpen.addClass('mobile-menu-active');
+
+        if (!$siteHeader.hasClass('fixed-header')) {
+          $siteHeader.css('top', $siteHeader.offset().top + 'px');
+        }
+
+        $('body').addClass('mobile-open');
+        $regionHeader.css('padding-top', $headerBar.outerHeight());
+        $contentRegion.css('margin-top', $headerBar.outerHeight());
+        resizeWindowCloseMobileMenu();
+      }
+      else {
+        $mobileMenuOpen.removeClass('mobile-menu-active');
+        $('body').removeClass('mobile-open');
+        $siteHeader.css('top', 0);
+        $regionHeader.css('padding-top', 0);
+        $contentRegion.css('margin-top', 0);
+        resetContentPadding();
+      }
+
+      updateState();
+    }
+
+
+    function toggleFixedHeaderDesktop(active) {
+      if (active) {
+        $siteHeader.addClass('fixed-header');
+        $contentRegion.css('margin-top', $siteHeader.outerHeight());
+      }
+      else {
+        $siteHeader.removeClass('fixed-header');
+        $contentRegion.css('margin-top', 0);
+      }
+    }
+
     function setStateFixed() {
       updateState();
-      $siteHeader.addClass('fixed-header');
       $siteHeader.css('top', 0);
-      $contentRegion.css('margin-top', $headerBar.outerHeight());
-      $(window).off();
+      toggleFixedHeaderDesktop(true);
+      $(window).off('scroll');
     }
 
     function resetContentPadding() {
       updateState();
+
       if ($siteHeader.hasClass('fixed-header')) {
-        $contentRegion.css('margin-top', $headerBar.outerHeight());
+        $contentRegion.css('margin-top', $siteHeader.outerHeight());
       }
     }
 

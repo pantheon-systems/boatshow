@@ -112,6 +112,14 @@
   }
 }
 
+.menu-dropdown .block-menu{
+  h2 {
+    font-size: 20px;
+    font-weight: $font-weight-normal;
+
+  }
+}
+
 ////////////////////////
 /// MOBILE-ONLY STYLES
 ////////////////////////
@@ -135,6 +143,7 @@
     left: 0;
     background: rgba(0,0,0,0.5);
     overflow-y: scroll;
+    overflow-x: hidden;
     box-sizing: border-box;
     padding: 0 10px 50px;
   }
@@ -518,12 +527,6 @@
         }
       }
       .block-menu {
-        h2 {
-          font-weight: $font-weight-bold;
-          font-size: 18px;
-          color: $colorname-black;
-          padding: 0;
-        }
 
         ul {
           padding-left: 20px;
@@ -559,11 +562,6 @@
   & .block-menu {
     & {
       margin-bottom: 1em;
-    }
-    h2 {
-      // Copied from _base.scss h3 styles.
-      font-size: 140%;
-      line-height: 145%;
     }
 
     & ul,
