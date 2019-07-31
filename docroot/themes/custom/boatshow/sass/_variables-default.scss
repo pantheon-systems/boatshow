@@ -181,14 +181,17 @@ $dimension-input-height: 36px !default;
 $dimension-input-height-large: 46px !default;
 $dimension-input-height-xlarge: 56px !default;
 
-$dimension-header-height: 70px !default;
-
-
 $site-maxout-width: 1600px !default;
 $dimension-card-padding: 30px !default;
 $brick-card-aspect-ratio: 16 / 9 !default;
 $brick-card-icon-color: $city-color-primary !default;
 $brick-card-icon-size: 60px !default;
+
+/// Site Header
+$site-header-z-index-base: 400 !default;
+$site-header-breakpoint-main: lg !default;
+$main-navigation-item-padding-mobile: 20px !default;
+$main-navigation-item-gutter-mobile: 30px !default; //todo: match grid
 
 // Effect: Contrast Headline
 $headline-effect-thickthin-weight-thin: $font-weight-thin !default;
