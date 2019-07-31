@@ -23,7 +23,17 @@
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
   }
+}
+
+.header-content {
+  @include container;
+  @include slab-white;
+  width: 100%;
+  display: flex;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 // Reset link colors
@@ -38,14 +48,14 @@
 
 .header-bar {
   @include slab-white;
-  @include container;
   display: flex;
   justify-content: space-between;
+  width: 100%;
   padding: 10px;
 }
 
 .header-bar .logo {
-  display: flex;
+  display: block;
   width: 242px;
 
   & img {
@@ -179,8 +189,8 @@
     }
 
     & > ul > li:not([class*="button"]) > a {
-      //sass-lint:disable no-empty
-      font-weight: $font-weight-semibold;
+      font-size: 16px;
+      font-weight: $font-weight-medium;
     }
 
     // Dropdown menu
@@ -231,6 +241,13 @@
       background-color: transparent;
     }
 
+    .header-bar {
+      margin-left: -20px;
+      margin-right: -20px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
     .region-header {
       display: block;
     }
@@ -248,8 +265,14 @@
 
   }
 
+  .header-content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
   .header-bar {
     flex: 25%;
+    padding: 0;
   }
 
   .region-header {
@@ -294,10 +317,10 @@
     }
 
     & > ul > li:not([class*="button"]) > a {
-      font-size: 13px;
-      font-weight: $font-weight-bold;
-      color: $colorname-black;
-      text-transform: uppercase;
+      font-size: 15px;
+      font-weight: $font-weight-medium;
+      color: $color-text;
+      text-transform: none;
       line-height: 2.615;
       text-align: center;
       position: relative;
@@ -486,6 +509,7 @@
         font-size: 13px;
       }
     }
+
     .field--type-block-field {
       .field--name-field-block {
         & + .field--name-field-block {

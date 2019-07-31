@@ -102,25 +102,37 @@ window.BoatShows = window.BoatShows || {};
           });
         });
 
-        $('#block-mainnavigationboatshow .mega-menu .parent-item > a').on('click', function(event) {
-          // Sometimes links are links and sometimes they're menu headers, and
-          // there's no way to tell them apart! As a workaround, disable preventDefault
-          // when
-          var $this = $(this);
-          var $submenu = $this.siblings('.menu-dropdown');
+        $menu.find('.parent-item > a').each(function() {
+          var $thisMenuLink = $(this);
+          var $submenu = $thisMenuLink.siblings('.menu-dropdown');
+
           if ($submenu.length) {
-            event.preventDefault();
+            $thisMenuLink.off();
           }
 
-          if ($(window).width() <= 992) {
-            if ($submenu.hasClass('open')) {
-              $submenu.removeClass('open');
+          $thisMenuLink.click(function(event) {
+            if ($submenu.length) {
+              event.preventDefault();
             }
-            else {
-              $submenu.addClass('open');
+
+            if ($(window).width() <= 992) {
+              if ($submenu.hasClass('open')) {
+                $submenu.removeClass('open');
+              }
+              else {
+                $submenu.addClass('open');
+              }
             }
-          }
+          });
         });
+
+        // $('#block-mainnavigationboatshow .mega-menu .parent-item > a').on('click', function(event) {
+        //   // Sometimes links are links and sometimes they're menu headers, and
+        //   // there's no way to tell them apart! As a workaround, disable preventDefault
+        //   // when
+        //   var $this = $(this);
+
+        // });
       }
     };
 
