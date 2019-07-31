@@ -6,8 +6,11 @@
 //
 // Style guide: components.header
 
-$site-header-z-index-base: 10000;
+$site-header-z-index-base: 400 !default;
 $site-header-breakpoint-main: lg !default;
+
+$main-navigation-item-padding-mobile: 20px !default;
+$main-navigation-item-gutter-mobile: 30px !default; //todo: match grid
 
 ////////////////////////
 /// COMMON STYLES
@@ -79,6 +82,10 @@ $site-header-breakpoint-main: lg !default;
     margin: 0;
     padding: 0;
   }
+
+  & > ul {
+    display: flex;
+  }
 }
 
 [id="block-mainnavigationboatshow"] {
@@ -94,6 +101,11 @@ $site-header-breakpoint-main: lg !default;
       display: block;
       visibility: visible;
     }
+  }
+
+  & > ul > li[class*='button'] > a {
+    @include button;
+    font-size: inherit;
   }
 }
 
@@ -121,6 +133,7 @@ $site-header-breakpoint-main: lg !default;
     background: rgba(0,0,0,0.5);
     overflow-y: scroll;
     box-sizing: border-box;
+    padding: 0 10px 50px;
   }
 
   // Shared styles between primary and secondary
@@ -135,31 +148,27 @@ $site-header-breakpoint-main: lg !default;
     }
 
     & > ul {
-      padding: 0 20px; //todo: match grid
-      display: block;
+      padding: 0 $main-navigation-item-gutter-mobile;
       width: 100%;
+      flex-direction: column;
     }
 
     & > ul > li {
       border-style: solid;
       border-width: 1px 0 0;
-
-      &:first-child {
-        border-width: 0;
-      }
     }
 
-    & > ul > li > a {
+    & > ul > li:not([class*="button"]) > a {
       text-transform: uppercase;
       display: block;
-      padding: 20px 0;
+      padding: $main-navigation-item-padding-mobile 0;
     }
   }
 
   // Primary-only styles
   [id="block-mainnavigationboatshow"] {
     @include slab-light-gray;
-    padding-top: 20px;
+    padding-top: $main-navigation-item-padding-mobile;
 
     & > ul {
       //sass-lint:disable no-empty
@@ -170,7 +179,13 @@ $site-header-breakpoint-main: lg !default;
       border-color: rgba(#000, 0.2);
     }
 
-    & > ul > li > a {
+    & > ul > li[class*="button"] {
+      //sass-lint:disable no-empty
+      order: -1; //pull to top of menu
+      padding: $main-navigation-item-padding-mobile 0;
+    }
+
+    & > ul > li:not([class*="button"]) > a {
       //sass-lint:disable no-empty
       font-weight: $font-weight-semibold;
     }
@@ -178,7 +193,7 @@ $site-header-breakpoint-main: lg !default;
     // Dropdown menu
     & > ul > li > ul {
       background-color: $color-mobile-subnav-background;
-      margin: 0 -20px;
+      margin: 0 (-1 * $main-navigation-item-gutter-mobile);
       padding: 5px 40px;
 
       .menu {
@@ -267,7 +282,7 @@ $site-header-breakpoint-main: lg !default;
       max-width: 100%;
       width: 100%;
       height: 100%;
-      display: flex;
+      flex-direction: row;
       justify-content: flex-end;
       align-items: center;
     }
@@ -281,7 +296,7 @@ $site-header-breakpoint-main: lg !default;
       }
     }
 
-    & > ul > li > a {
+    & > ul > li:not([class*="button"]) > a {
       font-size: 13px;
       font-weight: $font-weight-bold;
       color: $colorname-black;
@@ -320,10 +335,13 @@ $site-header-breakpoint-main: lg !default;
     }
 
     & > ul > li > ul > li {
-      border: 1px solid $colorname-lighter-gray;
-      border-top: 0;
+      border-width: 0 1px 1px;
+      border-style: solid;
+      border-color: $colorname-lighter-gray;
       box-shadow: rgba(0,0,0,0.5) 0px 6px 10px;
-      .margin-top-30 {
+
+      // Todo: remove?
+      & .margin-top-30 {
         margin-top: 30px;
       }
     }
