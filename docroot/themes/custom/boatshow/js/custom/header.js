@@ -4,7 +4,8 @@ window.BoatShows = window.BoatShows || {};
   'use strict';
 
   var Header = function() {
-    var $preHeader,
+    var $thisBody,
+      $preHeader,
       $siteHeader,
       $headerBar,
       $menu,
@@ -13,8 +14,12 @@ window.BoatShows = window.BoatShows || {};
       $contentRegion,
       headerOffset,
       $thisContext,
+      $thisWindow,
       $adminBarTop,
       $adminBarBottom;
+
+    var desktopBreakpoint = 992;
+    var menuOpenClass = 'open';
 
     function updateState() {
       $preHeader = $thisContext.find('.pre-header-wrapper');
@@ -34,17 +39,19 @@ window.BoatShows = window.BoatShows || {};
         $thisContext = $(context);
         $thisContext.find('.site-header').once('boatshow-nav').each(function() {
           updateState();
+          $thisWindow = $(window);
+          $thisBody = $thisContext.find('body');
 
           // Fixed header stuff
-          if ($(window).scrollTop() >= headerOffset) {
+          if ($thisWindow.scrollTop() >= headerOffset) {
             toggleFixedHeaderDesktop(true);
           }
 
-          $(window).scroll(function() {
-            if ($(window).scrollTop() >= headerOffset && !$siteHeader.hasClass('fixed-header')) {
+          $thisWindow.scroll(function() {
+            if ($thisWindow.scrollTop() >= headerOffset && !$siteHeader.hasClass('fixed-header')) {
               toggleFixedHeaderDesktop(true);
             }
-            else if ($(window).scrollTop() < headerOffset && $siteHeader.hasClass('fixed-header')) {
+            else if ($thisWindow.scrollTop() < headerOffset && $siteHeader.hasClass('fixed-header')) {
               toggleFixedHeaderDesktop(false);
             }
           });
@@ -56,20 +63,16 @@ window.BoatShows = window.BoatShows || {};
             var timer;
             // Main nav triggers.
             $thisMenuItem.hover(function() {
-              $menu.find('.parent-item > .menu-dropdown, .parent-item > a').removeClass('open');
+              $menu.find('.parent-item > .menu-dropdown, .parent-item > a').removeClass(menuOpenClass);
 
               // mouse in
-              if ($(window).width() > 992) {
+              if ($thisWindow.width() > desktopBreakpoint) {
                 clearTimeout(timer);
                 openSubmenu($thisSubMenu);
               }
-
             }, function() {
               // mouseout
-              if ($(window).width() > 992) {
-                // timer = setTimeout(closeSubmenu($thisSubMenu), 1000);
-
-
+              if ($thisWindow.width() > desktopBreakpoint) {
                 timer = setTimeout(function() {
                   closeSubmenu($thisSubMenu);
                 }, 200);
@@ -90,12 +93,13 @@ window.BoatShows = window.BoatShows || {};
           });
         });
 
-        // Desktop mega menu hover
+        // Mobile menu item click events
         $menu.find('.parent-item > a').each(function() {
           var $thisMenuLink = $(this);
           var $submenu = $thisMenuLink.siblings('.menu-dropdown');
 
-          if ($submenu.length) {
+          // Remove remove analytics click listeners if mobile menu dropdown toggles
+          if ($thisWindow.width() <= desktopBreakpoint && $submenu.length) {
             $thisMenuLink.off('click');
           }
 
@@ -104,12 +108,12 @@ window.BoatShows = window.BoatShows || {};
               event.preventDefault();
             }
 
-            if ($(window).width() <= 992) {
-              if ($submenu.hasClass('open')) {
-                $submenu.removeClass('open');
+            if ($thisWindow.width() <= desktopBreakpoint) {
+              if ($submenu.hasClass(menuOpenClass)) {
+                $submenu.removeClass(menuOpenClass);
               }
               else {
-                $submenu.addClass('open');
+                $submenu.addClass(menuOpenClass);
               }
             }
           });
@@ -118,26 +122,30 @@ window.BoatShows = window.BoatShows || {};
     };
 
     function resizeWindowCloseMobileMenu() {
-      $(window).resize(function() {
+      $thisWindow.resize(function() {
         var $thisWindow = $(this);
 
-        if ($thisWindow.width() > 992) {
+        if ($thisWindow.width() > desktopBreakpoint) {
           toggleMobileMenu(false);
           $thisWindow.off('resize');
         }
       });
     }
 
+    /**
+     * Toggles mobile menu open or closed
+     * bool active: true toggles open, false toggles closed
+     */
     function toggleMobileMenu(active) {
       // Open
       if (active) {
         $mobileMenuOpen.addClass('mobile-menu-active');
 
         if (!$siteHeader.hasClass('fixed-header')) {
-          $siteHeader.css('top', $siteHeader.offset().top - $(window).scrollTop());
+          $siteHeader.css('top', $siteHeader.offset().top - $thisWindow.scrollTop());
         }
 
-        $('body').addClass('mobile-open');
+        $thisBody.addClass('mobile-open');
         $regionHeader.css('padding-top', $headerBar.outerHeight());
         $contentRegion.css('margin-top', $headerBar.outerHeight());
         resizeWindowCloseMobileMenu();
@@ -145,7 +153,7 @@ window.BoatShows = window.BoatShows || {};
       // Close
       else {
         $mobileMenuOpen.removeClass('mobile-menu-active');
-        $('body').removeClass('mobile-open');
+        $thisBody.removeClass('mobile-open');
         $siteHeader.css('top', 0);
         $regionHeader.css('padding-top', 0);
         $contentRegion.css('margin-top', 0);
@@ -155,6 +163,10 @@ window.BoatShows = window.BoatShows || {};
       updateState();
     }
 
+    /**
+     * Toggles fixed header state
+     * bool active: true toggles fixed, false toggles static
+     */
     function toggleFixedHeaderDesktop(active) {
       if (active) {
         $siteHeader.addClass('fixed-header');
@@ -172,7 +184,7 @@ window.BoatShows = window.BoatShows || {};
       updateState();
       $siteHeader.css('top', 0);
       toggleFixedHeaderDesktop(true);
-      $(window).off('scroll');
+      $thisWindow.off('scroll');
     }
 
     function resetContentPadding() {
@@ -184,22 +196,18 @@ window.BoatShows = window.BoatShows || {};
     }
 
     function openSubmenu($selector) {
-      $selector.siblings('a').addClass('open');
-      $selector.addClass('open');
+      $selector.siblings('a').addClass(menuOpenClass);
+      $selector.addClass(menuOpenClass);
     }
 
     function closeSubmenu($selector) {
-      $selector.siblings('a').removeClass('open');
-      $selector.removeClass('open');
+      $selector.siblings('a').removeClass(menuOpenClass);
+      $selector.removeClass(menuOpenClass);
     }
 
     return {
-      setStateFixed: function() {
-        setStateFixed();
-      },
-      resetContentPadding: function() {
-        resetContentPadding();
-      }
+      setStateFixed: setStateFixed,
+      resetContentPadding: resetContentPadding
     };
   };
 
