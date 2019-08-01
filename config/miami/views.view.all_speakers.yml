@@ -193,13 +193,15 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  block_1:
+  all_speakers:
     display_plugin: block
-    id: block_1
-    display_title: Block
+    id: all_speakers
+    display_title: 'All Speakers'
     position: 1
     display_options:
       display_extenders: {  }
+      block_description: 'All Speakers'
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
