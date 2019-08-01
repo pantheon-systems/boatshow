@@ -47,7 +47,6 @@ $colorname-gray-unleaded: #7f7f7f !default;
 $colorname-gray-iron: #d6d8d9 !default;
 $colorname-gray-chateau: #a3a9ac !default;
 $colorname-gray-silver-sand-alt: #bdc2c7 !default;
-$colorname-gray-wild-sand: #F5F5F5 !default;
 
 // Other colors
 $colorname-alizarin-red: #e61b3a !default;
@@ -120,12 +119,6 @@ $color-input-submittable-clear-border: $colorname-gray !default;
 $color-input-disabled-fill: $colorname-white !default;
 $color-input-disabled-border: $colorname-gray !default;
 
-
-// Header/Nav Colors
-$color-mobile-subnav-background: $colorname-white !default;
-$color-mobile-nav-background: $colorname-gray-wild-sand !default;
-$color-nav-border: #AAA;
-
 // Font Sizes
 
 $font-line-height-standard: 1.6em !default;
@@ -163,12 +156,11 @@ $font-size-input: 10px !default;
 $font-size-input-large: 12px !default;
 $font-size-input-xlarge: 14px !default;
 
-$font-weight-thin: 100;
-$font-weight-light: 300;
-$font-weight-normal: normal;
-$font-weight-medium: 500;
-$font-weight-semibold: 600;
-$font-weight-bold: bold;
+$font-weight-thin: 100 !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: normal !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: bold !default;
 
 // Dimensions
 

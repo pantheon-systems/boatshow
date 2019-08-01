@@ -215,12 +215,11 @@
 
     & > ul > li:not([class*="button"]) > a {
       font-size: 16px;
-      font-weight: $font-weight-medium;
     }
 
     // Dropdown menu
     & > ul > li > ul {
-      background-color: $color-mobile-subnav-background;
+      @include slab-light-gray;
       margin: 0 (-1 * $main-navigation-item-gutter-mobile);
 
       .menu {
@@ -351,7 +350,6 @@
 
     & > ul > li:not([class*="button"]) > a {
       font-size: 15px;
-      font-weight: $font-weight-medium;
       color: $color-text;
       text-transform: none;
       line-height: 2.615;
