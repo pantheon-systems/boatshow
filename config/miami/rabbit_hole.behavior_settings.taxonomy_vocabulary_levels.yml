@@ -1,0 +1,11 @@
+uuid: 21ce86f3-79a2-4417-997a-d5e0b9f414d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.levels
+id: taxonomy_vocabulary_levels
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

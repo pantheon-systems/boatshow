@@ -1,0 +1,11 @@
+uuid: 504587ae-96aa-4eb4-9c56-8f8d3735d190
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.smnr_session
+id: node_type_smnr_session
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

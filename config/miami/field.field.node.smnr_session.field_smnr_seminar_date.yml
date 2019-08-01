@@ -1,0 +1,21 @@
+uuid: 5d1c633d-b1f3-4a10-bdc0-cc8b4465faef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_smnr_seminar_date
+    - node.type.smnr_session
+  module:
+    - datetime
+id: node.smnr_session.field_smnr_seminar_date
+field_name: field_smnr_seminar_date
+entity_type: node
+bundle: smnr_session
+label: 'Seminar Date'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

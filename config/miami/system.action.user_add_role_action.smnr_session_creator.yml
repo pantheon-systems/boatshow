@@ -1,0 +1,14 @@
+uuid: d07837bb-3b6b-471f-b4e9-a57e1f74b600
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.smnr_session_creator
+  module:
+    - user
+id: user_add_role_action.smnr_session_creator
+label: 'Add the Session creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: smnr_session_creator

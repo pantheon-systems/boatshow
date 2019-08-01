@@ -1,29 +1,29 @@
-uuid: 9d256d49-f979-4d1f-9167-b12c67163103
+uuid: a7b64274-953a-45db-9f9e-ca4a6359d3c9
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_speaker
+    - field.storage.node.field_smnr_level
     - node.type.seminar
-    - node.type.speaker
-id: node.seminar.field_speaker
-field_name: field_speaker
+    - taxonomy.vocabulary.levels
+id: node.seminar.field_smnr_level
+field_name: field_smnr_level
 entity_type: node
 bundle: seminar
-label: Speaker
+label: Level
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      speaker: speaker
+      levels: levels
     sort:
-      field: title
-      direction: ASC
+      field: name
+      direction: asc
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

@@ -1,0 +1,8 @@
+uuid: d0fb2521-d617-44ff-96c0-bb0def14a676
+langcode: en
+status: true
+dependencies: {  }
+name: 'Seminar Location'
+vid: smnr_seminar_location
+description: ''
+weight: 0

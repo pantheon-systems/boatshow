@@ -1,19 +1,18 @@
-uuid: 622ee00c-6aa6-4cbb-83bb-2f52e1ae7f3d
+uuid: e93422f5-2be8-431f-b530-580007553b3b
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
-id: node.field_topics
-field_name: field_topics
+id: node.field_smnr_seminar_session
+field_name: field_smnr_seminar_session
 entity_type: node
 type: entity_reference
 settings:
-  target_type: taxonomy_term
+  target_type: node
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

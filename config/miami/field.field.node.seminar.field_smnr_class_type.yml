@@ -1,16 +1,16 @@
-uuid: adef53a7-f2e6-4d8b-905d-d06bc8d2cae2
+uuid: e19d59a9-2884-4e05-8319-17d600c738bc
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_topics
+    - field.storage.node.field_smnr_class_type
     - node.type.seminar
-    - taxonomy.vocabulary.seminar_topic
-id: node.seminar.field_topics
-field_name: field_topics
+    - taxonomy.vocabulary.class_type
+id: node.seminar.field_smnr_class_type
+field_name: field_smnr_class_type
 entity_type: node
 bundle: seminar
-label: Sail/Power
+label: Format
 description: ''
 required: true
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      seminar_topic: seminar_topic
+      class_type: class_type
     sort:
       field: name
       direction: asc

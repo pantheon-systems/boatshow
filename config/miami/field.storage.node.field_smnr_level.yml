@@ -1,17 +1,16 @@
-uuid: c2335b2a-b8f2-4c77-b00f-2a008f14b04c
+uuid: b8895ac5-aaad-407a-86a8-4bf9672b764d
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_location
-field_name: field_location
+    - taxonomy
+id: node.field_smnr_level
+field_name: field_smnr_level
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1
