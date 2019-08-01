@@ -82,4 +82,5 @@ hidden:
   field_featured_seminar: true
   field_smnr_class_type: true
   field_smnr_level: true
+  field_smnr_seminar_session: true
   langcode: true
