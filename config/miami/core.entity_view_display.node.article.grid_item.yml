@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.article.field_article_tags
     - field.field.node.article.field_article_teaser
     - field.field.node.article.field_article_tsr_image
+    - field.field.node.article.field_article_type
     - node.type.article
   module:
     - panelizer
@@ -33,24 +34,22 @@ targetEntityType: node
 bundle: article
 mode: grid_item
 content:
-  field_article_author:
-    type: string
-    weight: 0
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  field_article_teaser:
+  addtoany:
     weight: 2
-    label: hidden
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+  field_article_teaser:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 300
+    third_party_settings: {  }
+    type: text_trimmed
     region: content
   field_article_tsr_image:
     type: entity_reference_entity_view
-    weight: 1
+    weight: 0
     label: hidden
     settings:
       view_mode: grid_item
@@ -58,8 +57,8 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  addtoany: true
   field_article_activity: true
+  field_article_author: true
   field_article_body: true
   field_article_call_out: true
   field_article_featured: true
@@ -69,5 +68,6 @@ hidden:
   field_article_popular: true
   field_article_subhead: true
   field_article_tags: true
+  field_article_type: true
   langcode: true
   links: true
