@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.article.field_article_tags
     - field.field.node.article.field_article_teaser
     - field.field.node.article.field_article_tsr_image
+    - field.field.node.article.field_article_type
     - node.type.article
   module:
     - entity_browser
@@ -32,7 +33,7 @@ third_party_settings:
         - group_article_teaser
         - group_tags
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: tabs
       format_settings:
         id: ''
@@ -94,7 +95,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -132,7 +133,7 @@ content:
     type: text_textarea
     region: content
   field_article_featured:
-    weight: 6
+    weight: 7
     settings:
       display_label: true
     third_party_settings: {  }
@@ -150,16 +151,17 @@ content:
       field_widget_display_settings:
         view_mode: thumbnail
       open: false
+      field_widget_replace: false
     region: content
     third_party_settings: {  }
   field_article_meta_tags:
-    weight: 8
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
     region: content
   field_article_popular:
-    weight: 7
+    weight: 8
     settings:
       display_label: true
     third_party_settings: {  }
@@ -194,18 +196,25 @@ content:
       field_widget_display_settings:
         view_mode: thumbnail
       open: false
+      field_widget_replace: false
     region: content
     third_party_settings: {  }
+  field_article_type:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 3
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -213,7 +222,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
@@ -225,7 +234,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -1,0 +1,8 @@
+uuid: 6f31aa52-c1fb-4bc5-9d5b-230065a3e650
+langcode: en
+status: true
+dependencies: {  }
+name: 'Article Type'
+vid: article_type
+description: 'News type categories'
+weight: 0

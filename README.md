@@ -183,6 +183,10 @@ If the blt alias is not available (try `$ which blt`) use this command inside va
 vm$ composer run-script blt-alias
 ```
 
+If the above command does not work, here is a workaround:
+https://github.com/acquia/blt/issues/288#issuecomment-511552693
+Add the code in the comment to your "~/.bashrc "file.
+
 ### Setup local Drupal sites with an empty database
 
 Use BLT to setup the sites for local development. These will be empty shell sites until content is synced down. TODO: we should have a shell script which does this for us.
