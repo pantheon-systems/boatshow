@@ -12,7 +12,9 @@ window.BoatShows = window.BoatShows || {};
       $regionHeader,
       $contentRegion,
       headerOffset,
-      $thisContext;
+      $thisContext,
+      $adminBarTop,
+      $adminBarBottom;
 
     function updateState() {
       $preHeader = $thisContext.find('.pre-header-wrapper');
@@ -23,6 +25,8 @@ window.BoatShows = window.BoatShows || {};
       $mobileMenuOpen = $siteHeader.find('.mobile-trigger');
       $regionHeader = $siteHeader.find('.region-header');
       headerOffset = $preHeader.outerHeight();
+      $adminBarTop = $thisContext.find('nav#toolbar-bar');
+      // $adminBarBottom = $thisContext.find('#toolbar-item-administration-tray');
     }
 
     Drupal.behaviors.boatShowHeader = {
@@ -154,10 +158,12 @@ window.BoatShows = window.BoatShows || {};
     function toggleFixedHeaderDesktop(active) {
       if (active) {
         $siteHeader.addClass('fixed-header');
+        $siteHeader.css('top', $adminBarTop.outerHeight());
         $contentRegion.css('margin-top', $siteHeader.outerHeight());
       }
       else {
         $siteHeader.removeClass('fixed-header');
+        $siteHeader.css('top', 0);
         $contentRegion.css('margin-top', 0);
       }
     }

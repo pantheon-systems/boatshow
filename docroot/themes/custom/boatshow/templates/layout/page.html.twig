@@ -11,11 +11,10 @@
   {% endif %}
 
   <!-- ______________________ HEADER _______________________ -->
-
     <header class="site-header">
       <div class="header-content">
         <div class="header-bar">
-          <a class="logo" href="/" data-gtm-tracking="Navigation - Top Navigation - Homepage">
+          <a class="logo" href="/" data-gtm-tracking="{{is_front_page ? 'Navigation - Top Navigation - Homepage' : ''}}">
             <img class="logo-white" src="/themes/custom/boatshow/images/{{ boatshow_city }}/boatshow_logo_white.png" alt="Boat Show">
             <img class="logo-color" src="/themes/custom/boatshow/images/{{ boatshow_city }}/boatshow_logo_color.png" alt="Boat Show">
           </a>
