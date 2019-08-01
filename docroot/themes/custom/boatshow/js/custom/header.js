@@ -49,24 +49,26 @@ window.BoatShows = window.BoatShows || {};
           $menu.find('.parent-item').each(function() {
             var $thisMenuItem = $(this);
             var $thisSubMenu = $thisMenuItem.find('.menu-dropdown');
-
+            var timer;
             // Main nav triggers.
-            // var timer;
             $thisMenuItem.hover(function() {
+              $menu.find('.parent-item > .menu-dropdown, .parent-item > a').removeClass('open');
+
               // mouse in
               if ($(window).width() > 992) {
-                // clearTimeout(timer);
+                clearTimeout(timer);
                 openSubmenu($thisSubMenu);
               }
 
             }, function() {
               // mouseout
               if ($(window).width() > 992) {
-                // NOTE: This timer doesn't actually work, but it's also not hurting
-                // anything, so I'm leaving it here for now.
-                // timer = setTimeout(closeSubmenu($(this).find('.menu-dropdown')), 1000);
-                // TODO: set timeout
-                closeSubmenu($thisSubMenu);
+                // timer = setTimeout(closeSubmenu($thisSubMenu), 1000);
+
+
+                timer = setTimeout(function() {
+                  closeSubmenu($thisSubMenu);
+                }, 200);
               }
             });
           });
