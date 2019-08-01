@@ -14,5 +14,6 @@ permissions:
   - 'access site-wide contact form'
   - 'restful get nmma_boatfinder_resource'
   - 'search content'
+  - 'use text format restricted'
   - 'view any brick entities'
   - 'view media'
