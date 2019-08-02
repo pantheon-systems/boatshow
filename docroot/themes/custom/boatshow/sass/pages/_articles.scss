@@ -1,6 +1,6 @@
 
 article.node--view-mode-grid-item {
-  padding: 1em 1em 1em 0em;
+  padding: 1em;
   
   .col-1 {
     padding: 1em 1em 1em 0;
@@ -15,6 +15,7 @@ article.node--view-mode-grid-item {
   h2 {
     text-transform: none;
     font-size: 1.25rem;
+    line-height: normal;
     
     a {
       color: #2dace3; // move to override
