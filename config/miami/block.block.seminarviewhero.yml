@@ -1,0 +1,31 @@
+uuid: a4a9afad-eedb-4883-9785-866ae583c3f6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:image:7b93464e-897a-4a67-b87e-cf71339ee0d8'
+  module:
+    - block_content
+    - system
+  theme:
+    - boatshow
+id: seminarviewhero
+theme: boatshow
+region: content
+weight: -1
+provider: null
+plugin: 'block_content:7b93464e-897a-4a67-b87e-cf71339ee0d8'
+settings:
+  id: 'block_content:7b93464e-897a-4a67-b87e-cf71339ee0d8'
+  label: 'Seminar View Hero'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /seminar-view
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,28 @@
+.view-seminarreference .views-view-grid .views-col {
+    padding: 2%;
+}
+
+.view-seminarreference .views-view-grid .views-field .views-label,
+.views-view-grid .views-field .field-content {
+    display: inline-block;
+}
+
+.view-seminarreference .views-view-grid .views-field .views-label {
+    width: 30%;
+}
+
+.view-seminarreference .view-content div {
+    display: inline-block;
+}
+
+.view-seminarreference .view-content .views-field::after {
+    content: ",";
+}
+
+.view-seminarreference .view-content .views-row-last .views-field::after {
+    content: "";
+}
+
+.view-seminarreference .view-content .views-field.views-field-field-reserve-link {
+    content: "";
+}
