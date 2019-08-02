@@ -10,8 +10,8 @@ dependencies:
     - node.type.article
     - taxonomy.vocabulary.article_type
   content:
-    - 'taxonomy_term:article_type:82a594e5-b052-4b5f-b162-e5655837db2a'
-    - 'taxonomy_term:article_type:f8ed2d9f-d320-424c-b8c1-51f6fb9f80fc'
+    - 'taxonomy_term:article_type:3ba66d8b-f737-492b-8668-4feeb0ebba8c'
+    - 'taxonomy_term:article_type:94147cc7-b8b3-4b82-a2f4-775d96d9481d'
   module:
     - node
     - taxonomy
@@ -703,7 +703,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            1522: 1522
+            1521: 1521
           group: 1
           exposed: false
           expose:
@@ -875,7 +875,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            1521: 1521
+            1526: 1526
           group: 1
           exposed: false
           expose:
@@ -1053,7 +1053,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            1521: 1521
+            1526: 1526
           group: 1
           exposed: false
           expose:
