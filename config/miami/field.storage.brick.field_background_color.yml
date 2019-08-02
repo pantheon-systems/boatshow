@@ -15,11 +15,17 @@ settings:
       value: white
       label: white
     -
-      value: dark-gray
-      label: dark-gray
+      value: white-transparency
+      label: white-transparency
     -
       value: light-gray
       label: light-gray
+    -
+      value: dark-gray
+      label: dark-gray
+    -
+      value: very-dark-gray
+      label: very-dark-gray
     -
       value: city-primary
       label: city-primary

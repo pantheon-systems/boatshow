@@ -323,26 +323,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
     $variables['background_color'] = $entity->field_background_color->value;
     $variables['attributes']['class'][] = 'has-background-color';
 
-    switch ($entity->field_background_color->value) {
-      case 'white':
-        $variables['attributes']['class'][] = 'slab-white';
-        break;
-      case 'dark-gray':
-        $variables['attributes']['class'][] = 'slab-dark-gray';
-        break;
-      case 'light-gray':
-        $variables['attributes']['class'][] = 'slab-light-gray';
-        break;
-      case 'city-primary':
-        $variables['attributes']['class'][] = 'slab-city-primary';
-        break;
-      case 'city-secondary':
-        $variables['attributes']['class'][] = 'slab-city-secondary';
-        break;
-      case 'city-tertiary':
-        $variables['attributes']['class'][] = 'slab-city-tertiary';
-        break;
-    }
+    $variables['attributes']['class'][] = 'slab-' . $entity->field_background_color->value;
   }
 
   if ($entity->hasField('field_background_image')) {

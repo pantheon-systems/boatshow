@@ -5,6 +5,10 @@
   background-color: $color-slab-white;
 }
 
+@mixin slab-white-transparency {
+  background-color: $color-slab-white-transparency;
+}
+
 @mixin slab-light-gray {
   background-color: $color-slab-light-gray;
 }
@@ -54,6 +58,10 @@
 ////////////////////
 .slab-white {
   @include slab-white;
+}
+
+.slab-white-transparency {
+  @include slab-white-transparency;
 }
 
 .slab-light-gray {
