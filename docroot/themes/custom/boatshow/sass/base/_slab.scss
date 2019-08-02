@@ -2,31 +2,31 @@
 /// Slab Mixins
 ////////////////////
 @mixin slab-white {
-  background-color: $colorname-white;
+  background-color: $color-slab-white;
 }
 
 @mixin slab-light-gray {
-  background-color: $colorname-lighter-gray;
+  background-color: $color-slab-light-gray;
 }
 
 @mixin slab-dark-gray {
-  background-color: $colorname-gray-unleaded;
+  background-color: $color-slab-dark-gray;
 }
 
 @mixin slab-very-dark-gray {
-  background-color: $colorname-gray-dark;
+  background-color: $color-slab-very-dark-gray;
 }
 
 @mixin slab-city-primary {
-  background-color: rgba($city-color-primary, 0.8);
+  background-color: $color-slab-city-primary;
 }
 
 @mixin slab-city-secondary {
-  background-color: rgba($city-color-secondary, 0.8);
+  background-color: $color-slab-city-secondary;
 }
 
 @mixin slab-city-tertiary {
-  background-color: rgba($city-color-tertiary, 0.8);
+  background-color: $color-slab-city-tertiary;
 }
 
 @mixin slab-inverted {

@@ -71,6 +71,15 @@ $color-links-icon: $city-color-primary !default;
 // Colors - General
 $color-header-bg: rgba($colorname-black, 0.4) !default;
 
+// Slabs
+$color-slab-white: $colorname-white !default;
+$color-slab-light-gray: $colorname-lighter-gray !default;
+$color-slab-dark-gray: $colorname-gray-unleaded !default;
+$color-slab-very-dark-gray: $colorname-gray-dark !default;
+$color-slab-city-primary: rgba($city-color-primary, 0.8) !default;
+$color-slab-city-secondary: rgba($city-color-secondary, 0.8) !default;
+$color-slab-city-tertiary: rgba($city-color-tertiary, 0.8) !default;
+
 // Colors - Forms
 $color-status-error: $colorname-monza-red !default;
 
