@@ -34,7 +34,7 @@
   {% if items %}
     <ul class="mega-menu menu">
       {% for item in items %}
-        <li class="menu-item parent-item" role="menuitem">
+        <li{{ item.attributes.addClass('link-' ~ item.identifier).addClass('menu-item').addClass('parent-item') }} role="menuitem">
           {% if item.has_link %}
             <a href="{{ item.url }}" data-gtm-tracking="Navigation - Top Navigation - {{ item.title }}">{{ item.title }}</a>
           {% else %}
@@ -43,9 +43,9 @@
           {% if item.below %}
             <ul class="menu-dropdown" role="menubar">
               {% for item_below in item.below %}
-                <div class="show-on-large" role="menuitem">
+                <li role="menuitem">
                   {{ item_below.content|without('url, title') }}
-                </div>
+                </li>
               {% endfor %}
             </ul>
           {% endif %}

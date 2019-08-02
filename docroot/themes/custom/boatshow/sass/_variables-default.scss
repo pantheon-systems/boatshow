@@ -156,11 +156,11 @@ $font-size-input: 10px !default;
 $font-size-input-large: 12px !default;
 $font-size-input-xlarge: 14px !default;
 
-$font-weight-thin: 100;
-$font-weight-light: 300;
-$font-weight-normal: normal;
-$font-weight-semibold: 600;
-$font-weight-bold: bold;
+$font-weight-thin: 100 !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: normal !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: bold !default;
 
 // Dimensions
 
@@ -173,9 +173,6 @@ $dimension-button-height-xsmall: 36px !default;
 $dimension-input-height: 36px !default;
 $dimension-input-height-large: 46px !default;
 $dimension-input-height-xlarge: 56px !default;
-
-$dimension-header-height: 70px !default;
-
 
 $site-maxout-width: 1600px !default;
 
@@ -190,6 +187,12 @@ $brick-card-icon-size: 60px !default;
 /// Brick: Card CTA
 $brick-card-cta-aspect-ratio: 4 / 3 !default;
 $brick-card-cta-header-padding: 15px !default;
+
+/// Site Header
+$site-header-z-index-base: 400 !default;
+$site-header-breakpoint-main: lg !default;
+$main-navigation-item-padding-mobile: 20px !default;
+$main-navigation-item-gutter-mobile: 30px !default; //todo: match grid
 
 // Effect: Contrast Headline
 $headline-effect-thickthin-weight-thin: $font-weight-thin !default;

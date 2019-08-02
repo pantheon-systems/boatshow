@@ -109,6 +109,9 @@ function boatshow_preprocess_page(&$variables) {
   else {
     $variables['#attached']['library'][] = 'boatshow/default_global_styles';
   }
+
+  // Add check for front page
+  $variables['is_front_page'] = \Drupal::service('path.matcher')->isFrontPage();
 }
 
 /**
@@ -534,9 +537,6 @@ function boatshow_preprocess_field(&$variables) {
     if (isset($node->get('field_component_bricks')->getValue()[0])) {
       $first_brick = $node->get('field_component_bricks')->getValue()[0]['target_id'];
       $entity = \Drupal::entityTypeManager()->getStorage('brick')->load($first_brick);
-      if ($entity->bundle() == 'carousel') {
-        $variables['has_hero'] = TRUE;
-      }
     }
   }
   if ($variables['element']['#field_name'] == 'field_disruptor_cta') {

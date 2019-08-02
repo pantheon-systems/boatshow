@@ -16,7 +16,7 @@ $city-hero-bg: '../../images/atlanta/main-background.jpg';
 $color-text: $colorname-miami-gray;
 
 // Font
-$font-primary: 'CircularStd', 'Helvetica', sans-serif !default;
+$font-primary: 'CircularStd', 'Helvetica', sans-serif;
 
 // All buttons
 $button-border-radius: 5px;
@@ -41,6 +41,3 @@ $headline-effect-thickthin-color: $city-color-primary;
 ///////////////////////////////
 /// 3. City Override CSS Rules
 ///////////////////////////////
-section.hero-background > .column-item:last-child {
-  @include slab-inverted();
-}

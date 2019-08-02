@@ -1,0 +1,25 @@
+uuid: dd80c630-c1d1-4560-ba17-309b5e4f1e97
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.header-secondary-nav
+  module:
+    - system
+  theme:
+    - boatshow
+id: headersecondarynav
+theme: boatshow
+region: header
+weight: -4
+provider: null
+plugin: 'system_menu_block:header-secondary-nav'
+settings:
+  id: 'system_menu_block:header-secondary-nav'
+  label: 'Header Secondary Nav'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: true
+visibility: {  }
