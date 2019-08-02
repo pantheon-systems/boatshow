@@ -6,16 +6,14 @@ dependencies:
     - core.entity_view_mode.node.modal
     - field.field.node.seminar.body
     - field.field.node.seminar.field_cost
-    - field.field.node.seminar.field_date
     - field.field.node.seminar.field_duration
     - field.field.node.seminar.field_featured_seminar
-    - field.field.node.seminar.field_location
     - field.field.node.seminar.field_reserve_link
-    - field.field.node.seminar.field_speaker
+    - field.field.node.seminar.field_smnr_class_type
+    - field.field.node.seminar.field_smnr_level
     - field.field.node.seminar.field_topics
     - node.type.seminar
   module:
-    - datetime
     - link
     - panelizer
     - text
@@ -46,25 +44,8 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  field_date:
-    weight: 2
-    label: hidden
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_duration:
     weight: 4
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_location:
-    weight: 3
     label: inline
     settings:
       link_to_entity: false
@@ -83,15 +64,6 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  field_speaker:
-    weight: 8
-    label: hidden
-    settings:
-      view_mode: modal
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
   field_topics:
     weight: 6
     label: hidden
@@ -108,4 +80,7 @@ content:
 hidden:
   addtoany: true
   field_featured_seminar: true
+  field_smnr_class_type: true
+  field_smnr_level: true
+  field_smnr_seminar_session: true
   langcode: true

@@ -1,0 +1,19 @@
+.view-all-speakers {
+
+  .views-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .node--type-speaker.node--view-mode-teaser {
+    flex-basis: 30%;
+    flex-grow: 1;
+    padding: 10px 25px;
+
+    h2 {
+      font-size: 18px;
+      font-weight: $font-weight-bold;
+    }
+  }
+}

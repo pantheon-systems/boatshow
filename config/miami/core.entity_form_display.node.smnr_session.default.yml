@@ -1,0 +1,52 @@
+uuid: a2c98875-5454-4a72-8dea-fb8f0b693905
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.smnr_session.field_smnr_location
+    - field.field.node.smnr_session.field_smnr_seminar_date
+    - field.field.node.smnr_session.field_smnr_speaker
+    - node.type.smnr_session
+  module:
+    - datetime
+id: node.smnr_session.default
+targetEntityType: node
+bundle: smnr_session
+mode: default
+content:
+  field_smnr_location:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_smnr_seminar_date:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_smnr_speaker:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  moderation_state: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true
+  url_redirects: true

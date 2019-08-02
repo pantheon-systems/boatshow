@@ -1,0 +1,11 @@
+uuid: 40b53adf-d20a-4d95-bab1-1e5e4834c917
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.smnr_seminar_location
+id: taxonomy_term.smnr_seminar_location
+target_entity_type_id: taxonomy_term
+target_bundle: smnr_seminar_location
+default_langcode: site_default
+language_alterable: false

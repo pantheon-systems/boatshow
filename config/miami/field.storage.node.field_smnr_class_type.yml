@@ -1,12 +1,12 @@
-uuid: 622ee00c-6aa6-4cbb-83bb-2f52e1ae7f3d
+uuid: e45f779c-c7a0-455e-a3c2-f0291323e27e
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_topics
-field_name: field_topics
+id: node.field_smnr_class_type
+field_name: field_smnr_class_type
 entity_type: node
 type: entity_reference
 settings:

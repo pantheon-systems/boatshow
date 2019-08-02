@@ -1,0 +1,54 @@
+uuid: 6767ef30-686f-46bd-a618-8afffe22ac51
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.grid_item
+    - field.field.node.smnr_session.field_smnr_location
+    - field.field.node.smnr_session.field_smnr_seminar_date
+    - field.field.node.smnr_session.field_smnr_speaker
+    - node.type.smnr_session
+  module:
+    - datetime
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.smnr_session.grid_item
+targetEntityType: node
+bundle: smnr_session
+mode: grid_item
+content:
+  field_smnr_location:
+    weight: 1
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_smnr_seminar_date:
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: long
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_smnr_speaker:
+    weight: 2
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  links: true

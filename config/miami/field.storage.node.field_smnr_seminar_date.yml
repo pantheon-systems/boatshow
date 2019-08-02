@@ -1,17 +1,17 @@
-uuid: 622ee00c-6aa6-4cbb-83bb-2f52e1ae7f3d
+uuid: b2f66e0c-7fed-48f4-a5c2-06e8e1ad39b7
 langcode: en
 status: true
 dependencies:
   module:
+    - datetime
     - node
-    - taxonomy
-id: node.field_topics
-field_name: field_topics
+id: node.field_smnr_seminar_date
+field_name: field_smnr_seminar_date
 entity_type: node
-type: entity_reference
+type: datetime
 settings:
-  target_type: taxonomy_term
-module: core
+  datetime_type: datetime
+module: datetime
 locked: false
 cardinality: 1
 translatable: true

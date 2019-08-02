@@ -6,12 +6,11 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.seminar.body
     - field.field.node.seminar.field_cost
-    - field.field.node.seminar.field_date
     - field.field.node.seminar.field_duration
     - field.field.node.seminar.field_featured_seminar
-    - field.field.node.seminar.field_location
     - field.field.node.seminar.field_reserve_link
-    - field.field.node.seminar.field_speaker
+    - field.field.node.seminar.field_smnr_class_type
+    - field.field.node.seminar.field_smnr_level
     - field.field.node.seminar.field_topics
     - node.type.seminar
   module:
@@ -38,11 +37,11 @@ content:
 hidden:
   addtoany: true
   field_cost: true
-  field_date: true
   field_duration: true
   field_featured_seminar: true
-  field_location: true
   field_reserve_link: true
-  field_speaker: true
+  field_smnr_class_type: true
+  field_smnr_level: true
+  field_smnr_seminar_session: true
   field_topics: true
   langcode: true

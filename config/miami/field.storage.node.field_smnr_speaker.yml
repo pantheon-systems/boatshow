@@ -1,11 +1,11 @@
-uuid: 1ef53f17-3a5a-43fb-8a1b-5ddc4afbbbad
+uuid: ec93b455-32bc-4130-876d-5b3afa6bb069
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_speaker
-field_name: field_speaker
+id: node.field_smnr_speaker
+field_name: field_smnr_speaker
 entity_type: node
 type: entity_reference
 settings:

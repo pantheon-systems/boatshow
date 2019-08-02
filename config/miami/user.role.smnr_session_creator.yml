@@ -1,0 +1,28 @@
+uuid: e81713dc-f575-4f9d-8c34-ce1d4722f71c
+langcode: en
+status: true
+dependencies: {  }
+id: smnr_session_creator
+label: 'Session creator'
+weight: -12
+is_admin: false
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node smnr_session content'
+  - 'administer panelizer node smnr_session layout'
+  - 'change layouts in place editing'
+  - 'create smnr_session content'
+  - 'create url aliases'
+  - 'edit own smnr_session content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view smnr_session revisions'

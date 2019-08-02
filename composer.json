@@ -105,6 +105,7 @@
         "drupal/views_accordion": "^1.1",
         "drupal/views_block_filter_block": "^1.0@beta",
         "drupal/views_current_path": "^1.0@beta",
+        "drupal/views_field_view": "^1.0@beta",
         "drupal/webform": "^5.0@rc",
         "drupal/xmlsitemap": "1.x-dev#23b04ea6b7a577f5cc9531dcd18488bab01e65a6",
         "drush/drush": "^9.7",

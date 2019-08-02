@@ -1,0 +1,11 @@
+uuid: b7a6172b-1807-4477-beae-ecf559425535
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.seminar
+id: node_type_seminar
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
