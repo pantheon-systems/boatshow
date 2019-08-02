@@ -6,11 +6,15 @@ dependencies:
     - block_content.type.brick_block_
     - eck.eck_type.brick.ad_item
     - eck.eck_type.brick.block_brick
+    - eck.eck_type.brick.card
+    - eck.eck_type.brick.card_cta
     - eck.eck_type.brick.content
+    - eck.eck_type.brick.headline_brick
     - eck.eck_type.brick.image
     - eck.eck_type.brick.layout
     - eck.eck_type.brick.link
     - eck.eck_type.brick.media
+    - eck.eck_type.brick.section
     - eck.eck_type.brick.text
     - eck.eck_type.brick.twig
     - eck.eck_type.brick.view
@@ -34,17 +38,21 @@ settings:
     target_bundles:
       ad_item: ad_item
       block_brick: block_brick
+      card: card
+      card_cta: card_cta
       content: content
+      headline_brick: headline_brick
       image: image
       layout: layout
       link: link
       media: media
+      section: section
       text: text
       twig: twig
       view: view
       wrapper: wrapper
     sort:
       field: _none
-    auto_create: 1
+    auto_create: true
     auto_create_bundle: layout
 field_type: bricks
