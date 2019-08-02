@@ -1,14 +1,59 @@
-.view-seminarreference .views-view-grid .views-col {
+.view-seminar-view {
+    margin: 3%;
+    border-top: 1px solid;
+}
+
+.view-seminar-view .views-view-grid .views-col {
     padding: 2%;
 }
 
-.view-seminarreference .views-view-grid .views-field .views-label,
+.view-seminar-view .views-view-grid .views-field .views-label,
 .views-view-grid .views-field .field-content {
     display: inline-block;
 }
 
-.view-seminarreference .views-view-grid .views-field .views-label {
-    width: 30%;
+.view-seminar-view .views-view-grid .views-field .views-label,
+.views-view-grid .views-field .field-content {
+    display: inline-block;
+}
+
+.view-seminar-view .views-view-grid .views-field .views-label {
+    width: 35%;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.view-seminar-view .view-content .views-field.views-field-field-reserve-link .field-content {
+    width: 100%;
+    margin: 3em 0;
+}
+
+.view-seminar-view .view-content .views-field.views-field-title .field-content {
+    font-size: 18px;
+}
+
+.view-seminar-view .view-content span.views-field.views-field-field-reserve-link a {
+    border: $button-border-width solid $color-button-secondary-border;
+    border-radius: $button-border-radius;
+    padding: 5% 15%;
+    text-decoration: none;
+    color: $color-button-secondary-border;
+    font-weight: 700;
+}
+
+.view-seminar-view .view-content .views-field .field-content a:link,
+.view-seminar-view .view-content .views-field .field-content a:visited,
+.view-seminar-view .view-content .views-field .field-content a:hover,
+.view-seminar-view .view-content .views-field .field-content a:active {
+    font-weight: 700;
+}
+
+.view-seminarreference .view-content .views-field .field-content a:link,
+.view-seminarreference .view-content .views-field .field-content a:visited,
+.view-seminarreference .view-content .views-field .field-content a:hover,
+.view-seminarreference .view-content .views-field .field-content a:active {
+    font-weight: 500;
 }
 
 .view-seminarreference .view-content div {
@@ -23,6 +68,22 @@
     content: "";
 }
 
-.view-seminarreference .view-content .views-field.views-field-field-reserve-link {
-    content: "";
+.view-seminar-view {
+  .views-row {
+    background: #fff;
+
+    > .views-field-nothing {
+      min-height: 100%;
+      position: relative;
+    }
+
+  }
+  .views-col {
+    @include media-breakpoint-up(lg) {
+      width: 33%;
+    }
+    @include media-breakpoint-down(lg) {
+      width: 100%;
+    }
+  }
 }
