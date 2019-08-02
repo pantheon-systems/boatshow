@@ -16,9 +16,11 @@ $susy: (
 $content-max-width: 1000px;
 
 @mixin container {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   max-width: $content-max-width + 40;
-  padding: 0 susy-gutter();
+  padding-left: susy-gutter();
+  padding-right: susy-gutter();
   box-sizing: border-box;
 }
 
