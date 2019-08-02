@@ -45,7 +45,7 @@
         "drupal/auto_entitylabel": "^2.1@beta",
         "drupal/better_exposed_filters": "^3.0@alpha",
         "drupal/block_field": "^1.0@alpha",
-        "drupal/bricks": "1.x-dev#2dc98d42a1f56850bf581519bb12ad73292bc6dc",
+        "drupal/bricks": "1.x-dev#1ac993bffd03e223dd9a12c975fe2d89203b1aeb",
         "drupal/captcha": "1.x-dev#1d21e6864ced543312d8d819a170c3553281b485",
         "drupal/cer": "^4.0@alpha",
         "drupal/chosen": "^2.5",
@@ -125,9 +125,6 @@
         "patches": {
             "drupal/fbip": {
                 "Argument 2 passed to fbip_validator() must be an instance of FormStateInterface": "https://www.drupal.org/files/issues/fbip-2635716-4.patch"
-            },
-            "drupal/bricks": {
-                "Duplicate reference field types": "https://www.drupal.org/files/issues/2018-04-16/2885191-fix-duplicate-reference-fields.patch"
             },
             "drupal/viewfield": {
                 "Duplicate reference field types": "https://www.drupal.org/files/issues/2900913-5-viewfield-fix-duplicates.patch"

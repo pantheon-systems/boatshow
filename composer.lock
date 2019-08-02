@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa87eff3d4e7413b42c15253b68222d9",
+    "content-hash": "f2f0abe6251c146afac4bfbbbb904d55",
     "packages": [
         {
             "name": "acquia/blt",
@@ -3995,7 +3995,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/bricks.git",
-                "reference": "2dc98d42a1f56850bf581519bb12ad73292bc6dc"
+                "reference": "1ac993bffd03e223dd9a12c975fe2d89203b1aeb"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -4017,15 +4017,12 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.6+40-dev",
-                    "datestamp": "1563286385",
+                    "version": "8.x-1.6+43-dev",
+                    "datestamp": "1563463685",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
                     }
-                },
-                "patches_applied": {
-                    "Duplicate reference field types": "https://www.drupal.org/files/issues/2018-04-16/2885191-fix-duplicate-reference-fields.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4055,7 +4052,7 @@
                 "issues": "https://www.drupal.org/project/issues/bricks",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
             },
-            "time": "2018-03-19T20:22:44+00:00"
+            "time": "2019-07-18T15:31:48+00:00"
         },
         {
             "name": "drupal/captcha",
