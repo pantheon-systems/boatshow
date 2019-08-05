@@ -6,6 +6,10 @@
   }
 
   // Speaker teasers view
+  .seminar-details-right .field--name-field-logo {
+    margin-bottom: 10px;
+  }
+
   .seminar-details-right .views-row:not(:first-child) {
     margin-top: $dimension-card-padding;
     padding-top: $dimension-card-padding;

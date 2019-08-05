@@ -23,9 +23,8 @@
 }
 
 
-.node--type-speaker.node--view-mode-grid-item {
-
-  & .speaker-image .field--name-field-logo {
+.node--type-speaker {
+  & .field--name-field-logo {
     position: relative;
     width: 100%;
     padding-top: 100% / $speaker-image-aspect-ratio;
@@ -39,6 +38,9 @@
       height: 100%;
     }
   }
+}
+
+.node--type-speaker.node--view-mode-grid-item {
 
   & .speaker-text {
     @include slab-light-gray;

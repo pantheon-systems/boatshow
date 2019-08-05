@@ -6,11 +6,11 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.speaker.body
     - field.field.node.speaker.field_logo
-    - image.style.large
     - node.type.speaker
+    - responsive_image.styles.scale_simple
   module:
-    - image
     - panelizer
+    - responsive_image
     - text
     - user
 third_party_settings:
@@ -33,12 +33,12 @@ content:
     third_party_settings: {  }
     region: content
   field_logo:
-    type: image
+    type: responsive_image
     weight: 0
     region: content
     label: hidden
     settings:
-      image_style: large
+      responsive_image_style: scale_simple
       image_link: ''
     third_party_settings: {  }
 hidden:
