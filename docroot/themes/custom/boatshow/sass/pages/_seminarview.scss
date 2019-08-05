@@ -71,6 +71,17 @@
 .view-seminarreference .view-content .views-row-last .views-field::after {
     content: "";
 }
+.node--seminar .field--name-field-smnr-seminar-date,
+.node--seminar .field--name-field-smnr-seminar-locaton,
+.node--seminar .field--name-field-smnr-seminar-speaker,
+.semref {
+    display: inline-block;
+    width:30%;
+}
+
+.semref {
+    font-weight: 700;
+}
 
 .view-seminar-view {
   .views-row {

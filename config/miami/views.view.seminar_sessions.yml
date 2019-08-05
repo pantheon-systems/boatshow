@@ -1,6 +1,6 @@
 uuid: 39480c79-51b9-41d3-bace-8317e3ee24a2
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.node.field_smnr_location

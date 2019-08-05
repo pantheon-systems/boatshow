@@ -59,9 +59,13 @@ display:
       style:
         type: default
         options:
-          grouping: {  }
+          grouping:
+            -
+              field: field_smnr_seminar_date
+              rendered: true
+              rendered_strip: false
           row_class: ''
-          default_row_class: false
+          default_row_class: true
       row:
         type: fields
         options:
@@ -274,6 +278,7 @@ display:
           plugin_id: node_nid
       display_extenders: {  }
       group_by: true
+      css_class: semref
     cache_metadata:
       max-age: -1
       contexts:
@@ -362,6 +367,9 @@ display:
         fields: false
         title: false
         query: false
+        style: false
+        row: false
+        sorts: false
       title: 'Seminar Dates'
       query:
         type: views_query
@@ -371,6 +379,37 @@ display:
           replica: false
           query_comment: ''
           query_tags: {  }
+      style:
+        type: default
+        options:
+          grouping:
+            -
+              field: field_smnr_seminar_date
+              rendered: true
+              rendered_strip: false
+          row_class: ''
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      sorts:
+        field_smnr_seminar_date_value:
+          id: field_smnr_seminar_date_value
+          table: node__field_smnr_seminar_date
+          field: field_smnr_seminar_date_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          granularity: day
+          plugin_id: datetime
     cache_metadata:
       max-age: -1
       contexts:
@@ -457,6 +496,9 @@ display:
         fields: false
         title: false
         query: false
+        style: false
+        row: false
+        sorts: false
       title: 'Seminar Locations'
       query:
         type: views_query
@@ -466,6 +508,36 @@ display:
           replica: false
           query_comment: ''
           query_tags: null
+      style:
+        type: default
+        options:
+          grouping:
+            -
+              field: field_smnr_location
+              rendered: true
+              rendered_strip: false
+          row_class: ''
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      sorts:
+        field_smnr_location_target_id:
+          id: field_smnr_location_target_id
+          table: node__field_smnr_location
+          field: field_smnr_location_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -552,6 +624,9 @@ display:
         fields: false
         title: false
         query: false
+        style: false
+        row: false
+        sorts: false
       title: SeminarInstructor
       query:
         type: views_query
@@ -561,6 +636,36 @@ display:
           replica: false
           query_comment: ''
           query_tags: null
+      style:
+        type: default
+        options:
+          grouping:
+            -
+              field: field_smnr_speaker
+              rendered: true
+              rendered_strip: false
+          row_class: ''
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      sorts:
+        field_smnr_speaker_target_id:
+          id: field_smnr_speaker_target_id
+          table: node__field_smnr_speaker
+          field: field_smnr_speaker_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
