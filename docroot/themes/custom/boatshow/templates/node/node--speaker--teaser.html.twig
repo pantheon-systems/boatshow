@@ -84,35 +84,12 @@
   {{ title_prefix }}
   {{ title_suffix }}
   <div{{ content_attributes.addClass('node__content') }}>
-    <div class="flex-container">
-      <div class="about-seminar col-8-sm">
-        {{ content.field_reserve_link }}
-        <div class="time-entries info-entry">
-          {% for date in content.field_date['#items'] %}
-            <h3 class="sem-m-date">{{ date.date|date('l, F j, Y', false) }}</h3>
-            <time class="sem-time">{{ date.date|date('H:i A', false) }}</time>
-            {% if content.field_location is not empty %}
-              <div class="location-entry">{{ content.field_location }}</div>
-            {% endif %}
-          {% endfor %}
-        </div>
-        {% if content.field_duration is not empty %}
-          <div class="duration info-entry">{{ content.field_duration }}</div>
-        {% endif %}
-        {% if content.field_cost is not empty %}
-          <div class="cost info-entry">{{ content.field_cost }}</div>
-        {% endif %}
-        {% if content.body is not empty %}
-          <div class="description">
-            {{ content.body }}
-          </div>
-        {% endif %}
-        {{ content.field_reserve_link }}
-      </div>
-      <div class="about-the-speaker col-4-sm">
-        <p class="about-speaker">About the speaker:</p>
-        {{ content.field_speaker }}
-      </div>
-    </div>
+    <h3>About {{label}}</h3>
+    {{ content }}
+
+    {% if other_seminars|render is not empty %}
+      <h4 class="speaker-sem-list-title">Other seminars by {{label}}</h4>
+      {{ other_seminars }}
+    {% endif %}
   </div>
 </article>

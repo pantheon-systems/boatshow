@@ -19,15 +19,13 @@
   <div{{ content_attributes.addClass('node__content') }}>
     <div class="flex-container">
 
-      <div class="about-seminar col-8-sm col-12-xs">
+      <div class="seminar-details-left col-8-md col-12-xs">
         {# BEGIN LEFT COLUMN #}
         <h2>{{ 'Class details:' | t }}</h2>
 
         <div class="seminar-sessions">
-          <p>( view table goes here )</p>
+          {{ seminar_detail_page_sessions }}
         </div>
-
-        <hr/>
 
         <div class="seminar-metadata">
           {{ content.field_smnr_class_type }}
@@ -37,26 +35,34 @@
           {{ content.field_smnr_level}}
         </div>
 
-        <div class="flex-container">
-          <div class="col-12-xs col-4-sm">
+        <div class="seminar-reserve flex-container">
+          <div class="col-12-xs col-6-md col-4-lg">
             {{ content.field_reserve_link }}
           </div>
-          <div class="col-12-xs col-8-sm">
-            <p>{{ '*Note: Please reference registration page for all dates/times that are still available.' | t }}</p>
+          <div class="col-12-xs col-6-md col-8-lg">
+            <p><strong>{{ '*Note: Please reference registration page for all dates/times that are still available.' | t }}</strong></p>
           </div>
         </div>
 
         <h2>{{ 'Class description:' | t }}</h2>
 
-        {{ content.body }}
+        <div class="seminar-description">
+          {{ content.body }}
+        </div>
 
-        {{ content.field_reserve_link }}
+        <div class="seminar-reserve flex-container">
+          <div class="col-12-xs col-6-md col-4-lg">
+            {{ content.field_reserve_link }}
+          </div>
+          <div class="col-12-xs col-6-md col-8-lg">
+          </div>
+        </div>
         {# END LEFT COLUMN #}
       </div>
-      <div class="about-the-speaker col-4-sm col-12-xs slab-light-gray">
+
+      <div class="seminar-details-right col-4-md col-12-xs slab-light-gray">
         {# BEGIN RIGHT COLUMN #}
-        <h2>About [speaker name goes here and might be long]:</h2>
-        <p>( view table goes here )</p>
+        {{ seminar_detail_page_speakers }}
         {# END RIGHT COLUMN #}
       </div>
     </div>

@@ -1,10 +1,10 @@
-uuid: 504587ae-96aa-4eb4-9c56-8f8d3735d190
+uuid: 0c8b3c52-864a-480a-844f-6d997888cc97
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.smnr_session
-id: node_type_smnr_session
+    - node.type.speaker
+id: node_type_speaker
 action: page_not_found
 allow_override: 0
 redirect: ''

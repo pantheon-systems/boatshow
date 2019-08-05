@@ -147,6 +147,36 @@ function boatshow_theme_suggestions_menu_alter(&$suggestions, array $variables) 
  * Implements hook_preprocess_node().
  */
 function boatshow_preprocess_node(&$variables) {
+
+  $node = $variables['node'];
+
+  if ($node->bundle() === 'seminar' && $variables['view_mode'] === 'full') {
+    $variables['seminar_detail_page_sessions'] = views_embed_view('seminar_sessions', 'seminar_detail_page_sessions', $node->id());
+    $variables['seminar_detail_page_speakers'] = views_embed_view('seminar_speakers', 'seminar_detail_page_speakers', $node->id());
+
+  }
+
+  if ($node->bundle() === 'speaker' && $variables['view_mode'] === 'teaser') {
+    $current_page_node = \Drupal::routeMatch()->getParameter('node');
+    $exclude_seminar_id = NULL;
+
+    if ($current_page_node->bundle() === 'seminar') {
+      $exclude_seminar_id = $current_page_node->id();
+    }
+
+    // Other seminars preflight check for nonzero results
+
+    $view_executable = \Drupal\views\Views::getView('speaker_other_seminars');
+    $view_executable->setDisplay('speaker_teaser');
+    $view_executable->setArguments([$node->id(), $exclude_seminar_id]);
+    $view_executable->execute();
+
+    if (count($view_executable->result)) {
+      // No need to us views_embed_view as we've already built the view programatically
+      $variables['other_seminars'] = $view_executable->render();
+    }
+  }
+
   // Helper variables for multiple nodes.
   if (!empty($variables['elements']['#entity_type'])) {
     $variables['attributes']['class'][] = Html::cleanCssIdentifier('entity--type-' . $variables['elements']['#entity_type']);

@@ -129,6 +129,10 @@ $color-input-submittable-clear-border: $colorname-gray !default;
 $color-input-disabled-fill: $colorname-white !default;
 $color-input-disabled-border: $colorname-gray !default;
 
+// Rules
+$color-rules: rgba($colorname-black, 0.5);
+$color-rules-inverted: rgba($colorname-white, 0.5);
+
 // Font Sizes
 
 $font-line-height-standard: 1.6em !default;
@@ -186,9 +190,12 @@ $dimension-input-height-xlarge: 56px !default;
 
 $site-maxout-width: 1600px !default;
 
+$dimension-vertical-rhythm-elements: 30px !default;
+$dimension-vertical-rhythm-sections: 45px !default;
+
 /// Brick: Card
 $dimension-card-padding: 30px !default;
-$dimension-section-vertical-padding: 45px !default;
+$dimension-section-vertical-padding: $dimension-vertical-rhythm-sections !default;
 $dimension-section-horizontal-padding: $dimension-section-vertical-padding !default;
 $brick-card-aspect-ratio: 16 / 9 !default;
 $brick-card-icon-color: $city-color-primary !default;

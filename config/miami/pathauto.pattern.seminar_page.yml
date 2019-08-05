@@ -7,7 +7,7 @@ dependencies:
 id: seminar_page
 label: 'Seminar Page'
 type: 'canonical_entities:node'
-pattern: 'seminar/[node:title]'
+pattern: 'seminars/[node:title]'
 selection_criteria:
   2552da76-6b9b-47af-89bd-984f9a9a965f:
     id: node_type
