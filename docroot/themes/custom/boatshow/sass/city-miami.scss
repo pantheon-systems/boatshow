@@ -41,3 +41,7 @@ $headline-effect-thickthin-color: $city-color-primary;
 ///////////////////////////////
 /// 3. City Override CSS Rules
 ///////////////////////////////
+// Miami has a narrower logo than most
+.header-bar .logo {
+  width: 148px;
+}
