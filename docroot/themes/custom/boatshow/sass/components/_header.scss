@@ -377,7 +377,7 @@
     // Menu Dropdowns
     & > ul > li > ul {
       position: absolute;
-      right: 185px;
+      right: 0;
       z-index: $site-header-z-index-base + 2;
 
       .flex-container {
@@ -486,12 +486,11 @@
 
   .field--name-field-bricks {
     & > div > .nmma-layout {
-      background: $colorname-white;
-
-
+      @include slab-white;
       @include media-breakpoint-up($site-header-breakpoint-main) {
+        width: 962px;
         & > .column-item:last-child {
-          background: $colorname-lighter-gray;
+          @include slab-light-gray();
         }
       }
       display: flex;
@@ -503,6 +502,10 @@
 
     .column-item {
       padding: 10px 30px;
+
+      @include media-breakpoint-up($site-header-breakpoint-main) {
+        padding: 25px 30px;
+      }
 
       .column-item {
         padding: 0;
