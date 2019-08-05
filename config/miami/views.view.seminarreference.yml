@@ -278,7 +278,7 @@ display:
           plugin_id: node_nid
       display_extenders: {  }
       group_by: true
-      css_class: semref
+      css_class: ''
     cache_metadata:
       max-age: -1
       contexts:
