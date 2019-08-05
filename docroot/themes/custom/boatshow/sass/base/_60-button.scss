@@ -42,6 +42,7 @@
     width: $dimension-button-width;
   }
 
+  &:focus,
   &:hover,
   &:active {
     background: $color-button-primary-text;
@@ -58,6 +59,7 @@
     color: $color-button-disabled-text;
     cursor: default;
 
+    &:focus,
     &:hover {
       background: $color-button-disabled-fill;
       color: $color-button-disabled-text;
@@ -89,7 +91,9 @@
   color: $color-button-secondary-text;
   font-weight: $font-weight-semibold;
 
+
   &:hover,
+  &:focus,
   &:active {
     background: $city-color-primary;
     border-color: transparent;
@@ -105,6 +109,7 @@
   color: $color-button-clear-text;
 
   &:hover,
+  &:focus,
   &:active {
     background: $colorname-picton-blue;
     border-color: transparent;
@@ -119,7 +124,9 @@
   border-color: $color-button-hero-border;
   color: $color-button-hero-text;
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     background: $color-button-hero-border;
     border-color: $color-button-hero-border;
     color: $colorname-aqua;
@@ -143,7 +150,8 @@ a.button--cta-alt {
   color: $colorname-white;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     border-color: $colorname-picton-blue;
     color: $colorname-picton-blue;
   }

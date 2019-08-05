@@ -88,7 +88,7 @@
   @include slab-very-dark-gray;
 }
 
-.slab-inverted {
+[class~="slab-inverted"] {
   @include slab-inverted;
 }
 
