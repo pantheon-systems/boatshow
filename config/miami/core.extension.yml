@@ -64,6 +64,9 @@ module:
   entity_reference: 0
   eu_cookie_compliance: 0
   faqfield: 0
+  feeds: 0
+  feeds_ex: 0
+  feeds_tamper: 0
   field: 0
   field_group: 0
   field_ui: 0
@@ -175,6 +178,7 @@ module:
   structure_sync: 0
   syslog: 0
   system: 0
+  tamper: 0
   taxonomy: 0
   telephone: 0
   text: 0
