@@ -2,50 +2,45 @@
   margin-top: 40px;
   .field--type-bricks {
     width: 100%;
-    .four-columns {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      padding: 35px 0;
-      // Footer content.
-      .nmma-layout {
-        &.four-column {
-          flex-wrap: inherit;
-          @include media-breakpoint-down(lg) {
-            column-count: 2;
-            display: block;
-            .column-item {
-              width: 100%;
-            }
-          }
-          @include media-breakpoint-down(sm) {
-            flex-direction: column;
-            display: flex;
-          }
+    // Footer content.
+    .nmma-layout {
+      &.four-column {
+        flex-wrap: inherit;
+        @include media-breakpoint-down(lg) {
+          column-count: 2;
+          display: block;
           .column-item {
-            &:first-child {
-              img {
-                width: 242px;
-              }
+            width: 100%;
+          }
+        }
+        @include media-breakpoint-down(sm) {
+          flex-direction: column;
+          display: flex;
+        }
+        .column-item {
+          margin-bottom: 20px;
+          &:first-child {
+            img {
+              width: 242px;
             }
+          }
 
-            @include media-breakpoint-up(xl) {
-              display: flex;
-              &:first-child {
-                min-width: 380px;
-              }
-              &:nth-child(3) {
-                min-width: 220px;
-              }
-              &:nth-child(2) {
-                min-width: 180px;
-              }
-              &:last-child {
-                min-width: 380px;
-                .brick {
-                  justify-content: flex-end;
-                  display: flex;
-                }
+          @include media-breakpoint-up(xl) {
+            display: flex;
+            &:first-child {
+              min-width: 380px;
+            }
+            &:nth-child(3) {
+              min-width: 220px;
+            }
+            &:nth-child(2) {
+              min-width: 180px;
+            }
+            &:last-child {
+              min-width: 380px;
+              .brick {
+                justify-content: flex-end;
+                display: flex;
               }
             }
           }
