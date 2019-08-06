@@ -110,6 +110,7 @@
 
   & > ul > li[class*='button'] > a {
     @include button;
+    font-size: $header-footer-button-font-size;
   }
 }
 
@@ -343,10 +344,6 @@
       &:first-child {
         margin-left: 40px;
       }
-    }
-
-    & > ul > li[class*="button"] > a {
-      font-size: 13px;
     }
 
     & > ul > li:not([class*="button"]) > a {

@@ -1,5 +1,10 @@
 .region-footer {
   margin-top: 40px;
+
+  .button {
+    font-size: $header-footer-button-font-size;
+  }
+
   .field--type-bricks {
     width: 100%;
     // Footer content.

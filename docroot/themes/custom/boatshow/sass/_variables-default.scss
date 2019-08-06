@@ -209,6 +209,9 @@ $site-header-breakpoint-main: lg !default;
 $main-navigation-item-padding-mobile: 20px !default;
 $main-navigation-item-gutter-mobile: 30px !default; //todo: match grid
 
+// Buttons in the header or footer
+$header-footer-button-font-size: 15px;
+
 // Effect: Contrast Headline
 $headline-effect-thickthin-weight-thin: $font-weight-thin !default;
 $headline-effect-thickthin-weight-thick: $font-weight-bold !default;
