@@ -10,17 +10,8 @@ field_name: field_headline_effect
 entity_type: brick
 type: list_string
 settings:
-  allowed_values:
-    -
-      value: thickthin
-      label: thickthin
-    -
-      value: labelmaker
-      label: labelmaker
-    -
-      value: citycolor
-      label: citycolor
-  allowed_values_function: ''
+  allowed_values: { }
+  allowed_values_function: 'nmma_brick_layouts_headline_effect_allowed_values_function'
 module: options
 locked: false
 cardinality: 1

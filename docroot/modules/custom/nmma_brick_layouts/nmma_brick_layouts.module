@@ -62,7 +62,10 @@ function nmma_brick_layouts_layout_alter(&$definitions) {
   unset($definitions['layout_threecol_33_34_33']);
 }
 
-// https://drupal.stackexchange.com/a/242011
+/**
+ * Defines allowed values for config field.storage.brick.field_background_color
+ * @link https://drupal.stackexchange.com/a/242011
+ */
 function nmma_brick_layouts_background_color_allowed_values_function () {
 
   $options = [
@@ -78,7 +81,10 @@ function nmma_brick_layouts_background_color_allowed_values_function () {
   return $options;
 }
 
-// https://drupal.stackexchange.com/a/242011
+/**
+ * Defines allowed values for config field.storage.brick.field_container_type
+ * @link https://drupal.stackexchange.com/a/242011
+ */
 function nmma_brick_layouts_container_type_allowed_values_function () {
 
   $options = [
@@ -87,6 +93,50 @@ function nmma_brick_layouts_container_type_allowed_values_function () {
     'expand' => 'expand',
     'contract' => 'compress',
     'contract-more' => 'compress-more'
+  ];
+
+  return $options;
+}
+
+/**
+ * Defines allowed values for config field.storage.brick.field_vertical_pull
+ * @link https://drupal.stackexchange.com/a/242011
+ */
+function nmma_brick_layouts_vertical_pull_allowed_values_function () {
+
+  $options = [
+    'pull' => 'Pull',
+    'push' => 'Push'
+  ];
+
+  return $options;
+}
+
+/**
+ * Defines allowed values for config field.storage.brick.field_vertical_padding
+ * @link https://drupal.stackexchange.com/a/242011
+ */
+function nmma_brick_layouts_vertical_padding_allowed_values_function () {
+
+  $options = [
+    'both' => 'both',
+    'top' => 'top',
+    'bottom' => 'bottom'
+  ];
+
+  return $options;
+}
+
+/**
+ * Defines allowed values for config field.storage.brick.field_headline_effect
+ * @link https://drupal.stackexchange.com/a/242011
+ */
+function nmma_brick_layouts_headline_effect_allowed_values_function () {
+
+  $options = [
+    'thickthin' => 'thickthin',
+    'labelmaker' => 'labelmaker',
+    'citycolor' => 'citycolor'
   ];
 
   return $options;
