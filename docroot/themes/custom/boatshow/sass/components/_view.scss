@@ -58,7 +58,7 @@
   a,
   .all-exhibitors {
     padding: 0.5em;
-    transition: all 0.3s ease-in-out;
+    transition: all $transition-speed $transition-style;
 
     @media screen and (max-width: $screen-md) {
       background: $colorname-white;

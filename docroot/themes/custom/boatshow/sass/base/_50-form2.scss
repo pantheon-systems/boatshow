@@ -38,7 +38,7 @@ textarea {
   height: $dimension-input-height;
   outline: none;
   padding: 0 10px;
-  transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
+  transition: box-shadow $transition-speed, border-color $transition-speed $transition-style;
   width: 100%;
 
   &.large {

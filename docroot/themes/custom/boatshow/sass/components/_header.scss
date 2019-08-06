@@ -337,7 +337,7 @@
     }
 
     & > ul > li {
-      transition: all .3s ease-in-out;
+      transition: all $transition-speed $transition-style;
       margin-left: 40px;
 
       &:first-child {

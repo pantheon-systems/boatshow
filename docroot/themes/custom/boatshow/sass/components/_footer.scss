@@ -156,12 +156,12 @@
       color: $footer-social-icon-color-foreground-default;
       background-color: $footer-social-icon-color-background-default;
 
-      transition: all .3s ease-in-out;
+      transition: all $transition-speed $transition-style;
 
       &::after {
         @include fa-icon;
         color: inherit;
-        transition: all .3s ease-in-out;
+        transition: all $transition-speed $transition-style;
         font-size: $footer-social-icon-size * 0.75;
       }
 

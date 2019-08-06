@@ -78,6 +78,10 @@ $color-status-error: $colorname-monza-red !default;
 $color-form-text-disabled: $colorname-gray-silver-sand !default;
 $color-form-text-placeholder: $colorname-gray-oslo !default;
 
+// Transition animations
+$transition-speed: 0.3s;
+$transition-style: ease-in-out;
+
 // Button Variables
 $button-border-radius: 0 !default;
 $button-border-width: 2px !default;

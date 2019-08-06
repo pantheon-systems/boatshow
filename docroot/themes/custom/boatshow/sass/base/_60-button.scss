@@ -21,7 +21,7 @@
 
   text-align: center;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  transition: all $transition-speed $transition-style;
 
   // Header "buy tickets" button is the model for this.
   &.small {
