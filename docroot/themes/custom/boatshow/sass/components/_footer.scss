@@ -118,141 +118,71 @@
     }
   }
 
-  .newsletter-form {
-    font-size: $font-size-body-copy-small;
-    margin: 20px 0;
-    .submit-input-field--clear {
-      position: relative;
-      display: flex;
-      width: 100%;
-      max-width: 310px;
-      .form-item-newsletteremail {
-        input {
-          margin: 0;
-          width: 100%;
-          max-width: 276px;
-          font-size: $font-size-button-xsmall;
-          font-style: italic;
-          line-height: 1.2;
-          height: 36px;
-          background-color: #fff;
-          border: 1px solid $colorname-lighter-gray;
-          border-radius: 0px;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          color: #303b41;
-          padding: 0 10px;
-        }
-      }
-      .form-submit {
-        height: 36px;
-        width: 36px;
-        // Min-width workaround for button class we can't remove.
-        min-width: initial;
-        background: transparent;
-        border: none;
-        z-index: 99;
-        border-radius: 0;
-        &:not([disabled]):hover {
-          // background: $colorname-picton-blue;
-          // color: $colorname-white;
-          // & ~ i::before {
-          //   color: $colorname-white;
-          // }
-        }
-
-        &[disabled] {
-          &:hover {
-            & ~ i::before {
-              color: #a3a9ac;
-            }
-          }
-        }
-      }
-      i.icon {
-        position: absolute;
-        // width: 36px;
-        // height: 36px;
-        // right: 0;
-        // background: $colorname-picton-blue;
-        // transition: all .3s ease-in-out;
-        // line-height: 36px;
-        // font-size: $font-size-body-copy-xsmall;
-        // font-style: normal;
-
-        text-align: center;
-        &::before {
-          vertical-align: -4px;
-        }
-      }
-    }
-  }
-
   .footer-social {
-    margin-top: 20px;
-    ul {
+    & {
+      margin-top: 20px;
+    }
+
+    & ul,
+    & ul > li {
+      // Reset List Styles
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    & ul {
       margin-top: 0;
       display: inline-flex;
-      li {
-        display: block;
-        & + li {
-          margin-left: 30px;
-        }
-        a {
-          display: block;
-          color: transparent;
-          transition: all .3s ease-in-out;
-          &:hover,
-          &:focus {
-            i::after {
-              background: $city-color-secondary;
-            }
-          }
-          i {
-            font-style: normal;
-            display: block;
-            &:after {
-              transition: all .3s ease-in-out;
-              background: #78797a;
-              color: $colorname-white;
-              width: 38px;
-              height: 38px;
-              content: '';
-              display: block;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 26px;
-            }
-            &.icon-db-social-facebook {
-              &:before {
-                content: none; //Reset to remove before icon
-              }
-              &:after {
-                content: "\f09a";
-                font-family: $fontname-fontawesome;
-              }
-            }
-            &.icon-db-social-twitter {
-              &:before {
-                content: none; //Reset to remove before icon
-              }
-              &:after {
-                content: '\f099';
-                font-family: $fontname-fontawesome;
-              }
-            }
-            &.icon-db-social-instagram {
-              &:before {
-                content: none; //Reset to remove before icon
-              }
-              &:after {
-                content: '\f16d';
-                font-family: $fontname-fontawesome;
-              }
-            }
-          }
-        }
+    }
+
+    & ul > li {
+      display: block;
+      margin-left: 20px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    & ul > li > a {
+      display: flex; // Flex magic to center the icon
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      height: $footer-social-icon-size;
+      width: $footer-social-icon-size;
+
+      color: $footer-social-icon-color-foreground-default;
+      background-color: $footer-social-icon-color-background-default;
+
+      transition: all .3s ease-in-out;
+
+      &::after {
+        @include fa-icon;
+        color: inherit;
+        transition: all .3s ease-in-out;
+        font-size: $footer-social-icon-size * 0.75;
+      }
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: $footer-social-icon-color-foreground-hover;
+        background-color: $footer-social-icon-color-background-hover;
+      }
+
+      // Icons are selected based on the URL of the link. If this doesn't prove to be usable, we can switch to manually managed class names.
+      &[href*="facebook"]::after {
+        content: $fa-var-facebook;
+      }
+
+      &[href*="twitter"]::after {
+        content: $fa-var-twitter;
+      }
+
+      &[href*="instagram"]::after {
+        content: $fa-var-instagram;
       }
     }
   }

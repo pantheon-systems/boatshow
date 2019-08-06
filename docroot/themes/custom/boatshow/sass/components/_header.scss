@@ -429,9 +429,9 @@
       color: inherit;
 
       &::after {
-        content: '\f054'; // chevron-right
+        @include fa-icon;
+        content: $fa-var-chevron-right;
         display: inline-block;
-        font-family: $fontname-fontawesome;
         color: $color-links;
         margin-left: 5px;
         vertical-align: middle;

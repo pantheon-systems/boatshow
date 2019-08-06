@@ -6,15 +6,6 @@ $city-color-secondary: magenta !default;
 $city-color-tertiary: $city-color-secondary !default;
 $city-hero-bg: '../../../images/atlanticcity/main-background.jpg' !default;
 
-// Typography
-
-///////////////////////////
-// Font Names
-// These have no semantic value and should only be used to populate other variables
-///////////////////////////
-// FontAwesome
-$fontname-fontawesome: 'FontAwesome' !default;
-
 ///////////////////////////
 // Fonts
 // Font variables with semantic names related to their purpose
@@ -227,3 +218,11 @@ $context-show-links: false !default;
 
 // Masthead Settings
 $masthead-min-height: 515px !default;
+
+// Footer
+
+$footer-social-icon-size: 48px !default;
+$footer-social-icon-color-foreground-default: $colorname-white !default;
+$footer-social-icon-color-background-default: transparent !default;
+$footer-social-icon-color-foreground-hover: $colorname-white !default;
+$footer-social-icon-color-background-hover: $city-color-primary !default;

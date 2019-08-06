@@ -36,9 +36,9 @@
         text-align: left;
         text-transform: lowercase;
         &::after {
-          font-family: $fontname-fontawesome;
+          @include fa-icon;
           font-size: 10px;
-          content: '\f054';
+          content: $fa-var-chevron-right;
           color: $city-color-primary;
           margin-left: 5px;
         }
