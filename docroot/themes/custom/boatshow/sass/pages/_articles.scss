@@ -1,15 +1,20 @@
 
 article.node--view-mode-grid-item {
-  padding: 1em;
+  //padding: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid $colorname-lighter-gray; // use variable
   
   .col-1 {
-    padding: 1em 1em 1em 0;
-    border-bottom: 1px solid $colorname-lighter-gray; // use variable
+    //padding: 1em 1em 1em 0;
+    //border-bottom: 1px solid $colorname-lighter-gray; // use variable
+    padding: 1em 0 1em 0;
   }
   
   .col-2 {
-    padding: 1em 0 1em 1em;
-    border-bottom: 1px solid $colorname-lighter-gray; // use variable
+    //padding: 1em 0 1em 1em;
+    //border-bottom: 1px solid $colorname-lighter-gray; // use variable
+    padding: 1em 0 1em 0;
   }
   
   h2 {

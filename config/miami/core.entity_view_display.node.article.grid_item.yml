@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.grid_item
+    - field.field.node.article.feeds_item
     - field.field.node.article.field_article_activity
     - field.field.node.article.field_article_author
     - field.field.node.article.field_article_body
@@ -18,10 +19,11 @@ dependencies:
     - field.field.node.article.field_article_teaser
     - field.field.node.article.field_article_tsr_image
     - field.field.node.article.field_article_type
+    - field.field.node.article.field_feed_id
     - node.type.article
   module:
     - panelizer
-    - text
+    - smart_trim
     - user
 third_party_settings:
   panelizer:
@@ -44,8 +46,19 @@ content:
     label: hidden
     settings:
       trim_length: 300
+      trim_type: chars
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+      summary_handler: full
     third_party_settings: {  }
-    type: text_trimmed
+    type: smart_trim
     region: content
   field_article_tsr_image:
     type: entity_reference_entity_view
@@ -57,6 +70,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  feeds_item: true
   field_article_activity: true
   field_article_author: true
   field_article_body: true
@@ -69,5 +83,6 @@ hidden:
   field_article_subhead: true
   field_article_tags: true
   field_article_type: true
+  field_feed_id: true
   langcode: true
   links: true
