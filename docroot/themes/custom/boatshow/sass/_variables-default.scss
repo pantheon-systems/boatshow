@@ -28,27 +28,26 @@ $font-headings: $font-primary !default;
 ///////////////////////////
 
 // Template grays
-$colorname-white: #fff !default;
 $colorname-black: #000 !default;
-$colorname-dark-gray: lighten($colorname-black, 20%) !default;
-$colorname-med-gray: lighten($colorname-black, 40%) !default;
-$colorname-light-gray: lighten($colorname-black, 70%) !default;
-$colorname-lighter-gray: #e7e5e5 !default;
-$colorname-off-white: lighten($colorname-black, 97%) !default;
-
-/// Other grays
-$colorname-gray: #d8d8d8 !default;
-$colorname-gray-medium: #a2a2a2 !default;
-$colorname-gray-dark: #303b41 !default;    // Default
 $colorname-gray-darkest: #1c1b1f !default;
-$colorname-gray-silver-sand: #c0c4c6 !default;
-$colorname-gray-oslo: #979da0 !default;
-$colorname-gray-unleaded: #7f7f7f !default;
-$colorname-gray-iron: #d6d8d9 !default;
-$colorname-gray-chateau: #a3a9ac !default;
-$colorname-gray-silver-sand-alt: #bdc2c7 !default;
+$colorname-gray-dark: #303b41 !default;
+$colorname-dark-gray: lighten($colorname-black, 20%) !default; // #333333;
 $colorname-gray-emperor: #5f5f5f !default;
+$colorname-med-gray: lighten($colorname-black, 40%) !default; // #666666;
+$colorname-gray-unleaded: #7f7f7f !default;
+$colorname-gray-oslo: #979da0 !default;
+$colorname-gray-medium: #a2a2a2 !default;
+$colorname-gray-chateau: #a3a9ac !default;
+$colorname-light-gray: lighten($colorname-black, 70%) !default; // #b3b3b3;
+$colorname-gray-silver-sand-alt: #bdc2c7 !default;
+$colorname-gray-silver-sand: #c0c4c6 !default;
+$colorname-gray-iron: #d6d8d9 !default;
+$colorname-gray: #d8d8d8 !default;
+$colorname-lighter-gray: #e7e5e5 !default;
 $colorname-gray-wild-sand: #f5f5f5 !default;
+$colorname-off-white: lighten($colorname-black, 97%) !default; // #f7f7f7;
+$colorname-white: #fff !default;
+
 
 // Other colors
 $colorname-alizarin-red: #e61b3a !default;
