@@ -64,12 +64,14 @@
     font-weight: 500;
 }
 
-.view-seminarreference .view-content div {
-    display: inline-block;
-}
-
-.view-seminarreference .view-content .views-field::after {
-    content: ",";
+.view-seminarreference .view-content .grouping-row{
+  display: inline;
+  &::after {
+    content: ", ";
+  }
+  &:last-child::after {
+    content: none;
+  }
 }
 
 .view-seminarreference .view-content .views-row-last .views-field::after {
