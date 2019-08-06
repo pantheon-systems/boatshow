@@ -60,6 +60,10 @@
 }
 
 .region-footer {
+    a:not([class*="button"]) {
+      text-decoration: underline;
+    }
+
   .sponsors-block {
     margin: 70px 0 60px;
     text-align: center;
@@ -113,9 +117,7 @@
       float: left;
       margin: 1px 5px 1px 0px;
     }
-    a {
-      text-decoration: underline;
-    }
+
   }
 
   .footer-social {
