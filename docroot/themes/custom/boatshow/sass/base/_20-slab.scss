@@ -17,10 +17,6 @@
   background-color: $color-slab-dark-gray;
 }
 
-@mixin slab-very-dark-gray {
-  background-color: $color-slab-very-dark-gray;
-}
-
 @mixin slab-city-primary {
   background-color: $color-slab-city-primary;
 }
@@ -82,10 +78,6 @@
 
 .slab-city-tertiary {
   @include slab-city-tertiary;
-}
-
-.slab-very-dark-gray {
-  @include slab-very-dark-gray;
 }
 
 [class~="slab-inverted"] {

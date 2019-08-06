@@ -47,6 +47,8 @@ $colorname-gray-unleaded: #7f7f7f !default;
 $colorname-gray-iron: #d6d8d9 !default;
 $colorname-gray-chateau: #a3a9ac !default;
 $colorname-gray-silver-sand-alt: #bdc2c7 !default;
+$colorname-gray-emperor: #5f5f5f !default;
+$colorname-gray-wild-sand: #f5f5f5 !default;
 
 // Other colors
 $colorname-alizarin-red: #e61b3a !default;
@@ -74,9 +76,8 @@ $color-header-bg: rgba($colorname-black, 0.4) !default;
 // Slabs
 $color-slab-white: $colorname-white !default;
 $color-slab-white-transparency: rgba($colorname-white, 0.8) !default;
-$color-slab-light-gray: $colorname-lighter-gray !default;
-$color-slab-dark-gray: $colorname-gray-unleaded !default;
-$color-slab-very-dark-gray: $colorname-gray-dark !default;
+$color-slab-light-gray: $colorname-gray-wild-sand !default;
+$color-slab-dark-gray: $colorname-gray-emperor !default;
 $color-slab-city-primary: rgba($city-color-primary, 0.8) !default;
 $color-slab-city-secondary: rgba($city-color-secondary, 0.8) !default;
 $color-slab-city-tertiary: rgba($city-color-tertiary, 0.8) !default;

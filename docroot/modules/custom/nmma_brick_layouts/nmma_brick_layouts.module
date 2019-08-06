@@ -61,3 +61,19 @@ function nmma_brick_layouts_layout_alter(&$definitions) {
   unset($definitions['layout_threecol_25_50_25']);
   unset($definitions['layout_threecol_33_34_33']);
 }
+
+// https://drupal.stackexchange.com/a/242011
+function nmma_brick_layouts_background_color_allowed_values_function () {
+
+  $options = [
+    'white' => 'white',
+    'white-transparency' => 'white-transparency',
+    'light-gray' => 'light-gray',
+    'dark-gray' => 'dark-gray',
+    'city-primary' => 'city-primary',
+    'city-secondary' => 'city-secondary',
+    'city-tertiary' => 'city-tertiary (where available)'
+  ];
+
+  return $options;
+}

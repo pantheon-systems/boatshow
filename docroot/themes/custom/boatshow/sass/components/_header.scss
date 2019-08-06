@@ -234,7 +234,7 @@
 
   // Secondary-only styles
   [id="block-headersecondarynav"] {
-    @include slab-very-dark-gray;
+    @include slab-dark-gray;
     @include slab-inverted;
 
     & > ul {
