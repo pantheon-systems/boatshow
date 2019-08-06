@@ -132,6 +132,33 @@ function boatshow_preprocess_block(&$variables) {
     $variables['elements']['#base_plugin_id'] == 'colossal_menu_block') {
     $variables['content']['#attributes']['colossal_menu'] = TRUE;
   }
+
+  // Hide page title block if masthead brick exists
+  if ($variables['plugin_id'] === 'page_title_block') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+
+    // Only for for Component Page content type for now.
+    if ($node instanceof \Drupal\node\NodeInterface && $node->bundle() === 'component_page') {
+      // Get all of node's bricks' IDs
+      $node_bricks = $node->get('field_component_bricks')->getValue();
+
+      // Query for all masthead brick IDs
+      $query = \Drupal::entityQuery('brick')
+      ->condition('type', 'masthead');
+      $masthead_brick_ids = $query->execute();
+
+      if (!empty($node_bricks) && !empty($masthead_brick_ids)) {
+        // Check for a match
+        foreach ($node_bricks as $brick) {
+          if (in_array($brick['target_id'], $masthead_brick_ids)) {
+            // stop block from rendering
+            $variables['content'] = [];
+            break;
+          }
+        }
+      }
+    }
+  }
 }
 
 /**
