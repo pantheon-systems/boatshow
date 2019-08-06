@@ -95,6 +95,7 @@
         "drupal/rpt": "1.0-beta1",
         "drupal/seckit": "^1.0.0-alpha2",
         "drupal/shield": "^1.2.0",
+        "drupal/smart_trim": "^1.1",
         "drupal/structure_sync": "^1.12",
         "drupal/telephone_formatter": "1.x-dev#64f2cbbb440044fce077e5ada35890388321fa5b",
         "drupal/twig_field": "^1.0",
