@@ -115,6 +115,14 @@
 
   }
 
+  .special-brick-signup-socials {
+    text-align: left;
+
+    @media (min-width: $screen-lg) {
+      text-align: center;
+    }
+  }
+
   .footer-social {
     & {
       margin-top: 20px;
@@ -130,16 +138,14 @@
 
     & ul {
       margin-top: 0;
-      display: inline-flex;
+      display: block;
+      margin-left: $footer-social-icon-spacing / -2;
+      margin-right: $footer-social-icon-spacing / -2;
     }
 
     & ul > li {
-      display: block;
-      margin-left: 20px;
-
-      &:first-child {
-        margin-left: 0;
-      }
+      display: inline-block;
+      margin: 0 $footer-social-icon-spacing / 2;
     }
 
     & ul > li > a {
