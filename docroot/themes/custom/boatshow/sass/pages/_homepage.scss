@@ -3,48 +3,42 @@
 ////////////////////
 .city-banner .field--name-field-body {
   justify-content: flex-end;
-  font-weight: $font-weight-light;
+  font-weight: $font-weight-normal;
   text-align: left;
+  font-size: 25px;
+  color: $color-text;
+  line-height: 1;
+
+  strong {
+    font-size: 30px;
+    font-weight: $font-weight-bold;
+  }
 
   .progressive-card {
     line-height: 0;
   }
-  p {
-    margin: 0;
-    font-size: 24px;
-    font-weight: $font-weight-light;
-    color: $colorname-black;
-    line-height: 1;
+
+  h3 {
+    font-size: 35px;
+    color: $city-color-primary;
+    text-transform: uppercase;
     text-align: left;
-    &.bold {
-      font-size: 30px;
-      font-weight: $font-weight-bold;
-      text-transform: uppercase;
-      text-align: left;
-      margin-bottom: 25px;
-    }
+    margin-bottom: 15px;
+    font-weight: inherit;
+    line-height: 35px;
   }
+
   .location-item {
     margin-top: 25px;
     display: flex;
     flex-wrap: wrap;
+
     .hydrated {
       flex: 1;
       max-width: 30px;
       height: 45px;
       margin-right: 10px;
       color: $colorname-picton-blue;
-    }
-    span.bold {
-      flex: 1;
-      color: $colorname-black;
-      line-height: 1.3;
-      font-size: 18px;
-      font-weight: $font-weight-light;
-      b {
-        display: block;
-        font-weight: $font-weight-normal;
-      }
     }
   }
 }
@@ -56,18 +50,22 @@
   display: flex;
   flex-wrap: wrap;
   height: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
   > * {
     flex-basis: 100%;
   }
 
   .countdown-title {
-    font-size: 28px;
+    font-size: 25px;
     font-weight: $font-weight-normal;
     text-transform: uppercase;
     line-height: 1.417;
     text-align: center;
     margin: 0;
+    max-width: 270px;
   }
 
   .countdown-date {
@@ -77,7 +75,7 @@
   .jquery-countdown {
     display: flex;
     text-align: center;
-    margin: 20px 0;
+    width: 100%;
 
     > span {
       flex-grow: 1;
@@ -85,7 +83,7 @@
 
     .countdown-value {
       display: block;
-      font-size: 50px;
+      font-size: 60px;
       font-weight: $font-weight-semibold;
       color: $colorname-white;
       line-height: 1;
@@ -93,7 +91,7 @@
 
     .countdown-label {
       display: block;
-      font-size: 11px;
+      font-size: 15px;
       font-weight: $font-weight-light;
       color: $colorname-white;
       text-transform: uppercase;
@@ -103,6 +101,6 @@
 
   .countdown-button {
     display: inline-block;
-    margin: 0 auto;
+    margin: 30px auto 0 auto;
   }
 }
