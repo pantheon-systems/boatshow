@@ -11,6 +11,14 @@
   }
 }
 
+.two-columns .column-item {
+  max-width: 540px;
+
+  .brick--type--card {
+    height: 100%;
+  }
+}
+
 // This is not a good way to handle this but it's expedient.
 .alias--hotels .block-system-main-block {
   .column-item {
