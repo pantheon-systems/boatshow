@@ -29,16 +29,14 @@
   }
 
   .location-item {
-    margin-top: 25px;
     display: flex;
-    flex-wrap: wrap;
+    max-width: 300px;
+    margin: 25px auto 0 auto;
 
-    .hydrated {
-      flex: 1;
-      max-width: 30px;
-      height: 45px;
-      margin-right: 10px;
-      color: $colorname-picton-blue;
+    .fa {
+      font-size: 40px;
+      color: $city-color-secondary;
+      padding-right: 10px;
     }
   }
 }
