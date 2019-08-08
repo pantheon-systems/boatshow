@@ -1,0 +1,23 @@
+uuid: 2431cded-1073-4baf-812a-3a80e0477f33
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.map
+    - field.storage.brick.field_map_zoom
+id: brick.map.field_map_zoom
+field_name: field_map_zoom
+entity_type: brick
+bundle: map
+label: 'Map Zoom'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,21 @@
+uuid: 968bd921-c6dc-4c91-a839-b278a7a3c380
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - options
+id: brick.field_location_features
+field_name: field_location_features
+entity_type: brick
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

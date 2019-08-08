@@ -1,0 +1,19 @@
+uuid: 1c2b593e-fe01-4e39-b85d-a12da625cecb
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.map
+    - field.storage.brick.field_map_id
+id: brick.map.field_map_id
+field_name: field_map_id
+entity_type: brick
+bundle: map
+label: 'Map ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

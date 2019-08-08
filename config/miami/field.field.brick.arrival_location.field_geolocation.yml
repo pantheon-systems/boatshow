@@ -1,0 +1,21 @@
+uuid: 9f521f72-ddb5-47d0-8270-cbaf7b4b48a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.arrival_location
+    - field.storage.brick.field_geolocation
+  module:
+    - geolocation
+id: brick.arrival_location.field_geolocation
+field_name: field_geolocation
+entity_type: brick
+bundle: arrival_location
+label: Geolocation
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geolocation

@@ -1,0 +1,23 @@
+uuid: e5184fcc-1a90-447c-9143-8851c3d26914
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_disabled
+    - paragraphs.paragraphs_type.arrival_location_links
+id: paragraph.arrival_location_links.field_disabled
+field_name: field_disabled
+entity_type: paragraph
+bundle: arrival_location_links
+label: Disabled
+description: 'Only toggle to disable this link.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

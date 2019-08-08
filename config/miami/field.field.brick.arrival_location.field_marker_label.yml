@@ -1,0 +1,19 @@
+uuid: c0c2163a-c827-49bb-bc07-985973d5e726
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.arrival_location
+    - field.storage.brick.field_marker_label
+id: brick.arrival_location.field_marker_label
+field_name: field_marker_label
+entity_type: brick
+bundle: arrival_location
+label: 'Marker Label'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

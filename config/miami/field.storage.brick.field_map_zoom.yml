@@ -1,0 +1,20 @@
+uuid: bfae7994-5b2a-4723-b1b4-7d3e3cb1d555
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: brick.field_map_zoom
+field_name: field_map_zoom
+entity_type: brick
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

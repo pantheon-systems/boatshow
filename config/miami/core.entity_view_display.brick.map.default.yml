@@ -1,0 +1,50 @@
+uuid: 31209735-e589-46d2-91d0-0c3d54cff4cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.map
+    - field.field.brick.map.field_geolocation
+    - field.field.brick.map.field_map_id
+    - field.field.brick.map.field_map_zoom
+  module:
+    - geolocation
+id: brick.map.default
+targetEntityType: brick
+bundle: map
+mode: default
+content:
+  field_geolocation:
+    weight: -3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: geolocation_latlng
+    region: content
+  field_map_id:
+    weight: -4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_map_zoom:
+    weight: -2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  langcode: true
