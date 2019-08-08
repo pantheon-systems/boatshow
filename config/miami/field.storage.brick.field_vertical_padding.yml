@@ -10,8 +10,8 @@ field_name: field_vertical_padding
 entity_type: brick
 type: list_string
 settings:
-  allowed_values: { }
-  allowed_values_function: 'nmma_brick_layouts_vertical_padding_allowed_values_function'
+  allowed_values: {  }
+  allowed_values_function: nmma_brick_layouts_vertical_padding_allowed_values_function
 module: options
 locked: false
 cardinality: 1
