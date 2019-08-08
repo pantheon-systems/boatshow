@@ -11,10 +11,10 @@ entity_type: brick
 type: list_string
 settings:
   allowed_values: {  }
-  allowed_values_function: ''
+  allowed_values_function: nmma_brick_layouts_features_effect_allowed_values_function
 module: options
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
