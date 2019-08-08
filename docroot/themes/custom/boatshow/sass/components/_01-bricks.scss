@@ -12,10 +12,13 @@
 }
 
 .brick--type--section {
-  max-width: $site-maxout-width;
   margin-left: auto;
   margin-right: auto;
   position: relative;
+
+  &.container-type--expand {
+    max-width: $site-maxout-width;
+  }
 
   &.container-type--contract {
     padding-right: $dimension-section-horizontal-padding;
