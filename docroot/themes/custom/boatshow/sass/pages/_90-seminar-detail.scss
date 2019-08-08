@@ -10,10 +10,24 @@
     margin-bottom: 10px;
   }
 
+  .seminar-details-right h3 {
+    line-height: 1.2;
+  }
+
+  .seminar-details-right h4 {
+    font-weight: $font-weight-semibold;
+  }
+
   .seminar-details-right .views-row:not(:first-child) {
     margin-top: $dimension-card-padding;
     padding-top: $dimension-card-padding;
     border-top: $color-rules solid 1px;
+  }
+
+  .seminar-sessions,
+  .seminar-metadata,
+  .seminar-reserve {
+    font-size: 14px;
   }
 
   .seminar-sessions {
@@ -23,6 +37,10 @@
 
     & table {
       margin-bottom: 0;
+
+      & th {
+        @extend %key-value-key;
+      }
 
       // Reset global table styles
       &,
