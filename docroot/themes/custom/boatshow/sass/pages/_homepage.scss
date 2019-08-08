@@ -2,41 +2,61 @@
 /// Show Info Brick
 ////////////////////
 .show-info-banner {
-  justify-content: flex-end;
-  font-weight: $font-weight-normal;
-  text-align: left;
-  font-size: 25px;
-  color: $color-text;
-  line-height: 1;
 
-  strong {
-    font-size: 30px;
-    font-weight: $font-weight-bold;
-  }
-
-  .progressive-card {
-    line-height: 0;
-  }
-
-  h3 {
+  & {
+    // Font size controls the size of the main name element, all other elements are sized relative to this.
     font-size: 35px;
-    color: $city-color-primary;
-    text-transform: uppercase;
+
+    justify-content: flex-end;
+    font-weight: $font-weight-normal;
     text-align: left;
-    margin-bottom: 15px;
-    font-weight: inherit;
-    line-height: 35px;
+    line-height: 1;
   }
 
-  .location-item {
-    display: flex;
-    max-width: 300px;
-    margin: 25px auto 0 auto;
+  & .show-name {
+    @include headline-effect-city-color;
+    padding: 0; //reset padding on h3
 
-    .fa {
-      font-size: 40px;
+    font-size: 1em;
+    line-height: 1em;
+    margin-bottom: 0.5em;
+
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+
+    // The ® mark
+    & sup {
+      font-size: 0.35em;
+      vertical-align: middle;
+      top: -1em;
+      position: relative;
+    }
+
+    & img {
+      display: block;
+      line-height: 0;
+    }
+  }
+
+  & .show-date {
+    font-size: 0.857em; //30px on 35px
+    font-weight: $font-weight-semibold;
+  }
+
+  & .show-location {
+    font-size: 0.714em; //25px on 35px
+    font-weight: $font-weight-semibold;
+    display: flex;
+    max-width: 12.8em; //320px on 25px;
+    margin: 1em auto 0 auto;
+    line-height: 1.2;
+
+    &:before {
+      @include fa-icon;
+      content: $fa-var-map-marker;
+      font-size: 1.6em;
       color: $city-color-secondary;
-      padding-right: 10px;
+      padding-right: 0.275em;
     }
   }
 }
