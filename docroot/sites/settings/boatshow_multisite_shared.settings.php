@@ -809,7 +809,12 @@ $config_directories = [
 /**
  * Private file path.
  */
-$settings['file_private_path'] = DRUPAL_ROOT . '/../files-private/' . $site_dir;
+if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+  $settings['file_private_path'] = '/mnt/files/' . $_ENV['AH_SITE_GROUP'] . '.' . $_ENV['AH_SITE_ENVIRONMENT'] . '/' . $site_path . '/files-private';
+}
+else {
+  $settings['file_private_path'] = DRUPAL_ROOT . '/../files-private/' . $site_dir;
+}
 
 /**
  * Load multisite configuration, if available.
