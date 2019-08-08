@@ -134,6 +134,7 @@ module:
   nmma_seminars: 0
   nmma_users: 0
   nmma_video: 0
+  nmma_webform_override_recipients: 0
   node: 0
   openapi: 0
   openapi_ui: 0

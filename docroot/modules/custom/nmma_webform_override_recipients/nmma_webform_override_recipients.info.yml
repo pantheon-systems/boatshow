@@ -1,0 +1,7 @@
+name: 'NMMA Webform Override Recipients'
+type: module
+description: 'Allows overriding the to_mail field of a webform email handler by setting override_recipients: "email1@domain1.com, email2@domain2.com" in the "Default webform submission data (YAML)" field for that webform instance'
+core: 8.x
+package: 'NMMA'
+dependencies:
+    - webform

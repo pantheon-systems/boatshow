@@ -1,0 +1,15 @@
+<?php
+
+function nmma_webform_override_recipients_webform_handler_invoke_alter ($handler, $method_name, &$args) {
+  if (
+    $method_name === 'override_settings'
+    && $handler instanceof \Drupal\webform\Plugin\WebformHandler\EmailWebformHandler
+    && isset($args[1])
+    && isset($args[1]->getData()['override_recipients'])
+    && ($override_recipients = $args[1]->getData()['override_recipients'])
+  ) {
+    $handlerConfig = $handler->getConfiguration();
+    $handlerConfig['settings']['to_mail'] = $override_recipients;
+    $handler->setConfiguration($handlerConfig);
+  }
+}
