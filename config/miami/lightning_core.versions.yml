@@ -218,3 +218,5 @@ tamper: 1.0.0-alpha1
 feeds_tamper: 2.0.0-beta1
 nmma_webform_override_recipients: 0.0.0
 geolocation_google_maps: 3.0.0-rc1
+entity_reference_revisions: 1.6.0
+paragraphs: 1.8.0
