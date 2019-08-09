@@ -143,7 +143,7 @@ function nmma_brick_layouts_headline_effect_allowed_values_function () {
 }
 
 /**
- * Defines allowed values for config field.storage.brick.field_headline_effect
+ * Defines allowed values for config field.storage.brick.field_location_features
  * @link https://drupal.stackexchange.com/a/242011
  */
 function nmma_brick_layouts_features_effect_allowed_values_function () {

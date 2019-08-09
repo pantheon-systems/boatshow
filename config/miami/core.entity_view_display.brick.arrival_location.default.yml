@@ -15,22 +15,21 @@ dependencies:
     - entity_reference_revisions
     - geolocation
     - image
-    - options
 id: brick.arrival_location.default
 targetEntityType: brick
 bundle: arrival_location
 mode: default
 content:
   field_geolocation:
-    weight: 0
-    label: above
+    weight: 3
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: geolocation_latlng
     region: content
   field_image:
-    weight: 2
-    label: above
+    weight: 5
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
@@ -38,31 +37,24 @@ content:
     type: image
     region: content
   field_location_address:
-    weight: -2
-    label: above
+    weight: 2
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_location_features:
-    weight: 3
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
   field_map_id:
-    weight: -4
-    label: above
+    weight: 1
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_marker_label:
-    weight: 1
-    label: above
+    weight: 4
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -70,8 +62,8 @@ content:
     region: content
   field_paragraphs:
     type: entity_reference_revisions_entity_view
-    weight: 4
-    label: above
+    weight: 6
+    label: hidden
     settings:
       view_mode: default
       link: ''
@@ -80,10 +72,11 @@ content:
   title:
     label: hidden
     type: string
-    weight: -5
+    weight: 0
     region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
+  field_location_features: true
   langcode: true

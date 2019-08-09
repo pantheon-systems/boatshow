@@ -464,6 +464,26 @@ function boatshow_preprocess_eck_entity(&$variables) {
     $variables['attributes']['class'][] = 'section-vertical-padding-' . $vertical_padding;
   }
 
+  // Set data-map-id attr
+  if ($entity->hasField('field_map_id')) {
+    if (!empty($entity->field_map_id->value)) {
+
+      $map_id = $entity->field_map_id->value;
+      $variables['attributes']['data-map-id'][] = $map_id;
+    }
+  }
+
+  // Set data-lat and data-lng attrs
+  if ($entity->hasField('field_geolocation')) {
+    if (!empty($entity->field_geolocation->value)) {
+
+      $lat = $entity->get('field_geolocation')->lat;
+      $lng = $entity->get('field_geolocation')->lng;
+      $variables['attributes']['data-lat'][] = $lat;
+      $variables['attributes']['data-lng'][] = $lng;
+    }
+  }
+
   if ($entity->bundle() == '3_col_card') {
 
     // Get title.

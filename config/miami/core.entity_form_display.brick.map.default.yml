@@ -15,13 +15,13 @@ bundle: map
 mode: default
 content:
   field_geolocation:
-    weight: 4
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: geolocation_latlng
     region: content
   field_map_id:
-    weight: 3
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -29,7 +29,7 @@ content:
     type: string_textfield
     region: content
   field_map_zoom:
-    weight: 5
+    weight: 4
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -37,14 +37,14 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 3
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60

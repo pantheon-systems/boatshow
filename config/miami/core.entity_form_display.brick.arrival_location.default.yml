@@ -22,7 +22,7 @@ bundle: arrival_location
 mode: default
 content:
   field_geolocation:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: geolocation_latlng
@@ -42,20 +42,6 @@ content:
     region: content
     third_party_settings: {  }
   field_location_address:
-    weight: 4
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_location_features:
-    weight: 5
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
-  field_map_id:
     weight: 1
     settings:
       size: 60
@@ -63,8 +49,22 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_marker_label:
+  field_location_features:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_map_id:
     weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_marker_label:
+    weight: 3
     settings:
       size: 60
       placeholder: ''
@@ -73,7 +73,7 @@ content:
     region: content
   field_paragraphs:
     type: entity_reference_paragraphs
-    weight: 6
+    weight: 5
     settings:
       title: Paragraph
       title_plural: Paragraphs
