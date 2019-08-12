@@ -254,6 +254,12 @@ $dimension-masthead-vertical-pull: .40 * $dimension-masthead-min-height !default
       >.container {
         padding-bottom: $dimension-masthead-vertical-pull + $dimension-masthead-y-padding;
       }
+
+      + .container {
+        .brick:first-child {
+          z-index: 9999; // keep next child above the masthead Z
+        }
+      }
     }
   }
 
