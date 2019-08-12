@@ -1,6 +1,5 @@
 .view-seminar-view {
     margin: 3%;
-    border-top: 1px solid;
 }
 
 .view-seminar-view .views-view-grid .views-col {
@@ -53,8 +52,16 @@
 .view-seminar-view .view-content .views-field .field-content a:link,
 .view-seminar-view .view-content .views-field .field-content a:visited,
 .view-seminar-view .view-content .views-field .field-content a:hover,
-.view-seminar-view .view-content .views-field .field-content a:active {
+.view-seminar-view .view-content .views-field .field-content a:active,
+.view-all-speakers a:link,
+.view-all-speakers a:visited,
+.view-all-speakers a:hover,
+.view-all-speakers a:active {
     font-weight: 700;
+}
+
+.view-all-speakers a {
+    float: right;
 }
 
 .view-seminarreference .view-content .views-field .field-content a:link,
