@@ -1,0 +1,8 @@
+uuid: bdd06e72-cef3-4ccd-94de-b6a719bb9503
+langcode: en
+status: true
+dependencies: {  }
+name: 'Dining Location'
+vid: dining_location
+description: ''
+weight: 0

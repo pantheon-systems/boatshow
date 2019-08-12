@@ -1,0 +1,14 @@
+uuid: 266dea1e-cc06-44ac-862f-7276e9919182
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dining_creator
+  module:
+    - user
+id: user_add_role_action.dining_creator
+label: 'Add the Dining creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: dining_creator

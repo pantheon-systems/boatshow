@@ -1,0 +1,29 @@
+uuid: d789b9f3-51b9-4d1a-9764-6ad6730acead
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dining_service
+    - node.type.dining
+    - taxonomy.vocabulary.dining_service
+id: node.dining.field_dining_service
+field_name: field_dining_service
+entity_type: node
+bundle: dining
+label: Service
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      dining_service: dining_service
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

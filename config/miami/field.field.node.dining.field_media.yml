@@ -1,0 +1,28 @@
+uuid: e04f9350-cee5-488f-99a1-a7fcf543d76c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_media
+    - media.type.image
+    - node.type.dining
+id: node.dining.field_media
+field_name: field_media
+entity_type: node
+bundle: dining
+label: Image(s)
+description: 'Three images will be shown for full-service locations, only a single item will be shown for others'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

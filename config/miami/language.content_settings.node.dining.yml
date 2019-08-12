@@ -1,0 +1,11 @@
+uuid: a18b2ae5-d482-44a1-be05-7eae5a182e23
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.dining
+id: node.dining
+target_entity_type_id: node
+target_bundle: dining
+default_langcode: site_default
+language_alterable: false

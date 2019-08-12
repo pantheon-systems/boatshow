@@ -1,0 +1,14 @@
+uuid: 3e0ce15c-077f-45c7-b75c-2906dcd628df
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dining_creator
+  module:
+    - user
+id: user_remove_role_action.dining_creator
+label: 'Remove the Dining creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: dining_creator
