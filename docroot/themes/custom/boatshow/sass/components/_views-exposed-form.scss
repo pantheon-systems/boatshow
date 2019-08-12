@@ -1,0 +1,49 @@
+.views-exposed-form {
+  width: 100%;
+
+  .form-checkboxes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .form-item {
+    display: inline-block;
+    flex: 0 1 auto;
+    margin: 1em;
+  }
+  .form-type-checkbox {
+
+    .form-checkbox {
+      display: none;
+    }
+
+    .option {
+      vertical-align: middle;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 1.3em;
+        width: 1.3em;
+        border: 1px solid $colorname-gray-darkest;
+        border-radius: 3px;
+        vertical-align: middle;
+        margin-right: 1em;
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: bold;
+        line-height: 1.3;
+        color: $color-text-inverted;
+      }
+    }
+    .form-checkbox:checked + .option {
+      &:before {
+        content: 'X';
+        background: $city-color-primary;
+        border: 0;
+      }
+    }
+  }
+}
