@@ -61,6 +61,7 @@ $sites['local.atlantaboatshow.com'] = 'atlanta';
 $sites['dev.atlantaboatshow.com'] = 'atlanta';
 $sites['dev2.atlantaboatshow.com'] = 'atlanta';
 $sites['stage.atlantaboatshow.com'] = 'atlanta';
+$sites['stage2.atlantaboatshow.com'] = 'atlanta';
 $sites['www.atlantaboatshow.com'] = 'atlanta';
 
 // Chicago
@@ -68,6 +69,7 @@ $sites['local.chicagoboatshow.com'] = 'chicago';
 $sites['dev.chicagoboatshow.com'] = 'chicago';
 $sites['dev2.chicagoboatshow.com'] = 'chicago';
 $sites['stage.chicagoboatshow.com'] = 'chicago';
+$sites['stage2.chicagoboatshow.com'] = 'chicago';
 $sites['www.chicagoboatshow.com'] = 'chicago';
 
 // Kansas City
@@ -75,6 +77,7 @@ $sites['local.kansascitysportshow.com'] = 'kansascity';
 $sites['dev.kansascitysportshow.com'] = 'kansascity';
 $sites['dev2.kansascitysportshow.com'] = 'kansascity';
 $sites['stage.kansascitysportshow.com'] = 'kansascity';
+$sites['stage2.kansascitysportshow.com'] = 'kansascity';
 $sites['www.kansascitysportshow.com'] = 'kansascity';
 
 // Miami
@@ -82,6 +85,7 @@ $sites['local.miamiboatshow.com'] = 'miami';
 $sites['dev.miamiboatshow.com'] = 'miami';
 $sites['dev2.miamiboatshow.com'] = 'miami';
 $sites['stage.miamiboatshow.com'] = 'miami';
+$sites['stage2.miamiboatshow.com'] = 'miami';
 $sites['www.miamiboatshow.com'] = 'miami';
 
 // Nashville
@@ -89,6 +93,7 @@ $sites['local.nashvilleboatshow.com'] = 'nashville';
 $sites['dev.nashvilleboatshow.com'] = 'nashville';
 $sites['dev2.kansascitysportshow.com'] = 'kansascity';
 $sites['stage.nashvilleboatshow.com'] = 'nashville';
+$sites['stage2.nashvilleboatshow.com'] = 'nashville';
 $sites['www.nashvilleboatshow.com'] = 'nashville';
 
 // Template
