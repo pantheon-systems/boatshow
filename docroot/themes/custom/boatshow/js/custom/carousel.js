@@ -20,6 +20,32 @@
         });
       });
 
+      // Dining teaser images
+      $('.featured-dining .node--type-dining.node--view-mode-teaser .field--name-field-media.field__items', context).once('diningCarousels').each(function() {
+        $(this).slick({
+          dots: false,
+          arrows: true,
+          mobileFirst: true,
+          infinite: true,
+          rows: 1,
+          centerMode: true,
+          slidesToScroll: 1,
+          variableWidth: true,
+          accessibility: true,
+          adaptiveHeight: true,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                arrows: false,
+                infinite: false,
+                centerMode: false,
+                variableWidth: false
+              }
+            }
+          ]
+        });
+      });
     }
   }
 })(jQuery, Drupal);

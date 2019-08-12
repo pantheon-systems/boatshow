@@ -1,0 +1,157 @@
+  $dining-two-col-bp: $screen-md; // minimum for featured dining callout / two column layout
+
+.dining-filters-section {
+
+  @media (max-width: $screen-md) {
+    background: transparent;
+    padding: 0;
+
+    .section-header h2{
+      color: $color-text;
+      text-shadow: none;
+      font-size: $font-size-h5;
+      font-weight: bold;
+      text-transform: none;
+    }
+
+    .form-item {
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 0;
+      width: 100%;
+    }
+  }
+
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+
+    @media (min-width: $dining-two-col-bp) {
+      padding-left: dimension-masthead-x-padding;
+      padding-right: dimension-masthead-x-padding;
+    }
+  }
+}
+
+.view-display-id-dining_options_block  {
+
+  .featured-dining {
+    box-sizing:border-box;
+    @media screen and (min-width: $dining-two-col-bp){
+      width: 66%;
+      float:left;
+      background: #ddd;
+    }
+
+    .node--type-dining {
+      width: 100%;
+      padding-right: $dimension-card-padding;
+      padding-left: $dimension-card-padding;
+      box-sizing: border-box;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    .field--name-field-media {
+      @media screen and (min-width: $dining-two-col-bp){
+        .slick-track {
+          width: 100% !important;
+          text-align: center;
+        }
+      }
+
+      .field__item {
+        max-width: 100%;
+      }
+
+      &.field__item {
+        display: inline-block;
+        padding: 0 2px;
+        width: auto;
+        box-sizing:border-box;
+
+
+        @media screen and (min-width: $dining-two-col-bp){
+          width: 33% !important;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .field--name-field-media {
+    text-align: center;
+
+    &.field__items {
+      margin: $dimension-vertical-rhythm-elements 0;
+    }
+  }
+
+  .node--type-dining {
+    border-bottom: 1px solid $colorname-gray-dark;
+    padding-bottom: $dimension-vertical-rhythm-elements;
+    margin-bottom: $dimension-vertical-rhythm-elements;
+
+    @media screen and (min-width: $dining-two-col-bp){
+      // force alignment between items
+      min-height: 420px;
+      margin-top: 30px;
+    }
+  }
+
+  .view-header {
+    padding-bottom: $dimension-vertical-rhythm-elements;
+    margin-bottom: $dimension-vertical-rhythm-elements;
+    border-bottom: 1px solid $colorname-gray-dark;
+  }
+
+  .view-content {
+    padding-top: $dimension-vertical-rhythm-elements;
+  }
+  .views-row {
+    box-sizing:border-box;
+    float: left;
+    display: inline-block;
+    vertical-align: top;
+    padding-right: $dimension-card-padding;
+    padding-left: $dimension-card-padding;
+
+    @media screen and (min-width: $dining-two-col-bp){
+      width: 33%;
+    }
+  }
+
+  .title {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .field--name-field-bus-logo {
+    text-align: center;
+
+    img {
+      max-height: 80px;
+      width: auto;
+    }
+  }
+  .field--label-inline {
+    .field__label {
+      display: inline-block;
+      width: 14ex;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      &:after {
+        content: ':';
+      }
+    }
+    .field__item {
+      display: inline-block;
+    }
+  }
+}

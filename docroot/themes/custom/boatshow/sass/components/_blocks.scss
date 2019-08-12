@@ -14,10 +14,12 @@
     max-width: 100px;
     margin-right: 15px;
   }
+
   .text-wrap {
     display: flex;
     flex: 1;
     flex-direction: column;
+
     .field--name-body {
       font-size: 13px;
       font-weight: $font-weight-normal;

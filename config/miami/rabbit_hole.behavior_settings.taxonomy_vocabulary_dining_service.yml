@@ -1,0 +1,11 @@
+uuid: 090d8248-78a3-4424-bddb-d53b125a4500
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.dining_service
+id: taxonomy_vocabulary_dining_service
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301

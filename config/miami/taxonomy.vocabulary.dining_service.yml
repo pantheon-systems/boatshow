@@ -1,0 +1,8 @@
+uuid: 0ae82dc9-730a-4af7-80a8-c6be3b0ee46c
+langcode: en
+status: true
+dependencies: {  }
+name: 'Dining Service'
+vid: dining_service
+description: ''
+weight: 0

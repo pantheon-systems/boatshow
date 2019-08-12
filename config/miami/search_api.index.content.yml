@@ -62,6 +62,7 @@ field_settings:
           business: default
           carousel_slides: default
           component_page: default
+          dining: default
           faq: default
           landing_page: full
           page: default
