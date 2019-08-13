@@ -392,4 +392,12 @@ The Acquia repository is specified in the "blt/blt.yml" file under the git remot
 
 ```console
 host$ blt artifact:deploy --commit-msg "[NMMA-XX] COMMIT MESSAGE" --branch "BRANCH-TO-PUSH-TO" --no-interaction
+
+Examples:
+- To deploy current github branch to Acquia Dev environment
+host$ blt artifact:deploy --commit-msg "[NMMA-XX] COMMIT MESSAGE" --branch "dev" --no-interaction
+
+- To deploy current github branch to Acquia Stage environment
+host$ blt artifact:deploy --commit-msg "[NMMA-XX] COMMIT MESSAGE" --branch "stage" --no-interaction
+
 ```

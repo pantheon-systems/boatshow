@@ -8,7 +8,7 @@ project:
     protocol: https
     hostname: 'local.${project.machine_name}.com'
 git:
-  default_branch: master
+  default_branch: dev
   remotes:
     cloud: 'discoverboat@svn-28441.prod.hosting.acquia.com:discoverboat.git'
   hooks:
