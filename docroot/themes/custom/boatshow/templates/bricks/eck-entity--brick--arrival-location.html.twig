@@ -1,4 +1,26 @@
 <section {{ attributes.addClass('arrival-location') }}>
   {{ context_links }}
-  {# {{ entity|without('title') }} #}
+  <div class="location-marker-label">{{ marker_label }}</div>
+  <div class="location-title">{{ entity.title }}</div>
+  <div class="location-address">({{ location_address }})</div>
+  <div class="location-features">
+    {% if location_features.parking is defined %}
+      <div class="location-feature-parking"></div>
+    {% endif %}
+
+    {% if location_features.handicap_parking is defined %}
+      <div class="location-feature-handicap-parking"></div>
+    {% endif %}
+
+    {% if location_features.rideshare_drop_off is defined %}
+      <div class="location-feature-rideshare"></div>
+    {% endif %}
+  </div>
+  <div class="location-links">
+    {{entity.field_paragraphs}}
+  </div>
+  <div class="location-image">{{ entity.field_image }}</div>
+
+  {# TODO: conditional if feature handicap_parking is true #}
+  <div class="location-disclaimer"></div>
 </section>

@@ -563,6 +563,36 @@ function boatshow_preprocess_eck_entity(&$variables) {
     }
   }
 
+  // Arrival Location template vars
+  if ($entity->bundle() === 'arrival_location') {
+    if ($entity->hasField('field_location_address')) {
+      if (!empty($entity->field_location_address->value)) {
+        $variables['location_address'] = $entity->field_location_address->value;
+      }
+    }
+
+    // Set data-marker-label attr
+    if ($entity->hasField('field_marker_label')) {
+      if (!empty($entity->field_marker_label->value)) {
+
+        $marker_label = $entity->field_marker_label->value;
+        $variables['attributes']['data-marker-label'][] = $marker_label;
+        $variables['marker_label'] = $marker_label;
+      }
+    }
+
+    if ($entity->hasField('field_location_features')) {
+      if (!empty($entity->get('field_location_features')->getValue())) {
+        $location_features = $entity->get('field_location_features')->getValue();
+        $variables['location_features'] = [];
+
+        foreach ($location_features as $feature) {
+          $variables['location_features'][$feature['value']] = $feature['value'];
+        }
+      }
+    }
+  }
+
   // Add contextual links.
   if (\Drupal::currentUser()->hasPermission('access contextual links')) {
     $url = $entity->toUrl('edit-form');
