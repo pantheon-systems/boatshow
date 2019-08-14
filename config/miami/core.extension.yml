@@ -116,6 +116,7 @@ module:
   machine_name_widget: 0
   media: 0
   media_entity_browser: 0
+  media_entity_download: 0
   media_entity_instagram: 0
   media_entity_twitter: 0
   media_library: 0

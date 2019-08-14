@@ -1,0 +1,9 @@
+uuid: e311f930-5790-4ce7-8e3d-0a90dfcb0332
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Document List'
+type: document_list
+description: ''

@@ -261,3 +261,122 @@ $dimension-masthead-vertical-pull: .40 * $dimension-masthead-min-height !default
     margin-bottom: $dimension-masthead-vertical-pull;
   }
 }
+
+// This is only displayed in the "download list" brick currently, so we keep it in this file
+$document-list-icon-size: 1.285em !default;
+$document-list-icon-container-size: 1.5em !default;
+$document-list-icon-top-adjust: 0.3em !default;
+.media--view-mode-document-list {
+  & {
+    line-height: 1.2;
+  }
+
+  & > a {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $city-color-primary;
+    }
+  }
+
+  // Document Icons
+  & .document-filetype {
+    width: $document-list-icon-container-size;
+    position: relative;
+    top: $document-list-icon-top-adjust;
+    text-align: left;
+  }
+
+  & .document-filetype:before {
+    @include fa-icon;
+    font-size: $document-list-icon-size;
+    content: $fa-var-file-o;
+    color: $color-text;
+  }
+
+  &.document-list-icon-pdf .document-filetype:before {
+    content: $fa-var-file-pdf-o;
+    color: $bc-adobe; //adobe acrobat
+  }
+
+  &.document-list-icon-excel .document-filetype:before {
+    content: $fa-var-file-excel-o;
+    color: $bc-microsoft-2;
+  }
+
+  &.document-list-icon-word .document-filetype:before {
+    content: $fa-var-file-word-o;
+    color: $bc-microsoft-3;
+  }
+
+  &.document-list-icon-powerpoint .document-filetype:before {
+    content: $fa-var-file-powerpoint-o;
+    color: $bc-microsoft;
+  }
+
+  &.document-list-icon-zip .document-filetype:before {
+    content: $fa-var-file-zip-o;
+  }
+
+  // Download Icon
+  & .document-download-button{
+    width: $document-list-icon-container-size;
+    text-align: right;
+    position: relative;
+    top: $document-list-icon-top-adjust;
+
+    &:before {
+      @include fa-icon;
+      font-size: $document-list-icon-size;
+      content: $fa-var-download;
+      color: inherit;
+    }
+  }
+
+  & .document-text {
+    flex: 1 0 auto;
+  }
+
+  & .document-label,
+  & .document-filesize {
+    font-weight: inherit;
+    font-size: 1em;
+  }
+
+  & .document-label {
+    color: inherit;
+  }
+
+  & .document-filesize {
+    color: inherit;
+  }
+}
+
+.brick--type--document-list {
+  // The headline
+  & > h3 {
+    padding: 0;
+    margin-bottom: 0.5em;
+  }
+
+  // The list
+  // .field--name-field-media-unlimited.field__items {
+  //   // margin-top:
+  // }
+
+  // The list items
+  .field--name-field-media-unlimited.field__items > .field__item {
+    margin-bottom: 0.75em;
+    font-size: 14px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -189,7 +189,7 @@ geolocation_demo: 0.0.0
 telephone_formatter: 0.0.0
 acquia_purge: 1.0.0-beta3
 imageapi_optimize: 0.0.0
-media_entity_download: 0.0.0
+media_entity_download: 2.0.0-beta1
 video_embed_wistia: 0.0.0
 nmma_importer: 0.0.0
 nmma_multinational: 0.0.0

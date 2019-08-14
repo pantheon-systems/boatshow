@@ -1,0 +1,28 @@
+uuid: cc898109-2bb1-44bb-8346-3b7727085e1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.document_list
+    - field.storage.brick.field_media_unlimited
+    - media.type.document
+id: brick.document_list.field_media_unlimited
+field_name: field_media_unlimited
+entity_type: brick
+bundle: document_list
+label: Documents
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

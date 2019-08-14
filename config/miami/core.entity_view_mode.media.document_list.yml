@@ -1,0 +1,14 @@
+uuid: c5ee66c2-c771-4913-a41b-06bcf5664996
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media
+third_party_settings:
+  lightning_core:
+    description: 'Display mode for the document list block'
+id: media.document_list
+label: 'Document List'
+targetEntityType: media
+cache: true

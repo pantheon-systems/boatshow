@@ -10,6 +10,11 @@
 @import '../node_modules/font-awesome/scss/mixins';
 
 /**
+ * Brand Colors
+ */
+@import '../node_modules/brand-colors/dist/latest/scss/brand-colors.latest.scss';
+
+/**
   Normal reset
 */
 @import "reset";

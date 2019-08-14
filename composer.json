@@ -79,6 +79,7 @@
         "drupal/lightning_media": "^3.12",
         "drupal/linkit": "5.x-dev#1084887a0c4d9f0458c8d60f59ba20c342005101",
         "drupal/media_entity_browser": "2.x-dev#c75921d3af90f1b6dc052cd2edf037116227acf8",
+        "drupal/media_entity_download": "^2.0@beta",
         "drupal/memcache": "2.0-alpha7",
         "drupal/menu_breadcrumb": "^1.7",
         "drupal/menu_item_extras": "^2.2",
