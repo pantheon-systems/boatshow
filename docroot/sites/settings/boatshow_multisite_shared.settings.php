@@ -827,11 +827,3 @@ else {
 if (file_exists('/var/www/site-php')) {
   require '/var/www/site-php/discoverboat/' . $site_dir . '-settings.inc';
 }
-
-$settings['cache']['bins']['bootstrap'] = 'cache.backend.null';
-$settings['cache']['bins']['discovery'] = 'cache.backend.null';
-$settings['cache']['bins']['config'] = 'cache.backend.null';
-$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
-$settings['cache']['bins']['render'] = 'cache.backend.null';
-$config['system.performance']['css']['preprocess'] = FALSE;
-$config['system.performance']['js']['preprocess'] = FALSE;
