@@ -1,6 +1,8 @@
 <section {{ attributes.addClass('arrival-location') }}>
   {{ context_links }}
-  <div class="location-marker-label">{{ marker_label }}</div>
+  <div class="location-marker-label">
+    <div class="marker-label-content">{{ marker_label }}</div>
+  </div>
   <div class="location-title">{{ entity.title }}</div>
   <div class="location-address">({{ location_address }})</div>
   <div class="location-features">
@@ -21,6 +23,6 @@
   </div>
   <div class="location-image">{{ entity.field_image }}</div>
 
-  {# TODO: conditional if feature handicap_parking is true #}
+  {# TODO: conditional if only feature handicap_parking is true #}
   <div class="location-disclaimer"></div>
 </section>

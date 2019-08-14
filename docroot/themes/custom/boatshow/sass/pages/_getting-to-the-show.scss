@@ -19,3 +19,57 @@
     }
   }
 }
+
+.arrival-location {
+  text-align: center;
+
+  .location-marker-label {
+    background-image: url('../../images/marker.png');
+    margin: 0 auto;
+    width: 28px;
+    height: 41px;
+
+    .marker-label-content {
+      color: $city-color-primary;
+      font-size: 22px;
+      font-weight: $font-weight-bold;
+      padding-top: 3px;
+    }
+  }
+
+  .location-title {
+    font-size: 16px;
+    font-weight: $font-weight-bold;
+  }
+
+  .location-address {
+    font-size: 16px;
+  }
+
+  .location-links {
+
+    .paragraph--type--arrival-location-links {
+      margin: 5px 0;
+
+      & > a {
+        @include button--secondary;
+        position: relative;
+        min-width: 170px;
+        text-align: left;
+        padding: 10px 55px 10px 10px;
+
+        & > .price {
+          position: absolute;
+          top: 0;
+          right: 0;
+          background-color: $city-color-primary;
+          color: $color-text-inverted;
+          line-height: 1.2;
+          text-align: center;
+          padding: 10px 0;
+          width: 45px;
+        }
+      }
+    }
+  }
+}

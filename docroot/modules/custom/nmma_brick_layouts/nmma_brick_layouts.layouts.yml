@@ -134,9 +134,22 @@ three_column_grid:
     col36:
       label: Column 36
 four_column_grid:
-  label: 'Four column grid (30/20/20/30)'
+  label: 'Four column even grid (30/20/20/30)'
   category: 'NMMA Layouts'
   template: templates/layouts/four-column-grid
+  regions:
+    col1:
+      label: Column 1
+    col2:
+      label: Column 2
+    col3:
+      label: Column 3
+    col4:
+      label: Column 4
+four_column_even_grid:
+  label: 'Four column grid (25/25/25/25)'
+  category: 'NMMA Layouts'
+  template: templates/layouts/four-column-even-grid
   regions:
     col1:
       label: Column 1
