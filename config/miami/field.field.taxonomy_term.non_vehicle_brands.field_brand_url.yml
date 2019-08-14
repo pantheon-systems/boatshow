@@ -1,0 +1,23 @@
+uuid: 4808d137-32fd-4014-9b8b-1e37ce4ed928
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_brand_url
+    - taxonomy.vocabulary.non_vehicle_brands
+  module:
+    - link
+id: taxonomy_term.non_vehicle_brands.field_brand_url
+field_name: field_brand_url
+entity_type: taxonomy_term
+bundle: non_vehicle_brands
+label: 'Brand Url'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

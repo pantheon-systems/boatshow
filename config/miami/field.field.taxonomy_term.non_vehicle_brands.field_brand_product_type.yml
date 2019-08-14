@@ -1,0 +1,29 @@
+uuid: ea6e0e35-5d1d-40c9-a9f7-21d99a380d45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_brand_product_type
+    - taxonomy.vocabulary.non_vehicle_brands
+    - taxonomy.vocabulary.non_vehicle_product_type
+id: taxonomy_term.non_vehicle_brands.field_brand_product_type
+field_name: field_brand_product_type
+entity_type: taxonomy_term
+bundle: non_vehicle_brands
+label: 'Product Type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      non_vehicle_product_type: non_vehicle_product_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

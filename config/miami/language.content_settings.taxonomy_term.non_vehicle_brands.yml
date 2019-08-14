@@ -1,0 +1,11 @@
+uuid: 6e30d758-3689-4389-bdbd-eb9ef12aef36
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.non_vehicle_brands
+id: taxonomy_term.non_vehicle_brands
+target_entity_type_id: taxonomy_term
+target_bundle: non_vehicle_brands
+default_langcode: site_default
+language_alterable: false
