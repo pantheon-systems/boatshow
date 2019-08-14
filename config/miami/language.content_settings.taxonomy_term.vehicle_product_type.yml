@@ -1,0 +1,11 @@
+uuid: 63aefef0-a9c1-4a1c-b36c-4949b7ed1db1
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.vehicle_product_type
+id: taxonomy_term.vehicle_product_type
+target_entity_type_id: taxonomy_term
+target_bundle: vehicle_product_type
+default_langcode: site_default
+language_alterable: false

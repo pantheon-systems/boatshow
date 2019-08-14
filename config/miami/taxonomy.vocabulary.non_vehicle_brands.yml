@@ -1,0 +1,8 @@
+uuid: 8e614372-f01c-472c-bcc1-33eed90f322a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Non Vehicle Brands'
+vid: non_vehicle_brands
+description: ''
+weight: 0

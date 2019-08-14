@@ -1,0 +1,11 @@
+uuid: 0c9363f5-3dd7-49f4-9554-612df2e4cae4
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.vehicle_product_type
+id: taxonomy_vocabulary_vehicle_product_type
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

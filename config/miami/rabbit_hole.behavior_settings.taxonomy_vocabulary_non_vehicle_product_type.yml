@@ -1,0 +1,11 @@
+uuid: 18b3025f-0d4c-4165-9f24-678a05eb0d6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.non_vehicle_product_type
+id: taxonomy_vocabulary_non_vehicle_product_type
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

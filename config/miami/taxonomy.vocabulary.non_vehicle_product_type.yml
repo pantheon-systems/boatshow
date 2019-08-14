@@ -1,0 +1,8 @@
+uuid: 4b5ed272-397d-4c6a-b1fd-bb86b1c641c6
+langcode: en
+status: true
+dependencies: {  }
+name: 'Non Vehicle Product Type'
+vid: non_vehicle_product_type
+description: ''
+weight: 0

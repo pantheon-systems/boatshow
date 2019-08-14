@@ -1,0 +1,21 @@
+uuid: 35dfab7d-6b45-48b9-b806-4b7348a077e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_brands_meta_tags
+    - taxonomy.vocabulary.non_vehicle_brands
+  module:
+    - metatag
+id: taxonomy_term.non_vehicle_brands.field_brands_meta_tags
+field_name: field_brands_meta_tags
+entity_type: taxonomy_term
+bundle: non_vehicle_brands
+label: 'Meta Tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

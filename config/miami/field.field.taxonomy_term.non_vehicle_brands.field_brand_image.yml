@@ -1,0 +1,28 @@
+uuid: 798243dc-cfcc-40f9-883b-af7a5d5bb729
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_brand_image
+    - media.type.image
+    - taxonomy.vocabulary.non_vehicle_brands
+id: taxonomy_term.non_vehicle_brands.field_brand_image
+field_name: field_brand_image
+entity_type: taxonomy_term
+bundle: non_vehicle_brands
+label: 'Brand Image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

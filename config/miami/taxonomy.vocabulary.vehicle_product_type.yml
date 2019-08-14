@@ -1,0 +1,8 @@
+uuid: ec1e8b9e-3a42-4508-b2b1-e822a6befe79
+langcode: en
+status: true
+dependencies: {  }
+name: 'Vehicle Product Type'
+vid: vehicle_product_type
+description: ''
+weight: 0

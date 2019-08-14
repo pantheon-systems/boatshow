@@ -1,0 +1,23 @@
+uuid: 35866f97-6f10-4d1c-8245-751ae2798594
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_brand_nmma_id
+    - taxonomy.vocabulary.non_vehicle_brands
+id: taxonomy_term.non_vehicle_brands.field_brand_nmma_id
+field_name: field_brand_nmma_id
+entity_type: taxonomy_term
+bundle: non_vehicle_brands
+label: 'NMMA ID'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
