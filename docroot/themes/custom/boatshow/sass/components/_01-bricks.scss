@@ -263,7 +263,7 @@ $dimension-masthead-vertical-pull: .40 * $dimension-masthead-min-height !default
 }
 
 // This is only displayed in the "download list" brick currently, so we keep it in this file
-$document-list-icon-size: 1.285em !default;
+$document-list-icon-size: 1.15em !default;
 $document-list-icon-container-size: 1.5em !default;
 $document-list-icon-top-adjust: 0.3em !default;
 .media--view-mode-document-list {
@@ -291,6 +291,7 @@ $document-list-icon-top-adjust: 0.3em !default;
     position: relative;
     top: $document-list-icon-top-adjust;
     text-align: left;
+    flex: 0 0 auto;
   }
 
   & .document-filetype:before {
@@ -330,6 +331,14 @@ $document-list-icon-top-adjust: 0.3em !default;
     text-align: right;
     position: relative;
     top: $document-list-icon-top-adjust;
+    flex: 0 0 auto;
+
+    @media (min-width: $screen-sm) {
+      // Provide some virtual spacing between columns
+      text-align: left;
+      width: 75px;
+      padding-left: 10px;
+    }
 
     &:before {
       @include fa-icon;
@@ -340,7 +349,7 @@ $document-list-icon-top-adjust: 0.3em !default;
   }
 
   & .document-text {
-    flex: 1 0 auto;
+    flex: 1 0;
   }
 
   & .document-label,
@@ -351,28 +360,29 @@ $document-list-icon-top-adjust: 0.3em !default;
 
   & .document-label {
     color: inherit;
+    padding: 0;
   }
 
   & .document-filesize {
     color: inherit;
+    margin-top: -0.2em;
+    font-size: 0.9em;
   }
 }
 
 .brick--type--document-list {
+  margin-bottom: $dimension-vertical-rhythm-elements;
+
   // The headline
   & > h3 {
     padding: 0;
     margin-bottom: 0.5em;
+    line-height: 1.2;
   }
-
-  // The list
-  // .field--name-field-media-unlimited.field__items {
-  //   // margin-top:
-  // }
 
   // The list items
   .field--name-field-media-unlimited.field__items > .field__item {
-    margin-bottom: 0.75em;
+    margin-bottom: 1em;
     font-size: 14px;
 
     &:last-child {
