@@ -76,6 +76,7 @@
         "drupal/iframe": "^1.9",
         "drupal/imageapi_optimize": "^2.0@alpha",
         "drupal/imagemagick": "^2.3",
+        "drupal/lightning_media": "^3.12",
         "drupal/linkit": "5.x-dev#1084887a0c4d9f0458c8d60f59ba20c342005101",
         "drupal/media_entity_browser": "2.x-dev#c75921d3af90f1b6dc052cd2edf037116227acf8",
         "drupal/memcache": "2.0-alpha7",
@@ -147,6 +148,9 @@
             },
             "drupal/coder": {
                 "Fix bad code sniffing in theme file": "https://www.drupal.org/files/issues/2018-05-10/filename-issue-theme-extension-2935388-4.patch"
+            },
+            "drupal/lightning_media": {
+                "Entity browser reordering of files broken in lightning 8.x-2.16 [https://www.drupal.org/project/lightning_media/issues/2901225]": "https://www.drupal.org/files/issues/2901225_20_lightning-media-module.patch"
             },
             "drupal/linkit": {
                 "Link shown after the autocomplete selection is the bare node/xxx link": "https://www.drupal.org/files/issues/2018-03-09/2877535-7.linkit.Link-shown-after-the-autocomplete-selection-is-the-bare-nodexxx-link-not-the-alias.patch"
