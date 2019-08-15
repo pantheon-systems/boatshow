@@ -26,20 +26,30 @@
   }
 }
 
+%marker-label {
+  background-image: url('../../images/marker.png');
+  margin: 0 auto;
+  width: 28px;
+  height: 41px;
+
+  %marker-label-content {
+    color: $city-color-primary;
+    font-size: 22px;
+    font-weight: $font-weight-bold;
+    padding-top: 3px;
+    text-align: center;
+  }
+}
+
 .arrival-location {
   text-align: center;
 
   .location-marker-label {
-    background-image: url('../../images/marker.png');
+    @extend %marker-label;
     margin: 0 auto;
-    width: 28px;
-    height: 41px;
 
     .marker-label-content {
-      color: $city-color-primary;
-      font-size: 22px;
-      font-weight: $font-weight-bold;
-      padding-top: 3px;
+      @extend %marker-label-content;
     }
   }
 
@@ -77,5 +87,13 @@
         }
       }
     }
+  }
+}
+
+.map-marker-label {
+  @extend %marker-label;
+
+  .marker-label-content {
+    @extend %marker-label-content;
   }
 }
