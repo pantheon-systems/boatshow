@@ -41,6 +41,7 @@
 }
 
 .arrival-location {
+  margin-top: 20px;
   text-align: center;
 
   .location-marker-label {
@@ -54,6 +55,7 @@
   }
 
   .location-title {
+    margin-top: 5px;
     font-size: 16px;
     font-weight: $font-weight-bold;
   }
@@ -67,11 +69,12 @@
     flex-direction: row;
     justify-content: center;
     height: 30px;
+    margin: 15px 0;
 
     svg {
       fill: $city-color-primary;
       height: 100%;
-      margin-right: 3px;
+      margin-right: 5px;
     }
 
     .location-feature-rideshare {
@@ -113,10 +116,27 @@
           color: $color-text-inverted;
           line-height: 1.2;
           text-align: center;
-          padding: 10px 0;
+          padding: 20px 0;
           width: 45px;
         }
       }
+    }
+  }
+
+  .location-image {
+    margin: 10px 0;
+
+    img {
+      // width: 100%;
+    }
+  }
+
+  .location-disclaimer {
+    font-size: 16px;
+    font-weight: $font-weight-bold;
+
+    sup {
+      color: $city-color-primary;
     }
   }
 }

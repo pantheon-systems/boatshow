@@ -41,6 +41,9 @@
   </div>
   <div class="location-image">{{ entity.field_image }}</div>
 
-  {# TODO: conditional if only feature handicap_parking is true #}
-  <div class="location-disclaimer"></div>
+  <div class="location-disclaimer">
+    {% if location_features.handicap_parking is defined and location_features.parking is not defined and location_features.rideshare_drop_off is not defined %}
+      <sup>*</sup>Handicap parking only
+    {% endif %}
+  </div>
 </section>
