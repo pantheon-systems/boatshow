@@ -36,6 +36,8 @@
   .featured-dining {
     @media screen and (min-width: $screen-sm){
       width: 66%;
+      float:left;
+      background: #ddd;
     }
   }
 
@@ -53,6 +55,12 @@
 
   .view-content {
     padding-top: $dimension-vertical-rhythm-elements;
+  }
+  .views-row {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: $dimension-card-padding;
+    padding-left: $dimension-card-padding;
   }
 
   .title {
