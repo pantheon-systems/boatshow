@@ -23,7 +23,7 @@ stage:
   paths:
     drush-script: /usr/local/bin/drush9
 stage2:
-  root: /var/www/html/discoverboat.dev/docroot
+  root: /var/www/html/discoverboat.test/docroot
   uri: miami
   host: staging-29724.prod.hosting.acquia.com
   user: discoverboat.test
