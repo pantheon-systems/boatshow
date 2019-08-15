@@ -38,19 +38,25 @@
  * @ingroup themeable
  */
 #}
+
+{% set disabled = (content.field_disabled[0]|render == '1') %}
+
 {%
   set classes = [
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished',
-    content.field_disabled.0 ? 'link-disabled' : ''
+    not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
+
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <a href="{{content.field_link[0]['#url']}}">{{content.field_link[0]['#title']}}<div class="price">{{ content.field_price.0 }}</div></a>
+      <a {{ disabled ? 'disabled' : '' }} {{ disabled ? '' : 'href="#{content.field_link[0]["#url"]}"' }}>
+        {{content.field_link[0]['#title']}}
+        <div class="price">{{ content.field_price.0 }}</div>
+      </a>
     {% endblock %}
   </div>
 {% endblock paragraph %}

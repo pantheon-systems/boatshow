@@ -27,7 +27,6 @@
 }
 
 %marker-label {
-  background-image: url('../../images/marker.png');
   margin: 0 auto;
   width: 28px;
   height: 41px;
@@ -46,6 +45,7 @@
 
   .location-marker-label {
     @extend %marker-label;
+    background-image: url('../../images/marker.svg');
     margin: 0 auto;
 
     .marker-label-content {
@@ -62,8 +62,38 @@
     font-size: 16px;
   }
 
-  .location-links {
+  .location-features {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 30px;
 
+    svg {
+      fill: $city-color-primary;
+      height: 100%;
+      margin-right: 3px;
+    }
+
+    .location-feature-rideshare {
+      width: 88px;
+      height: 32px;
+      font-size: 10px;
+      line-height: 10px;
+      font-weight: $font-weight-normal;
+      color: $city-color-primary;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: #D3D3D3;
+      border-radius: 5px;
+
+      span {
+        display: block;
+      }
+    }
+  }
+
+  .location-links {
     .paragraph--type--arrival-location-links {
       margin: 5px 0;
 
@@ -77,6 +107,7 @@
         & > .price {
           position: absolute;
           top: 0;
+          bottom: 0;
           right: 0;
           background-color: $city-color-primary;
           color: $color-text-inverted;
@@ -92,6 +123,7 @@
 
 .map-marker-label {
   @extend %marker-label;
+  background-image: url('../../images/marker-border.svg');
 
   .marker-label-content {
     @extend %marker-label-content;
