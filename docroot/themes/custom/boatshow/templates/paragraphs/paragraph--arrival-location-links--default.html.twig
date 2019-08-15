@@ -53,9 +53,13 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <a {{ disabled ? 'disabled' : '' }} {{ disabled ? '' : 'href="#{content.field_link[0]["#url"]}"' }}>
-        {{content.field_link[0]['#title']}}
-        <div class="price">{{ content.field_price.0 }}</div>
+      {% if disabled %}
+        <a disabled>
+      {% else %}
+        <a href="{{content.field_link[0]['#url']}}">
+      {% endif %}
+      {{content.field_link[0]['#title']}}
+      <div class="price">{{ content.field_price.0 }}</div>
       </a>
     {% endblock %}
   </div>
