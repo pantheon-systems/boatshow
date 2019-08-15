@@ -70,15 +70,17 @@
   color: transparent;
   border: none;
   outline: none;
-  background: $colorname-gray-medium !important;
+  background: transparent;
+  // background: $colorname-gray-medium !important;
+
   width: 6%;
   text-align: center;
 
   &::before {
     color: $colorname-white;
-    display: none;
     font-family: "boatshow-icons";
-    font-size: 30px;
+    font-size: 14px;
+    text-shadow: 0 0 4px $colorname-black;
   }
 }
 
@@ -96,13 +98,13 @@
 
 .slick-prev,
 .slick-prev:focus {
-  left: -20px;
+  left: 0;
   z-index: 1;
 }
 
 .slick-next,
 .slick-next:focus {
-  right: -20px;
+  right: 0;
 }
 
 .hero {

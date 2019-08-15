@@ -10,7 +10,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   <header>
     {{ title_prefix }}
     {% if not page and label %}
-    <h2{{ title_attributes }}>
+    <h2{{ title_attributes.addClass('title') }}>
       <a href="{{ url }}">{{ label }}</a>
     </h2>
     {% endif %}

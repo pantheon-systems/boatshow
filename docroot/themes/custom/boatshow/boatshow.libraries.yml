@@ -35,10 +35,10 @@ javascript:
 
 slick_carousel:
   js:
-    libraries/slick-carousel/slick/slick.min.js: {}
+    ../../../libraries/slick-carousel/slick/slick.min.js: {}
   css:
     theme:
-      libraries/slick-carousel/slick/slick.css: {}
+      ../../../libraries/slick-carousel/slick/slick.css: {}
   dependencies:
     - core/jquery
 

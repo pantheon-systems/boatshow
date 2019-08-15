@@ -21,8 +21,10 @@
   }
 
   &.container-type--contract {
-    padding-right: $dimension-section-horizontal-padding;
-    padding-left: $dimension-section-horizontal-padding;
+    @media (min-width: $screen-sm) {
+      padding-right: $dimension-section-horizontal-padding;
+      padding-left: $dimension-section-horizontal-padding;
+    }
   }
 
   &.container-type--contract-more {
