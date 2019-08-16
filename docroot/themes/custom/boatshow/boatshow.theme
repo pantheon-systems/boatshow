@@ -593,12 +593,13 @@ function boatshow_preprocess_eck_entity(&$variables) {
 
     if ($entity->hasField('field_location_features')) {
       if (!empty($entity->get('field_location_features')->getValue())) {
-        $location_features = $entity->get('field_location_features')->getValue();
-        $variables['location_features'] = [];
+        $location_features = [];
 
-        foreach ($location_features as $feature) {
-          $variables['location_features'][$feature['value']] = $feature['value'];
+        foreach ($entity->get('field_location_features')->getValue() as $feature) {
+          array_push($location_features, $feature['value']);
         }
+
+        $variables['location_features'] = $location_features;
       }
     }
   }

@@ -31,6 +31,7 @@ window.BoatShows = window.BoatShows || {};
       });
     }
 
+    // Custom HTML marker prototype extend
     function CustomMarkerSetup() {
       CustomMarker.prototype = new google.maps.OverlayView();
 
@@ -76,39 +77,38 @@ window.BoatShows = window.BoatShows || {};
 
     Drupal.behaviors.gettingToTheShow = {
       attach: function(context, settings) {
-        var gmapAPIKey = 'AIzaSyDnUejJV5eCL4reoGScl4pBujqWqgU4ahk';
-        var gmapScriptUrl = 'https://maps.googleapis.com/maps/api/js?key=' + gmapAPIKey; // + '&callback=initMap';
-        var s = document.createElement("script");
-        s.src = gmapScriptUrl;
-        s.type = "text/javascript";
-        s.async = false;
-        document.head.appendChild(s);
+        $(context).once('getting-to-the-show').each(function() {
+          var gmapAPIKey = 'AIzaSyDnUejJV5eCL4reoGScl4pBujqWqgU4ahk';
+          var gmapScriptUrl = 'https://maps.googleapis.com/maps/api/js?key=' + gmapAPIKey; // + '&callback=initMap';
+          var s = document.createElement("script");
+          s.src = gmapScriptUrl;
+          s.type = "text/javascript";
+          s.async = false;
+          document.head.appendChild(s);
 
-        var $maps = $(context).find('.brick--type--map');
-        var $arrivalLocations = $(context).find('.brick--type--arrival-location');
+          var $maps = $(context).find('.brick--type--map');
+          var $arrivalLocations = $(context).find('.brick--type--arrival-location');
 
-        // Initialize map when gmaps script is loaded
-        s.onload = function() {
-          CustomMarkerSetup();
+          // Initialize map when gmaps script is loaded
+          s.onload = function() {
+            // Set up marker prototype overrides
+            CustomMarkerSetup();
 
-          $maps.each(function() {
-            var $thisMap = $(this);
+            // Loop maps
+            $maps.each(function() {
+              var $thisMap = $(this);
 
-            var $filteredLocations = $arrivalLocations.filter(function() {
-              return $(this).data('map-id') === $thisMap.data('map-id');
+              // Filter for arrival locations with same ID as map
+              var $filteredLocations = $arrivalLocations.filter(function() {
+                return $(this).data('map-id') === $thisMap.data('map-id');
+              });
+
+              initMap($thisMap, $filteredLocations);
             });
-
-            initMap($thisMap, $filteredLocations);
-          });
-
-
-
-        }
+          }
+        });
       }
     };
-
-
-
   };
 
   BoatShows.GettingToTheShow = new GettingToTheShow();

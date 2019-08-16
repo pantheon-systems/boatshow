@@ -6,7 +6,7 @@
   <div class="location-title">{{ entity.title }}</div>
   <div class="location-address">{{ location_address }}</div>
   <div class="location-features">
-    {% if location_features.parking is defined %}
+    {% if 'parking' in location_features %}
       <div class="location-feature-parking">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.5 22.5">
           <title>Asset 1</title>
@@ -15,7 +15,7 @@
       </div>
     {% endif %}
 
-    {% if location_features.handicap_parking is defined %}
+    {% if 'handicap_parking' in location_features %}
       <div class="location-feature-handicap-parking">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 22.5">
           <g>
@@ -29,7 +29,7 @@
       </div>
     {% endif %}
 
-    {% if location_features.rideshare_drop_off is defined %}
+    {% if 'rideshare_drop_off' in location_features %}
       <div class="location-feature-rideshare">
         <span>RIDESHARE</span>
         <span>DROP OFF</span>
@@ -42,7 +42,7 @@
   <div class="location-image">{{ entity.field_image }}</div>
 
   <div class="location-disclaimer">
-    {% if location_features.handicap_parking is defined and location_features.parking is not defined and location_features.rideshare_drop_off is not defined %}
+    {% if 'handicap_parking' in location_features and ('parking' not in location_features and 'rideshare_drop_off' not in location_features) %}
       <sup>*</sup>Handicap parking only
     {% endif %}
   </div>
