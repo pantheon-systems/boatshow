@@ -40,9 +40,8 @@
     }
     .form-checkbox:checked + .option {
       &:before {
-        content: 'X';
-        background: $city-color-primary;
-        border: 0;
+        // content: 'X';
+        background: $city-color-secondary;
       }
     }
   }
