@@ -563,6 +563,16 @@ function boatshow_preprocess_eck_entity(&$variables) {
     }
   }
 
+  // Map bundle
+  if ($entity->bundle() === 'map') {
+    // set map zoom attr
+    if ($entity->hasField('field_map_zoom')) {
+      if (!empty($entity->field_map_zoom->value)) {
+        $variables['attributes']['data-map-zoom'][] = $entity->field_map_zoom->value;
+      }
+    }
+  }
+
   // Arrival Location template vars
   if ($entity->bundle() === 'arrival_location') {
     if ($entity->hasField('field_location_address')) {

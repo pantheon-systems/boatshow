@@ -15,8 +15,7 @@ window.BoatShows = window.BoatShows || {};
       var $thisMapContainer = $thisMap.find('.map-container');
       var latLng = new google.maps.LatLng($thisMap.data('lat'), $thisMap.data('lng'));
       var gmapOptions = {
-        // TODO: set zoom from drupal
-        zoom: 15,
+        zoom: $thisMap.data('map-zoom'),
         center: latLng,
         // disableDefaultUI: true
       }
