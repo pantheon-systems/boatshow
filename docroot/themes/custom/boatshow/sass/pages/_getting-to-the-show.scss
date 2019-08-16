@@ -105,7 +105,15 @@
         position: relative;
         min-width: 170px;
         text-align: left;
-        padding: 10px 55px 10px 10px;
+        padding: 10px;
+
+        & > .text {
+          padding-right: 45px;
+
+          &.no-price {
+            padding-right: 0;
+          }
+        }
 
         & > .price {
           position: absolute;

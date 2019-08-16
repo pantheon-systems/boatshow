@@ -5,6 +5,8 @@
   </div>
   <div class="location-title">{{ entity.field_location_title }}</div>
   <div class="location-address">{{ location_address }}</div>
+
+  {% if location_features is defined %}
   <div class="location-features">
     {% if 'parking' in location_features %}
       <div class="location-feature-parking">
@@ -36,6 +38,7 @@
       </div>
     {% endif %}
   </div>
+  {% endif %}
   <div class="location-links">
     {{entity.field_paragraphs}}
   </div>
