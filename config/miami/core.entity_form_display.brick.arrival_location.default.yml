@@ -9,6 +9,7 @@ dependencies:
     - field.field.brick.arrival_location.field_image
     - field.field.brick.arrival_location.field_location_address
     - field.field.brick.arrival_location.field_location_features
+    - field.field.brick.arrival_location.field_location_title
     - field.field.brick.arrival_location.field_map_id
     - field.field.brick.arrival_location.field_marker_label
     - field.field.brick.arrival_location.field_paragraphs
@@ -22,14 +23,14 @@ bundle: arrival_location
 mode: default
 content:
   field_geolocation:
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: geolocation_latlng
     region: content
   field_image:
     type: entity_browser_file
-    weight: 7
+    weight: 8
     settings:
       entity_browser: image_browser
       field_widget_edit: true
@@ -42,20 +43,6 @@ content:
     region: content
     third_party_settings: {  }
   field_location_address:
-    weight: 1
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_location_features:
-    weight: 6
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
-  field_map_id:
     weight: 2
     settings:
       size: 60
@@ -63,8 +50,30 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_marker_label:
+  field_location_features:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_location_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_map_id:
     weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_marker_label:
+    weight: 4
     settings:
       size: 60
       placeholder: ''
@@ -73,7 +82,7 @@ content:
     region: content
   field_paragraphs:
     type: entity_reference_paragraphs
-    weight: 5
+    weight: 6
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -85,7 +94,7 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 8
+    weight: 9
     region: content
     settings:
       include_locked: true

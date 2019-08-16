@@ -1,0 +1,19 @@
+uuid: 01a4cdaa-2edb-43e2-837a-ce9e1f55ea4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.arrival_location
+    - field.storage.brick.field_location_title
+id: brick.arrival_location.field_location_title
+field_name: field_location_title
+entity_type: brick
+bundle: arrival_location
+label: 'Location Title'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

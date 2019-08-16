@@ -8,6 +8,7 @@ dependencies:
     - field.field.brick.arrival_location.field_image
     - field.field.brick.arrival_location.field_location_address
     - field.field.brick.arrival_location.field_location_features
+    - field.field.brick.arrival_location.field_location_title
     - field.field.brick.arrival_location.field_map_id
     - field.field.brick.arrival_location.field_marker_label
     - field.field.brick.arrival_location.field_paragraphs
@@ -38,6 +39,14 @@ content:
     region: content
   field_location_address:
     weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_location_title:
+    weight: 7
     label: hidden
     settings:
       link_to_entity: false
@@ -80,3 +89,4 @@ content:
 hidden:
   field_location_features: true
   langcode: true
+  search_api_excerpt: true
