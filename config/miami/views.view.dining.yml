@@ -40,7 +40,8 @@ display:
           distinct: false
           replica: false
           query_comment: ''
-          query_tags: {  }
+          query_tags:
+            - dining_full_service
       exposed_form:
         type: bef
         options:
@@ -207,8 +208,30 @@ display:
           level_labels: ''
           force_deepest: false
           plugin_id: taxonomy_index_tid
-      sorts: {  }
-      header: {  }
+      sorts:
+        field_dining_service_target_id:
+          id: field_dining_service_target_id
+          table: node__field_dining_service
+          field: field_dining_service_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Showing <strong>@total</strong> dining options:'
+          plugin_id: result
       footer: {  }
       empty: {  }
       relationships: {  }
