@@ -141,3 +141,18 @@ function nmma_brick_layouts_headline_effect_allowed_values_function () {
 
   return $options;
 }
+
+/**
+ * Defines allowed values for config field.storage.brick.field_location_features
+ * @link https://drupal.stackexchange.com/a/242011
+ */
+function nmma_brick_layouts_features_effect_allowed_values_function () {
+
+  $options = [
+    'parking' => 'parking',
+    'handicap_parking' => 'handicap_parking',
+    'rideshare_drop_off' => 'rideshare_drop_off',
+  ];
+
+  return $options;
+}

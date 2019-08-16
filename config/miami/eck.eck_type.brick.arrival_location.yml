@@ -1,0 +1,9 @@
+uuid: a19c9fcb-5a72-4f7d-966a-f758020ace8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Arrival Location'
+type: arrival_location
+description: ''

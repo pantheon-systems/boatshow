@@ -1,0 +1,92 @@
+uuid: e876d281-231e-4da8-b6dc-d4df391ba9d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.arrival_location
+    - field.field.brick.arrival_location.field_geolocation
+    - field.field.brick.arrival_location.field_image
+    - field.field.brick.arrival_location.field_location_address
+    - field.field.brick.arrival_location.field_location_features
+    - field.field.brick.arrival_location.field_location_title
+    - field.field.brick.arrival_location.field_map_id
+    - field.field.brick.arrival_location.field_marker_label
+    - field.field.brick.arrival_location.field_paragraphs
+  module:
+    - entity_reference_revisions
+    - geolocation
+    - image
+id: brick.arrival_location.default
+targetEntityType: brick
+bundle: arrival_location
+mode: default
+content:
+  field_geolocation:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: geolocation_latlng
+    region: content
+  field_image:
+    weight: 5
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_location_address:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_location_title:
+    weight: 7
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_map_id:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_marker_label:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  field_location_features: true
+  langcode: true
+  search_api_excerpt: true

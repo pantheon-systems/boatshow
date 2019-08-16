@@ -1,0 +1,9 @@
+uuid: e00fbb36-a24a-40c5-bb01-89d855fab5eb
+langcode: en
+status: true
+dependencies: {  }
+id: arrival_location_links
+label: 'Arrival Location Links'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

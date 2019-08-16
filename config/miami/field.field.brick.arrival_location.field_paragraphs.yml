@@ -1,0 +1,31 @@
+uuid: 4b2cbe0a-1fea-45a3-9c45-ab2617c80f6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.arrival_location
+    - field.storage.brick.field_paragraphs
+    - paragraphs.paragraphs_type.arrival_location_links
+  module:
+    - entity_reference_revisions
+id: brick.arrival_location.field_paragraphs
+field_name: field_paragraphs
+entity_type: brick
+bundle: arrival_location
+label: Paragraphs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      arrival_location_links: arrival_location_links
+    target_bundles_drag_drop:
+      arrival_location_links:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

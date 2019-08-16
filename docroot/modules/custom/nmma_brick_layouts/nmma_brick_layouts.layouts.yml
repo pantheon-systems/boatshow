@@ -146,6 +146,19 @@ four_column_grid:
       label: Column 3
     col4:
       label: Column 4
+four_column_even_grid:
+  label: 'Four column even grid (25/25/25/25)'
+  category: 'NMMA Layouts'
+  template: templates/layouts/four-column-even-grid
+  regions:
+    col1:
+      label: Column 1
+    col2:
+      label: Column 2
+    col3:
+      label: Column 3
+    col4:
+      label: Column 4
 disruptor_one_column:
   label: 'Disruptor Full Width'
   category: 'NMMA Layouts'

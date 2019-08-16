@@ -59,6 +59,7 @@ module:
   entity_browser_entity_form: 0
   entity_embed: 0
   entity_reference: 0
+  entity_reference_revisions: 0
   eu_cookie_compliance: 0
   faqfield: 0
   feeds: 0
@@ -75,6 +76,7 @@ module:
   geocoder_address: 0
   geocoder_field: 0
   geolocation: 0
+  geolocation_google_maps: 0
   gtm: 0
   help: 0
   history: 0
@@ -206,6 +208,7 @@ module:
   xmlsitemap: 1
   content_translation: 10
   views: 10
+  paragraphs: 11
   lightning: 1000
 theme:
   stable: 0

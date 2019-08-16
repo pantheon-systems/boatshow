@@ -1,0 +1,19 @@
+uuid: 3262bbd5-5c24-4ab8-b696-e80a3db1ba5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.arrival_location
+    - field.storage.brick.field_map_id
+id: brick.arrival_location.field_map_id
+field_name: field_map_id
+entity_type: brick
+bundle: arrival_location
+label: 'Map ID'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

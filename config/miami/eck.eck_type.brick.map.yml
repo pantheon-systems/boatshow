@@ -1,0 +1,9 @@
+uuid: 7f7781d7-b0cf-42e0-8b8c-c6f2de6d8134
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: Map
+type: map
+description: ''

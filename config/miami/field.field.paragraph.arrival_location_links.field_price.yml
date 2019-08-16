@@ -1,0 +1,19 @@
+uuid: f2fec26d-bc49-4b36-b372-582104dfbdbd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_price
+    - paragraphs.paragraphs_type.arrival_location_links
+id: paragraph.arrival_location_links.field_price
+field_name: field_price
+entity_type: paragraph
+bundle: arrival_location_links
+label: Price
+description: 'Example: $15'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

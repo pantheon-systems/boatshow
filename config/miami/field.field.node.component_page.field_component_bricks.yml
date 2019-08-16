@@ -5,6 +5,7 @@ dependencies:
   config:
     - eck.eck_type.brick.3_col_card
     - eck.eck_type.brick.ad_item
+    - eck.eck_type.brick.arrival_location
     - eck.eck_type.brick.block_brick
     - eck.eck_type.brick.brick_accordion_wrapper
     - eck.eck_type.brick.card
@@ -19,6 +20,7 @@ dependencies:
     - eck.eck_type.brick.landing_page_grid_card
     - eck.eck_type.brick.layout
     - eck.eck_type.brick.link
+    - eck.eck_type.brick.map
     - eck.eck_type.brick.masthead
     - eck.eck_type.brick.media
     - eck.eck_type.brick.section
@@ -45,6 +47,7 @@ settings:
     target_bundles:
       brick_accordion_wrapper: brick_accordion_wrapper
       ad_item: ad_item
+      arrival_location: arrival_location
       block_brick: block_brick
       card: card
       3_col_card: 3_col_card
@@ -59,6 +62,7 @@ settings:
       landing_page_grid_card: landing_page_grid_card
       layout: layout
       link: link
+      map: map
       masthead: masthead
       media: media
       section: section

@@ -1,0 +1,21 @@
+uuid: 1f701dd4-75e9-4791-9576-b1c992debc25
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.arrival_location
+    - field.storage.brick.field_location_features
+  module:
+    - options
+id: brick.arrival_location.field_location_features
+field_name: field_location_features
+entity_type: brick
+bundle: arrival_location
+label: 'Location Features'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

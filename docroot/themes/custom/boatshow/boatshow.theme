@@ -464,6 +464,26 @@ function boatshow_preprocess_eck_entity(&$variables) {
     $variables['attributes']['class'][] = 'section-vertical-padding-' . $vertical_padding;
   }
 
+  // Set data-map-id attr
+  if ($entity->hasField('field_map_id')) {
+    if (!empty($entity->field_map_id->value)) {
+
+      $map_id = $entity->field_map_id->value;
+      $variables['attributes']['data-map-id'][] = $map_id;
+    }
+  }
+
+  // Set data-lat and data-lng attrs
+  if ($entity->hasField('field_geolocation')) {
+    if (!empty($entity->field_geolocation->value)) {
+
+      $lat = $entity->get('field_geolocation')->lat;
+      $lng = $entity->get('field_geolocation')->lng;
+      $variables['attributes']['data-lat'][] = $lat;
+      $variables['attributes']['data-lng'][] = $lng;
+    }
+  }
+
   if ($entity->bundle() == '3_col_card') {
 
     // Get title.
@@ -540,6 +560,47 @@ function boatshow_preprocess_eck_entity(&$variables) {
       $image = $entity->get('field_image')->entity;
       $path = $image->getFileUri();
       $variables['image_path'] = file_create_url($path);
+    }
+  }
+
+  // Map bundle
+  if ($entity->bundle() === 'map') {
+    // set map zoom attr
+    if ($entity->hasField('field_map_zoom')) {
+      if (!empty($entity->field_map_zoom->value)) {
+        $variables['attributes']['data-map-zoom'][] = $entity->field_map_zoom->value;
+      }
+    }
+  }
+
+  // Arrival Location template vars
+  if ($entity->bundle() === 'arrival_location') {
+    if ($entity->hasField('field_location_address')) {
+      if (!empty($entity->field_location_address->value)) {
+        $variables['location_address'] = $entity->field_location_address->value;
+      }
+    }
+
+    // Set data-marker-label attr
+    if ($entity->hasField('field_marker_label')) {
+      if (!empty($entity->field_marker_label->value)) {
+
+        $marker_label = $entity->field_marker_label->value;
+        $variables['attributes']['data-marker-label'][] = $marker_label;
+        $variables['marker_label'] = $marker_label;
+      }
+    }
+
+    if ($entity->hasField('field_location_features')) {
+      if (!empty($entity->get('field_location_features')->getValue())) {
+        $location_features = [];
+
+        foreach ($entity->get('field_location_features')->getValue() as $feature) {
+          array_push($location_features, $feature['value']);
+        }
+
+        $variables['location_features'] = $location_features;
+      }
     }
   }
 

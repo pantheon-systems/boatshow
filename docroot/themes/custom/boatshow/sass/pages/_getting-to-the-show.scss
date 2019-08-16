@@ -19,3 +19,129 @@
     }
   }
 }
+
+.brick--type--map {
+  .map-container {
+    height: 400px;
+  }
+}
+
+%marker-label {
+  margin: 0 auto;
+  width: 28px;
+  height: 41px;
+
+  %marker-label-content {
+    color: $map-marker-text-color;
+    font-size: 22px;
+    font-weight: $font-weight-bold;
+    padding-top: 3px;
+    text-align: center;
+  }
+}
+
+.arrival-location {
+  margin-top: 20px;
+  text-align: center;
+
+  .location-marker-label {
+    @extend %marker-label;
+    background-image: url('../../images/marker.svg');
+    margin: 0 auto;
+
+    .marker-label-content {
+      @extend %marker-label-content;
+    }
+  }
+
+  .location-title {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: $font-weight-bold;
+  }
+
+  .location-address {
+    font-size: 16px;
+  }
+
+  .location-features {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 30px;
+    margin: 15px 0;
+
+    svg {
+      fill: $arrival-location-icon-color;
+      height: 100%;
+      margin-right: 5px;
+    }
+
+    .location-feature-rideshare {
+      width: 88px;
+      height: 32px;
+      font-size: 10px;
+      line-height: 10px;
+      font-weight: $font-weight-normal;
+      color: $city-color-primary;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: #D3D3D3;
+      border-radius: 5px;
+
+      span {
+        display: block;
+      }
+    }
+  }
+
+  .location-links {
+    .paragraph--type--arrival-location-links {
+      margin: 5px 0;
+
+      & > a {
+        @include button--secondary;
+        position: relative;
+        min-width: 170px;
+        text-align: left;
+        padding: 10px 55px 10px 10px;
+
+        & > .price {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          background-color: $city-color-primary;
+          color: $color-text-inverted;
+          line-height: 0;
+          text-align: center;
+          padding: 20px 0;
+          width: 45px;
+        }
+      }
+    }
+  }
+
+  .location-image {
+    margin: 10px 0;
+  }
+
+  .location-disclaimer {
+    font-size: 16px;
+    font-weight: $font-weight-bold;
+
+    sup {
+      color: $city-color-primary;
+    }
+  }
+}
+
+.map-marker-label {
+  @extend %marker-label;
+  background-image: url('../../images/marker-border.svg');
+
+  .marker-label-content {
+    @extend %marker-label-content;
+  }
+}

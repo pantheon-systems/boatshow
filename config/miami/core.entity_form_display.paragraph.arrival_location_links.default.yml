@@ -1,0 +1,42 @@
+uuid: 3c6e9f9e-0e1c-4ad2-9f2a-46b4a4bb8d12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.arrival_location_links.field_disabled
+    - field.field.paragraph.arrival_location_links.field_link
+    - field.field.paragraph.arrival_location_links.field_price
+    - paragraphs.paragraphs_type.arrival_location_links
+  module:
+    - link
+id: paragraph.arrival_location_links.default
+targetEntityType: paragraph
+bundle: arrival_location_links
+mode: default
+content:
+  field_disabled:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_link:
+    weight: 0
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_price:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
