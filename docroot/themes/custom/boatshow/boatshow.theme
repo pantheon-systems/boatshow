@@ -862,8 +862,14 @@ function boatshow_preprocess_views_view_unformatted__dining(&$variables){
       '#attributes' => ['class' => 'featured-dining']
     ],
   ];
-
-  foreach ($rows_featured as $row_featured) {
+  $rows_right_wrapper = [
+    'content' => [
+      '#type' => 'container',
+      '#attributes' => ['class' => 'dining-right']
+    ],
+  ];
+  // add an equal number of rows to a right column
+  foreach ($rows_featured as $i => $row_featured) {
     $rows_featured_wrapper['content'][] = $row_featured['content'];
   }
 

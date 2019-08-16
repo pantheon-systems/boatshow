@@ -34,10 +34,59 @@
 .view-display-id-dining_options_block  {
 
   .featured-dining {
+    box-sizing:border-box;
     @media screen and (min-width: $screen-sm){
       width: 66%;
       float:left;
       background: #ddd;
+    }
+
+    .node--type-dining {
+      width: 100%;
+      padding-right: $dimension-card-padding;
+      padding-left: $dimension-card-padding;
+      box-sizing: border-box;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    .field--name-field-media {
+      @media screen and (min-width: $screen-sm){
+        .slick-track {
+          width: 100% !important;
+          text-align: center;
+        }
+      }
+
+      .field__item {
+        max-width: 100%;
+      }
+
+      &.field__item {
+        display: inline-block;
+        padding: 0 2px;
+        width: auto;
+        box-sizing:border-box;
+
+
+        @media screen and (min-width: $screen-sm){
+          width: 33% !important;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .field--name-field-media {
+    text-align: center;
+
+    &.field__items {
+      margin: $dimension-vertical-rhythm-elements 0;
     }
   }
 
@@ -45,6 +94,12 @@
     border-bottom: 1px solid $colorname-gray-dark;
     padding-bottom: $dimension-vertical-rhythm-elements;
     margin-bottom: $dimension-vertical-rhythm-elements;
+
+    @media screen and (min-width: $screen-sm){
+      // force alignment between items
+      min-height: 420px;
+      margin-top: 30px;
+    }
   }
 
   .view-header {
@@ -57,10 +112,16 @@
     padding-top: $dimension-vertical-rhythm-elements;
   }
   .views-row {
+    box-sizing:border-box;
+    float: left;
     display: inline-block;
     vertical-align: top;
     padding-right: $dimension-card-padding;
     padding-left: $dimension-card-padding;
+
+    @media screen and (min-width: $screen-sm){
+      width: 33%;
+    }
   }
 
   .title {
@@ -74,40 +135,6 @@
     img {
       max-height: 80px;
       width: auto;
-    }
-  }
-  .field--name-field-media {
-    text-align: center;
-
-    &.field__items {
-      margin: $dimension-vertical-rhythm-elements 0;
-    }
-
-    @media screen and (min-width: $screen-sm){
-      .slick-track {
-        width: 100% !important;
-        text-align: center;
-      }
-    }
-
-    .field__item {
-      max-width: 100%;
-    }
-
-    &.field__item {
-      display: inline-block;
-      padding: 0 2px;
-      width: auto;
-      box-sizing:border-box;
-
-
-      @media screen and (min-width: $screen-sm){
-        width: 33% !important;
-      }
-
-      img {
-        width: 100%;
-      }
     }
   }
   .field--label-inline {
