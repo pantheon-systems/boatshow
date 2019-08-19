@@ -1,7 +1,9 @@
+  $dining-two-col-bp: $screen-md; // minimum for featured dining callout / two column layout
+
 .dining-filters-section {
 
-  @media (max-width: $screen-sm) {
-    background: transparent; // do different stuff
+  @media (max-width: $screen-md) {
+    background: transparent;
     padding: 0;
 
     .section-header h2{
@@ -24,7 +26,7 @@
     padding-left: 0;
     padding-right: 0;
 
-    @media (min-width: $screen-sm) {
+    @media (min-width: $dining-two-col-bp) {
       padding-left: dimension-masthead-x-padding;
       padding-right: dimension-masthead-x-padding;
     }
@@ -35,7 +37,7 @@
 
   .featured-dining {
     box-sizing:border-box;
-    @media screen and (min-width: $screen-sm){
+    @media screen and (min-width: $dining-two-col-bp){
       width: 66%;
       float:left;
       background: #ddd;
@@ -53,7 +55,7 @@
     }
 
     .field--name-field-media {
-      @media screen and (min-width: $screen-sm){
+      @media screen and (min-width: $dining-two-col-bp){
         .slick-track {
           width: 100% !important;
           text-align: center;
@@ -71,7 +73,7 @@
         box-sizing:border-box;
 
 
-        @media screen and (min-width: $screen-sm){
+        @media screen and (min-width: $dining-two-col-bp){
           width: 33% !important;
         }
 
@@ -95,7 +97,7 @@
     padding-bottom: $dimension-vertical-rhythm-elements;
     margin-bottom: $dimension-vertical-rhythm-elements;
 
-    @media screen and (min-width: $screen-sm){
+    @media screen and (min-width: $dining-two-col-bp){
       // force alignment between items
       min-height: 420px;
       margin-top: 30px;
@@ -119,7 +121,7 @@
     padding-right: $dimension-card-padding;
     padding-left: $dimension-card-padding;
 
-    @media screen and (min-width: $screen-sm){
+    @media screen and (min-width: $dining-two-col-bp){
       width: 33%;
     }
   }
