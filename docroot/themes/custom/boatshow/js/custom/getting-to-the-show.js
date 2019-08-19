@@ -58,8 +58,8 @@ window.BoatShows = window.BoatShows || {};
         var point = self.getProjection().fromLatLngToDivPixel(self.latlng);
 
         if (point) {
-          markerDiv.style.left = (point.x - 10) + 'px';
-          markerDiv.style.top = (point.y - 20) + 'px';
+          markerDiv.style.left = (point.x - 14) + 'px';
+          markerDiv.style.top = (point.y - 41) + 'px';
         }
       };
 
