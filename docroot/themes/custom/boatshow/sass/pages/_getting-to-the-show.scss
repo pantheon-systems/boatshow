@@ -175,3 +175,27 @@
     @extend %marker-label-content;
   }
 }
+
+.transit-icon {
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
+  display: inline-block;
+  background-repeat: no-repeat;
+
+  &.bus {
+    background-image: url('../../images/bus.svg');
+
+    svg {
+      fill: $city-color-secondary;
+    }
+  }
+
+  &.water-taxi {
+    background-image: url('../../images/water-taxi.svg');
+
+    svg {
+      fill: #F87F0F;
+    }
+  }
+}
