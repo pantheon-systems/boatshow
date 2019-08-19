@@ -45,7 +45,7 @@
   <div class="location-image">{{ entity.field_image }}</div>
 
   <div class="location-disclaimer">
-    {% if 'handicap_parking' in location_features and ('parking' not in location_features and 'rideshare_drop_off' not in location_features) %}
+    {% if 'handicap_parking' in location_features and ('parking' not in location_features) %}
       <sup>*</sup>Handicap parking only
     {% endif %}
   </div>

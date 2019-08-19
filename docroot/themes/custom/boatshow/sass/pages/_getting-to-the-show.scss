@@ -42,6 +42,7 @@
 
 .arrival-location {
   margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
 
   .location-marker-label {
@@ -97,6 +98,7 @@
   }
 
   .location-links {
+    margin: 20px 0;
     .paragraph--type--arrival-location-links {
       margin: 5px 0;
 
@@ -147,10 +149,15 @@
   }
 
   .location-image {
-    margin: 10px 0;
+    margin-top: 20px;
+
+    img {
+      max-width: 275px;
+    }
   }
 
   .location-disclaimer {
+    margin-top: 10px;
     font-size: 16px;
     font-weight: $font-weight-bold;
 
