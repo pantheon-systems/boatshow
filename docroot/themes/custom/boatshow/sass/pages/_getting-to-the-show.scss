@@ -105,13 +105,29 @@
         position: relative;
         min-width: 170px;
         text-align: left;
-        padding: 10px;
+        padding: 10px 0;
+
+        &[disabled] {
+          border-color: rgba($city-color-primary, 0.5);
+          color: rgba($city-color-primary, 0.5);
+          background-color: transparent;
+
+          & > .price {
+            background-color: #D3D3D3;
+          }
+
+          &:hover {
+            background-color: inherit;
+            color: rgba($city-color-primary, 0.5);
+          }
+        }
 
         & > .text {
-          padding-right: 45px;
+          padding-left: 10px;
+          padding-right: 55px;
 
           &.no-price {
-            padding-right: 0;
+            padding-right: 10px;
           }
         }
 
@@ -122,9 +138,8 @@
           right: 0;
           background-color: $city-color-primary;
           color: $color-text-inverted;
-          line-height: 0;
+          line-height: 39px;
           text-align: center;
-          padding: 20px 0;
           width: 45px;
         }
       }
