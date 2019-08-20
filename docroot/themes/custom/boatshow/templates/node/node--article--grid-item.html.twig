@@ -29,13 +29,13 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 
   </header>
   {% endif %}
-  
+
   <div class="content">
     {{ content.field_article_teaser }}
-    <a href="{{ url }}" class="read-more">Read More ></a>
-    {{ content.addtoany }}
+    <a href="{{ url }}" class="read-more">Read More<span class="chevron"></span></a>
+    <a class="a2a_dd addtoany">Share<span class="social"></span></a>
   </div>
-  
+
 </div>
 
 </article>

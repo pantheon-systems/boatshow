@@ -154,7 +154,7 @@ clientside_validation_jquery: 0.0.0
 nmma_custom_pages: 0.0.0
 nmma_boat_buying_grid: 0.0.0
 cer: 4.0.0-alpha2
-kint: 1.2.0
+kint: 2.1.0
 nmma_seo: 0.0.0
 admin_toolbar_tools: 1.23.0
 memcache: 0.0.0

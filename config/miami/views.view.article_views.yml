@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.grid_item
+    - core.entity_view_mode.node.grid_item_exhibitor
     - core.entity_view_mode.node.megamenu_item
     - core.entity_view_mode.node.megamenu_small_item
     - core.entity_view_mode.node.teaser
@@ -745,6 +746,8 @@ display:
         filters: false
         filter_groups: false
         pager: false
+        style: false
+        row: false
       filter_groups:
         operator: AND
         groups:
@@ -754,6 +757,17 @@ display:
         type: none
         options:
           offset: 0
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: false
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: grid_item_exhibitor
     cache_metadata:
       max-age: -1
       contexts:
@@ -921,11 +935,24 @@ display:
       defaults:
         filters: false
         filter_groups: false
+        style: false
+        row: false
       filter_groups:
         operator: AND
         groups:
           1: AND
       block_description: '3-Up Recent Articles'
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: false
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: grid_item_exhibitor
     cache_metadata:
       max-age: -1
       contexts:

@@ -1,0 +1,34 @@
+uuid: f524e19d-db16-4f1f-8012-bdd42b4c5867
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.term_grid
+    - field.field.taxonomy_term.article_category.field_category_image
+    - taxonomy.vocabulary.article_category
+  module:
+    - panelizer
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.article_category.term_grid
+targetEntityType: taxonomy_term
+bundle: article_category
+mode: term_grid
+content:
+  field_category_image:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: thumbnail
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  description: true
+  langcode: true
+  search_api_excerpt: true

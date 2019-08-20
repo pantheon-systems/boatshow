@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.article.field_article_author
     - field.field.node.article.field_article_body
     - field.field.node.article.field_article_call_out
+    - field.field.node.article.field_article_category
     - field.field.node.article.field_article_featured
     - field.field.node.article.field_article_image
     - field.field.node.article.field_article_meta_tags
@@ -35,7 +36,7 @@ third_party_settings:
         - group_article_teaser
         - group_tags
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: tabs
       format_settings:
         id: ''
@@ -97,7 +98,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -134,8 +135,14 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_article_category:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_article_featured:
-    weight: 7
+    weight: 8
     settings:
       display_label: true
     third_party_settings: {  }
@@ -157,13 +164,13 @@ content:
     region: content
     third_party_settings: {  }
   field_article_meta_tags:
-    weight: 9
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
     region: content
   field_article_popular:
-    weight: 8
+    weight: 9
     settings:
       display_label: true
     third_party_settings: {  }
@@ -208,7 +215,7 @@ content:
     type: options_select
     region: content
   field_feed_id:
-    weight: 26
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -217,14 +224,14 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 3
+    weight: 4
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -232,7 +239,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 7
     region: content
     third_party_settings: {  }
   title:
@@ -244,7 +251,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -1,56 +1,110 @@
-
-.node--type-article.node--view-mode-grid-item {
-  //padding: 1em;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  border-bottom: 1px solid $colorname-lighter-gray; // use variable
-  
-  .col-1 {
-    //padding: 1em 1em 1em 0;
-    //border-bottom: 1px solid $colorname-lighter-gray; // use variable
-    padding: 1em 0 1em 0;
-  }
-  
-  .col-2 {
-    //padding: 1em 0 1em 1em;
-    //border-bottom: 1px solid $colorname-lighter-gray; // use variable
-    padding: 1em 0 1em 0;
-  }
-  
-  h2 {
-    text-transform: none;
-    font-size: 1.25rem;
-    line-height: normal;
-    
-    a {
-      color: #2dace3; // move to override
-    }
-  }
-  
+.node--type-article {
   .submitted {
     font-style: italic;
+    display: inline-block;
   }
-  
+
+  .article-cat {
+    display: inline-block;
+
+    & > div {
+      display: inline-block;
+    }
+  }
+}
+
+.node--type-article.node--view-mode-full {
+
+  .addtoany_list {
+    float: right;
+  }
+
   .content {
-    
+    margin-top: 1rem;
+
+    .field--name-field-article-image {
+      float: left;
+      max-width: 40%;
+      margin: 0 2rem 2rem 0;
+
+      @include media-breakpoint-down(sm) {
+        float: none;
+        margin-right: 0;
+        max-width: 100%;
+      }
+    }
+
+  }
+}
+
+
+.node--type-article.node--view-mode-grid-item, .node--type-article.node--view-mode-grid-item-exhibitor {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid $colorname-lighter-gray;
+
+  .col-1 {
+    padding: 1em 0 1em 0;
+  }
+
+  .col-2 {
+    padding: 1em 0 1em 0;
+  }
+
+  h2 {
+    text-transform: none;
+    font-size: 1.125rem;
+    line-height: normal;
+
+    a {
+      color: $city-color-secondary;
+    }
+  }
+
+  .article-cat-image-wrap {
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .content {
     .field--name-field-article-teaser {
       display: inline;
-      
+
       p {
         display: inline;
       }
-      
     }
-    
+
     a.read-more {
       white-space: nowrap;
-      color: #2dace3; // move to override
+      color: $city-color-secondary;
+
+      span.chevron {
+        &:before {
+          @include fa-icon;
+          content: "\f054";
+          padding-left: 0.275em;
+          padding-right: 0.675em;
+          font-size: .675rem;
+       }
+      }
     }
-    
-    span.addtoany_list {
+
+    a.addtoany {
       white-space: nowrap;
+
+      span.social {
+        &:before {
+          @include fa-icon;
+          content: "\f1e0";
+          padding-left: 0.275em;
+       }
+      }
     }
-    
+
+
   }
-  
+
 }
