@@ -2,7 +2,7 @@
 
   <section {{ attributes.addClass('flex-container').addClass('nmma-layout two-columns') }}>
     {% for region in content['#layout'].regions|keys if content[region] %}
-      <div class="col-12-xs col-12-sm col-6-md column-item">
+      <div class="col-12-xs col-6-md column-item">
         {{ content[region] }}
       </div>
     {% endfor %}
