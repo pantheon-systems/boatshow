@@ -38,3 +38,4 @@ hidden:
   field_dining_service: true
   field_media: true
   langcode: true
+  search_api_excerpt: true
