@@ -13,11 +13,14 @@ dependencies:
     - field.storage.node.field_smnr_speaker
     - field.storage.node.field_topics
     - node.type.seminar
+    - taxonomy.vocabulary.class_type
   module:
+    - better_exposed_filters
     - datetime
     - link
     - node
     - smart_trim
+    - taxonomy
     - text
     - tracker
     - user
@@ -53,7 +56,7 @@ display:
           query_comment: ''
           query_tags: {  }
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Apply
           reset_button: false
@@ -62,6 +65,40 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          input_required: false
+          text_input_required: 'Select any filter and click on Apply to see results'
+          bef:
+            general:
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              autosubmit: true
+              autosubmit_exclude_textfield: false
+              autosubmit_hide: false
+            field_smnr_class_type_target_id:
+              bef_format: bef
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: true
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+            seminar_schedule:
+              bef_format: default
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+            field_topics_target_id:
+              bef_format: default
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+          text_input_required_format: rich_text
       pager:
         type: none
         options:
@@ -905,6 +942,60 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          group: 1
+        field_smnr_class_type_target_id:
+          id: field_smnr_class_type_target_id
+          table: node__field_smnr_class_type
+          field: field_smnr_class_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_smnr_class_type_target_id_op
+            label: 'Class Type'
+            description: ''
+            use_operator: false
+            operator: field_smnr_class_type_target_id_op
+            identifier: field_smnr_class_type_target_id
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editorial_user: '0'
+              smnr_session_creator: '0'
+              smnr_session_reviewer: '0'
+              dining_creator: '0'
+              dining_reviewer: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: class_type
+          hierarchy: false
+          error_message: true
+          parent: 0
+          level_labels: ''
+          force_deepest: false
+          plugin_id: taxonomy_index_tid
       sorts:
         created:
           id: created
@@ -951,11 +1042,17 @@ display:
       arguments: {  }
       display_extenders: {  }
       group_by: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1717,6 +1814,8 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
