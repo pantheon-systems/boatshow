@@ -1,0 +1,14 @@
+uuid: 0a79405e-cc38-4be8-881a-aca6d5808fed
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dining_reviewer
+  module:
+    - user
+id: user_remove_role_action.dining_reviewer
+label: 'Remove the Dining reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: dining_reviewer

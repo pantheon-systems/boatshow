@@ -1,0 +1,14 @@
+uuid: 5e02d94f-0c6b-4e52-ad44-08d9503462ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dining_reviewer
+  module:
+    - user
+id: user_add_role_action.dining_reviewer
+label: 'Add the Dining reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: dining_reviewer

@@ -1,0 +1,11 @@
+uuid: 3c27be25-8632-4d66-a21c-c8b633b9bf4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.dining_service
+id: taxonomy_term.dining_service
+target_entity_type_id: taxonomy_term
+target_bundle: dining_service
+default_langcode: site_default
+language_alterable: false
