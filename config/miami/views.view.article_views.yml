@@ -1142,11 +1142,11 @@ display:
   news_block:
     display_plugin: block
     id: news_block
-    display_title: '4-Up Recent Articles'
+    display_title: '5-Up Recent Articles'
     position: 1
     display_options:
       display_extenders: {  }
-      display_description: '4 up, most recent articles'
+      display_description: '5 up, most recent articles'
       filters:
         status:
           value: '1'
@@ -1305,9 +1305,9 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 4
+          items_per_page: 5
           offset: 0
-      block_description: '4-Up Recent Articles'
+      block_description: '5-Up Recent Articles'
     cache_metadata:
       max-age: -1
       contexts:
