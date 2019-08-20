@@ -29,15 +29,20 @@ targetEntityType: node
 bundle: seminar
 mode: default
 content:
+  addtoany:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   body:
     label: hidden
     type: text_default
-    weight: 7
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     region: content
   field_cost:
-    weight: 4
+    weight: 5
     label: inline
     settings:
       link_to_entity: false
@@ -45,7 +50,7 @@ content:
     type: string
     region: content
   field_duration:
-    weight: 2
+    weight: 3
     label: inline
     settings:
       link_to_entity: false
@@ -53,7 +58,7 @@ content:
     type: string
     region: content
   field_reserve_link:
-    weight: 6
+    weight: 7
     label: hidden
     settings:
       trim_length: 80
@@ -65,7 +70,7 @@ content:
     type: link
     region: content
   field_smnr_class_type:
-    weight: 1
+    weight: 2
     label: inline
     settings:
       link: false
@@ -73,7 +78,7 @@ content:
     type: entity_reference_label
     region: content
   field_smnr_level:
-    weight: 5
+    weight: 6
     label: inline
     settings:
       link: false
@@ -81,7 +86,7 @@ content:
     type: entity_reference_label
     region: content
   field_smnr_seminar_session:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       view_mode: grid_item
@@ -90,7 +95,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_topics:
-    weight: 3
+    weight: 4
     label: inline
     settings:
       link: false
@@ -98,7 +103,7 @@ content:
     type: entity_reference_label
     region: content
 hidden:
-  addtoany: true
   field_featured_seminar: true
   langcode: true
   links: true
+  search_api_excerpt: true
