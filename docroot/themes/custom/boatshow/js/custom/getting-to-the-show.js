@@ -78,7 +78,7 @@ window.BoatShows = window.BoatShows || {};
     Drupal.behaviors.gettingToTheShow = {
       attach: function(context, settings) {
         $(context).once('getting-to-the-show').each(function() {
-          var gmapAPIKey = 'AIzaSyDnUejJV5eCL4reoGScl4pBujqWqgU4ahk';
+          var gmapAPIKey = 'AIzaSyCDlZzpLTpVIxteGhmpaA2Iglm0_zp_dbg';
           var gmapScriptUrl = 'https://maps.googleapis.com/maps/api/js?key=' + gmapAPIKey; // + '&callback=initMap';
           var s = document.createElement("script");
           s.src = gmapScriptUrl;
