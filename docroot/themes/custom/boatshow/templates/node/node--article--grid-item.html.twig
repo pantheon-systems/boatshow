@@ -27,6 +27,10 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
       {{ node.created.value|date('n/j/Y') }}
     </div>
 
+    {% if content.field_article_category.0 %}
+    <div class="article-cat"> | {{ node.field_article_category.0.entity.name.value }}</div>
+    {% endif %}
+
   </header>
   {% endif %}
 

@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.article.field_article_author
     - field.field.node.article.field_article_body
     - field.field.node.article.field_article_call_out
+    - field.field.node.article.field_article_category
     - field.field.node.article.field_article_featured
     - field.field.node.article.field_article_image
     - field.field.node.article.field_article_meta_tags
@@ -19,7 +20,9 @@ dependencies:
     - field.field.node.article.field_article_teaser
     - field.field.node.article.field_article_tsr_image
     - field.field.node.article.field_article_type
+    - field.field.node.article.field_contacts
     - field.field.node.article.field_feed_id
+    - field.field.node.article.field_video_url
     - node.type.article
   module:
     - panelizer
@@ -37,9 +40,17 @@ bundle: article
 mode: grid_item
 content:
   addtoany:
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_article_category:
+    type: entity_reference_label
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link: false
     third_party_settings: {  }
   field_article_teaser:
     weight: 1
@@ -83,6 +94,9 @@ hidden:
   field_article_subhead: true
   field_article_tags: true
   field_article_type: true
+  field_contacts: true
   field_feed_id: true
+  field_video_url: true
   langcode: true
   links: true
+  search_api_excerpt: true
