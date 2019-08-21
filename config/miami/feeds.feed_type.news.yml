@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.article.field_article_body
+    - field.field.node.article.field_article_category
     - field.field.node.article.field_article_image
     - field.field.node.article.field_article_subhead
     - field.field.node.article.field_article_teaser
     - field.field.node.article.field_article_tsr_image
     - field.field.node.article.field_article_type
+    - field.field.node.article.field_contacts
     - field.field.node.article.field_feed_id
     - field.field.node.article.field_video_url
     - node.type.article
@@ -77,6 +79,12 @@ parser_configuration:
     medias_type_4_value:
       label: 'medias[?(@.type==4)].value'
       value: 'medias[?(@.type==4)].value'
+    categoryname:
+      label: categoryName
+      value: categoryName
+    contacts_name:
+      label: 'contacts.*.name'
+      value: 'contacts.*.name'
   display_errors: false
   source_encoding:
     - auto
@@ -126,6 +134,14 @@ custom_sources:
     label: 'medias[?(@.type==4)].value'
     value: 'medias[?(@.type==4)].value'
     machine_name: medias_type_4_value
+  categoryname:
+    label: categoryName
+    value: categoryName
+    machine_name: categoryname
+  contacts_name:
+    label: 'contacts.*.name'
+    value: 'contacts.*.name'
+    machine_name: contacts_name
 mappings:
   -
     target: field_article_body
@@ -192,3 +208,18 @@ mappings:
       reference_by: name
       autocreate: false
       feeds_item: false
+  -
+    target: field_article_category
+    map:
+      target_id: categoryname
+    settings:
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_contacts
+    map:
+      target_id: contacts_name
+    settings:
+      reference_by: title
+      feeds_item: guid
+      autocreate: 0

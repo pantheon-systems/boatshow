@@ -1,0 +1,23 @@
+uuid: f58629d0-53e0-4384-baa9-ce32f7f3a8d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.contact_profile
+  module:
+    - feeds
+id: node.contact_profile.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: contact_profile
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

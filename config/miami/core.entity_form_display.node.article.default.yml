@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.article.field_article_teaser
     - field.field.node.article.field_article_tsr_image
     - field.field.node.article.field_article_type
+    - field.field.node.article.field_contacts
     - field.field.node.article.field_feed_id
     - field.field.node.article.field_video_url
     - node.type.article
@@ -214,6 +215,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_contacts:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_feed_id:
     weight: 12

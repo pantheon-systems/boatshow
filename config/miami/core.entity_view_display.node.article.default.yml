@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.article.field_article_teaser
     - field.field.node.article.field_article_tsr_image
     - field.field.node.article.field_article_type
+    - field.field.node.article.field_contacts
     - field.field.node.article.field_feed_id
     - field.field.node.article.field_video_url
     - node.type.article
@@ -94,6 +95,14 @@ content:
     region: content
   field_article_type:
     weight: 7
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_contacts:
+    weight: 11
     label: above
     settings:
       link: true
