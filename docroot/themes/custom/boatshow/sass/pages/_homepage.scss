@@ -3,14 +3,14 @@
 ////////////////////
 .show-info-banner {
   // Font size controls the size of the main name element, all other elements are sized relative to this.
-  font-size: 35px;
+  font-size: $font-size-h2-small;
   justify-content: flex-end;
   font-weight: $font-weight-normal;
   text-align: left;
   line-height: 1;
 
-  @include media-breakpoint-down('sm') {
-    font-size: 28px;
+  @include media-breakpoint-up($font-size-breakpoint-main) {
+    font-size: $font-size-h2;
   }
 
   & .show-name {
@@ -70,10 +70,10 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  font-size: 25px;
+  font-size: 18px;
 
-  @include media-breakpoint-down('sm') {
-    font-size: 18px;
+  @include media-breakpoint-up($font-size-breakpoint-main) {
+    font-size: 25px;
   }
 
   .countdown-title {
@@ -114,6 +114,6 @@
 
   .countdown-button {
     display: inline-block;
-    margin: 30px auto 0 auto;
+    margin: 40px auto 0 auto;
   }
 }

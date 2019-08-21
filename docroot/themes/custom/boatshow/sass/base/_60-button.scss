@@ -6,19 +6,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  min-width: $dimension-button-width;
-  // max-width: 300px;
   padding: .6em 2.25em;
-
   background: $color-button-primary-fill;
   border: $button-border-width solid $color-button-primary-border;
   border-radius: $button-border-radius;
   box-sizing: border-box;
   color: $color-button-primary-text;
-
   outline: 0;
-
   text-align: center;
   text-decoration: none;
   transition: all $transition-speed $transition-style;

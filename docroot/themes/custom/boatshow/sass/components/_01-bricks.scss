@@ -104,6 +104,8 @@
   .card-body {
     //todo: this may need a class to control it, as some cards are left-aligned (e.g. on hotels page)
     text-align: center;
+    box-sizing: border-box;
+    height: 100%;
   }
 
   // Padding on body for cards with backgrounds (we assume these need to stand out somewhat)
@@ -204,13 +206,13 @@ $dimension-masthead-vertical-pull: .40 * $dimension-masthead-min-height !default
 
     @media (min-width: $screen-sm) {
       padding: $dimension-masthead-y-padding $dimension-masthead-x-padding;
-      min-height: $dimension-masthead-min-height;
     }
   }
 
   >.brick--background-image {
     position: relative;
     height: 41vw;
+
     @media (min-width: $screen-sm) {
       position: absolute;
       height: 100%;
@@ -219,9 +221,9 @@ $dimension-masthead-vertical-pull: .40 * $dimension-masthead-min-height !default
 
   &.has-page-title {
     >.container {
-      @media (min-width: $screen-sm) {
-        padding-top: calc(#{3 * $dimension-masthead-y-padding} + 3.6rem);
-      }
+      // @media (min-width: $screen-sm) {
+      //   padding-top: calc(#{3 * $dimension-masthead-y-padding} + 3.6rem);
+      // }
     }
   }
 
@@ -234,21 +236,24 @@ $dimension-masthead-vertical-pull: .40 * $dimension-masthead-min-height !default
   //
 
   .page-title {
-
     @include headline-effect-labelmaker;
     color: #fff;
     text-align: center;
     position: absolute;
     z-index: 14;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     margin: 0;
     padding: 0;
+    min-width: 320px;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 
     @media (min-width: $screen-sm) {
-      top: 45px;
+      position: relative;
+      padding: 45px 0;
       transform: translateX(-50%);
+      top: 0;
     }
 
     span {
