@@ -13,5 +13,6 @@
 }
 
 @function em-calc($pixels, $context) {
+  // TODO: update with strip-unit
   @return #{$pixels/$context}em;
 }

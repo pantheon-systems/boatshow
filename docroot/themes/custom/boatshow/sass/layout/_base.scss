@@ -1,9 +1,6 @@
 // Base HTML Elements.
-html,
-body {
-  min-height: 100%;
-  padding: 0;
-  margin: 0;
+html {
+  font-size: $font-size-body-copy;
 }
 
 body {
@@ -13,6 +10,15 @@ body {
   line-height: $font-line-height-standard;
   color: $color-text;
 }
+
+html,
+body {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+
 // Base Headings
 //
 // Markup: headlines.twig
@@ -27,42 +33,59 @@ h6 {
   color: $color-headings;
   font-family: $font-headings;
   font-weight: $font-weight-bold;
+  line-height: 1.45;
   padding: 0 0 0.3em;
   margin: 0;
 }
 
 h1 {
-  font-size: 250%;
-  line-height: 165%;
+  font-size: $font-size-h1-small;
+  line-height: 1.65;
+
+  @include media-breakpoint-up($font-size-breakpoint-main) {
+    font-size: $font-size-h1;
+  }
 }
 
 h2 {
-  // There should be a var for font-size we can use.
-  font-size: rem-calc(35px);
-  line-height: 145%;
+  font-size: $font-size-h2-small;
+
+  @include media-breakpoint-up($font-size-breakpoint-main) {
+    font-size: $font-size-h2;
+  }
 }
 
 h3 {
-  font-size: rem-calc(30px);
-  line-height: 145%;
+  font-size: $font-size-h3-small;
+
+  @include media-breakpoint-up($font-size-breakpoint-main) {
+    font-size: $font-size-h3;
+  }
 }
 
 h4 {
+  font-size: $font-size-h4-small;
   font-weight: $font-weight-normal;
-  font-size: 120%;
-  line-height: 145%;
+
+  @include media-breakpoint-up($font-size-breakpoint-main) {
+    font-size: $font-size-h4;
+  }
 }
 
 h5,
 h6 {
-  font-size: 140%;
-  line-height: 145%;
+  font-size: $font-size-h5-small;
+
+  @include media-breakpoint-up($font-size-breakpoint-main) {
+    font-size: $font-size-h5;
+  }
 }
 
 body .menu-item {
   padding-top: 0;
   margin: 0;
 }
+
 // Base Text
 //
 // Markup: text.twig

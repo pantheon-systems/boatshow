@@ -129,27 +129,30 @@ $color-rules: rgba($colorname-black, 0.5);
 $color-rules-inverted: rgba($colorname-white, 0.5);
 
 // Font Sizes
-
+$font-size-breakpoint-main: md !default;
 $font-line-height-standard: 1.6em !default;
 
 $font-size-body-copy: 16px !default;
 $font-size-body-copy-small: 14px !default;
 $font-size-body-copy-xsmall: 12px !default;
 
-$font-size-h1: 70px !default;
-$font-size-h1-small: 60px !default;
+$font-size-h1: rem-calc(40px) !default;
+$font-size-h1-small: rem-calc(18px) !default;
 
-$font-size-h2: 38px !default;
-$font-size-h2-small: 32px !default;
+$font-size-h2: rem-calc(35px) !default;
+$font-size-h2-small: rem-calc(28px) !default;
 
-$font-size-h3: 30px !default;
-$font-size-h3-small: 24px !default;
+$font-size-h3: rem-calc(30px) !default;
+$font-size-h3-small: rem-calc(20px) !default;
 
-$font-size-h4: 26px !default;
-$font-size-h4-small: 20px !default;
+$font-size-h4: rem-calc(20px) !default;
+$font-size-h4-small: rem-calc(18px) !default;
 
-$font-size-h5: 20px !default;
-$font-size-h5-small: 14px !default;
+$font-size-h5: rem-calc(18px) !default;
+$font-size-h5-small: rem-calc(14px) !default;
+
+$font-size-h6: rem-calc(18px) !default;
+$font-size-h6-small: rem-calc(14px) !default;
 
 $font-size-article-headline: 16px !default;
 $font-size-article-headline-small: 14px !default;
@@ -183,7 +186,7 @@ $dimension-input-height: 36px !default;
 $dimension-input-height-large: 46px !default;
 $dimension-input-height-xlarge: 56px !default;
 
-$site-maxout-width: 1600 !default;
+$site-maxout-width: 1600px !default;
 
 $dimension-vertical-rhythm-elements: 30px !default;
 $dimension-vertical-rhythm-sections: 45px !default;
