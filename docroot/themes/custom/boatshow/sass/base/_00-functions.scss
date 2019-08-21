@@ -11,3 +11,7 @@
 
   @return #{$rem-size}rem;
 }
+
+@function em-calc($pixels, $context) {
+  @return #{$pixels/$context}em;
+}

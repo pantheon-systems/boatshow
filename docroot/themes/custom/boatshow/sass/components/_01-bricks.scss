@@ -21,14 +21,22 @@
   }
 
   &.container-type--contract {
-    @media (min-width: $screen-sm) {
+    max-width: 1000px;
+  }
+
+  @include media-breakpoint-up('sm') {
+    &.container-type--contract {
       padding-right: $dimension-section-horizontal-padding;
       padding-left: $dimension-section-horizontal-padding;
     }
   }
 
-  &.container-type--contract-more {
-    max-width: 1000px;
+  @include media-breakpoint-down('sm') {
+    &.container-type--contract,
+    &.container-type--contract-more {
+      margin-left: -20px;
+      margin-right: -20px;
+    }
   }
 }
 
@@ -100,7 +108,11 @@
 
   // Padding on body for cards with backgrounds (we assume these need to stand out somewhat)
   &.has-background-color .card-body {
-    padding: $dimension-card-padding;
+    padding: $dimension-card-padding / 2;
+
+    @include media-breakpoint-up('sm') {
+      padding: $dimension-card-padding;
+    }
   }
 
   // Apply button style to link

@@ -21,16 +21,16 @@ $screen-xl: 1200px;
 
 @mixin media-breakpoint-down($size) {
   @if      ($size == "sm") {
-    @media (max-width: $screen-sm) { @content; }
+    @media (max-width: $screen-sm - 1px) { @content; }
   }
   @else if ($size == "md") {
-    @media (max-width: $screen-md) { @content; }
+    @media (max-width: $screen-md - 1px) { @content; }
   }
   @else if ($size == "lg") {
-    @media (max-width: $screen-lg) { @content; }
+    @media (max-width: $screen-lg - 1px) { @content; }
   }
   @else if ($size == "xl") {
-    @media (max-width: $screen-xl) { @content; }
+    @media (max-width: $screen-xl - 1px) { @content; }
   }
 }
 
