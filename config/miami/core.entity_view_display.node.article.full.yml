@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.article.field_article_tsr_image
     - field.field.node.article.field_article_type
     - field.field.node.article.field_feed_id
+    - field.field.node.article.field_video_url
     - node.type.article
   module:
     - panelizer
@@ -66,6 +67,15 @@ content:
       link: false
     third_party_settings: {  }
     region: content
+  field_video_url:
+    type: entity_reference_entity_view
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      view_mode: embedded
+      link: false
+    third_party_settings: {  }
 hidden:
   feeds_item: true
   field_article_activity: true

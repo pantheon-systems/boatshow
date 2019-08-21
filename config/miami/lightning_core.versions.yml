@@ -220,3 +220,5 @@ nmma_webform_override_recipients: 0.0.0
 geolocation_google_maps: 3.0.0-rc1
 entity_reference_revisions: 1.6.0
 paragraphs: 1.8.0
+nmma_feeds_video_embed: 0.0.0
+nmma_tamper: 0.0.0

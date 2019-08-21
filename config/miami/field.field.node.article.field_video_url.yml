@@ -1,0 +1,29 @@
+uuid: ccf1faa5-8972-4e48-bed3-7111ce0ce067
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_url
+    - media.type.video
+    - node.type.article
+id: node.article.field_video_url
+field_name: field_video_url
+entity_type: node
+bundle: article
+label: 'Video URL'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      video: video
+    sort:
+      field: vid
+      direction: DESC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

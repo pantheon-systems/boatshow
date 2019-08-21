@@ -131,7 +131,9 @@ module:
   module_filter: 0
   nmma_blocks: 0
   nmma_brick_layouts: 0
+  nmma_feeds_video_embed: 0
   nmma_seminars: 0
+  nmma_tamper: 0
   nmma_users: 0
   nmma_video: 0
   nmma_webform_override_recipients: 0

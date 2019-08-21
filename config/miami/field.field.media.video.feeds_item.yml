@@ -1,0 +1,23 @@
+uuid: d3cf7e2e-57ba-439e-8515-58e256cdfc70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.feeds_item
+    - media.type.video
+  module:
+    - feeds
+id: media.video.feeds_item
+field_name: feeds_item
+entity_type: media
+bundle: video
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

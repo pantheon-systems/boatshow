@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.article.field_article_tsr_image
     - field.field.node.article.field_article_type
     - field.field.node.article.field_feed_id
+    - field.field.node.article.field_video_url
     - node.type.article
   module:
     - feeds_ex
@@ -26,6 +27,17 @@ third_party_settings:
         weight: 0
         label: 'Set value or default value'
         uuid: c5353af2-bf3b-4cc7-9bb5-521f71904a81
+      7938ea30-f661-4afa-9bc9-74147e5c4e07:
+        find: /embed/
+        replace: '/watch?v='
+        case_sensitive: 1
+        whole: 0
+        plugin: find_replace_null
+        source: medias_type_4_value
+        weight: 1
+        label: 'Find replace w/NULL'
+        word_boundaries: 0
+        uuid: 7938ea30-f661-4afa-9bc9-74147e5c4e07
 label: News
 id: news
 description: ''
@@ -62,6 +74,9 @@ parser_configuration:
     article_type:
       label: article_type
       value: article_type
+    medias_type_4_value:
+      label: 'medias[?(@.type==4)].value'
+      value: 'medias[?(@.type==4)].value'
   display_errors: false
   source_encoding:
     - auto
@@ -107,6 +122,10 @@ custom_sources:
     label: article_type
     value: article_type
     machine_name: article_type
+  medias_type_4_value:
+    label: 'medias[?(@.type==4)].value'
+    value: 'medias[?(@.type==4)].value'
+    machine_name: medias_type_4_value
 mappings:
   -
     target: field_article_body
@@ -165,3 +184,11 @@ mappings:
       value: content
     settings:
       format: rich_text
+  -
+    target: field_video_url
+    map:
+      target_id: medias_type_4_value
+    settings:
+      reference_by: name
+      autocreate: false
+      feeds_item: false

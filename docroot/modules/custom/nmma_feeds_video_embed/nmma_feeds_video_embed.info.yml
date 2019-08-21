@@ -1,0 +1,7 @@
+name: NMMA Feeds Video Embed
+description: Custom Feeds Target for Video Embed
+type: module
+core: 8.x
+package: Feeds
+dependencies:
+  - feeds:feeds

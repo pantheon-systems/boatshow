@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.article.field_article_tsr_image
     - field.field.node.article.field_article_type
     - field.field.node.article.field_feed_id
+    - field.field.node.article.field_video_url
     - node.type.article
   module:
     - entity_browser
@@ -222,6 +223,21 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_video_url:
+    type: entity_browser_entity_reference
+    weight: 26
+    settings:
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      open: true
+      field_widget_replace: false
+    region: content
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 4

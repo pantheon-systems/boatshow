@@ -1,0 +1,89 @@
+uuid: 2af578de-f910-4048-82e7-e9663f6d3398
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.video.field_media_in_library
+    - field.field.media.video.field_media_video_embed_field
+    - media.type.video
+  module:
+    - feeds_ex
+    - feeds_tamper
+    - media
+    - nmma_feeds_video_embed
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      b972242e-da81-48ac-acc3-6a6e1688b0a6:
+        invert: false
+        plugin: required
+        source: value
+        weight: 0
+        label: Required
+        uuid: b972242e-da81-48ac-acc3-6a6e1688b0a6
+      95861841-ba3d-4c15-a06f-dd81c7609445:
+        find: /embed/
+        replace: '/watch?v='
+        case_sensitive: true
+        whole: false
+        plugin: find_replace
+        source: value
+        weight: 1
+        label: 'Find replace'
+        word_boundaries: false
+        uuid: 95861841-ba3d-4c15-a06f-dd81c7609445
+label: 'News Media Video'
+id: news_media_video
+description: ''
+import_period: -1
+fetcher: http
+fetcher_configuration:
+  auto_detect_feeds: false
+  use_pubsubhubbub: false
+  fallback_hub: ''
+  request_timeout: 30
+parser: jsonpath
+parser_configuration:
+  context:
+    value: '$.*.medias[?(@.type==4)]'
+  sources:
+    value:
+      label: value
+      value: value
+  display_errors: false
+  source_encoding:
+    - auto
+  debug_mode: false
+  line_limit: 100
+processor: 'entity:media'
+processor_configuration:
+  update_existing: 0
+  update_non_existent: _keep
+  expire: -1
+  owner_feed_author: false
+  owner_id: 1
+  authorize: true
+  skip_hash_check: false
+  values:
+    bundle: video
+custom_sources:
+  value:
+    label: value
+    value: value
+    machine_name: value
+mappings:
+  -
+    target: name
+    map:
+      value: value
+    unique:
+      value: '1'
+  -
+    target: field_media_in_library
+    map:
+      value: value
+  -
+    target: field_media_video_embed_field
+    map:
+      value: value
+    unique: {  }

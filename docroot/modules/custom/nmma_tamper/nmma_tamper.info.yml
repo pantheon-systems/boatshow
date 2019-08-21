@@ -1,0 +1,7 @@
+name: NMMA Tamper
+description: Custom Feeds Tamper plugins
+type: module
+core: 8.x
+package: Feeds
+dependencies:
+  - feeds_tamper:feeds_tamper
