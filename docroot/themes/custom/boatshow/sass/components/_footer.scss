@@ -176,8 +176,6 @@
       &:hover,
       &:focus {
         text-decoration: none;
-        color: $footer-social-icon-color-foreground-hover;
-        background-color: $footer-social-icon-color-background-hover;
       }
 
       // Icons are selected based on the URL of the link. If this doesn't prove to be usable, we can switch to manually managed class names.
