@@ -1,12 +1,9 @@
-uuid: 47e3a1cd-a40a-442d-9b0c-e4ee9875e7ad
 langcode: en
 status: open
 dependencies:
   enforced:
     module:
       - webform
-_core:
-  default_config_hash: B-E6t3OGPrgG1OPuVOmoXmjWLXkta_R-lSr_ppfU2Ww
 open: null
 close: null
 weight: 0
@@ -23,9 +20,13 @@ javascript: ''
 settings:
   ajax: false
   ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
   page: true
   page_submit_path: ''
   page_confirm_path: ''
+  page_admin_theme: false
   form_title: source_entity_webform
   form_submit_once: false
   form_exception_message: ''
@@ -34,6 +35,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
+  form_remote_addr: true
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
@@ -96,6 +98,8 @@ settings:
   draft_auto_save: false
   draft_saved_message: ''
   draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
   confirmation_type: url_message
   confirmation_title: ''
   confirmation_message: 'Your message has been sent.'
@@ -106,6 +110,7 @@ settings:
   confirmation_back_attributes: {  }
   confirmation_exclude_query: false
   confirmation_exclude_token: false
+  confirmation_update: false
   limit_total: null
   limit_total_interval: null
   limit_total_message: ''
@@ -163,6 +168,10 @@ access:
     users: {  }
     permissions: {  }
   test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
     roles: {  }
     users: {  }
     permissions: {  }
@@ -235,3 +244,6 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+uuid: 47e3a1cd-a40a-442d-9b0c-e4ee9875e7ad
+_core:
+  default_config_hash: B-E6t3OGPrgG1OPuVOmoXmjWLXkta_R-lSr_ppfU2Ww
