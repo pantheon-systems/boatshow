@@ -1,0 +1,35 @@
+uuid: b179e3f7-f6ea-47ab-9ce9-76e26e503328
+langcode: en
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.news_media_override
+id: feeds_feed.news_media_override.default
+targetEntityType: feeds_feed
+bundle: news_media_override
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

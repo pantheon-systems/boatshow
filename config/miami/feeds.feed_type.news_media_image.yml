@@ -1,4 +1,4 @@
-uuid: 6f8c67cd-549e-4315-b249-3e05b1fa83cf
+uuid: b98d764d-6e94-49f4-8113-74f714ab3d62
 langcode: en
 status: true
 dependencies:
@@ -12,9 +12,16 @@ dependencies:
     - media
 third_party_settings:
   feeds_tamper:
-    tampers: {  }
-label: 'News Social Media Image'
-id: news_media
+    tampers:
+      67915515-2d63-48df-a472-aa3d679d54ff:
+        invert: false
+        plugin: required
+        source: value
+        weight: 1
+        label: Required
+        uuid: 67915515-2d63-48df-a472-aa3d679d54ff
+label: 'News Media Image'
+id: news_media_image
 description: ''
 import_period: -1
 fetcher: http
@@ -26,11 +33,11 @@ fetcher_configuration:
 parser: jsonpath
 parser_configuration:
   context:
-    value: '$.*'
+    value: '$.*.medias[?(@.type==2)]'
   sources:
-    defaultsocialmediaimage:
-      label: defaultSocialMediaImage
-      value: defaultSocialMediaImage
+    value:
+      label: value
+      value: value
   display_errors: false
   source_encoding:
     - auto
@@ -48,28 +55,28 @@ processor_configuration:
   values:
     bundle: image
 custom_sources:
-  defaultsocialmediaimage:
-    label: defaultSocialMediaImage
-    value: defaultSocialMediaImage
-    machine_name: defaultsocialmediaimage
+  value:
+    label: value
+    value: value
+    machine_name: value
 mappings:
   -
     target: name
     map:
-      value: defaultsocialmediaimage
+      value: value
     unique:
       value: '1'
   -
     target: field_media_in_library
     map:
-      value: defaultsocialmediaimage
+      value: value
   -
     target: image
     map:
-      target_id: defaultsocialmediaimage
-      alt: defaultsocialmediaimage
-      title: defaultsocialmediaimage
+      target_id: value
+      alt: value
+      title: value
     settings:
+      existing: 2
       reference_by: filename
-      existing: '2'
-      autocreate: 0
+      autocreate: false
