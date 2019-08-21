@@ -64,5 +64,6 @@
 
 // Not sure this is the right place for this, but good enough for now.
 .block-page-title-block {
+  @include headline-effect-labelmaker;
   text-align: center;
 }
