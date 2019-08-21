@@ -1,0 +1,7 @@
+name: NMMA Exhibitor Article
+description: Functionality for exhibitor articles
+type: module
+core: 8.x
+package: 'NMMA'
+dependencies:
+  - webform

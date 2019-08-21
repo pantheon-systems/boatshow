@@ -1,6 +1,9 @@
+uuid: 506b66f2-643e-46ec-be58-ce7806fbd5e0
 langcode: en
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - nmma_exhibitor_article
 open: null
 close: null
 weight: 0
@@ -179,7 +182,7 @@ handlers:
     handler_id: email
     status: true
     conditions: {  }
-    weight: 0
+    weight: -49
     settings:
       states:
         - completed
@@ -192,19 +195,26 @@ handlers:
       from_mail: _default
       from_options: {  }
       from_name: _default
-      subject: _default
-      body: _default
+      subject: 'New Exhibitor Article Submitted'
+      body: "{% set nid = webform_submission.getData()['created_nid'] %}\r\n\r\n<p>An exhibitor has submitted a news article which requires your review before publication.</p>\r\n\r\n<ul>\r\n  <li><a href=\"{{ url('entity.webform_submission.canonical', {'webform': webform_id, 'webform_submission': webform_submission.id() }) }}\">View Webform Submission</a></li>\r\n  {% if nid is not empty %}\r\n  <li><a href=\"{{ url('entity.node.canonical', {'node': nid }) }}\">View Article Node</a></li>\r\n  <li><a href=\"{{ url('entity.node.edit_form', {'node': nid }) }}\">Edit/Publish Article Node</a></li>\r\n  {% endif %}\r\n</ul>\r\n"
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
       exclude_empty_checkbox: false
       html: true
       attachments: false
-      twig: false
+      twig: true
       debug: false
       reply_to: ''
       return_path: ''
       sender_mail: ''
       sender_name: ''
       theme_name: ''
-uuid: 506b66f2-643e-46ec-be58-ce7806fbd5e0
+  exhibitor_article_on_submit:
+    id: exhibitor_article_from_webform
+    label: 'Exhibitor Article on Submit'
+    handler_id: exhibitor_article_on_submit
+    status: true
+    conditions: {  }
+    weight: -50
+    settings: {  }
