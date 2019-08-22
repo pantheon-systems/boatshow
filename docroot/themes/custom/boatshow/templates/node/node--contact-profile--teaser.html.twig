@@ -82,6 +82,7 @@
 %}
 <article{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
+  <h5 class="headline-effect-city-color">{{ label }}</h5>
   {{ title_suffix }}
   <div{{ content_attributes.addClass('node__content') }}>
     <div class="image-wrap pull-left">
@@ -96,7 +97,7 @@
       {{ content.field_profile_phone }}
       {% if content.field_profile_email is not empty %}
         <div class="email-wrap">
-          <span class="pull-left">Email: </span>
+          <span class="pull-left">Email:&nbsp;</span>
           {{ content.field_profile_email }}
         </div>
       {% endif %}

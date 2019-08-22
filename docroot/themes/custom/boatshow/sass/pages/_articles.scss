@@ -30,11 +30,22 @@
       }
     }
 
+    .field--name-field-video-url {
+      margin-bottom: 2rem;
+    }
+
+    .field--name-field-contacts {
+      .field__label {
+        font-weight: bold;
+        font-size: 1.125rem;
+      }
+    }
+
   }
 }
 
 
-.node--type-article.node--view-mode-grid-item, .node--type-article.node--view-mode-grid-item-exhibitor {
+.node--type-article.node--view-mode-grid-item, .node--type-article.node--view-mode-grid-item-exhibitor, .node--type-article.node--view-mode-grid-item-exhibitor-sidebar {
   padding-top: 1em;
   padding-bottom: 1em;
   border-bottom: 1px solid $colorname-lighter-gray;
@@ -58,7 +69,7 @@
   }
 
   .article-cat-image-wrap {
-    margin-right: 20px;
+    margin-right: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

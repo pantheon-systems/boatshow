@@ -1,9 +1,9 @@
-uuid: 93a5677a-85dd-4511-a54a-b08dbbb34d0a
+uuid: 0b1e8862-1150-4cd5-a8c2-9f0d6d4206ce
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.full
+    - core.entity_view_mode.node.grid_item_exhibitor_sidebar
     - field.field.node.article.feeds_item
     - field.field.node.article.field_article_activity
     - field.field.node.article.field_article_author
@@ -27,7 +27,7 @@ dependencies:
     - node.type.article
   module:
     - panelizer
-    - text
+    - smart_trim
     - user
 third_party_settings:
   panelizer:
@@ -35,74 +35,71 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.article.full
+id: node.article.grid_item_exhibitor_sidebar
 targetEntityType: node
 bundle: article
-mode: full
+mode: grid_item_exhibitor_sidebar
 content:
   addtoany:
     weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_article_body:
-    weight: 2
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
   field_article_category:
-    type: entity_reference_label
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: term_grid
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_article_teaser:
+    type: smart_trim
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      trim_length: 300
+      trim_type: chars
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      wrap_output: false
+      more_link: false
+      trim_options:
+        text: false
+        trim_zero: false
+      summary_handler: full
+    third_party_settings: {  }
+  field_article_tsr_image:
+    type: entity_reference_entity_view
     weight: 0
     region: content
     label: hidden
     settings:
-      link: false
-    third_party_settings: {  }
-  field_article_image:
-    type: entity_reference_entity_view
-    weight: 1
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    region: content
-  field_contacts:
-    type: entity_reference_entity_view
-    weight: 5
-    region: content
-    label: above
-    settings:
-      view_mode: teaser
-      link: false
-    third_party_settings: {  }
-  field_video_url:
-    type: entity_reference_entity_view
-    weight: 4
-    region: content
-    label: hidden
-    settings:
-      view_mode: embedded
+      view_mode: grid_item
       link: false
     third_party_settings: {  }
 hidden:
   feeds_item: true
   field_article_activity: true
   field_article_author: true
+  field_article_body: true
   field_article_call_out: true
   field_article_featured: true
+  field_article_image: true
   field_article_meta_tags: true
   field_article_nmma_id: true
   field_article_popular: true
   field_article_subhead: true
   field_article_tags: true
-  field_article_teaser: true
-  field_article_tsr_image: true
   field_article_type: true
+  field_contacts: true
   field_feed_id: true
   field_social_image: true
+  field_video_url: true
   langcode: true
   links: true
   search_api_excerpt: true

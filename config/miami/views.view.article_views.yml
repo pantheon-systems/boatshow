@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.grid_item
     - core.entity_view_mode.node.grid_item_exhibitor
+    - core.entity_view_mode.node.grid_item_exhibitor_sidebar
     - core.entity_view_mode.node.megamenu_item
     - core.entity_view_mode.node.megamenu_small_item
     - core.entity_view_mode.node.teaser
@@ -616,85 +617,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_article_teaser_value:
-          id: field_article_teaser_value
-          table: node__field_article_teaser
-          field: field_article_teaser_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: 'not empty'
-          value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        field_article_tsr_image_target_id:
-          id: field_article_tsr_image_target_id
-          table: node__field_article_tsr_image
-          field: field_article_tsr_image_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: 'not empty'
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
         field_article_type_target_id:
           id: field_article_type_target_id
           table: node__field_article_type
@@ -806,85 +728,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_article_teaser_value:
-          id: field_article_teaser_value
-          table: node__field_article_teaser
-          field: field_article_teaser_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: 'not empty'
-          value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        field_article_tsr_image_target_id:
-          id: field_article_tsr_image_target_id
-          table: node__field_article_tsr_image
-          field: field_article_tsr_image_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: 'not empty'
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
         field_article_type_target_id:
           id: field_article_type_target_id
           table: node__field_article_type
@@ -952,7 +795,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: grid_item_exhibitor
+          view_mode: grid_item_exhibitor_sidebar
     cache_metadata:
       max-age: -1
       contexts:
@@ -991,85 +834,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_article_teaser_value:
-          id: field_article_teaser_value
-          table: node__field_article_teaser
-          field: field_article_teaser_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: 'not empty'
-          value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        field_article_tsr_image_target_id:
-          id: field_article_tsr_image_target_id
-          table: node__field_article_tsr_image
-          field: field_article_tsr_image_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: 'not empty'
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
         field_article_type_target_id:
           id: field_article_type_target_id
           table: node__field_article_type
@@ -1168,85 +932,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_article_teaser_value:
-          id: field_article_teaser_value
-          table: node__field_article_teaser
-          field: field_article_teaser_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: 'not empty'
-          value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        field_article_tsr_image_target_id:
-          id: field_article_tsr_image_target_id
-          table: node__field_article_tsr_image
-          field: field_article_tsr_image_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: 'not empty'
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
         field_article_type_target_id:
           id: field_article_type_target_id
           table: node__field_article_type

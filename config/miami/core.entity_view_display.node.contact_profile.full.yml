@@ -1,8 +1,9 @@
-uuid: 7a35c8b0-4451-4686-b171-b55c3ec5b390
+uuid: 6def5606-b3c4-45c0-ba63-6d51f1e12200
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.contact_profile.body
     - field.field.node.contact_profile.feeds_item
     - field.field.node.contact_profile.field_job_title
@@ -21,10 +22,10 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.contact_profile.default
+id: node.contact_profile.full
 targetEntityType: node
 bundle: contact_profile
-mode: default
+mode: full
 content:
   body:
     label: hidden

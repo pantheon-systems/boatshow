@@ -6,3 +6,4 @@ id: node__article
 label: 'Content: Article'
 tags:
   title: '[node:title] | [site:name]'
+  image_src: '[node:field_social_image:entity:image:entity:url]'

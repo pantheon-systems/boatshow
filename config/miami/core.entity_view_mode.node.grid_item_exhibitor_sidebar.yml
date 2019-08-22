@@ -1,0 +1,14 @@
+uuid: b8f70ff0-f3a2-40eb-8c6d-b0e972e37b36
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.grid_item_exhibitor_sidebar
+label: 'Grid Item Exhibitor Sidebar'
+targetEntityType: node
+cache: true

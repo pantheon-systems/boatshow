@@ -7,11 +7,15 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 
 <article {{ attributes.addClass(classes) }}>
 
+
+{% if node.field_article_tsr_image.value %}
 <div class="col-1 col-12-xs col-3-lg">
   {{ content.field_article_tsr_image }}
 </div>
-
 <div class="col-2 col-12-xs col-9-lg">
+{% else %}
+<div class="col-2 col-12-xs">
+{% endif %}
 
   {% if title_prefix or title_suffix or display_submitted or unpublished or page is empty and label %}
   <header>
@@ -26,10 +30,6 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
     <div class="submitted">
       {{ node.created.value|date('n/j/Y') }}
     </div>
-
-    {% if content.field_article_category.0 %}
-    <div class="article-cat"> | {{ node.field_article_category.0.entity.name.value }}</div>
-    {% endif %}
 
   </header>
   {% endif %}

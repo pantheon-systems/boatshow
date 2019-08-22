@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.article.field_article_type
     - field.field.node.article.field_contacts
     - field.field.node.article.field_feed_id
+    - field.field.node.article.field_social_image
     - field.field.node.article.field_video_url
     - node.type.article
   module:
@@ -116,6 +117,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_social_image:
+    type: entity_reference_entity_view
+    weight: 12
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
     region: content
   field_video_url:
     weight: 10

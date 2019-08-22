@@ -11,13 +11,13 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 
   {% if title_prefix or title_suffix or display_submitted or unpublished or page is empty and label %}
   <header class="row">
-      <div class="col-2-xs col-1-sm article-cat-image-wrap">
+      <div class="col-2-xs col-1-sm col-2-lg article-cat-image-wrap">
       {% if content.field_article_category.0 %}
         {{ content.field_article_category }}
       {% endif %}
       </div>
 
-      <div class="col-10-xs col-11-sm article-title-wrap">
+      <div class="col-10-xs col-11-sm col-10-lg article-title-wrap">
         {{ title_prefix }}
         {% if not page and label %}
         <h2{{ title_attributes }}>

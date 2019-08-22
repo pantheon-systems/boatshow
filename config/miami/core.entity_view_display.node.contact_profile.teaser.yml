@@ -5,15 +5,14 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.contact_profile.body
+    - field.field.node.contact_profile.feeds_item
     - field.field.node.contact_profile.field_job_title
     - field.field.node.contact_profile.field_profile_email
     - field.field.node.contact_profile.field_profile_image
     - field.field.node.contact_profile.field_profile_phone
     - node.type.contact_profile
   module:
-    - image
     - panelizer
-    - text
     - user
 third_party_settings:
   panelizer:
@@ -26,51 +25,34 @@ targetEntityType: node
 bundle: contact_profile
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 1
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
   field_job_title:
     type: string
-    weight: 5
+    weight: 0
     region: content
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
   field_profile_email:
-    type: basic_string
-    weight: 4
+    type: email_mailto
+    weight: 1
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
-  field_profile_image:
-    type: image
-    weight: 2
-    region: content
-    label: hidden
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
   field_profile_phone:
     type: string
-    weight: 3
+    weight: 2
     region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  links:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   addtoany: true
+  body: true
+  feeds_item: true
+  field_profile_image: true
   langcode: true
+  links: true
+  search_api_excerpt: true
