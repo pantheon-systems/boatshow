@@ -1,0 +1,19 @@
+uuid: 5c2867e2-5644-4bfd-949d-05504eefcef9
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.exposed_filters
+    - field.storage.brick.field_brick_subhead
+id: brick.exposed_filters.field_brick_subhead
+field_name: field_brick_subhead
+entity_type: brick
+bundle: exposed_filters
+label: Subhead
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

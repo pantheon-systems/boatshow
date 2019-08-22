@@ -1,100 +1,173 @@
-.views-exposed-form {
-  width: 100%;
+.brick--type--exposed-filters {
+  position: relative;
+  z-index: 100;
 
-  &[id="views-exposed-form-seminar-view-block-2"]{
-
-
-    .form--inline {
-      display: flex;
-      flex-wrap: wrap;
-
-      >.form-item {
-        flex: 1 0 15%;
-        margin: 0 10px;
-        border: 1px solid $colorname-light-gray;
-        display: inline-block;
-        max-height: 300px;
-        overflow-y: auto;
-        box-sizing:border-box;
-
-        &:first-of-type {
-          margin-left: 0;
-        }
-        &:last-of-type {
-          margin-right: 0;
-        }
-
-        // These fields are replaced by form alter fields and then updated via jQuery
-        // They need to be in the DOM, but hidden
-        &.form-item-field-smnr-seminar-date-value-min,
-        &.form-item-field-smnr-seminar-date-value-max,
-        &.form-item-field-smnr-speaker-target-id {
-          display: none;
-        }
-
-        .form-item {
-          width: 100%;
-          display: block;
-          float:left;
-          margin: 20px 0 0;
-          padding: 0 10px;
-        }
-      }
-      legend {
-        float:left;
-        width: 100%;
-        text-align: center;
-        background: $color-slab-light-gray;
-        color: $city-color-secondary;
-        font-weight: bold;
-
-        text-transform: uppercase;
-        padding: 12px 0;
-      }
-    }
-    .form-actions {
-      width: 100%;
-      display: block;
-      text-align: right;
-      margin-top: 40px;
-
-      .js-form-submit {
-        @extend .btn-primary-outtline;
-        float: right;
-      }
-    }
-  }
   .form--inline {
-    >.form-checkboxes {
+    &,
+    .form-checkboxes {
       display: flex;
-      justify-content: space-around;
       flex-wrap: wrap;
+      justify-content: space-around;
       width: 100%;
+      height: 100%;
+    }
+
+    .form-checkboxes {
+      align-items: center;
+    }
+    // Top level item
+    >.form-item {
+      flex: 1 0 5%;
+      margin: 0 10px;
+      padding: 0;
+      display: inline-block;
+      max-height: 300px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      box-sizing:border-box;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      .form-item {
+        width: 100%;
+        margin: 20px 0 0;
+        padding: 0 10px;
+        box-sizing: border-box;
+      }
     }
   }
 
   .form-item {
     display: inline-block;
     flex: 0 1 auto;
-    margin: 1em;
   }
 
-  .form-checkbox,
-  .form-radio {
+  .js-hide {
+    display: none;
+  }
+
+  // Collapsible boxes
+  details {
+    &,
+    & summary {
+      padding-left:0;
+      background-image: none;
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      &::-webkit-details-marker {
+        display:none;
+      }
+    }
+    summary {
+      border: 1px solid $colorname-light-gray;
+      box-sizing: border-box;
+    }
+
+    &[open] {
+      padding-bottom: 20px;
+      border: 1px solid $colorname-light-gray;
+
+      summary {
+        border: 0;
+      }
+    }
+    summary[role="button"] {
+      float:left;
+      width: 100%;
+      text-align: center;
+      background: $color-slab-light-gray;
+      color: $city-color-secondary;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      box-shadow: 0 15px 15px #fff;
+    }
+  }
+
+  .filter-buttons {
+    width: 100%;
+    display: flex;
+    background: $color-slab-white;
+    color: $color-text;
+    flex: 0;
+    justify-content: space-between;
+
+    .filter-btn {
+      flex: 0;
+      display: block;
+      white-space: nowrap;
+      padding: 1em 0 ;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      .fa {
+        margin-right: 1ex;
+
+        &:before {
+          color: $color-text;
+        }
+      }
+    }
+  }
+
+  &.collapsible {
+
+    .form-actions {
+      display: none;
+      padding-bottom: $dimension-vertical-rhythm-elements;
+    }
+
+    .form-item[open] ~ .form-actions {
+      display: block;
+    }
+  }
+  .form-actions {
+    width: 100%;
+    margin-top: 40px;
+    justify-self: flex-end;
+    text-align: right;
+
+    .js-form-submit {
+      display: inline-block;
+      vertical-align: baseline;
+
+      //reset button
+      &[name='op'] {
+        background: transparent;
+        border-color: transparent;
+        cursor: pointer;
+        color: $color-links;
+        text-decoration: underline;
+      }
+      // submit button
+      &[id='edit-submit-seminar-view']{
+        float: right;
+      }
+    }
+  }
+  %input-alt-checkbox {
+    //this is the input element
     display: none;
 
     + .option {
       vertical-align: middle;
       font-size: 16px;
       min-height: 1.3em;
-      padding-left: 2.3em;
+      padding-left: 3em;
       padding-top: .5em;
       box-sizing: border-box;
       width: 100%;
       display: block;
-
       position: relative;
-
       &:before {
         position: absolute;
         left: 0;
@@ -117,10 +190,27 @@
     &:checked {
       + .option {
         &:before {
-          // content: 'X';
           background: $city-color-secondary;
         }
       }
+    }
+  }
+  .form-checkbox,
+  .form-radio {
+    @extend %input-alt-checkbox;
+  }
+}
+
+.views-exposed-form {
+  width: 100%;
+
+  &[id="views-exposed-form-seminar-view-block-2"]{
+    // These fields are replaced by form alter fields and then updated via jQuery
+    // They need to be in the DOM, but hidden
+    .form-item-field-smnr-seminar-date-value-min,
+    .form-item-field-smnr-seminar-date-value-max,
+    .form-item-field-smnr-speaker-target-id {
+      display: none;
     }
   }
 }

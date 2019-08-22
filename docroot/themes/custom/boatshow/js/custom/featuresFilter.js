@@ -26,17 +26,48 @@
         jQuery(maxTarget).val(max);
       }
 
-      $('input[type="radio"][name="field_date_radios"]').change(function() {
+      jQuery('input[type="radio"][name="field_date_radios"]').change(function() {
         const value = jQuery(this).val();
         const minTarget="#edit-field-smnr-seminar-date-value-min";
         const maxTarget="#edit-field-smnr-seminar-date-value-max";
         filterDateRangeCheckboxes(value, minTarget, maxTarget);
       });
 
-      $('input[type="radio"][name="field_speaker_radios"]').change(function() {
+      jQuery('input[type="radio"][name="field_speaker_radios"]').change(function() {
         const value = jQuery(this).val();
         jQuery('#edit-field-smnr-speaker-target-id').val(value);
       });
+
+      jQuery('.brick--type--exposed-filters.collapsible .toggle-filters').click(function(){
+        const $form = jQuery(this).closest('.brick--type--exposed-filters.collapsible');
+        $form.toggleClass('expand');
+        $form.find('.form--inline >.form-item').each(function(){
+          if ($form.hasClass('expand') && jQuery(this).css('display') != 'none'){
+            jQuery(this).attr('open', '');
+          } else {
+            jQuery(this).removeAttr('open');
+          }
+        })
+      })
+
+      jQuery('.brick--type--exposed-filters .js-hide').each(function(){
+        if (jQuery(this).is(':only-child')){
+          jQuery(this).parent().remove();
+        } else {
+          jQuery(this).remove();
+        }
+
+      });
+
+      jQuery('.brick--type--exposed-filters.collapsible .close-filters').click(function(){
+        const $form = jQuery(this).closest('.brick--type--exposed-filters.collapsible');
+        $form.removeClass('expand');
+        $form.find('.form--inline >.form-item').each(function(){
+          jQuery(this).removeAttr('open');
+        })
+      })
+
+
     }
   };
 
