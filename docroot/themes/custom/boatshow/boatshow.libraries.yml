@@ -17,6 +17,7 @@ javascript:
   version: 1.0.0
   js:
     assets-dist/js/header.js: {}
+    assets-dist/js/object-fit-init.js: {}
     assets-dist/js/advertisements.js: {}
     assets-dist/js/globalFooter.js: {}
     assets-dist/js/featuresFilter.js: {}
@@ -32,6 +33,7 @@ javascript:
     - core/jquery.once
     - core/jquery.cookie
     - core/jquery.ui
+    - boatshow/object_fit_images
     # - boatshow/slick_carousel
 
 slick_carousel:
@@ -49,6 +51,11 @@ jcountdown:
     js/libraries/jCountdown/jquery.jcountdown.min.js: {minified: external}
   dependencies:
     - core/jquery
+
+# object fit polyfill
+object_fit_images:
+  js:
+    node_modules/object-fit-images/dist/ofi.min.js: {}
 
 #
 # City site-specific libraries
