@@ -265,35 +265,48 @@ function boatshow_form_views_exposed_form_alter(&$form, FormStateInterface $form
     '#options' => Array(),
     '#default_value' => Array(),
     '#theme' => 'form-item',
-    '#title' => 'title',
     // not collapsble
-    '#theme_wrappers' => Array('container' => Array( )),
+    // '#title' => 'title',
+    // '#theme_wrappers' => Array('container' => Array( )),
     // Collapsible
-    //'#theme_wrappers' => Array(
-    //   'details' => Array(
-    //     '#title' => '',
-    //     '#description' => NULL,
-    //     '#attributes' => Array(
-    //       'class' => Array('form-item')
-    //     ),
-    //     '#value' => NULL
-    //   )
-    // )
+    '#theme_wrappers' => Array(
+      'details' => Array(
+        '#title' => '',
+        '#description' => NULL,
+        '#attributes'=> Array(
+          'class' => Array('form-item')
+        ),
+        '#summary_attributes' => Array(),
+        '#value' => NULL
+      )
+    )
   );
 
   ksort($date_options);
   $field_date_radios = $radio_array;
   $field_date_radios['#options'] = $date_options;
-  $field_date_radios['#title'] = 'Date';
+  $field_date_radios['#theme_wrappers']['details']['#title'] = 'Date';
+  $field_date_radios['#theme_wrappers']['details']['id'] = 'Date';
 
   asort($speaker_options);
   $field_speaker_radios = $radio_array;
   $field_speaker_radios['#options'] = $speaker_options;
-  $field_speaker_radios['#title'] = 'Speaker';
+  $field_speaker_radios['#theme_wrappers']['details']['#title'] = 'Speaker';
+  $field_speaker_radios['#theme_wrappers']['details']['id'] = 'Speaker';
 
-  $form['field_date_radios'] = $field_date_radios;
-  $form['field_speaker_radios'] = $field_speaker_radios;
-  //todo: fix ordering
+  //Insert fields immediately after the ones they're meant to replace.
+  $new_form = Array();
+  foreach ($form as $k => $v){
+
+    $new_form[$k] = $v;
+    if ($k == 'field_smnr_speaker_target_id') {
+      $new_form['field_speaker_radios'] = $field_speaker_radios;
+    }elseif ($k == 'field_smnr_seminar_date_value') {
+      $new_form['field_date_radios'] = $field_date_radios;
+    }
+  }
+  // replace the form and end
+  $form = $new_form;
 }
 
 /**
@@ -410,6 +423,13 @@ function boatshow_preprocess_eck_entity(&$variables) {
 
   $entity = $variables['entity']['#entity'];
 
+  ////////////////////////////
+  /// Collapsible
+  ////////////////////////////
+  if ($entity->hasField('field_collapsible') && $entity->field_collapsible->value === '1') {
+    $variables['attributes']['class'][] = 'collapsible';
+    $variables['collapsible'] = true;
+  }
   ////////////////////////////
   /// Container Type
   ////////////////////////////

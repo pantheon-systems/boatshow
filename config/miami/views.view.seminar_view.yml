@@ -60,11 +60,11 @@ display:
       exposed_form:
         type: bef
         options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
+          submit_button: 'Apply Filters'
+          reset_button: true
+          reset_button_label: 'Clear all filters'
           exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
+          expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
           input_required: false
@@ -73,7 +73,7 @@ display:
             general:
               allow_secondary: false
               secondary_label: 'Advanced options'
-              autosubmit: true
+              autosubmit: false
               autosubmit_exclude_textfield: false
               autosubmit_hide: false
             field_smnr_class_type_target_id:
@@ -84,6 +84,10 @@ display:
                 is_secondary: false
                 rewrite:
                   filter_rewrite_values: ''
+            field_smnr_seminar_date_value:
+              bef_format: default
+              more_options:
+                is_secondary: false
             field_topics_target_id:
               bef_format: bef
               more_options:
@@ -92,6 +96,16 @@ display:
                 is_secondary: false
                 rewrite:
                   filter_rewrite_values: ''
+            field_smnr_speaker_target_id:
+              bef_format: default
+              slider_options:
+                bef_slider_min: null
+                bef_slider_max: null
+                bef_slider_step: !!float 1
+                bef_slider_animate: ''
+                bef_slider_orientation: horizontal
+              more_options:
+                is_secondary: false
             field_smnr_level_target_id:
               bef_format: bef
               more_options:
@@ -998,6 +1012,56 @@ display:
           level_labels: ''
           force_deepest: false
           plugin_id: taxonomy_index_tid
+        field_smnr_seminar_date_value:
+          id: field_smnr_seminar_date_value
+          table: node__field_smnr_seminar_date
+          field: field_smnr_seminar_date_value
+          relationship: field_smnr_seminar_session
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_smnr_seminar_date_value_op
+            label: Date
+            description: ''
+            use_operator: false
+            operator: field_smnr_seminar_date_value_op
+            identifier: field_smnr_seminar_date_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editorial_user: '0'
+              smnr_session_creator: '0'
+              smnr_session_reviewer: '0'
+              dining_creator: '0'
+              dining_reviewer: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
         field_topics_target_id:
           id: field_topics_target_id
           table: node__field_topics
@@ -1051,6 +1115,55 @@ display:
           level_labels: ''
           force_deepest: false
           plugin_id: taxonomy_index_tid
+        field_smnr_speaker_target_id:
+          id: field_smnr_speaker_target_id
+          table: node__field_smnr_speaker
+          field: field_smnr_speaker_target_id
+          relationship: field_smnr_seminar_session
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_smnr_speaker_target_id_op
+            label: 'Instructor (field_smnr_speaker)'
+            description: ''
+            use_operator: false
+            operator: field_smnr_speaker_target_id_op
+            identifier: field_smnr_speaker_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editorial_user: '0'
+              smnr_session_creator: '0'
+              smnr_session_reviewer: '0'
+              dining_creator: '0'
+              dining_reviewer: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
         field_smnr_level_target_id:
           id: field_smnr_level_target_id
           table: node__field_smnr_level
@@ -1120,7 +1233,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'Seminar View'
+      title: ''
       header:
         area:
           id: area
@@ -1135,6 +1248,16 @@ display:
             value: '<a class="view-all-speakers" href="/seminars/speakers" style="font-weight:700;float:right;clear:both;">View All Speakers ></a><br><br><hr>'
             format: rich_text
           plugin_id: text
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Showing @total results:'
+          plugin_id: result
       footer: {  }
       empty: {  }
       relationships:
@@ -1154,6 +1277,7 @@ display:
         operator: AND
         groups:
           1: AND
+      use_ajax: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -1913,10 +2037,20 @@ display:
           field: field_smnr_seminar_session
           relationship: none
           group_type: group
-          admin_label: 'field_smnr_seminar_session: Content'
+          admin_label: 'Seminar -> Session'
+          required: true
+          plugin_id: standard
+        field_smnr_speaker:
+          id: field_smnr_speaker
+          table: node__field_smnr_speaker
+          field: field_smnr_speaker
+          relationship: field_smnr_seminar_session
+          group_type: group
+          admin_label: 'Seminar -> Session -> Speaker'
           required: true
           plugin_id: standard
       display_description: ''
+      exposed_block: true
     cache_metadata:
       max-age: -1
       contexts:
