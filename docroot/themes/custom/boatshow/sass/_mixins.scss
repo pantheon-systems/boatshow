@@ -96,3 +96,75 @@ body {
     clear: both;
   }
 }
+
+////
+// REmove vertical padding on mobile
+////
+@mixin mobileVerticalPadReset($pad: 0){
+  padding-top:$pad;
+  padding-bottom:$pad;
+
+  @media (min-width: $screen-sm) {
+    &.section-vertical-padding-top {
+      padding-top: $dimension-section-vertical-padding;
+    }
+
+    &.section-vertical-padding-bottom {
+      padding-bottom: $dimension-section-vertical-padding;
+    }
+
+    &.section-vertical-padding-both {
+      padding-top: $dimension-section-vertical-padding;
+      padding-bottom: $dimension-section-vertical-padding;
+    }
+  }
+}
+// Remove background color and text invert on mobile
+// Replace above screen small
+////
+@mixin mobileSlabReset() {
+  & {
+    & [class~="slab-inverted"],
+    & .slab-inverted {
+        @include slab-inverted-reset;
+      @media (min-width: $screen-sm) {
+        @include slab-inverted;
+      }
+    }
+
+    // Reset background color
+    &.has-background-color {
+      @include slab-reset;
+
+      @media (min-width: $screen-sm) {
+        &.slab-white {
+          @include slab-white;
+        }
+
+        &.slab-white-transparency {
+          @include slab-white-transparency;
+        }
+
+        &.slab-light-gray {
+          @include slab-light-gray;
+        }
+
+        &.slab-dark-gray {
+          @include slab-dark-gray;
+        }
+
+        &.slab-city-primary {
+          @include slab-city-primary;
+        }
+
+        &.slab-city-secondary {
+          @include slab-city-secondary;
+        }
+
+        &.slab-city-tertiary {
+          @include slab-city-tertiary;
+        }
+      }
+    }
+  }
+}
