@@ -1,4 +1,8 @@
+$bp-filters-stack: $screen-lg;
+
 .brick--type--exposed-filters {
+  @include mobileSlabReset;
+  @include mobileVerticalPadReset;
   position: relative;
   z-index: 100;
 
@@ -8,31 +12,37 @@
     // Inline checkbox filters, ie Food & Beverage page
     .form-checkboxes {
       display: flex;
+      align-items: flex-start;
+      order: 1;
       flex-wrap: wrap;
       justify-content: space-around;
       width: 100%;
-      height: 100%;
-    }
-
-    .form-checkboxes {
-      align-items: center;
+      @media (min-width: $bp-filters-stack) {
+        align-content: center;
+      }
     }
     // Top level item
     >.form-item {
-      flex: 1 0 5%;
-      margin: 0 10px;
-      padding: 0;
-      display: inline-block;
-      max-height: 300px;
+      flex: 1 0 300px;
+      order: 1;
       overflow-y: auto;
       overflow-x: hidden;
       box-sizing:border-box;
+      margin: 0 10px 20px;
+      display: block;
+      @media (min-width: $bp-filters-stack) {
+        display: inline-block;
+        flex: 1 0 5%;
+        padding-left: 0;
+        padding-right: 0;
+        max-height: 300px;
 
-      &:first-of-type {
-        margin-left: 0;
-      }
-      &:last-of-type {
-        margin-right: 0;
+        &:first-of-type {
+          margin-left: 0;
+        }
+        &:last-of-type {
+          margin-right: 0;
+        }
       }
 
       .form-item {
@@ -46,7 +56,10 @@
 
   .form-item {
     display: inline-block;
-    flex: 0 1 auto;
+    flex: 1 0 150px;
+    min-width: 150px;
+    max-width: 100%;
+    width: 100%;
   }
 
   .js-hide {
@@ -62,6 +75,7 @@
       appearance: none;
       -moz-appearance: none;
       -webkit-appearance: none;
+
       &::-webkit-details-marker {
         display:none;
       }
@@ -97,6 +111,7 @@
 
   .filter-buttons {
     width: 100%;
+    order: 0;
     display: flex;
     background: $color-slab-white;
     color: $color-text;
@@ -108,7 +123,7 @@
       cursor: pointer;
       display: block;
       white-space: nowrap;
-      padding: 1em 0 ;
+      padding: 1em 0;
       text-transform: uppercase;
       font-weight: bold;
 
@@ -122,29 +137,32 @@
     }
   }
 
-  &.collapsible {
-
-    .form-actions {
-      display: none;
-      padding-bottom: $dimension-vertical-rhythm-elements;
-    }
-
-    .form-item[open] ~ .form-actions {
-      display: block;
-    }
-  }
   .form-actions {
     width: 100%;
-    margin-top: 40px;
-    justify-self: flex-end;
-    text-align: right;
+    padding-bottom: $dimension-vertical-rhythm-elements;
+    display: flex;
+    flex: 1 0 100%;
+    order: 0;
+
+    @media (min-width: $bp-filters-stack) {
+      order: 100;
+      margin-top: 40px;
+      justify-self: flex-end;
+      text-align: right;
+    }
 
     .js-form-submit {
       display: inline-block;
       vertical-align: baseline;
+      flex: 1 0 50%;
+      min-width: 50%; // reset huge min from .button
+      @media (min-width: $bp-filters-stack) {
+        min-width: unset;
+        flex: 0 1 auto;
+      }
 
       //reset button
-      &[name='op'] {
+      &[id='edit-reset'] {
         background: transparent;
         border-color: transparent;
         cursor: pointer;
@@ -153,10 +171,24 @@
       }
       // submit button
       &[id='edit-submit-seminar-view']{
-        float: right;
+        @media (min-width: $bp-filters-stack) {
+          order: 5;
+        }
       }
     }
   }
+
+  &.collapsible {
+
+    .form-actions {
+      display: none;
+    }
+
+    .form-item[open] ~ .form-actions {
+      display: flex;
+    }
+  }
+
   %input-alt-checkbox {
     //this is the input element
     display: none;
@@ -198,9 +230,23 @@
       }
     }
   }
+
   .form-checkbox,
   .form-radio {
     @extend %input-alt-checkbox;
+  }
+
+  .section-header {
+    h2 {
+      font-size: rem-calc(20px);
+      @media (min-width: $screen-sm) {
+        font-size: rem-calc(35px);
+      }
+    }
+  }
+
+  .section-vertical-padding-both {
+    @include mobileVerticalPadReset;
   }
 }
 

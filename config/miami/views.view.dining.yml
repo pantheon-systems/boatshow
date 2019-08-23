@@ -45,7 +45,7 @@ display:
       exposed_form:
         type: bef
         options:
-          submit_button: Apply
+          submit_button: 'Apply Filters'
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -58,8 +58,8 @@ display:
             general:
               allow_secondary: false
               secondary_label: 'Advanced options'
-              autosubmit: true
-              autosubmit_exclude_textfield: false
+              autosubmit: false
+              autosubmit_exclude_textfield: true
               autosubmit_hide: true
             field_dining_location_target_id:
               bef_format: bef
