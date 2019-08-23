@@ -55,7 +55,7 @@ jcountdown:
 # object fit polyfill
 object_fit_images:
   js:
-    node_modules/object-fit-images/dist/ofi.min.js: {}
+    ../../../libraries/object-fit-images/dist/ofi.min.js: {}
 
 #
 # City site-specific libraries
