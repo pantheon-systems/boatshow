@@ -7,8 +7,8 @@ dependencies:
     - field.field.brick.exposed_filters.field_background_color
     - field.field.brick.exposed_filters.field_block
     - field.field.brick.exposed_filters.field_brick_headline
-    - field.field.brick.exposed_filters.field_brick_subhead
     - field.field.brick.exposed_filters.field_collapsible
+    - field.field.brick.exposed_filters.field_invert_text
   module:
     - block_field
 id: brick.exposed_filters.default
@@ -17,13 +17,13 @@ bundle: exposed_filters
 mode: default
 content:
   field_background_color:
-    weight: 3
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_block:
-    weight: 5
+    weight: 6
     settings:
       configuration_form: full
       plugin_id: ''
@@ -32,15 +32,7 @@ content:
     type: block_field_default
     region: content
   field_brick_headline:
-    weight: 1
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_brick_subhead:
-    weight: 2
+    weight: 4
     settings:
       size: 60
       placeholder: ''
@@ -48,7 +40,14 @@ content:
     type: string_textfield
     region: content
   field_collapsible:
-    weight: 4
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_invert_text:
+    weight: 3
     settings:
       display_label: true
     third_party_settings: {  }

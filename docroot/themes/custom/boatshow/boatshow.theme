@@ -449,6 +449,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
   ////////////////////////////
   if ($entity->hasField('field_invert_text') && $entity->field_invert_text->value === '1') {
     $variables['attributes']['class'][] = 'slab-inverted';
+    $variables['invert_text'] = true;
   }
 
   ////////////////////////////
