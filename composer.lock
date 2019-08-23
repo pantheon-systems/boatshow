@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c00ed99475cf87354ce5cabf0540d56",
+    "content-hash": "a6ace71252dd205c10380be67c98af8f",
     "packages": [
         {
             "name": "acquia/blt",
@@ -15237,6 +15237,18 @@
                 "php"
             ],
             "time": "2019-05-25T20:07:01+00:00"
+        },
+        {
+            "name": "npm-asset/object-fit-images",
+            "version": "3.2.4",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/object-fit-images/-/object-fit-images-3.2.4.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "ocramius/package-versions",
