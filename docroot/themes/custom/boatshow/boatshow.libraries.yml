@@ -33,8 +33,7 @@ javascript:
     - core/jquery.once
     - core/jquery.cookie
     - core/jquery.ui
-    - boatshow/object_fit_images
-    # - boatshow/slick_carousel
+    - boatshow/responsive_image_polyfills
 
 slick_carousel:
   js:
@@ -52,10 +51,12 @@ jcountdown:
   dependencies:
     - core/jquery
 
-# object fit polyfill
-object_fit_images:
+# object fit and srcset polyfills
+responsive_image_polyfills:
   js:
     ../../../libraries/object-fit-images/dist/ofi.min.js: {}
+    ../../../libraries/picturefill/dist/picturefill.min.js: {}
+
 
 #
 # City site-specific libraries

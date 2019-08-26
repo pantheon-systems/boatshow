@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6ace71252dd205c10380be67c98af8f",
+    "content-hash": "3bbce2746882f828984095fdb214bf17",
     "packages": [
         {
             "name": "acquia/blt",
@@ -15244,6 +15244,18 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/object-fit-images/-/object-fit-images-3.2.4.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/picturefill",
+            "version": "3.0.3",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/picturefill/-/picturefill-3.0.3.tgz"
             },
             "type": "npm-asset",
             "license": [

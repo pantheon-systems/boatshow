@@ -119,6 +119,7 @@
         "drush/drush": "^9.7",
         "giggsey/libphonenumber-for-php": "^8.10",
         "npm-asset/object-fit-images": "3.2.4",
+        "npm-asset/picturefill": "^3.0.3",
         "symfony/property-access": "^4.3"
     },
     "require-dev": {
