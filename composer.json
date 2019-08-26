@@ -169,6 +169,9 @@
             "drupal/xmlsitemap": {
                 "Rebuild always include all link types": "https://www.drupal.org/files/issues/2018-05-25/2745695-10.xmlsitemap-rebuild-all-entities.patch",
                 "Add Drush 9 Support": "https://www.drupal.org/files/issues/2018-04-30/xmlsitemap--2968172-drush-9-support--2.patch"
+            },
+            "drupal/better_exposed_filters": {
+                "Notice: Undefined index: #summary_attributes in template_preprocess_details() (line 244 of core/includes/form.inc)": "https://www.drupal.org/files/issues/2019-01-25/bef-summary-attributes-3001967-9.patch"
             }
         },
         "installer-types": [
