@@ -144,7 +144,7 @@ window.BoatShows = window.BoatShows || {};
         if (!$siteHeader.hasClass('fixed-header')) {
           $siteHeader.css('top', $siteHeader.offset().top - $thisWindow.scrollTop());
         }
-
+        $thisBody.css('top', `-${window.scrollY}px`);
         $thisBody.addClass('mobile-open');
         $regionHeader.css('padding-top', $headerBar.outerHeight());
         $contentRegion.css('margin-top', $headerBar.outerHeight());
@@ -152,11 +152,17 @@ window.BoatShows = window.BoatShows || {};
       }
       // Close
       else {
+        var scrollY = $thisBody.css('top');
         $mobileMenuOpen.removeClass('mobile-menu-active');
         $thisBody.removeClass('mobile-open');
         $siteHeader.css('top', 0);
         $regionHeader.css('padding-top', 0);
         $contentRegion.css('margin-top', 0);
+
+        $thisBody.css('position', '');
+        $thisBody.css('top', '');
+        $thisWindow.scrollTop(parseInt(scrollY || '0') * -1);
+
         resetContentPadding();
       }
 
