@@ -15,6 +15,7 @@ dependencies:
     - eck.eck_type.brick.disruptor_card
     - eck.eck_type.brick.document_list
     - eck.eck_type.brick.download_button
+    - eck.eck_type.brick.exposed_filters
     - eck.eck_type.brick.headline_brick
     - eck.eck_type.brick.iframe
     - eck.eck_type.brick.landing_page_grid_card
@@ -56,6 +57,7 @@ settings:
       disruptor_card: disruptor_card
       document_list: document_list
       download_button: download_button
+      exposed_filters: exposed_filters
       headline_brick: headline_brick
       carousel: carousel
       iframe: iframe

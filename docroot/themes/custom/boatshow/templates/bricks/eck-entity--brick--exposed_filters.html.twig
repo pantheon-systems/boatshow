@@ -1,0 +1,31 @@
+{%
+set classes = [
+  'section-vertical-padding-both',
+  'container-type--contract',
+]
+%}
+<section {{attributes.addClass(classes).removeClass('slab-inverted')}}>
+  {{ context_links }}
+  <div class="container">
+    <section class="brick brick--type--headline-brick section-header {% if invert_text %} slab-inverted {% endif %}">
+      {% if entity.field_brick_headline[0] is not empty %}
+        <h2>
+          <span>{{entity.field_brick_headline}}</span>
+        </h2>
+      {% endif %}
+    </section>
+    <div class="container">
+      <section class="brick brick--type--section container-type--normal has-background-color slab-white section-vertical-padding-both options-wrap">
+        <div class="container">
+          {% if collapsible %}
+            <div class="filter-buttons">
+              <span class="filter-btn toggle-filters"><i class="fa fa-filter" aria-hidden="true"></i>Filters</span>
+              <span class="filter-btn close-filters">&times;</span>
+            </div>
+          {% endif%}
+          {{entity.field_block}}
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

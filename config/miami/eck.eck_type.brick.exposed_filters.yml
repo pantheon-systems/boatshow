@@ -1,0 +1,9 @@
+uuid: db5de658-0559-43d1-b660-b669669c7377
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Exposed Filters'
+type: exposed_filters
+description: 'Exposed filters for a view. When editing the view, ensure that the *Exposed form in block* setting is set to "Yes" and the filters will become available in this brick.'

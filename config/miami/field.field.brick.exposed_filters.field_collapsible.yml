@@ -1,0 +1,23 @@
+uuid: a66142cf-442e-49b8-b7a4-f4a19cdfe747
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.exposed_filters
+    - field.storage.brick.field_collapsible
+id: brick.exposed_filters.field_collapsible
+field_name: field_collapsible
+entity_type: brick
+bundle: exposed_filters
+label: Collapsible
+description: 'The filter block can be expanded and collapsed'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

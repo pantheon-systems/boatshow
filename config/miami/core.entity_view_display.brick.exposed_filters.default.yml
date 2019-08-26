@@ -1,0 +1,40 @@
+uuid: 818cc66b-7807-47c3-a5eb-b708f768b06b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.exposed_filters
+    - field.field.brick.exposed_filters.field_background_color
+    - field.field.brick.exposed_filters.field_block
+    - field.field.brick.exposed_filters.field_brick_headline
+    - field.field.brick.exposed_filters.field_collapsible
+    - field.field.brick.exposed_filters.field_invert_text
+  module:
+    - block_field
+id: brick.exposed_filters.default
+targetEntityType: brick
+bundle: exposed_filters
+mode: default
+content:
+  field_block:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
+  field_brick_headline:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_background_color: true
+  field_collapsible: true
+  field_invert_text: true
+  langcode: true
+  search_api_excerpt: true
+  title: true

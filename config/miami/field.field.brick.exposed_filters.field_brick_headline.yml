@@ -1,0 +1,19 @@
+uuid: 86b760af-1e14-4c4d-9aba-450e08610610
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.exposed_filters
+    - field.storage.brick.field_brick_headline
+id: brick.exposed_filters.field_brick_headline
+field_name: field_brick_headline
+entity_type: brick
+bundle: exposed_filters
+label: Headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

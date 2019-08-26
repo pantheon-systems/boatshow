@@ -1,0 +1,23 @@
+uuid: 11c1a01e-e9f0-4ecb-af11-22e69502cd4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.exposed_filters
+    - field.storage.brick.field_background_color
+  module:
+    - options
+id: brick.exposed_filters.field_background_color
+field_name: field_background_color
+entity_type: brick
+bundle: exposed_filters
+label: 'Background Color'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: city-secondary
+default_value_callback: ''
+settings: {  }
+field_type: list_string

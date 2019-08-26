@@ -1,6 +1,9 @@
 ////////////////////
 /// Slab Mixins
 ////////////////////
+@mixin slab-reset {
+  background-color: transparent;
+}
 @mixin slab-white {
   background-color: $color-slab-white;
 }
@@ -45,6 +48,27 @@
     &:hover,
     &:focus {
       color: $color-text-inverted;
+    }
+  }
+}
+@mixin slab-inverted-reset {
+  &,
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    color: $color-text;
+    text-shadow: none;
+  }
+
+  & a {
+    &,
+    &:hover,
+    &:focus {
+      color: $color-text;
+      box-shadow: none;
     }
   }
 }
