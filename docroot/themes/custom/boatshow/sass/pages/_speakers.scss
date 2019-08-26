@@ -1,8 +1,6 @@
 $speakers-grid-spacing: susy-gutter(); //20px?
 
 .view-all-speakers {
-
-
   .view-content {
     display: flex;
     flex-direction: row;
@@ -31,7 +29,6 @@ $speakers-grid-spacing: susy-gutter(); //20px?
     }
   }
 }
-
 
 .node--type-speaker {
   & .field--name-field-logo {

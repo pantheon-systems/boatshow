@@ -203,10 +203,6 @@
     @include slab-light-gray;
     padding-top: $main-navigation-item-padding-mobile;
 
-    & > ul {
-      //sass-lint:disable no-empty
-    }
-
     & > ul > li {
       //sass-lint:disable no-empty
       border-color: rgba(#000, 0.2);
@@ -241,22 +237,15 @@
     @include slab-dark-gray;
     @include slab-inverted;
 
-    & > ul {
-      //sass-lint:disable no-empty
-    }
-
     & > ul > li {
       //sass-lint:disable no-empty
       border-color: rgba(#fff, 0.2);
-    }
-
-    & > ul > li > a {
-      //sass-lint:disable no-empty
     }
   }
 
   body.mobile-open {
     overflow: hidden;
+    position: fixed;
 
     .site-header {
       position: fixed;
@@ -315,11 +304,6 @@
     h2 + .menu > li > a {
       color: $city-color-secondary;
     }
-  }
-
-  [id="block-mainnavigationboatshow"],
-  [id="block-headersecondarynav"] {
-    //sass-lint:disable no-empty
   }
 
   [id="block-mainnavigationboatshow"] {
