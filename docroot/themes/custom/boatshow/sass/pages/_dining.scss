@@ -1,9 +1,7 @@
-  $dining-two-col-bp: $screen-md; // minimum for featured dining callout / two column layout
-
 .dining-filters-section {
 
   @media (max-width: $screen-md) {
-    background: transparent;
+    @include slab-reset;
     padding: 0;
 
     .section-header h2{
@@ -37,7 +35,7 @@
 
   .featured-dining {
     box-sizing:border-box;
-    @media screen and (min-width: $dining-two-col-bp){
+    @include media-breakpoint-up(md) {
       width: 66%;
       float:left;
       padding: 0 $dimension-card-padding;
@@ -57,7 +55,7 @@
     }
 
     .field--name-field-media {
-      @media screen and (min-width: $dining-two-col-bp){
+      @include media-breakpoint-up(md) {
         .slick-track {
           width: 100% !important;
           text-align: center;
@@ -75,7 +73,7 @@
         box-sizing:border-box;
 
 
-        @media screen and (min-width: $dining-two-col-bp){
+        @include media-breakpoint-up(md) {
           width: 33% !important;
         }
 
@@ -99,7 +97,7 @@
     padding-bottom: $dimension-vertical-rhythm-elements;
     margin-bottom: $dimension-vertical-rhythm-elements;
 
-    @media screen and (min-width: $dining-two-col-bp){
+    @include media-breakpoint-up(md) {
       // force alignment between items
       min-height: 420px;
       margin-top: 30px;
@@ -123,7 +121,7 @@
     padding-right: $dimension-card-padding;
     padding-left: $dimension-card-padding;
 
-    @media screen and (min-width: $dining-two-col-bp){
+    @include media-breakpoint-up(md) {
       width: 33%;
     }
   }
