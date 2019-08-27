@@ -249,7 +249,7 @@ function boatshow_form_views_exposed_form_alter(&$form, FormStateInterface $form
       // Dates
       $date = $session->get('field_smnr_seminar_date')->getValue()[0]['value'];
       $time = strtotime($date);
-      $date_options[date('Y-m-d', $time)] = date('l, M d', $time);
+      $date_options[date('Y-m-d 00:00:00', $time).'|'.date('Y-m-d 23:59:00', $time)] = date('l, M d', $time);
       // Speakers
       $speakers = $session->get('field_smnr_speaker')->referencedEntities();
       foreach($speakers as $speaker){
