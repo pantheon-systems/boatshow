@@ -96,6 +96,7 @@ hidden:
   field_article_type: true
   field_contacts: true
   field_feed_id: true
+  field_social_image: true
   field_video_url: true
   langcode: true
   links: true

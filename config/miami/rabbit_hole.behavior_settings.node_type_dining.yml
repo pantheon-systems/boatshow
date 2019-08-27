@@ -1,0 +1,11 @@
+uuid: 5eab3a53-3fa8-4ebf-bc44-53d609caea4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.dining
+id: node_type_dining
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301
