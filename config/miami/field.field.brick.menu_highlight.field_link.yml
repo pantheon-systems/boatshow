@@ -1,0 +1,23 @@
+uuid: 9c61e3ee-924e-4c87-b0ad-1e3fe5333a21
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.menu_highlight
+    - field.storage.brick.field_link
+  module:
+    - link
+id: brick.menu_highlight.field_link
+field_name: field_link
+entity_type: brick
+bundle: menu_highlight
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

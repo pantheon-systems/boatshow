@@ -1,0 +1,9 @@
+uuid: 8da91f60-7c7b-4bd6-948f-141bb2450efb
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Menu Highlight'
+type: menu_highlight
+description: ''

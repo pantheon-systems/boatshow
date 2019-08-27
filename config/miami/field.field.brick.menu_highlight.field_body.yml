@@ -1,0 +1,21 @@
+uuid: 1898af92-22af-4142-a5fa-a549392a9943
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.menu_highlight
+    - field.storage.brick.field_body
+  module:
+    - text
+id: brick.menu_highlight.field_body
+field_name: field_body
+entity_type: brick
+bundle: menu_highlight
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

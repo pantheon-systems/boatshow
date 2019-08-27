@@ -1,0 +1,15 @@
+<section {{ attributes.addClass('menu-highlight') }}>
+  {{ context_links }}
+  <div class="highlight-content">
+    <div class="highlight-top"><h4>{{ entity.field_highlight_title }}</h4></div>
+    <div class="highlight-bottom">
+      <div class="highlight-bottom-left">
+        {{ entity.field_image }}
+      </div>
+      <div class="highlight-bottom-right">
+        {{ entity.field_body }}
+        {{ entity.field_link }}
+      </div>
+    </div>
+  </div>
+</section>

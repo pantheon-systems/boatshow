@@ -1,0 +1,50 @@
+.menu-highlight {
+  margin-bottom: 20px;
+
+  .highlight-top {
+    margin-bottom: 15px;
+  }
+
+  .highlight-bottom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .field--name-field-image {
+      width: 84px;
+      height: 84px;
+      padding-right: 1rem;
+      padding-bottom: 1rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        @include object-fit-cover;
+      }
+    }
+
+    .field--name-field-link a {
+      text-align: left;
+      color: $color-links;
+
+      &::after {
+        @include fa-icon;
+        content: $fa-var-chevron-right;
+        color: $city-color-secondary;
+        margin-left: 5px;
+      }
+    }
+
+    .highlight-bottom-left {
+      flex-basis: 84px;
+    }
+
+    .highlight-bottom-right {
+      flex-basis: 70%;
+      min-width: 240px;
+      margin-top: -10px;
+      flex-grow: 1;
+    }
+  }
+}
