@@ -1,0 +1,22 @@
+uuid: 20c5b5f0-e7f0-4785-811b-19e66fc77463
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.booth
+  module:
+    - text
+id: node.booth.body
+field_name: body
+entity_type: node
+bundle: booth
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

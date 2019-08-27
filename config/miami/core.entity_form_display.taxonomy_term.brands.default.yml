@@ -4,8 +4,6 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.media_browser
-    - field.field.taxonomy_term.brands.field_brand_boat_type
-    - field.field.taxonomy_term.brands.field_brand_business
     - field.field.taxonomy_term.brands.field_brand_certified
     - field.field.taxonomy_term.brands.field_brand_image
     - field.field.taxonomy_term.brands.field_brand_nmma_id
@@ -96,21 +94,6 @@ content:
       placeholder: ''
       rows: 5
     third_party_settings: {  }
-  field_brand_boat_type:
-    weight: 5
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_brand_business:
-    weight: 6
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_brand_certified:
     weight: 7
     settings:

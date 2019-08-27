@@ -1,18 +1,18 @@
-uuid: c468b2d6-19b4-40fc-a303-a1cb195d95f2
+uuid: 2080239e-f1e4-4137-b791-90c23d8037ad
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_booth
+    - field.storage.node.field_city
     - node.type.exhibitor
-id: node.exhibitor.field_booth
-field_name: field_booth
+id: node.exhibitor.field_city
+field_name: field_city
 entity_type: node
 bundle: exhibitor
-label: Booth
+label: City
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

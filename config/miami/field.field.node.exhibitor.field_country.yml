@@ -1,0 +1,24 @@
+uuid: 2cf2531b-ff88-49a9-98d0-dbb6b71e0aa3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_country
+    - node.type.exhibitor
+  module:
+    - address
+id: node.exhibitor.field_country
+field_name: field_country
+entity_type: node
+bundle: exhibitor
+label: Country
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: US
+default_value_callback: ''
+settings:
+  available_countries: {  }
+field_type: address_country

@@ -1,0 +1,28 @@
+uuid: bb3ed521-5e1f-4ddd-aa38-4f403e24c06e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_exhbtr_lctn_booth
+    - node.type.booth
+    - paragraphs.paragraphs_type.exhibitor_location
+id: paragraph.exhibitor_location.field_exhbtr_lctn_booth
+field_name: field_exhbtr_lctn_booth
+entity_type: paragraph
+bundle: exhibitor_location
+label: Booth
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      booth: booth
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

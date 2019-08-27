@@ -1,0 +1,11 @@
+uuid: 3706e41d-e089-4332-8b48-0e70873b8064
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.booth
+id: node.booth
+target_entity_type_id: node
+target_bundle: booth
+default_langcode: site_default
+language_alterable: false

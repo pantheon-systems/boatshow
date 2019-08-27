@@ -3,15 +3,22 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.exhibitor.field_address
-    - field.field.node.exhibitor.field_booth
-    - field.field.node.exhibitor.field_bus_brands
+    - field.field.node.exhibitor.field_address_line_1
+    - field.field.node.exhibitor.field_address_line_2
+    - field.field.node.exhibitor.field_city
+    - field.field.node.exhibitor.field_country
+    - field.field.node.exhibitor.field_exhibitor_id
+    - field.field.node.exhibitor.field_exhibitor_location
     - field.field.node.exhibitor.field_fax_number
     - field.field.node.exhibitor.field_phone_number
+    - field.field.node.exhibitor.field_show_code
+    - field.field.node.exhibitor.field_state_or_province
     - field.field.node.exhibitor.field_website
+    - field.field.node.exhibitor.field_zip_or_postal_code
     - node.type.exhibitor
   module:
     - address
+    - entity_reference_revisions
     - link
     - panelizer
     - telephone
@@ -27,14 +34,15 @@ targetEntityType: node
 bundle: exhibitor
 mode: default
 content:
-  field_address:
+  field_address_line_1:
     weight: 1
     label: above
-    settings: {  }
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    type: address_default
+    type: string
     region: content
-  field_booth:
+  field_address_line_2:
     weight: 2
     label: above
     settings:
@@ -42,16 +50,40 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_bus_brands:
+  field_city:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_country:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_country_default
+    region: content
+  field_exhibitor_id:
     weight: 0
     label: above
     settings:
-      link: true
+      link_to_entity: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: string
+    region: content
+  field_exhibitor_location:
+    type: entity_reference_revisions_entity_view
+    weight: 11
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
     region: content
   field_fax_number:
-    weight: 4
+    weight: 9
     label: above
     settings:
       title: ''
@@ -59,15 +91,31 @@ content:
     type: telephone_link
     region: content
   field_phone_number:
-    weight: 3
+    weight: 8
     label: above
     settings:
       title: ''
     third_party_settings: {  }
     type: telephone_link
     region: content
+  field_show_code:
+    weight: 12
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_state_or_province:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_website:
-    weight: 5
+    weight: 7
     label: above
     settings:
       trim_length: 80
@@ -78,7 +126,16 @@ content:
     third_party_settings: {  }
     type: link
     region: content
+  field_zip_or_postal_code:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
 hidden:
   addtoany: true
   langcode: true
   links: true
+  search_api_excerpt: true

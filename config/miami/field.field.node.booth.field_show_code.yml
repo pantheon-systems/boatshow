@@ -1,0 +1,19 @@
+uuid: e5959c78-53cf-4496-8a86-10ec61b5a026
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_code
+    - node.type.booth
+id: node.booth.field_show_code
+field_name: field_show_code
+entity_type: node
+bundle: booth
+label: 'Show Code'
+description: 'The boatshow associated with this booth entry'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

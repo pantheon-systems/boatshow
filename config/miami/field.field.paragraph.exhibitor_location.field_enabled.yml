@@ -1,0 +1,23 @@
+uuid: aa3c5230-4cc5-47c0-a2b9-ee515ae88095
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_enabled
+    - paragraphs.paragraphs_type.exhibitor_location
+id: paragraph.exhibitor_location.field_enabled
+field_name: field_enabled
+entity_type: paragraph
+bundle: exhibitor_location
+label: Enabled
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

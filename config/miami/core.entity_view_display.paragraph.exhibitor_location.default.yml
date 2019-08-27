@@ -1,0 +1,51 @@
+uuid: 0821d3a0-83e0-4a92-9f92-f57ad925eff0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.exhibitor_location.field_enabled
+    - field.field.paragraph.exhibitor_location.field_exhbtr_lctn_booth
+    - field.field.paragraph.exhibitor_location.field_exhbtr_lctn_brand
+    - field.field.paragraph.exhibitor_location.field_exhbtr_lctn_nv_brand
+    - paragraphs.paragraphs_type.exhibitor_location
+id: paragraph.exhibitor_location.default
+targetEntityType: paragraph
+bundle: exhibitor_location
+mode: default
+content:
+  field_enabled:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_exhbtr_lctn_booth:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_exhbtr_lctn_brand:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_exhbtr_lctn_nv_brand:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  search_api_excerpt: true

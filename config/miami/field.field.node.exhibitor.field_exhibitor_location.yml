@@ -1,0 +1,34 @@
+uuid: 22b30bd8-de5d-42ba-bb01-2c7246e774a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exhibitor_location
+    - node.type.exhibitor
+    - paragraphs.paragraphs_type.exhibitor_location
+  module:
+    - entity_reference_revisions
+id: node.exhibitor.field_exhibitor_location
+field_name: field_exhibitor_location
+entity_type: node
+bundle: exhibitor
+label: 'Exhibitor Location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      exhibitor_location: exhibitor_location
+    target_bundles_drag_drop:
+      arrival_location_links:
+        weight: 3
+        enabled: false
+      exhibitor_location:
+        enabled: true
+        weight: 4
+field_type: entity_reference_revisions

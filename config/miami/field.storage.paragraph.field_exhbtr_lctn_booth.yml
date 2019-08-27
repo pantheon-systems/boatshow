@@ -1,13 +1,13 @@
-uuid: 52f64092-0cc4-4331-b9b3-cc1945a4adcb
+uuid: 7c8f9216-2b3c-404b-8255-414bc2849aa3
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
-id: taxonomy_term.field_brand_business
-field_name: field_brand_business
-entity_type: taxonomy_term
+    - paragraphs
+id: paragraph.field_exhbtr_lctn_booth
+field_name: field_exhbtr_lctn_booth
+entity_type: paragraph
 type: entity_reference
 settings:
   target_type: node

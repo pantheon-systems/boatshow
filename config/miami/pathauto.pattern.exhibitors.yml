@@ -1,0 +1,22 @@
+uuid: c4f55686-1ff7-4c07-a4d4-355697bd5ad4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: exhibitors
+label: Exhibitors
+type: 'canonical_entities:node'
+pattern: 'exhibitor/[node:title]'
+selection_criteria:
+  4e124a13-9472-4105-af61-b132c46bfc1c:
+    id: node_type
+    bundles:
+      exhibitor: exhibitor
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 4e124a13-9472-4105-af61-b132c46bfc1c
+selection_logic: and
+weight: -5
+relationships: {  }

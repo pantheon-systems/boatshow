@@ -1,0 +1,9 @@
+uuid: 287ff96a-e04c-4974-babb-c1e602ab3b90
+langcode: en
+status: true
+dependencies: {  }
+id: exhibitor_location
+label: 'Exhibitor Location'
+icon_uuid: null
+description: 'Booth locations with optional associated brands'
+behavior_plugins: {  }

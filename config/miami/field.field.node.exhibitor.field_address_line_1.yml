@@ -1,0 +1,19 @@
+uuid: 69409f04-5a2d-4d54-bff8-1bb270e4c25c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_address_line_1
+    - node.type.exhibitor
+id: node.exhibitor.field_address_line_1
+field_name: field_address_line_1
+entity_type: node
+bundle: exhibitor
+label: 'Address Line 1'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

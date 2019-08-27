@@ -1,0 +1,14 @@
+uuid: 0d0aeac4-32d9-4613-bd7a-06ea9f32421a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.booth_reviewer
+  module:
+    - user
+id: user_add_role_action.booth_reviewer
+label: 'Add the Booth reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: booth_reviewer

@@ -3,21 +3,32 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_address
-    - field.storage.node.field_booth
-    - field.storage.node.field_bus_brands
+    - field.storage.node.field_address_line_1
+    - field.storage.node.field_address_line_2
+    - field.storage.node.field_city
+    - field.storage.node.field_country
     - field.storage.node.field_fax_number
     - field.storage.node.field_phone_number
+    - field.storage.node.field_state_or_province
     - field.storage.node.field_website
-    - field.storage.taxonomy_term.field_brand_image
+    - field.storage.node.field_zip_or_postal_code
+    - field.storage.paragraph.field_exhbtr_lctn_brand
+    - field.storage.paragraph.field_exhbtr_lctn_nv_brand
     - node.type.exhibitor
+    - taxonomy.vocabulary.non_vehicle_product_type
+    - taxonomy.vocabulary.vehicle_product_type
+  content:
+    - 'taxonomy_term:non_vehicle_product_type:ea6f7d4b-199c-42d4-bd71-cb53ddba88d0'
+    - 'taxonomy_term:vehicle_product_type:903e98df-9155-49f5-9fae-9c9652e3a0a2'
   module:
     - address
     - link
     - node
+    - paragraphs
     - taxonomy
     - telephone
     - user
+    - views_field_view
 id: exhibitors
 label: Exhibitors
 module: views
@@ -44,7 +55,7 @@ display:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }
@@ -191,16 +202,16 @@ display:
           id: title
           table: node_field_data
           field: title
-          order: ASC
-          entity_type: node
-          entity_field: title
-          plugin_id: standard
           relationship: none
           group_type: group
           admin_label: ''
+          order: ASC
           exposed: false
           expose:
             label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: standard
       title: Exhibitors
       header: {  }
       footer: {  }
@@ -250,6 +261,7 @@ display:
           plugin_id: string
       display_extenders: {  }
       use_ajax: true
+      group_by: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -318,11 +330,13 @@ display:
       defaults:
         arguments: false
         title: false
+        group_by: false
       pager:
         type: none
         options:
           offset: 0
       title: ''
+      group_by: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -352,11 +366,55 @@ display:
           summary: ''
           description: ''
           columns:
+            nid: nid
+            field_address: field_address
             title: title
+            field_phone_number: field_phone_number
+            field_fax_number: field_fax_number
+            field_website: field_website
+            view: view
           info:
+            nid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_address:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             title:
               sortable: false
               default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_phone_number:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_fax_number:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_website:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            view:
               align: ''
               separator: ''
               empty_column: false
@@ -370,10 +428,391 @@ display:
         title: false
         filters: false
         filter_groups: false
+        relationships: false
+        arguments: false
+        query: false
+        group_by: false
       row:
         type: fields
         options: {  }
       fields:
+        field_address_line_1:
+          id: field_address_line_1
+          table: node__field_address_line_1
+          field: field_address_line_1
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{{ field_address_line_1 }}<br>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_address_line_2:
+          id: field_address_line_2
+          table: node__field_address_line_2
+          field: field_address_line_2
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{{ field_address_line_2 }}<br>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_city:
+          id: field_city
+          table: node__field_city
+          field: field_city
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{{ field_city }}<br>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_state_or_province:
+          id: field_state_or_province
+          table: node__field_state_or_province
+          field: field_state_or_province
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{{ field_state_or_province }} <br>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_zip_or_postal_code:
+          id: field_zip_or_postal_code
+          table: node__field_zip_or_postal_code
+          field: field_zip_or_postal_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{{ field_state_or_province }}<br>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_country:
+          id: field_country
+          table: node__field_country
+          field: field_country
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{{ field_country }}<br>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: address_country_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         title:
           id: title
           table: node_field_data
@@ -381,11 +820,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
-          exclude: true
+          label: Exhibitor
+          exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{{ title }}<br>\r\n{{ field_address_line_1 }}\r\n{{ field_address_line_2 }}\r\n{{ field_city }} {{ field_state_or_province }}\r\n{{ field_country }}"
             make_link: false
             path: ''
             absolute: false
@@ -427,7 +866,8 @@ display:
           settings:
             link_to_entity: false
           group_column: value
-          group_columns: {  }
+          group_columns:
+            value: value
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -438,68 +878,6 @@ display:
           field_api_classes: false
           entity_type: node
           entity_field: title
-          plugin_id: field
-        field_address:
-          id: field_address
-          table: node__field_address
-          field: field_address
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: "{{ title }}\n{{ field_address }}"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: langcode
-          type: address_default
-          settings: {  }
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
           plugin_id: field
         field_phone_number:
           id: field_phone_number
@@ -634,11 +1012,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Contact
           exclude: false
           alter:
             alter_text: true
-            text: "{{ field_phone_number }}\n{{ field_fax_number }}\n{{ field_website }}"
+            text: "{{ field_phone_number }}\r\n{{ field_fax_number }}\r\n{{ field_website }}"
             make_link: false
             path: ''
             absolute: false
@@ -671,7 +1049,7 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: ''
+          empty: TBD
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -683,7 +1061,7 @@ display:
             url_plain: false
             rel: '0'
             target: '0'
-          group_column: ''
+          group_column: entity_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -694,18 +1072,18 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_booth:
-          id: field_booth
-          table: node__field_booth
-          field: field_booth
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
-            text: 'Booth: {{ field_booth__value }}'
+            text: "{{ title }}\r\n{{ field_website }} "
             make_link: false
             path: ''
             absolute: false
@@ -743,9 +1121,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
+          type: number_integer
           settings:
-            link_to_entity: false
+            thousand_separator: ''
+            prefix_suffix: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -754,9 +1133,63 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: '<br />'
+          separator: ', '
           field_api_classes: false
+          entity_type: node
+          entity_field: nid
           plugin_id: field
+        view:
+          id: view
+          table: views
+          field: view
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: View
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          view: booths
+          display: block_2
+          arguments: '{{ raw_fields.nid }}'
+          plugin_id: view
       block_description: Exhibitors
       title: ''
       filters:
@@ -838,26 +1271,12 @@ display:
               anonymous: '0'
               administrator: '0'
               editorial_user: '0'
-              page_creator: '0'
-              page_reviewer: '0'
-              component_page_creator: '0'
-              component_page_reviewer: '0'
-              article_creator: '0'
-              article_reviewer: '0'
-              business_creator: '0'
-              business_reviewer: '0'
-              certified_mfrs_creator: '0'
-              certified_mfrs_reviewer: '0'
-              certified_dealers_creator: '0'
-              multinational_site_creator: '0'
-              certified_dealers_reviewer: '0'
-              multinational_site_reviewer: '0'
-              faq_creator: '0'
-              faq_reviewer: '0'
-              special_offer_creator: '0'
-              special_offer_reviewer: '0'
-              exhibitor_creator: '0'
-              exhibitor_reviewer: '0'
+              smnr_session_creator: '0'
+              smnr_session_reviewer: '0'
+              booth_creator: '0'
+              booth_reviewer: '0'
+              exhibitor_brand_location_creator: '0'
+              exhibitor_brand_location_reviewer: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -879,6 +1298,26 @@ display:
         groups:
           1: AND
       exposed_block: true
+      relationships:
+        field_exhibitor_location:
+          id: field_exhibitor_location
+          table: node__field_exhibitor_location
+          field: field_exhibitor_location
+          relationship: none
+          group_type: group
+          admin_label: 'field_exhibitor_location: Paragraph'
+          required: false
+          plugin_id: standard
+      arguments: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: {  }
+      group_by: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -888,381 +1327,15 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_address'
-        - 'config:field.storage.node.field_booth'
+        - 'config:field.storage.node.field_address_line_1'
+        - 'config:field.storage.node.field_address_line_2'
+        - 'config:field.storage.node.field_city'
+        - 'config:field.storage.node.field_country'
         - 'config:field.storage.node.field_fax_number'
         - 'config:field.storage.node.field_phone_number'
+        - 'config:field.storage.node.field_state_or_province'
         - 'config:field.storage.node.field_website'
-  block_2:
-    display_plugin: block
-    id: block_2
-    display_title: 'Boats By Brand'
-    position: 5
-    display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_description: 'Boats By Brand'
-      fields:
-        field_bus_brands:
-          id: field_bus_brands
-          table: node__field_bus_brands
-          field: field_bus_brands
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Brand
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: false
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Exhibitor Name'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: false
-            ellipsis: false
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: node
-          entity_field: title
-          plugin_id: field
-        field_booth:
-          id: field_booth
-          table: node__field_booth
-          field: field_booth
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Booth/Space Number'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_brand_image:
-          id: field_brand_image
-          table: taxonomy_term__field_brand_image
-          field: field_brand_image
-          relationship: field_bus_brands
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_entity_view
-          settings:
-            view_mode: thumbnail
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-      defaults:
-        fields: false
-        arguments: false
-        relationships: false
-        style: false
-        row: false
-        sorts: false
-      arguments: {  }
-      relationships:
-        field_bus_brands:
-          id: field_bus_brands
-          table: node__field_bus_brands
-          field: field_bus_brands
-          relationship: none
-          group_type: group
-          admin_label: 'field_bus_brands: Taxonomy term'
-          required: false
-          plugin_id: standard
-      style:
-        type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            title: title
-            field_bus_brands: field_bus_brands
-            field_brand_image: field_brand_image
-            field_booth: field_booth
-          info:
-            title:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_bus_brands:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_brand_image:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_booth:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
-          empty_table: false
-      row:
-        type: fields
-        options: {  }
-      sorts:
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
-          relationship: field_bus_brands
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: standard
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          order: ASC
-          entity_type: node
-          entity_field: title
-          plugin_id: standard
-          relationship: none
-          group_type: group
-          admin_label: ''
-          exposed: false
-          expose:
-            label: ''
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.field_booth'
-        - 'config:field.storage.node.field_bus_brands'
-        - 'config:field.storage.taxonomy_term.field_brand_image'
+        - 'config:field.storage.node.field_zip_or_postal_code'
   block_component:
     display_plugin: block
     id: block_component
@@ -1407,7 +1480,7 @@ display:
     position: 3
     display_options:
       display_extenders: {  }
-      path: exhibitors
+      path: exhibitorx
       display_description: ''
       style:
         type: default
@@ -1513,3 +1586,863 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
+  sail_accessories:
+    display_plugin: block
+    id: sail_accessories
+    display_title: 'Sail Accessories By Brand'
+    position: 5
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      block_description: 'Boats By Brand'
+      fields:
+        field_exhbtr_lctn_nv_brand:
+          id: field_exhbtr_lctn_nv_brand
+          table: paragraph__field_exhbtr_lctn_nv_brand
+          field: field_exhbtr_lctn_nv_brand
+          relationship: field_exhibitor_location
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: false
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
+        view:
+          id: view
+          table: views
+          field: view
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          view: booths
+          display: block_2
+          arguments: '{{ raw_fields.nid }}'
+          plugin_id: view
+      defaults:
+        fields: false
+        arguments: false
+        relationships: false
+        style: false
+        row: false
+        sorts: false
+        filters: false
+        filter_groups: false
+        group_by: false
+        title: false
+      arguments: {  }
+      relationships:
+        field_exhibitor_location:
+          id: field_exhibitor_location
+          table: node__field_exhibitor_location
+          field: field_exhibitor_location
+          relationship: none
+          group_type: group
+          admin_label: 'field_exhibitor_location: Paragraph'
+          required: false
+          plugin_id: standard
+        field_exhbtr_lctn_nv_brand:
+          id: field_exhbtr_lctn_nv_brand
+          table: paragraph__field_exhbtr_lctn_nv_brand
+          field: field_exhbtr_lctn_nv_brand
+          relationship: field_exhibitor_location
+          group_type: group
+          admin_label: 'field_exhbtr_lctn_nv_brand: Taxonomy term'
+          required: false
+          plugin_id: standard
+      style:
+        type: grid
+        options:
+          grouping: {  }
+          columns: 4
+          automatic_width: false
+          alignment: horizontal
+          col_class_default: true
+          col_class_custom: ''
+          row_class_default: true
+          row_class_custom: ''
+      row:
+        type: fields
+        options: {  }
+      sorts:
+        field_exhbtr_lctn_nv_brand_target_id:
+          id: field_exhbtr_lctn_nv_brand_target_id
+          table: paragraph__field_exhbtr_lctn_nv_brand
+          field: field_exhbtr_lctn_nv_brand_target_id
+          relationship: field_exhibitor_location
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            exhibitor: exhibitor
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+            argument: null
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        field_brand_product_type_target_id:
+          id: field_brand_product_type_target_id
+          table: taxonomy_term__field_brand_product_type
+          field: field_brand_product_type_target_id
+          relationship: field_exhbtr_lctn_nv_brand
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            1643: 1643
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: non_vehicle_product_type
+          hierarchy: false
+          error_message: true
+          parent: 0
+          level_labels: ''
+          force_deepest: false
+          plugin_id: taxonomy_index_tid
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      group_by: false
+      title: 'Sail Accessories By Brand'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.paragraph.field_exhbtr_lctn_nv_brand'
+  sail_boats:
+    display_plugin: block
+    id: sail_boats
+    display_title: 'Sail Boats By Brand'
+    position: 5
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      block_description: 'Boats By Brand'
+      fields:
+        field_exhbtr_lctn_brand:
+          id: field_exhbtr_lctn_brand
+          table: paragraph__field_exhbtr_lctn_brand
+          field: field_exhbtr_lctn_brand
+          relationship: field_exhibitor_location
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: false
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
+        view:
+          id: view
+          table: views
+          field: view
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          view: booths
+          display: block_2
+          arguments: '{{ raw_fields.nid }}'
+          plugin_id: view
+      defaults:
+        fields: false
+        arguments: false
+        relationships: false
+        style: false
+        row: false
+        sorts: false
+        filters: false
+        filter_groups: false
+        group_by: false
+        title: false
+      arguments: {  }
+      relationships:
+        field_exhibitor_location:
+          id: field_exhibitor_location
+          table: node__field_exhibitor_location
+          field: field_exhibitor_location
+          relationship: none
+          group_type: group
+          admin_label: 'field_exhibitor_location: Paragraph'
+          required: false
+          plugin_id: standard
+        field_exhbtr_lctn_brand:
+          id: field_exhbtr_lctn_brand
+          table: paragraph__field_exhbtr_lctn_brand
+          field: field_exhbtr_lctn_brand
+          relationship: field_exhibitor_location
+          group_type: group
+          admin_label: 'field_exhbtr_lctn_brand: Taxonomy term'
+          required: false
+          plugin_id: standard
+      style:
+        type: grid
+        options:
+          grouping: {  }
+          columns: 4
+          automatic_width: false
+          alignment: horizontal
+          col_class_default: true
+          col_class_custom: ''
+          row_class_default: true
+          row_class_custom: ''
+      row:
+        type: fields
+        options: {  }
+      sorts:
+        field_exhbtr_lctn_brand_target_id:
+          id: field_exhbtr_lctn_brand_target_id
+          table: paragraph__field_exhbtr_lctn_brand
+          field: field_exhbtr_lctn_brand_target_id
+          relationship: field_exhibitor_location
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            exhibitor: exhibitor
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+            argument: null
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        field_brand_product_type_target_id:
+          id: field_brand_product_type_target_id
+          table: taxonomy_term__field_brand_product_type
+          field: field_brand_product_type_target_id
+          relationship: field_exhbtr_lctn_brand
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            1645: 1645
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: vehicle_product_type
+          hierarchy: false
+          error_message: true
+          parent: 0
+          level_labels: ''
+          force_deepest: false
+          plugin_id: taxonomy_index_tid
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      group_by: true
+      title: 'Sail Boats by Brand'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.paragraph.field_exhbtr_lctn_brand'

@@ -1,0 +1,22 @@
+uuid: 6086d331-13c8-4cc5-942c-62fa40666cd6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: booths
+label: Booths
+type: 'canonical_entities:node'
+pattern: 'booth/[node:title]'
+selection_criteria:
+  f562c992-47c5-4286-9f96-871e5c3c2142:
+    id: node_type
+    bundles:
+      booth: booth
+    negate: false
+    context_mapping:
+      node: node
+    uuid: f562c992-47c5-4286-9f96-871e5c3c2142
+selection_logic: and
+weight: -5
+relationships: {  }

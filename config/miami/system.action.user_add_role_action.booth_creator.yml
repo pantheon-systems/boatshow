@@ -1,0 +1,14 @@
+uuid: 7d04aa73-753e-41cb-a90b-0bc08f103ac0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.booth_creator
+  module:
+    - user
+id: user_add_role_action.booth_creator
+label: 'Add the Booth creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: booth_creator

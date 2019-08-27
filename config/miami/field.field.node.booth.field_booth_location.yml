@@ -1,0 +1,19 @@
+uuid: addb4325-ebad-4fba-99d5-b937d147aa7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_booth_location
+    - node.type.booth
+id: node.booth.field_booth_location
+field_name: field_booth_location
+entity_type: node
+bundle: booth
+label: 'Booth Location'
+description: 'Where the Booth (or Slip) is located'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

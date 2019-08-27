@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Non Vehicle Brands'
 vid: non_vehicle_brands
-description: ''
+description: 'Brand Names Offered by Companies'
 weight: 0

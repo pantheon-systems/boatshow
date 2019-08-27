@@ -1,0 +1,19 @@
+uuid: d8df86fc-da41-4efa-b846-745a9020a974
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_code
+    - node.type.exhibitor
+id: node.exhibitor.field_show_code
+field_name: field_show_code
+entity_type: node
+bundle: exhibitor
+label: 'Show Code'
+description: 'The boatshow associated with this booth entry'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

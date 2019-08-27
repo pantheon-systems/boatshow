@@ -58,6 +58,7 @@ field_settings:
       view_mode:
         'entity:node':
           article: default
+          booth: default
           bricky: default
           business: default
           carousel_slides: default

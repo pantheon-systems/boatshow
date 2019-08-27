@@ -1,0 +1,19 @@
+uuid: 37f8c1bf-ba22-4e8c-885d-7611ca7f576d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_state_or_province
+    - node.type.exhibitor
+id: node.exhibitor.field_state_or_province
+field_name: field_state_or_province
+entity_type: node
+bundle: exhibitor
+label: 'State or Province'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

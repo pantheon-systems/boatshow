@@ -1,12 +1,13 @@
-uuid: 7ea2724f-1e4a-4c20-80ee-8f40755534c6
+uuid: 446bc924-61eb-421e-aa0c-4197584847f4
 langcode: en
 status: true
 dependencies:
   module:
+    - paragraphs
     - taxonomy
-id: taxonomy_term.field_brand_boat_type
-field_name: field_brand_boat_type
-entity_type: taxonomy_term
+id: paragraph.field_exhbtr_lctn_brand
+field_name: field_exhbtr_lctn_brand
+entity_type: paragraph
 type: entity_reference
 settings:
   target_type: taxonomy_term

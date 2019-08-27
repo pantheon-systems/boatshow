@@ -1,0 +1,14 @@
+uuid: a8b80dff-d335-4d4c-a66e-50b3c1d80a1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.booth_creator
+  module:
+    - user
+id: user_remove_role_action.booth_creator
+label: 'Remove the Booth creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: booth_creator

@@ -3,30 +3,118 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.exhibitor.field_address
-    - field.field.node.exhibitor.field_booth
-    - field.field.node.exhibitor.field_bus_brands
+    - field.field.node.exhibitor.field_address_line_1
+    - field.field.node.exhibitor.field_address_line_2
+    - field.field.node.exhibitor.field_city
+    - field.field.node.exhibitor.field_country
+    - field.field.node.exhibitor.field_exhibitor_id
+    - field.field.node.exhibitor.field_exhibitor_location
     - field.field.node.exhibitor.field_fax_number
     - field.field.node.exhibitor.field_phone_number
+    - field.field.node.exhibitor.field_show_code
+    - field.field.node.exhibitor.field_state_or_province
     - field.field.node.exhibitor.field_website
+    - field.field.node.exhibitor.field_zip_or_postal_code
     - node.type.exhibitor
   module:
     - address
     - link
+    - paragraphs
     - telephone
 id: node.exhibitor.default
 targetEntityType: node
 bundle: exhibitor
 mode: default
 content:
-  field_address:
+  field_address_line_1:
     weight: 2
     settings:
-      default_country: US
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: address_default
+    type: string_textfield
     region: content
-  field_booth:
+  field_address_line_2:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_city:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_country:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: address_country_default
+    region: content
+  field_exhibitor_id:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_exhibitor_location:
+    type: entity_reference_paragraphs
+    weight: 12
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_fax_number:
+    weight: 10
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_phone_number:
+    weight: 9
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_show_code:
+    weight: 13
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_state_or_province:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_website:
+    weight: 8
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_zip_or_postal_code:
     weight: 6
     settings:
       size: 60
@@ -34,42 +122,11 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_bus_brands:
-    weight: 1
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_fax_number:
-    weight: 4
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: telephone_default
-    region: content
-  field_phone_number:
-    weight: 3
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: telephone_default
-    region: content
-  field_website:
-    weight: 5
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 14
     region: content
     third_party_settings: {  }
   title:

@@ -1,0 +1,36 @@
+.view-display-id-sail_boats .views-view-grid .views-col {
+    padding: 2%;
+    width: 25%;
+}
+
+.view.view-booths.view-id-booths .views-row {
+  display: inline-block;
+  clear: none;
+  width: auto;
+}
+.view.view-booths.view-id-booths .views-row .views-field.views-field-field-exhbtr-lctn-booth {
+  display: inline;
+}
+
+.view-id-booths .views-row::after {
+    content: ", ";
+  }
+
+.view-id-booths .views-row:last-child::after {
+    content: none;
+}
+
+
+
+.view-display-id-sail_boats .views-view-grid .views-col,
+.view-display-id-sail_accessories .views-view-grid .views-col
+ {
+    padding: 2%;
+
+    @include media-breakpoint-up(lg) {
+      width: 25%;
+    }
+    @include media-breakpoint-down(lg) {
+      width: 100%;
+    }
+}

@@ -1,0 +1,18 @@
+uuid: da93aa1e-93ef-46bf-8d80-e72afcf9333e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.booth
+id: node.booth.title
+field_name: title
+entity_type: node
+bundle: booth
+label: 'Booth Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

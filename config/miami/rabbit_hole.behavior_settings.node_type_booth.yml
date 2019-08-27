@@ -1,0 +1,11 @@
+uuid: 00e424b2-e0ae-49f9-9747-0c06540b80b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.booth
+id: node_type_booth
+action: page_redirect
+allow_override: 1
+redirect: /whos-exhibiting
+redirect_code: 301

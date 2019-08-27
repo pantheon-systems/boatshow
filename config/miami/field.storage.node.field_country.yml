@@ -1,14 +1,14 @@
-uuid: 09e18208-6750-462b-8553-743b6f106449
+uuid: a666d560-10c9-4d20-a0d5-07f569e9ac38
 langcode: en
 status: true
 dependencies:
   module:
     - address
     - node
-id: node.field_address
-field_name: field_address
+id: node.field_country
+field_name: field_country
 entity_type: node
-type: address
+type: address_country
 settings: {  }
 module: address
 locked: false

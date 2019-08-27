@@ -1,0 +1,20 @@
+uuid: 13f189ab-4a24-4355-a4b3-9119d5ced156
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - taxonomy
+id: paragraph.field_exhbtr_lctn_nv_brand
+field_name: field_exhbtr_lctn_nv_brand
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

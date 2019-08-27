@@ -4,10 +4,18 @@ status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.exhibitor.field_address
-    - field.field.node.exhibitor.field_booth
+    - field.field.node.exhibitor.field_address_line_1
+    - field.field.node.exhibitor.field_address_line_2
+    - field.field.node.exhibitor.field_city
+    - field.field.node.exhibitor.field_country
+    - field.field.node.exhibitor.field_exhibitor_id
+    - field.field.node.exhibitor.field_exhibitor_location
+    - field.field.node.exhibitor.field_fax_number
     - field.field.node.exhibitor.field_phone_number
+    - field.field.node.exhibitor.field_show_code
+    - field.field.node.exhibitor.field_state_or_province
     - field.field.node.exhibitor.field_website
+    - field.field.node.exhibitor.field_zip_or_postal_code
     - node.type.exhibitor
   module:
     - user
@@ -21,10 +29,20 @@ content:
     region: content
 hidden:
   addtoany: true
-  field_address: true
-  field_booth: true
+  field_address_line_1: true
+  field_address_line_2: true
   field_bus_brands: true
+  field_city: true
+  field_country: true
+  field_exhibitor_id: true
+  field_exhibitor_location: true
   field_fax_number: true
+  field_nonvehicle_brand_locations: true
   field_phone_number: true
+  field_show_code: true
+  field_state_or_province: true
+  field_vehicle_brand_locations: true
   field_website: true
+  field_zip_or_postal_code: true
   langcode: true
+  search_api_excerpt: true
