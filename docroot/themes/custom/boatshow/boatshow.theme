@@ -524,6 +524,20 @@ function boatshow_preprocess_eck_entity(&$variables) {
     $variables['primary_cta_url'] = $link_url;
   }
 
+  ////////////////////////////
+  /// Media
+  ////////////////////////////
+  if ($entity->hasField('field_media')) {
+    if ($entity->field_media->getValue()) {
+      $variables['attributes']['class'][] = 'has-media';
+    }
+  }
+
+
+  ////////////////////////////
+  /// Icon
+  /// only supports fontawesome icons e.g. 'fa-car'
+  ////////////////////////////
   if ($entity->hasField('field_icon')) {
     $requested_icon = $entity->field_icon->value;
 
@@ -535,6 +549,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
             '@requested_icon' => $requested_icon
           ])
         ];
+        $variables['attributes']['class'][] = 'has-icon';
       }
       else {
         $icon_markup = [

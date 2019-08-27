@@ -90,14 +90,32 @@
       color: $brick-card-icon-color;
       font-size: $brick-card-icon-size;
       line-height: 1;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translateX(-50%) translateY(-50%);
+      display: inline-block;
 
       &::before {
         color: inherit; //override a nasty global color setting of i::before
       }
+    }
+  }
+
+  // Has icon but no media
+  &.has-icon:not(.has-media) .card-header {
+    text-align: center;
+    padding-top: $dimension-card-padding / 2;
+
+    @include media-breakpoint-up('sm') {
+      padding-top: $dimension-card-padding;
+    }
+
+  }
+
+  // Has icon and media
+  &.has-media.has-icon .card-header {
+    & .icon-markup {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
     }
   }
 
