@@ -40,13 +40,15 @@
     @media screen and (min-width: $dining-two-col-bp){
       width: 66%;
       float:left;
+      padding: 0 $dimension-card-padding;
+      box-sizing:border-box;
       background: #ddd;
     }
 
     .node--type-dining {
       width: 100%;
-      padding-right: $dimension-card-padding;
-      padding-left: $dimension-card-padding;
+      // padding-right: $dimension-card-padding;
+      // padding-left: $dimension-card-padding;
       box-sizing: border-box;
 
       &:last-child {
@@ -93,7 +95,7 @@
   }
 
   .node--type-dining {
-    border-bottom: 1px solid $colorname-gray-dark;
+    border-bottom: 1px solid $color-rules;
     padding-bottom: $dimension-vertical-rhythm-elements;
     margin-bottom: $dimension-vertical-rhythm-elements;
 
