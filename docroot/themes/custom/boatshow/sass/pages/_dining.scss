@@ -35,18 +35,18 @@
 
   .featured-dining {
     box-sizing:border-box;
+    width: 100%;
     @include media-breakpoint-up(md) {
+      background: #ddd;
+      padding: 0 $dimension-card-padding;
+    }
+    @include media-breakpoint-up(lg) {
       width: 66%;
       float:left;
-      padding: 0 $dimension-card-padding;
-      box-sizing:border-box;
-      background: #ddd;
     }
 
     .node--type-dining {
       width: 100%;
-      // padding-right: $dimension-card-padding;
-      // padding-left: $dimension-card-padding;
       box-sizing: border-box;
 
       &:last-child {
@@ -99,7 +99,7 @@
 
     @include media-breakpoint-up(md) {
       // force alignment between items
-      min-height: 420px;
+      min-height: 500px;
       margin-top: 30px;
     }
   }

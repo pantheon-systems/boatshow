@@ -35,14 +35,14 @@
           adaptiveHeight: true,
           responsive: [
             {
-              breakpoint: 992,
+              breakpoint: 768,
               settings: {
                 infinite: false,
                 centerMode: false,
               }
             },
             {
-              breakpoint: 900,
+              breakpoint: 992,
               settings: {
                 arrows: false,
                 infinite: false,
