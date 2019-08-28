@@ -36,10 +36,11 @@
   .featured-dining {
     box-sizing:border-box;
     width: 100%;
-    padding: 0 $dimension-card-padding;
+    padding: 30px $dimension-card-padding 0;
 
     @include media-breakpoint-up(md) {
       background: #ddd;
+      padding-top: 0;
     }
 
     @include media-breakpoint-up(lg) {
@@ -57,10 +58,14 @@
     }
 
     .field--name-field-media {
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(md) {
         .slick-track {
           width: 100% !important;
           text-align: center;
+
+          >.field__item {
+            width: 33% !important;
+          }
         }
       }
 
@@ -73,11 +78,6 @@
         padding: 0 2px;
         width: auto;
         box-sizing:border-box;
-
-
-        @include media-breakpoint-up(lg) {
-          width: 33% !important;
-        }
 
         img {
           width: 100%;

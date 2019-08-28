@@ -36,13 +36,6 @@
           responsive: [
             {
               breakpoint: 768,
-              // settings: {
-              //   infinite: false,
-              //   centerMode: false,
-              // }
-            },
-            {
-              breakpoint: 992,
               settings: {
                 arrows: false,
                 infinite: false,
