@@ -39,7 +39,8 @@
   & h3,
   & h4,
   & h5,
-  & h6 {
+  & h6,
+  & .subheading * {
     color: $color-text-inverted;
   }
 
@@ -58,7 +59,8 @@
   & h3,
   & h4,
   & h5,
-  & h6 {
+  & h6,
+  & .subheading * {
     color: $color-text;
     text-shadow: none;
   }
