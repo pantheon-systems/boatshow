@@ -159,6 +159,7 @@ module:
   purge_queuer_coretags: 0
   purge_ui: 0
   quickedit: 0
+  quicktabs: 0
   rabbit_hole: 0
   rdf: 0
   recaptcha: 0

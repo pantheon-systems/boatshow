@@ -34,3 +34,30 @@
       width: 100%;
     }
 }
+.alias--sailing-at-the-show .quicktabs-tabs li a {
+    height: 100px;
+    width: 100px;
+    line-height: 0;
+    font-size: 0;
+    padding: 100px 130px;
+}
+.alias--sailing-at-the-show ul.quicktabs-tabs {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.alias--sailing-at-the-show .quicktabs-tabs li.active:first-child a {
+  background: #fff url("/sites/miami/files/mibs_website_sail_icons-boat_brands_active.png") no-repeat center top;
+}
+
+.alias--sailing-at-the-show .quicktabs-tabs li:first-child a {
+  background: #fff url("/sites/miami/files/mibs_website_sail_icons-boat_brands_inactive.png") no-repeat center top;
+}
+
+.alias--sailing-at-the-show .quicktabs-tabs li.active:last-child a {
+  background: #fff url("/sites/miami/files/mibs_website_sail_icons-accessories_brands_active.png") no-repeat center top;
+}
+
+.alias--sailing-at-the-show .quicktabs-tabs li:last-child a {
+  background: #fff url("/sites/miami/files/mibs_website_sail_icons-accessories_brands_inactive.png") no-repeat center top;
+}

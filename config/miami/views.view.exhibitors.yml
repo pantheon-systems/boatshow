@@ -1853,6 +1853,7 @@ display:
         filter_groups: false
         group_by: false
         title: false
+        header: false
       arguments: {  }
       relationships:
         field_exhibitor_location:
@@ -2006,6 +2007,20 @@ display:
           1: AND
       group_by: false
       title: 'Sail Accessories By Brand'
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: '<P><P><P><P>'
+            format: rich_text
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
@@ -2283,6 +2298,7 @@ display:
         filter_groups: false
         group_by: false
         title: false
+        header: false
       arguments: {  }
       relationships:
         field_exhibitor_location:
@@ -2436,6 +2452,20 @@ display:
           1: AND
       group_by: true
       title: 'Sail Boats by Brand'
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: '<P><P><P><P>'
+            format: rich_text
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:

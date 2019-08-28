@@ -1,0 +1,63 @@
+uuid: e12f5008-4857-4b82-b242-59415a7fc1b1
+langcode: en
+status: true
+dependencies: {  }
+id: sailing_at_the_show_quicktabs
+label: 'Sailing at the Show Quicktabs'
+renderer: quick_tabs
+options:
+  accordion_tabs:
+    jquery_ui:
+      collapsible: 0
+      heightStyle: auto
+  quick_tabs:
+    ajax: '1'
+hide_empty_tabs: 0
+default_tab: '0'
+configuration_data:
+  -
+    title: 'Boat Brands'
+    weight: '0'
+    type: view_content
+    content:
+      view_content:
+        options:
+          vid: exhibitors
+          display: sail_boats
+          args: ''
+      node_content:
+        options:
+          nid: ''
+          view_mode: full
+          hide_title: '1'
+      block_content:
+        options:
+          bid: addtoany_block
+          block_title: ''
+          display_title: 0
+      qtabs_content:
+        options:
+          machine_name: ''
+  -
+    title: 'Accessory Brands'
+    weight: '0'
+    type: view_content
+    content:
+      view_content:
+        options:
+          vid: exhibitors
+          display: sail_accessories
+          args: ''
+      node_content:
+        options:
+          nid: ''
+          view_mode: full
+          hide_title: '1'
+      block_content:
+        options:
+          bid: addtoany_block
+          block_title: ''
+          display_title: 0
+      qtabs_content:
+        options:
+          machine_name: ''
