@@ -25,6 +25,7 @@ javascript:
     assets-dist/js/newsletter.js: {}
     assets-dist/js/getting-to-the-show.js: {}
     assets-dist/js/seminarview.js: {}
+    assets-dist/js/sailingattheshow.js: {}
   dependencies:
     - core/jquery
     - core/drupal.ajax

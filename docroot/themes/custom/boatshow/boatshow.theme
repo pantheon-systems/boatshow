@@ -926,9 +926,16 @@ function boatshow_preprocess_views_view_summary_unformatted(&$variables) {
       else {
         $url = $view->getUrl($args)->setOptions($url_options);
       }
+
       $this_url = $url->toString();
       $base_url = substr($this_url, 1);
+
+      $url_parts = explode('/', $base_url);
+      $url_parts[0] = substr(\Drupal::service('path.alias_manager')->getAliasByPath(\Drupal::service('path.current')->getPath()),1) . '/';
+      $base_url = implode($url_parts);
+
       $this_filter = substr($this_url, -1);
+
       $variables['rows'][$id]->url = '/' . str_replace('/', '?filter=', $base_url);
       $variables['rows'][$id]->count = intval($row->{$argument->count_alias});
       $variables['rows'][$id]->active = ($this_filter == $active_filter);
