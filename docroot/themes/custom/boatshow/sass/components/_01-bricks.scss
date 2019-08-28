@@ -25,7 +25,8 @@
   }
 
   @include media-breakpoint-up('sm') {
-    &.container-type--contract {
+    &.container-type--contract,
+    &.container-type--contract-more {
       padding-right: $dimension-section-horizontal-padding;
       padding-left: $dimension-section-horizontal-padding;
     }
@@ -99,14 +100,23 @@
   }
 
   // Has icon but no media
-  &.has-icon:not(.has-media) .card-header {
-    text-align: center;
-    padding-top: $dimension-card-padding / 2;
+  &.has-icon:not(.has-media) {
+    & .card-header {
+      text-align: center;
+      padding-top: $dimension-card-padding / 2;
 
-    @include media-breakpoint-up('sm') {
-      padding-top: $dimension-card-padding;
+      @include media-breakpoint-up('sm') {
+        padding-top: 20px;
+      }
     }
 
+    & .card-body {
+      padding-top: $dimension-card-padding / 2;
+
+      @include media-breakpoint-up('sm') {
+        padding-top: 20px;
+      }
+    }
   }
 
   // Has icon and media
@@ -214,7 +224,7 @@ $dimension-masthead-vertical-pull: .40 * $dimension-masthead-min-height !default
   position: relative;
   min-height: 150px;
 
-  @include media-breakpoint-up(sm) {
+  @include media-breakpoint-up(md) {
     min-height: 400px;
 
     &:not(.has-page-title) > .container {
@@ -230,7 +240,7 @@ $dimension-masthead-vertical-pull: .40 * $dimension-masthead-min-height !default
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 0;
 
     @media (min-width: $screen-sm) {
       padding: $dimension-masthead-y-padding $dimension-masthead-x-padding;
@@ -265,7 +275,7 @@ $dimension-masthead-vertical-pull: .40 * $dimension-masthead-min-height !default
     margin: 0;
     padding: 0;
     min-width: 320px;
-    top: 60px;
+    top: 70px;
     left: 50%;
     transform: translate(-50%, -50%);
 
