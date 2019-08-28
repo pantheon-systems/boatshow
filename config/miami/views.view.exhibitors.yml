@@ -1145,7 +1145,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: View
+          label: Booth
           exclude: false
           alter:
             alter_text: false
@@ -1183,7 +1183,7 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: false
+          hide_empty: true
           empty_zero: false
           hide_alter_empty: true
           view: booths
@@ -2018,7 +2018,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: '<P><P><P><P>'
+            value: '<hr>'
             format: rich_text
           plugin_id: text
     cache_metadata:
@@ -2463,7 +2463,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: '<P><P><P><P>'
+            value: '<hr>'
             format: rich_text
           plugin_id: text
     cache_metadata:
