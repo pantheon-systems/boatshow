@@ -31,7 +31,7 @@ docroot/themes/custom/*/styleguide
 
 # Ignore build artifacts
 deployment_identifier
-/deploy
+deploy/
 bin/*
 tmp
 reports
