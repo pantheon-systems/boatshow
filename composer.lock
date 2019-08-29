@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bbce2746882f828984095fdb214bf17",
+    "content-hash": "66f8adc5918bf4d418fb5fb2a3bf6836",
     "packages": [
         {
             "name": "acquia/blt",
@@ -3835,6 +3835,9 @@
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "Notice: Undefined index: #summary_attributes in template_preprocess_details() (line 244 of core/includes/form.inc)": "https://www.drupal.org/files/issues/2019-01-25/bef-summary-attributes-3001967-9.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3993,11 +3996,17 @@
         },
         {
             "name": "drupal/bricks",
-            "version": "dev-1.x",
+            "version": "1.7.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/bricks.git",
-                "reference": "1ac993bffd03e223dd9a12c975fe2d89203b1aeb"
+                "reference": "8.x-1.7-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/bricks-8.x-1.7-beta1.zip",
+                "reference": "8.x-1.7-beta1",
+                "shasum": "ba6095b867508576be66e25d0b8c5e1b97855287"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -4019,11 +4028,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.6+43-dev",
-                    "datestamp": "1563463685",
+                    "version": "8.x-1.7-beta1",
+                    "datestamp": "1564765685",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -4035,6 +4044,10 @@
                 {
                     "name": "Charlie ChX Negyesi",
                     "homepage": "https://www.drupal.org/user/3619592"
+                },
+                {
+                    "name": "penyaskito",
+                    "homepage": "https://www.drupal.org/user/959536"
                 },
                 {
                     "name": "tonystar",
@@ -4053,8 +4066,7 @@
                 "source": "http://cgit.drupalcode.org/bricks",
                 "issues": "https://www.drupal.org/project/issues/bricks",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            },
-            "time": "2019-07-18T15:31:48+00:00"
+            }
         },
         {
             "name": "drupal/captcha",
@@ -21328,7 +21340,6 @@
         "drupal/auto_entitylabel": 10,
         "drupal/better_exposed_filters": 15,
         "drupal/block_field": 15,
-        "drupal/bricks": 20,
         "drupal/captcha": 20,
         "drupal/cer": 15,
         "drupal/clientside_validation": 20,
