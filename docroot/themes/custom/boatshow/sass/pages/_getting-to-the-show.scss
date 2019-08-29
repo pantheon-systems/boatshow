@@ -41,6 +41,10 @@
 }
 
 .arrival-location {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
@@ -98,7 +102,9 @@
   }
 
   .location-links {
-    margin: 20px 0;
+    margin-top: 20px;
+    margin-bottom: auto;
+
     .paragraph--type--arrival-location-links {
       margin: 5px 0;
 
@@ -149,14 +155,18 @@
   }
 
   .location-image {
-    margin-top: 20px;
+    margin-bottom: 20px;
 
     img {
+      width: 100%;
       max-width: 275px;
     }
   }
 
   .location-disclaimer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     margin-top: 10px;
     font-size: 16px;
     font-weight: $font-weight-bold;
