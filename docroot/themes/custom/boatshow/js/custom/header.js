@@ -210,6 +210,37 @@ window.BoatShows = window.BoatShows || {};
       $selector.siblings('a').removeClass(menuOpenClass);
       $selector.removeClass(menuOpenClass);
     }
+    function scrollToElementBelowHeader(id){
+      const $header = $('.site-header.fixed-header');
+      const h = parseInt($header.css('top')) + $header.outerHeight();
+      const y = $(id).offset().top - h;
+      $('html, body').animate({scrollTop: y }, 'fast');
+    }
+
+    Drupal.behaviors.anchorLinks = {
+      attach: function (context, settings) {
+        // check for hash on load
+        const hash = window.location.hash.substr(1);
+        // console.log(hash);
+        if (hash){
+          const id ='#' + hash;
+          scrollToElementBelowHeader(id);
+        }
+        // update anchor link action
+        $('a[href ^="#"]').once('anchor-link-init').click(function( e ) {
+          // e.preventDefault();
+          // const $header = $('.site-header.fixed-header');
+          // const h = parseInt($header.css('top')) + $header.outerHeight();
+          const $link = $(this);
+          const id = $link.attr('href'); // #id-here
+          // const y = $(id).offset().top - h;
+          // $('html, body').animate({scrollTop: y }, 'slow');
+          // console.log(y);
+          // alert(id);
+          scrollToElementBelowHeader(id);
+        });
+      }
+    };
 
     return {
       setStateFixed: setStateFixed,
