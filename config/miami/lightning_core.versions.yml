@@ -224,3 +224,4 @@ nmma_feeds_video_embed: 0.0.0
 nmma_tamper: 0.0.0
 recaptcha: 2.4.0
 quicktabs: 3.0.0-alpha2
+content_lock: 1.0.0-alpha8

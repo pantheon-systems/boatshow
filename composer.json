@@ -54,6 +54,7 @@
         "drupal/cog": "^1.0.0",
         "drupal/colossal_menu": "^1.1",
         "drupal/config_split": "^1.4",
+        "drupal/content_lock": "^1.0@alpha",
         "drupal/core": "^8.6",
         "drupal/cshs": "1.x-dev#e583815ea8f0e11fd32c0b794700547cd3afce8d",
         "drupal/devel": "^2.0",
