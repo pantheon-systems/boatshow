@@ -34,11 +34,18 @@
     }
 }
 .alias--sailing-at-the-show .quicktabs-tabs li a {
-    height: 100px;
-    width: 100px;
-    line-height: 0;
-    font-size: 0;
-    padding: 100px 130px;
+  line-height: 0;
+  font-size: 0;
+    @include media-breakpoint-up(lg) {
+      height: 100px;
+      width: 100px;
+      padding: 100px 130px;
+    }
+    @include media-breakpoint-down(lg) {
+      height: 50px;
+      width: 50px;
+      padding: 50px 65px;
+    }
 }
 .alias--sailing-at-the-show ul.quicktabs-tabs {
     text-align: center;
@@ -46,17 +53,55 @@
 }
 
 .alias--sailing-at-the-show .quicktabs-tabs li.active:first-child a {
-  background: #fff url("/themes/custom/boatshow/images/miami/mibs_website_sail_icons-boat_brands_active.png") no-repeat center top;
+  @include media-breakpoint-up(lg) {
+    background: #fff url("/themes/custom/boatshow/images/miami/mibs_website_sail_icons-boat_brands_active.png") no-repeat center top;
+  }
+  @include media-breakpoint-down(lg) {
+    background: #fff url("/themes/custom/boatshow/images/miami/mibs_website_sail_icons-boat_brands_active_sml.png") no-repeat center top;
+  }
 }
 
 .alias--sailing-at-the-show .quicktabs-tabs li:first-child a {
-  background: #fff url("/themes/custom/boatshow/images/miami/mibs_website_sail_icons-boat_brands_inactive.png") no-repeat center top;
+  @include media-breakpoint-up(lg) {
+    background: #fff url("/themes/custom/boatshow/images/miami/mibs_website_sail_icons-boat_brands_inactive.png") no-repeat center top;
+  }
+  @include media-breakpoint-down(lg) {
+    background: #fff url("/themes/custom/boatshow/images/miami/mibs_website_sail_icons-boat_brands_inactive_sml.png") no-repeat center top;
+  }
 }
 
 .alias--sailing-at-the-show .quicktabs-tabs li.active:last-child a {
-  background: #fff url("/themes/custom/boatshow/images/miami/mibs_website_sail_icons-accessories_brands_active.png") no-repeat center top;
+  @include media-breakpoint-up(lg) {
+    background: #fff url("/themes/custom/boatshow/images/miami/mibs_website_sail_icons-accessories_brands_active.png") no-repeat center top;
+  }
+  @include media-breakpoint-down(lg) {
+    background: #fff url("/themes/custom/boatshow/images/miami/mibs_website_sail_icons-accessories_brands_active_sml.png") no-repeat center top;
+  }
 }
 
 .alias--sailing-at-the-show .quicktabs-tabs li:last-child a {
-  background: #fff url("/themes/custom/boatshow/images/miami/mibs_website_sail_icons-accessories_brands_inactive.png") no-repeat center top;
+  @include media-breakpoint-up(lg) {
+    background: #fff url("/themes/custom/boatshow/images/miami/mibs_website_sail_icons-accessories_brands_inactive.png") no-repeat center top;
+  }
+  @include media-breakpoint-down(lg) {
+    background: #fff url("/themes/custom/boatshow/images/miami/mibs_website_sail_icons-accessories_brands_inactive_sml.png") no-repeat center top;
+  }
+}
+
+.sailboatbrand {
+    display: inline-block;
+}
+
+.sailboatbrand img {
+    padding: 0 0 0 5px;
+}
+
+.sailboatbrandlogo {
+    display: inline-block;
+    width: 30%;
+}
+
+.sailboatbrandtext {
+    display: inline-block;
+    width: 70%;
 }
