@@ -224,6 +224,13 @@ vm$ blt sync:refresh -v --site=nashville
 vm$ blt sync:files -v --site=nashville
 ```
 
+### Reset the admin password
+Get a password reset link:
+```
+vm$ drush @miami.local uli
+```
+Visit the generated URL and update as necessary.
+
 **NOTE**: You must have Senior Developer access to the Acquia application. To diagonose any BLT setup related issue run `blt doctor` from within VM.
 
 ### Build the front-end theme
