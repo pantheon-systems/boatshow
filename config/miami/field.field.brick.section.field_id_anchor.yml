@@ -1,0 +1,19 @@
+uuid: a24adbb3-2885-4e1b-b7f8-1ecd09b003ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.section
+    - field.storage.brick.field_id_anchor
+id: brick.section.field_id_anchor
+field_name: field_id_anchor
+entity_type: brick
+bundle: section
+label: 'ID / Anchor'
+description: 'An ID to be used in anchor links. When the section id is "section1", use a link to "#section1" to scroll to that section'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

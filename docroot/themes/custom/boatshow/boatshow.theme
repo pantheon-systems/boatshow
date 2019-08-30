@@ -415,13 +415,18 @@ function boatshow_preprocess_eck_entity(&$variables) {
   $route_match = \Drupal::routeMatch();
   $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
   $variables['current_page_title'] = $page_title;
+  $entity = $variables['entity']['#entity'];
 
+  // Add ID
+  if ($entity && $entity->hasField('field_id_anchor') && !empty($entity->field_id_anchor->value)) {
+    $variables['attributes']['id'] = $entity->field_id_anchor->value;
+  }
   // Prepare to add classes
   if (!isset($variables['attributes']['class'])) {
     $variables['attributes']['class'] = [];
   }
 
-  $entity = $variables['entity']['#entity'];
+
 
   ////////////////////////////
   /// Collapsible

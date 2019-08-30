@@ -7,6 +7,7 @@ dependencies:
     - field.field.brick.section.field_background_color
     - field.field.brick.section.field_background_image
     - field.field.brick.section.field_container_type
+    - field.field.brick.section.field_id_anchor
     - field.field.brick.section.field_invert_text
     - field.field.brick.section.field_vertical_padding
 id: brick.section.default
@@ -18,7 +19,9 @@ hidden:
   field_background_color: true
   field_background_image: true
   field_container_type: true
+  field_id_anchor: true
   field_invert_text: true
   field_vertical_padding: true
   langcode: true
+  search_api_excerpt: true
   title: true

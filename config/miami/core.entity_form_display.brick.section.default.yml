@@ -8,6 +8,7 @@ dependencies:
     - field.field.brick.section.field_background_color
     - field.field.brick.section.field_background_image
     - field.field.brick.section.field_container_type
+    - field.field.brick.section.field_id_anchor
     - field.field.brick.section.field_invert_text
     - field.field.brick.section.field_vertical_padding
   module:
@@ -43,6 +44,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_id_anchor:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_invert_text:
     weight: 5
