@@ -211,27 +211,47 @@ window.BoatShows = window.BoatShows || {};
       $selector.removeClass(menuOpenClass);
     }
 
-    function scrollToElementBelowHeader(id) {
-      const $header = $('.site-header.fixed-header');
-      const h = parseInt($header.css('top')) + $header.outerHeight();
-      const y = $(id).offset().top - h; // top of element with space above for the fixed header
-      $('html, body').animate({scrollTop: y }, 'fast');
+    function scrollToElementBelowHeader(id, scroll = false, header = $siteHeader, adminBar = $adminBarTop) {
+
+      let a = 0;
+      let h = 0;
+      h = parseInt(header.css('top')) + header.outerHeight();
+      if (adminBar){
+        a = parseInt(adminBar.css('top')) + adminBar.outerHeight();
+      }
+      if (isNaN(a)) {
+        a = 0;
+      }
+      console.log(h, a);
+      const y = $(id).offset().top - h - a; // top of element with space above for the fixed header
+      console.log(y);
+      if (scroll){
+        $('html, body').animate({scrollTop: y }, 'slow');
+      } else {
+        $('html, body').scrollTop(y);
+      }
     }
 
     Drupal.behaviors.anchorLinks = {
       attach: function (context, settings) {
-        // check for hash on load
-        const hash = window.location.hash.substr(1);
-        // console.log(hash);
-        if (hash){
-          const id ='#' + hash;
-          scrollToElementBelowHeader(id);
-        }
+        // check for hash on load.
+        // Wait for document load so that the other header JS has fired
+        // and everything is ready to calculate from.
+        $(document).on('load', function() {
+          console.log('window load');
+          const hash = window.location.hash.substr(1);
+          if (hash) {
+            const id ='#' + hash;
+            scrollToElementBelowHeader(id);
+          }
+        });
         // update anchor link action
         $('a[href ^="#"]').once('anchor-link-init').click(function( e ) {
+          e.preventDefault();
           const $link = $(this);
           const id = $link.attr('href');
-          scrollToElementBelowHeader(id);
+          window.location.hash = id;
+          scrollToElementBelowHeader(id, true);
         });
       }
     };
