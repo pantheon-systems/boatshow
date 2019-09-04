@@ -19,14 +19,18 @@
     margin-top: 1rem;
 
     .field--name-field-article-image {
-      float: left;
-      max-width: 40%;
-      margin: 0 2rem 2rem 0;
+      float: none;
+      margin-right: 0;
+      max-width: 100%;
 
-      @include media-breakpoint-down(sm) {
-        float: none;
-        margin-right: 0;
-        max-width: 100%;
+      @include media-breakpoint-up(sm) {
+        float: left;
+        max-width: 40%;
+        margin: 0 2rem 2rem 0;
+      }
+
+      @include media-breakpoint-up(lg) {
+        max-width: 380px;
       }
     }
 
