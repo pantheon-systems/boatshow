@@ -29,9 +29,18 @@ function nmma_brick_layouts_help($route_name, RouteMatchInterface $route_match) 
 function nmma_brick_layouts_theme() {
   return [
     'nmma_brick_layouts' => [
-      'render element' => 'children',
+      'render element' => 'element',
     ],
   ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function nmma_brick_layouts_preprocess_eck_entity (&$variables) {
+  if (isset($variables['entity']['#layout'])) {
+    $variables['attributes']['class'][] = 'brick-with-nmma-layout--' . $variables['entity']['#layout'];
+  }
 }
 
 /**
@@ -40,7 +49,39 @@ function nmma_brick_layouts_theme() {
 function nmma_brick_layouts_preprocess_layout(&$variables) {
   $content_array = $variables['content'];
   $counter = 0;
+
+  $variables['attributes']['class'][] = 'nmma-layout';
+  $variables['attributes']['class'][] = 'nmma-layout--' . $variables['theme_hook_original'];
+  $variables['attributes']['class'][] = 'flex-container'; // Todo: maybe this should be applied directly into nmma-layout using a mixin?
+
+  // Add some legacy classes
+
+  if ($variables['theme_hook_original'] == 'single_column_grid') {
+    $variables['attributes']['class'][] = 'one-column';
+  }
+
+  if ($variables['theme_hook_original'] == 'two_column_grid') {
+    $variables['attributes']['class'][] = 'two-columns';
+  }
+
+  if ($variables['theme_hook_original'] == 'three_column_grid') {
+    // Note: no 'three-columns' class was used
+  }
+
+  if ($variables['theme_hook_original'] == 'four_column_grid') {
+    $variables['attributes']['class'][] = 'four-columns';
+  }
+
+  if ($variables['theme_hook_original'] == 'four_column_even_grid') {
+  }
+
+  if ($variables['theme_hook_original'] == 'disruptor_one_column') {
+    $variables['attributes']['class'][] = 'disruptor';
+  }
+
   if ($variables['theme_hook_original'] == 'disruptor_two_column') {
+    $variables['attributes']['class'][] = 'disruptor';
+
     foreach ($content_array as $key => $val) {
       if (is_int($key)) {
         $counter++;

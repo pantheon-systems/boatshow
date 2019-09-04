@@ -1,0 +1,21 @@
+uuid: 58757ac9-1c47-4219-952c-2d6174e49823
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.layout
+    - field.storage.brick.field_enable_dividers
+id: brick.layout.field_enable_dividers
+field_name: field_enable_dividers
+entity_type: brick
+bundle: layout
+label: 'Enable Dividers'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

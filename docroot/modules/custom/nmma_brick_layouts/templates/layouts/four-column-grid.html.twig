@@ -1,17 +1,12 @@
-{% if content %}
-
-  <section {{ attributes.addClass('flex-container').addClass('nmma-layout four-column') }}>
-    {% for region in content['#layout'].regions|keys if content[region] %}
-      {% if loop.first or loop.index == content['#layout'].regions|length %}
-        <div class="col-12-xs col-4-sm column-item">
-          {{ content[region] }}
-        </div>
-      {% else %}
-        <div class="col-12-xs col-2-sm column-item">
-          {{ content[region] }}
-        </div>
-      {% endif %}
-    {% endfor %}
-  </section>
-
-{% endif %}
+{% extends "@nmma_brick_layouts/layouts/_nmma_layout_base.html.twig" %}
+{% block loop %}
+  {% if loop.first or loop.index == content['#layout'].regions|length %}
+    <div class="col-12-xs col-4-sm column-item">
+      {{ content[region] }}
+    </div>
+  {% else %}
+    <div class="col-12-xs col-2-sm column-item">
+      {{ content[region] }}
+    </div>
+  {% endif %}
+{% endblock %}

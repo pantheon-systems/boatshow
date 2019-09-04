@@ -426,7 +426,13 @@ function boatshow_preprocess_eck_entity(&$variables) {
     $variables['attributes']['class'] = [];
   }
 
-
+  ////////////////////////////
+  /// Dividers
+  ////////////////////////////
+  if ($entity->hasField('field_enable_dividers') && $entity->field_enable_dividers->value === '1') {
+    $variables['attributes']['class'][] = 'enable-dividers';
+    $variables['enable_dividers'] = true;
+  }
 
   ////////////////////////////
   /// Collapsible
