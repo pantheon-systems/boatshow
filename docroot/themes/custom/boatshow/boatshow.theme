@@ -800,6 +800,10 @@ function boatshow_preprocess_media (&$variables) {
       ]
     );
 
+    if ($media->hasField('field_description') && isset($media->get('field_description')->value)) {
+      $variables['description'] = $media->get('field_description')->value;
+    }
+
     $variables['file_filemime'] = $file->filemime->value;
 
     // Assign classes based on file type

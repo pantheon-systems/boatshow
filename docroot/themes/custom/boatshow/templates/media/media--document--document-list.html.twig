@@ -28,7 +28,10 @@
     <span class="document-filetype"><span class="sr-only">{{ file_filemime }}</span></span>
     <div class="document-text">
       <h4 class="document-label">{{ name }}</h4>
-      <div class="document-filesize">{{file_filesize_human}}</div>
+      {% if description is defined %}
+        <div class="document-description">{{ description }}</div>
+      {% endif %}
+      <div class="document-filesize">{{ file_filesize_human }}</div>
     </div>
     <span class="document-download-button"><span class="sr-only">{{'Download'|t}}</span></span>
   </a>

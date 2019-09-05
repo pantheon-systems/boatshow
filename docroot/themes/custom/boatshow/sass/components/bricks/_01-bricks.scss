@@ -419,7 +419,8 @@ $document-list-icon-top-adjust: 0.3em !default;
     padding: 0;
   }
 
-  & .document-filesize {
+  & .document-filesize,
+  & .document-description {
     color: inherit;
     margin-top: -0.2em;
     font-size: 0.9em;
