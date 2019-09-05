@@ -1,6 +1,5 @@
-'use strict';
-
 (function($, Drupal) {
+  'use strict';
 
   // Example of Drupal behavior loaded.
   Drupal.behaviors.boatshowNewsletter = {

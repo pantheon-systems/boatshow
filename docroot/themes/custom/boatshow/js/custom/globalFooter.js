@@ -1,6 +1,5 @@
-'use strict';
-
 (function($, Drupal) {
+  'use strict';
 
   Drupal.behaviors.boatshowGlobalFooter = {
     attach: function attach(context, settings) {
