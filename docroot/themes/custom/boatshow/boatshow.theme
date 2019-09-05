@@ -737,6 +737,21 @@ function boatshow_preprocess_eck_entity(&$variables) {
     }
   }
 
+  if ($entity->bundle() === 'countdown') {
+    if ($entity->hasField('field_countdown_to')) {
+      if (!empty($entity->field_countdown_to->value)) {
+
+        // Either site default timezone or user timezone
+        $timezone = drupal_get_user_timezone();
+        $dt = new \DateTime($entity->field_countdown_to->value, new \DateTimeZone('UTC'));
+        $dt->setTimeZone(new \DateTimeZone($timezone));
+
+        // Format as iso8601 for JS parsing
+        $variables['countdown_date'] = $dt->format('c');
+      }
+    }
+  }
+
   // Add contextual links.
   if (\Drupal::currentUser()->hasPermission('access contextual links')) {
     $url = $entity->toUrl('edit-form');

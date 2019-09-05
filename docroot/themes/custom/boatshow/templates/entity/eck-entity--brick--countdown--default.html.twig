@@ -1,25 +1,12 @@
 <section {{ attributes }}>
+  {{ attach_library('boatshow/countdown_timer') }}
+
   {{ context_links }}
-  {{ attach_library('boatshow/jcountdown') }}
+
   <div class="countdown-title">{{ entity['#entity'].title.value }}</div>
-  <div class="jquery-countdown"></div>
+  <div class="jquery-countdown" data-countdown-date={{countdown_date}}></div>
+
   {% if entity['#entity'].field_brick_link.0.uri %}
-  <a href="{{ entity['#entity'].field_brick_link.0.uri }}" class="countdown-button button" data-gtm-tracking="Navigation - Buy tickets now - Inline">{{ entity['#entity'].field_brick_link.0.title }}</a>
+    <a href="{{ entity['#entity'].field_brick_link.0.uri }}" class="countdown-button button" data-gtm-tracking="Navigation - Buy tickets now - Inline">{{ entity['#entity'].field_brick_link.0.title }}</a>
   {% endif %}
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function(){
-        jQuery(".jquery-countdown").countdown({
-          "date" : "{{ entity['#entity'].field_countdown_to.value }}",
-          "template": "" +
-              "<div class='countdown-item'><span class='countdown-value'>%m</span><span class='countdown-label'>%tm</span></div>" +
-              "<div class='countdown-item'><span class='countdown-value'>%d</span><span class='countdown-label'>%td</span></div>" +
-              "<div class='countdown-item'><span class='countdown-value'>%h</span><span class='countdown-label'>%th</span></div>" +
-              "<div class='countdown-item'><span class='countdown-value'>%i</span><span class='countdown-label'>%ti</span></div>",
-          "yearsAndMonths": true,
-          "updateTime": 30000
-        });
-    });
-
-  </script>
 </section>
