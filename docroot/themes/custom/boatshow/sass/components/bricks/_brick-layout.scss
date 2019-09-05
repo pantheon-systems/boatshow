@@ -1,0 +1,117 @@
+.column-divider {
+  display: none;
+  margin: 0 auto;
+  background-color: $colorname-gray;
+}
+
+@mixin column-divider-vertical {
+  position: absolute;
+  top: 50px;
+  bottom: 50px;
+  right: 0;
+  height: 75%;
+  width: 1px;
+}
+
+@mixin column-divider-horizontal {
+  position: static;
+  height: 1px;
+  width: 75%;
+}
+
+.brick--type--layout {
+  * {
+    box-sizing: border-box;
+  }
+
+  &.enable-dividers {
+    .column-item {
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      .column-divider {
+        @include column-divider-horizontal;
+        display: block;
+        margin: 0 auto;
+      }
+
+      &:last-child > .column-divider {
+        display: none;
+      }
+
+      @include media-breakpoint-up(md) {
+        position: relative;
+        padding-left: 25px;
+        padding-right: 25px;
+
+        .column-divider {
+          @include column-divider-vertical;
+        }
+      }
+    }
+  }
+
+  // 2 Columns
+  .nmma-layout--two_column_grid > .column-item {
+    width: susy-span(12 of 12);
+
+    @include media-breakpoint-up(md) {
+      width: susy-span(6 of 12);
+    }
+  }
+
+  // 3 Columns
+  .nmma-layout--three_column_grid > .column-item {
+    width: susy-span(12 of 12);
+
+    @include media-breakpoint-only(md) {
+      width: susy-span(6 of 12);
+
+      &:nth-child(odd) > .column-divider {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      width: susy-span(4 of 12);
+    }
+  }
+
+  // 4 Columns
+  .nmma-layout--four_column_even_grid > .column-item {
+    width: 100%;
+
+    @include media-breakpoint-only(md) {
+      width: 50%;
+
+      &:nth-child(even) > .column-divider {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      width: 25%;
+    }
+  }
+
+  // 2 Columns, 2/3, 1/3
+  .nmma-layout--two_thirds_left > .column-item {
+    width: susy-span(12 of 12);
+
+    @include media-breakpoint-only(md) {
+      & > .column-divider {
+        @include column-divider-horizontal;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      &:nth-child(odd) {
+        width: susy-span(8 of 12);
+      }
+
+      &:nth-child(even) {
+        width: susy-span(4 of 12);
+      }
+    }
+  }
+}
