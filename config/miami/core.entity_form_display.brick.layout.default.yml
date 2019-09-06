@@ -1,0 +1,35 @@
+uuid: 0cb57a4d-6a9f-4f1a-9275-055ea82a8bbb
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.layout
+    - field.field.brick.layout.field_enable_dividers
+id: brick.layout.default
+targetEntityType: brick
+bundle: layout
+mode: default
+content:
+  field_enable_dividers:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

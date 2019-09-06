@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - eck.eck_type.brick.layout
+    - field.field.brick.layout.field_enable_dividers
 _core:
   default_config_hash: naWGm4fTNkj4iOXZKng5aFwYVf3WP-z3xyxcJmj04Fc
 id: brick.layout.default
@@ -12,5 +13,7 @@ bundle: layout
 mode: default
 content: {  }
 hidden:
+  field_enable_dividers: true
   langcode: true
+  search_api_excerpt: true
   title: true

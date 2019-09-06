@@ -1,11 +1,1 @@
-{% if content %}
-
-  <section {{ attributes.addClass('flex-container').addClass('nmma-layout') }}>
-    {% for region in content['#layout'].regions|keys if content[region] %}
-      <div class="col-12-xs col-6-md col-4-lg column-item">
-        {{ content[region] }}
-      </div>
-    {% endfor %}
-  </section>
-
-{% endif %}
+{% extends "@nmma_brick_layouts/layouts/_nmma_layout_base.html.twig" %}

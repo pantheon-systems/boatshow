@@ -1,0 +1,14 @@
+{% if content %}
+  {% block content %}
+    <section {{ attributes }}>
+      {% for region in content['#layout'].regions|keys if content[region] %}
+        {% block loop %}
+          <div class="column-item">
+            {{ content[region] }}
+            <div class="column-divider"></div>
+          </div>
+        {% endblock %}
+      {% endfor %}
+    </section>
+  {% endblock %}
+{% endif %}

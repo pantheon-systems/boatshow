@@ -1,17 +1,14 @@
-{% if content %}
-  <section {{ attributes.addClass('disruptor') }}>
-    {% for region in content['#layout'].regions|keys if content[region] %}
-      {% if loop.index is odd %}
-        <div class="container flex-container">
-          <div class="disruptor-content--left col-12-xs col-12-sm">
-        {% else %}
-          <div class="disruptor-content--right col-12-xs col-12-sm">
-        {% endif %}
-          {{ content[region] }}
-        </div>
-      {% if loop.index is even or (loop.index is odd and loop.index == counter) %}
-        </div>
-      {% endif %}
-    {% endfor %}
-  </section>
-{% endif %}
+{% extends "@nmma_brick_layouts/layouts/_nmma_layout_base.html.twig" %}
+{% block loop %}
+  {% if loop.index is odd %}
+    <div class="container flex-container">
+      <div class="disruptor-content--left col-12-xs col-12-sm">
+    {% else %}
+      <div class="disruptor-content--right col-12-xs col-12-sm">
+    {% endif %}
+      {{ content[region] }}
+    </div>
+  {% if loop.index is even or (loop.index is odd and loop.index == counter) %}
+    </div>
+  {% endif %}
+{% endblock %}

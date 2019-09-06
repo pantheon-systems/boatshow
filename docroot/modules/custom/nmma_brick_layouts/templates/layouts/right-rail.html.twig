@@ -1,17 +1,12 @@
-{% if content %}
-
-  <section {{ attributes.addClass('flex-container').addClass('nmma-layout').addClass('right-rail') }}>
-    {% for region in content['#layout'].regions|keys if content[region] %}
-      {% if loop.index is odd %}
-        <div class="col-12-xs col-7-sm">
-          {{ content[region] }}
-        </div>
-      {% else %}
-        <div class="col-12-xs col-4-sm">
-          {{ content[region] }}
-        </div>
-      {% endif %}
-    {% endfor %}
-  </section>
-
-{% endif %}
+{% extends "@nmma_brick_layouts/layouts/_nmma_layout_base.html.twig" %}
+{% block loop %}
+  {% if loop.index is odd %}
+    <div class="col-12-xs col-7-sm">
+      {{ content[region] }}
+    </div>
+  {% else %}
+    <div class="col-12-xs col-4-sm">
+      {{ content[region] }}
+    </div>
+  {% endif %}
+{% endblock %}

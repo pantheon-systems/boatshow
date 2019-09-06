@@ -141,6 +141,9 @@
             "drupal/viewfield": {
                 "Duplicate reference field types": "https://www.drupal.org/files/issues/2900913-5-viewfield-fix-duplicates.patch"
             },
+            "drupal/bricks": {
+                "Layout entity wrapper is missing [https://www.drupal.org/project/bricks/issues/2952523]": "https://www.drupal.org/files/issues/2018-04-12/bricks-layout_entity_wrapper-2952523-3.patch"
+            },
             "drupal/clientside_validation_jquery": {
                 "Support inline_form_errors module": "https://www.drupal.org/files/issues/2906132-4.patch"
             },
