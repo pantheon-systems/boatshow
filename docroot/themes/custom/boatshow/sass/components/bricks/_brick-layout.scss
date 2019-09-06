@@ -6,10 +6,9 @@
 
 @mixin column-divider-vertical {
   position: absolute;
-  top: 50px;
-  bottom: 50px;
+  top: 0;
   right: 0;
-  height: 75%;
+  height: 100%;
   width: 1px;
 }
 
@@ -24,12 +23,12 @@
     box-sizing: border-box;
   }
 
-  &.enable-dividers {
-    .column-item {
+  &.enable-dividers > .nmma-layout {
+    & > .column-item {
       margin-top: 20px;
       margin-bottom: 20px;
 
-      .column-divider {
+      & > .column-divider {
         @include column-divider-horizontal;
         display: block;
         margin: 0 auto;
@@ -44,7 +43,7 @@
         padding-left: 25px;
         padding-right: 25px;
 
-        .column-divider {
+        & > .column-divider {
           @include column-divider-vertical;
         }
       }
