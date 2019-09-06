@@ -20,8 +20,8 @@ dependencies:
     - taxonomy.vocabulary.vehicle_product_type
   content:
     - 'taxonomy_term:non_vehicle_product_type:0576c336-a935-4000-b33b-87a82805498a'
+    - 'taxonomy_term:vehicle_product_type:468f04b2-fade-4691-a784-5cbfe60bd02e'
     - 'taxonomy_term:vehicle_product_type:593e5f50-4009-484b-ad2f-1332ddd43bb6'
-    - 'taxonomy_term:vehicle_product_type:bd5f2e2b-ad19-4904-9323-b1b66b4ec416'
     - 'taxonomy_term:vehicle_product_type:dc48d44e-2e15-4351-9cb2-bea4e376e5a4'
   module:
     - address
@@ -1349,6 +1349,73 @@ display:
       display_description: ''
       block_description: 'Boats By Brand'
       fields:
+        field_website:
+          id: field_website
+          table: node__field_website
+          field: field_website
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Website
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: uri
+          type: link
+          settings:
+            trim_length: 80
+            url_only: false
+            url_plain: false
+            rel: '0'
+            target: '0'
+          group_column: uri
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_exhbtr_lctn_brand:
           id: field_exhbtr_lctn_brand
           table: paragraph__field_exhbtr_lctn_brand
@@ -1419,7 +1486,7 @@ display:
           relationship: field_exhbtr_lctn_brand
           group_type: group
           admin_label: ''
-          label: ''
+          label: Certified
           exclude: false
           alter:
             alter_text: false
@@ -1464,7 +1531,7 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_true: '<img width="75" src="/sites/miami/files/mibs_website_sail_icons-nmma_certified.png">'
+            format_custom_true: '<img width="75" src="/sites/miami/files/nmma_certified_trmmd.png">'
             format_custom_false: ''
           group_column: value
           group_columns: {  }
@@ -1487,8 +1554,8 @@ display:
           label: Exhibitor
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{{ title }}<br>\r\n{{ field_website }}"
             make_link: false
             path: ''
             absolute: false
@@ -1829,7 +1896,7 @@ display:
           operator: or
           value:
             1656: 1656
-            1751: 1751
+            1747: 1747
             1651: 1651
           group: 1
           exposed: false
@@ -1897,6 +1964,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_website'
         - 'config:field.storage.paragraph.field_exhbtr_lctn_brand'
         - 'config:field.storage.taxonomy_term.field_brand_certified'
   block_component:
@@ -2902,7 +2970,7 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_true: '<img width="55" src="/sites/miami/files/mibs_website_sail_icons-nmma_certified.png">'
+            format_custom_true: '<img width="55" src="/sites/miami/files/nmma_certified_trmmd.png">'
             format_custom_false: ''
           group_column: value
           group_columns: {  }
@@ -2926,7 +2994,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<div><div class="sailboatbrand sailboatbrandtext"><strong>{{ field_exhbtr_lctn_brand }} </strong><br>{{ title }}<br>{{ view }}</div><div class="sailboatbrand sailboatbrandlogo">{{ field_brand_certified }} </div></div>'
+            text: '<div class="sailboatbrand-container"><div class="sailboatbrand sailboatbrandtext"><strong>{{ field_exhbtr_lctn_brand }} </strong><br>{{ title }}<br>{{ view }}</div><div class="sailboatbrand sailboatbrandlogo">{{ field_brand_certified }} </div></div>'
             make_link: false
             path: ''
             absolute: false

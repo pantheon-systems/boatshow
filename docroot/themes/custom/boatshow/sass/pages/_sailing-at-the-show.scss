@@ -88,8 +88,8 @@
   }
 }
 
-.sailboatbrand {
-    display: inline-block;
+.alias--sailing-at-the-show .views-view-grid .views-field .field-content {
+    display: block;
 }
 
 .sailboatbrand img {
@@ -97,11 +97,14 @@
 }
 
 .sailboatbrandlogo {
-    display: inline-block;
     width: 30%;
 }
 
 .sailboatbrandtext {
-    display: inline-block;
     width: 70%;
+}
+
+.sailboatbrand-container {
+    display: flex;
+    align-items: stretch;
 }
