@@ -34,7 +34,7 @@
           adaptiveHeight: true,
           responsive: [
             {
-              breakpoint: 768,
+              breakpoint: 767, // $screen-md - 1px
               settings: {
                 arrows: false,
                 infinite: false,
