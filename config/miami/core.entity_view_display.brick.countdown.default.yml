@@ -15,4 +15,5 @@ hidden:
   field_brick_link: true
   field_countdown_to: true
   langcode: true
+  search_api_excerpt: true
   title: true
