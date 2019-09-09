@@ -1,0 +1,27 @@
+uuid: d46800d1-b1ce-4db5-bb08-52f892d6e015
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.faq
+    - field.field.brick.faq.field_paragraphs
+  module:
+    - entity_reference_revisions
+id: brick.faq.default
+targetEntityType: brick
+bundle: faq
+mode: default
+content:
+  field_paragraphs:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
+  title: true

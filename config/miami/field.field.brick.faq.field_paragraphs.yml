@@ -1,0 +1,37 @@
+uuid: 88d01472-5870-41c0-97eb-5c00b92312ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.faq
+    - field.storage.brick.field_paragraphs
+    - paragraphs.paragraphs_type.faq_item
+  module:
+    - entity_reference_revisions
+id: brick.faq.field_paragraphs
+field_name: field_paragraphs
+entity_type: brick
+bundle: faq
+label: 'FAQ Items'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      faq_item: faq_item
+    target_bundles_drag_drop:
+      faq_item:
+        enabled: true
+        weight: 4
+      arrival_location_links:
+        weight: 5
+        enabled: false
+      exhibitor_location:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

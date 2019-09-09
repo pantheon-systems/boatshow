@@ -1,0 +1,9 @@
+uuid: bf4088b9-a296-4fb2-ac58-da7d117ff957
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: FAQ
+type: faq
+description: 'Houses FAQ items.'
