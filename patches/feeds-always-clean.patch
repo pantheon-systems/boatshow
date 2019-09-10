@@ -1,8 +1,8 @@
 diff --git src/Feeds/Processor/EntityProcessorBase.php src/Feeds/Processor/EntityProcessorBase.php
-index baad3067..cea33ef3 100644
+index baad3067..acaf0e67 100644
 --- src/Feeds/Processor/EntityProcessorBase.php
 +++ src/Feeds/Processor/EntityProcessorBase.php
-@@ -119,9 +119,9 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
+@@ -119,21 +119,15 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
     * {@inheritdoc}
     */
    public function process(FeedInterface $feed, ItemInterface $item, StateInterface $state) {
@@ -14,3 +14,15 @@ index baad3067..cea33ef3 100644
        $this->initCleanList($feed, $clean_state);
      }
 
+     $existing_entity_id = $this->existingEntityId($feed, $item);
+     $skip_existing = $this->configuration['update_existing'] == static::SKIP_EXISTING;
+
+-    // If the entity is an existing entity it must be removed from the clean
+-    // list.
+-    if ($existing_entity_id) {
+-      $clean_state->removeItem($existing_entity_id);
+-    }
+-
+     // Bulk load existing entities to save on db queries.
+     if ($skip_existing && $existing_entity_id) {
+       $state->skipped++;
