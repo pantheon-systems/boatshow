@@ -878,6 +878,21 @@ function boatshow_preprocess_field(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for "paragraph".
+ */
+function boatshow_preprocess_paragraph__faq_item(&$variables) {
+  $variables['paragraph_index'] = NULL;
+
+  // Set paragraph item index to be used in template for aria-controls attribute
+  foreach ($variables['paragraph']->getParentEntity()->field_paragraphs->getValue() as $index => $item) {
+    if ($item['target_id'] === $variables['paragraph']->id()) {
+      $variables['paragraph_index'] = $index;
+      break;
+    }
+  }
+}
+
+/**
  * Prepares variables for unformatted summary view templates.
  *
  * Default template: views-view-summary-unformatted.html.twig.

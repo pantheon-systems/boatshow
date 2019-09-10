@@ -36,6 +36,10 @@ javascript:
     - core/jquery.ui
     - boatshow/responsive_image_polyfills
 
+faq_list:
+  js:
+    assets-dist/js/faq.js: {}
+
 slick_carousel:
   js:
     ../../../libraries/slick-carousel/slick/slick.min.js: {}
