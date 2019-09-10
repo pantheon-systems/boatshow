@@ -2,7 +2,7 @@ uuid: 55570e6e-93b4-4a5a-817d-6214b741b72a
 langcode: en
 status: true
 dependencies: {  }
-name: Levels
+name: 'Seminar Levels'
 vid: levels
-description: ''
+description: 'Describes the expertise level of the seminar like ''Beginner'' or ''Expert'''
 weight: 0

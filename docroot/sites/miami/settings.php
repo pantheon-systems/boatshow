@@ -26,3 +26,4 @@ require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
  *   parameter. Functional code can use \Drupal::installProfile().
  */
 $settings['install_profile'] = 'minimal';
+$settings['update_free_access'] = FALSE;

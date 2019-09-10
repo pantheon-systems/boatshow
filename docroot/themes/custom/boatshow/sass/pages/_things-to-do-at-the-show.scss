@@ -83,11 +83,6 @@
     border-left: 1em solid white;
     border-top: 1em solid white;
 
-    &:hover {
-      .grid-item--content > img {
-        filter: none;
-      }
-    }
   }
 
   .grid-item--content {
