@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe10a88199fcabee1f79a3b2439cd38c",
+    "content-hash": "56543ef296bc7d89e6154358aa271f76",
     "packages": [
         {
             "name": "acquia/blt",
@@ -6948,6 +6948,10 @@
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
+                },
+                "patches_applied": {
+                    "Entity Processor shows actions but uses wrong id [https://www.drupal.org/project/feeds/issues/3078857]": "https://www.drupal.org/files/issues/2019-09-03/3078857-2.patch",
+                    "HACK: ALWAYS CLEAN during processing": "./patches/feeds-always-clean.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

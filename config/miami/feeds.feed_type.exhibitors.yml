@@ -1,0 +1,204 @@
+uuid: 5783e07f-3d3a-4ebe-b5d2-d353f7a68429
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.exhibitor.title
+    - field.field.node.exhibitor.field_address_line_1
+    - field.field.node.exhibitor.field_address_line_2
+    - field.field.node.exhibitor.field_city
+    - field.field.node.exhibitor.field_exhibitor_id
+    - field.field.node.exhibitor.field_fax_number
+    - field.field.node.exhibitor.field_phone_number
+    - field.field.node.exhibitor.field_show_code
+    - field.field.node.exhibitor.field_state_or_province
+    - field.field.node.exhibitor.field_website
+    - field.field.node.exhibitor.field_zip_or_postal_code
+    - node.type.exhibitor
+  module:
+    - feeds_ex
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      133833d2-a2fe-435e-b112-b9725339bb84:
+        default_value: '1'
+        only_if_empty: false
+        plugin: default_value
+        source: published
+        weight: 0
+        label: 'Set value or default value'
+        uuid: 133833d2-a2fe-435e-b112-b9725339bb84
+label: Exhibitors
+id: exhibitors
+description: ''
+import_period: -1
+fetcher: http
+fetcher_configuration:
+  auto_detect_feeds: false
+  use_pubsubhubbub: false
+  fallback_hub: ''
+  request_timeout: 30
+parser: jsonpath
+parser_configuration:
+  context:
+    value: '$.*'
+  sources:
+    address2:
+      label: address2
+      value: address2
+    city:
+      label: city
+      value: city
+    exhibitorid:
+      label: exhibitorId
+      value: exhibitorId
+    showguidename:
+      label: showGuideName
+      value: showGuideName
+    fax:
+      label: fax
+      value: fax
+    phone:
+      label: phone
+      value: phone
+    editioncode:
+      label: editionCode
+      value: editionCode
+    url:
+      label: url
+      value: url
+    postalcode:
+      label: postalCode
+      value: postalCode
+    state:
+      label: state
+      value: state
+    published:
+      label: published
+      value: published
+  display_errors: false
+  source_encoding:
+    - auto
+  debug_mode: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  update_existing: 2
+  update_non_existent: 'node_unpublish_action'
+  expire: -1
+  owner_feed_author: false
+  owner_id: 101
+  authorize: true
+  skip_hash_check: false
+  values:
+    type: exhibitor
+custom_sources:
+  address1:
+    label: address1
+    value: address1
+    machine_name: address1
+  address2:
+    label: address2
+    value: address2
+    machine_name: address2
+  city:
+    label: city
+    value: city
+    machine_name: city
+  exhibitorid:
+    label: exhibitorId
+    value: exhibitorId
+    machine_name: exhibitorid
+  showguidename:
+    label: showGuideName
+    value: showGuideName
+    machine_name: showguidename
+  fax:
+    label: fax
+    value: fax
+    machine_name: fax
+  phone:
+    label: phone
+    value: phone
+    machine_name: phone
+  editioncode:
+    label: editionCode
+    value: editionCode
+    machine_name: editioncode
+  url:
+    label: url
+    value: url
+    machine_name: url
+  postalcode:
+    label: postalCode
+    value: postalCode
+    machine_name: postalcode
+  state:
+    label: state
+    value: state
+    machine_name: state
+  published:
+    label: published
+    value: published
+    machine_name: published
+mappings:
+  -
+    target: field_address_line_1
+    map:
+      value: 'parent:uuid'
+    unique: {  }
+  -
+    target: field_address_line_2
+    map:
+      value: address2
+    unique: {  }
+  -
+    target: field_city
+    map:
+      value: city
+    unique: {  }
+  -
+    target: field_exhibitor_id
+    map:
+      value: exhibitorid
+    unique:
+      value: '1'
+  -
+    target: title
+    map:
+      value: showguidename
+    unique: {  }
+  -
+    target: field_fax_number
+    map:
+      value: fax
+  -
+    target: field_phone_number
+    map:
+      value: phone
+  -
+    target: field_show_code
+    map:
+      value: editioncode
+    unique: {  }
+  -
+    target: field_website
+    map:
+      uri: url
+      title: ''
+  -
+    target: field_zip_or_postal_code
+    map:
+      value: postalcode
+    unique: {  }
+  -
+    target: field_state_or_province
+    map:
+      value: state
+    unique: {  }
+  -
+    target: status
+    map:
+      value: published

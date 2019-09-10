@@ -1,0 +1,16 @@
+diff --git src/Feeds/Processor/EntityProcessorBase.php src/Feeds/Processor/EntityProcessorBase.php
+index baad3067..cea33ef3 100644
+--- src/Feeds/Processor/EntityProcessorBase.php
++++ src/Feeds/Processor/EntityProcessorBase.php
+@@ -119,9 +119,9 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
+    * {@inheritdoc}
+    */
+   public function process(FeedInterface $feed, ItemInterface $item, StateInterface $state) {
+-    // Initialize clean list if needed.
++    // Initialize clean list ALWAYS
+     $clean_state = $feed->getState(StateInterface::CLEAN);
+-    if (!$clean_state->initiated()) {
++    if (TRUE) {
+       $this->initCleanList($feed, $clean_state);
+     }
+
