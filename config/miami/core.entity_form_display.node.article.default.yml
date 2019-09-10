@@ -22,13 +22,15 @@ dependencies:
     - field.field.node.article.field_article_type
     - field.field.node.article.field_contacts
     - field.field.node.article.field_feed_id
+    - field.field.node.article.field_marine_industry_category
     - field.field.node.article.field_social_image
     - field.field.node.article.field_video_url
+    - field.field.node.article.field_website
     - node.type.article
   module:
     - entity_browser
     - field_group
-    - media_library
+    - link
     - metatag
     - path
     - text
@@ -235,6 +237,14 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_marine_industry_category:
+    weight: 30
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_social_image:
     type: entity_browser_entity_reference
     weight: 28
@@ -265,6 +275,14 @@ content:
       field_widget_replace: false
     region: content
     third_party_settings: {  }
+  field_website:
+    weight: 29
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   langcode:
     type: language_select
     weight: 4

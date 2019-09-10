@@ -206,6 +206,12 @@ function boatshow_preprocess_node(&$variables) {
     }
   }
 
+  if ($node->bundle() === 'article') {
+    if ($node->field_website && $node->field_website->uri) {
+      $variables['read_more_url'] = $node->field_website->uri;
+    }
+  }
+
   // Helper variables for multiple nodes.
   if (!empty($variables['elements']['#entity_type'])) {
     $variables['attributes']['class'][] = Html::cleanCssIdentifier('entity--type-' . $variables['elements']['#entity_type']);

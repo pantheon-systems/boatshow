@@ -62,6 +62,7 @@ class NmmaExhibitorArticleWebformHandler extends WebformHandlerBase {
       'title' => $title,
       'status' => 0,
       'field_article_image' => $media_value,
+      'field_article_tsr_image' => $media_value,
       'field_article_type' => [
         [
           'target_id' => 1521 //Exhibitor term
@@ -70,6 +71,14 @@ class NmmaExhibitorArticleWebformHandler extends WebformHandlerBase {
       'field_article_body' => [
         'value' => $body,
         'format' => 'restricted' //This can be updated by the content editor later
+      ],
+      'field_article_teaser' => [
+        'value' => $body,
+        'format' => 'restricted' //This can be updated by the content editor later
+      ],
+      'field_marine_industry_category' => $submission_array['marine_industry_category'],
+      'field_website' => [
+        'uri' => $submission_array['original_article_url']
       ],
       'created' => strtotime($submission_array['article_date'])
     ]);

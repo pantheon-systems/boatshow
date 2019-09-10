@@ -25,6 +25,9 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
     {{ content.field_video_url }}
     {{ content.field_article_image }}
     {{ content.field_article_body }}
+    {% if read_more_url %}
+      <p><a href="{{read_more_url}}" target="_blank">Click Here to View Details</a></p>
+    {% endif %}
     {{ content.field_contacts }}
   </div>
 

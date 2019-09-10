@@ -1,0 +1,23 @@
+uuid: 980eb142-9089-435d-95db-13f2116c3ec3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_website
+    - node.type.article
+  module:
+    - link
+id: node.article.field_website
+field_name: field_website
+entity_type: node
+bundle: article
+label: 'Read More URL'
+description: 'For exhibitor articles, a link back to the originating website'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

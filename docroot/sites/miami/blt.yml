@@ -3,7 +3,7 @@ project:
     hostname: local.miami.boatshows.com
     protocol: https
   machine_name: miami
-  human_name: 'Miami City Boat Show'
+  human_name: 'Miami International Boat Show'
 drush:
   aliases:
     local: self

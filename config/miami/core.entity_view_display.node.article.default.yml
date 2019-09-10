@@ -21,8 +21,10 @@ dependencies:
     - field.field.node.article.field_article_type
     - field.field.node.article.field_contacts
     - field.field.node.article.field_feed_id
+    - field.field.node.article.field_marine_industry_category
     - field.field.node.article.field_social_image
     - field.field.node.article.field_video_url
+    - field.field.node.article.field_website
     - node.type.article
   module:
     - panelizer
@@ -150,5 +152,7 @@ hidden:
   field_article_subhead: true
   field_article_teaser: true
   field_article_tsr_image: true
+  field_marine_industry_category: true
+  field_website: true
   langcode: true
   search_api_excerpt: true
