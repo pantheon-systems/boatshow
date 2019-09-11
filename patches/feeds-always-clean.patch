@@ -1,28 +1,12 @@
 diff --git src/Feeds/Processor/EntityProcessorBase.php src/Feeds/Processor/EntityProcessorBase.php
-index baad3067..acaf0e67 100644
+index baad3067..e15c0df0 100644
 --- src/Feeds/Processor/EntityProcessorBase.php
 +++ src/Feeds/Processor/EntityProcessorBase.php
-@@ -119,21 +119,15 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
-    * {@inheritdoc}
-    */
-   public function process(FeedInterface $feed, ItemInterface $item, StateInterface $state) {
--    // Initialize clean list if needed.
-+    // Initialize clean list ALWAYS
-     $clean_state = $feed->getState(StateInterface::CLEAN);
--    if (!$clean_state->initiated()) {
-+    if (TRUE) {
-       $this->initCleanList($feed, $clean_state);
-     }
-
-     $existing_entity_id = $this->existingEntityId($feed, $item);
-     $skip_existing = $this->configuration['update_existing'] == static::SKIP_EXISTING;
-
--    // If the entity is an existing entity it must be removed from the clean
--    // list.
--    if ($existing_entity_id) {
--      $clean_state->removeItem($existing_entity_id);
--    }
--
-     // Bulk load existing entities to save on db queries.
-     if ($skip_existing && $existing_entity_id) {
-       $state->skipped++;
+@@ -227,7 +227,7 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
+     // Set list of entities to clean.
+     $ids = $this->queryFactory->get($this->entityType())
+       ->condition('feeds_item.target_id', $feed->id())
+-      ->condition('feeds_item.hash', $this->getConfiguration('update_non_existent'), '<>')
++      // ->condition('feeds_item.hash', $this->getConfiguration('update_non_existent'), '<>')
+       ->execute();
+     $state->setList($ids);
