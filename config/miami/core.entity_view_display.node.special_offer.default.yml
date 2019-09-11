@@ -5,8 +5,12 @@ dependencies:
   config:
     - field.field.node.special_offer.body
     - field.field.node.special_offer.field_booth
+    - field.field.node.special_offer.field_logo
+    - field.field.node.special_offer.field_offer_type
     - node.type.special_offer
   module:
+    - image
+    - options
     - panelizer
     - text
     - user
@@ -36,6 +40,22 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_logo:
+    weight: 103
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_offer_type:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   links:
     weight: 100
     region: content
@@ -44,3 +64,4 @@ content:
 hidden:
   addtoany: true
   langcode: true
+  search_api_excerpt: true
