@@ -216,6 +216,14 @@ function boatshow_preprocess_node(&$variables) {
   if (!empty($variables['elements']['#entity_type'])) {
     $variables['attributes']['class'][] = Html::cleanCssIdentifier('entity--type-' . $variables['elements']['#entity_type']);
   }
+
+  // Set offer type class for special offer teasers
+  if ($node->bundle() === 'special_offer') {
+    if ($node->hasField('field_offer_type') && !empty($node->field_offer_type->value)) {
+      $offer_type = $node->field_offer_type->value;
+      $variables['attributes']['class'][] = 'special-offer-' . $offer_type;
+    }
+  }
 }
 
 

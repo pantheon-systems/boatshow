@@ -6,10 +6,20 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.special_offer.body
     - field.field.node.special_offer.field_booth
+    - field.field.node.special_offer.field_logo
+    - field.field.node.special_offer.field_offer_type
     - node.type.special_offer
   module:
+    - image
+    - panelizer
     - text
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.special_offer.teaser
 targetEntityType: node
 bundle: special_offer
@@ -17,18 +27,35 @@ mode: teaser
 content:
   body:
     label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
+    type: text_default
+    weight: 3
+    settings: {  }
     third_party_settings: {  }
     region: content
+  field_booth:
+    type: string
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_logo:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
   links:
-    weight: 100
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   addtoany: true
-  field_booth: true
+  field_offer_type: true
   langcode: true
+  search_api_excerpt: true

@@ -197,3 +197,17 @@ function nmma_brick_layouts_features_effect_allowed_values_function () {
 
   return $options;
 }
+
+/**
+ * Defines allowed values for config field.storage.node.field_offer_type.yml
+ * @link https://drupal.stackexchange.com/a/242011
+ */
+function nmma_brick_layouts_offer_type_allowed_values_function () {
+
+  $options = [
+    'job' => 'job',
+    'deal' => 'deal'
+  ];
+
+  return $options;
+}
