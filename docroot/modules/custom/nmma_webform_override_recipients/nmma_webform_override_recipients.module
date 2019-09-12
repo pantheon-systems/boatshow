@@ -10,10 +10,10 @@ function nmma_webform_override_recipients_webform_handler_invoke_alter ($handler
   if (
     $method_name === 'override_settings'
     && $handler instanceof \Drupal\webform\Plugin\WebformHandler\EmailWebformHandler
+    && $handler->getHandlerId() === 'email_recipient_override'
     && isset($args[1])
     && $args[1] instanceof \Drupal\webform\Entity\WebformSubmission
   ) {
-
     $submission = $args[1];
     $submission_data = $submission->getData();
     $handlerConfig = $handler->getConfiguration();

@@ -174,10 +174,10 @@ access:
     users: {  }
     permissions: {  }
 handlers:
-  email:
+  email_recipient_override:
     id: email
-    label: Email
-    handler_id: email
+    label: 'Email Recipient Override'
+    handler_id: email_recipient_override
     status: true
     conditions: {  }
     weight: 0

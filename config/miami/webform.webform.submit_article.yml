@@ -176,13 +176,21 @@ access:
     users: {  }
     permissions: {  }
 handlers:
-  email:
-    id: email
-    label: Email
-    handler_id: email
+  exhibitor_article_on_submit:
+    id: exhibitor_article_from_webform
+    label: 'Exhibitor Article on Submit'
+    handler_id: exhibitor_article_on_submit
     status: true
     conditions: {  }
-    weight: -49
+    weight: -50
+    settings: {  }
+  email_recipient_override:
+    id: email
+    label: 'Email Recipient Override'
+    handler_id: email_recipient_override
+    status: true
+    conditions: {  }
+    weight: 0
     settings:
       states:
         - completed
@@ -196,7 +204,7 @@ handlers:
       from_options: {  }
       from_name: _default
       subject: 'New Exhibitor Article Submitted'
-      body: "{% set nid = webform_submission.getData()['created_nid'] %}\r\n\r\n<p>An exhibitor has submitted a news article which requires your review before publication.</p>\r\n\r\n<ul>\r\n  <li><a href=\"{{ url('entity.webform_submission.canonical', {'webform': webform_id, 'webform_submission': webform_submission.id() }) }}\">View Webform Submission</a></li>\r\n  {% if nid is not empty %}\r\n  <li><a href=\"{{ url('entity.node.canonical', {'node': nid }) }}\">View Article Node</a></li>\r\n  <li><a href=\"{{ url('entity.node.edit_form', {'node': nid }) }}\">Edit/Publish Article Node</a></li>\r\n  {% endif %}\r\n</ul>\r\n"
+      body: "{% set nid = webform_submission.getData()['created_nid'] %}\r\n\r\n<p>An exhibitor has submitted a news article which requires your review before publication.</p>\r\n\r\n<ul>\r\n  <li><a href=\"{{ url('entity.webform_submission.canonical', {'webform': webform_id, 'webform_submission': webform_submission.id() }) }}\">View Webform Submission</a></li>\r\n  {% if nid is not empty %}\r\n  <li><a href=\"{{ url('entity.node.canonical', {'node': nid }) }}\">View Article Node</a></li>\r\n  <li><a href=\"{{ url('entity.node.edit_form', {'node': nid }) }}\">Edit/Publish Article Node</a></li>\r\n  {% endif %}\r\n</ul>\r\n\r\n"
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
@@ -210,11 +218,3 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
-  exhibitor_article_on_submit:
-    id: exhibitor_article_from_webform
-    label: 'Exhibitor Article on Submit'
-    handler_id: exhibitor_article_on_submit
-    status: true
-    conditions: {  }
-    weight: -50
-    settings: {  }
