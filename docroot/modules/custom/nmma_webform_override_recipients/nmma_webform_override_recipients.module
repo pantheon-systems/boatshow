@@ -1,15 +1,44 @@
 <?php
 
+/**
+ * Implements HOOK_webform_handler_invoke_alter
+ *
+ * Override webform recipients based on YAML string set in webform block settings.
+ * Example YAML: override_recipients: name1@test.com, name2@test.com
+ */
 function nmma_webform_override_recipients_webform_handler_invoke_alter ($handler, $method_name, &$args) {
   if (
     $method_name === 'override_settings'
     && $handler instanceof \Drupal\webform\Plugin\WebformHandler\EmailWebformHandler
     && isset($args[1])
-    && isset($args[1]->getData()['override_recipients'])
-    && ($override_recipients = $args[1]->getData()['override_recipients'])
+    && $args[1] instanceof \Drupal\webform\Entity\WebformSubmission
   ) {
+
+    $submission = $args[1];
+    $submission_data = $submission->getData();
     $handlerConfig = $handler->getConfiguration();
-    $handlerConfig['settings']['to_mail'] = $override_recipients;
-    $handler->setConfiguration($handlerConfig);
+
+    if ($submission->bundle() !== 'potential_exhibitor' && isset($submission_data['override_recipients'])) {
+      $override_recipients = $submission_data['override_recipients'];
+    }
+    // Special conditions for potential_exhibitor form
+    elseif (
+      isset($submission_data['marine_based'])
+      && isset($submission_data['override_recipients'])
+      && isset($submission_data['override_recipients_marine_based'])
+    ) {
+      // If marine_based field true or false
+      if ($submission_data['marine_based'] === 0) {
+        $override_recipients = $submission_data['override_recipients'];
+      }
+      elseif ($submission_data['marine_based'] === 1) {
+        $override_recipients = $submission_data['override_recipients_marine_based'];
+      }
+    }
+
+    if (isset($override_recipients)) {
+      $handlerConfig['settings']['to_mail'] = $override_recipients;
+      $handler->setConfiguration($handlerConfig);
+    }
   }
 }
