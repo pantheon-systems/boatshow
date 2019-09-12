@@ -1,4 +1,4 @@
-uuid: 74890f98-27f0-432b-b632-0315b8cc8130
+uuid: 120ba4a8-bdef-4017-9044-48f4745c94de
 langcode: en
 status: open
 dependencies: {  }
@@ -8,11 +8,11 @@ weight: 0
 uid: 1
 template: false
 archive: false
-id: potential_sponsor
-title: 'Potential Sponsor'
+id: potential_exhibitor
+title: 'Potential Exhibitor'
 description: ''
 category: ''
-elements: "name:\n  '#type': webform_name\n  '#title': Name\n  '#required': true\n  '#title__access': false\n  '#first__title': 'First Name'\n  '#first__required': true\n  '#middle__access': false\n  '#last__title': 'Last Name'\n  '#last__required': true\n  '#suffix__access': false\n  '#degree__access': false\ncompany_name:\n  '#type': textfield\n  '#title': 'Company Name'\n  '#required': true\n  '#required_error': 'Company name is required'\nemail:\n  '#type': email\n  '#title': Email\n  '#required': true\n  '#required_error': 'Email is required'\nphone:\n  '#type': tel\n  '#title': Phone\n  '#required': true\ncaptcha:\n  '#type': captcha\n  '#captcha_type': recaptcha/reCAPTCHA"
+elements: "name:\n  '#type': webform_name\n  '#title': Name\n  '#required': true\n  '#title__access': false\n  '#first__title': 'First Name'\n  '#first__required': true\n  '#middle__access': false\n  '#last__title': 'Last Name'\n  '#last__required': true\n  '#suffix__access': false\n  '#degree__access': false\ncompany_name:\n  '#type': textfield\n  '#title': 'Company Name'\n  '#required': true\n  '#required_error': 'Company name is required'\nemail:\n  '#type': email\n  '#title': Email\n  '#required': true\n  '#required_error': 'Email is required'\nphone:\n  '#type': tel\n  '#title': Phone\n  '#required': true\nmarine_based:\n  '#type': checkbox\n  '#title': 'Is my product/service marine-based?'\ncaptcha:\n  '#type': captcha\n  '#captcha_type': recaptcha/reCAPTCHA"
 css: ''
 javascript: ''
 settings:
@@ -193,7 +193,7 @@ handlers:
       from_mail: _default
       from_options: {  }
       from_name: _default
-      subject: 'New Potential Sponsor Submission'
+      subject: 'New Potential Exhibitor Submission'
       body: _default
       excluded_elements: {  }
       ignore_access: false
