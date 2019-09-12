@@ -1,0 +1,5 @@
+services:
+  nmma_exhibitor_import.exhibitor_feed_event_subscriber:
+    class: Drupal\nmma_exhibitor_import\EventSubscriber\ExhibitorFeedEventSubscriber
+    tags:
+      - { name: event_subscriber }
