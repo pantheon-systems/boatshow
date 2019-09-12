@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.exhibitor.feeds_item
     - field.field.node.exhibitor.field_address_line_1
     - field.field.node.exhibitor.field_address_line_2
     - field.field.node.exhibitor.field_city
@@ -11,7 +10,6 @@ dependencies:
     - field.field.node.exhibitor.field_exhibitor_id
     - field.field.node.exhibitor.field_exhibitor_location
     - field.field.node.exhibitor.field_fax_number
-    - field.field.node.exhibitor.field_feeds_tmp
     - field.field.node.exhibitor.field_phone_number
     - field.field.node.exhibitor.field_show_code
     - field.field.node.exhibitor.field_state_or_province
@@ -77,7 +75,7 @@ content:
     region: content
   field_exhibitor_location:
     type: entity_reference_revisions_entity_view
-    weight: 10
+    weight: 11
     label: above
     settings:
       view_mode: default
@@ -101,7 +99,7 @@ content:
     type: telephone_link
     region: content
   field_show_code:
-    weight: 11
+    weight: 12
     label: above
     settings:
       link_to_entity: false
@@ -138,8 +136,6 @@ content:
     region: content
 hidden:
   addtoany: true
-  feeds_item: true
-  field_feeds_tmp: true
   langcode: true
   links: true
   search_api_excerpt: true

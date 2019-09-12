@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.exhibitor.feeds_item
     - field.field.node.exhibitor.field_address_line_1
     - field.field.node.exhibitor.field_address_line_2
     - field.field.node.exhibitor.field_city
@@ -11,7 +10,6 @@ dependencies:
     - field.field.node.exhibitor.field_exhibitor_id
     - field.field.node.exhibitor.field_exhibitor_location
     - field.field.node.exhibitor.field_fax_number
-    - field.field.node.exhibitor.field_feeds_tmp
     - field.field.node.exhibitor.field_phone_number
     - field.field.node.exhibitor.field_show_code
     - field.field.node.exhibitor.field_state_or_province
@@ -68,7 +66,7 @@ content:
     region: content
   field_exhibitor_location:
     type: entity_reference_paragraphs
-    weight: 11
+    weight: 12
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -93,7 +91,7 @@ content:
     type: telephone_default
     region: content
   field_show_code:
-    weight: 12
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -128,7 +126,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 13
+    weight: 14
     region: content
     third_party_settings: {  }
   title:
@@ -141,8 +139,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  feeds_item: true
-  field_feeds_tmp: true
   langcode: true
   moderation_state: true
   path: true

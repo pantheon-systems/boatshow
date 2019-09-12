@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.exhibitor.field_city
     - field.field.node.exhibitor.field_exhibitor_id
     - field.field.node.exhibitor.field_fax_number
-    - field.field.node.exhibitor.field_feeds_tmp
     - field.field.node.exhibitor.field_phone_number
     - field.field.node.exhibitor.field_show_code
     - field.field.node.exhibitor.field_state_or_province
@@ -46,9 +45,6 @@ parser_configuration:
   context:
     value: '$.*'
   sources:
-    address1:
-      label: address1
-      value: address1
     address2:
       label: address2
       value: address2
@@ -82,9 +78,6 @@ parser_configuration:
     published:
       label: published
       value: published
-    booths:
-      label: booths
-      value: booths
   display_errors: false
   source_encoding:
     - auto
@@ -150,15 +143,11 @@ custom_sources:
     label: published
     value: published
     machine_name: published
-  booths:
-    label: booths
-    value: booths
-    machine_name: booths
 mappings:
   -
     target: field_address_line_1
     map:
-      value: address1
+      value: 'parent:uuid'
     unique: {  }
   -
     target: field_address_line_2
@@ -213,7 +202,3 @@ mappings:
     target: status
     map:
       value: published
-  -
-    target: field_feeds_tmp
-    map:
-      value: booths

@@ -1,0 +1,37 @@
+uuid: 19146dc3-462a-4494-9806-b0cadd141013
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.contact
+    - field.field.brick.contact.field_contact
+id: brick.contact.default
+targetEntityType: brick
+bundle: contact
+mode: default
+content:
+  field_contact:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,25 @@
+uuid: a0f0cb76-380f-4a2e-ac62-3a69e41c0808
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.contact
+    - field.field.brick.contact.field_contact
+id: brick.contact.default
+targetEntityType: brick
+bundle: contact
+mode: default
+content:
+  field_contact:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
+  title: true

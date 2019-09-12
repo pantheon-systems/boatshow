@@ -11,6 +11,7 @@ dependencies:
     - eck.eck_type.brick.card
     - eck.eck_type.brick.card_cta
     - eck.eck_type.brick.carousel
+    - eck.eck_type.brick.contact
     - eck.eck_type.brick.countdown
     - eck.eck_type.brick.disruptor_card
     - eck.eck_type.brick.document_list
@@ -54,6 +55,7 @@ settings:
       card: card
       3_col_card: 3_col_card
       card_cta: card_cta
+      contact: contact
       countdown: countdown
       disruptor_card: disruptor_card
       document_list: document_list

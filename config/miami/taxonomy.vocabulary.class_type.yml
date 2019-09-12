@@ -2,7 +2,7 @@ uuid: bc0c33ec-145f-4584-8223-0a623fe017a3
 langcode: en
 status: true
 dependencies: {  }
-name: 'Seminar class types'
+name: 'Class Type'
 vid: class_type
-description: 'Describes types of seminars offered like ''In Classroom" or "On Water"'
+description: ''
 weight: 0

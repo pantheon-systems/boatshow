@@ -133,7 +133,6 @@ module:
   nmma_blocks: 0
   nmma_brick_layouts: 0
   nmma_exhibitor_article: 0
-  nmma_exhibitor_import: 0
   nmma_feeds_video_embed: 0
   nmma_seminars: 0
   nmma_tamper: 0

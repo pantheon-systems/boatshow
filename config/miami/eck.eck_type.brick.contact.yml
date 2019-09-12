@@ -1,0 +1,9 @@
+uuid: 863fb917-df60-46e3-8b82-22b12078d749
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: Contact
+type: contact
+description: 'A single contact node'
