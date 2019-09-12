@@ -1,0 +1,9 @@
+uuid: 7abdfd7e-532f-4922-8ec9-7839826f9a61
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Contacts List'
+type: contacts_list
+description: ''

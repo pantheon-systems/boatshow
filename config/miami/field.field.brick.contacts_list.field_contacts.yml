@@ -1,16 +1,16 @@
-uuid: 04768928-bd92-4a2d-8774-ebabac613e13
+uuid: ab21f6ad-3e0b-4889-8cee-a770f2cf216d
 langcode: en
 status: true
 dependencies:
   config:
-    - eck.eck_type.brick.contact
-    - field.storage.brick.field_contact_profile
+    - eck.eck_type.brick.contacts_list
+    - field.storage.brick.field_contacts
     - node.type.contact_profile
-id: brick.contact.field_contact_profile
-field_name: field_contact_profile
+id: brick.contacts_list.field_contacts
+field_name: field_contacts
 entity_type: brick
-bundle: contact
-label: 'Contact Profile'
+bundle: contacts_list
+label: Contacts
 description: ''
 required: true
 translatable: false

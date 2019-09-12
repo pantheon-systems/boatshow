@@ -1,0 +1,33 @@
+uuid: ac2d24f7-df20-46ea-a3bb-a72181328d64
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.contact_profiles
+  module:
+    - views
+name: contact_profiles
+label: 'Contact Profiles'
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select entities'
+  auto_open: false
+selection_display: view
+selection_display_configuration:
+  view: contact_profiles
+  view_display: entity_browser_1
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  4d862ce4-3af9-499b-8b24-c2b152f2a19f:
+    settings:
+      view: contact_profiles
+      view_display: entity_browser_1
+      submit_text: 'Select contacts'
+      auto_select: false
+    uuid: 4d862ce4-3af9-499b-8b24-c2b152f2a19f
+    weight: 1
+    label: Select
+    id: view

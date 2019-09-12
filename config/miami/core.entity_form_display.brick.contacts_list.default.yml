@@ -1,0 +1,48 @@
+uuid: ac1e0eed-57e0-4514-b9ca-6cade3dcad75
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.contacts_list
+    - entity_browser.browser.contact_profiles
+    - field.field.brick.contacts_list.field_brick_headline
+    - field.field.brick.contacts_list.field_contacts
+  module:
+    - entity_browser
+id: brick.contacts_list.default
+targetEntityType: brick
+bundle: contacts_list
+mode: default
+content:
+  field_brick_headline:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_contacts:
+    type: entity_browser_entity_reference
+    weight: 2
+    region: content
+    settings:
+      entity_browser: contact_profiles
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_replace: false
+      open: false
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

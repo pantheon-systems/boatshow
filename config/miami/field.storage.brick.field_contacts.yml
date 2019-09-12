@@ -1,19 +1,19 @@
-uuid: 8d7e412e-cdad-4142-b0c0-9e0f3080316a
+uuid: 1e27bd1b-4fa4-498e-a4cf-c3d40b1492d0
 langcode: en
 status: true
 dependencies:
   module:
     - eck
     - node
-id: brick.field_contact_profile
-field_name: field_contact_profile
+id: brick.field_contacts
+field_name: field_contacts
 entity_type: brick
 type: entity_reference
 settings:
   target_type: node
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

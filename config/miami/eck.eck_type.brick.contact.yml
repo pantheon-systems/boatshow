@@ -1,9 +1,0 @@
-uuid: 24fdbce7-0706-48e4-a498-a96019838b01
-langcode: en
-status: true
-dependencies:
-  config:
-    - eck.eck_entity_type.brick
-name: 'Contact Profile Teaser'
-type: contact
-description: 'A contact profile teaser'
