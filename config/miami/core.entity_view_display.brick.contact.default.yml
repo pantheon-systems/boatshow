@@ -1,16 +1,16 @@
-uuid: a0f0cb76-380f-4a2e-ac62-3a69e41c0808
+uuid: e8f34c48-1ca9-4cb7-8aae-13676cbdeb9e
 langcode: en
 status: true
 dependencies:
   config:
     - eck.eck_type.brick.contact
-    - field.field.brick.contact.field_contact
+    - field.field.brick.contact.field_contact_profile
 id: brick.contact.default
 targetEntityType: brick
 bundle: contact
 mode: default
 content:
-  field_contact:
+  field_contact_profile:
     weight: 0
     label: hidden
     settings:

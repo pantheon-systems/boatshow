@@ -150,8 +150,7 @@ $bp-filters-stack: $screen-lg;
       text-align: right;
 
       & .js-form-submit {
-        margin-top: 40px;
-        margin-bottom: $dimension-vertical-rhythm-elements;
+        margin-top: $dimension-vertical-rhythm-elements;
       }
     }
 

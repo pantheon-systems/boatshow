@@ -1,12 +1,12 @@
-uuid: 21f6e9d9-ed1b-4e2a-922f-df1376e98c90
+uuid: 8d7e412e-cdad-4142-b0c0-9e0f3080316a
 langcode: en
 status: true
 dependencies:
   module:
     - eck
     - node
-id: brick.field_contact
-field_name: field_contact
+id: brick.field_contact_profile
+field_name: field_contact_profile
 entity_type: brick
 type: entity_reference
 settings:
