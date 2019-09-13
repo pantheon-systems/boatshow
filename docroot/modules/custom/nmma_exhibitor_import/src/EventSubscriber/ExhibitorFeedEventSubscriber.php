@@ -77,8 +77,12 @@ class ExhibitorFeedEventSubscriber implements EventSubscriberInterface {
       // Paragraph exists which has a booth which did not come in over the feed, set field_enabled to false
       if (!$foundBooth) {
         $paragraph->field_enabled = 0;
-        $paragraph->save();
       }
+      else {
+        $paragraph->field_enabled = 1;
+      }
+
+      $paragraph->save();
     }
 
     // Custom array diff based on object IDs
@@ -125,11 +129,7 @@ class ExhibitorFeedEventSubscriber implements EventSubscriberInterface {
       $booth = Node::create([
         'type' => 'booth',
         'title' => $boothNumber,
-        'field_booth_location' => $boothNumber,
-        'body' => [
-          'format' => 'basic_html',
-          'value' => $boothBuilding
-        ]
+        'field_booth_location' => $boothBuilding
       ]);
 
       $booth->save();
