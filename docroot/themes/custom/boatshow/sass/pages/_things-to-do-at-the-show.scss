@@ -83,13 +83,17 @@
     border-left: 1em solid white;
     border-top: 1em solid white;
 
+    &:hover {
+      .grid-item--content > img {
+        filter: none;
+      }
+    }
   }
 
   .grid-item--content {
     position: relative;
 
     & > img {
-      filter: sepia(100%) hue-rotate(160deg) brightness(.9) contrast(150%);
       width: 100%;
     }
 
