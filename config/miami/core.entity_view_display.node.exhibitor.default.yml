@@ -19,7 +19,6 @@ dependencies:
     - field.field.node.exhibitor.field_zip_or_postal_code
     - node.type.exhibitor
   module:
-    - address
     - entity_reference_revisions
     - link
     - panelizer
@@ -63,9 +62,10 @@ content:
   field_country:
     weight: 6
     label: above
-    settings: {  }
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    type: address_country_default
+    type: string
     region: content
   field_exhibitor_id:
     weight: 0

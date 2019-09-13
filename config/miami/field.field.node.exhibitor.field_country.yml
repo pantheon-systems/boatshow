@@ -1,12 +1,10 @@
-uuid: 2cf2531b-ff88-49a9-98d0-dbb6b71e0aa3
+uuid: 18bd2f6f-f4d3-45fd-b04b-e0b8d9c04e8a
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_country
     - node.type.exhibitor
-  module:
-    - address
 id: node.exhibitor.field_country
 field_name: field_country
 entity_type: node
@@ -15,10 +13,7 @@ label: Country
 description: ''
 required: true
 translatable: false
-default_value:
-  -
-    value: US
+default_value: {  }
 default_value_callback: ''
-settings:
-  available_countries: {  }
-field_type: address_country
+settings: {  }
+field_type: string

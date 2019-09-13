@@ -19,7 +19,6 @@ dependencies:
     - field.field.node.exhibitor.field_zip_or_postal_code
     - node.type.exhibitor
   module:
-    - address
     - link
     - paragraphs
     - telephone
@@ -54,9 +53,11 @@ content:
     region: content
   field_country:
     weight: 7
-    settings: {  }
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: address_country_default
+    type: string_textfield
     region: content
   field_exhibitor_id:
     weight: 1

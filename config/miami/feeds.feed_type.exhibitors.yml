@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.exhibitor.field_address_line_1
     - field.field.node.exhibitor.field_address_line_2
     - field.field.node.exhibitor.field_city
+    - field.field.node.exhibitor.field_country
     - field.field.node.exhibitor.field_exhibitor_id
     - field.field.node.exhibitor.field_fax_number
     - field.field.node.exhibitor.field_feeds_tmp
@@ -85,6 +86,9 @@ parser_configuration:
     booths:
       label: booths
       value: booths
+    country:
+      label: countryName
+      value: countryName
   display_errors: false
   source_encoding:
     - auto
@@ -154,6 +158,10 @@ custom_sources:
     label: booths
     value: booths
     machine_name: booths
+  country:
+    label: countryName
+    value: countryName
+    machine_name: country
 mappings:
   -
     target: field_address_line_1
@@ -217,3 +225,8 @@ mappings:
     target: field_feeds_tmp
     map:
       value: booths
+  -
+    target: field_country
+    map:
+      value: country
+    unique: {  }
