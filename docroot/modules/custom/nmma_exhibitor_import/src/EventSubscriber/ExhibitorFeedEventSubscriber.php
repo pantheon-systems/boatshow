@@ -123,6 +123,8 @@ class ExhibitorFeedEventSubscriber implements EventSubscriberInterface {
     // If booth node exists, use it
     if (count($exhibitorEntity_ids)) {
       $booth = Node::load(reset($exhibitorEntity_ids));
+      $booth->set('field_booth_location', $boothBuilding);
+      $booth->save();
     }
     // If booth node does not exist, create it
     else {
