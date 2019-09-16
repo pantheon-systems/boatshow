@@ -150,11 +150,6 @@ section.disruptor {
 .disruptor-content--left {
   @extend .disruptor-content;
 
-  i {
-    font-size: 49px;
-    line-height: 1px;
-  }
-
   h3 {
     // Copied from _base.scss
     font-size: 140%;
@@ -182,11 +177,6 @@ section.disruptor {
 .disruptor-content--right-gray,
 .disruptor-content--right-blue {
   @extend .disruptor-content;
-
-  i {
-    font-size: 49px;
-    line-height: 1px;
-  }
 }
 
 .disruptor-content--right-gray {
@@ -214,7 +204,7 @@ section.disruptor {
   padding-right: rem-calc(43px);
 
   // TODO: This should really be targeted to .icon
-  [class*='icon-db-'] {
+  .icon {
     color: $colorname-picton-blue;
     font-size: rem-calc(32px);
     // Center icon

@@ -1,7 +1,7 @@
 <div class="col-12-xs">
   {{ context_links }}
   <div class="grid-item--disruptor-card">
-    <div class="icon {{ entity.field_disruptor_icon|render|striptags|trim }}"></div>
+    {{ entity.field_disruptor_icon}}
     <div class="grid-item--content">
       {% if entity.field_disruptor_headline is not empty %}
         <div class="title">{{ entity.field_disruptor_headline }}</div>

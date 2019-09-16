@@ -43,5 +43,5 @@
   {% set callout %}
     {{ item.content }}
   {% endset %}
-    <i{{ item.attributes.addClass(callout|striptags) }}></i>
+    <i{{ item.attributes.addClass(callout|striptags, 'icon') }}></i>
   {% endfor %}

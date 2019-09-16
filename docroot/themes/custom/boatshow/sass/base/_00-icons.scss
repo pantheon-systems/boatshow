@@ -10,7 +10,7 @@
   font-style: normal;
 }
 
-[class*='icon-db-']::before {
+.icon::before {
   display: inline-block;
   font-family: 'boatshow-icons';
   font-style: normal;
@@ -18,6 +18,11 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: $colorname-picton-blue;
+  font-size: rem-calc(32px);
+  width: 100%;
+  padding-top: rem-calc(16px);
+  text-align: center;
 }
 
 .icon-db-arrow-down::before {
