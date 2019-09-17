@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "156f389e4af26efacf12c07a3a7e2c48",
+    "content-hash": "f55aca8d456c07a97af10cff3cc11aa6",
     "packages": [
         {
             "name": "acquia/blt",
@@ -21745,7 +21745,8 @@
         "drupal/views_current_path": 10,
         "drupal/views_field_view": 10,
         "drupal/webform": 5,
-        "drupal/xmlsitemap": 20
+        "drupal/xmlsitemap": 20,
+        "marketo-api/marketo-rest-client": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
