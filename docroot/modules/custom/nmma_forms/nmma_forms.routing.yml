@@ -1,0 +1,8 @@
+nmma_forms.newsletter:
+  path: '/newsletter'
+  defaults:
+    _title: 'Newsletter form'
+    _form: '\Drupal\nmma_forms\Form\Newsletter'
+  requirements:
+    _permission: 'access content'
+  

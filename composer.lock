@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51e6f129f2cc653148bdcbd1f5c22418",
+    "content-hash": "156f389e4af26efacf12c07a3a7e2c48",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1097,6 +1097,44 @@
                 "postal"
             ],
             "time": "2019-05-31T11:00:28+00:00"
+        },
+        {
+            "name": "commerceguys/guzzle-oauth2-plugin",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/commerceguys/guzzle-oauth2-plugin.git",
+                "reference": "90b375330080175a9aaad2bc897d1de111813e69"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/commerceguys/guzzle-oauth2-plugin/zipball/90b375330080175a9aaad2bc897d1de111813e69",
+                "reference": "90b375330080175a9aaad2bc897d1de111813e69",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/guzzle": ">=v3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "CommerceGuys\\Guzzle": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bojan Zivanovic"
+                },
+                {
+                    "name": "Damien Tournoud"
+                }
+            ],
+            "description": "An OAuth2 plugin for guzzle",
+            "time": "2014-05-20T10:02:48+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -8809,6 +8847,70 @@
             }
         },
         {
+            "name": "drupal/marketo_ma",
+            "version": "2.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/marketo_ma.git",
+                "reference": "8.x-2.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/marketo_ma-8.x-2.0-alpha2.zip",
+                "reference": "8.x-2.0-alpha2",
+                "shasum": "8c1c560c64f5eda81b615469b5aac1b9b57bbddd"
+            },
+            "require": {
+                "drupal/core": "*",
+                "drupal/encryption": "*",
+                "marketo-api/marketo-rest-client": "dev-master",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "drupal/contact_block": "*",
+                "drupal/contact_storage": "*",
+                "drupal/marketo_ma_contact": "*",
+                "drupal/webform": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0-alpha2",
+                    "datestamp": "1539270480",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "bonus",
+                    "homepage": "https://www.drupal.org/user/360002"
+                },
+                {
+                    "name": "jyokum",
+                    "homepage": "https://www.drupal.org/user/377457"
+                }
+            ],
+            "description": "Integration with Marketo marketing automation software.",
+            "homepage": "https://www.drupal.org/project/marketo_ma",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/marketo_ma",
+                "issues": "https://www.drupal.org/project/issues/marketo_ma"
+            }
+        },
+        {
             "name": "drupal/media_entity_browser",
             "version": "dev-2.x",
             "source": {
@@ -13659,6 +13761,99 @@
             "time": "2017-12-16T16:06:03+00:00"
         },
         {
+            "name": "guzzle/guzzle",
+            "version": "v3.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
+                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.3",
+                "symfony/event-dispatcher": ">=2.1"
+            },
+            "replace": {
+                "guzzle/batch": "self.version",
+                "guzzle/cache": "self.version",
+                "guzzle/common": "self.version",
+                "guzzle/http": "self.version",
+                "guzzle/inflection": "self.version",
+                "guzzle/iterator": "self.version",
+                "guzzle/log": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/plugin": "self.version",
+                "guzzle/plugin-async": "self.version",
+                "guzzle/plugin-backoff": "self.version",
+                "guzzle/plugin-cache": "self.version",
+                "guzzle/plugin-cookie": "self.version",
+                "guzzle/plugin-curlauth": "self.version",
+                "guzzle/plugin-error-response": "self.version",
+                "guzzle/plugin-history": "self.version",
+                "guzzle/plugin-log": "self.version",
+                "guzzle/plugin-md5": "self.version",
+                "guzzle/plugin-mock": "self.version",
+                "guzzle/plugin-oauth": "self.version",
+                "guzzle/service": "self.version",
+                "guzzle/stream": "self.version"
+            },
+            "require-dev": {
+                "doctrine/cache": "*",
+                "monolog/monolog": "1.*",
+                "phpunit/phpunit": "3.7.*",
+                "psr/log": "1.0.*",
+                "symfony/class-loader": "*",
+                "zendframework/zend-cache": "<2.3",
+                "zendframework/zend-log": "<2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle": "src/",
+                    "Guzzle\\Tests": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Guzzle Community",
+                    "homepage": "https://github.com/guzzle/guzzle/contributors"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "abandoned": "guzzlehttp/guzzle",
+            "time": "2014-01-28T22:29:15+00:00"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "6.3.3",
             "source": {
@@ -14485,6 +14680,49 @@
                 "image"
             ],
             "time": "2017-02-03T11:58:58+00:00"
+        },
+        {
+            "name": "marketo-api/marketo-rest-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marketo-api/marketo-rest-client.git",
+                "reference": "cd502ff6d443a517610cb75bb48b53343a285828"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marketo-api/marketo-rest-client/zipball/cd502ff6d443a517610cb75bb48b53343a285828",
+                "reference": "cd502ff6d443a517610cb75bb48b53343a285828",
+                "shasum": ""
+            },
+            "require": {
+                "commerceguys/guzzle-oauth2-plugin": "~1.0",
+                "guzzle/guzzle": "~3.8",
+                "php": ">=5.3.3"
+            },
+            "replace": {
+                "marketo-api/marketo-rest-client": "0.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CSD\\Marketo\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Chesterton"
+                }
+            ],
+            "description": "A PHP client for the Marketo.com REST API",
+            "time": "2017-05-08T16:04:12+00:00"
         },
         {
             "name": "masterminds/html5",

@@ -148,5 +148,4 @@ class Newsletter extends FormBase {
   protected function getRedirect() {
     return Url::fromRoute('entity.node.canonical', ['node' => 28096]);
   }
-
 }
