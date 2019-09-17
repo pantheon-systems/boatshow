@@ -12,22 +12,20 @@ display: modal
 display_configuration:
   width: '650'
   height: '500'
-  link_text: 'Select entities'
+  link_text: 'Select contacts'
   auto_open: false
-selection_display: view
-selection_display_configuration:
-  view: contact_profiles
-  view_display: entity_browser_1
-widget_selector: tabs
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
 widget_selector_configuration: {  }
 widgets:
-  4d862ce4-3af9-499b-8b24-c2b152f2a19f:
+  6f4e0672-3f90-4d85-b972-8e6624496cae:
     settings:
       view: contact_profiles
       view_display: entity_browser_1
       submit_text: 'Select contacts'
       auto_select: false
-    uuid: 4d862ce4-3af9-499b-8b24-c2b152f2a19f
+    uuid: 6f4e0672-3f90-4d85-b972-8e6624496cae
     weight: 1
-    label: Select
+    label: view
     id: view
