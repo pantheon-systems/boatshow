@@ -100,11 +100,11 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: inline
   confirmation_title: ''
-  confirmation_message: '<h3>&nbsp;Thank you for your submission.</h3>'
+  confirmation_message: "<h3>Thank you for your inquiry</h3>\r\n\r\n<p>Our Sponsorship team will be in touch with you shortly.&nbsp;</p>"
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
-  confirmation_back_label: ''
+  confirmation_back_label: 'Click here to reload the form.'
   confirmation_back_attributes: {  }
   confirmation_exclude_query: false
   confirmation_exclude_token: false
@@ -195,6 +195,40 @@ handlers:
       from_name: _default
       subject: 'New Potential Sponsor Submission'
       body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:value]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'Thank You for your Submission'
+      body: 'Thank you for your inquiry. Our team will review your submission and contact you soon. For any further questions please email <a href="mailto:info@miamiboatshow.com" title="mailto:info@miamiboatshow.com">info@miamiboatshow.com</a>&nbsp;or call 954.441.3220.'
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
