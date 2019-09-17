@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.contact_profile.field_profile_phone
     - node.type.contact_profile
   module:
+    - image
     - panelizer
     - user
 third_party_settings:
@@ -40,6 +41,15 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_profile_image:
+    type: image
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
   field_profile_phone:
     type: string
     weight: 2
@@ -52,7 +62,6 @@ hidden:
   addtoany: true
   body: true
   feeds_item: true
-  field_profile_image: true
   langcode: true
   links: true
   search_api_excerpt: true
