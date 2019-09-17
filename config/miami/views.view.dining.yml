@@ -46,8 +46,8 @@ display:
         type: bef
         options:
           submit_button: 'Apply Filters'
-          reset_button: false
-          reset_button_label: 'Reset Filters'
+          reset_button: true
+          reset_button_label: 'Clear Filters'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: false
           sort_asc_label: Asc
@@ -237,7 +237,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      use_ajax: true
+      use_ajax: false
     cache_metadata:
       max-age: -1
       contexts:
