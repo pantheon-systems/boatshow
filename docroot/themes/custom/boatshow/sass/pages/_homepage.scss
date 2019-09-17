@@ -9,7 +9,7 @@
   text-align: left;
   line-height: 1;
 
-  @include media-breakpoint-up($font-size-breakpoint-main) {
+  @include media-breakpoint-up(lg) {
     font-size: $font-size-h2;
   }
 
@@ -72,7 +72,7 @@
   height: 100%;
   font-size: 18px;
 
-  @include media-breakpoint-up($font-size-breakpoint-main) {
+  @include media-breakpoint-up(lg) {
     font-size: 25px;
   }
 
