@@ -3,8 +3,8 @@ name: 'Chicago Boat Show'
 mail: no-reply@acquia.com
 slogan: ''
 page:
-  403: ''
-  404: ''
+  403: /node/9026
+  404: /node/9021
   front: /node/6
 admin_compact_mode: false
 weight_select_max: 100
