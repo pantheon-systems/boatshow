@@ -185,7 +185,7 @@ class Newsletter extends FormBase {
    *   The form redirect.
    */
   protected function getRedirect() {
-    return Url::fromRoute('entity.node.canonical', ['node' => 28096]);
+        return Url::fromUri('internal:/newsletter-thank-you');
   }
 
 }
