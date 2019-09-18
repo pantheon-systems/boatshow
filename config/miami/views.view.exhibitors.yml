@@ -19,10 +19,10 @@ dependencies:
     - taxonomy.vocabulary.non_vehicle_product_type
     - taxonomy.vocabulary.vehicle_product_type
   content:
-    - 'taxonomy_term:non_vehicle_product_type:0576c336-a935-4000-b33b-87a82805498a'
-    - 'taxonomy_term:vehicle_product_type:593e5f50-4009-484b-ad2f-1332ddd43bb6'
-    - 'taxonomy_term:vehicle_product_type:bd5f2e2b-ad19-4904-9323-b1b66b4ec416'
-    - 'taxonomy_term:vehicle_product_type:dc48d44e-2e15-4351-9cb2-bea4e376e5a4'
+    - 'taxonomy_term:non_vehicle_product_type:1bdc524e-68c3-41b5-9409-0f779b5bb8f4'
+    - 'taxonomy_term:vehicle_product_type:01ccdd4c-cc0a-4e88-97cb-edcee6b90a17'
+    - 'taxonomy_term:vehicle_product_type:49df9279-86f3-4b77-80a6-9a0c14e48b18'
+    - 'taxonomy_term:vehicle_product_type:5f466c5a-f48c-46a6-85ad-c7a01cbc15af'
   module:
     - address
     - link
@@ -334,12 +334,21 @@ display:
         arguments: false
         title: false
         group_by: false
+        query: false
       pager:
         type: none
         options:
           offset: 0
       title: ''
       group_by: false
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: null
     cache_metadata:
       max-age: -1
       contexts:
@@ -1828,9 +1837,9 @@ display:
           admin_label: ''
           operator: or
           value:
-            1656: 1656
-            1751: 1751
-            1651: 1651
+            1586: 1586
+            1601: 1601
+            1581: 1581
           group: 1
           exposed: false
           expose:
@@ -2526,7 +2535,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            1641: 1641
+            1611: 1611
           group: 1
           exposed: false
           expose:
@@ -3103,7 +3112,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            1651: 1651
+            1581: 1581
           group: 1
           exposed: false
           expose:

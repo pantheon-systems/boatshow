@@ -1,41 +1,488 @@
-.alias--request-information .block-webform-block {
-  .form-item {
-    // This is a terrible way to do this. But there are so many form styles
-    // coming from so many other modules and there isn't time to assess the
-    // impact of modifying the CSS there.
-    display: block !important;
-    margin-right: 0 !important;
-    margin-bottom: 1em !important;
-    padding: 0 2em;
+$font-size-input: 16px;
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: rem-calc($size);
+  line-height: 1.2;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+  @include font-size($font-size-input);
+
+  background-color: $color-input-default-fill;
+  border: 1px solid $color-input-default-border;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: $color-input-default-text;
+  display: block;
+  font-weight: $font-weight-light;
+  height: $dimension-input-height;
+  outline: none;
+  padding: 0 10px;
+  transition: box-shadow $transition-speed, border-color $transition-speed $transition-style;
+  width: 100%;
+
+  &.large {
+    @include font-size($font-size-input-large);
   }
 
-  fieldset .form-item {
+  &.xlarge {
+    @include font-size($font-size-input-xlarge);
+  }
+
+  &[disabled] {
+    color: $color-form-text-disabled;
+  }
+
+  &[readonly] {
+    &:hover,
+    &:focus {
+      border-color: $color-input-default-border;
+    }
+  }
+
+  &:focus {
+    border-color: $color-input-default-border-focus;
+    box-shadow: 0 1 3px $colorname-gray;
+  }
+}
+
+textarea {
+  line-height: 2.8;
+  height: auto;
+}
+
+input[type="file"],
+input[type="checkbox"],
+input[type="radio"],
+select {
+  margin: 0 0 1em;
+}
+
+input[type="file"] {
+  width: 100%;
+}
+
+.error {
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  textarea {
+    border-color: $color-status-error;
+
+    &:focus {
+      border-color: $colorname-gray-dark;
+    }
+  }
+}
+
+.error input:focus,
+.error textarea:focus,
+.error select:focus {
+  background: $colorname-lighter-gray;
+  border-color: $colorname-gray;
+}
+
+.error label,
+.error label.error {
+  color: $color-status-error;
+}
+
+.error > small,
+.error small.error {
+  background: $color-status-error;
+  color: #fff;
+  display: block;
+  font-size: 0.75em;
+  font-weight: $font-weight-bold;
+  margin-bottom: 1em;
+  margin-top: 0;
+  padding: 0.375em 0.25em;
+}
+
+.error span.error-message {
+  color: $color-status-error;
+  display: block;
+  font-size: 14px;
+  font-size: rem-calc(14px);
+  line-height: 1;
+  margin-top: 10px;
+  padding: 0 20px;
+}
+
+input.error,
+textarea.error {
+  background-color: rgba(198, 15, 19, 0.1);
+  border-color: $color-status-error;
+  margin-bottom: 0;
+}
+
+input.error:focus,
+textarea.error:focus {
+  background: $colorname-lighter-gray;
+  border-color: $colorname-gray;
+}
+
+.error select {
+  background-color: rgba(198, 15, 19, 0.1);
+  border-color: $color-status-error;
+}
+
+.error select:focus {
+  background: $colorname-lighter-gray;
+  border-color: $colorname-gray;
+}
+
+label.error {
+  color: $color-status-error;
+  line-height: 1rem;
+  padding-left: rem-calc(12px);
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $color-form-text-disabled;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  color: $color-form-text-disabled;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+  color: $color-form-text-disabled;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: $color-form-text-disabled;
+}
+
+.js input.form-autocomplete {
+  background: $colorname-white;
+}
+
+// Custom Fields - Submittable Input
+
+.submit-input-field {
+  display: flex;
+  position: relative;
+
+  .icon {
+    background-color: $city-color-primary;
+    border: 1px solid $city-color-primary;
+    box-sizing: border-box;
+    color: $colorname-white;
+    height: $dimension-input-height;
+    // padding: 9px 0 0 11px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.2s ease-in;
+    width: $dimension-input-height;
+
+    &.icon-db-search {
+      padding: 8px 0 0 10px;
+    }
+
+    &::before {
+      color: inherit;
+    }
+  }
+
+  .articles-resources-search-button {
+    .icon {
+      &.icon-db-search {
+        padding: 8px 0 0;
+      }
+    }
+  }
+
+  [type="submit"],
+  button {
+    background-color: transparent;
+    border: 0;
+    height: $dimension-input-height;
     padding: 0;
+    width: $dimension-input-height;
+    z-index: 2;
+
+    &:hover {
+      background-color: transparent;
+
+      & ~ .icon {
+        // background-color: $color-input-submittable-fill;
+        // color: $colorname-picton-blue;
+      }
+    }
+
+    [disabled],
+    &:disabled,
+    &.disabled {
+      background: transparent;
+
+      & ~ .icon {
+        background-color: $colorname-gray;
+        border-color: $colorname-gray;
+        color: $color-button-disabled-text;
+
+        &:hover {
+          color: $color-button-disabled-text;
+        }
+      }
+    }
   }
 
-  label {
-    display: block;
-    color: $colorname-dark-gray;
+  [type="text"] {
+    border: 1px solid $color-input-submittable-border;
+    border-right: none;
+    border-radius: 3px 0  0 3px;
+
+    &:focus {
+      & ~ .icon {
+        border-color: $colorname-picton-blue;
+      }
+    }
+  }
+}
+
+.submit-input-field--clear {
+  @extend .submit-input-field;
+
+  [type="text"] {
+    background-color: $color-input-submittable-clear-fill;
+    border: 1px solid $color-input-submittable-clear-border;
+  }
+}
+
+.submit-input-field--map {
+  @extend .submit-input-field;
+
+  .icon-db-location {
+    background-color: $colorname-white;
+    border: 1px solid $colorname-gray;
+    border-radius: 3px 0 0 3px;
+    // color: $colorname-picton-blue;
+    left: 0;
+    padding-top: 11px;
+  }
+
+  [type="text"] {
+    padding-left: $dimension-input-height + 10px;
+    border-radius: 3px;
+  }
+
+  [type="submit"],
+  button {
+    position: absolute;
+  }
+
+  button {
+    left: 0;
+
+    &:hover {
+      & ~ .icon-db-search {
+        background-color: $colorname-picton-blue;
+        color: $colorname-white;
+      }
+
+      & ~ .icon-db-location {
+        background-color: $colorname-picton-blue;
+        color: $colorname-white;
+      }
+    }
+  }
+
+  [type="submit"] {
+    right: 0;
+    top: 0;
+
+    &:hover {
+      & ~ .icon-db-location {
+        // background-color: $colorname-white;
+        // color: $colorname-picton-blue;
+      }
+    }
+  }
+}
+
+// Custom Fields - Checkboxes and Radios
+
+.toggle-wrapper {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 22px;
+  padding-left: 30px;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  i {
+    background-color: $colorname-white;
+    border: 1px solid $colorname-picton-blue;
+    font-size: 12px;
+    height: 20px;
+    width: 20px;
+    left: 0;
+    top: 0;
+    position: absolute;
+
+    &::before {
+      // color: $colorname-picton-blue;
+      display: none;
+      height: 10px;
+      line-height: 12px;
+      width: 5px;
+      left: 4px;
+      top: 4px;
+      position: absolute;
+    }
+  }
+
+  input {
     cursor: pointer;
-    font-weight: $font-weight-semibold;
-    margin: 0 0 0.1875em;
-    padding-right: 4px;
-    vertical-align: top;
+    opacity: 0;
+    position: absolute;
+
+    &:checked ~ i::before {
+      display: block;
+    }
+
+    &[type="checkbox"] {
+      & ~ i {
+        border-radius: 3px;
+      }
+    }
+
+    &[type="radio"] {
+      & ~ i {
+        border-radius: 50%;
+        font-size: 13px;
+      }
+    }
   }
 
-  input,
-  textarea,
-  select {
-    width: 50%;
+  &.active input,
+  input:checked {
+    & ~ i::before {
+      display: block;
+    }
+
+    &[type="checkbox"] {
+      & ~ i {
+        background-color: $colorname-picton-blue;
+
+        &::before {
+          color: $colorname-white;
+        }
+      }
+    }
+  }
+}
+
+// Custom Fields - Overrides for jQyuery Chosen Select Dropdown
+.chosen-container {
+  .chosen-single {
+    @include font-size($font-size-input);
+
+    background: $color-input-default-fill;
+    border: 1px solid $color-input-default-border;
+    border-radius: 3px;
+    box-shadow: none;
+    display: flex;
+    font-weight: $font-weight-light;
+    height: $dimension-input-height;
+    align-items: center;
+
+    div {
+      top: auto;
+      width: 25px;
+      height: 25px;
+    }
+
+    i {
+      // color: $colorname-picton-blue;
+      position: absolute;
+      right: 10px;
+      top: 12px;
+    }
   }
 
-  .intl-tel-input {
+  &.chosen-container-active {
+    .chosen-single {
+      border-color: $color-input-default-border;
+      background: $color-input-default-fill;
+    }
+  }
+
+  .chosen-drop {
+    font-weight: $font-weight-light;
+    border: 1px solid $color-input-default-border;
+  }
+
+  // Fixes weird IE11 bug with readonly input field
+  .chosen-single input[type=text] {
+    display: none;
+  }
+
+  &.large .chosen-single {
+    @include font-size($font-size-input-large);
+
+    height: $dimension-input-height-large;
+
+    i {
+      top: 10px;
+    }
+  }
+
+  &.xlarge .chosen-single {
+    @include font-size($font-size-input-xlarge);
+
+    height: $dimension-input-height-xlarge;
+
+    i {
+      top: 15px;
+    }
+  }
+
+  &.block {
     display: block;
   }
 
-  .button--primary {
-    display: block;
-    margin: 0 auto;
-    width: inherit;
+  &.wide {
+    width: 100% !important;
+  }
+}
+
+.chosen-container .chosen-results {
+  padding-top: 4px;
+
+  li {
+    &.highlighted {
+      background: $colorname-lighter-gray;
+      color: $colorname-gray-dark;
+    }
   }
 }

@@ -10,8 +10,8 @@ id: paragraph.exhibitor_location.field_exhbtr_lctn_brand
 field_name: field_exhbtr_lctn_brand
 entity_type: paragraph
 bundle: exhibitor_location
-label: 'Exhibitor Brand Locations'
-description: ''
+label: 'Boat, RV, Trailer, Engine brands'
+description: 'Use commas to associate additional brands for this booth.'
 required: false
 translatable: false
 default_value: {  }
