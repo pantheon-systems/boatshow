@@ -807,6 +807,7 @@ function boatshow_preprocess_media (&$variables) {
 
     $variables['file_filesize_human'] = _human_readable_filesize($file->filesize->value, 2);
 
+    $variables['media_file_url'] = $file->url();
     $variables['media_download_url'] = Url::fromRoute(
       'media_entity_download.download',
       [
