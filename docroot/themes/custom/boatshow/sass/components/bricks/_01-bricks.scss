@@ -322,33 +322,38 @@ $dimension-masthead-vertical-pull: .40 * $dimension-masthead-min-height !default
 $document-list-icon-size: 1.15em !default;
 $document-list-icon-container-size: 1.5em !default;
 $document-list-icon-top-adjust: 0.3em !default;
+
 .media--view-mode-document-list {
-  & {
-    line-height: 1.2;
-  }
+  line-height: 1.2;
 
-  & > a {
+  & .media-content {
     display: flex;
-    align-items: flex-start;
-    flex-direction: row;
-    color: inherit;
-    text-decoration: none;
+    justify-content: flex-start;
 
-    &:hover,
-    &:focus {
+    a {
+      color: inherit;
       text-decoration: none;
-      color: $city-color-primary;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: $city-color-primary;
+      }
+    }
+    .document-filetype,
+    .document-download-button {
+      flex: 0 1 $document-list-icon-container-size;
+      width: $document-list-icon-container-size;
+      position: relative;
+      top: $document-list-icon-top-adjust;
+      text-align: left;
+    }
+    .document-text {
+      flex: 1 0 auto;
     }
   }
 
   // Document Icons
-  & .document-filetype {
-    width: $document-list-icon-container-size;
-    position: relative;
-    top: $document-list-icon-top-adjust;
-    text-align: left;
-    flex: 0 0 auto;
-  }
 
   & .document-filetype:before {
     @include fa-icon;
@@ -382,12 +387,8 @@ $document-list-icon-top-adjust: 0.3em !default;
   }
 
   // Download Icon
-  & .document-download-button{
-    width: $document-list-icon-container-size;
+  & .document-download-button {
     text-align: right;
-    position: relative;
-    top: $document-list-icon-top-adjust;
-    flex: 0 0 auto;
 
     @media (min-width: $screen-sm) {
       // Provide some virtual spacing between columns
@@ -402,10 +403,6 @@ $document-list-icon-top-adjust: 0.3em !default;
       content: $fa-var-download;
       color: inherit;
     }
-  }
-
-  & .document-text {
-    flex: 1 0;
   }
 
   & .document-label,

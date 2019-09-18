@@ -24,15 +24,19 @@
   {% if content %}
     {{ content }}
   {% endif %}
-  <a href="{{media_download_url}}" target="_blank">
-    <span class="document-filetype"><span class="sr-only">{{ file_filemime }}</span></span>
-    <div class="document-text">
+  <div class="media-content">
+    <a href="{{media_file_url}}" target="_blank" class="document-filetype">
+      <span class="sr-only">{{ file_filemime }}</span>
+    </a>
+    <a href="{{media_file_url}}" target="_blank" class="document-text">
       <h4 class="document-label">{{ name }}</h4>
       {% if description is defined %}
         <div class="document-description">{{ description }}</div>
       {% endif %}
       <div class="document-filesize">{{ file_filesize_human }}</div>
-    </div>
-    <span class="document-download-button"><span class="sr-only">{{'Download'|t}}</span></span>
-  </a>
+    </a>
+    <a href="{{media_download_url}}" class="document-download-button" target="_blank">
+      <span class="sr-only">{{'Download'|t}}</span>
+    </a>
+  </div>
 </article>
