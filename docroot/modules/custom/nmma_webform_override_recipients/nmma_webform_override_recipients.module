@@ -23,15 +23,15 @@ function nmma_webform_override_recipients_webform_handler_invoke_alter ($handler
     }
     // Special conditions for potential_exhibitor form
     elseif (
-      isset($submission_data['marine_based'])
+      isset($submission_data['is_marine_based'])
       && isset($submission_data['override_recipients'])
       && isset($submission_data['override_recipients_marine_based'])
     ) {
-      // If marine_based field true or false
-      if ($submission_data['marine_based'] === 0) {
+      // If is_marine_based field true or false
+      if ($submission_data['is_marine_based'] === '0') {
         $override_recipients = $submission_data['override_recipients'];
       }
-      elseif ($submission_data['marine_based'] === 1) {
+      elseif ($submission_data['is_marine_based'] === '1') {
         $override_recipients = $submission_data['override_recipients_marine_based'];
       }
     }
