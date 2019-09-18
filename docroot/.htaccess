@@ -74,6 +74,8 @@ AddEncoding gzip svgz
   #####################
   # exclude Acquia domains
   RewriteCond %{HTTP_HOST} !\.acquia-sites\.com [NC]
+  # exclude urls that begin with word 'live'
+  RewriteCond %{HTTP_HOST} !^live\. [NC]
   # ensure only production environment
   RewriteCond %{ENV:AH_SITE_ENVIRONMENT} prod [NC] # only prod
   # ensure  for www.
