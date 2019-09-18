@@ -1,0 +1,31 @@
+instance_host: 'https://617-GWL-687.mktorest.com'
+logging: 0
+tracking_method: api_client
+munchkin:
+  javascript_library: //munchkin.marketo.net/munchkin.js
+  api_private_key: bQ221B1zXRUHmbriMUorPn8K_nvK0PMaSzDyuuEjJgEwM3o0zgT1HbTGzfEd1lgdJTAwfTwr8uJfEvuJ5_v5FHWYkBLLu8XuFXfImex_AsDg7Q
+  partition: ''
+  lead_source: ''
+  account_id: 8cKJXOzARIY6x51555yudr5bERaDsQnCZx2jG3NFLOQwM-8x2jos9smvUZlERdzOGW0-0zw2oSKeCs839g
+  altIds: ''
+  cookieLifeDays: ''
+  clickTime: ''
+  cookieAnon: ''
+  domainLevel: ''
+  disableClickDelay: ''
+  asyncOnly: ''
+rest:
+  batch_requests: 0
+  client_id: NasmXs6m7Hw_L2j7tY9t0DMt8qDuE6mj2PHnzZ89EXEwMxEKsjvNWyXX6Dxz1iYpm7dKgZUNP6aRTdkIj_wrY-ETwPosBuGfMVJT5Whrsx27RGXw4lw
+  client_secret: H1-xW1JVP5l1qA-kEl2VdiwH60C84MKyfoZvX02MlIgwM0oL9LXzUbyqiYArBxi0CYCe6p3lMxmEX2gnGiJdquvnriR54Z6ssFxNshQ3np51rQ
+field:
+  enabled_fields: {  }
+tracking:
+  request_path:
+    mode: 0
+    pages: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*\r\n/user/*/*"
+  user_role:
+    mode: 0
+    roles: {  }
+_core:
+  default_config_hash: sN5nMAhBiZm-sR0vnVjwXwFKkEeeXC1qliYlM9CXMcI
