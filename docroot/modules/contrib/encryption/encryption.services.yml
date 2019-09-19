@@ -1,3 +1,0 @@
-services:
-  encryption:
-    class: Drupal\encryption\EncryptionService

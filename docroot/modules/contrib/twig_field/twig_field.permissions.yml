@@ -1,3 +1,0 @@
-access twig fields:
-  title: 'Create and edit templates stored in Twig fields'
-  restrict access: true

@@ -1,8 +1,0 @@
-tests/composer.lock
-tests/phpunit.xml
-tests/vendor/
-tests/behat/composer.lock
-tests/behat/vendor/
-tests/behat/behat.yml
-*.patch
-
