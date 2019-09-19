@@ -1,0 +1,4 @@
+services:
+  codemirror_editor.library_builder:
+    class: Drupal\codemirror_editor\CodeMirrorLibraryBuilder
+    arguments: ['@config.factory', '@module_handler']

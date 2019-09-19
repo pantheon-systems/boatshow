@@ -1,0 +1,519 @@
+diff --git a/composer.json b/composer.json
+index a38835c..af617dd 100644
+--- a/composer.json
++++ b/composer.json
+@@ -79,7 +79,6 @@
+         "drupal/imagemagick": "^2.3",
+         "drupal/lightning_media": "^3.12",
+         "drupal/linkit": "5.x-dev#1084887a0c4d9f0458c8d60f59ba20c342005101",
+-        "drupal/marketo_ma": "^2.0",
+         "drupal/media_entity_browser": "2.x-dev#c75921d3af90f1b6dc052cd2edf037116227acf8",
+         "drupal/media_entity_download": "^2.0@beta",
+         "drupal/memcache": "2.0-alpha7",
+@@ -121,7 +120,6 @@
+         "drupal/xmlsitemap": "1.x-dev#23b04ea6b7a577f5cc9531dcd18488bab01e65a6",
+         "drush/drush": "^9.7",
+         "giggsey/libphonenumber-for-php": "^8.10",
+-        "marketo-api/marketo-rest-client": "dev-master",
+         "npm-asset/object-fit-images": "3.2.4",
+         "npm-asset/picturefill": "^3.0.3",
+         "symfony/property-access": "^4.3"
+diff --git a/composer.lock b/composer.lock
+index 34e0821..fa368bc 100644
+--- a/composer.lock
++++ b/composer.lock
+@@ -4,7 +4,7 @@
+         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+         "This file is @generated automatically"
+     ],
+-    "content-hash": "f55aca8d456c07a97af10cff3cc11aa6",
++    "content-hash": "51e6f129f2cc653148bdcbd1f5c22418",
+     "packages": [
+         {
+             "name": "acquia/blt",
+@@ -1098,44 +1098,6 @@
+             ],
+             "time": "2019-05-31T11:00:28+00:00"
+         },
+-        {
+-            "name": "commerceguys/guzzle-oauth2-plugin",
+-            "version": "v1.0.0",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/commerceguys/guzzle-oauth2-plugin.git",
+-                "reference": "90b375330080175a9aaad2bc897d1de111813e69"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/commerceguys/guzzle-oauth2-plugin/zipball/90b375330080175a9aaad2bc897d1de111813e69",
+-                "reference": "90b375330080175a9aaad2bc897d1de111813e69",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "guzzle/guzzle": ">=v3.0"
+-            },
+-            "type": "library",
+-            "autoload": {
+-                "psr-0": {
+-                    "CommerceGuys\\Guzzle": "src"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Bojan Zivanovic"
+-                },
+-                {
+-                    "name": "Damien Tournoud"
+-                }
+-            ],
+-            "description": "An OAuth2 plugin for guzzle",
+-            "time": "2014-05-20T10:02:48+00:00"
+-        },
+         {
+             "name": "composer/ca-bundle",
+             "version": "1.1.4",
+@@ -8846,70 +8808,6 @@
+                 "source": "https://git.drupalcode.org/project/machine_name_widget"
+             }
+         },
+-        {
+-            "name": "drupal/marketo_ma",
+-            "version": "2.0.0-alpha2",
+-            "source": {
+-                "type": "git",
+-                "url": "https://git.drupalcode.org/project/marketo_ma.git",
+-                "reference": "8.x-2.0-alpha2"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://ftp.drupal.org/files/projects/marketo_ma-8.x-2.0-alpha2.zip",
+-                "reference": "8.x-2.0-alpha2",
+-                "shasum": "8c1c560c64f5eda81b615469b5aac1b9b57bbddd"
+-            },
+-            "require": {
+-                "drupal/core": "*",
+-                "drupal/encryption": "*",
+-                "marketo-api/marketo-rest-client": "dev-master",
+-                "php": ">=5.5.9"
+-            },
+-            "require-dev": {
+-                "drupal/contact_block": "*",
+-                "drupal/contact_storage": "*",
+-                "drupal/marketo_ma_contact": "*",
+-                "drupal/webform": "*"
+-            },
+-            "type": "drupal-module",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-2.x": "2.x-dev"
+-                },
+-                "drupal": {
+-                    "version": "8.x-2.0-alpha2",
+-                    "datestamp": "1539270480",
+-                    "security-coverage": {
+-                        "status": "not-covered",
+-                        "message": "Alpha releases are not covered by Drupal security advisories."
+-                    }
+-                }
+-            },
+-            "notification-url": "https://packages.drupal.org/8/downloads",
+-            "license": [
+-                "GPL-2.0+"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "bonus",
+-                    "homepage": "https://www.drupal.org/user/360002"
+-                },
+-                {
+-                    "name": "jyokum",
+-                    "homepage": "https://www.drupal.org/user/377457"
+-                }
+-            ],
+-            "description": "Integration with Marketo marketing automation software.",
+-            "homepage": "https://www.drupal.org/project/marketo_ma",
+-            "keywords": [
+-                "Drupal"
+-            ],
+-            "support": {
+-                "source": "http://cgit.drupalcode.org/marketo_ma",
+-                "issues": "https://www.drupal.org/project/issues/marketo_ma"
+-            }
+-        },
+         {
+             "name": "drupal/media_entity_browser",
+             "version": "dev-2.x",
+@@ -13760,99 +13658,6 @@
+             "description": "Expands internal property references in a yaml file.",
+             "time": "2017-12-16T16:06:03+00:00"
+         },
+-        {
+-            "name": "guzzle/guzzle",
+-            "version": "v3.8.1",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/guzzle/guzzle.git",
+-                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
+-                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "ext-curl": "*",
+-                "php": ">=5.3.3",
+-                "symfony/event-dispatcher": ">=2.1"
+-            },
+-            "replace": {
+-                "guzzle/batch": "self.version",
+-                "guzzle/cache": "self.version",
+-                "guzzle/common": "self.version",
+-                "guzzle/http": "self.version",
+-                "guzzle/inflection": "self.version",
+-                "guzzle/iterator": "self.version",
+-                "guzzle/log": "self.version",
+-                "guzzle/parser": "self.version",
+-                "guzzle/plugin": "self.version",
+-                "guzzle/plugin-async": "self.version",
+-                "guzzle/plugin-backoff": "self.version",
+-                "guzzle/plugin-cache": "self.version",
+-                "guzzle/plugin-cookie": "self.version",
+-                "guzzle/plugin-curlauth": "self.version",
+-                "guzzle/plugin-error-response": "self.version",
+-                "guzzle/plugin-history": "self.version",
+-                "guzzle/plugin-log": "self.version",
+-                "guzzle/plugin-md5": "self.version",
+-                "guzzle/plugin-mock": "self.version",
+-                "guzzle/plugin-oauth": "self.version",
+-                "guzzle/service": "self.version",
+-                "guzzle/stream": "self.version"
+-            },
+-            "require-dev": {
+-                "doctrine/cache": "*",
+-                "monolog/monolog": "1.*",
+-                "phpunit/phpunit": "3.7.*",
+-                "psr/log": "1.0.*",
+-                "symfony/class-loader": "*",
+-                "zendframework/zend-cache": "<2.3",
+-                "zendframework/zend-log": "<2.3"
+-            },
+-            "type": "library",
+-            "extra": {
+-                "branch-alias": {
+-                    "dev-master": "3.8-dev"
+-                }
+-            },
+-            "autoload": {
+-                "psr-0": {
+-                    "Guzzle": "src/",
+-                    "Guzzle\\Tests": "tests/"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Michael Dowling",
+-                    "email": "mtdowling@gmail.com",
+-                    "homepage": "https://github.com/mtdowling"
+-                },
+-                {
+-                    "name": "Guzzle Community",
+-                    "homepage": "https://github.com/guzzle/guzzle/contributors"
+-                }
+-            ],
+-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+-            "homepage": "http://guzzlephp.org/",
+-            "keywords": [
+-                "client",
+-                "curl",
+-                "framework",
+-                "http",
+-                "http client",
+-                "rest",
+-                "web service"
+-            ],
+-            "abandoned": "guzzlehttp/guzzle",
+-            "time": "2014-01-28T22:29:15+00:00"
+-        },
+         {
+             "name": "guzzlehttp/guzzle",
+             "version": "6.3.3",
+@@ -14681,49 +14486,6 @@
+             ],
+             "time": "2017-02-03T11:58:58+00:00"
+         },
+-        {
+-            "name": "marketo-api/marketo-rest-client",
+-            "version": "dev-master",
+-            "source": {
+-                "type": "git",
+-                "url": "https://github.com/marketo-api/marketo-rest-client.git",
+-                "reference": "cd502ff6d443a517610cb75bb48b53343a285828"
+-            },
+-            "dist": {
+-                "type": "zip",
+-                "url": "https://api.github.com/repos/marketo-api/marketo-rest-client/zipball/cd502ff6d443a517610cb75bb48b53343a285828",
+-                "reference": "cd502ff6d443a517610cb75bb48b53343a285828",
+-                "shasum": ""
+-            },
+-            "require": {
+-                "commerceguys/guzzle-oauth2-plugin": "~1.0",
+-                "guzzle/guzzle": "~3.8",
+-                "php": ">=5.3.3"
+-            },
+-            "replace": {
+-                "marketo-api/marketo-rest-client": "0.*"
+-            },
+-            "require-dev": {
+-                "phpunit/phpunit": "~4.0"
+-            },
+-            "type": "library",
+-            "autoload": {
+-                "psr-4": {
+-                    "CSD\\Marketo\\": "src"
+-                }
+-            },
+-            "notification-url": "https://packagist.org/downloads/",
+-            "license": [
+-                "MIT"
+-            ],
+-            "authors": [
+-                {
+-                    "name": "Daniel Chesterton"
+-                }
+-            ],
+-            "description": "A PHP client for the Marketo.com REST API",
+-            "time": "2017-05-08T16:04:12+00:00"
+-        },
+         {
+             "name": "masterminds/html5",
+             "version": "2.6.0",
+@@ -21745,8 +21507,7 @@
+         "drupal/views_current_path": 10,
+         "drupal/views_field_view": 10,
+         "drupal/webform": 5,
+-        "drupal/xmlsitemap": 20,
+-        "marketo-api/marketo-rest-client": 20
++        "drupal/xmlsitemap": 20
+     },
+     "prefer-stable": true,
+     "prefer-lowest": false,
+diff --git a/config/miami/marketo_ma.settings.yml b/config/miami/marketo_ma.settings.yml
+deleted file mode 100644
+index 5cd2c7c..0000000
+--- a/config/miami/marketo_ma.settings.yml
++++ /dev/null
+@@ -1,31 +0,0 @@
+-instance_host: 'https://617-GWL-687.mktorest.com'
+-logging: 0
+-tracking_method: api_client
+-munchkin:
+-  javascript_library: //munchkin.marketo.net/munchkin.js
+-  api_private_key: bQ221B1zXRUHmbriMUorPn8K_nvK0PMaSzDyuuEjJgEwM3o0zgT1HbTGzfEd1lgdJTAwfTwr8uJfEvuJ5_v5FHWYkBLLu8XuFXfImex_AsDg7Q
+-  partition: ''
+-  lead_source: ''
+-  account_id: 8cKJXOzARIY6x51555yudr5bERaDsQnCZx2jG3NFLOQwM-8x2jos9smvUZlERdzOGW0-0zw2oSKeCs839g
+-  altIds: ''
+-  cookieLifeDays: ''
+-  clickTime: ''
+-  cookieAnon: ''
+-  domainLevel: ''
+-  disableClickDelay: ''
+-  asyncOnly: ''
+-rest:
+-  batch_requests: 0
+-  client_id: NasmXs6m7Hw_L2j7tY9t0DMt8qDuE6mj2PHnzZ89EXEwMxEKsjvNWyXX6Dxz1iYpm7dKgZUNP6aRTdkIj_wrY-ETwPosBuGfMVJT5Whrsx27RGXw4lw
+-  client_secret: H1-xW1JVP5l1qA-kEl2VdiwH60C84MKyfoZvX02MlIgwM0oL9LXzUbyqiYArBxi0CYCe6p3lMxmEX2gnGiJdquvnriR54Z6ssFxNshQ3np51rQ
+-field:
+-  enabled_fields: {  }
+-tracking:
+-  request_path:
+-    mode: 0
+-    pages: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*\r\n/user/*/*"
+-  user_role:
+-    mode: 0
+-    roles: {  }
+-_core:
+-  default_config_hash: sN5nMAhBiZm-sR0vnVjwXwFKkEeeXC1qliYlM9CXMcI
+diff --git a/docroot/modules/custom/nmma_forms/nmma_forms.install b/docroot/modules/custom/nmma_forms/nmma_forms.install
+index ec144ca..f60996e 100644
+--- a/docroot/modules/custom/nmma_forms/nmma_forms.install
++++ b/docroot/modules/custom/nmma_forms/nmma_forms.install
+@@ -97,4 +97,5 @@ function nmma_forms_update_8001() {
+     }
+ 
+   }
++
+ }
+diff --git a/docroot/modules/custom/nmma_forms/nmma_forms.routing.yml b/docroot/modules/custom/nmma_forms/nmma_forms.routing.yml
+deleted file mode 100644
+index c0c6426..0000000
+--- a/docroot/modules/custom/nmma_forms/nmma_forms.routing.yml
++++ /dev/null
+@@ -1,7 +0,0 @@
+-nmma_forms.newsletter:
+-  path: '/newsletter_tester'
+-  defaults:
+-    _title: 'Newsletter form'
+-    _form: '\Drupal\nmma_forms\Form\Newsletter'
+-  requirements:
+-    _permission: 'access content'
+diff --git a/docroot/modules/custom/nmma_forms/nmma_forms.services.yml b/docroot/modules/custom/nmma_forms/nmma_forms.services.yml
+index b335de6..8bd2c9f 100644
+--- a/docroot/modules/custom/nmma_forms/nmma_forms.services.yml
++++ b/docroot/modules/custom/nmma_forms/nmma_forms.services.yml
+@@ -10,4 +10,3 @@ services:
+   nmma_marketo_ma.api_client:
+       class: Drupal\nmma_forms\NMMAMarketoMaApiClient
+       arguments: ['@config.factory', '@logger.channel.marketo_ma']
+-      
+diff --git a/docroot/modules/custom/nmma_forms/src/Form/Newsletter.php b/docroot/modules/custom/nmma_forms/src/Form/Newsletter.php
+index df7bfb3..6ef6124 100644
+--- a/docroot/modules/custom/nmma_forms/src/Form/Newsletter.php
++++ b/docroot/modules/custom/nmma_forms/src/Form/Newsletter.php
+@@ -66,57 +66,18 @@ public function getFormId() {
+    * {@inheritdoc}
+    */
+   public function buildForm(array $form, FormStateInterface $form_state) {
+-    $form['#prefix'] = '<div class="email-field-display-overview-wrapper">';
++    $form['#prefix'] = '<div id="email-field-display-overview-wrapper">';
+     $form['#suffix'] = '</div>';
+     $form['newsletterEmail'] = [
+       '#type' => 'email',
+-      '#title' => 'Email',
+       '#placeholder' => $this->t('Email Address'),
+       '#required' => TRUE,
+       '#prefix' => '<div class="submit-input-field--clear">',
+-      '#suffix' => '</div>',
+     ];
+-    $form['firstName'] = [
+-      '#type' => 'textfield',
+-      '#title' => 'First Name',
+-      '#placeholder' => $this->t('First Name'),
+-      '#required' => TRUE,
+-      '#prefix' => '<div class="submit-input-field--clear">',
+-      '#suffix' => '</div>',
+-    ];
+-    $form['lastName'] = [
+-      '#type' => 'textfield',
+-      '#title' => 'Last Name',
+-      '#placeholder' => $this->t('Last Name'),
+-      '#required' => TRUE,
+-      '#prefix' => '<div class="submit-input-field--clear">',
+-      '#suffix' => '</div>',
+-    ];
+-    $form['postalCode'] = [
+-      '#type' => 'textfield',
+-      '#title' => 'Postal Code',
+-      '#placeholder' => $this->t('Postal Code'),
+-      '#required' => TRUE,
+-      '#prefix' => '<div class="submit-input-field--clear">',
+-      '#suffix' => '</div>',
+-    ];
+-    $form['agreement'] = [
+-      '#type' => 'checkbox',
+-      '#title' => 'I agree to receive information from Progressive® Insurance Miami International Boat Show® with news, updates and promotions.',
+-      '#required' => TRUE,
+-      '#prefix' => '<div class="submit-input-field--clear">',
+-      '#suffix' => '</div>',
+-    ];
+-
+-    $form['newsletterdisclaimer'] = array(
+-      '#markup' => '<p>You can withdraw your subscription at any time.
+-        Please refer to our <a href="/privacy">privacy policy</a> or
+-        <a href="/contacts">contact us</a> for more details.</p>',
+-
+-      );
+     $form['submit'] = [
+       '#type' => 'submit',
+-      '#value' => 'Sign up',
++      '#value' => '',
++      '#suffix' => '<i class="icon icon-db-arrow-right" data-gtm-tracking="Newsletter Sign Up - Submit - Footer"></i></div>',
+       '#attributes' => ['data-gtm-tracking' => 'Newsletter Sign Up - Submit - Footer'],
+     ];
+     return $form;
+@@ -141,7 +102,7 @@ public function validateForm(array &$form, FormStateInterface $form_state) {
+    */
+   public function submitForm(array &$form, FormStateInterface $form_state) {
+     // Add the email as a lead and to the newsletter list in Marketo.
+-    $this->newsletterSubmission->submit($form_state->getValue('newsletterEmail'), $form_state->getValue('firstName'), $form_state->getValue('lastName'), $form_state->getValue('postalCode'));
++    $this->newsletterSubmission->submit($form_state->getValue('newsletterEmail'));
+     $form_state->setRedirectUrl($this->getRedirect());
+   }
+ 
+@@ -185,7 +146,7 @@ public function ajaxCallback(array $form, FormStateInterface $form_state) {
+    *   The form redirect.
+    */
+   protected function getRedirect() {
+-        return Url::fromUri('internal:/newsletter-thank-you');
++    return Url::fromRoute('entity.node.canonical', ['node' => 28096]);
+   }
+ 
+ }
+diff --git a/docroot/modules/custom/nmma_forms/src/NewsletterSubmission.php b/docroot/modules/custom/nmma_forms/src/NewsletterSubmission.php
+index 0c1b705..49ab648 100644
+--- a/docroot/modules/custom/nmma_forms/src/NewsletterSubmission.php
++++ b/docroot/modules/custom/nmma_forms/src/NewsletterSubmission.php
+@@ -17,7 +17,7 @@ class NewsletterSubmission {
+    *
+    * @var int
+    */
+-  const NEWSLETTER_MARKETO_ID = 1007;
++  const NEWSLETTER_MARKETO_ID = 1006;
+ 
+   /**
+    * The Marketo MA service.
+@@ -69,12 +69,11 @@ public function __construct(MarketoMaService $marketo_ma_service, LoggerInterfac
+   /**
+    * Add a user as a lead and to the newsletter.
+    */
+-  public function submit($email, $first_name = '', $last_name = '', $postal_code = '') {
++  public function submit($email, $first_name = '', $last_name = '') {
+     $lead = new Lead([
+       'email' => $email,
+       'firstName' => $first_name,
+       'lastName' => $last_name,
+-      'postalCode' => $postal_code,
+     ]);
+ 
+     $this->marketoMaService->updateLead($lead);
+diff --git a/docroot/themes/custom/boatshow/sass/pages/_newsletter.scss b/docroot/themes/custom/boatshow/sass/pages/_newsletter.scss
+deleted file mode 100644
+index f17f029..0000000
+--- a/docroot/themes/custom/boatshow/sass/pages/_newsletter.scss
++++ /dev/null
+@@ -1,8 +0,0 @@
+-.email-field-display-overview-wrapper {
+-  padding: 0 10%;
+-}
+-
+-.submit-input-field--clear .icon {
+-  height: 20px;
+-  width: 20px;
+-}
+diff --git a/docroot/themes/custom/boatshow/sass/pages/_service-providers.scss b/docroot/themes/custom/boatshow/sass/pages/_service-providers.scss
+new file mode 100644
+index 0000000..1ad89d8
+--- /dev/null
++++ b/docroot/themes/custom/boatshow/sass/pages/_service-providers.scss
+@@ -0,0 +1,11 @@
++
++body.alias--services-and-order-forms {
++
++  .brick--id--2146 {
++    .view-content {
++      max-width: 100%;
++      overflow-x: scroll;
++    }
++  }
++
++}

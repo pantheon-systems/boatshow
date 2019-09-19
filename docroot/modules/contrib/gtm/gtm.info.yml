@@ -1,0 +1,13 @@
+name: GTM
+description: 'Google Tag Manager'
+type: module
+# core: 8.x
+# version: 1.0
+package: Statistics
+configure: gtm.admin_settings_form
+
+# Information added by Drupal.org packaging script on 2017-12-27
+version: '8.x-1.1'
+core: '8.x'
+project: 'gtm'
+datestamp: 1514402586

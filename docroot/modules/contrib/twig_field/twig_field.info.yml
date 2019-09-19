@@ -1,0 +1,12 @@
+name: Twig field
+type: module
+description: Provides Twig field type.
+# core: 8.x
+dependencies:
+  - codemirror_editor:codemirror_editor
+
+# Information added by Drupal.org packaging script on 2018-10-01
+version: '8.x-1.0'
+core: '8.x'
+project: 'twig_field'
+datestamp: 1538374983

@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Codemirror editor test module.
+ */
+
+/**
+ * Implements hook_codemirror_editor_assets_alter().
+ */
+function codemirror_editor_test_codemirror_editor_assets_alter(array &$assets) {
+  $assets['js'][] = 'mode/clike/clike.min.js';
+  $assets['js'][] = 'mode/php/php.min.js';
+  $assets['js'][] = 'mode/css/css.min.js';
+}
