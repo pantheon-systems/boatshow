@@ -165,6 +165,9 @@
                 "Entity Processor shows actions but uses wrong id [https://www.drupal.org/project/feeds/issues/3078857]": "https://www.drupal.org/files/issues/2019-09-03/3078857-2.patch",
                 "HACK: ALWAYS CLEAN during processing": "./patches/feeds-always-clean.patch"
             },
+            "drupal/marketo_ma": {
+                "HACK: check for rest array key before accessing array": "./patches/marketo-ma-rest-array-check.patch"
+            },
             "drupal/lightning_media": {
                 "Entity browser reordering of files broken in lightning 8.x-2.16 [https://www.drupal.org/project/lightning_media/issues/2901225]": "https://www.drupal.org/files/issues/2901225_20_lightning-media-module.patch"
             },

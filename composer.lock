@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f55aca8d456c07a97af10cff3cc11aa6",
+    "content-hash": "26d8910dbb367163e1f41ce8c0a4429f",
     "packages": [
         {
             "name": "acquia/blt",
@@ -8884,6 +8884,9 @@
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "HACK: check for rest array key before accessing array": "./patches/marketo-ma-rest-array-check.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
