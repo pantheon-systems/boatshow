@@ -182,7 +182,7 @@ clientside_validation_demo: 0.0.0
 views_current_path: 0.0.0
 menu_link_attributes: 1.0.0
 encryption: 1.0.0
-marketo_ma: 0.0.0
+marketo_ma: 2.0.0-alpha2
 cshs: 0.0.0
 anchor_link: 0.0.0
 geolocation_demo: 0.0.0
@@ -226,3 +226,4 @@ recaptcha: 2.4.0
 quicktabs: 3.0.0-alpha2
 content_lock: 1.0.0-alpha8
 nmma_exhibitor_import: 0.0.0
+nmma_forms: 0.0.0
