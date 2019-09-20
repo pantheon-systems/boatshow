@@ -100,7 +100,7 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: inline
   confirmation_title: ''
-  confirmation_message: "<h3>Thank you for your inquiry</h3>\r\n\r\n<p>Our Sponsorship team will be in touch with you shortly.&nbsp;</p>"
+  confirmation_message: "<p>Thank you for the interest in becoming an NMMA boat show sponsor. We have numerous opportunities for brand awareness and activation at all our shows, and a sponsorship team member will contact you within 2-3 business days to discuss opportunities.</p>"
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true

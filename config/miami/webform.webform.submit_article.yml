@@ -102,7 +102,7 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: inline
   confirmation_title: ''
-  confirmation_message: '<h3>&nbsp;Thank you for submitting your article. Staff are reviewing it for publication, and will contact you with any further questions.</h3>'
+  confirmation_message: '<p>Thank you for providing news about your company and/or products. Your information will be reviewed for submission and, if approved, published in 3-5 business days.</p>'
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
