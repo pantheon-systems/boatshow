@@ -3,6 +3,11 @@
 }
 
 .submit-input-field--clear .icon {
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
+}
+
+.email-field-display-overview-wrapper .icon::before {
+  font-size: 1rem;
+  padding-top: 0;
 }
