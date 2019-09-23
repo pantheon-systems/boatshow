@@ -421,7 +421,7 @@ To add a new environment (e.g. dev, stage, live) for an existing multisite, you 
 
 - Set up the new environment in Acquia (Lewis/Melinda to document)
 - Add the new TLDs to docroot/sites/sites.php for the sites.
-- Update the drush aliases for affected multisites in drush/sites/*.site.yml
+- Update the drush aliases for affected multisites in drush/sites/\*.site.yml
 
 Please reference the following commits:
 
