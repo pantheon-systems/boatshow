@@ -98,10 +98,10 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: inline
+  confirmation_type: url
   confirmation_title: ''
-  confirmation_message: "<p>We appreciate your interest in exhibiting at the Miami International Boat Show. A member of the show team will contact you within 2-3 business days.</p>"
-  confirmation_url: ''
+  confirmation_message: ''
+  confirmation_url: /node/9071
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: 'Click here to reload the form.'

@@ -100,10 +100,10 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: inline
+  confirmation_type: url
   confirmation_title: ''
-  confirmation_message: '<p>Thank you for providing news about your company and/or products. Your information will be reviewed for submission and, if approved, published in 3-5 business days.</p>'
-  confirmation_url: ''
+  confirmation_message: ''
+  confirmation_url: /node/9086
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
