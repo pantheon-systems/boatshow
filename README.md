@@ -420,9 +420,11 @@ host$ blt artifact:deploy --branch "master" -n
 To add a new environment (e.g. dev, stage, live) for an existing multisite, you will need to:
 
 - Set up the new environment in Acquia (Lewis/Melinda to document)
+- Check permissions/accessibility of update.php and install.php
 - Add the new TLDs to docroot/sites/sites.php for the sites.
 - Update the drush aliases for affected multisites in drush/sites/\*.site.yml
 
 Please reference the following commits:
 
 - `acd653da [NMMA-195] Prepare release for live2.miamiboatshpw.com`
+- `58807e48 permissions update for live install`
