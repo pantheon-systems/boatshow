@@ -86,6 +86,8 @@ $sites['dev.miamiboatshow.com'] = 'miami';
 $sites['dev2.miamiboatshow.com'] = 'miami';
 $sites['stage.miamiboatshow.com'] = 'miami';
 $sites['stage2.miamiboatshow.com'] = 'miami';
+$sites['live.miamiboatshow.com'] = 'miami';
+$sites['live2.miamiboatshow.com'] = 'miami';
 $sites['www.miamiboatshow.com'] = 'miami';
 
 // Nashville

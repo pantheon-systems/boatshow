@@ -79,7 +79,7 @@ AddEncoding gzip svgz
   # ensure only production environment
   RewriteCond %{ENV:AH_SITE_ENVIRONMENT} prod [NC] # only prod
   # ensure  for www.
-  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteCond %{HTTP_HOST} !^(www|live|live2)\. [NC]
   RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   #####################

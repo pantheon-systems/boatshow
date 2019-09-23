@@ -36,3 +36,10 @@ prod:
   user: boatshow.prod
   paths:
     drush-script: /usr/local/bin/drush9
+prod2:
+  root: /var/www/html/discoverboat.prod/docroot
+  uri: https://live2.miamiboatshow.com/
+  host: ded-29722.prod.hosting.acquia.com
+  user: discoverboat.prod
+  paths:
+    drush-script: /usr/local/bin/drush9
