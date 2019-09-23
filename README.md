@@ -394,17 +394,35 @@ For step-by-step instructions on how to update dependencies, see [dependency-man
 
 ## Deploying to Acquia Cloud
 
-BLT will package up the code and dependencies into a folder named "deploy" then commit and push the code to the specified branch.
-The Acquia repository is specified in the "blt/blt.yml" file under the git remotes settings.
+- First you will need to compile the front-end resources locally, by running the gulp command from the 'Build the front-end theme' section of this document.
+- You should merge or commit any code which needs to be deployed into the 2.x branch of the github repository, and stash any uncommitted changes (the next command requires a clean working directory)
+- You may now run the BLT deployment command. BLT will package up the code and dependencies into a folder named "deploy" then commit and push the code to the specified branch of the Acquia git repository, which is specified in the "blt/blt.yml" file under the git remotes settings. This command should be run from outside the vagrant VM. It **can** be run from inside vagrant, but it may take a lot longer to complete, on the order of 10x as long.
 
 ```console
-host$ blt artifact:deploy --commit-msg "[NMMA-XX] COMMIT MESSAGE" --branch "BRANCH-TO-PUSH-TO" --no-interaction
+host$ blt artifact:deploy --branch "BRANCH-TO-PUSH-TO" -n
 
 Examples:
 - To deploy current github branch to Acquia Dev environment
-host$ blt artifact:deploy --commit-msg "[NMMA-XX] COMMIT MESSAGE" --branch "dev" --no-interaction
+host$ blt artifact:deploy --branch "dev" -n
 
 - To deploy current github branch to Acquia Stage environment
-host$ blt artifact:deploy --commit-msg "[NMMA-XX] COMMIT MESSAGE" --branch "stage" --no-interaction
+host$ blt artifact:deploy --branch "stage" -n
+
+- To deploy current github branch to Acquia Prod environment
+host$ blt artifact:deploy --branch "master" -n
 
 ```
+
+- Note that after uploading this code to the Acquia deployment repo branch, Acquia's build process will automatically update that code on the environment for that branch. It will then run the hooks from hooks/\*/post-code-deploy and hooks/\*/post-code-update in order to import config, etc.
+
+## Adding new environments
+
+To add a new environment (e.g. dev, stage, live) for an existing multisite, you will need to:
+
+- Set up the new environment in Acquia (Lewis/Melinda to document)
+- Add the new TLDs to docroot/sites/sites.php for the sites.
+- Update the drush aliases for affected multisites in drush/sites/*.site.yml
+
+Please reference the following commits:
+
+- `acd653da [NMMA-195] Prepare release for live2.miamiboatshpw.com`
