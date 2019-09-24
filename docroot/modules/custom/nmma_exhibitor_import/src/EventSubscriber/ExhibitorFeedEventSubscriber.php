@@ -23,17 +23,17 @@ class ExhibitorFeedEventSubscriber implements EventSubscriberInterface {
   public static function getSubscribedEvents() {
     $events = [];
     $events[FeedsEvents::PROCESS][] = ['onProcess', 1000];
-    $events[FeedsEvents::PARSE][] = ['onParse', 1000];
-    $events[FeedsEvents::PROCESS_ENTITY_PREVALIDATE][] = ['onProcessEntityPrevalidate', 1000];
     $events[FeedsEvents::PROCESS_ENTITY_PRESAVE][] = ['onProcessEntityPresave', 1000];
-    $events[FeedsEvents::PROCESS_ENTITY_POSTSAVE][] = ['onProcessEntityPostsave', 1000];
     return $events;
   }
 
-  public function onParse (ParseEvent $event) {
-  }
-
   public function onProcess(ProcessEvent $event) {
+    // Do not run this code for feeds other than exhibitors
+    $feedType = $event->getFeed()->getType()->id();
+    if ($feedType !== 'exhibitors') {
+      return;
+    }
+
     $item = $event->getItem();
 
     // Copy and flatten booths data before feeds tries to add it to the text field, this helps to prevent triggering a notice
@@ -42,11 +42,13 @@ class ExhibitorFeedEventSubscriber implements EventSubscriberInterface {
     $item->set('booths_array', $booths);
   }
 
-  public function onProcessEntityPrevalidate(EntityEvent $event) {
-  }
-
-
   public function onProcessEntityPresave(EntityEvent $event) {
+    // Do not run this code for feeds other than exhibitors
+    $feedType = $event->getFeed()->getType()->id();
+    if ($feedType !== 'exhibitors') {
+      return;
+    }
+
     $item = $event->getItem();
     $exhibitorEntity = $event->getEntity();
 
@@ -107,9 +109,6 @@ class ExhibitorFeedEventSubscriber implements EventSubscriberInterface {
     }
 
     // $exhibitorEntity->save(); // Not necessary to save here, as entity will be saved after this event is fired
-  }
-
-  public function onProcessEntityPostSave(EntityEvent $event) {
   }
 
   protected function boothNodeFromBoothNumber ($boothNumber, $boothBuilding) {
