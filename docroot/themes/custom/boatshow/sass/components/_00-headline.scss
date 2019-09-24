@@ -21,17 +21,17 @@
   }
 }
 
-@mixin headline-effect-city-color-primary {
-  color: $city-color-primary;
-}
-
 // Legacy mixin/classname
 @mixin headline-effect-city-color {
   @include headline-effect-city-color-primary;
 }
 
-@mixin headline-effect-city-color-secondary {
+@mixin headline-effect-city-color-primary {
   color: $city-color-primary;
+}
+
+@mixin headline-effect-city-color-secondary {
+  color: $city-color-secondary;
 }
 
 @mixin headline-effect-city-color-tertiary {
@@ -64,13 +64,13 @@
   @include headline-effect-thickthin;
 }
 
-.headline-effect-city-color-primary {
-  @include headline-effect-city-color-primary;
-}
-
 // Legacy mixin/classname
 .headline-effect-city-color {
   @include headline-effect-city-color;
+}
+
+.headline-effect-city-color-primary {
+  @include headline-effect-city-color-primary;
 }
 
 .headline-effect-city-color-secondary {

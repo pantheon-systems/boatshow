@@ -211,3 +211,15 @@ function nmma_brick_layouts_offer_type_allowed_values_function () {
 
   return $options;
 }
+
+/**
+ * Implements HOOK_page_attachments
+ */
+function nmma_brick_layouts_page_attachments(array &$attachments) {
+  $config = \Drupal::config('system.theme');
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+
+  if ($theme == $config->get('admin')) {
+    $attachments['#attached']['library'][] = 'nmma_brick_layouts/wysiwyg';
+  }
+}

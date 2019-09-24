@@ -54,6 +54,16 @@ settings:
             - DrupalFile
             - media_browser
         -
+          name: 'drupal links'
+          items:
+            - DrupalLink
+            - DrupalUnlink
+      -
+        -
+          name: 'Custom Styles'
+          items:
+            - Styles
+        -
           name: 'Block Formatting'
           items:
             - Format
@@ -62,14 +72,9 @@ settings:
           items:
             - ShowBlocks
             - Source
-        -
-          name: 'drupal links'
-          items:
-            - DrupalLink
-            - DrupalUnlink
   plugins:
     stylescombo:
-      styles: ''
+      styles: "a.button|Primary ButtonLink\r\na.button--secondary|Secondary ButtonLink\r\nh1.headline-effect-city-color-primary|h1 - Primary\r\nh2.headline-effect-city-color-primary|h2 - Primary\r\nh3.headline-effect-city-color-primary|h3 - Primary\r\nh4.headline-effect-city-color-primary|h4 - Primary\r\nh5.headline-effect-city-color-primary|h5 - Primary\r\nh6.headline-effect-city-color-primary|h6 - Primary\r\nh1.headline-effect-city-color-secondary|h1 - Secondary\r\nh2.headline-effect-city-color-secondary|h2 - Secondary\r\nh3.headline-effect-city-color-secondary|h3 - Secondary\r\nh4.headline-effect-city-color-secondary|h4 - Secondary\r\nh5.headline-effect-city-color-secondary|h5 - Secondary\r\nh6.headline-effect-city-color-secondary|h6 - Secondary\r\nh1.headline-effect-city-color-tertiary|h1 - Tertiary\r\nh2.headline-effect-city-color-tertiary|h2 - Tertiary\r\nh3.headline-effect-city-color-tertiary|h3 - Tertiary\r\nh4.headline-effect-city-color-tertiary|h4 - Tertiary\r\nh5.headline-effect-city-color-tertiary|h5 - Tertiary\r\nh6.headline-effect-city-color-tertiary|h6 - Tertiary\r\nh1.headline-effect-thickthin|h1 - Thickthin\r\nh2.headline-effect-thickthin|h2 - Thickthin\r\nh3.headline-effect-thickthin|h3 - Thickthin\r\nh4.headline-effect-thickthin|h4 - Thickthin\r\nh5.headline-effect-thickthin|h5 - Thickthin\r\nh6.headline-effect-thickthin|h6 - Thickthin\r\nh1.headline-effect-labelmaker|h1 - Labelmaker\r\nh2.headline-effect-labelmaker|h2 - Labelmaker\r\nh3.headline-effect-labelmaker|h3 - Labelmaker\r\nh4.headline-effect-labelmaker|h4 - Labelmaker\r\nh5.headline-effect-labelmaker|h5 - Labelmaker\r\nh6.headline-effect-labelmaker|h6 - Labelmaker"
     drupallink:
       linkit_enabled: true
       linkit_profile: default
