@@ -79,6 +79,7 @@
         "drupal/imagemagick": "^2.3",
         "drupal/lightning_media": "^3.12",
         "drupal/linkit": "5.x-dev#1084887a0c4d9f0458c8d60f59ba20c342005101",
+        "drupal/marketo_ma": "^2.0",
         "drupal/media_entity_browser": "2.x-dev#c75921d3af90f1b6dc052cd2edf037116227acf8",
         "drupal/media_entity_download": "^2.0@beta",
         "drupal/memcache": "2.0-alpha7",
@@ -120,6 +121,7 @@
         "drupal/xmlsitemap": "1.x-dev#23b04ea6b7a577f5cc9531dcd18488bab01e65a6",
         "drush/drush": "^9.7",
         "giggsey/libphonenumber-for-php": "^8.10",
+        "marketo-api/marketo-rest-client": "dev-master",
         "npm-asset/object-fit-images": "3.2.4",
         "npm-asset/picturefill": "^3.0.3",
         "symfony/property-access": "^4.3"
@@ -162,6 +164,9 @@
             "drupal/feeds": {
                 "Entity Processor shows actions but uses wrong id [https://www.drupal.org/project/feeds/issues/3078857]": "https://www.drupal.org/files/issues/2019-09-03/3078857-2.patch",
                 "HACK: ALWAYS CLEAN during processing": "./patches/feeds-always-clean.patch"
+            },
+            "drupal/marketo_ma": {
+                "HACK: check for rest array key before accessing array": "./patches/marketo-ma-rest-array-check.patch"
             },
             "drupal/lightning_media": {
                 "Entity browser reordering of files broken in lightning 8.x-2.16 [https://www.drupal.org/project/lightning_media/issues/2901225]": "https://www.drupal.org/files/issues/2901225_20_lightning-media-module.patch"

@@ -10,3 +10,4 @@ services:
   nmma_marketo_ma.api_client:
       class: Drupal\nmma_forms\NMMAMarketoMaApiClient
       arguments: ['@config.factory', '@logger.channel.marketo_ma']
+      

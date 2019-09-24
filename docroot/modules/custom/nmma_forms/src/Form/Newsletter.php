@@ -66,18 +66,57 @@ class Newsletter extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['#prefix'] = '<div id="email-field-display-overview-wrapper">';
+    $form['#prefix'] = '<div class="email-field-display-overview-wrapper">';
     $form['#suffix'] = '</div>';
     $form['newsletterEmail'] = [
       '#type' => 'email',
+      '#title' => 'Email',
       '#placeholder' => $this->t('Email Address'),
       '#required' => TRUE,
       '#prefix' => '<div class="submit-input-field--clear">',
+      '#suffix' => '</div>',
     ];
+    $form['firstName'] = [
+      '#type' => 'textfield',
+      '#title' => 'First Name',
+      '#placeholder' => $this->t('First Name'),
+      '#required' => TRUE,
+      '#prefix' => '<div class="submit-input-field--clear">',
+      '#suffix' => '</div>',
+    ];
+    $form['lastName'] = [
+      '#type' => 'textfield',
+      '#title' => 'Last Name',
+      '#placeholder' => $this->t('Last Name'),
+      '#required' => TRUE,
+      '#prefix' => '<div class="submit-input-field--clear">',
+      '#suffix' => '</div>',
+    ];
+    $form['postalCode'] = [
+      '#type' => 'textfield',
+      '#title' => 'Postal Code',
+      '#placeholder' => $this->t('Postal Code'),
+      '#required' => TRUE,
+      '#prefix' => '<div class="submit-input-field--clear">',
+      '#suffix' => '</div>',
+    ];
+    $form['agreement'] = [
+      '#type' => 'checkbox',
+      '#title' => 'I agree to receive information from Progressive® Insurance Miami International Boat Show® with news, updates and promotions.',
+      '#required' => TRUE,
+      '#prefix' => '<div class="submit-input-field--clear">',
+      '#suffix' => '</div>',
+    ];
+
+    $form['newsletterdisclaimer'] = array(
+      '#markup' => '<p>You can withdraw your subscription at any time.
+        Please refer to our <a href="/privacy">privacy policy</a> or
+        <a href="/contacts">contact us</a> for more details.</p>',
+
+      );
     $form['submit'] = [
       '#type' => 'submit',
-      '#value' => '',
-      '#suffix' => '<i class="icon icon-db-arrow-right" data-gtm-tracking="Newsletter Sign Up - Submit - Footer"></i></div>',
+      '#value' => 'Sign up',
       '#attributes' => ['data-gtm-tracking' => 'Newsletter Sign Up - Submit - Footer'],
     ];
     return $form;
@@ -102,7 +141,7 @@ class Newsletter extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // Add the email as a lead and to the newsletter list in Marketo.
-    $this->newsletterSubmission->submit($form_state->getValue('newsletterEmail'));
+    $this->newsletterSubmission->submit($form_state->getValue('newsletterEmail'), $form_state->getValue('firstName'), $form_state->getValue('lastName'), $form_state->getValue('postalCode'));
     $form_state->setRedirectUrl($this->getRedirect());
   }
 
@@ -146,7 +185,7 @@ class Newsletter extends FormBase {
    *   The form redirect.
    */
   protected function getRedirect() {
-    return Url::fromRoute('entity.node.canonical', ['node' => 28096]);
+        return Url::fromUri('internal:/newsletter-thank-you');
   }
 
 }

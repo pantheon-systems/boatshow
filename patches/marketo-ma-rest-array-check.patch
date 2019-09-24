@@ -1,0 +1,15 @@
+diff --git a/src/Service/MarketoMaApiClient.php b/src/Service/MarketoMaApiClient.php
+index 137277a5..64894100 100644
+--- a/src/Service/MarketoMaApiClient.php
++++ b/src/Service/MarketoMaApiClient.php
+@@ -85,7 +85,9 @@ protected function config() {
+   public function getFields() {
+     $fields_result = $this->getClient()->describeLeads()->getResult();
+     array_walk($fields_result, function (&$field_item) {
+-      $field_item['default_name'] = $field_item['rest']['name'];
++      if (array_key_exists('rest', $field_item)) {
++        $field_item['default_name'] = $field_item['rest']['name'];
++      }
+     });
+
+     return $fields_result;

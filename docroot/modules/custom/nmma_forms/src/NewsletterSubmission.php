@@ -17,7 +17,7 @@ class NewsletterSubmission {
    *
    * @var int
    */
-  const NEWSLETTER_MARKETO_ID = 1006;
+  const NEWSLETTER_MARKETO_ID = 1007;
 
   /**
    * The Marketo MA service.
@@ -69,11 +69,12 @@ class NewsletterSubmission {
   /**
    * Add a user as a lead and to the newsletter.
    */
-  public function submit($email, $first_name = '', $last_name = '') {
+  public function submit($email, $first_name = '', $last_name = '', $postal_code = '') {
     $lead = new Lead([
       'email' => $email,
       'firstName' => $first_name,
       'lastName' => $last_name,
+      'postalCode' => $postal_code,
     ]);
 
     $this->marketoMaService->updateLead($lead);
