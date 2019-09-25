@@ -7,6 +7,7 @@ dependencies:
     - entity_browser.browser.media_browser
     - field.field.brick.media.field_brick_media
     - field.field.brick.media.field_image_cover
+    - field.field.brick.media.field_media_options
   module:
     - entity_browser
 id: brick.media.default
@@ -21,6 +22,7 @@ content:
       field_widget_display: label
       field_widget_edit: true
       field_widget_remove: true
+      field_widget_replace: true
       selection_mode: selection_append
       open: false
       field_widget_display_settings: {  }
@@ -33,6 +35,12 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
+  field_media_options:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   langcode:
     type: language_select

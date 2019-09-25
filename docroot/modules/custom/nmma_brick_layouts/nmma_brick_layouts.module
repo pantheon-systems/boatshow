@@ -213,6 +213,20 @@ function nmma_brick_layouts_offer_type_allowed_values_function () {
 }
 
 /**
+ * Defines allowed values for config field.storage.brick.field_media_options.yml
+ * @link https://drupal.stackexchange.com/a/242011
+ */
+function nmma_brick_layouts_media_options_allowed_values_function () {
+
+  $options = [
+    'center' => 'Center',
+    'full_width' => 'Full Width',
+  ];
+
+  return $options;
+}
+
+/**
  * Implements HOOK_page_attachments
  */
 function nmma_brick_layouts_page_attachments(array &$attachments) {
