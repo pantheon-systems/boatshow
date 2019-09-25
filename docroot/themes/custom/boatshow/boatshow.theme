@@ -698,6 +698,16 @@ function boatshow_preprocess_eck_entity(&$variables) {
         }
       }
     }
+
+    if ($entity->hasField('field_media_options')) {
+      // Options from list select field
+      $options = ['center', 'full_width'];
+      $option_value = $entity->get('field_media_options')->value;
+
+      if (in_array($option_value, $options)) {
+        $variables['attributes']['class'][] = 'media-' . $option_value;
+      }
+    }
   }
 
   if ($entity->bundle() == 'ad_item') {
