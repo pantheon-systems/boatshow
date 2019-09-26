@@ -350,6 +350,7 @@ $document-list-icon-top-adjust: 0.3em !default;
     }
     .document-text {
       flex: 1 0 auto;
+      max-width: 85%;
     }
   }
 
