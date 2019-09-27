@@ -1,5 +1,15 @@
 .view-exhibitors.view-id-exhibitors.view-display-id-block_1 {
 
+  table td {
+    vertical-align: top;
+  }
+
+  @include media-breakpoint-up(lg) {
+    table td:nth-child(1), table td:nth-child(2) {
+      width: 35%;
+    }
+  }
+  
   @include media-breakpoint-down(lg) {
     table, thead, tbody, th, td, tr {
       display: block;
