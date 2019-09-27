@@ -1,0 +1,23 @@
+uuid: c79cf9fb-0833-404e-b395-b662628b54ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.copy_to_clipboard_input
+    - field.field.brick.copy_to_clipboard_input.field_code
+id: brick.copy_to_clipboard_input.default
+targetEntityType: brick
+bundle: copy_to_clipboard_input
+mode: default
+content:
+  field_code:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  langcode: true
+  title: true

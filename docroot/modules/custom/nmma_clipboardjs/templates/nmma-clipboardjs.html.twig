@@ -1,0 +1,7 @@
+{{ attach_library('nmma_clipboardjs/drupal') }}
+<div class="nm-clipboard-input">
+  <input type="text" id="{{ id }}" value="{{ text|raw }}" readonly="readonly" />
+  <button class="js-nm-clipboard" data-clipboard-target="#{{ id }}" data-clipboard-alert="tooltip" data-clipboard-alert-text="" data-clipboard-alert-default-text="copied to clipboard" data-clipboard-tooltip-style="nm-clipboard__tooltip--top">
+    <img src="{{ module_path }}/images/nmma-clipboardjs.svg" alt="{{ label }}" />
+  </button>
+</div>

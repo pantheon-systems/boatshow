@@ -1,0 +1,5 @@
+name: NMMA Clipboard.js
+type: module
+description: Integrates the Clipboard.js library with NMMA costum Drupal module. 
+core: 8.x
+package: NMMA

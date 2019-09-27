@@ -12,6 +12,7 @@ dependencies:
     - eck.eck_type.brick.card_cta
     - eck.eck_type.brick.carousel
     - eck.eck_type.brick.contacts_list
+    - eck.eck_type.brick.copy_to_clipboard_input
     - eck.eck_type.brick.countdown
     - eck.eck_type.brick.disruptor_card
     - eck.eck_type.brick.document_list
@@ -57,6 +58,7 @@ settings:
       3_col_card: 3_col_card
       card_cta: card_cta
       contacts_list: contacts_list
+      copy_to_clipboard_input: copy_to_clipboard_input
       countdown: countdown
       disruptor_card: disruptor_card
       document_list: document_list
