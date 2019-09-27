@@ -1,0 +1,25 @@
+uuid: 4019576a-d229-44e8-a4bf-1b951d181a8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.copy_to_clipboard_input
+    - field.field.brick.copy_to_clipboard_input.field_code
+  module:
+    - nmma_clipboardjs
+id: brick.copy_to_clipboard_input.default
+targetEntityType: brick
+bundle: copy_to_clipboard_input
+mode: default
+content:
+  field_code:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: clipboard
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
+  title: true

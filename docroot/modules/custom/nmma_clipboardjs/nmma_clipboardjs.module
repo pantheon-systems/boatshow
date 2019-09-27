@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Contains nmma_clipboardjs.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function nmma_clipboardjs_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the nmma_clipboardjs module.
+    case 'help.page.nmma_clipboardjs':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('clipboardjs') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function nmma_clipboardjs_theme($existing, $type, $theme, $path) {
+  return [
+    'nmma_clipboardjs' => [
+      'variables' => [
+        'text' => NULL
+      ],
+      'template' => 'nmma-clipboardjs',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function nmma_clipboardjs_preprocess(&$variables, $hook) {
+  $variables['module_path'] = base_path() . drupal_get_path('module', 'nmma_clipboardjs');
+  $variables['id'] = uniqid('nmma-clipboardjs-');
+}
