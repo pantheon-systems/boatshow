@@ -1,7 +1,7 @@
 .content-slider {
   @include font-aliasing();
 
-  .slide {
+  .slick-slide {
     align-items: center;
     display: flex;
     text-align: center;
