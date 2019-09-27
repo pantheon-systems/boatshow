@@ -32,6 +32,7 @@ dependencies:
     - telephone
     - user
     - views_field_view
+    - views_infinite_scroll
 id: exhibitors
 label: Exhibitors
 module: views
@@ -444,6 +445,7 @@ display:
         arguments: false
         query: false
         group_by: false
+        pager: false
       row:
         type: fields
         options: {  }
@@ -585,7 +587,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '{{ field_city }}<br>'
+            text: '{{ field_city }},  '
             make_link: false
             path: ''
             absolute: false
@@ -648,7 +650,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '{{ field_state_or_province }} <br>'
+            text: '{{ field_state_or_province }} '
             make_link: false
             path: ''
             absolute: false
@@ -711,7 +713,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '{{ field_state_or_province }}<br>'
+            text: '{{ field_zip_or_postal_code }}<br>'
             make_link: false
             path: ''
             absolute: false
@@ -836,7 +838,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{{ title }}<br>\r\n{{ field_address_line_1 }}\r\n{{ field_address_line_2 }}\r\n{{ field_city }} {{ field_state_or_province }}\r\n{{ field_country }}"
+            text: "{{ title }}<br>\r\n{{ field_address_line_1 }}\r\n{{ field_address_line_2 }}\r\n{{ field_city }} {{ field_state_or_province }} {{ field_zip_or_postal_code }} \r\n{{ field_country }}"
             make_link: false
             path: ''
             absolute: false
@@ -1330,12 +1332,34 @@ display:
           query_comment: ''
           query_tags: {  }
       group_by: true
+      pager:
+        type: infinite_scroll
+        options:
+          items_per_page: 100
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          views_infinite_scroll:
+            button_text: 'Load More'
+            automatically_load_content: false
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1681,6 +1705,7 @@ display:
         group_by: false
         title: false
         header: false
+        pager: false
       arguments: {  }
       relationships:
         field_exhibitor_location:
@@ -1897,11 +1922,33 @@ display:
             value: '<hr>'
             format: rich_text
           plugin_id: text
+      pager:
+        type: infinite_scroll
+        options:
+          items_per_page: 100
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          views_infinite_scroll:
+            button_text: 'Load More'
+            automatically_load_content: false
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - user
         - 'user.node_grants:view'
         - user.permissions

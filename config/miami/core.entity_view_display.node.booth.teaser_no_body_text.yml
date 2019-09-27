@@ -1,9 +1,9 @@
-uuid: 31201ac3-2453-406a-979a-94cf14dfcad2
+uuid: c02f1c5e-b34c-4531-993d-8392f5706aff
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.teaser_no_body_text
     - field.field.node.booth.body
     - field.field.node.booth.field_booth_location
     - field.field.node.booth.field_show_code
@@ -17,19 +17,19 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.booth.teaser
+id: node.booth.teaser_no_body_text
 targetEntityType: node
 bundle: booth
-mode: teaser
+mode: teaser_no_body_text
 content:
   field_booth_location:
-    type: string
     weight: 0
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    type: string
+    region: content
 hidden:
   addtoany: true
   body: true

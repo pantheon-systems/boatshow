@@ -1,0 +1,14 @@
+uuid: 2d24f633-7649-4305-b021-3537a976eabd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.rls_pr
+  module:
+    - user
+id: user_add_role_action.rls_pr
+label: 'Add the PR role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: rls_pr
