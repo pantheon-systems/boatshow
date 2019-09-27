@@ -710,6 +710,10 @@ function boatshow_preprocess_eck_entity(&$variables) {
     }
   }
 
+  if ($entity->bundle() == 'photo_gallery') {
+    $variables['attributes']['class'][] = 'content-slider';
+  }
+
   if ($entity->bundle() == 'ad_item') {
     $entity = $variables['entity']['#brick'];
 

@@ -27,6 +27,7 @@ dependencies:
     - eck.eck_type.brick.map
     - eck.eck_type.brick.masthead
     - eck.eck_type.brick.media
+    - eck.eck_type.brick.photo_gallery
     - eck.eck_type.brick.section
     - eck.eck_type.brick.text
     - eck.eck_type.brick.view
@@ -73,6 +74,7 @@ settings:
       map: map
       masthead: masthead
       media: media
+      photo_gallery: photo_gallery
       section: section
       text: text
       view: view

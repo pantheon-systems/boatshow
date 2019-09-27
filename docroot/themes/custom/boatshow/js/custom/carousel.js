@@ -45,6 +45,21 @@
           ]
         });
       });
+
+       // Photo Gallery Brick
+      $('.brick--type--photo-gallery .field--name-field-gallery-images.field__items', context).once('diningCarousels').each(function() {
+        $(this).slick({
+          dots: true,
+          arrows: true,
+          mobileFirst: true,
+          infinite: true,
+          slidesToScroll: 1,
+          // autoplay: true,
+          customPaging: function(i) {
+            return "<span class='slider-pager'></span>";
+          }
+        });
+      });
     }
   }
 })(jQuery, Drupal);
