@@ -60,15 +60,8 @@
   width: 242px;
 
   & img {
-    display: inline-block;
-    max-width: 100%;
-  }
-
-  & img.logo-color {
     display: block;
-  }
-  & img.logo-white {
-    display: none;
+    max-width: 100%;
   }
 }
 
