@@ -394,6 +394,16 @@ For step-by-step instructions on how to update dependencies, see [dependency-man
 
 ## Deploying to Acquia Cloud
 
+- The deployment process works by packaging up your local workspace and deploying it to a branch in Acquia's git repo. Because of this, whatever github branch is currently checked out locally will be deployed to whatever branch is specified in the deployment command.
+  - PROD
+    - git branch: `2.x-master`
+    - acquia branch: `master`
+  - STAGE
+    - git branch: `2.x-master`
+    - acquia branch: `stage`
+  - DEV
+    - git branch: `2.x-develop`
+    - acquia branch: `dev`
 - First you will need to compile the front-end resources locally, by running the gulp command from the 'Build the front-end theme' section of this document.
 - You should merge or commit any code which needs to be deployed into the 2.x branch of the github repository, and stash any uncommitted changes (the next command requires a clean working directory)
 - You may now run the BLT deployment command. BLT will package up the code and dependencies into a folder named "deploy" then commit and push the code to the specified branch of the Acquia git repository, which is specified in the "blt/blt.yml" file under the git remotes settings. This command should be run from outside the vagrant VM. It **can** be run from inside vagrant, but it may take a lot longer to complete, on the order of 10x as long.
