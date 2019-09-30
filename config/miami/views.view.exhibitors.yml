@@ -2917,8 +2917,8 @@ display:
           exclude: true
           alter:
             alter_text: false
-            text: '<div><div class="sailboatbrand"><strong>{{ field_exhbtr_lctn_brand }} </strong><br>{{ title }}<br>{{ view }}</div><div class="sailboatbrand">{{ field_brand_certified }} </div></div>'
-            make_link: false
+            text: '<div class="sailboatbrand-container"><div class="sailboatbrand sailboatbrandtext"><strong>{{ field_exhbtr_lctn_brand }} </strong><br>{{ title }}<br>{{ view }}</div><div class="sailboatbrand sailboatbrandlogo">{{ field_brand_certified }} </div></div>'
+	    make_link: false
             path: ''
             absolute: false
             external: false
