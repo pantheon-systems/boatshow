@@ -1497,7 +1497,7 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_true: '<img width="75" src="/sites/miami/files/mibs_website_sail_icons-nmma_certified.png">'
+            format_custom_true: '<img width="75" src="/sites/miami/files/nmma_certified_trmmd.png">'
             format_custom_false: ''
           group_column: value
           group_columns: {  }
@@ -2958,7 +2958,7 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_true: '<img width="55" src="/sites/miami/files/mibs_website_sail_icons-nmma_certified.png">'
+            format_custom_true: '<img width="75" src="/sites/miami/files/nmma_certified_trmmd.png">'
             format_custom_false: ''
           group_column: value
           group_columns: {  }
@@ -2982,7 +2982,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<div><div class="sailboatbrand sailboatbrandtext"><strong>{{ field_exhbtr_lctn_brand }} </strong><br>{{ title }}<br>{{ view }}</div><div class="sailboatbrand sailboatbrandlogo">{{ field_brand_certified }} </div></div>'
+            text: '<div class="sailboatbrand-container"><div class="sailboatbrand sailboatbrandtext"><strong>{{ field_exhbtr_lctn_brand }} </strong><br>{{ title }}<br>{{ view }}</div><div class="sailboatbrand sailboatbrandlogo">{{ field_brand_certified }} </div></div>'
             make_link: false
             path: ''
             absolute: false
