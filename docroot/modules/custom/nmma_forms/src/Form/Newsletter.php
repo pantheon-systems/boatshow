@@ -142,8 +142,7 @@ class Newsletter extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // Add the email as a lead and to the newsletter list in Marketo.
     $this->newsletterSubmission->submit($form_state->getValue('newsletterEmail'), $form_state->getValue('firstName'), $form_state->getValue('lastName'), $form_state->getValue('postalCode'));
-    //$form_state->setRedirectUrl($this->getRedirect());
-    drupal_set_message(t('Thank you for subscribing to the show newsletter.  As a subscriber, you will be the first to hear about show updates, ticket information, discounts and more!'));
+    $form_state->setRedirectUrl($this->getRedirect());
   }
 
   /**
@@ -179,5 +178,14 @@ class Newsletter extends FormBase {
     return $form;
   }
 
+  /**
+   * Get the form redirect.
+   *
+   * @return \Drupal\Core\Url
+   *   The form redirect.
+   */
+  protected function getRedirect() {
+        return Url::fromUri('internal:/newsletter/thank-you');
+  }
 
 }
