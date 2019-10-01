@@ -1,5 +1,5 @@
 nmma_forms.newsletter:
-  path: '/newsletter'
+  path: '/customform/newsletter'
   defaults:
     _title: 'Newsletter form'
     _form: '\Drupal\nmma_forms\Form\Newsletter'
