@@ -185,7 +185,7 @@ class Newsletter extends FormBase {
    *   The form redirect.
    */
   protected function getRedirect() {
-        return Url::fromUri('internal:/newsletter-thank-you');
+        return Url::fromUri('internal:/newsletter/thank-you');
   }
 
 }
