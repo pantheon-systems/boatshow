@@ -9,7 +9,7 @@
       width: 35%;
     }
   }
-
+  
   @include media-breakpoint-down(lg) {
     table, thead, tbody, th, td, tr {
       display: block;

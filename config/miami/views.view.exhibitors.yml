@@ -24,15 +24,14 @@ dependencies:
     - 'taxonomy_term:vehicle_product_type:49df9279-86f3-4b77-80a6-9a0c14e48b18'
     - 'taxonomy_term:vehicle_product_type:5f466c5a-f48c-46a6-85ad-c7a01cbc15af'
   module:
-    - address
     - link
     - node
     - paragraphs
+    - smart_trim
     - taxonomy
     - telephone
     - user
     - views_field_view
-    - views_infinite_scroll
 id: exhibitors
 label: Exhibitors
 module: views
@@ -776,7 +775,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '{{ field_country }}<br>'
+            text: '{{ field_country|replace({"United States":""}) }}<br>'
             make_link: false
             path: ''
             absolute: false
@@ -814,8 +813,19 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: address_country_default
-          settings: {  }
+          type: smart_trim
+          settings:
+            trim_length: 600
+            trim_type: chars
+            trim_suffix: ''
+            wrap_output: false
+            wrap_class: trimmed
+            more_link: false
+            more_text: More
+            more_class: more-link
+            trim_options:
+              text: false
+              trim_zero: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1333,33 +1343,15 @@ display:
           query_tags: {  }
       group_by: true
       pager:
-        type: infinite_scroll
+        type: none
         options:
-          items_per_page: 100
           offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'Load More'
-            automatically_load_content: false
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1923,32 +1915,14 @@ display:
             format: rich_text
           plugin_id: text
       pager:
-        type: infinite_scroll
+        type: none
         options:
-          items_per_page: 100
           offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'Load More'
-            automatically_load_content: false
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - user
         - 'user.node_grants:view'
         - user.permissions
@@ -2917,7 +2891,7 @@ display:
           exclude: true
           alter:
             alter_text: false
-            text: '<div class="sailboatbrand-container"><div class="sailboatbrand sailboatbrandtext"><strong>{{ field_exhbtr_lctn_brand }} </strong><br>{{ title }}<br>{{ view }}</div><div class="sailboatbrand sailboatbrandlogo">{{ field_brand_certified }} </div></div>'
+            text: '<div><div class="sailboatbrand"><strong>{{ field_exhbtr_lctn_brand }} </strong><br>{{ title }}<br>{{ view }}</div><div class="sailboatbrand">{{ field_brand_certified }} </div></div>'
             make_link: false
             path: ''
             absolute: false
@@ -2958,7 +2932,7 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_true: '<img width="75" src="/sites/miami/files/nmma_certified_trmmd.png">'
+            format_custom_true: '<img width="55" src="/sites/miami/files/nmma_certified_trmmd.png">'
             format_custom_false: ''
           group_column: value
           group_columns: {  }
