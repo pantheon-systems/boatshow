@@ -64,7 +64,6 @@ field_settings:
           carousel_slides: default
           component_page: default
           dining: default
-          faq: default
           landing_page: full
           page: default
           smnr_session: default

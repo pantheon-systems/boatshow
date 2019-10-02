@@ -5,7 +5,7 @@ dependencies:
   config:
     - node.type.speaker
 id: node_type_speaker
-action: page_not_found
+action: page_redirect
 allow_override: 0
-redirect: ''
+redirect: /seminars/speakers
 redirect_code: 301
