@@ -10,7 +10,7 @@ third_party_settings:
     parent: ''
 name: 'Contact Profile'
 type: contact_profile
-description: ''
+description: 'Any show contact information'
 help: ''
 new_revision: true
 preview_mode: 1

@@ -10,7 +10,7 @@ id: node.smnr_session.field_smnr_speaker
 field_name: field_smnr_speaker
 entity_type: node
 bundle: smnr_session
-label: Instructor
+label: Instructor/Speaker
 description: ''
 required: true
 translatable: false

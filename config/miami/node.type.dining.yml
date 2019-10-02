@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: Dining
 type: dining
-description: ''
+description: 'Used for the Food & Beverage page'
 help: ''
 new_revision: true
 preview_mode: 1

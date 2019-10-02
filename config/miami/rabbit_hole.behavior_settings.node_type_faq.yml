@@ -1,7 +1,9 @@
 uuid: 8dbbbfc6-ce56-4995-b9c6-36f7db9e11b5
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.faq
 id: node_type_faq
 action: page_not_found
 allow_override: 1

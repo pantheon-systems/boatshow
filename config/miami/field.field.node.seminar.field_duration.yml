@@ -10,7 +10,7 @@ field_name: field_duration
 entity_type: node
 bundle: seminar
 label: Duration
-description: ''
+description: 'i.e. 30 mns, 1 hour'
 required: false
 translatable: false
 default_value: {  }

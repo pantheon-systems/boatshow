@@ -10,7 +10,7 @@ third_party_settings:
     parent: ''
 name: FAQ
 type: faq
-description: ''
+description: 'Defines Frequently Asked Questions'
 help: ''
 new_revision: true
 preview_mode: 1

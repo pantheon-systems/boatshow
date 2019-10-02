@@ -5,7 +5,7 @@ dependencies:
   config:
     - node.type.smnr_session
 id: node_type_smnr_session
-action: page_not_found
+action: page_redirect
 allow_override: 0
-redirect: ''
-redirect_code: 301
+redirect: /seminars
+redirect_code: 302

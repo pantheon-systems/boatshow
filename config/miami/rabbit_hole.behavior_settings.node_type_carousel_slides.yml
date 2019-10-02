@@ -1,9 +1,11 @@
 uuid: 95cf29a0-b20d-462f-8474-3f179f064821
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.carousel_slides
 id: node_type_carousel_slides
-action: page_not_found
+action: display_page
 allow_override: 1
 redirect: ''
 redirect_code: 301

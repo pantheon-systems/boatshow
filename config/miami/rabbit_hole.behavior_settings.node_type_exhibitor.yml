@@ -5,7 +5,7 @@ dependencies:
   config:
     - node.type.exhibitor
 id: node_type_exhibitor
-action: display_page
+action: page_redirect
 allow_override: 1
-redirect: ''
+redirect: /whos-exhibiting
 redirect_code: 301

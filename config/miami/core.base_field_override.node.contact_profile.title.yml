@@ -1,0 +1,18 @@
+uuid: fa6eece0-15e1-4219-b845-b596e19323f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.contact_profile
+id: node.contact_profile.title
+field_name: title
+entity_type: node
+bundle: contact_profile
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

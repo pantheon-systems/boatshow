@@ -1,0 +1,11 @@
+uuid: 68ca00b7-de31-4967-860e-6f4904554e02
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.contact_profile
+id: node_type_contact_profile
+action: page_redirect
+allow_override: 1
+redirect: /contacts
+redirect_code: 301

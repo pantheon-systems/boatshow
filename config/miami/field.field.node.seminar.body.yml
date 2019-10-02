@@ -11,7 +11,7 @@ id: node.seminar.body
 field_name: body
 entity_type: node
 bundle: seminar
-label: Body
+label: 'Seminar Description'
 description: ''
 required: true
 translatable: true

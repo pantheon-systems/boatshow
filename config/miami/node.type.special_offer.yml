@@ -10,7 +10,7 @@ third_party_settings:
     parent: ''
 name: 'Special Offer'
 type: special_offer
-description: ''
+description: 'Used for Career Day job postings and Super Thursday Special Offers - similar to a classified ad'
 help: ''
 new_revision: true
 preview_mode: 1

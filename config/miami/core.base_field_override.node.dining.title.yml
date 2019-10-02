@@ -1,0 +1,18 @@
+uuid: f366de81-17be-4c06-a862-f6e4d776d24d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.dining
+id: node.dining.title
+field_name: title
+entity_type: node
+bundle: dining
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
