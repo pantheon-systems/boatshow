@@ -11,9 +11,9 @@ third_party_settings:
     parent: 'main:'
 _core:
   default_config_hash: Z3UiY5Vmi_zhNwdsHWsp0RU3hTlb4gDKrozZIgAwKgA
-name: 'Bricky blocks'
+name: 'X-Bricky blocks'
 type: bricky_blocks
-description: 'Use <em>bricky pages</em> for your flexible content, such as ''Home'' or ''Company'' pages.'
+description: "Use <em>bricky pages</em> for your flexible content, such as 'Home' or 'Company' pages.\r\n</br>DO NOT CREATE this content type without consulting the <em>Digital/Web Technology Team</em>."
 help: ''
 new_revision: true
 preview_mode: 1

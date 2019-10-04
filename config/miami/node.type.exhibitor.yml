@@ -10,7 +10,7 @@ third_party_settings:
     parent: ''
 name: Exhibitor
 type: exhibitor
-description: 'Used for the <em>exhibitor</em> listing.'
+description: "Used to manage entries on the <em>who's exhibiting</em> page.\r\n</br>Exhibitors are synced from USI.\r\n</br>DO NOT CREATE this content type without consulting the <em>Digital/Web Technology Team</em>."
 help: ''
 new_revision: true
 preview_mode: 1

@@ -1,7 +1,9 @@
 uuid: d70943e7-516b-49ec-8104-3cba77068ae3
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - taxonomy.vocabulary.sponsors
 id: taxonomy_vocabulary_sponsors
 action: page_not_found
 allow_override: 1

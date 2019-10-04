@@ -1,11 +1,11 @@
-uuid: 5f210b5a-1b46-4ce1-b641-366bff570d8a
+uuid: 6a77d59b-c979-4df9-85eb-31b1bb4d3f60
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.carousel_slides
-id: node.carousel_slides
+    - node.type.bricky
+id: node.bricky
 target_entity_type_id: node
-target_bundle: carousel_slides
+target_bundle: bricky
 default_langcode: site_default
 language_alterable: false

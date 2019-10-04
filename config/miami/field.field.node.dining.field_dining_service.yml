@@ -10,7 +10,7 @@ id: node.dining.field_dining_service
 field_name: field_dining_service
 entity_type: node
 bundle: dining
-label: Service
+label: 'Service Type'
 description: ''
 required: false
 translatable: false

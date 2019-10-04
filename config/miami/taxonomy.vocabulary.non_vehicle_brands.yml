@@ -2,7 +2,7 @@ uuid: 8e614372-f01c-472c-bcc1-33eed90f322a
 langcode: en
 status: true
 dependencies: {  }
-name: 'Non Vehicle Brands'
+name: 'Brands - Non-Vehicle/Non-Engine'
 vid: non_vehicle_brands
-description: 'Brand Names Offered by Companies'
-weight: 0
+description: 'Brands offered by companies that are NOT boats, recreational vehicles, trailer, nor engines.'
+weight: -7

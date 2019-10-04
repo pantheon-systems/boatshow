@@ -22,7 +22,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 11
+    weight: 13
     settings:
       rows: 9
       summary_rows: 3
@@ -31,38 +31,11 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_bus_logo:
-    type: entity_browser_entity_reference
-    weight: 10
-    settings:
-      entity_browser: media_browser
-      field_widget_display: rendered_entity
-      field_widget_edit: true
-      field_widget_remove: true
-      selection_mode: selection_append
-      field_widget_display_settings:
-        view_mode: thumbnail
-      open: true
-      field_widget_replace: false
-    region: content
-    third_party_settings: {  }
-  field_dining_location:
-    weight: 13
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_dining_service:
-    weight: 14
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_media:
     type: entity_browser_entity_reference
     weight: 12
     settings:
@@ -77,22 +50,49 @@ content:
       field_widget_replace: false
     region: content
     third_party_settings: {  }
+  field_dining_location:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_dining_service:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_media:
+    type: entity_browser_entity_reference
+    weight: 14
+    settings:
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      open: true
+      field_widget_replace: false
+    region: content
+    third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 1
+    weight: 3
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 8
+    weight: 10
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -100,21 +100,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 6
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 11
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 7
     region: content
     third_party_settings: {  }
   title:
@@ -127,7 +127,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
@@ -135,7 +135,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 7
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }

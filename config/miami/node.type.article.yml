@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: Article
 type: article
-description: 'Used in the media center for exhibitor news articles and NMMA news articles'
+description: "Manage exhibitor news articles and NMMA news articles found in the <em>Media Center</em>. \r\n</br>DO NOT CREATE this content type without consulting the <em>Digital/Web Technology Team</em>."
 help: ''
 new_revision: true
 preview_mode: 0

@@ -10,8 +10,8 @@ id: node.article.field_article_category
 field_name: field_article_category
 entity_type: node
 bundle: article
-label: 'Article Category'
-description: ''
+label: 'Exhibitor - Article Category'
+description: 'PR should select appropriate exhibitor article category'
 required: false
 translatable: false
 default_value: {  }

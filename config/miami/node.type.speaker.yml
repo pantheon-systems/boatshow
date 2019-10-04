@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: 'Seminar Speaker'
 type: speaker
-description: 'Person instructing a seminar session'
+description: 'Person instructing a seminar session.'
 help: ''
 new_revision: true
 preview_mode: 1

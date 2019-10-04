@@ -8,9 +8,9 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: 'Special Offer'
+name: 'Classified - Special Offer'
 type: special_offer
-description: 'Used for Career Day job postings and Super Thursday Special Offers - similar to a classified ad'
+description: "Used to manage classified entries, such as <em>Deals, Special Offers/Promos, and job postings.</em>\r\n</br>Can be seen on on /Super-Thursday, /Career-Day pages."
 help: ''
 new_revision: true
 preview_mode: 1

@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Seminar Location'
 vid: smnr_seminar_location
-description: ''
-weight: 0
+description: 'Seminar session class locations'
+weight: -2

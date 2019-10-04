@@ -5,6 +5,7 @@ dependencies:
   config:
     - entity_browser.browser.image_browser
     - field.field.node.contact_profile.body
+    - field.field.node.contact_profile.feeds_item
     - field.field.node.contact_profile.field_job_title
     - field.field.node.contact_profile.field_profile_email
     - field.field.node.contact_profile.field_profile_image
@@ -134,4 +135,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  feeds_item: true

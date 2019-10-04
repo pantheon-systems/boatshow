@@ -11,7 +11,7 @@ field_name: field_dining_location
 entity_type: node
 bundle: dining
 label: Location
-description: ''
+description: 'Show location where dining option can be found'
 required: false
 translatable: false
 default_value: {  }

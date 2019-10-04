@@ -12,8 +12,8 @@ id: node.exhibitor.field_exhibitor_location
 field_name: field_exhibitor_location
 entity_type: node
 bundle: exhibitor
-label: 'Exhibitor Location'
-description: ''
+label: 'Exhibitor Location(s) + Brands at Booth'
+description: 'A list of exhibitors'' booths where Vehicle/Engine brands and other product brands can be highlighted. '
 required: false
 translatable: false
 default_value: {  }
@@ -31,4 +31,7 @@ settings:
       exhibitor_location:
         enabled: true
         weight: 4
+      faq_item:
+        weight: 6
+        enabled: false
 field_type: entity_reference_revisions

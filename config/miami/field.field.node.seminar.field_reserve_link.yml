@@ -11,8 +11,8 @@ id: node.seminar.field_reserve_link
 field_name: field_reserve_link
 entity_type: node
 bundle: seminar
-label: 'Reserve Link'
-description: ''
+label: 'Reserve a spot'
+description: 'Supply the URL the class-taker will need to visit to secure his/her seat.'
 required: false
 translatable: false
 default_value: {  }
