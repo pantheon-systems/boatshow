@@ -24,6 +24,7 @@ drush:
   default_alias: '${drush.aliases.local}'
 multisites:
   - miami
+  - newyork
 disable-targets:
   tests:
     phpcs: { sniff: { all: true } }

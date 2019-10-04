@@ -35,6 +35,10 @@ apache_vhosts:
     servername: local.miamiboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  -
+    servername: local.newyorkboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
 apache_vhosts_ssl:
   -
     servername: '{{ drupal_domain }}'
@@ -45,6 +49,10 @@ apache_vhosts_ssl:
 mysql_databases:
   -
     name: miami
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: newyork
     encoding: utf8
     collation: utf8_general_ci
 mysql_users: {  }
