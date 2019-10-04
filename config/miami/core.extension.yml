@@ -192,7 +192,6 @@ module:
   tracker: 0
   twig_field: 0
   twig_tweak: 0
-  typed_data: 0
   ultimate_cron: 0
   user: 0
   video_embed_field: 0
