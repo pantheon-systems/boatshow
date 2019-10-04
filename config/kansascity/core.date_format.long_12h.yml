@@ -1,8 +1,0 @@
-uuid: 7ea9f783-53c7-41d9-9d54-39518c0b871b
-langcode: en
-status: true
-dependencies: {  }
-id: long_12h
-label: 'Long (12-hour)'
-locked: false
-pattern: 'F j, Y \a\t g:i A'

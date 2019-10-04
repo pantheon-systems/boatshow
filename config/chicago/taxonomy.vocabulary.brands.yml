@@ -1,8 +1,0 @@
-uuid: abb8c9d0-a23d-4c1d-a824-ecd8f295d61a
-langcode: en
-status: true
-dependencies: {  }
-name: Brands
-vid: brands
-description: 'Brand Names Offered by Companies'
-weight: -9

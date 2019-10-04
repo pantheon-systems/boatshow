@@ -1,9 +1,0 @@
-uuid: 33317905-33d2-4e32-bbf7-f2f65d8279df
-langcode: en
-status: true
-dependencies: {  }
-id: node_type_video
-action: page_not_found
-allow_override: 1
-redirect: ''
-redirect_code: 301

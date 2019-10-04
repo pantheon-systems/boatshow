@@ -1,9 +1,0 @@
-uuid: c387f84a-6956-4d81-b1da-64ec6180abfa
-langcode: en
-status: true
-dependencies:
-  config:
-    - eck.eck_entity_type.brick
-name: 'Download Button'
-type: download_button
-description: 'A simple download button that allows users to download files'

@@ -1,8 +1,0 @@
-uuid: b4e7163d-cb04-4507-bc6a-3d29fa5da725
-langcode: en
-status: true
-dependencies: {  }
-id: general-information
-label: 'General Information'
-description: ''
-locked: false

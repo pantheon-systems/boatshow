@@ -1,8 +1,0 @@
-uuid: 2273b0be-ca4c-45bb-9645-d6ea43abe7fc
-langcode: en
-status: true
-dependencies: {  }
-id: exhibitors-consumers
-label: 'Exhibitors / Consumers'
-description: ''
-locked: false

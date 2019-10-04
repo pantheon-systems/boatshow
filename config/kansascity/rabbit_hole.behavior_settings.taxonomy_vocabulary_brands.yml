@@ -1,9 +1,0 @@
-uuid: d2d7d0f8-7b44-4594-9ba0-a9699a915ea6
-langcode: en
-status: true
-dependencies: {  }
-id: taxonomy_vocabulary_brands
-action: page_not_found
-allow_override: 1
-redirect: ''
-redirect_code: 301

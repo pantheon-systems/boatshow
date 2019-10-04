@@ -1,8 +1,0 @@
-uuid: 0cc957ac-b89a-4343-af39-f1d72372910a
-langcode: en
-status: true
-dependencies: {  }
-name: 'Seminar Topics'
-vid: seminar_topic
-description: 'Describes the topic of a seminar like ''Powerboat'' or ''Sailboat'''
-weight: 0

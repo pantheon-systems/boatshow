@@ -1,9 +1,0 @@
-uuid: 667f96c4-9e57-4961-b297-f5594c43cff6
-langcode: en
-status: true
-dependencies: {  }
-id: en-CA
-label: 'Canadian English'
-direction: ltr
-weight: 1
-locked: false

@@ -1,8 +1,0 @@
-uuid: 0cc957ac-b89a-4343-af39-f1d72372910a
-langcode: en
-status: true
-dependencies: {  }
-name: 'Seminar Topic'
-vid: seminar_topic
-description: ''
-weight: 0

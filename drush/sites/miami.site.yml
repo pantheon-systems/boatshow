@@ -1,25 +1,11 @@
 local:
   root: /var/www/boatshow/docroot
   uri: https://local.miamiboatshow.com/
-dev:
-  root: /var/www/html/boatshow.dev/docroot
-  uri: https://dev.miamiboatshow.com/
-  host: staging-29724.prod.hosting.acquia.com
-  user: boatshow.dev
-  paths:
-    drush-script: /usr/local/bin/drush9
 dev2:
   root: /var/www/html/discoverboat.dev/docroot
   uri: https://dev2.miamiboatshow.com/
   host: staging-29724.prod.hosting.acquia.com
   user: discoverboat.dev
-  paths:
-    drush-script: /usr/local/bin/drush9
-stage:
-  root: /var/www/html/boatshow.test/docroot
-  uri: https://stage.miamiboatshow.com/
-  host: staging-29724.prod.hosting.acquia.com
-  user: boatshow.test
   paths:
     drush-script: /usr/local/bin/drush9
 stage2:
@@ -29,16 +15,9 @@ stage2:
   user: discoverboat.test
   paths:
     drush-script: /usr/local/bin/drush9
-prod:
-  root: /var/www/html/boatshow.prod/docroot
-  uri: https://www.miamiboatshow.com/
-  host: ded-29722.prod.hosting.acquia.com
-  user: boatshow.prod
-  paths:
-    drush-script: /usr/local/bin/drush9
-prod2:
+live2:
   root: /var/www/html/discoverboat.prod/docroot
-  uri: https://live2.miamiboatshow.com/
+  uri: https://www.miamiboatshow.com/
   host: ded-29722.prod.hosting.acquia.com
   user: discoverboat.prod
   paths:
