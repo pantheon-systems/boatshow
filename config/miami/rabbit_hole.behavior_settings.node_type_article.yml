@@ -1,10 +1,10 @@
-uuid: 95cf29a0-b20d-462f-8474-3f179f064821
+uuid: d3bc18ad-a4be-430b-84a3-5353ff94636c
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.carousel_slides
-id: node_type_carousel_slides
+    - node.type.article
+id: node_type_article
 action: display_page
 allow_override: 1
 redirect: ''

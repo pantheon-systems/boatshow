@@ -1,9 +1,11 @@
 uuid: f3c2f200-28cb-46ce-bc7f-ad0fd1e3e4a4
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.special_offer
 id: node_type_special_offer
-action: page_not_found
+action: display_page
 allow_override: 1
 redirect: ''
 redirect_code: 301

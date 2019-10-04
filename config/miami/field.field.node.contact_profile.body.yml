@@ -11,7 +11,7 @@ id: node.contact_profile.body
 field_name: body
 entity_type: node
 bundle: contact_profile
-label: Body
+label: Description
 description: ''
 required: false
 translatable: true

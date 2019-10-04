@@ -102,8 +102,6 @@ module:
   lightning_media_bulk_upload: 0
   lightning_media_document: 0
   lightning_media_image: 0
-  lightning_media_instagram: 0
-  lightning_media_twitter: 0
   lightning_media_video: 0
   lightning_page: 0
   lightning_roles: 0
@@ -117,8 +115,6 @@ module:
   media: 0
   media_entity_browser: 0
   media_entity_download: 0
-  media_entity_instagram: 0
-  media_entity_twitter: 0
   media_library: 0
   memcache: 0
   menu_breadcrumb: 0

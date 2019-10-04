@@ -194,7 +194,7 @@ handlers:
       from_options: {  }
       from_name: _default
       subject: 'New Potential Exhibitor Submission'
-      body: _default
+      body: "&lt;p&gt;Submitted on [webform_submission:created]&lt;/p&gt;<br />\r\n&lt;p&gt;Submitted values are:&lt;/p&gt;<br />\r\n[webform_submission:values]"
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
