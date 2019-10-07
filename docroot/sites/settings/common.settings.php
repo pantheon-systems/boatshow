@@ -802,8 +802,11 @@ $settings['encryption_key'] = 'D34Sl2EL+Eig0GMtI65ulImGQbDw0yfeZdA1MLlPm0w=';
 /**
  * Location of the site configuration files.
  */
+$blt_override_config_directories = TRUE;
+
 $config_directories = [
-  CONFIG_SYNC_DIRECTORY => DRUPAL_ROOT . "/../config/default"
+  'sync' => DRUPAL_ROOT . "/../config/default",
+  'vcs' => DRUPAL_ROOT . "/../config/default"
 ];
 
 /**
