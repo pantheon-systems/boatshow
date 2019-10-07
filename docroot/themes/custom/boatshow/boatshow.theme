@@ -50,14 +50,10 @@ function boatshow_preprocess_html(&$variables) {
   // Logged in class.
   $variables['attributes']['class'][] = $variables['logged_in'] ? 'logged-in' : 'logged-out';
 
-  // Add a city class.  This is used for city-specific styling.
-  $city_key = \Drupal::state()->get('boatshow.city.key');
-  if (empty($city_key)) {
-    // If for any reason the state is lost, we can still use the setting
-    // as a backup.  This is a best practice since state is considered
-    // transient information.
-    $city_key = Settings::get('boatshow.city.key');
-  }
+  $site_path = \Drupal::service('site.path'); // e.g.: 'sites/default'
+  $site_path = explode('/', $site_path);
+  $city_key = $site_path[1];
+
   $variables['attributes']['class'][] = 'boatshow-city--' . $city_key;
 }
 
@@ -74,39 +70,15 @@ function boatshow_preprocess_page(&$variables) {
     $variables['attributes']['class'][] = Html::cleanCssIdentifier('page-standard');
   }
 
-  // Get city key.  This is used for logos and other city-specific images.
-  $city_key = \Drupal::state()->get('boatshow.city.key');
-  if (empty($city_key)) {
-    // If for any reason the state is lost, we can still use the setting
-    // as a backup.  This is a best practice since state is considered
-    // transient information.
-    $city_key = Settings::get('boatshow.city.key');
-  }
+  $site_path = \Drupal::service('site.path'); // e.g.: 'sites/default'
+  $site_path = explode('/', $site_path);
+  $city_key = $site_path[1];
+
   $variables['boatshow_city'] = $city_key;
 
-  $override_library = NULL;
-
   // Add city-site specific library depending on the site.
-  switch ($city_key) {
-    case 'atlanta':
-      $override_library =  'boatshow/atlanta';
-      break;
-    case 'chicago':
-      $override_library =  'boatshow/chicago';
-      break;
-    case 'kansascity':
-      $override_library =  'boatshow/kansascity';
-      break;
-    case 'miami':
-      $override_library =  'boatshow/miami';
-      break;
-    case 'nashville':
-      $override_library =  'boatshow/nashville';
-      break;
-  }
-
-  if (!empty($override_library)) {
-    $variables['#attached']['library'][] = $override_library;
+  if ($city_key !== 'template') {
+    $variables['#attached']['library'][] = 'boatshow/' . $city_key;
   }
   else {
     $variables['#attached']['library'][] = 'boatshow/default_global_styles';
@@ -399,14 +371,10 @@ function boatshow_theme_suggestions_block_alter(array &$suggestions, array $vari
  * Implements hook_theme_suggestions_page_alter().
  */
 function boatshow_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-  // Get city key.  This is used for logos and other city-specific images.
-  $city_key = \Drupal::state()->get('boatshow.city.key');
-  if (empty($city_key)) {
-    // If for any reason the state is lost, we can still use the setting
-    // as a backup.  This is a best practice since state is considered
-    // transient information.
-    $city_key = Settings::get('boatshow.city.key');
-  }
+  $site_path = \Drupal::service('site.path'); // e.g.: 'sites/default'
+  $site_path = explode('/', $site_path);
+  $city_key = $site_path[1];
+
   $variables['boatshow_city'] = $city_key;
   if (\Drupal::service('path.matcher')->isFrontPage()) {
     $suggestions[] = 'page__front__' . $city_key;

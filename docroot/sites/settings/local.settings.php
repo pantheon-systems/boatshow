@@ -1,32 +1,6 @@
 <?php
 
-/**
- * @file
- * Local development override configuration feature.
- */
-
 use Drupal\Component\Assertion\Handle;
-
-/**
- * Database configuration.
- * Assumes dbname, dbpass, dbuser are all equal to the site name
- */
-$databases = array(
-  'default' =>
-  array(
-    'default' =>
-    array(
-      'database' => '${site}',
-      'username' => '${site}',
-      'password' => '${site}',
-      'host' => 'localhost',
-      'port' => '3306',
-      'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-      'driver' => 'mysql',
-      'prefix' => '',
-    ),
-  ),
-);
 
 $dir = dirname(DRUPAL_ROOT);
 
@@ -146,4 +120,25 @@ $config['system.file']['path']['temporary'] = '/tmp';
  */
 $settings['trusted_host_patterns'] = array(
   '^.+$',
+);
+
+/**
+ * Database configuration.
+ * Assumes dbname, dbpass, dbuser are all equal to the site name
+ */
+$databases = array(
+  'default' =>
+  array(
+    'default' =>
+    array(
+      'database' => $site_dir,
+      'username' => 'root',
+      'password' => 'root',
+      'host' => 'localhost',
+      'port' => '3306',
+      'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+      'driver' => 'mysql',
+      'prefix' => '',
+    ),
+  ),
 );

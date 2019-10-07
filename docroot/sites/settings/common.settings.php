@@ -280,7 +280,7 @@ $config_directories = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = file_get_contents(DRUPAL_ROOT . '/../salt.txt');
 
 /**
  * Deployment identifier.
@@ -342,10 +342,11 @@ $settings['update_free_access'] = FALSE;
  * configuration requires the IP addresses of all remote proxies to be
  * specified in $settings['reverse_proxy_addresses'] to work correctly.
  *
- * Enable this setting to get Drupal to determine the client IP from the
- * X-Forwarded-For header. If you are unsure about this setting, do not have a
- * reverse proxy, or Drupal operates in a shared hosting environment, this
- * setting should remain commented out.
+ * Enable this setting to get Drupal to determine the client IP from
+ * the X-Forwarded-For header (or $settings['reverse_proxy_header'] if set).
+ * If you are unsure about this setting, do not have a reverse proxy,
+ * or Drupal operates in a shared hosting environment, this setting
+ * should remain commented out.
  *
  * In order for this setting to be used you must specify every possible
  * reverse proxy IP address in $settings['reverse_proxy_addresses'].
@@ -361,38 +362,37 @@ $settings['update_free_access'] = FALSE;
  * Specify every reverse proxy IP address in your environment.
  * This setting is required if $settings['reverse_proxy'] is TRUE.
  */
-# $settings['reverse_proxy_addresses'] = ['a.b.c.d', ...];
+# $settings['reverse_proxy_addresses'] = array('a.b.c.d', ...);
 
 /**
- * Reverse proxy trusted headers.
- *
- * Sets which headers to trust from your reverse proxy.
- *
- * Common values are:
- * - \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL
- * - \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
- *
- * Note the default value of
- * @code
- * \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL | \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
- * @endcode
- * is not secure by default. The value should be set to only the specific
- * headers the reverse proxy uses. For example:
- * @code
- * \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL
- * @endcode
- * This would trust the following headers:
- * - X_FORWARDED_FOR
- * - X_FORWARDED_HOST
- * - X_FORWARDED_PROTO
- * - X_FORWARDED_PORT
- *
- * @see \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL
- * @see \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
- * @see \Symfony\Component\HttpFoundation\Request::setTrustedProxies
+ * Set this value if your proxy server sends the client IP in a header
+ * other than X-Forwarded-For.
  */
-# $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL | \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED;
+# $settings['reverse_proxy_header'] = 'X_CLUSTER_CLIENT_IP';
 
+/**
+ * Set this value if your proxy server sends the client protocol in a header
+ * other than X-Forwarded-Proto.
+ */
+# $settings['reverse_proxy_proto_header'] = 'X_FORWARDED_PROTO';
+
+/**
+ * Set this value if your proxy server sends the client protocol in a header
+ * other than X-Forwarded-Host.
+ */
+# $settings['reverse_proxy_host_header'] = 'X_FORWARDED_HOST';
+
+/**
+ * Set this value if your proxy server sends the client protocol in a header
+ * other than X-Forwarded-Port.
+ */
+# $settings['reverse_proxy_port_header'] = 'X_FORWARDED_PORT';
+
+/**
+ * Set this value if your proxy server sends the client protocol in a header
+ * other than Forwarded.
+ */
+# $settings['reverse_proxy_forwarded_header'] = 'FORWARDED';
 
 /**
  * Page caching:
@@ -433,7 +433,7 @@ $settings['update_free_access'] = FALSE;
  *
  * @see \Drupal\Core\Form\FormCache::setCache()
  */
-# $settings['form_cache_expiration'] = 21600;
+ $settings['form_cache_expiration'] = 3600;
 
 /**
  * Class Loader.
@@ -566,8 +566,8 @@ if ($settings['hash_salt']) {
  *
  * This applies when the site is explicitly set to maintenance mode through the
  * administration page or when the database is inactive due to an error.
- * The miami file should also be copied into the theme. It is located inside
- * 'core/modules/system/miamis/maintenance-page.html.twig'.
+ * The template file should also be copied into the theme. It is located inside
+ * 'core/modules/system/templates/maintenance-page.html.twig'.
  *
  * Note: This setting does not apply to installation and update pages.
  */
@@ -665,9 +665,9 @@ if ($settings['hash_salt']) {
  *
  * Remove the leading hash signs if you would like to alter this functionality.
  */
-# $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
-# $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
-# $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
+$config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
+$config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
+$config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
 
 /**
  * Load services definition file.
@@ -729,6 +729,10 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * example.org, with all subdomains included.
  */
 
+$settings['trusted_host_patterns'] = array(
+  '^.+$'
+);
+
 /**
  * The default list of directories that will be ignored by Drupal's file API.
  *
@@ -763,17 +767,72 @@ $settings['entity_update_batch_size'] = 50;
  */
 $settings['entity_update_backup'] = TRUE;
 
-/**
- * Load local development override configuration, if available.
- *
- * Use settings.local.php to override variables on secondary (staging,
- * development, etc) installations of this site. Typically used to disable
- * caching, JavaScript/CSS compression, re-routing of outgoing emails, and
- * other things that should not happen on development and testing sites.
- *
- * Keep this code block at the end of this file to take full effect.
+/* ////////////////////////////////
+/// BEGIN NMMA CUSTOMIZATIONS
+//////////////////////////////// */
+
+/*
+ * Enable Memcache
  */
-#
-# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-#   include $app_root . '/' . $site_path . '/settings.local.php';
-# }
+
+if (isset($settings['memcache']['servers'])) {
+  // Memcache settings
+  $settings['cache']['bins']['bootstrap'] = 'cache.backend.memcache';
+  $settings['cache']['bins']['discovery'] = 'cache.backend.memcache';
+  $settings['cache']['bins']['config'] = 'cache.backend.memcache';
+  // Use memcache as the default bin
+  $settings['cache']['default'] = 'cache.backend.memcache';
+  $settings['memcache']['stampede_protection'] = TRUE;
+}
+
+/**
+ * Acquia Purge Settings
+ */
+$settings['acquia_purge_https'] = TRUE;
+$settings['acquia_purge_http'] = FALSE;
+$settings['acquia_purge_log_success'] = FALSE;
+
+/**
+ * Random hash for encryption module.
+ *
+ * This is a dependency of the Marketo MA module
+ */
+$settings['encryption_key'] = 'D34Sl2EL+Eig0GMtI65ulImGQbDw0yfeZdA1MLlPm0w=';
+
+/**
+ * Location of the site configuration files.
+ */
+$config_directories = [
+  CONFIG_SYNC_DIRECTORY => DRUPAL_ROOT . "/../config/common"
+];
+
+/**
+ * Configuration Split
+ */
+$config['config_split.config_split.show_overrides']['folder'] = '../config/show_overrides/' . $site_dir;
+
+/**
+ * Private file path.
+ */
+if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+  $settings['file_private_path'] = '/mnt/files/' . $_ENV['AH_SITE_GROUP'] . '.' . $_ENV['AH_SITE_ENVIRONMENT'] . '/' . $site_path . '/files-private';
+}
+else {
+  $settings['file_private_path'] = DRUPAL_ROOT . '/../files-private/' . $site_dir;
+}
+
+$settings['update_free_access'] = FALSE;
+
+/**
+ * Load multisite configuration, if available.
+ * On Acquia Cloud, this include file configures Drupal to use the correct
+ * database in each site environment (Dev, Stage, or Prod). To use this
+ * settings.php for development on your local workstation, set $db_url
+ * (Drupal 5 or 6) or $databases (Drupal 7 or 8) as described in comments
+ * above.
+ */
+if (file_exists('/var/www/site-php')) {
+  require '/var/www/site-php/discoverboat/' . $site_dir . '-settings.inc';
+}
+
+$settings['install_profile'] = 'minimal';

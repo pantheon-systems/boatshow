@@ -1,0 +1,2 @@
+docroot/sites/settings/local.settings.php
+docroot/sites/*/settings/local.settings.php

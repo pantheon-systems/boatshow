@@ -1,0 +1,16 @@
+uuid: 152d2e15-d172-46ef-9ffa-84824617bb62
+langcode: en
+status: true
+dependencies: {  }
+id: show_overrides
+label: 'Show Overrides'
+description: 'Configuration overrides for the show website'
+folder: ../config/show_overrides/MULTISITE_NAME
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist:
+  - system.site
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0
