@@ -803,7 +803,7 @@ $settings['encryption_key'] = 'D34Sl2EL+Eig0GMtI65ulImGQbDw0yfeZdA1MLlPm0w=';
  * Location of the site configuration files.
  */
 $config_directories = [
-  CONFIG_SYNC_DIRECTORY => DRUPAL_ROOT . "/../config/common"
+  CONFIG_SYNC_DIRECTORY => DRUPAL_ROOT . "/../config/default"
 ];
 
 /**
