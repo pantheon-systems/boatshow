@@ -9,3 +9,6 @@
  */
 
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
+
+var_dump($config['config_split.config_split.show_overrides']);
+var_dump($config_directories);die();
