@@ -1,10 +1,10 @@
-uuid: f3c2f200-28cb-46ce-bc7f-ad0fd1e3e4a4
+uuid: b0d44d4b-99dc-4fd4-bc4d-8406875c26a6
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.special_offer
-id: node_type_special_offer
+    - node.type.business
+id: node_type_business
 action: access_denied
 allow_override: 1
 redirect: ''

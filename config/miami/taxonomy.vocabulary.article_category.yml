@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Article Category'
 vid: article_category
-description: ''
-weight: 0
+description: 'Used by PR team to categorize <em>exhibitor news</em> articles'
+weight: -10

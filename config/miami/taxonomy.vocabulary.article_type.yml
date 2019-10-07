@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Article Type'
 vid: article_type
-description: 'News type categories'
-weight: 0
+description: 'News type categories: <em>NMMA or Exhibitor submitted news article.</em>'
+weight: -9

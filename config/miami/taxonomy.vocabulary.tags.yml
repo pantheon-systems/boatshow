@@ -5,4 +5,4 @@ dependencies: {  }
 name: Tags
 vid: tags
 description: 'Add free-form categories to various content entries.'
-weight: -6
+weight: 3

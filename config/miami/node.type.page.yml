@@ -15,10 +15,10 @@ third_party_settings:
     workflow: editorial
 _core:
   default_config_hash: 8abAOu9EvOLXTTAq-uEdWO5pTFbSx-OVxt4HY5Rh3tw
-name: 'Basic page'
+name: 'X-Basic page'
 type: page
-description: 'Use <em>basic pages</em> for your static content, such as an ''About us'' page.'
+description: "Use <em>basic pages</em> for your static content, such as an 'About us' page.\r\n</br>DO NOT CREATE this content type with out consulting the <em>Digital/Web Technology Team</em>."
 help: ''
-new_revision: false
+new_revision: true
 preview_mode: 1
 display_submitted: false

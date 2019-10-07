@@ -1,11 +1,11 @@
-uuid: 3a295857-27db-4a2f-9be3-1398b9c9891d
+uuid: 4d7d19a2-6085-414a-b8e3-3156523e815c
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.video
-id: node.video
+    - node.type.bricky_blocks
+id: node.bricky_blocks
 target_entity_type_id: node
-target_bundle: video
+target_bundle: bricky_blocks
 default_langcode: site_default
 language_alterable: false

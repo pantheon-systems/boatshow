@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Seminar Topic'
 vid: seminar_topic
-description: ''
-weight: 0
+description: 'Seminar course topics: <em>Power, Sail, RV, etc.</em>'
+weight: -1

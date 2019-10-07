@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Dining Location'
 vid: dining_location
-description: ''
-weight: 0
+description: 'Food & Beverage locations'
+weight: -6

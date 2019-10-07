@@ -61,7 +61,6 @@ field_settings:
           booth: default
           bricky: default
           business: default
-          carousel_slides: default
           component_page: default
           dining: default
           landing_page: full

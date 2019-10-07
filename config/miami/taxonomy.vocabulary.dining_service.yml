@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Dining Service'
 vid: dining_service
-description: ''
-weight: 0
+description: 'Food & Beverage service options: <em>full service, food truck, etc.</em>'
+weight: -5

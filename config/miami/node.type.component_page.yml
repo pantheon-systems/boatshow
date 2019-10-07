@@ -17,8 +17,8 @@ third_party_settings:
     parent: 'life-on-the-water:'
 name: 'Component Page'
 type: component_page
-description: 'Entity type for creating pages that have multiple areas and layouts.'
+description: "Entity type for creating pages that have multiple areas and layouts.\r\n</br>DO NOT CREATE this content type without consulting the <em>Digital/Web Technology Team</em>."
 help: ''
-new_revision: false
+new_revision: true
 preview_mode: 1
 display_submitted: false

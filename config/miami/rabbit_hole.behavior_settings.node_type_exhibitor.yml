@@ -8,4 +8,4 @@ id: node_type_exhibitor
 action: page_redirect
 allow_override: 1
 redirect: /whos-exhibiting
-redirect_code: 301
+redirect_code: 302

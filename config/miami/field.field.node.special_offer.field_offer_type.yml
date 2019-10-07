@@ -11,7 +11,7 @@ id: node.special_offer.field_offer_type
 field_name: field_offer_type
 entity_type: node
 bundle: special_offer
-label: 'Offer Type'
+label: 'Classified Type'
 description: ''
 required: true
 translatable: false

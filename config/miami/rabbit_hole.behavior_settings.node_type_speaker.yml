@@ -8,4 +8,4 @@ id: node_type_speaker
 action: page_redirect
 allow_override: 0
 redirect: /seminars/speakers
-redirect_code: 301
+redirect_code: 302

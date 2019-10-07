@@ -5,7 +5,6 @@ dependencies:
   config:
     - eck.eck_type.brick.carousel
     - field.storage.brick.field_slides
-    - node.type.carousel_slides
 id: brick.carousel.field_slides
 field_name: field_slides
 entity_type: brick
@@ -19,8 +18,7 @@ default_value_callback: ''
 settings:
   handler: 'default:node'
   handler_settings:
-    target_bundles:
-      carousel_slides: carousel_slides
+    target_bundles: {  }
     sort:
       field: _none
     auto_create: true

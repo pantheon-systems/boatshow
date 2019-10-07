@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: Brands
 vid: brands
-description: 'Brand Names Offered by Companies'
-weight: -9
+description: 'Brands manufactured as boating, RV, vehicles or watercraft engines.'
+weight: -8

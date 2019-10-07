@@ -8,10 +8,10 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: Business
+name: X-Business
 type: business
-description: 'Enter contact information for boating manufacturers, dealers and other business types.'
+description: "Enter contact information for manufacturers and other business types (that are not exhibitors).\r\n</br>DO NOT CREATE this content type without consulting the <em>Digital/Web Technology Team</em>."
 help: ''
-new_revision: false
+new_revision: true
 preview_mode: 1
 display_submitted: false
