@@ -8,7 +8,6 @@
  * @link https://docs.acquia.com/blt/
  */
 
-require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
+$blt_override_config_directories = TRUE;
 
-var_dump($config['config_split.config_split.show_overrides']);
-var_dump($config_directories);die();
+require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
