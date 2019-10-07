@@ -32,4 +32,4 @@ drush -l newyork updb --entity-updates -y
 echo "Running drush cache-rebuild"
 drush -l newyork cr
 
-echo "Complete!
+echo "Complete!"
