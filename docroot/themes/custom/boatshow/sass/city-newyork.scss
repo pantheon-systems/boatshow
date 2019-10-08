@@ -1,19 +1,13 @@
 ///////////////////////////////
 /// 1. City Override Variables
 ///////////////////////////////
-$colorname-miami-magenta: #e12b6e;
-$colorname-miami-aqua: #2dace3;
-$colorname-miami-orange: #f87f0f;
-$colorname-miami-gray: #4d4d4d;
+$city-color-primary: #2d9a27;
+$city-color-secondary: #b691a1;
+$city-color-tertiary: #5f4e90;
 
-$city-color-primary: $colorname-miami-magenta;
-$city-color-secondary: $colorname-miami-aqua;
-$city-color-tertiary: $colorname-miami-orange;
-
-$city-hero-bg: '../../images/atlanta/main-background.jpg';
 
 // Text
-$color-text: $colorname-miami-gray;
+$color-text: #4d4d4d;
 
 // Font
 $font-primary: 'CircularStd', 'Helvetica', sans-serif;
