@@ -76,16 +76,33 @@ function boatshow_preprocess_page(&$variables) {
 
   $variables['boatshow_city'] = $city_key;
 
-  // Add city-site specific library depending on the site.
-  if ($city_key !== 'template') {
-    $variables['#attached']['library'][] = 'boatshow/' . $city_key;
-  }
-  else {
-    $variables['#attached']['library'][] = 'boatshow/default_global_styles';
-  }
-
   // Add check for front page
   $variables['is_front_page'] = \Drupal::service('path.matcher')->isFrontPage();
+}
+
+/**
+ * Implements hook_library_info_alter
+ * Dynamically rewrite the stylesheet to point to the city stylesheet if it exists
+ */
+function boatshow_library_info_alter (&$libraries, $extension) {
+  if ($extension === 'boatshow') {
+
+    $site_path = \Drupal::service('site.path'); // e.g.: 'sites/default'
+    $site_path = explode('/', $site_path);
+    $city_key = $site_path[1];
+
+    $city_stylesheet_path = 'assets-dist/css/city-' . $city_key . '.css';
+
+    $theme_path = DRUPAL_ROOT . '/' . \Drupal::theme()->getActiveTheme()->getPath();
+
+    $full_path_to_stylesheet = $theme_path . '/' . $city_stylesheet_path;
+
+    if (file_exists($full_path_to_stylesheet)) {
+      $libraries['city_stylesheet']['css']['theme'] = [
+        $city_stylesheet_path => []
+      ];
+    }
+  }
 }
 
 /**
