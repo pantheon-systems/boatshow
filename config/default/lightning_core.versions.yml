@@ -228,3 +228,4 @@ content_lock: 1.0.0-alpha8
 nmma_exhibitor_import: 0.0.0
 nmma_forms: 0.0.0
 rules: 3.0.0-alpha5
+config_ignore: 2.1.0

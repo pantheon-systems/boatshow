@@ -805,14 +805,8 @@ $settings['encryption_key'] = 'D34Sl2EL+Eig0GMtI65ulImGQbDw0yfeZdA1MLlPm0w=';
 $blt_override_config_directories = TRUE;
 
 $config_directories = [
-  'sync' => DRUPAL_ROOT . "/../config/default",
-  'vcs' => DRUPAL_ROOT . "/../config/default"
+  'sync' => DRUPAL_ROOT . "/../config/default"
 ];
-
-/**
- * Configuration Split
- */
-$config['config_split.config_split.show_overrides']['folder'] = '../config/show_overrides/' . $site_dir;
 
 /**
  * Private file path.
