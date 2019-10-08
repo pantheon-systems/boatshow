@@ -8,28 +8,22 @@ repo_root="/var/www/html/$site.$target_env/docroot"
 #export PATH=$repo_root/vendor/bin:$PATH
 cd $repo_root
 
-echo "New code has been deployed to Boatshows2 DEV environment."
+echo "New code has been deployed to $site.$target_env environment."
 
-echo "======== multisite: miami ========"
+for MULTISITE in ("miami" "newyork")
+do
+  echo "======== begin multisite: ${MULTISITE} ========"
 
-echo "Running drush config-import"
-drush -l miami cim vcs -y
+  echo "Running drush config-import"
+  drush -l $MULTISITE cim vcs -y
 
-echo "Running drush updatedb"
-drush -l miami updb --entity-updates -y
+  echo "Running drush updatedb"
+  drush -l $MULTISITE updb --entity-updates -y
 
-echo "Running drush cache-rebuild"
-drush -l miami cr
+  echo "Running drush cache-rebuild"
+  drush -l $MULTISITE cr
 
-echo "======== multisite: newyork ========"
-
-echo "Running drush config-import"
-drush -l newyork cim vcs -y
-
-echo "Running drush updatedb"
-drush -l newyork updb --entity-updates -y
-
-echo "Running drush cache-rebuild"
-drush -l newyork cr
+  echo "======== end multisite: ${MULTISITE} ========"
+done
 
 echo "Complete!"
