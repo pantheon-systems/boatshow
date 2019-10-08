@@ -10,7 +10,7 @@ cd $repo_root
 
 echo "New code has been deployed to $site.$target_env environment."
 
-for MULTISITE in ("miami" "newyork")
+for MULTISITE in "miami" "newyork"
 do
   echo "======== begin multisite: ${MULTISITE} ========"
 
