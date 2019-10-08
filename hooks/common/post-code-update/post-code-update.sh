@@ -18,7 +18,7 @@ do
   drush -l $MULTISITE cim vcs -y
 
   echo "Running drush updatedb"
-  drush -l $MULTISITE updb --entity-updates -y
+  drush -l $MULTISITE updb -y
 
   echo "Running drush cache-rebuild"
   drush -l $MULTISITE cr
