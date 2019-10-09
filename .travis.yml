@@ -39,7 +39,8 @@ addons:
 
 branches:
   only:
-    - master
+  - 2.x-develop
+  - 2.x-master
 
 # @see https://docs.travis-ci.com/user/notifications
 notifications:
