@@ -394,6 +394,37 @@ For step-by-step instructions on how to update dependencies, see [dependency-man
 
 ## Deploying to Acquia Cloud
 
+Deployments to Acquia Cloud are managed with Travis CI at [https://travis-ci.com/NationalMarine/BoatShows](https://travis-ci.com/NationalMarine/BoatShows). The build process works as follows:
+
+- Code is merged into one of the deployment targets' github branches (see below)
+- Travis detects the changes code in that branch and kicks off a deployment
+  - Travis builds the front-end theme using gulp
+  - Travis performs a `blt artifact:deploy` to package a deployment artifact, and commits it to the Acquia git repository
+  - Logs are stored in the Travis 'Build History' tab for the project
+- Acquia's task runner detects the changes to the acquia git repository
+  - Acquia's task runner deploys the code to the environment for that branch
+  - Acquia's task runner runs any hooks in the {repo}/hooks directory, such as:
+    - Import drupal config for each multisite
+    - Update drupal database for each multisite
+    - Clear drupal cache for each multisite
+  - Acquia's task log can be seen on the Acquia 'Application' page for Boatshows2 at [https://cloud.acquia.com/app/develop/applications/e4d0000d-d68a-46e7-87d1-04e334983a55](https://cloud.acquia.com/app/develop/applications/e4d0000d-d68a-46e7-87d1-04e334983a55)
+
+### Deployment targets
+
+- live2
+  - github branch: 2.x-master
+  - acquia git branch: master
+
+- stage2
+  - github branch: 2.x-master (note, this will change to 2.x-develop soon)
+  - acquia git branch: stage
+
+- stage2
+  - github branch: 2.x-develop
+  - acquia git branch: dev
+
+### Manual deployments (deprecated by Travis CI procedure)
+
 - First you will need to compile the front-end resources locally, by running the gulp command from the 'Build the front-end theme' section of this document.
 - You should merge or commit any code which needs to be deployed into the 2.x branch of the github repository, and stash any uncommitted changes (the next command requires a clean working directory)
 - You may now run the BLT deployment command. BLT will package up the code and dependencies into a folder named "deploy" then commit and push the code to the specified branch of the Acquia git repository, which is specified in the "blt/blt.yml" file under the git remotes settings. This command should be run from outside the vagrant VM. It **can** be run from inside vagrant, but it may take a lot longer to complete, on the order of 10x as long.
