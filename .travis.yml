@@ -63,7 +63,7 @@ branches:
 deploy:
   # Deploy DEV2
   - provider: script
-    script: blt artifact:deploy --branch "dev" -n -vvvv
+    script: blt artifact:deploy --branch "dev" -n
     skip_cleanup: true
     on:
       branch: 2.x-develop
