@@ -54,29 +54,17 @@ script:
   # - source ${BLT_DIR}/scripts/travis/run_tests
   - echo "skipping tests"
 
+# safelist: https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches
+branches:
+  only:
+  - 2.x-master
+  - 2.x-deploy
+
 deploy:
-  # Test Branch
+  # Deploy DEV2
   - provider: script
-    script: blt artifact:deploy --branch "dev" -n --dry-run
+    script: blt artifact:deploy --branch "dev" -n
     skip_cleanup: true
     on:
-      branch: feature-continuous-integration
+      branch: 2.x-develop
       php: 7.2
-  #  - provider: script
-  #    script: "${BLT_DIR}/scripts/travis/deploy_branch"
-  #    skip_cleanup: true
-  #    on:
-  #      branch: develop
-  #      php: 7.2
-  #  - provider: script
-  #    script: "${BLT_DIR}/scripts/travis/deploy_branch"
-  #    skip_cleanup: true
-  #    on:
-  #      branch: master
-  #      php: 7.2
-  #  - provider: script
-  #    script: "${BLT_DIR}/scripts/travis/deploy_tag"
-  #    skip_cleanup: true
-  #    on:
-  #      tags: true
-  #      php: 7.2
