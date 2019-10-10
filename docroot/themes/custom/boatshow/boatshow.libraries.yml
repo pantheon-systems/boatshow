@@ -26,6 +26,7 @@ javascript:
     assets-dist/js/getting-to-the-show.js: {}
     assets-dist/js/seminarview.js: {}
     assets-dist/js/sailingattheshow.js: {}
+    assets-dist/js/seniority-points.js: {}
   dependencies:
     - core/jquery
     - core/drupal.ajax

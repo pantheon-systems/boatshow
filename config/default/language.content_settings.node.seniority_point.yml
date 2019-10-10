@@ -1,0 +1,11 @@
+uuid: c5c46192-ce91-4f29-b7ac-769490a7809c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.seniority_point
+id: node.seniority_point
+target_entity_type_id: node
+target_bundle: seniority_point
+default_langcode: site_default
+language_alterable: false

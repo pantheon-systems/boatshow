@@ -1,0 +1,25 @@
+uuid: cf72c079-4675-4973-8ff5-bac98e6a17b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_points
+    - node.type.seniority_point
+id: node.seniority_point.field_show_points
+field_name: field_show_points
+entity_type: node
+bundle: seniority_point
+label: 'Show Points'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,14 @@
+uuid: 1dcb6681-bfb7-49a9-ab29-79f1baa8b9c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.seniority_point_creator
+  module:
+    - user
+id: user_remove_role_action.seniority_point_creator
+label: 'Remove the Seniority Point creator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: seniority_point_creator

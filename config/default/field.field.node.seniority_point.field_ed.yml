@@ -1,0 +1,19 @@
+uuid: e523f721-83de-4fdb-b328-925009977917
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ed
+    - node.type.seniority_point
+id: node.seniority_point.field_ed
+field_name: field_ed
+entity_type: node
+bundle: seniority_point
+label: 'Edition Code'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

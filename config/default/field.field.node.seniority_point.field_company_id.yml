@@ -1,0 +1,19 @@
+uuid: 0ee2f76b-7de9-4005-a8ae-87ad048fec7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_company_id
+    - node.type.seniority_point
+id: node.seniority_point.field_company_id
+field_name: field_company_id
+entity_type: node
+bundle: seniority_point
+label: 'Company ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

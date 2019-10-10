@@ -1,0 +1,14 @@
+uuid: ad1124a0-07d7-44b3-8590-82247f130964
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.seniority_point_reviewer
+  module:
+    - user
+id: user_add_role_action.seniority_point_reviewer
+label: 'Add the Seniority Point reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: seniority_point_reviewer
