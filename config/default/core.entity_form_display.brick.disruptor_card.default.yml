@@ -9,7 +9,7 @@ dependencies:
     - field.field.brick.disruptor_card.field_disruptor_headline
     - field.field.brick.disruptor_card.field_disruptor_icon
   module:
-    - link
+    - link_attributes
     - text
 id: brick.disruptor_card.default
 targetEntityType: brick
@@ -29,8 +29,17 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
     third_party_settings: {  }
-    type: link_default
+    type: link_attributes
     region: content
   field_disruptor_headline:
     weight: 2

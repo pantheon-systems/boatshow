@@ -8,7 +8,7 @@ dependencies:
     - field.field.paragraph.arrival_location_links.field_price
     - paragraphs.paragraphs_type.arrival_location_links
   module:
-    - link
+    - link_attributes
 id: paragraph.arrival_location_links.default
 targetEntityType: paragraph
 bundle: arrival_location_links
@@ -26,8 +26,17 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
     third_party_settings: {  }
-    type: link_default
+    type: link_attributes
     region: content
   field_price:
     weight: 1

@@ -110,6 +110,7 @@ module:
   lightning_search: 0
   lightning_workflow: 0
   link: 0
+  link_attributes: 0
   linkit: 0
   machine_name_widget: 0
   marketo_ma: 0

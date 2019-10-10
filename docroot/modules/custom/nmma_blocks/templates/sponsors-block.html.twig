@@ -7,7 +7,7 @@
     {% if featured is not empty %}
       <span class="featured-text">brought to you by</span>
       {% if featured.url is not empty %}
-        <a class="sponsor-link" href="{{ featured.url }}">
+        <a class="sponsor-link" href="{{ featured.url }}" target="_blank">
           <img class="featured-logo" src="{{ featured.image }}" title="{{ featured.title}}" alt="{{ featured.alt }}" />
         </a>
       {% else %}
@@ -19,7 +19,7 @@
       <span class="grid-text">official show sponsors</span>
       {% for k, item in items %}
         {% if item.url is not empty %}
-          <a class="sponsor-link" href="{{ item.url }}">
+          <a class="sponsor-link" href="{{ item.url }}" target="_blank">
             <img class="sponsor-logo" src="{{ item.image }}" title="{{ item.title }}" alt="{{ item.alt }}" />
           </a>
         {% else %}
@@ -29,4 +29,3 @@
     </div>
   </div>
 </div>
-

@@ -57,7 +57,7 @@
       {% if disabled %}
         <a disabled>
       {% else %}
-        <a href="{{content.field_link[0]['#url']}}">
+        <a href="{{content.field_link[0]['#url']}}" {{ content.field_link[0]['#options']['attributes']['target'] ? 'target=' ~ content.field_link[0]['#options']['attributes']['target'] }}>
       {% endif %}
 
       <div class="{{content.field_price.0 is defined ? '' : 'no-price' }} text">{{content.field_link[0]['#title']}}</div>
