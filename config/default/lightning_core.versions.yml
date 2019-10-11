@@ -230,3 +230,4 @@ nmma_forms: 0.0.0
 rules: 3.0.0-alpha5
 config_ignore: 2.1.0
 rebuild_cache_access: 1.5.0
+nmma_clipboardjs: 0.0.0

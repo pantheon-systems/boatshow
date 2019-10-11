@@ -130,6 +130,7 @@ module:
   module_filter: 0
   nmma_blocks: 0
   nmma_brick_layouts: 0
+  nmma_clipboardjs: 0
   nmma_exhibitor_article: 0
   nmma_exhibitor_import: 0
   nmma_feeds_video_embed: 0
