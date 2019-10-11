@@ -71,6 +71,7 @@ permissions:
   - 'edit terms in dining_service'
   - 'edit terms in sponsors'
   - 'edit terms in tags'
+  - 'rebuild cache access'
   - 'switch shortcut sets'
   - 'update any media'
   - 'view all media revisions'

@@ -74,6 +74,7 @@ permissions:
   - 'edit any video media'
   - 'edit own carousel_slides content'
   - 'edit terms in article_category'
+  - 'rebuild cache access'
   - 'switch shortcut sets'
   - 'update any media'
   - 'view all media revisions'

@@ -109,6 +109,7 @@ permissions:
   - 'edit terms in sponsors'
   - 'edit terms in tags'
   - 'edit terms in vehicle_product_type'
+  - 'rebuild cache access'
   - 'switch shortcut sets'
   - 'update any media'
   - 'view all media revisions'
