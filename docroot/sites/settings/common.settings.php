@@ -3,6 +3,18 @@
 // @codingStandardsIgnoreFile
 
 /**
+ * Load multisite configuration, if available.
+ * On Acquia Cloud, this include file configures Drupal to use the correct
+ * database in each site environment (Dev, Stage, or Prod). To use this
+ * settings.php for development on your local workstation, set $db_url
+ * (Drupal 5 or 6) or $databases (Drupal 7 or 8) as described in comments
+ * above.
+ */
+if (file_exists('/var/www/site-php')) {
+  require '/var/www/site-php/discoverboat/' . $site_dir . '-settings.inc';
+}
+
+/**
  * @file
  * Drupal site-specific configuration file.
  *
@@ -88,7 +100,7 @@
  * ];
  * @endcode
  */
-$databases = [];
+// $databases = [];
 
 /**
  * Customizing database settings.
@@ -251,7 +263,7 @@ $databases = [];
  *   ];
  * @endcode
  */
-$config_directories = [];
+// $config_directories = [];
 
 /**
  * Settings:
@@ -800,15 +812,6 @@ $settings['acquia_purge_log_success'] = FALSE;
 $settings['encryption_key'] = 'D34Sl2EL+Eig0GMtI65ulImGQbDw0yfeZdA1MLlPm0w=';
 
 /**
- * Location of the site configuration files.
- */
-$blt_override_config_directories = TRUE;
-
-$config_directories = [
-  'sync' => DRUPAL_ROOT . "/../config/default"
-];
-
-/**
  * Private file path.
  */
 if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
@@ -818,18 +821,17 @@ else {
   $settings['file_private_path'] = DRUPAL_ROOT . '/../files-private/' . $site_dir;
 }
 
+/**
+ * Location of the site configuration files.
+ */
+$blt_override_config_directories = TRUE;
+
+$config_directories = [
+  CONFIG_SYNC_DIRECTORY => DRUPAL_ROOT . "/../config/default"
+];
+
+
 $settings['update_free_access'] = FALSE;
 
-/**
- * Load multisite configuration, if available.
- * On Acquia Cloud, this include file configures Drupal to use the correct
- * database in each site environment (Dev, Stage, or Prod). To use this
- * settings.php for development on your local workstation, set $db_url
- * (Drupal 5 or 6) or $databases (Drupal 7 or 8) as described in comments
- * above.
- */
-if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/discoverboat/' . $site_dir . '-settings.inc';
-}
 
 $settings['install_profile'] = 'minimal';
