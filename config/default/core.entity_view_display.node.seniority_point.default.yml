@@ -58,6 +58,7 @@ content:
     region: content
 hidden:
   addtoany: true
+  feeds_item: true
   langcode: true
   links: true
   search_api_excerpt: true

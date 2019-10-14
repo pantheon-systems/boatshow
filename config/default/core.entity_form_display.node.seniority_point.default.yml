@@ -53,6 +53,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  feeds_item: true
   langcode: true
   moderation_state: true
   path: true

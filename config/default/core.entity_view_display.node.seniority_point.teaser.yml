@@ -22,7 +22,9 @@ content:
     region: content
 hidden:
   addtoany: true
+  feeds_item: true
   field_company_id: true
+  field_ed: true
   field_m: true
   field_show_points: true
   langcode: true
