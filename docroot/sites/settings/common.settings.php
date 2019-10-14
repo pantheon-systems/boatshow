@@ -824,14 +824,25 @@ else {
 /**
  * Location of the site configuration files.
  */
+
+// Set TRUE to ignore the BLT OOTB config split settings from vendor/acquia/blt/settings/config.settings.php
 $blt_override_config_directories = TRUE;
 
 $config_directories = [
   CONFIG_SYNC_DIRECTORY => DRUPAL_ROOT . "/../config/default"
 ];
 
+/**
+ * Configuration Split
+ */
 
-$settings['update_free_access'] = FALSE;
+// Keep this off for all sites, and enable on a per-site basis by setting to TRUE in `sites/*/settings/show_overrides.php` for each multisite which needs it
+$config['config_split.config_split.show_overrides']['status'] = FALSE;
 
+// Manual override to point config_split.config_split.show_overrides to ../config/show_overrides/*
+$config['config_split.config_split.show_overrides']['folder'] = '../config/show_overrides/' . $site_dir;
 
+/**
+ * Install Profile
+ */
 $settings['install_profile'] = 'minimal';
