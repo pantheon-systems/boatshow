@@ -190,20 +190,24 @@ Add the code in the comment to your "~/.bashrc "file.
 ### Sync dev content to local
 
 ```console
+# Sync single multisite (db only)
+vm$ blt nmma:sync -n --site=miami
+
+# Sync single multisite (db + files)
+vm$ blt nmma:sync -n --site=miami --sync-files
+
+# Sync single multisite (files only)
+vm$ blt drupal:sync:files -n --site=miami
+
 # Sync all multisites (db only)
 vm$ blt nmma:sync-all -n
 
 # Sync all multisites (db + files)
 vm$ blt nmma:sync-all -n --sync-files
 
-# Sync single multisite (db only)
-vm$ blt nmma:sync --site=miami -n
+# Sync all multisites (files only)
+# gotcha! this doesn't exist yet
 
-# Sync single multisite (db + files)
-vm$ blt nmma:sync --site=miami -n --sync-files
-
-# Sync single multisite (files only)
-vm$ blt drupal:sync:files --site=miami
 ```
 
 ### Reset the admin password

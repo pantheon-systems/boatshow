@@ -30,7 +30,7 @@ disable-targets:
     phpcs: { sniff: { all: true } }
     behat: { run: true }
     security: { check: { updates: true } }
-# Completely override sync commands (NULLs are to unset OOTB commands)
+# Completely override sync commands (nmma:noops are to unset OOTB commands)
 # @link https://github.com/acquia/blt/issues/3697
 sync:
   commands:

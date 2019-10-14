@@ -34,7 +34,6 @@ class NmmaSyncCommands extends SyncCommand {
     }
   }
 
-
   /**
    * Synchronize single multisite.
    *
@@ -46,15 +45,4 @@ class NmmaSyncCommands extends SyncCommand {
   ]) {
     parent::sync($options);
   }
-
-  /**
-   * Noop command to override existing commands without throwing errors
-   *
-   * @command nmma:noop
-   * @description This is an example command.
-   */
-  public function noop() {
-    return null;
-  }
-
 }
