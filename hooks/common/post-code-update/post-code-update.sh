@@ -15,7 +15,7 @@ do
   echo "======== begin multisite: ${MULTISITE} ========"
 
   echo "Running drush config-import"
-  drush -l $MULTISITE cim vcs -y
+  drush -l $MULTISITE cim sync -y
 
   echo "Running drush updatedb"
   drush -l $MULTISITE updb -y
