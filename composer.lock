@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a08c77125c2617358de0f869c1e6629c",
+    "content-hash": "db5d62dad21b24667f645d6b7b54762a",
     "packages": [
         {
             "name": "acquia/blt",
@@ -4738,6 +4738,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Drush cim doesn't respect config ignore filters [https://www.drupal.org/project/config_ignore/issues/2916654#comment-12635861]": "https://www.drupal.org/files/issues/2018-05-14/collect-config-storage-services-2953769-6.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

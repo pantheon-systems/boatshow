@@ -155,6 +155,9 @@
             "drupal/coder": {
                 "Fix bad code sniffing in theme file": "https://www.drupal.org/files/issues/2018-05-10/filename-issue-theme-extension-2935388-4.patch"
             },
+            "drupal/config_filter": {
+                "Drush cim doesn't respect config ignore filters [https://www.drupal.org/project/config_ignore/issues/2916654#comment-12635861]": "https://www.drupal.org/files/issues/2018-05-14/collect-config-storage-services-2953769-6.patch"
+            },
             "drupal/core": {
                 "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch"
             },
