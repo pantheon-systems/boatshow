@@ -30,7 +30,17 @@ disable-targets:
     phpcs: { sniff: { all: true } }
     behat: { run: true }
     security: { check: { updates: true } }
-
+# Completely override sync commands (NULLs are to unset OOTB commands)
+# @link https://github.com/acquia/blt/issues/3697
+sync:
+  commands:
+    - source:build:composer
+    - drupal:sync:db
+    - drupal:update
+    - "nmma:noop"
+    - "nmma:noop"
+    - "nmma:noop"
+    - "nmma:noop"
 modules:
   local:
     enable: [dblog, devel, seckit, views_ui]

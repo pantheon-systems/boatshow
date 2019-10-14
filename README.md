@@ -187,41 +187,23 @@ If the above command does not work, here is a workaround:
 https://github.com/acquia/blt/issues/288#issuecomment-511552693
 Add the code in the comment to your "~/.bashrc "file.
 
-### Setup local Drupal sites with an empty database
-
-Use BLT to setup the sites for local development. These will be empty shell sites until content is synced down. TODO: we should have a shell script which does this for us.
-
-**NOTE**: If this gives you an error about the database not existing "Failed to drop or create the database" OR any other errors, you may either need to run `host$ vagrant provision` again to install the databases, or you may need to delete all of the local files that BLT has generated inside the sites directory and start from scratch. To do this, run `host$ rm -rf path/to/repo/docroot/sites` and then `host$ git checkout path/to/repo/docroot/sites`
+### Sync dev content to local
 
 ```console
-vm$ blt setup -n --site=template
-vm$ blt setup -n --site=atlanta
-vm$ blt setup -n --site=chicago
-vm$ blt setup -n --site=kansascity
-vm$ blt setup -n --site=miami
-vm$ blt setup -n --site=nashville
-```
+# Sync all multisites (db only)
+vm$ blt nmma:sync-all -n
 
-### Sync local Drupal sites from dev content
+# Sync all multisites (db + files)
+vm$ blt nmma:sync-all -n --sync-files
 
-```console
-vm$ blt sync:refresh -v --site=template
-vm$ blt sync:files -v --site=template
+# Sync single multisite (db only)
+vm$ blt nmma:sync --site=miami -n
 
-vm$ blt sync:refresh -v --site=atlanta
-vm$ blt sync:files -v --site=atlanta
+# Sync single multisite (db + files)
+vm$ blt nmma:sync --site=miami -n --sync-files
 
-vm$ blt sync:refresh -v --site=chicago
-vm$ blt sync:files -v --site=chicago
-
-vm$ blt sync:refresh -v --site=kansascity
-vm$ blt sync:files -v --site=kansascity
-
-vm$ blt sync:refresh -v --site=miami
-vm$ blt sync:files -v --site=miami
-
-vm$ blt sync:refresh -v --site=nashville
-vm$ blt sync:files -v --site=nashville
+# Sync single multisite (files only)
+vm$ blt drupal:sync:files --site=miami
 ```
 
 ### Reset the admin password
