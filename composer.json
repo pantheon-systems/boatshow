@@ -60,6 +60,7 @@
         "drupal/core": "^8.6",
         "drupal/cshs": "1.x-dev#e583815ea8f0e11fd32c0b794700547cd3afce8d",
         "drupal/devel": "^2.0",
+        "drupal/devel_entity_updates": "^1.0",
         "drupal/easy_breadcrumb": "^1.8",
         "drupal/eck": "^1.0@alpha",
         "drupal/editor_advanced_link": "^1.4",
