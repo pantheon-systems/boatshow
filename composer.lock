@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a3a7ed76a5e1afe4a7cf319a99817ec6",
+    "content-hash": "13f3a161f0faa08952d4d549dc17dcf8",
     "packages": [
         {
             "name": "acquia/blt",
@@ -4704,6 +4704,57 @@
             "homepage": "https://www.drupal.org/project/colossal_menu",
             "support": {
                 "source": "https://git.drupalcode.org/project/colossal_menu"
+            }
+        },
+        {
+            "name": "drupal/config_export_ignore",
+            "version": "1.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/config_export_ignore.git",
+                "reference": "8.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_export_ignore-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "5edbe94e2f306d0e49011cdcb912e7e57d42c7fa"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1521283084",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "mohit_aghera",
+                    "homepage": "https://www.drupal.org/user/639098"
+                }
+            ],
+            "description": "Allows to ignore configurations while exporting via config split",
+            "homepage": "https://www.drupal.org/project/config_export_ignore",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/config_export_ignore",
+                "issues": "https://www.drupal.org/project/issues/config_export_ignore"
             }
         },
         {
@@ -21878,6 +21929,7 @@
         "drupal/captcha": 20,
         "drupal/cer": 15,
         "drupal/clientside_validation": 20,
+        "drupal/config_export_ignore": 5,
         "drupal/content_lock": 15,
         "drupal/cshs": 20,
         "drupal/eck": 15,
