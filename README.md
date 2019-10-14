@@ -409,28 +409,44 @@ Deployments to Acquia Cloud are managed with Travis CI at [https://travis-ci.com
   - github branch: 2.x-develop
   - acquia git branch: dev
 
-### Manual deployments (deprecated by Travis CI procedure)
+### Manual deployments
 
-- First you will need to compile the front-end resources locally, by running the gulp command from the 'Build the front-end theme' section of this document.
-- You should merge or commit any code which needs to be deployed into the 2.x branch of the github repository, and stash any uncommitted changes (the next command requires a clean working directory)
-- You may now run the BLT deployment command. BLT will package up the code and dependencies into a folder named "deploy" then commit and push the code to the specified branch of the Acquia git repository, which is specified in the "blt/blt.yml" file under the git remotes settings. This command should be run from outside the vagrant VM. It **can** be run from inside vagrant, but it may take a lot longer to complete, on the order of 10x as long.
+BLT will package up the code and dependencies into a folder named "deploy" then commit and push the code to the specified branch of the Acquia git repository, which is specified in the "blt/blt.yml" file under the git remotes settings.
+
+In the examples below, you can see there are some additional steps to build the theme (gulp build) before running artifact:deploy. Travis handles these for us when not relying on manual builds.
+
+This command should be run from outside the vagrant VM. It **can** be run from inside vagrant, but it may take up to 10x longer to complete.
+
+You may run the `artifact:deploy` task with the --dry-run flag to test things out before actually pushing code to the remote environment.
 
 ```console
-host$ blt artifact:deploy --branch "BRANCH-TO-PUSH-TO" -n
-
-Examples:
-- To deploy current github branch to Acquia Dev environment
+# Manually deploy to Acquia "dev" environment (deprecated by Travis CI procedure)
+host$ git checkout 2.x-develop
+host$ composer install
+host$ vagrant ssh
+vm$ cd /var/www/boatshow/docroot/themes/custom/boatshow
+vm$ npm install && gulp build
+vm$ exit
 host$ blt artifact:deploy --branch "dev" -n
 
-- To deploy current github branch to Acquia Stage environment
+# Manually deploy to Acquia "stage" environment (deprecated by Travis CI procedure)
+host$ git checkout 2.x-master
+host$ composer install
+host$ vagrant ssh
+vm$ cd /var/www/boatshow/docroot/themes/custom/boatshow
+vm$ npm install && gulp build
+vm$ exit
 host$ blt artifact:deploy --branch "stage" -n
 
-- To deploy current github branch to Acquia Prod environment
+# Manually deploy to Acquia "live" environment
+host$ git checkout 2.x-master
+host$ composer install
+host$ vagrant ssh
+vm$ cd /var/www/boatshow/docroot/themes/custom/boatshow
+vm$ npm install && gulp build
+vm$ exit
 host$ blt artifact:deploy --branch "master" -n
-
 ```
-
-- Note that after uploading this code to the Acquia deployment repo branch, Acquia's build process will automatically update that code on the environment for that branch. It will then run the hooks from hooks/\*/post-code-deploy and hooks/\*/post-code-update in order to import config, etc.
 
 ## Adding new environments
 
