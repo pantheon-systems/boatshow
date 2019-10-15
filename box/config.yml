@@ -39,6 +39,11 @@ apache_vhosts:
     servername: local.nyboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  #multisite: stlouis
+  -
+    servername: local.stlouisboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
 apache_vhosts_ssl:
   -
     servername: '{{ drupal_domain }}'
@@ -53,6 +58,10 @@ mysql_databases:
     collation: utf8_general_ci
   -
     name: newyork
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: stlouis
     encoding: utf8
     collation: utf8_general_ci
 mysql_users: {  }

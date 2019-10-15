@@ -25,6 +25,7 @@ drush:
 multisites:
   - miami
   - newyork
+  - stlouis
 disable-targets:
   tests:
     phpcs: { sniff: { all: true } }

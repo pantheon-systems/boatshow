@@ -1,0 +1,65 @@
+///////////////////////////////
+/// 1. City Override Variables
+///////////////////////////////
+$city-color-primary: #12ec33;
+$city-color-secondary: #aa8417;
+$city-color-tertiary: #135390;
+
+
+// Text
+$color-text: #4d4d4d;
+
+// Font
+$font-primary: 'CircularStd', 'Helvetica', sans-serif;
+
+$font-weight-thin: 400;
+$font-weight-light: 400;
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 800;
+
+// Miami is the only site with this medium font weight
+$custom-font-weight-medium: 500;
+
+// All buttons
+$button-border-radius: 5px;
+$button-border-width: 2px;
+
+// Button Primary
+$color-button-primary-border: #fff;
+$color-button-secondary-fill: transparent;
+
+// Button Secondary
+$color-button-secondary-border: $city-color-primary;
+$color-button-secondary-text: $city-color-primary;
+
+// Headline effects
+$headline-effect-thickthin-color: $city-color-primary;
+$headline-effect-thickthin-weight-thin: $font-weight-normal;
+$headline-effect-thickthin-weight-thick: $font-weight-bold;
+
+///////////////////////////////
+/// 2. Include Stylesheet
+///////////////////////////////
+@import 'styles';
+
+///////////////////////////////
+/// 3. City Override CSS Rules
+///////////////////////////////
+// Miami has a narrower logo than most
+.header-bar .logo {
+  width: 148px;
+}
+
+// Use of 'medium' font weight sprinkled around site
+.show-info-banner .show-location {
+  font-weight: $custom-font-weight-medium;
+}
+
+// Use medium font weight for primary and utility nav (all breakpoints)
+[id="block-mainnavigationboatshow"],
+[id="block-headersecondarynav-menu"] {
+  & > ul > li:not([class*="button"]) > a {
+    font-weight: $custom-font-weight-medium;
+  }
+}

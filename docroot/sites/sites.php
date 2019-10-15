@@ -69,3 +69,10 @@ $sites['dev2.nyboatshow.com'] = 'newyork';
 $sites['stage2.nyboatshow.com'] = 'newyork';
 $sites['live2.nyboatshow.com'] = 'newyork';
 $sites['www.nyboatshow.com'] = 'newyork';
+
+// St. Louis
+$sites['local.stlouisboatshow.com'] = 'stlouis';
+$sites['dev2.stlouisboatshow.com'] = 'stlouis';
+$sites['stage2.stlouisboatshow.com'] = 'stlouis';
+$sites['live2.stlouisboatshow.com'] = 'stlouis';
+$sites['www.stlouisboatshow.com'] = 'stlouis';
