@@ -17,24 +17,27 @@ drupal_composer_install_dir: /var/www/boatshow
 drupal_core_path: /var/www/boatshow/docroot
 ssh_home: /var/www/boatshow
 apache_vhosts:
+  # default (unused)
   -
     servername: '{{ drupal_domain }}'
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # dashboard
   -
     servername: 'dashboard.{{ drupal_domain }}'
-    serveralias: 'www.dashboard.{{ drupal_domain }}'
     documentroot: /var/www/dashboard
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # adminer
   -
     servername: 'adminer.{{ drupal_domain }}'
-    serveralias: 'www.adminer.{{ drupal_domain }}'
     documentroot: '{{ adminer_install_dir }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: miami
   -
     servername: local.miamiboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: newyork
   -
     servername: local.nyboatshow.com
     documentroot: '{{ drupal_core_path }}'
@@ -45,6 +48,7 @@ apache_vhosts:
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
 apache_vhosts_ssl:
+  # default (unused but necessary to set up SSL for local hosts)
   -
     servername: '{{ drupal_domain }}'
     documentroot: '{{ drupal_core_path }}'

@@ -8,6 +8,4 @@
  * @link https://docs.acquia.com/blt/
  */
 
-$blt_override_config_directories = TRUE;
-
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";

@@ -37,7 +37,7 @@ This solution requires a handful of dependencies that must exist on your local m
   host$ git clone git@github.com:NationalMarine/BoatShows.git
   ```
 
-- Primary development branch: 2.x
+- Primary development branch: 2.x-develop
 - Local environment: DrupalVM
 - Architecture: Drupal multisite
 
@@ -127,7 +127,7 @@ For a general list of steps, follow the steps below:
 ### Clone down the repo to your local/dev machine
 
 ```console
-host$ git clone git@github.com:NationalMarine/Boatshows.git
+host$ git clone -b 2.x-develop git@github.com:NationalMarine/Boatshows.git
 ```
 
 ### Disable tracking permissions in git for this repo
@@ -135,12 +135,6 @@ host$ git clone git@github.com:NationalMarine/Boatshows.git
 ```console
 host$ cd path/to/freshly/cloned/repo
 host$ git config core.fileMode false
-```
-
-### Checkout the **2.x** branch
-
-```console
-host$ git checkout 2.x
 ```
 
 ### Install Composer dependencies (Warning: this can take some time based on internet speeds)
@@ -230,59 +224,40 @@ vm$ npm install && gulp
 
 ### Log into your site with drush
 
-Access the site and do necessary work by running the following commands.
+Access the site and do necessary work by running the following:
 
 ```console
-vm$ cd docroot
-vm$ drush @chicago.local uli
-vm$ drush @atlanta.local uli
+vm$ drush @miami.local uli
 ```
+
+This also works for remote environments which you have ssh access to:
+
+```console
+vm$ drush @miami.dev2 uli
+```
+
 
 ### Export Config
 
-If you have made changes on a multisite which need to be shared with the team, e.g. for the chicago site:
+If you have made changes on a multisite which need to be shared with the team:
 
 ```console
-vm$ cd docroot
-vm$ drush -l chicago cex -y
+vm$ drush @miami.local cex -y
 ```
 
 ### Import Config
 
-If you need to import changes on a multisite which are different in your local environment branch from what has been synced down dev, e.g. for chicago:
+If you need to import changes on a multisite which are different in your local environment branch from what has been synced down dev:
 
 ```console
-vm$ cd docroot
-vm$ drush -l chicago cim -y
+vm$ drush @chicago.local cim -y
 ```
 
 ## Other Notes
 
-- To shut down the virtual machine, enter `vagrant halt` in the Terminal in from the root of the project repo. To destroy it completely (if you want to save a little disk space, or want to rebuild it from scratch with `vagrant up` again), type in `vagrant destroy`.
+- To shut down the virtual machine: `host$ vagrant halt`
+- To destroy it completely (if you want to save a little disk space, or want to rebuild it from scratch with `vagrant up` again): `host$ vagrant destroy`
 - You can modify configuration options of the VM for all users of the project, by editing the variables within `box/config.yml`. To modify options only for your local machine, create a `box/local.config.yml` file. See the [default.config.yml](https://github.com/geerlingguy/drupal-vm/blob/master/default.config.yml) from the Drupal VM repo for reference.
-
----
-
-## Other Local Setup Steps
-
-1. Set up frontend build and theme.
-By default BLT sets up a site with the lightning profile and a cog base theme. You can choose your own profile before setup in the blt.yml file. If you do choose to use cog, see [Cog's documentation](https://github.com/acquia-pso/cog/blob/8.x-1.x/STARTERKIT/README.md#create-cog-sub-theme) for installation.
-See [BLT's Frontend docs](https://blt.readthedocs.io/en/latest/frontend/) to see how to automate the theme requirements and frontend tests.
-After the initial theme setup you can configure `blt/blt.yml` to install and configure your frontend dependencies with `blt setup`.
-2. Pull Files locally.
-Use BLT to pull all files down from your Cloud environment.
-
-    ```console
-    vm$ blt drupal:sync:files
-    ```
-
-3. Sync the Cloud Database.
-
-If you have an existing database you can use BLT to pull down the database from your Cloud environment.
-
-   ```console
-   vm$ blt sync
-   ```
 
 ---
 
@@ -293,29 +268,6 @@ Additional [BLT documentation](http://blt.readthedocs.io) may be useful. You may
 ```console
 vm$ blt
 ```
-
-Note the following properties of this project:
-
-- Primary development branch: 2.x
-- Local environments:
-  - Atlanta Boat Show
-    - url: https://local.atlantaboatshow.com
-    - alias: @chicago.local
-  - Chicago Boat Show
-    - url: https://local.chicagoboatshow.com
-    - alias: @chicago.local
-  - Kansas City Sport Show
-    - url: https://local.kansascitysportshow.com
-    - alias: @kansascity.local
-  - Miami
-    - url: https://local.miamiboatshow.com
-    - alias: @miami.local
-  - Nashville
-    - url: https://local.nashvilleboatshow.com
-    - alias: @nashville.local
-  - Template
-    - url: https://local.template.boatshows.com
-    - alias: @template.local
 
 ## Working With a BLT Project
 
@@ -372,7 +324,7 @@ The following is an overview of the purpose of each top level directory in the p
 
 ## Dependency Management
 
-All project and Drupal (module, themes, libraries) dependencies are managed via Composer. The management strategy is based on [The Drupal Project](https://github.com/drupal-composer/drupal-project).
+All project and Drupal (module, themes, libraries) dependencies are managed via Composer. The management strategy is based on [The Drupal Project](https://github.com/drupal-composer/drupal-project). (Note: npm is used to manage some dependencies of the boatshows theme)
 
 Modules, themes, and other contributed Drupal projects can be added as dependencies in the root `composer.json` file.
 
@@ -448,16 +400,59 @@ vm$ exit
 host$ blt artifact:deploy --branch "master" -n
 ```
 
-## Adding new environments
+## Adding a new multisite
 
-To add a new environment (e.g. dev, stage, live) for an existing multisite, you will need to:
+### Tracking the site
 
-- Set up the new environment in Acquia (Lewis/Melinda to document)
-- Check permissions/accessibility of update.php and install.php
-- Add the new TLDs to docroot/sites/sites.php for the sites.
-- Update the drush aliases for affected multisites in drush/sites/\*.site.yml
+- Add the site to the [NMMA Boat Show Sites Manifest](https://docs.google.com/spreadsheets/d/1n9BI6TAf_Q-Tkf-vaB2lLgLaCF92iCQxgTHX0uQrTFw/edit#gid=0)
 
-Please reference the following commits:
+### Acquia Changes
 
-- `acd653da [NMMA-195] Prepare release for live2.miamiboatshpw.com`
-- `58807e48 permissions update for live install`
+- Make sure the databases and domain names have been created for each environment for the new multisite
+  - TODO: more detail on this process
+
+### Code Changes
+
+See commit `3ec7715b [NMMA-213] stlouis multisite` ([github](https://github.com/NationalMarine/BoatShows/commit/3ec7715bb2770d2cb21dc5512259152529a7d894)) for an example of a new multisite being set up in code.
+
+- Edit `blt/blt.yml`:
+  - Add multisite machine name to `multisites[]`
+- Edit `box/config.yml`:
+  - Add multisite to `apache_vhosts[]` by copying another entry
+  - Add multisite to `mysql_databases[]` by copying another entry
+- Edit `docroot/sites/sites.php`
+  - Copy another multisite's section, and update the URLs and machine names
+- Clone `docroot/sites/{multisite}` from another multisite
+  - Edit `dorcroot/sites/{multisite}/blt.yml`
+    - Update `project.local.hostname`
+    - Update `project.machine_name`
+    - Update `project.human_name`
+  - Ensure that any of the `*.settings.php` files for the new multisite are properly configured
+- Clone and edit `docroot/themes/custom/boatshow/sass/city-{multisite}.scss` from an existing file
+  - Configure variables for the new site
+- Clone and edit `drush/sites/{multisite}.site.yml` from another file
+  - Alter `*.uri` values to point to new URIs
+- Commit to 2.x-develop branch and push to github to trigger a deployment. NOTE: This deployment will throw some errors in the acquia log because drush won't have a database to operate on for the new multisite, but it will complete.
+
+### Content Duplication
+
+- Before using your local to move content around, you will need to re-provision vagrant to add the new database and vhost using:
+```
+vm$ exit
+host$ vagrant provision
+host$ vagrant ssh
+```
+- Once provisioning is complete, you can run the following commands to copy content between 2 remote databases, in this case miami.dev2 and {multisite}.dev2, using {multisite}.local as the temporary storage. (The intermediate step of moving it through the local multisite instance is necessary because rsync doesn't work when both the source and target are remote.)
+```
+# Set a variable for the multisite
+vm$ export multisite=stlouis
+
+# Sync content and files from an existing remote to your local, e.g. from Miami's dev site to the new local site
+# TODO: this does not sync private files, which would use %private instead of %files on the drush rsync command
+vm$ drush -y sql-sync @miami.dev2 @${multisite}.local
+vm$ drush -y rsync @miami.dev2:%files @${multisite}.local:%files
+
+# Sync the local content back up to the new remote location
+vm$ drush -y sql-sync @${multisite}.local @${multisite}.dev2
+vm$ drush -y rsync @${multisite}.local:%files @${multisite}.dev2:%files
+```
