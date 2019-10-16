@@ -10,7 +10,7 @@ dependencies:
     - field.field.brick.card_cta.field_link
   module:
     - entity_browser
-    - link
+    - link_attributes
 id: brick.card_cta.default
 targetEntityType: brick
 bundle: card_cta
@@ -43,8 +43,17 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
     third_party_settings: {  }
-    type: link_default
+    type: link_attributes
     region: content
   langcode:
     type: language_select

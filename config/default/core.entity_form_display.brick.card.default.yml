@@ -11,7 +11,7 @@ dependencies:
     - field.field.brick.card.field_link
     - field.field.brick.card.field_media
   module:
-    - link
+    - link_attributes
     - media_library
     - text
 id: brick.card.default
@@ -53,8 +53,17 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
     third_party_settings: {  }
-    type: link_default
+    type: link_attributes
     region: content
   field_media:
     type: media_library_widget
