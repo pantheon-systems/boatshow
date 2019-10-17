@@ -129,6 +129,7 @@ module:
   migrate_plus: 0
   migrate_tools: 0
   module_filter: 0
+  module_missing_message_fixer: 0
   nmma_blocks: 0
   nmma_brick_layouts: 0
   nmma_clipboardjs: 0

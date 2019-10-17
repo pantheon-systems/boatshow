@@ -37,6 +37,9 @@ for MULTISITE in $(blt blt:config:get multisites)
 do
   echo "======== begin multisite: ${MULTISITE} ========"
 
+  echo "Running Module Missing Message Fixer"
+  drush -l $MULTISITE module-missing-message-fixer-fix --all
+
   echo "Running drush config-import"
   drush -l $MULTISITE cim sync -y
 
