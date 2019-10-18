@@ -15,6 +15,7 @@ dependencies:
     - node.type.seminar
   module:
     - content_moderation
+    - entity_browser_entity_form
     - inline_entity_form
     - link
     - path
@@ -89,10 +90,16 @@ content:
       label_singular: ''
       label_plural: ''
       collapsible: true
+      allow_new: true
+      match_operator: CONTAINS
       override_labels: false
       collapsed: false
-    third_party_settings: {  }
-    type: inline_entity_form_simple
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: _none
+    type: inline_entity_form_complex
     region: content
   field_topics:
     weight: 14
