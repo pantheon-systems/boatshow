@@ -1,0 +1,83 @@
+uuid: d47e7b21-ed87-419a-ac1d-377cf34b9055
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.menu_highlight
+    - entity_browser.browser.image_browser
+    - field.field.brick.menu_highlight.field_body
+    - field.field.brick.menu_highlight.field_highlight_title
+    - field.field.brick.menu_highlight.field_image
+    - field.field.brick.menu_highlight.field_link
+  module:
+    - entity_browser
+    - link_attributes
+    - text
+id: brick.menu_highlight.default
+targetEntityType: brick
+bundle: menu_highlight
+mode: default
+content:
+  field_body:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_highlight_title:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_image:
+    type: entity_browser_file
+    weight: 3
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      view_mode: default
+      preview_image_style: thumbnail
+      open: true
+      field_widget_replace: false
+      selection_mode: selection_append
+    region: content
+    third_party_settings: {  }
+  field_link:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

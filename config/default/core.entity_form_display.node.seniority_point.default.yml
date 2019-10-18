@@ -1,0 +1,64 @@
+uuid: 93c33ffc-6a64-48b8-8db3-60abd1ab10f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.seniority_point.field_company_id
+    - field.field.node.seniority_point.field_ed
+    - field.field.node.seniority_point.field_m
+    - field.field.node.seniority_point.field_show_points
+    - node.type.seniority_point
+id: node.seniority_point.default
+targetEntityType: node
+bundle: seniority_point
+mode: default
+content:
+  field_company_id:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ed:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_m:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_show_points:
+    weight: 2
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  feeds_item: true
+  langcode: true
+  moderation_state: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true
+  url_redirects: true

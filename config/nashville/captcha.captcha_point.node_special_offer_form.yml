@@ -1,7 +1,0 @@
-uuid: 4188b958-8192-4822-a252-da239306ee5e
-langcode: en
-status: false
-dependencies: {  }
-formId: node_special_offer_form
-captchaType: default
-label: null

@@ -37,7 +37,7 @@ This solution requires a handful of dependencies that must exist on your local m
   host$ git clone git@github.com:NationalMarine/BoatShows.git
   ```
 
-- Primary development branch: 2.x
+- Primary development branch: 2.x-develop
 - Local environment: DrupalVM
 - Architecture: Drupal multisite
 
@@ -127,7 +127,7 @@ For a general list of steps, follow the steps below:
 ### Clone down the repo to your local/dev machine
 
 ```console
-host$ git clone git@github.com:NationalMarine/Boatshows.git
+host$ git clone -b 2.x-develop git@github.com:NationalMarine/Boatshows.git
 ```
 
 ### Disable tracking permissions in git for this repo
@@ -135,12 +135,6 @@ host$ git clone git@github.com:NationalMarine/Boatshows.git
 ```console
 host$ cd path/to/freshly/cloned/repo
 host$ git config core.fileMode false
-```
-
-### Checkout the **2.x** branch
-
-```console
-host$ git checkout 2.x
 ```
 
 ### Install Composer dependencies (Warning: this can take some time based on internet speeds)
@@ -187,41 +181,27 @@ If the above command does not work, here is a workaround:
 https://github.com/acquia/blt/issues/288#issuecomment-511552693
 Add the code in the comment to your "~/.bashrc "file.
 
-### Setup local Drupal sites with an empty database
-
-Use BLT to setup the sites for local development. These will be empty shell sites until content is synced down. TODO: we should have a shell script which does this for us.
-
-**NOTE**: If this gives you an error about the database not existing "Failed to drop or create the database" OR any other errors, you may either need to run `host$ vagrant provision` again to install the databases, or you may need to delete all of the local files that BLT has generated inside the sites directory and start from scratch. To do this, run `host$ rm -rf path/to/repo/docroot/sites` and then `host$ git checkout path/to/repo/docroot/sites`
+### Sync dev content to local
 
 ```console
-vm$ blt setup -n --site=template
-vm$ blt setup -n --site=atlanta
-vm$ blt setup -n --site=chicago
-vm$ blt setup -n --site=kansascity
-vm$ blt setup -n --site=miami
-vm$ blt setup -n --site=nashville
-```
+# Sync single multisite (db only)
+vm$ blt nmma:sync -n --site=miami
 
-### Sync local Drupal sites from dev content
+# Sync single multisite (db + files)
+vm$ blt nmma:sync -n --site=miami --sync-files
 
-```console
-vm$ blt sync:refresh -v --site=template
-vm$ blt sync:files -v --site=template
+# Sync single multisite (files only)
+vm$ blt drupal:sync:files -n --site=miami
 
-vm$ blt sync:refresh -v --site=atlanta
-vm$ blt sync:files -v --site=atlanta
+# Sync all multisites (db only)
+vm$ blt nmma:sync-all -n
 
-vm$ blt sync:refresh -v --site=chicago
-vm$ blt sync:files -v --site=chicago
+# Sync all multisites (db + files)
+vm$ blt nmma:sync-all -n --sync-files
 
-vm$ blt sync:refresh -v --site=kansascity
-vm$ blt sync:files -v --site=kansascity
+# Sync all multisites (files only)
+# gotcha! this doesn't exist yet
 
-vm$ blt sync:refresh -v --site=miami
-vm$ blt sync:files -v --site=miami
-
-vm$ blt sync:refresh -v --site=nashville
-vm$ blt sync:files -v --site=nashville
 ```
 
 ### Reset the admin password
@@ -244,59 +224,40 @@ vm$ npm install && gulp
 
 ### Log into your site with drush
 
-Access the site and do necessary work by running the following commands.
+Access the site and do necessary work by running the following:
 
 ```console
-vm$ cd docroot
-vm$ drush @chicago.local uli
-vm$ drush @atlanta.local uli
+vm$ drush @miami.local uli
 ```
+
+This also works for remote environments which you have ssh access to:
+
+```console
+vm$ drush @miami.dev2 uli
+```
+
 
 ### Export Config
 
-If you have made changes on a multisite which need to be shared with the team, e.g. for the chicago site:
+If you have made changes on a multisite which need to be shared with the team:
 
 ```console
-vm$ cd docroot
-vm$ drush -l chicago cex -y
+vm$ drush @miami.local cex -y
 ```
 
 ### Import Config
 
-If you need to import changes on a multisite which are different in your local environment branch from what has been synced down dev, e.g. for chicago:
+If you need to import changes on a multisite which are different in your local environment branch from what has been synced down dev:
 
 ```console
-vm$ cd docroot
-vm$ drush -l chicago cim -y
+vm$ drush @chicago.local cim -y
 ```
 
 ## Other Notes
 
-- To shut down the virtual machine, enter `vagrant halt` in the Terminal in from the root of the project repo. To destroy it completely (if you want to save a little disk space, or want to rebuild it from scratch with `vagrant up` again), type in `vagrant destroy`.
+- To shut down the virtual machine: `host$ vagrant halt`
+- To destroy it completely (if you want to save a little disk space, or want to rebuild it from scratch with `vagrant up` again): `host$ vagrant destroy`
 - You can modify configuration options of the VM for all users of the project, by editing the variables within `box/config.yml`. To modify options only for your local machine, create a `box/local.config.yml` file. See the [default.config.yml](https://github.com/geerlingguy/drupal-vm/blob/master/default.config.yml) from the Drupal VM repo for reference.
-
----
-
-## Other Local Setup Steps
-
-1. Set up frontend build and theme.
-By default BLT sets up a site with the lightning profile and a cog base theme. You can choose your own profile before setup in the blt.yml file. If you do choose to use cog, see [Cog's documentation](https://github.com/acquia-pso/cog/blob/8.x-1.x/STARTERKIT/README.md#create-cog-sub-theme) for installation.
-See [BLT's Frontend docs](https://blt.readthedocs.io/en/latest/frontend/) to see how to automate the theme requirements and frontend tests.
-After the initial theme setup you can configure `blt/blt.yml` to install and configure your frontend dependencies with `blt setup`.
-2. Pull Files locally.
-Use BLT to pull all files down from your Cloud environment.
-
-    ```console
-    vm$ blt drupal:sync:files
-    ```
-
-3. Sync the Cloud Database.
-
-If you have an existing database you can use BLT to pull down the database from your Cloud environment.
-
-   ```console
-   vm$ blt sync
-   ```
 
 ---
 
@@ -307,29 +268,6 @@ Additional [BLT documentation](http://blt.readthedocs.io) may be useful. You may
 ```console
 vm$ blt
 ```
-
-Note the following properties of this project:
-
-- Primary development branch: 2.x
-- Local environments:
-  - Atlanta Boat Show
-    - url: https://local.atlantaboatshow.com
-    - alias: @chicago.local
-  - Chicago Boat Show
-    - url: https://local.chicagoboatshow.com
-    - alias: @chicago.local
-  - Kansas City Sport Show
-    - url: https://local.kansascitysportshow.com
-    - alias: @kansascity.local
-  - Miami
-    - url: https://local.miamiboatshow.com
-    - alias: @miami.local
-  - Nashville
-    - url: https://local.nashvilleboatshow.com
-    - alias: @nashville.local
-  - Template
-    - url: https://local.template.boatshows.com
-    - alias: @template.local
 
 ## Working With a BLT Project
 
@@ -386,7 +324,7 @@ The following is an overview of the purpose of each top level directory in the p
 
 ## Dependency Management
 
-All project and Drupal (module, themes, libraries) dependencies are managed via Composer. The management strategy is based on [The Drupal Project](https://github.com/drupal-composer/drupal-project).
+All project and Drupal (module, themes, libraries) dependencies are managed via Composer. The management strategy is based on [The Drupal Project](https://github.com/drupal-composer/drupal-project). (Note: npm is used to manage some dependencies of the boatshows theme)
 
 Modules, themes, and other contributed Drupal projects can be added as dependencies in the root `composer.json` file.
 
@@ -394,47 +332,127 @@ For step-by-step instructions on how to update dependencies, see [dependency-man
 
 ## Deploying to Acquia Cloud
 
-- The deployment process works by packaging up your local workspace and deploying it to a branch in Acquia's git repo. Because of this, whatever github branch is currently checked out locally will be deployed to whatever branch is specified in the deployment command.
-  - PROD
-    - git branch: `2.x-master`
-    - acquia branch: `master`
-  - STAGE
-    - git branch: `2.x-master`
-    - acquia branch: `stage`
-  - DEV
-    - git branch: `2.x-develop`
-    - acquia branch: `dev`
-- First you will need to compile the front-end resources locally, by running the gulp command from the 'Build the front-end theme' section of this document.
-- You should merge or commit any code which needs to be deployed into the 2.x branch of the github repository, and stash any uncommitted changes (the next command requires a clean working directory)
-- You may now run the BLT deployment command. BLT will package up the code and dependencies into a folder named "deploy" then commit and push the code to the specified branch of the Acquia git repository, which is specified in the "blt/blt.yml" file under the git remotes settings. This command should be run from outside the vagrant VM. It **can** be run from inside vagrant, but it may take a lot longer to complete, on the order of 10x as long.
+Deployments to Acquia Cloud are managed with Travis CI at [https://travis-ci.com/NationalMarine/BoatShows](https://travis-ci.com/NationalMarine/BoatShows). The build process works as follows:
+
+- Code is merged into one of the deployment targets' github branches (see below)
+- Travis detects the changes code in that branch and kicks off a deployment
+  - Travis builds the front-end theme using gulp
+  - Travis performs a `blt artifact:deploy` to package a deployment artifact, and commits it to the Acquia git repository
+  - Logs are stored in the Travis 'Build History' tab for the project
+- Acquia's task runner detects the changes to the acquia git repository
+  - Acquia's task runner deploys the code to the environment for that branch
+  - Acquia's task runner runs any hooks in the {repo}/hooks directory, such as:
+    - Import drupal config for each multisite
+    - Update drupal database for each multisite
+    - Clear drupal cache for each multisite
+  - Acquia's task log can be seen on the Acquia 'Application' page for Boatshows2 at [https://cloud.acquia.com/app/develop/applications/e4d0000d-d68a-46e7-87d1-04e334983a55](https://cloud.acquia.com/app/develop/applications/e4d0000d-d68a-46e7-87d1-04e334983a55)
+
+### Deployment targets
+
+- live2
+  - github branch: 2.x-master
+  - acquia git branch: master
+
+- stage2
+  - github branch: 2.x-master (note, this will change to 2.x-develop soon)
+  - acquia git branch: stage
+
+- stage2
+  - github branch: 2.x-develop
+  - acquia git branch: dev
+
+### Manual deployments
+
+BLT will package up the code and dependencies into a folder named "deploy" then commit and push the code to the specified branch of the Acquia git repository, which is specified in the "blt/blt.yml" file under the git remotes settings.
+
+In the examples below, you can see there are some additional steps to build the theme (gulp build) before running artifact:deploy. Travis handles these for us when not relying on manual builds.
+
+This command should be run from outside the vagrant VM. It **can** be run from inside vagrant, but it may take up to 10x longer to complete.
+
+You may run the `artifact:deploy` task with the --dry-run flag to test things out before actually pushing code to the remote environment.
 
 ```console
-host$ blt artifact:deploy --branch "BRANCH-TO-PUSH-TO" -n
-
-Examples:
-- To deploy current github branch to Acquia Dev environment
+# Manually deploy to Acquia "dev" environment (deprecated by Travis CI procedure)
+host$ git checkout 2.x-develop
+host$ composer install
+host$ vagrant ssh
+vm$ cd /var/www/boatshow/docroot/themes/custom/boatshow
+vm$ npm install && gulp build
+vm$ exit
 host$ blt artifact:deploy --branch "dev" -n
 
-- To deploy current github branch to Acquia Stage environment
+# Manually deploy to Acquia "stage" environment (deprecated by Travis CI procedure)
+host$ git checkout 2.x-master
+host$ composer install
+host$ vagrant ssh
+vm$ cd /var/www/boatshow/docroot/themes/custom/boatshow
+vm$ npm install && gulp build
+vm$ exit
 host$ blt artifact:deploy --branch "stage" -n
 
-- To deploy current github branch to Acquia Prod environment
+# Manually deploy to Acquia "live" environment
+host$ git checkout 2.x-master
+host$ composer install
+host$ vagrant ssh
+vm$ cd /var/www/boatshow/docroot/themes/custom/boatshow
+vm$ npm install && gulp build
+vm$ exit
 host$ blt artifact:deploy --branch "master" -n
-
 ```
 
-- Note that after uploading this code to the Acquia deployment repo branch, Acquia's build process will automatically update that code on the environment for that branch. It will then run the hooks from hooks/\*/post-code-deploy and hooks/\*/post-code-update in order to import config, etc.
+## Adding a new multisite
 
-## Adding new environments
+### Tracking the site
 
-To add a new environment (e.g. dev, stage, live) for an existing multisite, you will need to:
+- Add the site to the [NMMA Boat Show Sites Manifest](https://docs.google.com/spreadsheets/d/1n9BI6TAf_Q-Tkf-vaB2lLgLaCF92iCQxgTHX0uQrTFw/edit#gid=0)
 
-- Set up the new environment in Acquia (Lewis/Melinda to document)
-- Check permissions/accessibility of update.php and install.php
-- Add the new TLDs to docroot/sites/sites.php for the sites.
-- Update the drush aliases for affected multisites in drush/sites/\*.site.yml
+### Acquia Changes
 
-Please reference the following commits:
+- Make sure the databases and domain names have been created for each environment for the new multisite
+  - TODO: more detail on this process
 
-- `acd653da [NMMA-195] Prepare release for live2.miamiboatshpw.com`
-- `58807e48 permissions update for live install`
+### Code Changes
+
+See commit `3ec7715b [NMMA-213] stlouis multisite` ([github](https://github.com/NationalMarine/BoatShows/commit/3ec7715bb2770d2cb21dc5512259152529a7d894)) for an example of a new multisite being set up in code.
+
+- Edit `blt/blt.yml`:
+  - Add multisite machine name to `multisites[]`
+- Edit `box/config.yml`:
+  - Add multisite to `apache_vhosts[]` by copying another entry
+  - Add multisite to `mysql_databases[]` by copying another entry
+- Edit `docroot/sites/sites.php`
+  - Copy another multisite's section, and update the URLs and machine names
+- Clone `docroot/sites/{multisite}` from another multisite
+  - Edit `dorcroot/sites/{multisite}/blt.yml`
+    - Update `project.local.hostname`
+    - Update `project.machine_name`
+    - Update `project.human_name`
+  - Ensure that any of the `*.settings.php` files for the new multisite are properly configured
+- Clone and edit `docroot/themes/custom/boatshow/sass/city-{multisite}.scss` from an existing file
+  - Configure variables for the new site
+- Clone and edit `drush/sites/{multisite}.site.yml` from another file
+  - Alter `*.uri` values to point to new URIs
+- Commit to 2.x-develop branch and push to github to trigger a deployment. NOTE: This deployment will throw some errors in the acquia log because drush won't have a database to operate on for the new multisite, but it will complete.
+
+### Content Duplication
+
+- Before using your local to move content around, you will need to re-provision vagrant to add the new database and vhost using:
+```
+vm$ exit
+host$ vagrant provision
+host$ vagrant ssh
+```
+- Once provisioning is complete, you can run the following commands to copy content between 2 remote databases, in this case miami.dev2 and {multisite}.dev2, using {multisite}.local as the temporary storage. (The intermediate step of moving it through the local multisite instance is necessary because rsync doesn't work when both the source and target are remote.)
+```
+# Set a variable for the multisite
+vm$ export multisite=stlouis
+
+# Sync content and files from an existing remote to your local, e.g. from Miami's dev site to the new local site
+# TODO: this does not sync private files, which would use %private instead of %files on the drush rsync command
+vm$ drush -y sql-sync @miami.dev2 @${multisite}.local
+vm$ drush -y rsync @miami.dev2:%files @${multisite}.local:%files
+
+# Sync the local content back up to the new remote location
+vm$ drush -y sql-sync @${multisite}.local @${multisite}.dev2
+vm$ drush -y rsync @${multisite}.local:%files @${multisite}.dev2:%files
+```

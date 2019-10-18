@@ -1,9 +1,0 @@
-uuid: 65bcf132-3919-450f-abef-93a56d48221a
-langcode: en
-status: true
-dependencies:
-  config:
-    - eck.eck_entity_type.brick
-name: 'Block Brick'
-type: block_brick
-description: ''

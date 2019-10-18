@@ -1,9 +1,0 @@
-uuid: 4c4faf0d-234f-4f85-b98e-f215babb6cbc
-langcode: en
-status: true
-dependencies:
-  config:
-    - eck.eck_entity_type.brick
-name: View
-type: view
-description: ''

@@ -61,7 +61,12 @@
 }
 
 .view-all-speakers a {
-    float: right;
+  float: right;
+}
+
+.view-all-speakers p a {
+  float: none;
+  word-wrap: break-word;
 }
 
 .view-seminarreference .view-content .views-field .field-content a:link,

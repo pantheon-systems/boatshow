@@ -48,6 +48,18 @@
         }
       }
     }
+    // force the divider to the 50% mark, even when column-item hit max-width
+    &.nmma-layout--two_column_grid {
+      & > .column-item {
+        @include media-breakpoint-up(md) {
+          position: static;
+        }
+
+        & > .column-divider {
+          right: 50%; // 50% of parent;
+        }
+      }
+    }
   }
 
   // 2 Columns

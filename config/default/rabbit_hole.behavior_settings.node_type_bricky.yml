@@ -1,0 +1,11 @@
+uuid: fbfcea65-535d-41b7-8195-e5b3a111759a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.bricky
+id: node_type_bricky
+action: access_denied
+allow_override: 1
+redirect: ''
+redirect_code: 301

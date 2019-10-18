@@ -1,8 +1,0 @@
-uuid: 80db5916-0eb2-4861-8245-ad3617d3be98
-langcode: en
-status: true
-dependencies: {  }
-id: teaser_block
-label: 'Teaser Block'
-revision: 1
-description: 'Contains image/description/link fields'

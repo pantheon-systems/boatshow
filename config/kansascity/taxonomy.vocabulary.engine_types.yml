@@ -1,8 +1,0 @@
-uuid: 2c9aaf9f-4662-4b73-904e-411ba4e1d0c3
-langcode: en
-status: true
-dependencies: {  }
-name: 'Propulsion Types'
-vid: engine_types
-description: 'Propulsion Types related to boat types. For example: Outboard, Sail, etc.'
-weight: -7

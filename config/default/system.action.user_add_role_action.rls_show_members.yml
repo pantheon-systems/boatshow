@@ -1,0 +1,14 @@
+uuid: 0e6306e6-27cc-4d05-b32b-4edad0d8842d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.rls_show_members
+  module:
+    - user
+id: user_add_role_action.rls_show_members
+label: 'Add the Show Members role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: rls_show_members

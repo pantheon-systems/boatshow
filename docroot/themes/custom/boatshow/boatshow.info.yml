@@ -8,6 +8,7 @@ libraries:
   - boatshow/fontawesome
   - boatshow/javascript
   - boatshow/slick_carousel
+  - boatshow/city_stylesheet
 regions:
   pre_header: 'Pre-Header'
   header: Header

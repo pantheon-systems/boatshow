@@ -56,49 +56,23 @@
  * @see https://www.drupal.org/documentation/install/multi-site
  */
 
-// Atlanta
-$sites['local.atlantaboatshow.com'] = 'atlanta';
-$sites['dev.atlantaboatshow.com'] = 'atlanta';
-$sites['dev2.atlantaboatshow.com'] = 'atlanta';
-$sites['stage.atlantaboatshow.com'] = 'atlanta';
-$sites['stage2.atlantaboatshow.com'] = 'atlanta';
-$sites['www.atlantaboatshow.com'] = 'atlanta';
-
-// Chicago
-$sites['local.chicagoboatshow.com'] = 'chicago';
-$sites['dev.chicagoboatshow.com'] = 'chicago';
-$sites['dev2.chicagoboatshow.com'] = 'chicago';
-$sites['stage.chicagoboatshow.com'] = 'chicago';
-$sites['stage2.chicagoboatshow.com'] = 'chicago';
-$sites['www.chicagoboatshow.com'] = 'chicago';
-
-// Kansas City
-$sites['local.kansascitysportshow.com'] = 'kansascity';
-$sites['dev.kansascitysportshow.com'] = 'kansascity';
-$sites['dev2.kansascitysportshow.com'] = 'kansascity';
-$sites['stage.kansascitysportshow.com'] = 'kansascity';
-$sites['stage2.kansascitysportshow.com'] = 'kansascity';
-$sites['www.kansascitysportshow.com'] = 'kansascity';
-
 // Miami
 $sites['local.miamiboatshow.com'] = 'miami';
-$sites['dev.miamiboatshow.com'] = 'miami';
 $sites['dev2.miamiboatshow.com'] = 'miami';
-$sites['stage.miamiboatshow.com'] = 'miami';
 $sites['stage2.miamiboatshow.com'] = 'miami';
-$sites['live.miamiboatshow.com'] = 'miami';
 $sites['live2.miamiboatshow.com'] = 'miami';
 $sites['www.miamiboatshow.com'] = 'miami';
 
-// Nashville
-$sites['local.nashvilleboatshow.com'] = 'nashville';
-$sites['dev.nashvilleboatshow.com'] = 'nashville';
-$sites['dev2.kansascitysportshow.com'] = 'kansascity';
-$sites['stage.nashvilleboatshow.com'] = 'nashville';
-$sites['stage2.nashvilleboatshow.com'] = 'nashville';
-$sites['www.nashvilleboatshow.com'] = 'nashville';
+// New York
+$sites['local.nyboatshow.com'] = 'newyork';
+$sites['dev2.nyboatshow.com'] = 'newyork';
+$sites['stage2.nyboatshow.com'] = 'newyork';
+$sites['live2.nyboatshow.com'] = 'newyork';
+$sites['www.nyboatshow.com'] = 'newyork';
 
-// Template
-$sites['local.template.boatshows.com'] = 'template';
-$sites['template.boatshows.com'] = 'template';
-$sites['template2.boatshows.com'] = 'template';
+// St. Louis
+$sites['local.stlouisboatshow.com'] = 'stlouis';
+$sites['dev2.stlouisboatshow.com'] = 'stlouis';
+$sites['stage2.stlouisboatshow.com'] = 'stlouis';
+$sites['live2.stlouisboatshow.com'] = 'stlouis';
+$sites['www.stlouisboatshow.com'] = 'stlouis';

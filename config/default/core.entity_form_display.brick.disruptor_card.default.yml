@@ -1,0 +1,73 @@
+uuid: 617c9f44-1915-4654-921e-97486bf89f0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.disruptor_card
+    - field.field.brick.disruptor_card.field_disruptor_callout
+    - field.field.brick.disruptor_card.field_disruptor_cta
+    - field.field.brick.disruptor_card.field_disruptor_headline
+    - field.field.brick.disruptor_card.field_disruptor_icon
+  module:
+    - link_attributes
+    - text
+id: brick.disruptor_card.default
+targetEntityType: brick
+bundle: disruptor_card
+mode: default
+content:
+  field_disruptor_callout:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_disruptor_cta:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_disruptor_headline:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_disruptor_icon:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

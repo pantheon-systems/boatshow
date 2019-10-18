@@ -17,45 +17,38 @@ drupal_composer_install_dir: /var/www/boatshow
 drupal_core_path: /var/www/boatshow/docroot
 ssh_home: /var/www/boatshow
 apache_vhosts:
+  # default (unused)
   -
     servername: '{{ drupal_domain }}'
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # dashboard
   -
     servername: 'dashboard.{{ drupal_domain }}'
-    serveralias: 'www.dashboard.{{ drupal_domain }}'
     documentroot: /var/www/dashboard
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # adminer
   -
     servername: 'adminer.{{ drupal_domain }}'
-    serveralias: 'www.adminer.{{ drupal_domain }}'
     documentroot: '{{ adminer_install_dir }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
-  -
-    servername: local.atlantaboatshow.com
-    documentroot: '{{ drupal_core_path }}'
-    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
-  -
-    servername: local.chicagoboatshow.com
-    documentroot: '{{ drupal_core_path }}'
-    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
-  -
-    servername: local.kansascitysportshow.com
-    documentroot: '{{ drupal_core_path }}'
-    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: miami
   -
     servername: local.miamiboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: newyork
   -
-    servername: local.nashvilleboatshow.com
+    servername: local.nyboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  #multisite: stlouis
   -
-    servername: local.template.boatshows.com
+    servername: local.stlouisboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
 apache_vhosts_ssl:
+  # default (unused but necessary to set up SSL for local hosts)
   -
     servername: '{{ drupal_domain }}'
     documentroot: '{{ drupal_core_path }}'
@@ -64,61 +57,18 @@ apache_vhosts_ssl:
     extra_parameters: "{{ apache_vhost_php_fpm_parameters }}\n\nProxyPassMatch ^/(.*\\.php(/.*)?)$ \"fcgi://127.0.0.1:9000{{ drupal_core_path }}\"\n"
 mysql_databases:
   -
-    name: atlanta
-    encoding: utf8
-    collation: utf8_general_ci
-  -
-    name: chicago
-    encoding: utf8
-    collation: utf8_general_ci
-  -
-    name: kansascity
-    encoding: utf8
-    collation: utf8_general_ci
-  -
     name: miami
     encoding: utf8
     collation: utf8_general_ci
   -
-    name: nashville
+    name: newyork
     encoding: utf8
     collation: utf8_general_ci
   -
-    name: template
+    name: stlouis
     encoding: utf8
     collation: utf8_general_ci
-mysql_users:
-  -
-    name: atlanta
-    host: '%'
-    password: atlanta
-    priv: 'atlanta.*:ALL'
-  -
-    name: chicago
-    host: '%'
-    password: chicago
-    priv: 'chicago.*:ALL'
-  -
-    name: kansascity
-    host: '%'
-    password: kansascity
-    priv: 'kansascity.*:ALL'
-  -
-    name: miami
-    host: '%'
-    password: miami
-    priv: 'miami.*:ALL'
-  -
-    name: nashville
-    host: '%'
-    password: nashville
-    priv: 'nashville.*:ALL'
-  -
-    name: template
-    host: '%'
-    password: template
-    priv: 'template.*:ALL'
-
+mysql_users: {  }
 drupal_install_site: false
 configure_drush_aliases: false
 nodejs_version: 9.x

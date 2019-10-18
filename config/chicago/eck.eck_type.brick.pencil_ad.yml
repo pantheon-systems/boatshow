@@ -1,9 +1,0 @@
-uuid: df511b4a-c10b-40c2-a7ed-db1e626775a2
-langcode: en
-status: true
-dependencies:
-  config:
-    - eck.eck_entity_type.brick
-name: 'Pencil Ad'
-type: pencil_ad
-description: ''

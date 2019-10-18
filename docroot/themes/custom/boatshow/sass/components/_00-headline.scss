@@ -1,3 +1,7 @@
+///////////////////
+/// Mixins
+///////////////////
+
 // Provides the 2-weight headline effect
 @mixin headline-effect-thickthin {
   font-weight: $headline-effect-thickthin-weight-thin;
@@ -7,6 +11,7 @@
     color: $headline-effect-thickthin-color;
   }
 
+  & span,
   & b,
   & i,
   & strong,
@@ -16,13 +21,33 @@
   }
 }
 
+// Legacy mixin/classname
 @mixin headline-effect-city-color {
+  @include headline-effect-city-color-primary;
+}
+
+@mixin headline-effect-city-color-primary {
   color: $city-color-primary;
 }
 
+@mixin headline-effect-city-color-secondary {
+  color: $city-color-secondary;
+}
+
+@mixin headline-effect-city-color-tertiary {
+  color: $city-color-tertiary;
+}
+
+
 @mixin headline-effect-labelmaker {
-  & span {
+  & span,
+  & b,
+  & strong,
+  & i,
+  & em {
     @include subtle-text-shadow;
+    font-weight: inherit;
+    font-style: inherit;
     display: inline-block;
     text-transform: uppercase;
     background-color: $city-color-primary;
@@ -31,12 +56,29 @@
   }
 }
 
+///////////////////
+/// Declarative classes
+///////////////////
+
 .headline-effect-thickthin {
   @include headline-effect-thickthin;
 }
 
+// Legacy mixin/classname
 .headline-effect-city-color {
   @include headline-effect-city-color;
+}
+
+.headline-effect-city-color-primary {
+  @include headline-effect-city-color-primary;
+}
+
+.headline-effect-city-color-secondary {
+  @include headline-effect-city-color-secondary;
+}
+
+.headline-effect-city-color-tertiary {
+  @include headline-effect-city-color-tertiary;
 }
 
 .headline-effect-labelmaker {

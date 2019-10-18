@@ -1,9 +1,0 @@
-uuid: 6193de52-59a6-4255-8328-573e3564fddd
-langcode: en
-status: true
-dependencies:
-  config:
-    - eck.eck_entity_type.brick
-name: 'Accordion Brick Item'
-type: brick_accordion_item
-description: ''

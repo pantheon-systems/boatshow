@@ -35,7 +35,7 @@
       </div>
       <div class="col-12-xs col-3-md image-wrap">
         {% if content.field_link_to_sponsor[0]['#url'] is not empty %}
-          <a href="{{ content.field_link_to_sponsor[0]['#url'] }}">
+          <a href="{{ content.field_link_to_sponsor[0]['#url'] }}"  {{ content.field_link_to_sponsor[0]['#options']['attributes']['target'] ? 'target=' ~ content.field_link_to_sponsor[0]['#options']['attributes']['target'] }}>
             {{ content.field_logo }}
           </a>
         {% else %}

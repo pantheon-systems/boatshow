@@ -53,17 +53,19 @@
         "drupal/clientside_validation": "1.x-dev#d65b355a086812d7d3c84945da2a5df01b7815cf",
         "drupal/cog": "^1.0.0",
         "drupal/colossal_menu": "^1.1",
+        "drupal/config_export_ignore": "^1.0@RC",
+        "drupal/config_ignore": "^2.1",
         "drupal/config_split": "^1.4",
         "drupal/content_lock": "^1.0@alpha",
         "drupal/core": "^8.6",
         "drupal/cshs": "1.x-dev#e583815ea8f0e11fd32c0b794700547cd3afce8d",
         "drupal/devel": "^2.0",
+        "drupal/devel_entity_updates": "^1.0",
         "drupal/easy_breadcrumb": "^1.8",
         "drupal/eck": "^1.0@alpha",
         "drupal/editor_advanced_link": "^1.4",
         "drupal/editor_file": "1.x-dev#83e4af15b3b8fd66390ae1545ccdfe6d1986dda9",
         "drupal/encryption": "^1.0",
-        "drupal/eu_cookie_compliance": "^1.1",
         "drupal/faqfield": "^1.1",
         "drupal/features": "^3.8.0",
         "drupal/feeds": "3.x-dev#bb5a46ed51968af8e72bbf05e7c9ddf4fad7e4da",
@@ -72,12 +74,13 @@
         "drupal/field_group": "^3.0@beta",
         "drupal/geocoder": "^2.0@beta",
         "drupal/geolocation": "^3.0-rc1",
-        "drupal/gtm": "^1.1",
+        "drupal/google_tag": "^1.2",
         "drupal/honeypot": "^1.27",
         "drupal/iframe": "^1.9",
         "drupal/imageapi_optimize": "^2.0@alpha",
         "drupal/imagemagick": "^2.3",
         "drupal/lightning_media": "^3.12",
+        "drupal/link_attributes": "^1.9",
         "drupal/linkit": "5.x-dev#1084887a0c4d9f0458c8d60f59ba20c342005101",
         "drupal/marketo_ma": "^2.0",
         "drupal/media_entity_browser": "2.x-dev#c75921d3af90f1b6dc052cd2edf037116227acf8",
@@ -98,6 +101,7 @@
         "drupal/qa_accounts": "^1.0.0-alpha1",
         "drupal/quicktabs": "^3.0",
         "drupal/rabbit_hole": "^1.0",
+        "drupal/rebuild_cache_access": "^1.5",
         "drupal/recaptcha": "^2.4",
         "drupal/redirect": "^1.4",
         "drupal/restui": "^1.15",
@@ -137,36 +141,36 @@
             "drupal/core": "-p2"
         },
         "patches": {
-            "drupal/fbip": {
-                "Argument 2 passed to fbip_validator() must be an instance of FormStateInterface": "https://www.drupal.org/files/issues/fbip-2635716-4.patch"
-            },
-            "drupal/viewfield": {
-                "Duplicate reference field types": "https://www.drupal.org/files/issues/2900913-5-viewfield-fix-duplicates.patch"
+            "drupal/better_exposed_filters": {
+                "Notice: Undefined index: #summary_attributes in template_preprocess_details() (line 244 of core/includes/form.inc)": "https://www.drupal.org/files/issues/2019-01-25/bef-summary-attributes-3001967-9.patch"
             },
             "drupal/bricks": {
                 "Layout entity wrapper is missing [https://www.drupal.org/project/bricks/issues/2952523]": "https://www.drupal.org/files/issues/2018-04-12/bricks-layout_entity_wrapper-2952523-3.patch"
             },
-            "drupal/clientside_validation_jquery": {
-                "Support inline_form_errors module": "https://www.drupal.org/files/issues/2906132-4.patch"
-            },
             "drupal/clientside_validation": {
                 "Add the library JS files locally instead of relying on CDN so big pipe works.": "./patches/clientside_validation-add-library.patch"
             },
-            "drupal/eu_cookie_compliance": {
-                "Make sure modal closes when refusing cookies.": "./patches/eu_cookie_compliance.patch"
-            },
-            "drupal/core": {
-                "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch"
+            "drupal/clientside_validation_jquery": {
+                "Support inline_form_errors module": "https://www.drupal.org/files/issues/2906132-4.patch"
             },
             "drupal/coder": {
                 "Fix bad code sniffing in theme file": "https://www.drupal.org/files/issues/2018-05-10/filename-issue-theme-extension-2935388-4.patch"
             },
+            "drupal/config_filter": {
+                "Drush cim doesn't respect config ignore filters [https://www.drupal.org/project/config_ignore/issues/2916654#comment-12635861]": "https://www.drupal.org/files/issues/2018-05-14/collect-config-storage-services-2953769-6.patch"
+            },
+            "drupal/core": {
+                "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch"
+            },
+            "drupal/eu_cookie_compliance": {
+                "Make sure modal closes when refusing cookies.": "./patches/eu_cookie_compliance.patch"
+            },
+            "drupal/fbip": {
+                "Argument 2 passed to fbip_validator() must be an instance of FormStateInterface": "https://www.drupal.org/files/issues/fbip-2635716-4.patch"
+            },
             "drupal/feeds": {
                 "Entity Processor shows actions but uses wrong id [https://www.drupal.org/project/feeds/issues/3078857]": "https://www.drupal.org/files/issues/2019-09-03/3078857-2.patch",
                 "HACK: ALWAYS CLEAN during processing": "./patches/feeds-always-clean.patch"
-            },
-            "drupal/marketo_ma": {
-                "HACK: check for rest array key before accessing array": "./patches/marketo-ma-rest-array-check.patch"
             },
             "drupal/lightning_media": {
                 "Entity browser reordering of files broken in lightning 8.x-2.16 [https://www.drupal.org/project/lightning_media/issues/2901225]": "https://www.drupal.org/files/issues/2901225_20_lightning-media-module.patch"
@@ -174,18 +178,21 @@
             "drupal/linkit": {
                 "Link shown after the autocomplete selection is the bare node/xxx link": "https://www.drupal.org/files/issues/2018-03-09/2877535-7.linkit.Link-shown-after-the-autocomplete-selection-is-the-bare-nodexxx-link-not-the-alias.patch"
             },
+            "drupal/marketo_ma": {
+                "HACK: check for rest array key before accessing array": "./patches/marketo-ma-rest-array-check.patch"
+            },
             "drupal/migrate_tools": {
                 "Migrate support for deleting items no longer in the incoming data": "https://www.drupal.org/files/issues/2019-05-31/2809433-153.patch"
             },
             "drupal/redirect": {
                 "Redirect hashes created when not retaining the query string": "https://www.drupal.org/files/issues/2018-06-01/2976930-redirect-hashes-created-when-not-retaining-the-query-string-2.patch"
             },
+            "drupal/viewfield": {
+                "Duplicate reference field types": "https://www.drupal.org/files/issues/2900913-5-viewfield-fix-duplicates.patch"
+            },
             "drupal/xmlsitemap": {
                 "Rebuild always include all link types": "https://www.drupal.org/files/issues/2018-05-25/2745695-10.xmlsitemap-rebuild-all-entities.patch",
                 "Add Drush 9 Support": "https://www.drupal.org/files/issues/2018-04-30/xmlsitemap--2968172-drush-9-support--2.patch"
-            },
-            "drupal/better_exposed_filters": {
-                "Notice: Undefined index: #summary_attributes in template_preprocess_details() (line 244 of core/includes/form.inc)": "https://www.drupal.org/files/issues/2019-01-25/bef-summary-attributes-3001967-9.patch"
             }
         },
         "installer-types": [

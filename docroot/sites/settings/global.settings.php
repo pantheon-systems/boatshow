@@ -7,7 +7,8 @@
  * file in docroot/sites/{site-name}/settings/default.includes.settings.php.
  */
 $additionalSettingsFiles = [
-  DRUPAL_ROOT . "/sites/settings/boatshow_multisite_shared.settings.php"
+  DRUPAL_ROOT . "/sites/settings/common.settings.php",
+  DRUPAL_ROOT . "/sites/" . $site_dir . "/settings/boatshow_site.settings.php"
 ];
 
 foreach ($additionalSettingsFiles as $settingsFile) {

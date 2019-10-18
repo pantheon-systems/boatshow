@@ -1,0 +1,17 @@
+uuid: addeeea9-c161-4076-bccb-06abc2ca4ce3
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Seniority Point'
+type: seniority_point
+description: 'Used for the <em>seniority points</em> listing.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

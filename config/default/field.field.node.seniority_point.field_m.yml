@@ -1,0 +1,25 @@
+uuid: 8b961304-e8d0-47e1-ba91-3cfed14af0df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_m
+    - node.type.seniority_point
+id: node.seniority_point.field_m
+field_name: field_m
+entity_type: node
+bundle: seniority_point
+label: 'Member Points'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

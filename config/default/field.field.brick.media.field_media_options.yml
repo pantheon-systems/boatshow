@@ -1,0 +1,21 @@
+uuid: 4e633d41-5145-4e3b-aaf0-ef3e4a4568ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.media
+    - field.storage.brick.field_media_options
+  module:
+    - options
+id: brick.media.field_media_options
+field_name: field_media_options
+entity_type: brick
+bundle: media
+label: 'Media Options'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,9 +1,0 @@
-uuid: 1e8b8ba8-c6fa-44dc-b50b-e74e32f9d3f9
-langcode: en
-status: true
-dependencies:
-  config:
-    - eck.eck_entity_type.brick
-name: Headline
-type: headline_brick
-description: 'Add a Headline and subhead anywhere on a component page.'

@@ -26,6 +26,7 @@ javascript:
     assets-dist/js/getting-to-the-show.js: {}
     assets-dist/js/seminarview.js: {}
     assets-dist/js/sailingattheshow.js: {}
+    assets-dist/js/seniority-points.js: {}
   dependencies:
     - core/jquery
     - core/drupal.ajax
@@ -67,24 +68,10 @@ responsive_image_polyfills:
 
 #
 # City site-specific libraries
+# Overridden by boatshow_library_info_alter
 #
-atlanta:
+city_stylesheet:
+  version: 1.0.0
   css:
     theme:
-      assets-dist/css/city-atlanta.css: {}
-chicago:
-  css:
-    theme:
-      assets-dist/css/city-chicago.css: {}
-kansascity:
-  css:
-    theme:
-      assets-dist/css/city-kansascity.css: {}
-nashville:
-  css:
-    theme:
-      assets-dist/css/city-nashville.css: {}
-miami:
-  css:
-    theme:
-      assets-dist/css/city-miami.css: {}
+      assets-dist/css/styles.css: {}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "26d8910dbb367163e1f41ce8c0a4429f",
+    "content-hash": "097a6f240863507cc3bc2243a08c9152",
     "packages": [
         {
             "name": "acquia/blt",
@@ -4707,6 +4707,57 @@
             }
         },
         {
+            "name": "drupal/config_export_ignore",
+            "version": "1.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/config_export_ignore.git",
+                "reference": "8.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_export_ignore-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "5edbe94e2f306d0e49011cdcb912e7e57d42c7fa"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1521283084",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "mohit_aghera",
+                    "homepage": "https://www.drupal.org/user/639098"
+                }
+            ],
+            "description": "Allows to ignore configurations while exporting via config split",
+            "homepage": "https://www.drupal.org/project/config_export_ignore",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/config_export_ignore",
+                "issues": "https://www.drupal.org/project/issues/config_export_ignore"
+            }
+        },
+        {
             "name": "drupal/config_filter",
             "version": "1.4.0",
             "source": {
@@ -4738,6 +4789,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Drush cim doesn't respect config ignore filters [https://www.drupal.org/project/config_ignore/issues/2916654#comment-12635861]": "https://www.drupal.org/files/issues/2018-05-14/collect-config-storage-services-2953769-6.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4772,6 +4826,63 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/config_filter",
                 "issues": "https://www.drupal.org/project/issues/config_filter",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/config_ignore",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/config_ignore.git",
+                "reference": "8.x-2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_ignore-8.x-2.1.zip",
+                "reference": "8.x-2.1",
+                "shasum": "07e00684930706632b3f2fc2a7433ffdae57cde7"
+            },
+            "require": {
+                "drupal/config_filter": "1.*",
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.1",
+                    "datestamp": "1507706044",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Tommy Lynge Jørgensen",
+                    "homepage": "https://www.drupal.org/u/tlyngej",
+                    "email": "tlyngej@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Fabian Bircher",
+                    "homepage": "https://www.drupal.org/u/bircher",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Ignore certain configuration during import.",
+            "homepage": "http://drupal.org/project/config_ignore",
+            "support": {
+                "source": "http://cgit.drupalcode.org/config_ignore",
+                "issues": "http://drupal.org/project/config_ignore",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
             }
         },
@@ -5682,6 +5793,58 @@
                 "source": "http://cgit.drupalcode.org/devel",
                 "issues": "http://drupal.org/project/devel",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/devel_entity_updates",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/devel_entity_updates.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/devel_entity_updates-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "011b76ba426344450b96efa2f16a64cbc70734c6"
+            },
+            "require": {
+                "drupal/core": "^8.7.0",
+                "drupal/devel": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1564734485",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "amateescu",
+                    "homepage": "https://www.drupal.org/user/729614"
+                },
+                {
+                    "name": "plach",
+                    "homepage": "https://www.drupal.org/user/183211"
+                }
+            ],
+            "description": "Provides developers an API and drush command to perform automatic entity updates.",
+            "homepage": "https://www.drupal.org/project/devel_entity_updates",
+            "support": {
+                "source": "https://git.drupalcode.org/project/devel_entity_updates"
             }
         },
         {
@@ -6725,104 +6888,6 @@
             }
         },
         {
-            "name": "drupal/eu_cookie_compliance",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/eu-cookie-compliance.git",
-                "reference": "8.x-1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "cf47418ab114ba959862ea660c719f0d3e1fd50e"
-            },
-            "require": {
-                "drupal/core": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1551898937",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
-                "patches_applied": {
-                    "Make sure modal closes when refusing cookies.": "./patches/eu_cookie_compliance.patch"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Marcin Pajdzik",
-                    "homepage": "https://www.drupal.org/u/marcin-pajdzik",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Sven Berg Ryen",
-                    "homepage": "https://www.drupal.org/u/svenryen",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "See other contributors",
-                    "homepage": "https://www.drupal.org/node/1538032/committers"
-                },
-                {
-                    "name": "dakku",
-                    "homepage": "https://www.drupal.org/user/97634"
-                },
-                {
-                    "name": "grzegorz.bartman",
-                    "homepage": "https://www.drupal.org/user/363120"
-                },
-                {
-                    "name": "id.tornado",
-                    "homepage": "https://www.drupal.org/user/2754049"
-                },
-                {
-                    "name": "killua99",
-                    "homepage": "https://www.drupal.org/user/699418"
-                },
-                {
-                    "name": "mibfire",
-                    "homepage": "https://www.drupal.org/user/155136"
-                },
-                {
-                    "name": "naveenvalecha",
-                    "homepage": "https://www.drupal.org/user/2665733"
-                },
-                {
-                    "name": "svenryen",
-                    "homepage": "https://www.drupal.org/user/667244"
-                }
-            ],
-            "description": "This module aims at making the website compliant with the new EU cookie regulation.",
-            "homepage": "https://drupal.org/project/eu_cookie_compliance",
-            "keywords": [
-                "Cookie",
-                "CookieCompliance",
-                "Drupal",
-                "GDPR"
-            ],
-            "support": {
-                "source": "https://cgit.drupalcode.org/eu-cookie-compliance",
-                "docs": "https://www.drupal.org/project/eu_cookie_compliance",
-                "forum": "https://drupal.stackexchange.com/search?q=eu+cookie+compliance",
-                "issues": "https://www.drupal.org/project/issues/eu_cookie_compliance?version=8.x",
-                "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
-        },
-        {
             "name": "drupal/faqfield",
             "version": "1.1.0",
             "source": {
@@ -7518,18 +7583,18 @@
             }
         },
         {
-            "name": "drupal/gtm",
-            "version": "1.1.0",
+            "name": "drupal/google_tag",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
-                "url": "https://git.drupalcode.org/project/gtm.git",
-                "reference": "8.x-1.1"
+                "url": "https://git.drupalcode.org/project/google_tag.git",
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gtm-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "6a276379dc309aa7b6fb66d5e66a7a8d5b9e16ca"
+                "url": "https://ftp.drupal.org/files/projects/google_tag-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "7ea79c9bab4ac7692c998c35452c82a36b2827bd"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -7540,40 +7605,28 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1514402584",
+                    "version": "8.x-1.2",
+                    "datestamp": "1567174084",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL 2.0"
             ],
             "authors": [
                 {
-                    "name": "APolitsin",
-                    "homepage": "https://www.drupal.org/user/400653"
-                },
-                {
-                    "name": "Kseniya Myarkovskaya",
-                    "homepage": "https://www.drupal.org/user/3590754"
-                },
-                {
-                    "name": "masdzen",
-                    "homepage": "https://www.drupal.org/user/1511844"
-                },
-                {
-                    "name": "politsin",
-                    "homepage": "https://www.drupal.org/user/1820324"
+                    "name": "solotandem",
+                    "homepage": "https://www.drupal.org/user/240748"
                 }
             ],
-            "description": "Google Tag Manager",
-            "homepage": "https://www.drupal.org/project/gtm",
+            "description": "Allows your website analytics to be managed using Google Tag Manager.",
+            "homepage": "https://www.drupal.org/project/google_tag",
             "support": {
-                "source": "https://git.drupalcode.org/project/gtm"
+                "source": "https://git.drupalcode.org/project/google_tag"
             }
         },
         {
@@ -8742,6 +8795,53 @@
             "homepage": "https://www.drupal.org/project/lightning_workflow",
             "support": {
                 "source": "https://git.drupalcode.org/project/lightning_workflow"
+            }
+        },
+        {
+            "name": "drupal/link_attributes",
+            "version": "1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/link_attributes.git",
+                "reference": "8.x-1.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/link_attributes-8.x-1.9.zip",
+                "reference": "8.x-1.9",
+                "shasum": "efbfc869c2e0b13b1bd5c9ff01dd51d3f2a6b755"
+            },
+            "require": {
+                "drupal/core": "^8.4"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.9",
+                    "datestamp": "1564012686",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "larowlan",
+                    "homepage": "https://www.drupal.org/user/395439"
+                }
+            ],
+            "description": "Provides a widget to allow settings of link attributes for menu links.",
+            "homepage": "https://www.drupal.org/project/link_attributes",
+            "support": {
+                "source": "https://git.drupalcode.org/project/link_attributes"
             }
         },
         {
@@ -10895,6 +10995,53 @@
             "support": {
                 "source": "https://cgit.drupalcode.org/rabbit_hole",
                 "issues": "https://www.drupal.org/project/issues/rabbit_hole"
+            }
+        },
+        {
+            "name": "drupal/rebuild_cache_access",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/rebuild_cache_access.git",
+                "reference": "8.x-1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/rebuild_cache_access-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "3370ab9a9ef167070b1977dc94dd644b425c5279"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.5",
+                    "datestamp": "1566845888",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "leymannx",
+                    "homepage": "https://www.drupal.org/user/2482808"
+                }
+            ],
+            "description": "Provide a Rebuild Cache admin toolbar button accessible to every role with the corresponding permission set.",
+            "homepage": "https://www.drupal.org/project/rebuild_cache_access",
+            "support": {
+                "source": "https://git.drupalcode.org/project/rebuild_cache_access"
             }
         },
         {
@@ -21724,6 +21871,7 @@
         "drupal/captcha": 20,
         "drupal/cer": 15,
         "drupal/clientside_validation": 20,
+        "drupal/config_export_ignore": 5,
         "drupal/content_lock": 15,
         "drupal/cshs": 20,
         "drupal/eck": 15,

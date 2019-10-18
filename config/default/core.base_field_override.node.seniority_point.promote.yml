@@ -1,0 +1,22 @@
+uuid: 3620d27b-9503-4b50-a912-eb29e1d3219e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.seniority_point
+id: node.seniority_point.promote
+field_name: promote
+entity_type: node
+bundle: seniority_point
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

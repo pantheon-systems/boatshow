@@ -1,0 +1,55 @@
+uuid: d11860c4-942b-4c47-8ef1-6d13083488a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.countdown
+    - field.field.brick.countdown.field_brick_link
+    - field.field.brick.countdown.field_countdown_to
+  module:
+    - datetime
+    - link_attributes
+id: brick.countdown.default
+targetEntityType: brick
+bundle: countdown
+mode: default
+content:
+  field_brick_link:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_countdown_to:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

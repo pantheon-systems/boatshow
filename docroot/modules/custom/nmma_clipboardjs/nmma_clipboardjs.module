@@ -40,7 +40,7 @@ function nmma_clipboardjs_theme($existing, $type, $theme, $path) {
 /**
  * Implements hook_preprocess().
  */
-function nmma_clipboardjs_preprocess(&$variables, $hook) {
+function nmma_clipboardjs_preprocess_nmma_clipboardjs(&$variables) {
   $variables['module_path'] = base_path() . drupal_get_path('module', 'nmma_clipboardjs');
   $variables['id'] = uniqid('nmma-clipboardjs-');
 }

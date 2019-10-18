@@ -1,9 +1,0 @@
-uuid: 8f2131b4-4473-42e7-9fd9-715609e105ed
-langcode: en
-status: true
-dependencies:
-  config:
-    - eck.eck_entity_type.brick
-name: Iframe
-type: iframe
-description: ''

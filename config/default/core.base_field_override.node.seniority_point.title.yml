@@ -1,0 +1,18 @@
+uuid: c52a2317-a7e4-4cfe-97b9-f8a9df11e518
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.seniority_point
+id: node.seniority_point.title
+field_name: title
+entity_type: node
+bundle: seniority_point
+label: 'Company Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

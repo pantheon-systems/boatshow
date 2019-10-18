@@ -1,7 +1,0 @@
-uuid: 7e138c7c-1357-4866-be57-8abf73768fbc
-langcode: en
-status: false
-dependencies: {  }
-formId: node_bricky_blocks_form
-captchaType: default
-label: null

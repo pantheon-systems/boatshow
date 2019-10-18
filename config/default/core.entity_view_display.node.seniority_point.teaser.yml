@@ -1,0 +1,31 @@
+uuid: 1ba36ea0-d3ff-4f53-9ae7-329e35450db1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.seniority_point.field_company_id
+    - field.field.node.seniority_point.field_m
+    - field.field.node.seniority_point.field_show_points
+    - node.type.seniority_point
+  module:
+    - user
+id: node.seniority_point.teaser
+targetEntityType: node
+bundle: seniority_point
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  feeds_item: true
+  field_company_id: true
+  field_ed: true
+  field_m: true
+  field_show_points: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,11 @@
+uuid: b0d44d4b-99dc-4fd4-bc4d-8406875c26a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.business
+id: node_type_business
+action: access_denied
+allow_override: 1
+redirect: ''
+redirect_code: 301

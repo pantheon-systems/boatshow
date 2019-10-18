@@ -1,9 +1,0 @@
-uuid: 5de93bbc-02a0-4bdf-bc3c-9043d696718a
-langcode: en
-status: true
-dependencies:
-  config:
-    - eck.eck_entity_type.brick
-name: Countdown
-type: countdown
-description: ''

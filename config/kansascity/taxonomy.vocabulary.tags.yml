@@ -1,8 +1,0 @@
-uuid: e782e196-9106-403b-8b37-32dfa6807072
-langcode: en
-status: true
-dependencies: {  }
-name: Tags
-vid: tags
-description: 'Add free-form categories to various content entries.'
-weight: -6
