@@ -1,9 +1,0 @@
-uuid: abf3cf01-67e8-4e2f-ab01-f0ffb7396d5f
-langcode: en
-status: true
-dependencies:
-  config:
-    - eck.eck_entity_type.brick
-name: 'Copy to Clipboard Input'
-type: copy_to_clipboard_input
-description: ''
