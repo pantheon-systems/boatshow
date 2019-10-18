@@ -162,9 +162,6 @@
             "drupal/core": {
                 "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch"
             },
-            "drupal/eu_cookie_compliance": {
-                "Make sure modal closes when refusing cookies.": "./patches/eu_cookie_compliance.patch"
-            },
             "drupal/fbip": {
                 "Argument 2 passed to fbip_validator() must be an instance of FormStateInterface": "https://www.drupal.org/files/issues/fbip-2635716-4.patch"
             },
