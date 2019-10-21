@@ -41,3 +41,74 @@ function nmma_forms_preprocess_input(&$variables, $hook) {
 function nmma_forms_preprocess_cshs_select(&$variables) {
   $variables['#attached']['library'][] = 'nmma_forms/cshs';
 }
+
+/**
+ * Implements hook_form_form_id_alter
+ *
+ * Alter fields on exhibitor edit to be readonly
+ *
+ * @param array $form
+ * @param array $form_state
+ * @param string $form_id
+ * @return void
+ */
+function nmma_forms_form_node_exhibitor_edit_form_alter(&$form, &$form_state, $form_id) {
+  $current_user_roles = \Drupal::currentUser()->getRoles();
+
+  if(!in_array('administrator', $current_user_roles)) {
+    // array of fields to disable
+    $disabled_fields = [
+      'title',
+      'field_address_line_1',
+      'field_address_line_2',
+      'field_city',
+      'field_country',
+      'field_exhibitor_id',
+      'field_fax_number',
+      'feeds_item',
+      'field_feeds_tmp',
+      'field_phone_number',
+      'field_show_code',
+      'field_state_or_province',
+      'field_zip_or_postal_code',
+    ];
+
+    // Loop fields and set as disabled to make readonly
+    foreach ($disabled_fields as $field) {
+      $form[$field]['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
+    }
+
+    // Link field doesn't follow the pattern the above use so needs to be specially disabled
+    $form['field_website']['widget'][0]['uri']['#attributes']['disabled'] = 'disabled';
+
+    // Disable paragraph add more button
+    $form['field_exhibitor_location']['widget']['add_more']['add_more_button_exhibitor_location']['#attributes']['disabled'] = 'disabled';
+  }
+}
+
+/**
+ * Implements hook_field_widget_widget_id_alter
+ *
+ * For non-admins, disable exhibitor location fields
+ * when on exhibitor node edit form
+ *
+ * @param [type] $element
+ * @param [type] $form_state
+ * @param [type] $context
+ * @return void
+ */
+function nmma_forms_field_widget_entity_reference_paragraphs_form_alter(&$element, &$form_state, $context) {
+  // Get current user's roles
+  $current_user_roles = \Drupal::currentUser()->getRoles();
+
+  // Check if paragraph type is exhibitor location AND user is not admin
+  if($element['#paragraph_type'] === 'exhibitor_location' && !in_array('administrator', $current_user_roles)) {
+
+    // If parent form is node exhibitor edit
+    if ($form_state->getBuildInfo()['form_id'] === 'node_exhibitor_edit_form') {
+      // Make these two fields read only
+      $element['subform']['field_enabled']['widget']['value']['#attributes']['disabled'] = 'disabled';
+      $element['subform']['field_exhbtr_lctn_booth']['widget'][0]['target_id']['#attributes']['disabled'] = 'disabled';
+    }
+  }
+}
