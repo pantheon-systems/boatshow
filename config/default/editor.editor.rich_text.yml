@@ -70,6 +70,8 @@ settings:
         -
           name: Tools
           items:
+            - Undo
+            - Redo
             - ShowBlocks
             - Source
   plugins:
