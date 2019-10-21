@@ -765,24 +765,27 @@ function boatshow_preprocess_eck_entity(&$variables) {
     }
   }
 
-  // Add contextual links.
-  if (\Drupal::currentUser()->hasPermission('access contextual links')) {
-    $url = $entity->toUrl('edit-form');
-    $url->setOption('query', \Drupal::service('redirect.destination')->getAsArray());
-    $variables['context_links'] = [
-      '#theme' => 'links__contextual',
-      '#links' => [
-        [
-          'title' => t('Edit'),
-          'url' => $url,
+  // Only set contextual links if brick bundle is not section or layout
+  if ($entity->bundle() !== 'section' && $entity->bundle() !== 'layout') {
+    // Add contextual links.
+    if (\Drupal::currentUser()->hasPermission('access contextual links')) {
+      $url = $entity->toUrl('edit-form');
+      $url->setOption('query', \Drupal::service('redirect.destination')->getAsArray());
+      $variables['context_links'] = [
+        '#theme' => 'links__contextual',
+        '#links' => [
+          [
+            'title' => t('Edit'),
+            'url' => $url,
+          ],
         ],
-      ],
-      '#attributes' => [
-        'class' => [
-          'custom-contextual-links',
+        '#attributes' => [
+          'class' => [
+            'custom-contextual-links',
+          ],
         ],
-      ],
-    ];
+      ];
+    }
   }
 }
 
