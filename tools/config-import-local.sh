@@ -1,7 +1,6 @@
 #!/bin/bash
 
-site="$1"
-target_env="$2"
+cd /var/www/boatshow/docroot
 
 # Setup BLT alias
 function blt() {
@@ -26,22 +25,10 @@ function blt() {
   fi
 }
 
-# Go to the path from where drush commands can be executed.
-repo_root="/var/www/html/$site.$target_env/docroot"
-#export PATH=$repo_root/vendor/bin:$PATH
-cd $repo_root
-
-echo "New code has been deployed to $site.$target_env environment."
 
 for MULTISITE in $(blt blt:config:get multisites)
 do
   echo "======== begin multisite: ${MULTISITE} ========"
-
-  echo "Running drush cache-rebuild 1/2"
-  drush -l $MULTISITE cr
-
-  echo "Running Module Missing Message Fixer"
-  drush -l $MULTISITE module-missing-message-fixer-fix --all
 
   echo "Importing config ignore settings"
   drupal --uri=$MULTISITE config:import:single --file=../config/default/config_ignore.settings.yml
@@ -49,13 +36,8 @@ do
   echo "Running drush config-import"
   drush -l $MULTISITE cim sync -y
 
-  echo "Running drush updatedb"
-  drush -l $MULTISITE updb -y
-
-  echo "Running drush cache-rebuild 2/2"
-  drush -l $MULTISITE cr
-
   echo "======== end multisite: ${MULTISITE} ========"
 done
 
-echo "Complete!"
+
+
