@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "097a6f240863507cc3bc2243a08c9152",
+    "content-hash": "a83c610b40dde52dd4882181217ffb0c",
     "packages": [
         {
             "name": "acquia/blt",
@@ -4707,57 +4707,6 @@
             }
         },
         {
-            "name": "drupal/config_export_ignore",
-            "version": "1.0.0-rc1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/config_export_ignore.git",
-                "reference": "8.x-1.0-rc1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/config_export_ignore-8.x-1.0-rc1.zip",
-                "reference": "8.x-1.0-rc1",
-                "shasum": "5edbe94e2f306d0e49011cdcb912e7e57d42c7fa"
-            },
-            "require": {
-                "drupal/core": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-rc1",
-                    "datestamp": "1521283084",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "mohit_aghera",
-                    "homepage": "https://www.drupal.org/user/639098"
-                }
-            ],
-            "description": "Allows to ignore configurations while exporting via config split",
-            "homepage": "https://www.drupal.org/project/config_export_ignore",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/config_export_ignore",
-                "issues": "https://www.drupal.org/project/issues/config_export_ignore"
-            }
-        },
-        {
             "name": "drupal/config_filter",
             "version": "1.4.0",
             "source": {
@@ -4831,17 +4780,11 @@
         },
         {
             "name": "drupal/config_ignore",
-            "version": "2.1.0",
+            "version": "dev-2.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/config_ignore.git",
-                "reference": "8.x-2.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/config_ignore-8.x-2.1.zip",
-                "reference": "8.x-2.1",
-                "shasum": "07e00684930706632b3f2fc2a7433ffdae57cde7"
+                "reference": "2b1740411fd1eb8bb139711be5e10535c40ddbbf"
             },
             "require": {
                 "drupal/config_filter": "1.*",
@@ -4853,12 +4796,15 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.1",
-                    "datestamp": "1507706044",
+                    "version": "8.x-2.1+5-dev",
+                    "datestamp": "1537980780",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "Support for export filtering via Drush [https://www.drupal.org/project/config_ignore/issues/2857247]": "https://www.drupal.org/files/issues/2019-09-27/support-for-export-2857247-38.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4884,7 +4830,8 @@
                 "source": "http://cgit.drupalcode.org/config_ignore",
                 "issues": "http://drupal.org/project/config_ignore",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
+            },
+            "time": "2018-09-26T16:48:09+00:00"
         },
         {
             "name": "drupal/config_split",
@@ -21871,7 +21818,7 @@
         "drupal/captcha": 20,
         "drupal/cer": 15,
         "drupal/clientside_validation": 20,
-        "drupal/config_export_ignore": 5,
+        "drupal/config_ignore": 20,
         "drupal/content_lock": 15,
         "drupal/cshs": 20,
         "drupal/eck": 15,

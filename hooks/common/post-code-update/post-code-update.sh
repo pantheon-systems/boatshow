@@ -37,6 +37,9 @@ for MULTISITE in $(blt blt:config:get multisites)
 do
   echo "======== begin multisite: ${MULTISITE} ========"
 
+  echo "Running drush cache-rebuild 1/2"
+  drush -l $MULTISITE cr
+
   echo "Running Module Missing Message Fixer"
   drush -l $MULTISITE module-missing-message-fixer-fix --all
 
@@ -46,7 +49,7 @@ do
   echo "Running drush updatedb"
   drush -l $MULTISITE updb -y
 
-  echo "Running drush cache-rebuild"
+  echo "Running drush cache-rebuild 2/2"
   drush -l $MULTISITE cr
 
   echo "======== end multisite: ${MULTISITE} ========"

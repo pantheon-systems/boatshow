@@ -53,8 +53,7 @@
         "drupal/clientside_validation": "1.x-dev#d65b355a086812d7d3c84945da2a5df01b7815cf",
         "drupal/cog": "^1.0.0",
         "drupal/colossal_menu": "^1.1",
-        "drupal/config_export_ignore": "^1.0@RC",
-        "drupal/config_ignore": "^2.1",
+        "drupal/config_ignore": "2.x-dev#2b1740411fd1eb8bb139711be5e10535c40ddbbf",
         "drupal/config_split": "^1.4",
         "drupal/content_lock": "^1.0@alpha",
         "drupal/core": "^8.6",
@@ -158,6 +157,9 @@
             },
             "drupal/config_filter": {
                 "Drush cim doesn't respect config ignore filters [https://www.drupal.org/project/config_ignore/issues/2916654#comment-12635861]": "https://www.drupal.org/files/issues/2018-05-14/collect-config-storage-services-2953769-6.patch"
+            },
+            "drupal/config_ignore": {
+                "Support for export filtering via Drush [https://www.drupal.org/project/config_ignore/issues/2857247]": "https://www.drupal.org/files/issues/2019-09-27/support-for-export-2857247-38.patch"
             },
             "drupal/core": {
                 "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch"

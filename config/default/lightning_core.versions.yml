@@ -229,6 +229,5 @@ rules: 3.0.0-alpha5
 config_ignore: 2.1.0
 rebuild_cache_access: 1.5.0
 nmma_clipboardjs: 0.0.0
-config_export_ignore: 1.0.0-rc1
 google_tag: 1.2.0
 module_missing_message_fixer: 1.1.0
