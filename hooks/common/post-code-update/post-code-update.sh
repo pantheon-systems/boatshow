@@ -41,7 +41,7 @@ do
   drush -l $MULTISITE cr
 
   echo "Running Module Missing Message Fixer"
-  drush -l $MULTISITE module-missing-message-fixer-fix --all
+  drush -l $MULTISITE module-missing-message-fixer:fix --all
 
   echo "Importing config ignore settings"
   drupal --uri=$MULTISITE config:import:single --file=../config/default/config_ignore.settings.yml
