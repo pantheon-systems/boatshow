@@ -23,7 +23,12 @@ drush:
     # ci: self
   default_alias: '${drush.aliases.local}'
 multisites:
+  - atlanticcity
+  - baltimore
+  - louisville
   - miami
+  - minneapolis
+  - newengland
   - newyork
   - stlouis
 disable-targets:

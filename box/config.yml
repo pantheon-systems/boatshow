@@ -32,9 +32,34 @@ apache_vhosts:
     servername: 'adminer.{{ drupal_domain }}'
     documentroot: '{{ adminer_install_dir }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: atlantic city
+  -
+    servername: local.acboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: louisville
+  -
+    servername: local.louisvilleboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: baltimore
+  -
+    servername: local.baltimoreboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: miami
   -
     servername: local.miamiboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: minneapolis
+  -
+    servername: local.minneapolisboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: newengland
+  -
+    servername: local.newenglandboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: newyork
@@ -57,7 +82,27 @@ apache_vhosts_ssl:
     extra_parameters: "{{ apache_vhost_php_fpm_parameters }}\n\nProxyPassMatch ^/(.*\\.php(/.*)?)$ \"fcgi://127.0.0.1:9000{{ drupal_core_path }}\"\n"
 mysql_databases:
   -
+    name: atlanticcity
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: baltimore
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: louisville
+    encoding: utf8
+    collation: utf8_general_ci
+  -
     name: miami
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: minneapolis
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: newengland
     encoding: utf8
     collation: utf8_general_ci
   -
