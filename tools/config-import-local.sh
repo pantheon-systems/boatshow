@@ -31,7 +31,7 @@ do
   echo "======== begin multisite: ${MULTISITE} ========"
 
   echo "Importing config ignore settings"
-  drupal --uri=$MULTISITE config:import:single --file=../config/default/config_ignore.settings.yml
+  drush -l $MULTISITE php-script ../tools/import-config-ignore-settings.php
 
   echo "Running drush config-import"
   drush -l $MULTISITE cim sync -y

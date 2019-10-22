@@ -55,7 +55,6 @@
         "drupal/colossal_menu": "^1.1",
         "drupal/config_ignore": "2.x-dev#2b1740411fd1eb8bb139711be5e10535c40ddbbf",
         "drupal/config_split": "^1.4",
-        "drupal/console": "^1.9",
         "drupal/content_lock": "^1.0@alpha",
         "drupal/core": "^8.6",
         "drupal/cshs": "1.x-dev#e583815ea8f0e11fd32c0b794700547cd3afce8d",
@@ -128,8 +127,6 @@
         "marketo-api/marketo-rest-client": "dev-master",
         "npm-asset/object-fit-images": "3.2.4",
         "npm-asset/picturefill": "^3.0.3",
-        "symfony/dom-crawler": "^3.0",
-        "symfony/finder": "^3.0",
         "symfony/property-access": "^4.3"
     },
     "require-dev": {
