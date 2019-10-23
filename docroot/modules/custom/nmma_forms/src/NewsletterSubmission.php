@@ -17,7 +17,7 @@ class NewsletterSubmission {
    *
    * @var int
    */
-  protected $newsletterMarketoID = 1007;
+  protected $newsletterMarketoID = 0;
 
   /**
    * The Marketo MA service.
