@@ -17,7 +17,7 @@ class NewsletterSubmission {
    *
    * @var int
    */
-  const NEWSLETTER_MARKETO_ID = 1007;
+  protected $newsletterMarketoID = 1007;
 
   /**
    * The Marketo MA service.
@@ -78,7 +78,8 @@ class NewsletterSubmission {
     ]);
 
     $this->marketoMaService->updateLead($lead);
-    $this->updateListLead($lead->getEmail(), self::NEWSLETTER_MARKETO_ID);
+    $newsletter_id_for_marketo = \Drupal::config('nmma_forms.settings')->get('marketo_newsletter_list_id');
+    $this->updateListLead($lead->getEmail(), isset($newsletter_id_for_marketo) ? $newsletter_id_for_marketo : 0);
   }
 
   /**

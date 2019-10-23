@@ -5,3 +5,10 @@ nmma_forms.newsletter:
     _form: '\Drupal\nmma_forms\Form\Newsletter'
   requirements:
     _permission: 'access content'
+nmma_forms.settings:
+  path: '/admin/config/nmma_forms/newsletter'
+  defaults:
+    _form: '\Drupal\nmma_forms\Form\NewsletterConfigurationForm'
+    _title: 'nmma_forms Newsletter configuration screen'
+  requirements:
+    _permission: 'administer site configuration'

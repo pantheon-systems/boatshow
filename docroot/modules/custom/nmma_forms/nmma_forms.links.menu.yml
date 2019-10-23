@@ -1,0 +1,5 @@
+nmma_forms.settings:
+  title: 'Marketo Newsletter Setting'
+  parent: system.admin_config_services
+  description: 'Assign Marketo newsletter settings associated with site.'
+  route_name: nmma_forms.settings

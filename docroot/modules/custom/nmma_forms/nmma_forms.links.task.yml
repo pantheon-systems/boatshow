@@ -1,0 +1,4 @@
+nmma_forms.admin_settings_tab:
+  route_name: nmma_forms.settings
+  title: Settings
+  base_route: nmma_forms.settings
