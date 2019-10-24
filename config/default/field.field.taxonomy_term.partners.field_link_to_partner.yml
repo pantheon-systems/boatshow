@@ -1,0 +1,23 @@
+uuid: 246ff04a-0309-418b-b866-c1a84cfba284
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_link_to_partner
+    - taxonomy.vocabulary.partners
+  module:
+    - link
+id: taxonomy_term.partners.field_link_to_partner
+field_name: field_link_to_partner
+entity_type: taxonomy_term
+bundle: partners
+label: 'Link to Partner'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link
