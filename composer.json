@@ -162,7 +162,8 @@
                 "Support for export filtering via Drush [https://www.drupal.org/project/config_ignore/issues/2857247]": "https://www.drupal.org/files/issues/2019-09-27/support-for-export-2857247-38.patch"
             },
             "drupal/core": {
-                "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch"
+                "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch",
+                "Exception thrown by responsive srcset images when the image is not yet in the file system (such as with Stage File Proxy) [https://www.drupal.org/project/drupal/issues/2827921]": "https://www.drupal.org/files/issues/2827921-remove-missing-responsive-image-width-exception.patch"
             },
             "drupal/eu_cookie_compliance": {
                 "Make sure modal closes when refusing cookies.": "./patches/eu_cookie_compliance.patch"
