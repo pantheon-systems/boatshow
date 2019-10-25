@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a83c610b40dde52dd4882181217ffb0c",
+    "content-hash": "a8814bf882533ab402d771bf8c734cfd",
     "packages": [
         {
             "name": "acquia/blt",
@@ -5351,6 +5351,7 @@
                 },
                 "patches_applied": {
                     "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch",
+                    "Exception thrown by responsive srcset images when the image is not yet in the file system (such as with Stage File Proxy) [https://www.drupal.org/project/drupal/issues/2827921]": "https://www.drupal.org/files/issues/2827921-remove-missing-responsive-image-width-exception.patch",
                     "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
                     "2885441 - EntityReferenceAutocompleteWidget should define its size setting as an integer": "https://www.drupal.org/files/issues/2885441-2.patch",
                     "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2019-03-05/2815221-116.patch",
