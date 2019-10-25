@@ -801,55 +801,57 @@ function boatshow_preprocess_media (&$variables) {
       $variables['attributes']['class'] = [];
     }
 
-    $fid = $media->field_document->getValue()[0]['target_id'];
-    $file = \Drupal\file\Entity\File::load($fid);
+    if (!empty($media->field_document->getValue())) {
+      $fid = $media->field_document->getValue()[0]['target_id'];
+      $file = \Drupal\file\Entity\File::load($fid);
 
-    $variables['file_filesize_human'] = _human_readable_filesize($file->filesize->value, 2);
+      $variables['file_filesize_human'] = _human_readable_filesize($file->filesize->value, 2);
 
-    $variables['media_file_url'] = $file->url();
-    $variables['media_download_url'] = Url::fromRoute(
-      'media_entity_download.download',
-      [
-        'media' => $media->id(),
-      ]
-    );
+      $variables['media_file_url'] = $file->url();
+      $variables['media_download_url'] = Url::fromRoute(
+        'media_entity_download.download',
+        [
+          'media' => $media->id(),
+        ]
+      );
 
-    if ($media->hasField('field_description') && isset($media->get('field_description')->value)) {
-      $variables['description'] = $media->get('field_description')->value;
-    }
+      if ($media->hasField('field_description') && isset($media->get('field_description')->value)) {
+        $variables['description'] = $media->get('field_description')->value;
+      }
 
-    $variables['file_filemime'] = $file->filemime->value;
+      $variables['file_filemime'] = $file->filemime->value;
 
-    // Assign classes based on file type
-    if (stripos($file->filemime->value, 'application/pdf') !== FALSE) {
-      $variables['attributes']['class'][] = 'document-list-icon-pdf';
-    }
+      // Assign classes based on file type
+      if (stripos($file->filemime->value, 'application/pdf') !== FALSE) {
+        $variables['attributes']['class'][] = 'document-list-icon-pdf';
+      }
 
-    // Assign classes based on file type
-    else if (
-      (stripos($file->filemime->value, 'application/vnd.ms-excel') !== FALSE)
-      || (stripos($file->filemime->value, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'))
-      || (stripos($file->filemime->value, 'text/csv') !== FALSE)
-    ) {
-      $variables['attributes']['class'][] = 'document-list-icon-excel';
-    }
+      // Assign classes based on file type
+      else if (
+        (stripos($file->filemime->value, 'application/vnd.ms-excel') !== FALSE)
+        || (stripos($file->filemime->value, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'))
+        || (stripos($file->filemime->value, 'text/csv') !== FALSE)
+      ) {
+        $variables['attributes']['class'][] = 'document-list-icon-excel';
+      }
 
-    else if (
-      (stripos($file->filemime->value, 'application/msword') !== FALSE)
-      || (stripos($file->filemime->value, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') !== FALSE)
-    ) {
-      $variables['attributes']['class'][] = 'document-list-icon-word';
-    }
+      else if (
+        (stripos($file->filemime->value, 'application/msword') !== FALSE)
+        || (stripos($file->filemime->value, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') !== FALSE)
+      ) {
+        $variables['attributes']['class'][] = 'document-list-icon-word';
+      }
 
-    else if (
-      (stripos($file->filemime->value, 'application/vnd.ms-powerpoint') !== FALSE)
-      || (stripos($file->filemime->value, 'application/vnd.openxmlformats-officedocument.presentationml.presentation') !== FALSE)
-    ) {
-      $variables['attributes']['class'][] = 'document-list-icon-powerpoint';
-    }
+      else if (
+        (stripos($file->filemime->value, 'application/vnd.ms-powerpoint') !== FALSE)
+        || (stripos($file->filemime->value, 'application/vnd.openxmlformats-officedocument.presentationml.presentation') !== FALSE)
+      ) {
+        $variables['attributes']['class'][] = 'document-list-icon-powerpoint';
+      }
 
-    else if (stripos($file->filemime->value, 'application/zip') !== FALSE) {
-      $variables['attributes']['class'][] = 'document-list-icon-zip';
+      else if (stripos($file->filemime->value, 'application/zip') !== FALSE) {
+        $variables['attributes']['class'][] = 'document-list-icon-zip';
+      }
     }
   }
 }

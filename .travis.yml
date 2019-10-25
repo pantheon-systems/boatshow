@@ -59,7 +59,8 @@ branches:
   only:
   - 2.x-master
   - 2.x-develop
-  - /^release\/.+/
+  - /^release\/.+$/
+  - /^hotfix\/.+$/
 
 deploy:
   # Deploy 2.x-develop branch to DEV2
@@ -75,4 +76,11 @@ deploy:
     skip_cleanup: true
     on:
       branch: release/*
+      php: 7.2
+  # Deploy release/* branch to stage
+  - provider: script
+    script: blt artifact:deploy --branch "stage" -n
+    skip_cleanup: true
+    on:
+      branch: hotfix/*
       php: 7.2
