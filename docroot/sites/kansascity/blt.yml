@@ -1,0 +1,14 @@
+project:
+  local:
+    hostname: local.kansascitysportshow.com
+    protocol: https
+  machine_name: kansascity
+  human_name: kansascity
+drush:
+  aliases:
+    local: self
+    remote: kansascity.dev2
+cm:
+  allow-overrides: false
+  # Possible values: core-only, config-split, features, none.
+  strategy: none

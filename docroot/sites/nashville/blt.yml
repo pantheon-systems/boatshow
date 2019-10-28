@@ -1,0 +1,14 @@
+project:
+  local:
+    hostname: local.nashvilleboatshow.com
+    protocol: https
+  machine_name: nashville
+  human_name: nashville
+drush:
+  aliases:
+    local: self
+    remote: nashville.dev2
+cm:
+  allow-overrides: false
+  # Possible values: core-only, config-split, features, none.
+  strategy: none
