@@ -1,0 +1,14 @@
+project:
+  local:
+    hostname: local.northwestsportshow.com
+    protocol: https
+  machine_name: northwest
+  human_name: northwest
+drush:
+  aliases:
+    local: self
+    remote: northwest.dev2
+cm:
+  allow-overrides: false
+  # Possible values: core-only, config-split, features, none.
+  strategy: none

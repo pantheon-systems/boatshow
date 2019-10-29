@@ -1,0 +1,14 @@
+project:
+  local:
+    hostname: local.boatshownorwalk.com
+    protocol: https
+  machine_name: norwalk
+  human_name: norwalk
+drush:
+  aliases:
+    local: self
+    remote: norwalk.dev2
+cm:
+  allow-overrides: false
+  # Possible values: core-only, config-split, features, none.
+  strategy: none

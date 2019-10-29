@@ -1,0 +1,14 @@
+project:
+  local:
+    hostname: local.tampaboatshow.com
+    protocol: https
+  machine_name: tampa
+  human_name: tampa
+drush:
+  aliases:
+    local: self
+    remote: tampa.dev2
+cm:
+  allow-overrides: false
+  # Possible values: core-only, config-split, features, none.
+  strategy: none

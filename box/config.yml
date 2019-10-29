@@ -32,19 +32,34 @@ apache_vhosts:
     servername: 'adminer.{{ drupal_domain }}'
     documentroot: '{{ adminer_install_dir }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: atlanta
+  -
+    servername: local.atlantaboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: atlantic city
   -
     servername: local.acboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
-  # multisite: louisville
+  # multisite: chicago
   -
-    servername: local.louisvilleboatshow.com
+    servername: local.chicagoboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: baltimore
   -
     servername: local.baltimoreboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: kansas city
+  -
+    servername: local.kansascitysportshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: louisville
+  -
+    servername: local.louisvilleboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: miami
@@ -57,9 +72,24 @@ apache_vhosts:
     servername: local.minneapolisboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: nashville
+  -
+    servername: local.nashvilleboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: newengland
   -
     servername: local.newenglandboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: northwest
+  -
+    servername: local.northwestsportshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: norwalk
+  -
+    servername: local.boatshownorwalk.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: newyork
@@ -72,6 +102,11 @@ apache_vhosts:
     servername: local.stlouisboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  #multisite: tampa
+  -
+    servername: local.tampaboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
 apache_vhosts_ssl:
   # default (unused but necessary to set up SSL for local hosts)
   -
@@ -82,11 +117,23 @@ apache_vhosts_ssl:
     extra_parameters: "{{ apache_vhost_php_fpm_parameters }}\n\nProxyPassMatch ^/(.*\\.php(/.*)?)$ \"fcgi://127.0.0.1:9000{{ drupal_core_path }}\"\n"
 mysql_databases:
   -
+    name: atlanta
+    encoding: utf8
+    collation: utf8_general_ci
+  -
     name: atlanticcity
     encoding: utf8
     collation: utf8_general_ci
   -
     name: baltimore
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: chicago
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: kansascity
     encoding: utf8
     collation: utf8_general_ci
   -
@@ -102,6 +149,18 @@ mysql_databases:
     encoding: utf8
     collation: utf8_general_ci
   -
+    name: nashville
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: northwest
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: norwalk
+    encoding: utf8
+    collation: utf8_general_ci
+  -
     name: newengland
     encoding: utf8
     collation: utf8_general_ci
@@ -111,6 +170,10 @@ mysql_databases:
     collation: utf8_general_ci
   -
     name: stlouis
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: tampa
     encoding: utf8
     collation: utf8_general_ci
 mysql_users: {  }

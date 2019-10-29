@@ -204,6 +204,23 @@ vm$ blt nmma:sync-all -n --sync-files
 
 ```
 
+### Copying files between sites on the same environment:
+
+```console
+vm$ drush @[CITY_ALIAS].stage2 ssh
+acquia$ rsync -arv ./sites/[CITY_ALIAS]/files/ ./sites/[CITY_ALIAS]/files/
+# For rsync, the first path is the source path, the second path is the destination
+```
+
+### Reset permissions on a files directory (set files to 664, directories to 775)
+
+```console
+vm$ drush @[CITY_ALIAS].stage2 ssh
+acquia$ cd ./sites/[CITY_ALIAS]/files/
+acquia$ find . -type f -exec chmod 664 {} \;
+acquia$ find . -type d -exec chmod 775 {} \;
+```
+
 ### Reset the admin password
 Get a password reset link:
 ```
