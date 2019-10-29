@@ -1,0 +1,7 @@
+nmma_forms.settings:
+  type: config_object
+  label: 'NMMA Form Marketo Newsletter Sign-up Settings'
+  mapping:
+    marketo_newsletter_list_id:
+      type: text
+      label: 'Marketo newsletter list ID for this site'

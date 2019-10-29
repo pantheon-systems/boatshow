@@ -1,0 +1,14 @@
+project:
+  local:
+    hostname: local.minneapolisboatshow.com
+    protocol: https
+  machine_name: minneapolis
+  human_name: minneapolis
+drush:
+  aliases:
+    local: self
+    remote: minneapolis.dev2
+cm:
+  allow-overrides: false
+  # Possible values: core-only, config-split, features, none.
+  strategy: none

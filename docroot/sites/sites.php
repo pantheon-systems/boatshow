@@ -56,12 +56,47 @@
  * @see https://www.drupal.org/documentation/install/multi-site
  */
 
+ // Atlantic City
+ $sites['local.acboatshow.com'] = 'atlanticcity';
+ $sites['dev2.acboatshow.com'] = 'atlanticcity';
+ $sites['stage2.acboatshow.com'] = 'atlanticcity';
+ $sites['live2.acboatshow.com'] = 'atlanticcity';
+ $sites['www.acboatshow.com'] = 'atlanticcity';
+
+ // Baltimore
+ $sites['local.baltimoreboatshow.com'] = 'baltimore';
+ $sites['dev2.baltimoreboatshow.com'] = 'baltimore';
+ $sites['stage2.baltimoreboatshow.com'] = 'baltimore';
+ $sites['live2.baltimoreboatshow.com'] = 'baltimore';
+ $sites['www.baltimoreboatshow.com'] = 'baltimore';
+
+ // Louisville
+ $sites['local.louisvilleboatshow.com'] = 'louisville';
+ $sites['dev2.louisvilleboatshow.com'] = 'louisville';
+ $sites['stage2.louisvilleboatshow.com'] = 'louisville';
+ $sites['live2.louisvilleboatshow.com'] = 'louisville';
+ $sites['www.louisvilleboatshow.com'] = 'louisville';
+
 // Miami
 $sites['local.miamiboatshow.com'] = 'miami';
 $sites['dev2.miamiboatshow.com'] = 'miami';
 $sites['stage2.miamiboatshow.com'] = 'miami';
 $sites['live2.miamiboatshow.com'] = 'miami';
 $sites['www.miamiboatshow.com'] = 'miami';
+
+// Minneapolis
+$sites['local.minneapolisboatshow.com'] = 'minneapolis';
+$sites['dev2.minneapolisboatshow.com'] = 'minneapolis';
+$sites['stage2.minneapolisboatshow.com'] = 'minneapolis';
+$sites['live2.minneapolisboatshow.com'] = 'minneapolis';
+$sites['www.minneapolisboatshow.com'] = 'minneapolis';
+
+// New Englend
+$sites['local.newenglandboatshow.com'] = 'newengland';
+$sites['dev2.newenglandboatshow.com'] = 'newengland';
+$sites['stage2.newenglandboatshow.com'] = 'newengland';
+$sites['live2.newenglandboatshow.com'] = 'newengland';
+$sites['www.newenglandboatshow.com'] = 'newengland';
 
 // New York
 $sites['local.nyboatshow.com'] = 'newyork';

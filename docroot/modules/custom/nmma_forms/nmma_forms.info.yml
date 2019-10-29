@@ -6,3 +6,4 @@ package: 'NMMA'
 dependencies:
   - clientside_validation_jquery
   - marketo_ma
+configure: nmma_forms.settings

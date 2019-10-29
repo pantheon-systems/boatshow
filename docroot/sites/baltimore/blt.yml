@@ -1,0 +1,14 @@
+project:
+  local:
+    hostname: local.baltimoreboatshow.com
+    protocol: https
+  machine_name: baltimore
+  human_name: baltimore
+drush:
+  aliases:
+    local: self
+    remote: baltimore.dev2
+cm:
+  allow-overrides: false
+  # Possible values: core-only, config-split, features, none.
+  strategy: none
