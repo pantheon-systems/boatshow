@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8814bf882533ab402d771bf8c734cfd",
+    "content-hash": "bcad5e147728a93653796d26892ee2cf",
     "packages": [
         {
             "name": "acquia/blt",
@@ -6991,7 +6991,7 @@
                 },
                 "drupal": {
                     "version": "8.x-3.x-dev",
-                    "datestamp": "1567942385",
+                    "datestamp": "1571943786",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
