@@ -217,7 +217,7 @@ acquia$ rsync -arv ./sites/[CITY_ALIAS]/files/ ./sites/[CITY_ALIAS]/files/
 ```console
 vm$ drush @[CITY_ALIAS].stage2 ssh
 acquia$ cd ./sites/[CITY_ALIAS]/files/
-acquia$ find . -type d -exec chmod 664 {} \;
+acquia$ find . -type f -exec chmod 664 {} \;
 acquia$ find . -type d -exec chmod 775 {} \;
 ```
 
