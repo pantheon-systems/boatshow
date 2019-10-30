@@ -23,7 +23,7 @@ third_party_settings:
 label: 'News Media Image'
 id: news_media_image
 description: ''
-import_period: -1
+import_period: 0
 fetcher: http
 fetcher_configuration:
   auto_detect_feeds: false
