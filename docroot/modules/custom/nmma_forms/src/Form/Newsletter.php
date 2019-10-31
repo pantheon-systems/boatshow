@@ -66,6 +66,7 @@ class Newsletter extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $site_name = \Drupal::config('system.site')->get('name');
     $form['#prefix'] = '<div class="email-field-display-overview-wrapper">';
     $form['#suffix'] = '</div>';
     $form['newsletterEmail'] = [
@@ -102,7 +103,7 @@ class Newsletter extends FormBase {
     ];
     $form['agreement'] = [
       '#type' => 'checkbox',
-      '#title' => 'I agree to receive information from Progressive® Insurance Miami International Boat Show® with news, updates and promotions.',
+      '#title' => 'I agree to receive information from ' . $site_name . '® with news, updates and promotions.',
       '#required' => TRUE,
       '#prefix' => '<div class="submit-input-field--clear">',
       '#suffix' => '</div>',
