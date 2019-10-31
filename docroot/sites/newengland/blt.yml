@@ -1,6 +1,6 @@
 project:
   local:
-    hostname: local.newenglandboatshow.com
+    hostname: local.newenglangboatshow.com
     protocol: https
   machine_name: newengland
   human_name: newengland

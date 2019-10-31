@@ -77,11 +77,6 @@ apache_vhosts:
     servername: local.nashvilleboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
-  # multisite: newengland
-  -
-    servername: local.newenglandboatshow.com
-    documentroot: '{{ drupal_core_path }}'
-    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: northwest
   -
     servername: local.northwestsportshow.com
@@ -90,6 +85,11 @@ apache_vhosts:
   # multisite: norwalk
   -
     servername: local.boatshownorwalk.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: newengland
+  -
+    servername: local.newenglangboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: newyork
