@@ -5,8 +5,9 @@ dependencies:
   config:
     - eck.eck_type.brick.photo_gallery
     - field.field.brick.photo_gallery.field_gallery_images
+    - responsive_image.styles.scale_simple
   module:
-    - image
+    - responsive_image
 id: brick.photo_gallery.default
 targetEntityType: brick
 bundle: photo_gallery
@@ -16,10 +17,10 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: ''
+      responsive_image_style: scale_simple
       image_link: ''
     third_party_settings: {  }
-    type: image
+    type: responsive_image
     region: content
 hidden:
   langcode: true

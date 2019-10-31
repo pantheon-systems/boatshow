@@ -445,3 +445,22 @@ $document-list-icon-top-adjust: 0.3em !default;
     }
   }
 }
+
+.field--name-field-3-col-card-image  {
+  .field--name-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-top: 70%;
+
+    & > img {
+      @include object-fit-cover;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

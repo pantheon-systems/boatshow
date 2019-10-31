@@ -8,6 +8,7 @@ dependencies:
     - field.field.brick.menu_highlight.field_highlight_title
     - field.field.brick.menu_highlight.field_image
     - field.field.brick.menu_highlight.field_link
+    - image.style.thumbnail
   module:
     - image
     - link
@@ -36,7 +37,7 @@ content:
     weight: -1
     label: hidden
     settings:
-      image_style: ''
+      image_style: thumbnail
       image_link: ''
     third_party_settings: {  }
     type: image

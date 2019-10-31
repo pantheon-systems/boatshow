@@ -510,9 +510,17 @@ function boatshow_preprocess_eck_entity(&$variables) {
 
       $background_image_file_entity = \Drupal\file\Entity\File::load($background_image_file_id);
 
+      switch($entity->bundle()) {
+        case 'card_cta':
+          $responsive_image_id = 'grid';
+          break;
+        default:
+          $responsive_image_id = 'scale_simple';
+      }
+
       $background_image_render_array = [
         '#theme' => 'responsive_image',
-        '#responsive_image_style_id' => 'scale_simple',
+        '#responsive_image_style_id' => $responsive_image_id,
         '#uri' => $background_image_file_entity->getFileUri(),
         '#attributes' => [
           'class' => [
@@ -624,20 +632,20 @@ function boatshow_preprocess_eck_entity(&$variables) {
       $variables['card_title'] = html_entity_decode($title);
     }
 
-    if (!$entity->get('field_3_col_card_image')->isEmpty()) {
-      $tsr_image = $entity->get('field_3_col_card_image')->getValue();
-      $image_id = $tsr_image[0]['target_id'];
+    // if (!$entity->get('field_3_col_card_image')->isEmpty()) {
+      // $tsr_image = $entity->get('field_3_col_card_image')->getValue();
+      // $image_id = $tsr_image[0]['target_id'];
 
-      $media = Media::load($image_id);
-      if (!is_null($media)) {
-        $file = $media->get('image')->getValue();
-        $file_id = $file[0]['target_id'];
+      // $media = Media::load($image_id);
+      // if (!is_null($media)) {
+      //   $file = $media->get('image')->getValue();
+      //   $file_id = $file[0]['target_id'];
 
-        $image_file = File::load($file_id);
-        $path = $image_file->getFileUri();
-        $variables['path'] = file_create_url($path);
-      }
-    }
+      //   $image_file = File::load($file_id);
+      //   $path = $image_file->getFileUri();
+      //   // $variables['path'] = file_create_url($path);
+      // }
+    // }
   }
 
   if ($entity->bundle() == 'landing_page_grid_card') {

@@ -4,12 +4,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.grid_item
+    - field.field.media.image.feeds_item
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
-    - image.style.cropped_grid_item
     - media.type.image
+    - responsive_image.styles.grid
   module:
-    - image
+    - responsive_image
 _core:
   default_config_hash: VLDxfMVPTkd2xvOjFMCh3kWmaOYnd03zggFXuUXQVEY
 id: media.image.grid_item
@@ -18,20 +19,22 @@ bundle: image
 mode: grid_item
 content:
   image:
-    type: image
+    type: responsive_image
     weight: 0
+    region: content
     label: hidden
     settings:
-      image_style: cropped_grid_item
+      responsive_image_style: grid
       image_link: ''
     third_party_settings: {  }
-    region: content
 hidden:
   addtoany: true
   created: true
+  feeds_item: true
   field_media_in_library: true
   langcode: true
   name: true
   scheduled_publication: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

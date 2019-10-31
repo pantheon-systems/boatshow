@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.media.image.feeds_item
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
     - media.type.image
@@ -20,15 +21,17 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: ''
       image_link: ''
+      image_style: ''
     third_party_settings: {  }
     region: content
 hidden:
   addtoany: true
   created: true
+  feeds_item: true
   field_media_in_library: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true
