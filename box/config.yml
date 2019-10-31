@@ -89,7 +89,7 @@ apache_vhosts:
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: newengland
   -
-    servername: local.newenglangboatshow.com
+    servername: local.newenglandboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: newyork

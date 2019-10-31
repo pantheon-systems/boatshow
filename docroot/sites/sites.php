@@ -135,7 +135,7 @@ $sites['www.boatshownorwalk.com'] = 'norwalk';
 
 // New England
 $sites['local.newenglandboatshow.com'] = 'newengland';
-$sites['dev2.newenglangdoatshow.com'] = 'newengland';
+$sites['dev2.newenglandboatshow.com'] = 'newengland';
 $sites['stage2.newenglandboatshow.com'] = 'newengland';
 $sites['live2.newenglandboatshow.com'] = 'newengland';
 $sites['www.newenglandboatshow.com'] = 'newengland';
