@@ -50,7 +50,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: scale_simple
+      view_mode: grid_item
       link: false
     third_party_settings: {  }
     region: content
@@ -58,4 +58,5 @@ hidden:
   field_background_color: true
   field_invert_text: true
   langcode: true
+  search_api_excerpt: true
   title: true

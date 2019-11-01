@@ -44,7 +44,7 @@ third_party_settings:
 label: News
 id: news
 description: ''
-import_period: -1
+import_period: 0
 fetcher: http
 fetcher_configuration:
   auto_detect_feeds: false

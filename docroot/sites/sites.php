@@ -119,13 +119,6 @@ $sites['stage2.nashvilleboatshow.com'] = 'nashville';
 $sites['live2.nashvilleboatshow.com'] = 'nashville';
 $sites['www.nashvilleboatshow.com'] = 'nashville';
 
-// New Englend
-$sites['local.newenglandboatshow.com'] = 'newengland';
-$sites['dev2.newenglandboatshow.com'] = 'newengland';
-$sites['stage2.newenglandboatshow.com'] = 'newengland';
-$sites['live2.newenglandboatshow.com'] = 'newengland';
-$sites['www.newenglandboatshow.com'] = 'newengland';
-
 // Northwest
 $sites['local.northwestsportshow.com'] = 'northwest';
 $sites['dev2.northwestsportshow.com'] = 'northwest';
@@ -139,6 +132,13 @@ $sites['dev2.boatshownorwalk.com'] = 'norwalk';
 $sites['stage2.boatshownorwalk.com'] = 'norwalk';
 $sites['live2.boatshownorwalk.com'] = 'norwalk';
 $sites['www.boatshownorwalk.com'] = 'norwalk';
+
+// New England
+$sites['local.newenglandboatshow.com'] = 'newengland';
+$sites['dev2.newenglandboatshow.com'] = 'newengland';
+$sites['stage2.newenglandboatshow.com'] = 'newengland';
+$sites['live2.newenglandboatshow.com'] = 'newengland';
+$sites['www.newenglandboatshow.com'] = 'newengland';
 
 // New York
 $sites['local.nyboatshow.com'] = 'newyork';

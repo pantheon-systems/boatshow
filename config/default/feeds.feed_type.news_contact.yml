@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.base_field_override.node.contact_profile.title
     - field.field.node.contact_profile.field_profile_email
     - field.field.node.contact_profile.field_profile_phone
     - node.type.contact_profile
@@ -12,7 +13,7 @@ dependencies:
 label: 'News Contact'
 id: news_contact
 description: ''
-import_period: -1
+import_period: 0
 fetcher: http
 fetcher_configuration:
   auto_detect_feeds: false

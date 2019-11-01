@@ -15,6 +15,13 @@ if (file_exists('/var/www/site-php')) {
 }
 
 /**
+ * permanently set  website temporary files directory to fix feeds import error in production
+ * https://docs.acquia.com/acquia-cloud/manage/files/broken/
+*/
+$config['system.file']['path']['temporary'] =
+"/mnt/gfs/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/tmp";
+
+/**
  * @file
  * Drupal site-specific configuration file.
  *
