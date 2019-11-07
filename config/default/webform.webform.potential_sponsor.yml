@@ -12,7 +12,7 @@ id: potential_sponsor
 title: 'Potential Sponsor'
 description: ''
 category: ''
-elements: "name:\n  '#type': webform_name\n  '#title': Name\n  '#required': true\n  '#title__access': false\n  '#first__title': 'First Name'\n  '#first__required': true\n  '#middle__access': false\n  '#last__title': 'Last Name'\n  '#last__required': true\n  '#suffix__access': false\n  '#degree__access': false\ncompany_name:\n  '#type': textfield\n  '#title': 'Company Name'\n  '#required': true\n  '#required_error': 'Company name is required'\nemail:\n  '#type': email\n  '#title': Email\n  '#required': true\n  '#required_error': 'Email is required'\nphone:\n  '#type': tel\n  '#title': Phone\n  '#required': true\ncaptcha:\n  '#type': captcha\n  '#captcha_type': recaptcha/reCAPTCHA"
+elements: "name:\n  '#type': webform_name\n  '#title': Name\n  '#required': true\n  '#title__access': false\n  '#first__title': 'First Name'\n  '#first__required': true\n  '#middle__access': false\n  '#last__title': 'Last Name'\n  '#last__required': true\n  '#suffix__access': false\n  '#degree__access': false\ncompany_name:\n  '#type': textfield\n  '#title': 'Company Name'\n  '#required': true\n  '#required_error': 'Company name is required'\nemail:\n  '#type': email\n  '#title': Email\n  '#required': true\n  '#required_error': 'Email is required'\nphone:\n  '#type': tel\n  '#title': Phone\n  '#required': true\nurl:\n  '#type': url\n  '#title': URL\n  '#required': true\ncaptcha:\n  '#type': captcha\n  '#captcha_type': recaptcha/reCAPTCHA"
 css: ''
 javascript: ''
 settings:
