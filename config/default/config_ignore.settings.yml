@@ -5,7 +5,6 @@ ignored_config_entities:
   6: 'google_tag.container.*'
   8: nmma_forms.settings
   10: feeds.feed_type.exhibitors
-  12: shield.settings
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
 enable_export_filtering: true
