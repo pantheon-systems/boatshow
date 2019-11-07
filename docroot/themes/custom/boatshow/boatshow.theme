@@ -506,30 +506,32 @@ function boatshow_preprocess_eck_entity(&$variables) {
 
       $background_image_media_entity = \Drupal::entityTypeManager()->getStorage('media')->load($background_image_media_id);
 
-      $background_image_file_id = $background_image_media_entity->image->first()->getValue()['target_id'];
+      if (isset($background_image_media_entity->image)) {
+        $background_image_file_id = $background_image_media_entity->image->first()->getValue()['target_id'];
 
-      $background_image_file_entity = \Drupal\file\Entity\File::load($background_image_file_id);
+        $background_image_file_entity = \Drupal\file\Entity\File::load($background_image_file_id);
 
-      switch($entity->bundle()) {
-        case 'card_cta':
-          $responsive_image_id = 'grid';
-          break;
-        default:
-          $responsive_image_id = 'scale_simple';
-      }
+        switch($entity->bundle()) {
+          case 'card_cta':
+            $responsive_image_id = 'grid';
+            break;
+          default:
+            $responsive_image_id = 'scale_simple';
+        }
 
-      $background_image_render_array = [
-        '#theme' => 'responsive_image',
-        '#responsive_image_style_id' => $responsive_image_id,
-        '#uri' => $background_image_file_entity->getFileUri(),
-        '#attributes' => [
-          'class' => [
-            'brick-background-image'
+        $background_image_render_array = [
+          '#theme' => 'responsive_image',
+          '#responsive_image_style_id' => $responsive_image_id,
+          '#uri' => $background_image_file_entity->getFileUri(),
+          '#attributes' => [
+            'class' => [
+              'brick-background-image'
+            ]
           ]
-        ]
-      ];
+        ];
 
-      $variables['brick_background_image'] = $background_image_render_array;
+        $variables['brick_background_image'] = $background_image_render_array;
+      }
     }
   }
 
