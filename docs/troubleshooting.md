@@ -1,3 +1,8 @@
+Troubleshooting
+===
+
+Use this document to track common troubleshooting steps that might not belong anywhere else.
+
 # Config Import/Config Ignore/Config Split
 
 ## UnknownExtensionException during Drush Config Import [Sandstorm Jira: NMMA-213]
