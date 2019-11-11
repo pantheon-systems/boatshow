@@ -32,14 +32,19 @@ Once the pull request is merged (or **anytime** code is merged into origin/2.x-d
 
 # Preparing a Release
 
+## 0. Backup databases
+    Acquia console
+    
 ## 1. Create a release branch
 
     $ git fetch -a
-    $ git checkout -b release/0.0.0 origin/2.x-develop
+    check github for the last [release](https://github.com/NationalMarine/BoatShows/releases)    
+    $ git checkout -b release/v0.0.0 origin/2.x-develop
 
 ## 2. Publish release branch to github
 
-    $ git push -u origin release/0.0.0
+    $ git push -u origin release/v0.0.0
+    check deployment in Travis and Acquia 
 
 ## 3. Deployment to STAGE environment
 
@@ -49,7 +54,7 @@ Once the release branch is published to Github, Travis CI will automatically dep
 
 The release should be thoroughly tested on the STAGE environment. Further commits can be added to the release branch on github, which will trigger additional builds to STAGE:
 
-    $ git checkout release/0.0.0
+    $ git checkout release/v0.0.0
     $ git commit
     $ git push origin release/0.0.0
 
@@ -59,9 +64,9 @@ Once final approval is received, proceed to the next step.
 
     $ git checkout 2.x-master
     $ git pull origin 2.x-master
-    $ git merge --squash release/0.0.0
+    $ git merge --squash release/v0.0.0
     # When committing, the first line of the commit should be "Release X.Y.Z"
-    $ git commit
+    $ git commit -m "message here"
     $ git tag vX.Y.Z
     $ git push origin 2.x-master
     $ git push --tags
@@ -144,7 +149,7 @@ All deployments to LIVE are manual, and follow the same process:
 
     $ git checkout 2.x-master
     $ vagrant ssh
-    vagrant$ composer install
+    $ composer install
     vagrant$ cd /var/www/boatshow/docroot/themes/custom/boatshow
     vagrant$ npm install && gulp build
     vagrant$ exit
