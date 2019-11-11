@@ -25,8 +25,8 @@ javascript:
     assets-dist/js/newsletter.js: {}
     assets-dist/js/getting-to-the-show.js: {}
     assets-dist/js/seminarview.js: {}
-    assets-dist/js/sailingattheshow.js: {}
     assets-dist/js/seniority-points.js: {}
+    assets-dist/js/read-more.js: {}
   dependencies:
     - core/jquery
     - core/drupal.ajax
@@ -62,9 +62,6 @@ responsive_image_polyfills:
   js:
     ../../../libraries/object-fit-images/dist/ofi.min.js: {}
     ../../../libraries/picturefill/dist/picturefill.min.js: {}
-
-
-
 
 #
 # City site-specific libraries
