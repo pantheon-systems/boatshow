@@ -24,14 +24,6 @@
   margin-top: 5px;
   margin-bottom: 5px;
 
-  .booth-location {
-    &:after {
-      display:inline;
-      content: ':';
-      margin-left: -4px;
-    }
-  }
-
   .views-row {
     float: none;
   }
