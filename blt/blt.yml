@@ -56,7 +56,7 @@ sync:
     - "nmma:noop"
 modules:
   local:
-    enable: [dblog, devel, seckit, views_ui]
+    enable: [dblog, devel, seckit, views_ui, kint]
     uninstall: [acquia_connector, shield, acquia_lift, acquia_lift_inspector]
   ci:
     enable: {  }
@@ -66,7 +66,7 @@ modules:
     uninstall: {  }
   test:
     enable: [acquia_connector, shield, acquia_lift, acquia_lift_inspector]
-    uninstall: [devel, views_ui]
+    uninstall: [devel, views_ui, kint]
   prod:
     enable: [acquia_connector, shield, acquia_lift, acquia_lift_inspector]
-    uninstall: [devel, views_ui]
+    uninstall: [devel, views_ui, kint]

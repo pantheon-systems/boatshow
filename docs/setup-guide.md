@@ -181,3 +181,21 @@ Get a one time login link for a multisite
 ```
 vm$ drush @{multisite}.local uli
 ```
+
+## Notable Gulp Tasks for Local Development
+
+### Watch
+
+```console
+vm$ gulp watch        # Watch SCSS and JS files
+vm$ gulp watch:sass   # Watch SCSS files only
+vm$ gulp watch:js     # Watch JS files only
+```
+
+### Build
+Compile/minify/lint SCSS and JS files
+
+```console
+vm$ gulp build # Compile/minify/lint SCSS and JS files
+vm$ gulp # The default 'gulp' command by itself is set to run 'gulp build'
+```
