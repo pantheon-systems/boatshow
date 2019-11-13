@@ -36,6 +36,7 @@ multisites:
   - norwalk
   - newengland
   - newyork
+  - sportshows
   - stlouis
   - tampa
 disable-targets:
@@ -68,5 +69,5 @@ modules:
     enable: [acquia_connector, shield, acquia_lift, acquia_lift_inspector]
     uninstall: [devel, views_ui, kint]
   prod:
-    enable: [acquia_connector, shield, acquia_lift, acquia_lift_inspector]
-    uninstall: [devel, views_ui, kint]
+    enable: [acquia_connector, acquia_lift, acquia_lift_inspector]
+    uninstall: [devel, views_ui, shield, kint]
