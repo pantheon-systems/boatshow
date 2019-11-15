@@ -18,7 +18,7 @@
     attach: function attach(context, settings) {
 
       $('.brick--type--exposed-filter').once('boatshowCustomFilters').each(function () {
-        $filtersParent = $(this);
+        var $filtersParent = $(this);
 
         $filtersParent.find('input[type="radio"][name="field_date_radios"]').change(function() {
           const value = $(this).val();
