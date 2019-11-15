@@ -45,6 +45,11 @@ $config['system.performance']['css']['preprocess'] = FALSE;
 $config['system.performance']['js']['preprocess'] = FALSE;
 
 /**
+ * Disable Advagg for Local Development
+ */
+$config['advagg.settings']['enabled'] = FALSE;
+
+/**
  * Disable the render cache (this includes the page cache).
  *
  * Note: you should test with the render cache enabled, to ensure the correct
@@ -85,9 +90,9 @@ $settings['extension_discovery_scan_tests'] = FALSE;
  * See https://www.drupal.org/node/2754947
  */
 
- $settings['cache']['bins']['bootstrap'] = 'cache.backend.null';
- $settings['cache']['bins']['discovery'] = 'cache.backend.null';
- $settings['cache']['bins']['config'] = 'cache.backend.null';
+$settings['cache']['bins']['bootstrap'] = 'cache.backend.null';
+$settings['cache']['bins']['discovery'] = 'cache.backend.null';
+$settings['cache']['bins']['config'] = 'cache.backend.null';
 
 
 /**

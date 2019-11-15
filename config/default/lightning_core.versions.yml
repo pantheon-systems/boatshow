@@ -232,3 +232,7 @@ nmma_clipboardjs: 0.0.0
 google_tag: 1.2.0
 module_missing_message_fixer: 1.1.0
 content_access: 1.0.0-alpha1
+advagg: 4.0.0
+advagg_bundler: 4.0.0
+advagg_css_minify: 4.0.0
+advagg_js_minify: 4.0.0

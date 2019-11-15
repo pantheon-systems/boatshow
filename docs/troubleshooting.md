@@ -41,6 +41,7 @@ Performance settings controlling caching of CSS and JS can be managed in the Dru
   - CSS/JS optimization caching
     - $config['system.performance']['css']['preprocess']
     - $config['system.performance']['js']['preprocess']
+    - $config['advagg.settings']['enabled']
   - Render caches
     - $settings['cache']['bins']['render']
     - $settings['cache']['bins']['dynamic_page_cache']
