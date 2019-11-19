@@ -3,7 +3,7 @@
 
   Drupal.behaviors.boatshowSeminarView = {
     attach: function attach(context, settings) {
-      $('.view-seminarreference .view-content .grouping-row').text(function (index, oldText) {
+      $('.view-seminarreference .view-content .grouping-row').once('boatshowSeminarView').text(function (index, oldText) {
         return oldText.replace(/^\s+|\s+$/g, '');
       });
      }

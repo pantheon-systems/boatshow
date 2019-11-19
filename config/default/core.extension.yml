@@ -92,6 +92,7 @@ module:
   inline_entity_form: 0
   inline_form_errors: 0
   jsonapi: 0
+  kint: 0
   knockout: 0
   language: 0
   layout_discovery: 0
@@ -182,7 +183,6 @@ module:
   search_api_db: 0
   seckit: 0
   serialization: 0
-  shield: 0
   shortcut: 0
   simple_oauth: 0
   simple_oauth_extras: 0

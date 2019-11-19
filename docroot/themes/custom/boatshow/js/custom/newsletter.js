@@ -5,9 +5,9 @@
   Drupal.behaviors.boatshowNewsletter = {
     attach: function attach(context, settings) {
 
-      // Newsletter events.
-      if ($('#newsletter-optin').length) {
-        var checkbox = $('#newsletter-optin');
+      $('#newsletter-optin').once('boatshowNewsletter').each(function(){
+
+        var checkbox = $(this);
         var button = $('.newsletter-form input.form-submit');
 
         if (checkbox.is(':checked')) {
@@ -23,7 +23,8 @@
             button.attr('disabled', 'disabled');
           }
         });
-      }
+
+      });
 
     }
   }

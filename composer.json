@@ -41,6 +41,7 @@
         "drupal/admin_toolbar": "^1.0",
         "drupal/admin_toolbar_tools": "^1.0",
         "drupal/adminimal_admin_toolbar": "^1.7",
+        "drupal/advagg": "^4.0",
         "drupal/anchor_link": "^1.6",
         "drupal/auto_entitylabel": "^2.1@beta",
         "drupal/better_exposed_filters": "^3.0@alpha",

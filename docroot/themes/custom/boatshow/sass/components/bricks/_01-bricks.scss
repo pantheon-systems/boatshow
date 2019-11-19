@@ -451,7 +451,7 @@ $document-list-icon-top-adjust: 0.3em !default;
     display: block;
     position: relative;
     width: 100%;
-    padding-top: 70%;
+    padding-top: 100% / $brick-card-cta-aspect-ratio;
 
     & > img {
       @include object-fit-cover;

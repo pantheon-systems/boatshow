@@ -91,6 +91,8 @@
 
 .icon-db-circle::before {
   content: '\0051';
+  font-size: rem-calc(12px);
+  padding-top: 0;
 }
 
 .icon-db-social-email::before {

@@ -34,7 +34,7 @@ Once the pull request is merged (or **anytime** code is merged into origin/2.x-d
 
 ## 0. Backup databases
     Acquia console
-    
+
 ## 1. Create a release branch
 
     $ git fetch -a
@@ -44,7 +44,7 @@ Once the pull request is merged (or **anytime** code is merged into origin/2.x-d
 ## 2. Publish release branch to github
 
     $ git push -u origin release/v0.0.0
-    check deployment in Travis and Acquia 
+    check deployment in Travis and Acquia
 
 ## 3. Deployment to STAGE environment
 

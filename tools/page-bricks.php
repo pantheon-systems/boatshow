@@ -4,8 +4,8 @@
 Usage:
 
 ```
-vm$ cd /var/www/boatshow/docroot/themes/custom/boatshow
-vm$ drush -l chicago php-script ../../../../tools/page-bricks.php > /vagrant/brick-report.csv
+vm$ cd /var/www/boatshow/docroot
+vm$ drush -l miami php-script ../tools/page-bricks.php > /vagrant/brick-report.csv
 ```
  */
 
@@ -44,10 +44,6 @@ $type_definitions = [
   [
     'entity_type' => 'node',
     'field_name' => 'field_test_brick',
-  ],
-  [
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_activity_bricks',
   ]
 ];
 
@@ -68,11 +64,14 @@ foreach ($type_definitions as $type_definition) {
     foreach($bricks_on_entity as $brick_eref) {
       $brickEntity = EckEntity::load($brick_eref['target_id']);
 
+      if (!$brickEntity) continue;
+
       $csvData[] = [
         'id' => $brickEntity->id(),
         'bundle' => $brickEntity->bundle(),
         'css_classes' => $brick_eref['options']['css_class'],
-        'view_mode' => $brick_eref['options']['view_mode'],
+        // 'view_mode' => $brick_eref['options']['view_mode'],
+        'layout' => $brick_eref['options']['layout'],
         'on' => $type_definition['entity_type'] . ':' . $entity->id() . ':' . $type_definition['field_name']
       ];
     }

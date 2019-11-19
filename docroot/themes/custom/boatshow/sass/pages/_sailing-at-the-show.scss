@@ -20,6 +20,22 @@
     content: none;
 }
 
+.exhibitor-booth-group {
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  .views-row {
+    float: none;
+  }
+
+  .views-row:not(.views-row-last) {
+    &:after {
+      display:inline;
+      content: ',';
+      margin-left: -4px;
+    }
+  }
+}
 
 .view-display-id-sail_boats .views-view-grid .views-col,
 .view-display-id-sail_accessories .views-view-grid .views-col

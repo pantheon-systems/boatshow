@@ -1,70 +1,65 @@
 (function($, Drupal) {
   'use strict';
 
+  // Convert a single date to min (00:00:00) and max(23:59:59) for a given day
+  // and set values to date-between form fields
+  function filterDateRangeCheckboxes(value, minTarget, maxTarget) {
+    if (value){
+      let min = value.split('|')[0];
+      let max = value.split('|')[1];
+      console.log(min, max);
+      $(minTarget).val(min);
+      $(maxTarget).val(max);
+    }
+  }
+
   // Example of Drupal behavior loaded.
   Drupal.behaviors.boatshowCustomFilters = {
     attach: function attach(context, settings) {
 
-      // Convert a single date to min (00:00:00) and max(23:59:59) for a given day
-      // and set values to date-between form fields
-      function filterDateRangeCheckboxes(value, minTarget, maxTarget) {
+      $('.brick--type--exposed-filter').once('boatshowCustomFilters').each(function () {
+        var $filtersParent = $(this);
 
-        if (value){
-          let min = value.split('|')[0];
-          let max = value.split('|')[1];
-          console.log(min, max);
-          jQuery(minTarget).val(min);
-          jQuery(maxTarget).val(max);
+        $filtersParent.find('input[type="radio"][name="field_date_radios"]').change(function() {
+          const value = $(this).val();
+          const minTarget="#edit-field-smnr-seminar-date-value-min";
+          const maxTarget="#edit-field-smnr-seminar-date-value-max";
+          filterDateRangeCheckboxes(value, minTarget, maxTarget);
+        });
+
+        $filtersParent.find('input[type="radio"][name="field_speaker_radios"]').change(function() {
+          const value = $(this).val();
+          $('#edit-field-smnr-speaker-target-id').val(value);
+        });
+
+        if ($filtersParent.hasClass('collapsible')) {
+          $filtersParent.find('.form--inline >.form-item').each(function(){
+            if ($(this).css('display') != 'none'){
+              $(this).attr('open', '');
+            }
+          });
+
+          $filtersParent.find('.toggle-filters').click(function(){
+            const $form = $(this).closest('.brick--type--exposed-filters.collapsible');
+            $form.toggleClass('collapse');
+            $form.find('.form--inline >.form-item').each(function(){
+              if (!$form.hasClass('collapse') && $(this).css('display') != 'none'){
+                $(this).attr('open', '');
+              } else {
+                $(this).removeAttr('open');
+              }
+            })
+          });
+
+          $filtersParent.find('.close-filters').click(function(){
+            const $form = $(this).closest('.brick--type--exposed-filters.collapsible');
+            $form.addClass('collapse');
+            $form.find('.form--inline >.form-item').each(function(){
+              $(this).removeAttr('open');
+            })
+          });
         }
-      }
-
-      jQuery('input[type="radio"][name="field_date_radios"]').change(function() {
-        const value = jQuery(this).val();
-        const minTarget="#edit-field-smnr-seminar-date-value-min";
-        const maxTarget="#edit-field-smnr-seminar-date-value-max";
-        filterDateRangeCheckboxes(value, minTarget, maxTarget);
       });
-
-      jQuery('input[type="radio"][name="field_speaker_radios"]').change(function() {
-        const value = jQuery(this).val();
-        jQuery('#edit-field-smnr-speaker-target-id').val(value);
-      });
-
-      jQuery('.brick--type--exposed-filters.collapsible').find('.form--inline >.form-item').each(function(){
-        if (jQuery(this).css('display') != 'none'){
-          jQuery(this).attr('open', '');
-        }
-      })
-      jQuery('.brick--type--exposed-filters.collapsible .toggle-filters').click(function(){
-        const $form = jQuery(this).closest('.brick--type--exposed-filters.collapsible');
-        $form.toggleClass('collapse');
-        $form.find('.form--inline >.form-item').each(function(){
-          if (!$form.hasClass('collapse') && jQuery(this).css('display') != 'none'){
-            jQuery(this).attr('open', '');
-          } else {
-            jQuery(this).removeAttr('open');
-          }
-        })
-      })
-
-      // jQuery('.brick--type--exposed-filters .js-hide').each(function(){
-      //   if (jQuery(this).is(':only-child')){
-      //     jQuery(this).parent().remove();
-      //   } else {
-      //     jQuery(this).remove();
-      //   }
-
-      // });
-
-      jQuery('.brick--type--exposed-filters.collapsible .close-filters').click(function(){
-        const $form = jQuery(this).closest('.brick--type--exposed-filters.collapsible');
-        $form.addClass('collapse');
-        $form.find('.form--inline >.form-item').each(function(){
-          jQuery(this).removeAttr('open');
-        })
-      })
-
-
     }
   };
 
@@ -72,7 +67,7 @@
     attach: function attach(context, settings) {
 
       // Features filter.
-      $('.features-filter .filter').on('click', function() {
+      $('.features-filter .filter').once('boatshowFeaturesFilter').on('click', function() {
         var class_name = $.grep(this.className.split(" "), function(v, i){
           return v.indexOf('filter-') === 0;
         }).join();
