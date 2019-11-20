@@ -16,7 +16,7 @@ third_party_settings:
 label: 'News Social Media Image'
 id: news_media
 description: ''
-import_period: 0
+import_period: 43200
 fetcher: http
 fetcher_configuration:
   auto_detect_feeds: false

@@ -15,7 +15,7 @@ dependencies:
 label: 'Seniority Points'
 id: seniority_points
 description: ''
-import_period: 0
+import_period: 604800
 fetcher: http
 fetcher_configuration:
   auto_detect_feeds: false
