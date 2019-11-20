@@ -47,6 +47,11 @@ apache_vhosts:
     servername: local.chicagoboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: chicagoland
+  -
+    servername: local.chicago.sportshows.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: baltimore
   -
     servername: local.baltimoreboatshow.com
@@ -135,6 +140,10 @@ mysql_databases:
     collation: utf8_general_ci
   -
     name: chicago
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: chicagoland
     encoding: utf8
     collation: utf8_general_ci
   -

@@ -25,6 +25,7 @@ drush:
 multisites:
   - atlanta
   - chicago
+  - chicagoland  
   - atlanticcity
   - baltimore
   - kansascity
