@@ -75,6 +75,10 @@
 
 .icon-db-check::before {
   content: '\004d';
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 900;
+  padding-top: 0;
 }
 
 .icon-db-checkbox-o::before {
@@ -91,7 +95,7 @@
 
 .icon-db-circle::before {
   content: '\0051';
-  font-size: rem-calc(12px);
+  font-size: 0.8rem;
   padding-top: 0;
 }
 

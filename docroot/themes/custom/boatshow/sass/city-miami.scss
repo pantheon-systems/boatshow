@@ -1,48 +1,9 @@
 ///////////////////////////////
 /// 1. City Override Variables
 ///////////////////////////////
-$colorname-miami-magenta: #e12b6e;
-$colorname-miami-aqua: #2dace3;
-$colorname-miami-orange: #f87f0f;
-$colorname-miami-gray: #4d4d4d;
-
-$city-color-primary: $colorname-miami-magenta;
-$city-color-secondary: $colorname-miami-aqua;
-$city-color-tertiary: $colorname-miami-orange;
-
-$city-hero-bg: '../../images/atlanta/main-background.jpg';
-
-// Text
-$color-text: $colorname-miami-gray;
-
-// Font
-$font-primary: 'CircularStd', 'Helvetica', sans-serif;
-
-$font-weight-thin: 400;
-$font-weight-light: 400;
-$font-weight-normal: 400;
-$font-weight-semibold: 600;
-$font-weight-bold: 800;
-
-// Miami is the only site with this medium font weight
-$custom-font-weight-medium: 500;
-
-// All buttons
-$button-border-radius: 5px;
-$button-border-width: 2px;
-
-// Button Primary
-$color-button-primary-border: #fff;
-$color-button-secondary-fill: transparent;
-
-// Button Secondary
-$color-button-secondary-border: $city-color-primary;
-$color-button-secondary-text: $city-color-primary;
-
-// Headline effects
-$headline-effect-thickthin-color: $city-color-primary;
-$headline-effect-thickthin-weight-thin: $font-weight-normal;
-$headline-effect-thickthin-weight-thick: $font-weight-bold;
+$city-color-primary: #e12b6e;
+$city-color-secondary: #2dace3;
+$city-color-tertiary: #f87f0f;
 
 ///////////////////////////////
 /// 2. Include Stylesheet
@@ -55,17 +16,4 @@ $headline-effect-thickthin-weight-thick: $font-weight-bold;
 // Miami has a narrower logo than most
 .header-bar .logo {
   width: 148px;
-}
-
-// Use of 'medium' font weight sprinkled around site
-.show-info-banner .show-location {
-  font-weight: $custom-font-weight-medium;
-}
-
-// Use medium font weight for primary and utility nav (all breakpoints)
-[id="block-mainnavigationboatshow"],
-[id="block-headersecondarynav-menu"] {
-  & > ul > li:not([class*="button"]) > a {
-    font-weight: $custom-font-weight-medium;
-  }
 }
