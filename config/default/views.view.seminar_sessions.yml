@@ -152,7 +152,7 @@ display:
           type: datetime_custom
           settings:
             timezone_override: ''
-            date_format: 'l, F j'
+            date_format: 'l, F j, g:i a'
           group_column: value
           group_columns: {  }
           group_rows: true

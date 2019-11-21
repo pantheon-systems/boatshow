@@ -16,7 +16,7 @@
  */
 #}
 <div class="exhibitor-booth-group">
-  {% if title %}
+  {% if title|striptags|trim %}
     <span class="booth-location">{{ title|striptags|trim }}:</span>
   {% endif %}
   {% for row in rows %}

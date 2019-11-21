@@ -1,9 +1,9 @@
 ///////////////////////////////
 /// 1. City Override Variables
 ///////////////////////////////
-$city-color-primary: #e12b6e;
-$city-color-secondary: #2dace3;
-$city-color-tertiary: #f87f0f;
+$city-color-primary: #0e753c;
+$city-color-secondary: #0075bf;
+$city-color-tertiary: #0075bf;
 
 ///////////////////////////////
 /// 2. Include Stylesheet
@@ -13,7 +13,3 @@ $city-color-tertiary: #f87f0f;
 ///////////////////////////////
 /// 3. City Override CSS Rules
 ///////////////////////////////
-// Miami has a narrower logo than most
-.header-bar .logo {
-  width: 148px;
-}

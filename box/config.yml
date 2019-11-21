@@ -47,6 +47,11 @@ apache_vhosts:
     servername: local.chicagoboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  # multisite: chicagoland
+  -
+    servername: local.chicagoland.sportshows.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: baltimore
   -
     servername: local.baltimoreboatshow.com
@@ -97,6 +102,11 @@ apache_vhosts:
     servername: local.nyboatshow.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  #multisite: saltwater
+  -
+    servername: local.saltwater.sportshows.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: sportshows
   -
     servername: local.sportshows.com
@@ -105,6 +115,11 @@ apache_vhosts:
   #multisite: stlouis
   -
     servername: local.stlouisboatshow.com
+    documentroot: '{{ drupal_core_path }}'
+    extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
+  #multisite: suffern
+  -
+    servername: local.suffern.sportshows.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   #multisite: tampa
@@ -135,6 +150,10 @@ mysql_databases:
     collation: utf8_general_ci
   -
     name: chicago
+    encoding: utf8
+    collation: utf8_general_ci
+  -
+    name: chicagoland
     encoding: utf8
     collation: utf8_general_ci
   -
@@ -178,9 +197,17 @@ mysql_databases:
     encoding: utf8
     collation: utf8_general_ci
   -
+    name: saltwater
+    encoding: utf8
+    collation: utf8_general_ci
+  -
     name: stlouis
     encoding: utf8
     collation: utf8_general_ci
+  -
+    name: suffern
+    encoding: utf8
+    collation: utf8_general_ci    
   -
     name: tampa
     encoding: utf8

@@ -109,6 +109,13 @@
   }
 }
 
+[id="block-mainnavigationboatshow"],
+[id="block-headersecondarynav-menu"] {
+  & > ul > li:not([class*="button"]) > a {
+    font-weight: $font-weight-medium;
+  }
+}
+
 .menu-dropdown .block-menu{
   h2 {
     font-size: 20px;

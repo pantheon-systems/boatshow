@@ -4,13 +4,12 @@
 $city-color-primary: magenta !default;
 $city-color-secondary: magenta !default;
 $city-color-tertiary: $city-color-secondary !default;
-$city-hero-bg: '../../../images/atlanticcity/main-background.jpg' !default;
 
 ///////////////////////////
 // Fonts
 // Font variables with semantic names related to their purpose
 ///////////////////////////
-$font-primary: 'Proxima Nova', 'Helvetica', sans-serif !default;
+$font-primary: 'CircularStd', 'Helvetica', sans-serif !default;
 $font-headings: $font-primary !default;
 
 ///////////////////////////
@@ -28,6 +27,7 @@ $colorname-med-gray: lighten($colorname-black, 40%) !default; // #666666;
 $colorname-gray-unleaded: #7f7f7f !default;
 $colorname-gray-oslo: #979da0 !default;
 $colorname-gray-medium: #a2a2a2 !default;
+$colorname-miami-gray: #4d4d4d !default;
 $colorname-gray-chateau: #a3a9ac !default;
 $colorname-light-gray: lighten($colorname-black, 70%) !default; // #b3b3b3;
 $colorname-gray-silver-sand-alt: #bdc2c7 !default;
@@ -54,7 +54,7 @@ $colorname-monza-red: #d90a0a !default;
 ///////////////////////////
 
 // Utility color variables ///////////////
-$color-text: $colorname-black !default;
+$color-text: $colorname-miami-gray !default;
 $color-text-inverted: $colorname-white !default;
 $color-headings: $color-text !default;
 $color-links: $city-color-secondary !default;
@@ -83,17 +83,17 @@ $transition-speed: 0.3s;
 $transition-style: ease-in-out;
 
 // Button Variables
-$button-border-radius: 0 !default;
+$button-border-radius: 5px !default;
 $button-border-width: 2px !default;
 
 $color-button-primary-fill: $city-color-primary !default;
 $color-button-primary-text: $colorname-white !default;
-$color-button-primary-border: $city-color-primary !default;
+$color-button-primary-border: $colorname-white !default;
 
-$color-button-secondary-fill: $colorname-white !default;
-$color-button-secondary-text: $colorname-gray-dark !default;
+$color-button-secondary-fill: transparent !default;
+$color-button-secondary-text: $city-color-primary !default;
 // TODO: Make a color var for this gray.
-$color-button-secondary-border: $colorname-gray-unleaded !default;
+$color-button-secondary-border: $city-color-primary !default;
 
 $color-button-clear-fill: transparent !default;
 $color-button-clear-text: $colorname-white !default;
@@ -168,11 +168,12 @@ $font-size-input: 10px !default;
 $font-size-input-large: 12px !default;
 $font-size-input-xlarge: 14px !default;
 
-$font-weight-thin: 100 !default;
-$font-weight-light: 300 !default;
-$font-weight-normal: normal !default;
+$font-weight-thin: 400 !default;
+$font-weight-light: 400 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
 $font-weight-semibold: 600 !default;
-$font-weight-bold: bold !default;
+$font-weight-bold: 800 !default;
 
 // Dimensions
 
@@ -216,9 +217,9 @@ $main-navigation-item-gutter-mobile: 30px !default; //todo: match grid
 $header-footer-button-font-size: 15px;
 
 // Effect: Contrast Headline
-$headline-effect-thickthin-weight-thin: $font-weight-thin !default;
+$headline-effect-thickthin-weight-thin: $font-weight-normal !default;
 $headline-effect-thickthin-weight-thick: $font-weight-bold !default;
-$headline-effect-thickthin-color: null !default;
+$headline-effect-thickthin-color: $city-color-primary !default;
 
 // Contextual links
 $context-btn-bg-color: $city-color-secondary !default;

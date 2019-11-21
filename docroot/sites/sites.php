@@ -84,6 +84,13 @@
  $sites['live2.chicagoboatshow.com'] = 'chicago';
  $sites['www.chicagoboatshow.com'] = 'chicago';
 
+ // Chicagoland
+ $sites['local.chicagoland.sportshows.com'] = 'chicagoland';
+ $sites['dev2.chicagoland.sportshows.com'] = 'chicagoland';
+ $sites['stage2.chicagoland.sportshows.com'] = 'chicagoland';
+ $sites['live2.chicagoland.sportshows.com'] = 'chicagoland';
+ $sites['www.chicagoland.sportshows.com'] = 'chicagoland';
+
  // Kansas City
  $sites['local.kansascitysportshow.com'] = 'kansascity';
  $sites['dev2.kansascitysportshow.com'] = 'kansascity';
@@ -147,7 +154,14 @@ $sites['stage2.nyboatshow.com'] = 'newyork';
 $sites['live2.nyboatshow.com'] = 'newyork';
 $sites['www.nyboatshow.com'] = 'newyork';
 
-// St. Louis
+// Saltwater
+$sites['local.saltwater.sportshows.com'] = 'saltwater';
+$sites['dev2.saltwater.sportshows.com'] = 'saltwater';
+$sites['stage2.saltwater.sportshows.com'] = 'saltwater';
+$sites['live2.saltwater.sportshows.com'] = 'saltwater';
+$sites['www.saltwater.sportshows.com'] = 'saltwater';
+
+// sportshows
 $sites['local.sportshows.com'] = 'sportshows';
 $sites['dev2.sportshows.com'] = 'sportshows';
 $sites['stage2.sportshows.com'] = 'sportshows';
@@ -160,6 +174,14 @@ $sites['dev2.stlouisboatshow.com'] = 'stlouis';
 $sites['stage2.stlouisboatshow.com'] = 'stlouis';
 $sites['live2.stlouisboatshow.com'] = 'stlouis';
 $sites['www.stlouisboatshow.com'] = 'stlouis';
+
+
+// Suffern
+$sites['local.suffern.sportshows.com'] = 'suffern';
+$sites['dev2.suffern.sportshows.com'] = 'suffern';
+$sites['stage2.suffern.sportshows.com'] = 'suffern';
+$sites['live2.suffern.sportshows.com'] = 'suffern';
+$sites['www.suffern.sportshows.com'] = 'suffern';
 
 // Tampa
 $sites['local.tampaboatshow.com'] = 'tampa';

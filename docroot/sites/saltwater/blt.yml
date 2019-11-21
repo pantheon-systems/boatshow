@@ -1,0 +1,14 @@
+project:
+  local:
+    hostname: local.saltwater.sportshows.com
+    protocol: https
+  machine_name: saltwater
+  human_name: saltwater
+drush:
+  aliases:
+    local: self
+    remote: saltwater.dev2
+cm:
+  allow-overrides: false
+  # Possible values: core-only, config-split, features, none.
+  strategy: none
