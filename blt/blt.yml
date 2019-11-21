@@ -25,7 +25,7 @@ drush:
 multisites:
   - atlanta
   - chicago
-  - chicagoland  
+  - chicagoland
   - atlanticcity
   - baltimore
   - kansascity
@@ -37,8 +37,10 @@ multisites:
   - norwalk
   - newengland
   - newyork
+  - saltwater
   - sportshows
   - stlouis
+  - suffern
   - tampa
 disable-targets:
   tests:
