@@ -85,11 +85,11 @@
  $sites['www.chicagoboatshow.com'] = 'chicago';
 
  // Chicagoland
- $sites['local.chicago.sportshows.com'] = 'chicagoland';
- $sites['dev2.chicago.sportshows.com'] = 'chicagoland';
- $sites['stage2.chicago.sportshows.com'] = 'chicagoland';
- $sites['live2.chicago.sportshows.com'] = 'chicagoland';
- $sites['www.chicago.sportshows.com'] = 'chicagoland';
+ $sites['local.chicagoland.sportshows.com'] = 'chicagoland';
+ $sites['dev2.chicagoland.sportshows.com'] = 'chicagoland';
+ $sites['stage2.chicagoland.sportshows.com'] = 'chicagoland';
+ $sites['live2.chicagoland.sportshows.com'] = 'chicagoland';
+ $sites['www.chicagoland.sportshows.com'] = 'chicagoland';
 
  // Kansas City
  $sites['local.kansascitysportshow.com'] = 'kansascity';

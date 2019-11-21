@@ -1,6 +1,6 @@
 project:
   local:
-    hostname: local.chicago.sportshows.com
+    hostname: local.chicagoland.sportshows.com
     protocol: https
   machine_name: chicagoland
   human_name: chicagoland

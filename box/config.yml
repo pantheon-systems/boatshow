@@ -49,7 +49,7 @@ apache_vhosts:
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: chicagoland
   -
-    servername: local.chicago.sportshows.com
+    servername: local.chicagoland.sportshows.com
     documentroot: '{{ drupal_core_path }}'
     extra_parameters: '{{ apache_vhost_php_fpm_parameters }}'
   # multisite: baltimore
@@ -201,13 +201,13 @@ mysql_databases:
     encoding: utf8
     collation: utf8_general_ci
   -
-    name: suffolk
-    encoding: utf8
-    collation: utf8_general_ci
-  -
     name: stlouis
     encoding: utf8
     collation: utf8_general_ci
+  -
+    name: suffern
+    encoding: utf8
+    collation: utf8_general_ci    
   -
     name: tampa
     encoding: utf8
