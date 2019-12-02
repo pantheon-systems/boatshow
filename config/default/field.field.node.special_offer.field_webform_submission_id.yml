@@ -1,0 +1,23 @@
+uuid: 5effbbb6-12bf-436b-9d47-710f2bc67a1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_webform_submission_id
+    - node.type.special_offer
+id: node.special_offer.field_webform_submission_id
+field_name: field_webform_submission_id
+entity_type: node
+bundle: special_offer
+label: 'Webform Submission ID'
+description: 'This field is set automatically when a webform submission is made to create a special offer. There is no need to manually set this field.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

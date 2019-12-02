@@ -1,0 +1,28 @@
+uuid: 7abf8478-cf78-4872-b52a-4f62688db2c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exhibitor
+    - node.type.exhibitor
+    - node.type.special_offer
+id: node.special_offer.field_exhibitor
+field_name: field_exhibitor
+entity_type: node
+bundle: special_offer
+label: Exhibitor
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      exhibitor: exhibitor
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

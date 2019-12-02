@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\webform\Entity\WebformSubmission;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -127,5 +129,72 @@ function nmma_forms_help($route_name, RouteMatchInterface $route_match) {
       $output .= '<p>' . t('The Marketo Newsletter setting captures all the necessary fields to communicate to a specific list on the Marketo platform.') . '</p>';
 
       return $output;
+  }
+}
+
+/**
+ * Implements hook_entity_presave
+ *
+ * @param EntityInterface $entity
+ * @return void
+ */
+function nmma_forms_entity_presave(EntityInterface $entity) {
+  $node_types = ['article', 'special_offer'];
+
+  // Check if node type correct, and changing from unpublished to published
+  if (in_array($entity->bundle(), $node_types) && isset($entity->original)) {
+    if (!$entity->original->isPublished() && $entity->isPublished()) {
+      // Check if has correct fields
+      if ($entity->hasField('field_webform_submitter_notified') && $entity->hasField('field_webform_submission_id')) {
+        // Check if not notified yet and submission id is set
+        if ((int) $entity->field_webform_submitter_notified->value !== 1
+        && !empty($entity->field_webform_submission_id->value)) {
+          $webform_sid = $entity->field_webform_submission_id->value;
+          $webform_submission = WebformSubmission::load($webform_sid);
+          $submission_data = $webform_submission->getData();
+
+          if (isset($submission_data['submitter_email'])) {
+            $mailManager = \Drupal::service('plugin.manager.mail');
+            $to = $submission_data['submitter_email'];
+            $params['subject'] = 'Your submission was published!';
+            $params['body'] = "Congrats! Your submission was published.";
+            // TODO: handle if article or special_offer for wording
+
+            // Send
+            $result = $mailManager->mail('nmma_forms', 'node_published_notify', $to, 'en', $params, NULL, TRUE);
+
+            if ($result['result'] != true) {
+              $message = t('There was a problem sending your email notification to @email.', array('@email' => $to));
+              drupal_set_message($message, 'error');
+              \Drupal::logger('mail-log')->error($message);
+              return;
+            }
+
+            $entity->set('field_webform_submitter_notified', 1);
+            $message = t('An email notification has been sent to @email ', array('@email' => $to));
+            drupal_set_message($message);
+            \Drupal::logger('mail-log')->notice($message);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_email()
+ *
+ * @param [type] $key
+ * @param [type] $message
+ * @param [type] $params
+ * @return void
+ */
+function nmma_forms_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'node_published_notify':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t($params['subject']);
+      $message['body'][] = $params['body'];
+      break;
   }
 }

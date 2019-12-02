@@ -1,0 +1,23 @@
+uuid: 26d50b59-6c06-437c-bdb7-478d30186c67
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_webform_submitter_notified
+    - node.type.special_offer
+id: node.special_offer.field_webform_submitter_notified
+field_name: field_webform_submitter_notified
+entity_type: node
+bundle: special_offer
+label: 'Webform Submitter Notified'
+description: 'This field is set automatically when a webform submission is made to create a special offer. There is no need to manually set this field.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,23 @@
+uuid: 07c9ae61-1ca6-4064-9278-23e1bce40bff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_webform_submission_id
+    - node.type.article
+id: node.article.field_webform_submission_id
+field_name: field_webform_submission_id
+entity_type: node
+bundle: article
+label: 'Webform Submission ID'
+description: 'This field is set automatically when a webform submission is made to create an exhibitor article. There is no need to manually set this field.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
