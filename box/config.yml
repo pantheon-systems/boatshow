@@ -207,7 +207,7 @@ mysql_databases:
   -
     name: suffern
     encoding: utf8
-    collation: utf8_general_ci    
+    collation: utf8_general_ci
   -
     name: tampa
     encoding: utf8
@@ -234,6 +234,7 @@ installed_extras:
   - xdebug
   - drupalconsole
 php_version: '7.2'
+php_xdebug_version: 2.7.2
 php_packages_extra:
   - 'php{{ php_version }}-bz2'
   - 'php{{ php_version }}-imagick'
@@ -246,7 +247,8 @@ php_xdebug_coverage_enable: 1
 php_xdebug_cli_disable: 'no'
 php_xdebug_remote_enable: 1
 php_xdebug_remote_connect_back: 1
-php_xdebug_idekey: PHPSTORM
+php_xdebug_remote_autostart: 1
+php_xdebug_idekey: VSCODE
 php_xdebug_max_nesting_level: 256
 php_xdebug_remote_port: '9000'
 php_memory_limit: 512M
