@@ -158,7 +158,16 @@ function nmma_forms_entity_presave(EntityInterface $entity) {
             $to = $submission_data['submitter_email'];
             $params['subject'] = 'Your submission was published!';
             $params['body'] = "Congrats! Your submission was published.";
-            // TODO: handle if article or special_offer for wording
+
+            // handle if article or special_offer for wording
+            if ($entity->bundle() === 'article') {
+              $params['subject'] = 'Your Exhibitor Article News has been Published';
+              $params['body'] = 'Thank you for submitting your news article! We have reviewed your article and it is now published in our Media Center.';
+            }
+            elseif ($entity->bundle() === 'special_offer') {
+              $params['subject'] = 'Your Exhibitor Special Offer has been Published';
+              $params['body'] = 'Thank you for submitting your special offer! We have reviewed your offer and it is now published in the show site’s Special Offers section.';
+            }
 
             // Send
             $result = $mailManager->mail('nmma_forms', 'node_published_notify', $to, 'en', $params, NULL, TRUE);

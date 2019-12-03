@@ -34,31 +34,15 @@ class NmmaSpecialOfferWebformHandler extends WebformHandlerBase {
     $booth = $submission_array['special_offer_booth_location'];
     $exhibitor_id = $submission_array['exhibitor_name'];
 
-    $media_value = [];
-
-    if (!empty($featured_image_file_id)) {
-      $media = \Drupal\media\Entity\Media::create([
-        'bundle' => 'image',
-        'name' => 'Special Offer Featured image from webform_submission '. $webform_submission->id(),
-        'uid' => \Drupal::currentUser()->id(),
-        'image' => [
-          'target_id' => $featured_image_file_id,
-        ],
-      ]);
-
-      $media->save();
-
-      $media_value[] = [
-        'target_id' => $media->id()
-      ];
-    }
-
     // Create the node.
     $node = Node::create([
       'type' => 'special_offer',
       'title' => $title,
       'status' => 0,
-      'field_logo' => $media_value,
+      'field_logo' => [
+        'target_id' => $featured_image_file_id,
+        'alt' => $title,
+      ],
       'field_offer_type' => $offer_type,
       'field_booth' => $booth,
       'field_exhibitor' => [
