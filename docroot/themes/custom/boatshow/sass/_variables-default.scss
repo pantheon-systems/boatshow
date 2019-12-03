@@ -241,3 +241,10 @@ $footer-social-icon-color-background-hover: $city-color-primary !default;
 // Getting to the show
 $map-marker-text-color: $city-color-primary !default;
 $arrival-location-icon-color: $city-color-primary !default;
+
+// Seminar filter display
+$seminar-filter--hide-class-type: false !default;
+$seminar-filter--hide-date: false !default;
+$seminar-filter--hide-topic: false !default;
+$seminar-filter--hide-speaker: false !default;
+$seminar-filter--hide-level: false !default;
