@@ -1,0 +1,20 @@
+uuid: 423a88a7-1ba4-4285-9b46-2708081bbebf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_webform_submission_id
+field_name: field_webform_submission_id
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

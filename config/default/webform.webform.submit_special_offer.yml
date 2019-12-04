@@ -1,22 +1,25 @@
+uuid: 56144fc9-c494-48ea-8d18-0b289e6160c5
 langcode: en
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - nmma_forms
 open: null
 close: null
 weight: 0
 uid: 1
 template: false
 archive: false
-id: potential_exhibitor
-title: 'Potential Exhibitor'
-description: ''
+id: submit_special_offer
+title: 'Submit Special Offer'
+description: 'A webform to allow exhibitors to submit special offers for display on the site. These submissions can be manually published by content editors.'
 category: ''
-elements: "name:\n  '#type': webform_name\n  '#title': Name\n  '#required': true\n  '#title__access': false\n  '#first__title': 'First Name'\n  '#first__required': true\n  '#middle__access': false\n  '#last__title': 'Last Name'\n  '#last__required': true\n  '#suffix__access': false\n  '#degree__access': false\ncompany_name:\n  '#type': textfield\n  '#title': 'Company Name'\n  '#required': true\n  '#required_error': 'Company name is required'\nurl:\n  '#type': url\n  '#title': 'Company Website'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#required': true\n  '#required_error': 'Email is required'\nphone:\n  '#type': tel\n  '#title': Phone\n  '#required': true\nis_marine_based:\n  '#type': radios\n  '#title': 'Is your product/service in the marine industry?'\n  '#options':\n    1: 'Yes'\n    0: 'No'\n  '#options_display': side_by_side\n  '#required': true\ncaptcha:\n  '#type': captcha\n  '#captcha_type': recaptcha/reCAPTCHA"
+elements: "submitter_name:\n  '#type': textfield\n  '#title': 'Your Name'\n  '#required': true\nsubmitter_email:\n  '#type': email\n  '#title': 'Your Email'\n  '#required': true\nspecial_offer_title:\n  '#type': textfield\n  '#title': 'Exhibitor Title'\n  '#required': true\nspecial_offer_type:\n  '#type': select\n  '#title': 'Special Offer Type'\n  '#options':\n    job: Job\n    deal: Deal\n  '#required': true\nspecial_offer_description:\n  '#type': text_format\n  '#title': 'Special Offer Description'\n  '#description': 'Please enter specific information on your Special Offer'\n  '#required': true\n  '#allowed_formats':\n    restricted: restricted\nfeatured_image:\n  '#type': webform_image_file\n  '#title': 'Featured Image'\n  '#max_filesize': '5'\n  '#file_extensions': 'jpg png'\nspecial_offer_booth_location:\n  '#type': textfield\n  '#title': Booth/Location\nexhibitor_name:\n  '#type': entity_autocomplete\n  '#title': 'Exhibitor Name'\n  '#description': 'Please start typing your exhibitor name and select your name from the dropdown. Please Note: This is not a Required Field.'\n  '#target_type': node\n  '#selection_handler': 'default:node'\n  '#selection_settings':\n    target_bundles:\n      exhibitor: exhibitor\ncaptcha:\n  '#type': captcha\n  '#captcha_type': recaptcha/reCAPTCHA"
 css: ''
 javascript: ''
 settings:
   ajax: false
-  ajax_scroll_top: form
+  ajax_scroll_top: ''
   ajax_progress_type: ''
   ajax_effect: ''
   ajax_speed: null
@@ -101,10 +104,10 @@ settings:
   confirmation_type: url
   confirmation_title: ''
   confirmation_message: ''
-  confirmation_url: /node/9071
+  confirmation_url: /node/9086
   confirmation_attributes: {  }
   confirmation_back: true
-  confirmation_back_label: 'Click here to reload the form.'
+  confirmation_back_label: ''
   confirmation_back_attributes: {  }
   confirmation_exclude_query: false
   confirmation_exclude_token: false
@@ -174,6 +177,14 @@ access:
     users: {  }
     permissions: {  }
 handlers:
+  special_offer_on_submit:
+    id: special_offer_from_webform
+    label: 'Special Offer on Submit'
+    handler_id: special_offer_on_submit
+    status: true
+    conditions: {  }
+    weight: 0
+    settings: {  }
   email_recipient_override:
     id: email
     label: 'Email Recipient Override'
@@ -193,15 +204,15 @@ handlers:
       from_mail: _default
       from_options: {  }
       from_name: _default
-      subject: 'New Potential Exhibitor Submission'
-      body: "&lt;p&gt;Submitted on [webform_submission:created]&lt;/p&gt;<br />\r\n&lt;p&gt;Submitted values are:&lt;/p&gt;<br />\r\n[webform_submission:values]"
+      subject: 'New Special Offer Submitted'
+      body: "{% set nid = webform_submission.getData()['created_nid'] %}\r\n\r\n<p>An exhibitor has submitted a Special Offer which requires your review before publication.</p>\r\n\r\n<ul>\r\n  <li><a href=\"{{ url('entity.webform_submission.canonical', {'webform': webform_id, 'webform_submission': webform_submission.id() }) }}\">View Webform Submission</a></li>\r\n  {% if nid is not empty %}\r\n  <li><a href=\"{{ url('entity.node.canonical', {'node': nid }) }}\">View Special Offer Node</a></li>\r\n  <li><a href=\"{{ url('entity.node.edit_form', {'node': nid }) }}\">Edit/Publish Special Offer Node</a></li>\r\n  {% endif %}\r\n</ul>\r\n\r\n"
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
       exclude_empty_checkbox: false
       html: true
       attachments: false
-      twig: false
+      twig: true
       debug: false
       reply_to: ''
       return_path: ''
@@ -209,39 +220,3 @@ handlers:
       sender_name: ''
       theme_name: ''
       parameters: {  }
-  email:
-    id: email
-    label: 'Email Confirmation'
-    handler_id: email
-    status: true
-    conditions: {  }
-    weight: 0
-    settings:
-      states:
-        - completed
-      to_mail: '[webform_submission:values:email:value]'
-      to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
-      bcc_mail: ''
-      bcc_options: {  }
-      from_mail: _default
-      from_options: {  }
-      from_name: _default
-      subject: 'Thank You for your Submission'
-      body: 'Thank you for your inquiry. Our team will review your submission and contact you soon. For any further questions please email <a href="mailto:info@miamiboatshow.com" title="mailto:info@miamiboatshow.com">info@miamiboatshow.com</a>&nbsp;or call 954.441.3220.'
-      excluded_elements: {  }
-      ignore_access: false
-      exclude_empty: true
-      exclude_empty_checkbox: false
-      html: true
-      attachments: false
-      twig: false
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
-      theme_name: ''
-      parameters: {  }
-uuid: 120ba4a8-bdef-4017-9044-48f4745c94de

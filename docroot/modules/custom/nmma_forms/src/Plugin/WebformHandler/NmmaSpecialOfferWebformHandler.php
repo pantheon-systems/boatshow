@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nmma_exhibitor_article\Plugin\WebformHandler;
+namespace Drupal\nmma_forms\Plugin\WebformHandler;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
@@ -8,74 +8,50 @@ use Drupal\webform\Plugin\WebformHandlerBase;
 use Drupal\webform\webformSubmissionInterface;
 
 /**
- * Create a new Article node from a webform submission.
+ * Create a new Special Offer node from a webform submission.
  *
  * @WebformHandler(
- *   id = "exhibitor_article_from_webform",
- *   label = @Translation("Exhibitor Article on Submit"),
+ *   id = "special_offer_from_webform",
+ *   label = @Translation("Special Offer on Submit"),
  *   category = @Translation("Content"),
- *   description = @Translation("Creates a new Exhibitor News Article node from Webform Submissions."),
+ *   description = @Translation("Creates a new Special Offer node from Webform Submissions."),
  *   cardinality = \Drupal\webform\Plugin\WebformHandlerInterface::CARDINALITY_UNLIMITED,
  *   results = \Drupal\webform\Plugin\WebformHandlerInterface::RESULTS_PROCESSED,
  *   submission = \Drupal\webform\Plugin\WebformHandlerInterface::SUBMISSION_REQUIRED,
  * )
  */
-
-class NmmaExhibitorArticleWebformHandler extends WebformHandlerBase {
+class NmmaSpecialOfferWebformHandler extends WebformHandlerBase {
 
   public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
     // Get an array of form field values.
     $submission_array = $webform_submission->getData();
 
-    $title = $submission_array['article_title'];
-    $body = $submission_array['article_body']['value'];
+    $title = $submission_array['special_offer_title'];
+    $description = $submission_array['special_offer_description']['value'];
+    $offer_type = $submission_array['special_offer_type'];
     $featured_image_file_id = $submission_array['featured_image'];
-
-    $media_value = [];
-
-    if (!empty($featured_image_file_id)) {
-      $media = \Drupal\media\Entity\Media::create([
-        'bundle' => 'image',
-        'name' => 'Featured image from webform_submission '. $webform_submission->id(),
-        'uid' => \Drupal::currentUser()->id(),
-        'image' => [
-          'target_id' => $featured_image_file_id,
-        ],
-      ]);
-
-      $media->save();
-
-      $media_value[] = [
-        'target_id' => $media->id()
-      ];
-    }
+    $booth = $submission_array['special_offer_booth_location'];
+    $exhibitor_id = $submission_array['exhibitor_name'];
 
     // Create the node.
     $node = Node::create([
-      'type' => 'article',
+      'type' => 'special_offer',
       'title' => $title,
       'status' => 0,
-      'field_article_image' => $media_value,
-      'field_article_tsr_image' => $media_value,
-      'field_article_type' => [
-        [
-          'target_id' => 1521 //Exhibitor term
-        ]
+      'field_logo' => [
+        'target_id' => $featured_image_file_id,
+        'alt' => $title,
       ],
-      'field_article_body' => [
-        'value' => $body,
+      'field_offer_type' => $offer_type,
+      'field_booth' => $booth,
+      'field_exhibitor' => [
+        'target_id' => $exhibitor_id
+      ],
+      'body' => [
+        'value' => $description,
         'format' => 'restricted' //This can be updated by the content editor later
       ],
-      'field_article_teaser' => [
-        'value' => $body,
-        'format' => 'restricted' //This can be updated by the content editor later
-      ],
-      'field_marine_industry_category' => $submission_array['marine_industry_category'],
-      'field_website' => [
-        'uri' => $submission_array['original_article_url']
-      ],
-      'created' => strtotime($submission_array['article_date'])
     ]);
 
     $node->setUnpublished();
@@ -85,6 +61,19 @@ class NmmaExhibitorArticleWebformHandler extends WebformHandlerBase {
 
     $submission_array['created_nid'] = $node->id();
     $webform_submission->setData($submission_array);
+  }
+
+  /**
+   * {@inheritdoc}
+   *
+   *  Validate offer_type field to make sure it's one of the available options
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
+    $offer_type = $form_state->getValue('special_offer_type');
+
+    if (!in_array($offer_type, ['job', 'deal'])) {
+      $form_state->setErrorByName('special_offer_type', $this->t('Offer type not valid.'));
+    }
   }
 
   /**

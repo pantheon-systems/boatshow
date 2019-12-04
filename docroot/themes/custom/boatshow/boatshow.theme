@@ -220,7 +220,7 @@ function boatshow_form_views_exposed_form_alter(&$form, FormStateInterface $form
   // https://atendesigngroup.com/blog/drupal-8-views-entity-reference-exposed-filter-select-list
 
   // If not the view we are looking, move on
-  if ($form['#id'] != 'views-exposed-form-seminar-view-block-2') {
+  if ($form['#id'] !== 'views-exposed-form-seminar-view-block-2') {
    return FALSE;
   }
   // Query nodes
@@ -310,6 +310,14 @@ function boatshow_form_views_exposed_form_alter(&$form, FormStateInterface $form
   }
   // replace the form and end
   $form = $new_form;
+
+  // Set classes for filter form items
+  $form['field_smnr_class_type_target_id']['#theme_wrappers']['details']['#attributes']['class'][] = 'seminar-filter--class-type';
+  $form['field_date_radios']['#theme_wrappers']['details']['#attributes']['class'][] = 'seminar-filter--date';
+  $form['field_topics_target_id']['#theme_wrappers']['details']['#attributes']['class'][] = 'seminar-filter--topic';
+  $form['field_speaker_radios']['#theme_wrappers']['details']['#attributes']['class'][] = 'seminar-filter--speaker';
+  $form['field_smnr_level_target_id']['#theme_wrappers']['details']['#attributes']['class'][] = 'seminar-filter--level';
+
 }
 
 /**

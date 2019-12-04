@@ -17,8 +17,9 @@
   Drupal.behaviors.boatshowCustomFilters = {
     attach: function attach(context, settings) {
 
-      $('.brick--type--exposed-filter').once('boatshowCustomFilters').each(function () {
+      $('.brick--type--exposed-filters').once('boatshowCustomFilters').each(function () {
         var $filtersParent = $(this);
+        const $form = $(this).closest('.brick--type--exposed-filters.collapsible');
 
         $filtersParent.find('input[type="radio"][name="field_date_radios"]').change(function() {
           const value = $(this).val();
@@ -33,14 +34,36 @@
         });
 
         if ($filtersParent.hasClass('collapsible')) {
+
+          // Select the view which corresponds to the exposed filters
+          var viewPluginId = $filtersParent.find('.block-views').attr('data-block-plugin-id'); //e.g.
+          var viewId = viewPluginId.replace('views_exposed_filter_block:','').split('-')[0];
+          var viewDisplayId = viewPluginId.replace('views_exposed_filter_block:','').split('-')[1];
+          var $view = $('.view-id-'+viewId+'.view-display-id-'+viewDisplayId);
+
+          // Determine whether to open the filters by default
+          var openFiltersByDefault = (
+            ($view.find('.views-col').length >= 6) // Open by default if there are more than 6 results
+            || ($filtersParent.find('[data-drupal-selector="edit-reset"]').length >= 1) // Open by default if filters are set (tested using presence of reset button)
+          );
+
           $filtersParent.find('.form--inline >.form-item').each(function(){
-            if ($(this).css('display') != 'none'){
+            if (
+              ($(this).css('display') != 'none')
+              && openFiltersByDefault
+            ){
               $(this).attr('open', '');
             }
           });
 
+          if (openFiltersByDefault) {
+            $form.removeClass('collapse');
+          }
+          else {
+            $form.addClass('collapse');
+          }
+
           $filtersParent.find('.toggle-filters').click(function(){
-            const $form = $(this).closest('.brick--type--exposed-filters.collapsible');
             $form.toggleClass('collapse');
             $form.find('.form--inline >.form-item').each(function(){
               if (!$form.hasClass('collapse') && $(this).css('display') != 'none'){

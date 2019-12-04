@@ -129,6 +129,9 @@ atlassian-ide-plugin.xml
 *.sublime-project
 *.sublime-workspace
 
+#VS Code
+.vscode/
+
 #NPM
 npm-debug.log
 

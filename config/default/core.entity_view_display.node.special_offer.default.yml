@@ -5,8 +5,11 @@ dependencies:
   config:
     - field.field.node.special_offer.body
     - field.field.node.special_offer.field_booth
+    - field.field.node.special_offer.field_exhibitor
     - field.field.node.special_offer.field_logo
     - field.field.node.special_offer.field_offer_type
+    - field.field.node.special_offer.field_webform_submission_id
+    - field.field.node.special_offer.field_webform_submitter_notified
     - node.type.special_offer
   module:
     - image
@@ -55,6 +58,9 @@ content:
     third_party_settings: {  }
 hidden:
   addtoany: true
+  field_exhibitor: true
   field_offer_type: true
+  field_webform_submission_id: true
+  field_webform_submitter_notified: true
   langcode: true
   search_api_excerpt: true
