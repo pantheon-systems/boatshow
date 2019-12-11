@@ -138,7 +138,6 @@
     }
   }
 
-
   // Topic filter
   @if $seminar-filter--hide-topic {
     .seminar-filter--topic {
@@ -155,7 +154,7 @@
 
   // Level Filter
   @if $seminar-filter--hide-level {
-    .seminar-filter--speaker {
+    .seminar-filter--level {
       display: none;
     }
   }
