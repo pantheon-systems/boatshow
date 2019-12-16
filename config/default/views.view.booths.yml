@@ -232,7 +232,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: TBD
+            value: ''
             format: rich_text
           plugin_id: text
       relationships:

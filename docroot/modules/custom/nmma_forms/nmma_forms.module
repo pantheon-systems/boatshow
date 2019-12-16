@@ -107,12 +107,10 @@ function nmma_forms_field_widget_entity_reference_paragraphs_form_alter(&$elemen
 
   // Check if paragraph type is exhibitor location AND user is not admin
   if($element['#paragraph_type'] === 'exhibitor_location' && !in_array('administrator', $current_user_roles)) {
-
     // If parent form is node exhibitor edit
     if ($form_state->getBuildInfo()['form_id'] === 'node_exhibitor_edit_form') {
-      // Make these two fields read only
-      $element['subform']['field_enabled']['widget']['value']['#attributes']['disabled'] = 'disabled';
       $element['subform']['field_exhbtr_lctn_booth']['widget'][0]['target_id']['#attributes']['disabled'] = 'disabled';
+      $element['subform']['field_enabled']['widget']['value']['#attributes']['onclick'] = 'return false;';
     }
   }
 }
