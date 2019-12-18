@@ -3,7 +3,6 @@ ignored_config_entities:
   2: system.date
   4: 'google_tag.container.*'
   6: nmma_forms.settings
-  8: feeds.feed_type.exhibitors
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
 enable_export_filtering: true
