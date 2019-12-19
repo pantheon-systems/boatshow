@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Implements HOOK_form_alter
+ *
+ * Override marine quesion based on YAML string set in webform block settings.
+ * Example YAML: marine_question: 'Is your product/service in the Marine, Sail, or RV industries'
+ */
+
+function nmma_webform_marine_question_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'webform_submission_potential_exhibitor_node_276_add_form') {
+    $form_object = $form_state->getFormObject();
+    $webform_submission = $form_object->getEntity();
+    if ($webform_submission instanceof \Drupal\webform\Entity\WebformSubmission)
+      $submission_data = $webform_submission->getData();
+      if (isset($submission_data['marine_question']) && isset($form['elements']['is_marine_based']['#title'])) {
+        $form['elements']['is_marine_based']['#title'] = $submission_data['marine_question'];
+      }
+  }
+}

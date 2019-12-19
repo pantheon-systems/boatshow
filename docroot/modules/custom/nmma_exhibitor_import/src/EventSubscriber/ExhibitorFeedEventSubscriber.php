@@ -108,7 +108,7 @@ class ExhibitorFeedEventSubscriber implements EventSubscriberInterface {
       $exhibitorEntity->field_exhibitor_location->appendItem($paragraph);
     }
 
-    // $exhibitorEntity->save(); // Not necessary to save here, as entity will be saved after this event is fired
+    $exhibitorEntity->save();
   }
 
   protected function boothNodeFromBoothNumber ($boothNumber, $boothBuilding) {

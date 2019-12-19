@@ -1,0 +1,7 @@
+name: 'NMMA Webform Marine Question'
+type: module
+description: 'Allows overriding the marine question posed to users on the potential exhibitor form'
+core: 8.x
+package: 'NMMA'
+dependencies:
+    - webform
