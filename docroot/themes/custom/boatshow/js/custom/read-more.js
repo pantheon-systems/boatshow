@@ -78,7 +78,7 @@
     attach: function attach(context, settings) {
 
       // whos-exhibiting, /boat-brands pages
-      $(context).find('.view-exhibitors.view-display-id-block_1 .view-booths, .view-exhibitors.view-display-id-block_2 .view-booths').once('whos-exhibiting').each(function() {
+      $(context).find('.view-exhibitors.view-display-id-block_1 .view-booths, .view-exhibitors.view-display-id-block_2 .view-booths, .view-exhibitors.view-display-id-block_3 .view-booths').once('whos-exhibiting').each(function() {
         maskText($(this), {
           expandText: 'See all booths',
           maxHeight: 70,
