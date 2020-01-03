@@ -29,6 +29,7 @@ permissions:
   - 'access user profiles'
   - 'administer shortcuts'
   - 'administer taxonomy'
+  - 'break content lock'
   - 'create article content'
   - 'create brick entities'
   - 'create carousel_slides content'
