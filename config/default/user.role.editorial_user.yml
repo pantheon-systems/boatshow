@@ -46,6 +46,7 @@ permissions:
   - 'administer url aliases'
   - 'administer users'
   - 'administer xmlsitemap'
+  - 'break content lock'
   - 'bypass eck entity access'
   - 'bypass fbip'
   - 'cancel account'

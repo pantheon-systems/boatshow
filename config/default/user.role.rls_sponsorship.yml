@@ -29,6 +29,7 @@ permissions:
   - 'access user profiles'
   - 'administer shortcuts'
   - 'administer taxonomy'
+  - 'break content lock'
   - 'create brick entities'
   - 'create contact_profile content'
   - 'create dining content'
