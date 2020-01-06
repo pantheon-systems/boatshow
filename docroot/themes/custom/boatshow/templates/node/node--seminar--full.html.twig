@@ -36,14 +36,16 @@
           {{ content.field_smnr_level}}
         </div>
 
-        <div class="seminar-reserve flex-container">
-          <div class="col-12-xs col-6-md col-4-lg">
-            {{ content.field_reserve_link }}
+        {% if content.field_reserve_link[0] %}
+          <div class="seminar-reserve flex-container">
+            <div class="col-12-xs col-6-md col-4-lg">
+              {{ content.field_reserve_link }}
+            </div>
+            <div class="col-12-xs col-6-md col-8-lg">
+              <p><strong>{{ '*Note: Please Click on Register Here to sign up for the available Seminar Sessions.' | t }}</strong></p>
+            </div>
           </div>
-          <div class="col-12-xs col-6-md col-8-lg">
-            <p><strong>{{ '*Note: Please reference registration page for all dates/times that are still available.' | t }}</strong></p>
-          </div>
-        </div>
+        {% endif %}
 
         <h2>{{ 'Class description:' | t }}</h2>
 
@@ -51,13 +53,15 @@
           {{ content.body }}
         </div>
 
-        <div class="seminar-reserve flex-container">
-          <div class="col-12-xs col-6-md col-4-lg">
-            {{ content.field_reserve_link }}
+        {% if content.field_reserve_link[0] %}
+          <div class="seminar-reserve flex-container">
+            <div class="col-12-xs col-6-md col-4-lg">
+              {{ content.field_reserve_link }}
+            </div>
+            <div class="col-12-xs col-6-md col-8-lg">
+            </div>
           </div>
-          <div class="col-12-xs col-6-md col-8-lg">
-          </div>
-        </div>
+        {% endif %}
         {# END LEFT COLUMN #}
       </div>
 
