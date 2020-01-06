@@ -1,0 +1,23 @@
+uuid: e0bf1949-9ff7-40a8-9d32-08e992a21ec0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_speaker
+    - node.type.speaker
+id: node.speaker.field_featured_speaker
+field_name: field_featured_speaker
+entity_type: node
+bundle: speaker
+label: 'Featured Speaker'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
