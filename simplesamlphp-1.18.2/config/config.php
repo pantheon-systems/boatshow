@@ -4,10 +4,6 @@
  *
  */
 
- if (file_exists('/var/www/site-php')) {
-    require_once("/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp/config/acquia_config.php");
- }
-
 $config = [
 
     /*******************************
@@ -80,31 +76,6 @@ $config = [
     'technicalcontact_email' => 'na@example.org',
 
     /*
-     * (Optional) The method by which email is delivered.  Defaults to mail which utilizes the
-     * PHP mail() function.
-     *
-     * Valid options are: mail, sendmail and smtp.
-     */
-    //'mail.transport.method' => 'smtp',
-
-    /*
-     * Set the transport options for the transport method specified.  The valid settings are relative to the
-     * selected transport method.
-     */
-    // // smtp mail transport options
-    // 'mail.transport.options' => [
-    //     'host' => 'mail.example.org', // required
-    //     'port' => 25, // optional
-    //     'username' => 'user@example.org', // optional: if set, enables smtp authentication
-    //     'password' => 'password', // optional: if set, enables smtp authentication
-    //     'security' => 'tls', // optional: defaults to no smtp security
-    // ],
-    // // sendmail mail transport options
-    // 'mail.transport.options' => [
-    //     'path' => '/usr/sbin/sendmail' // optional: defaults to php.ini path
-    // ],
-
-    /*
      * The envelope from address for outgoing emails.
      * This should be in a domain that has your application's IP addresses in its SPF record
      * to prevent it from being rejected by mail filters.
@@ -142,7 +113,7 @@ $config = [
      * metadata listing and diagnostics pages.
      * You can also put a hash here; run "bin/pwgen.php" to generate one.
      */
-    'auth.adminpassword' => '1234567',
+    'auth.adminpassword' => '123',
 
     /*
      * Set this options to true if you want to require administrator password to access the web interface
@@ -293,7 +264,7 @@ $config = [
      *
      * Choose logging handler.
      *
-     * Options: [syslog,file,errorlog,stderr]
+     * Options: [syslog,file,errorlog]
      *
      */
     'logging.level' => SimpleSAML\Logger::NOTICE,
@@ -465,10 +436,16 @@ $config = [
      * one of the functionalities below, but in some cases you could run multiple functionalities.
      * In example when you are setting up a federation bridge.
      */
-
-    'enable.saml20-idp' => true,
+    'enable.saml20-idp' => false,
     'enable.shib13-idp' => false,
     'enable.adfs-idp' => false,
+    'enable.wsfed-sp' => false,
+    'enable.authmemcookie' => false,
+
+    /*
+     * Default IdP for WS-Fed.
+     */
+    'default-wsfed-idp' => 'urn:federation:pingfederate:localhost',
 
     /*
      * Whether SimpleSAMLphp should sign the response or the assertion in SAML 1.1 authentication
@@ -493,7 +470,7 @@ $config = [
      *
      * 'module.enable' => [
      *      'exampleauth' => true, // Setting to TRUE enables.
-     *      'consent' => false, // Setting to FALSE disables.
+     *      'saml' => false, // Setting to FALSE disables.
      *      'core' => null, // Unset or NULL uses default.
      * ],
      *
@@ -828,15 +805,6 @@ $config = [
      */
     //'theme.header' => 'SimpleSAMLphp'
 
-    /**
-     * A template controller, if any.
-     *
-     * Used to intercept certain parts of the template handling, while keeping away unwanted/unexpected hooks. Set
-     * the 'theme.controller' configuration option to a class that implements the
-     * \SimpleSAML\XHTML\TemplateControllerInterface interface to use it.
-     */
-    //'theme.controller' => '',
-
     /*
      * Templating options
      *
@@ -866,31 +834,6 @@ $config = [
      */
     'production' => true,
 
-    /*
-     * SimpleSAMLphp modules can host static resources which are served through PHP.
-     * The serving of the resources can be configured through these settings.
-     */
-    'assets' => [
-        /*
-         * These settings adjust the caching headers that are sent
-         * when serving static resources.
-         */
-        'caching' => [
-            /*
-             * Amount of seconds before the resource should be fetched again
-             */
-            'max_age' => 86400,
-            /*
-             * Calculate a checksum of every file and send it to the browser
-             * This allows the browser to avoid downloading assets again in situations
-             * where the Last-Modified header cannot be trusted,
-             * for example in cluster setups
-             *
-             * Defaults false
-             */
-            'etag' => false,
-        ],
-    ],
 
 
     /*********************
@@ -1180,3 +1123,4 @@ $config = [
      */
     'store.redis.prefix' => 'SimpleSAMLphp',
 ];
+include 'acquia_config.php';
