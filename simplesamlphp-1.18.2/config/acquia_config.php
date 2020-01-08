@@ -37,10 +37,10 @@ $config['auth.adminpassword'] = 'mysupersecretsso';
  *
  * @link https://github.com/simplesamlphp/simplesamlphp/issues/450
  */
-/* $_SERVER['SERVER_PORT'] = 443;
+ $_SERVER['SERVER_PORT'] = 443;
 $_SERVER['HTTPS'] = 'true';
 $protocol = 'https://';
-$port = ':' . $_SERVER['SERVER_PORT'];*/
+$port = ':' . $_SERVER['SERVER_PORT'];
 
 /**
  * Cookies No Cache.
@@ -64,9 +64,9 @@ $port = ':' . $_SERVER['SERVER_PORT'];*/
 if (!getenv('AH_SITE_ENVIRONMENT')) {
   // Add / modify your local configuration here.
   $config['store.type'] = 'sql';
-  $config['store.sql.dsn'] = sprintf('mysql:host=%s;port=%s;dbname=%s', '127.0.0.1', '', 'miami');
-  $config['store.sql.username'] = 'miami';
-  $config['store.sql.password'] = 'miami';
+  $config['store.sql.dsn'] = sprintf('mysql:host=%s;port=%s;dbname=%s', '127.0.0.1', '', 'drupal');
+  $config['store.sql.username'] = 'drupal';
+  $config['store.sql.password'] = 'drupal';
   $config['store.sql.prefix'] = 'simplesaml';
   $config['certdir'] = "/var/www/simplesamlphp/cert/";
   $config['metadatadir'] = "/var/www/simplesamlphp/metadata";

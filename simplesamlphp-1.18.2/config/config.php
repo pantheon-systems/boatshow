@@ -3,7 +3,9 @@
  * The configuration of SimpleSAMLphp
  *
  */
-
+  if (file_exists('/var/www/site-php')) {
+     require_once("/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp/config/acquia_config.php");
+  }
 $config = [
 
     /*******************************
@@ -113,7 +115,7 @@ $config = [
      * metadata listing and diagnostics pages.
      * You can also put a hash here; run "bin/pwgen.php" to generate one.
      */
-    'auth.adminpassword' => '123',
+    'auth.adminpassword' => '1234567',
 
     /*
      * Set this options to true if you want to require administrator password to access the web interface
@@ -436,7 +438,7 @@ $config = [
      * one of the functionalities below, but in some cases you could run multiple functionalities.
      * In example when you are setting up a federation bridge.
      */
-    'enable.saml20-idp' => false,
+    'enable.saml20-idp' => true,
     'enable.shib13-idp' => false,
     'enable.adfs-idp' => false,
     'enable.wsfed-sp' => false,
