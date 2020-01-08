@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.speaker.body
+    - field.field.node.speaker.field_featured_speaker
     - field.field.node.speaker.field_logo
     - node.type.speaker
   module:
@@ -21,6 +22,16 @@ targetEntityType: node
 bundle: speaker
 mode: default
 content:
+  field_featured_speaker:
+    weight: 2
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_logo:
     weight: 1
     label: hidden
@@ -39,3 +50,4 @@ hidden:
   addtoany: true
   body: true
   langcode: true
+  search_api_excerpt: true

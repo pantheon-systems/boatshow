@@ -74,3 +74,4 @@ modules:
   prod:
     enable: [acquia_connector, acquia_lift, acquia_lift_inspector]
     uninstall: [devel, views_ui, shield, kint]
+simplesamlphp: true

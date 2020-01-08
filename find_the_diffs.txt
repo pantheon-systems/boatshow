@@ -1,0 +1,638 @@
+diff --git a/blt/blt.yml b/blt/blt.yml
+index e9e50da6..4fc02164 100644
+--- a/blt/blt.yml
++++ b/blt/blt.yml
+@@ -17,10 +17,9 @@ git:
+ deploy:
+   tag_source: true
+ drush:
+-  aliases:
+-    # remote: '${project.machine_name}.test'
+-    # local: self
+-    # ci: self
++  # remote: '${project.machine_name}.test'
++  # local: self
++  # ci: self
+   default_alias: '${drush.aliases.local}'
+ multisites:
+   - atlanta
+@@ -47,17 +46,15 @@ disable-targets:
+     phpcs: { sniff: { all: true } }
+     behat: { run: true }
+     security: { check: { updates: true } }
+-# Completely override sync commands (nmma:noops are to unset OOTB commands)
+-# @link https://github.com/acquia/blt/issues/3697
+ sync:
+   commands:
+-    - source:build:composer
+-    - drupal:sync:db
+-    - drupal:update
+-    - "nmma:noop"
+-    - "nmma:noop"
+-    - "nmma:noop"
+-    - "nmma:noop"
++    - 'source:build:composer'
++    - 'drupal:sync:db'
++    - 'drupal:update'
++    - 'nmma:noop'
++    - 'nmma:noop'
++    - 'nmma:noop'
++    - 'nmma:noop'
+ modules:
+   local:
+     enable: [dblog, devel, seckit, views_ui, kint]
+@@ -74,3 +71,4 @@ modules:
+   prod:
+     enable: [acquia_connector, acquia_lift, acquia_lift_inspector]
+     uninstall: [devel, views_ui, shield, kint]
++simplesamlphp: true
+diff --git a/composer.json b/composer.json
+index 82426128..f2d3364b 100644
+--- a/composer.json
++++ b/composer.json
+@@ -111,7 +111,7 @@
+         "drupal/rpt": "1.0-beta1",
+         "drupal/seckit": "^1.0.0-alpha2",
+         "drupal/shield": "^1.2",
+-        "drupal/simplesamlphp_auth": "^3.1",
++        "drupal/simplesamlphp_auth": "^3.0",
+         "drupal/smart_trim": "^1.1",
+         "drupal/structure_sync": "^1.12",
+         "drupal/telephone_formatter": "1.x-dev#64f2cbbb440044fce077e5ada35890388321fa5b",
+@@ -250,6 +250,9 @@
+             "rm -rf vendor composer.lock docroot/core docroot/modules/contrib docroot/profiles/contrib docroot/themes/contrib",
+             "@composer clearcache --ansi",
+             "@composer install --ansi"
++        ],
++        "post-drupal-scaffold-cmd": [
++            "cd docroot && patch -p1 <../patches/htaccess-saml.patch"
+         ]
+     }
+-}
++}
+\ No newline at end of file
+diff --git a/composer.lock b/composer.lock
+index 5a1e47dd..39e26491 100644
+--- a/composer.lock
++++ b/composer.lock
+@@ -4,7 +4,7 @@
+         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+         "This file is @generated automatically"
+     ],
+-    "content-hash": "dd80f7d45455161a98111b4a365ff517",
++    "content-hash": "edf79793dbe5017e4b8490bf8e5fa99d",
+     "packages": [
+         {
+             "name": "acquia/blt",
+@@ -853,7 +853,7 @@
+             "version": "v5.5.0",
+             "source": {
+                 "type": "git",
+-                "url": "https://github.com/enyo/dropzone.git",
++                "url": "git@github.com:enyo/dropzone.git",
+                 "reference": "08b9e0a763b54a685404dea523a9c54242fbe1b9"
+             },
+             "dist": {
+@@ -7000,7 +7000,7 @@
+                 },
+                 "drupal": {
+                     "version": "8.x-1.2",
+-                    "datestamp": "1569251888",
++                    "datestamp": "1569916976",
+                     "security-coverage": {
+                         "status": "covered",
+                         "message": "Covered by Drupal's security advisory policy"
+@@ -20482,6 +20482,7 @@
+                 "psr",
+                 "psr-7"
+             ],
++            "abandoned": "laminas/laminas-diactoros",
+             "time": "2018-09-05T19:29:37+00:00"
+         },
+         {
+@@ -20527,6 +20528,7 @@
+                 "escaper",
+                 "zf"
+             ],
++            "abandoned": "laminas/laminas-escaper",
+             "time": "2018-04-25T15:48:53+00:00"
+         },
+         {
+@@ -20590,6 +20592,7 @@
+                 "feed",
+                 "zf"
+             ],
++            "abandoned": "laminas/laminas-feed",
+             "time": "2019-03-05T20:08:49+00:00"
+         },
+         {
+@@ -20636,6 +20639,7 @@
+                 "stdlib",
+                 "zf"
+             ],
++            "abandoned": "laminas/laminas-stdlib",
+             "time": "2018-08-28T21:34:05+00:00"
+         }
+     ],
+@@ -22583,6 +22587,7 @@
+                 "GPL-2.0-or-later"
+             ],
+             "description": "require-dev dependencies from drupal/core",
++            "abandoned": "drupal/core-dev",
+             "time": "2019-06-05T19:31:46+00:00"
+         }
+     ],
+diff --git a/docroot/.htaccess.orig b/docroot/.htaccess.orig
+new file mode 100644
+index 00000000..689f9986
+--- /dev/null
++++ b/docroot/.htaccess.orig
+@@ -0,0 +1,215 @@
++#
++# Apache/PHP/Drupal settings:
++#
++
++# Protect files and directories from prying eyes.
++<FilesMatch "\.(engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|twig|tpl(\.php)?|xtmpl|yml)(~|\.sw[op]|\.bak|\.orig|\.save)?$|^(\.(?!well-known).*|Entries.*|Repository|Root|Tag|Template|composer\.(json|lock)|web\.config)$|cron\.php|^(CHANGELOG|COPYRIGHT|INSTALL.*|LICENSE|MAINTAINERS|README|UPDATE).txt$|^#.*#$|\.php(~|\.sw[op]|\.bak|\.orig|\.save)$">
++  <IfModule mod_authz_core.c>
++    Require all denied
++  </IfModule>
++  <IfModule !mod_authz_core.c>
++    Order allow,deny
++  </IfModule>
++</FilesMatch>
++
++# Don't show directory listings for URLs which map to a directory.
++Options -Indexes
++
++# Set the default handler.
++DirectoryIndex index.php index.html index.htm
++
++# Add correct encoding for SVGZ.
++AddType image/svg+xml svg svgz
++AddEncoding gzip svgz
++
++# Most of the following PHP settings cannot be changed at runtime. See
++# sites/default/default.settings.php and
++# Drupal\Core\DrupalKernel::bootEnvironment() for settings that can be
++# changed at runtime.
++
++# PHP 5, Apache 1 and 2.
++<IfModule mod_php5.c>
++  php_value assert.active                   0
++  php_flag session.auto_start               off
++  php_value mbstring.http_input             pass
++  php_value mbstring.http_output            pass
++  php_flag mbstring.encoding_translation    off
++  # PHP 5.6 has deprecated $HTTP_RAW_POST_DATA and produces warnings if this is
++  # not set.
++  php_value always_populate_raw_post_data   -1
++</IfModule>
++
++# Requires mod_expires to be enabled.
++<IfModule mod_expires.c>
++  # Enable expirations.
++  ExpiresActive On
++
++  # Cache all files for 2 weeks after access (A).
++  ExpiresDefault A1209600
++
++  <FilesMatch \.php$>
++    # Do not allow PHP scripts to be cached unless they explicitly send cache
++    # headers themselves. Otherwise all scripts would have to overwrite the
++    # headers set by mod_expires if they want another caching behavior. This may
++    # fail if an error occurs early in the bootstrap process, and it may cause
++    # problems if a non-Drupal PHP file is installed in a subdirectory.
++    ExpiresActive Off
++  </FilesMatch>
++</IfModule>
++
++# Set a fallback resource if mod_rewrite is not enabled. This allows Drupal to
++# work without clean URLs. This requires Apache version >= 2.2.16. If Drupal is
++# not accessed by the top level URL (i.e.: http://example.com/drupal/ instead of
++# http://example.com/), the path to index.php will need to be adjusted.
++<IfModule !mod_rewrite.c>
++  FallbackResource /index.php
++</IfModule>
++
++# Various rewrite rules.
++<IfModule mod_rewrite.c>
++  RewriteEngine on
++
++  #####################
++  # Redirect to WWW
++  #####################
++  # exclude Acquia domains
++  RewriteCond %{HTTP_HOST} !\.acquia-sites\.com [NC]
++  # exclude urls that begin with word 'live'
++  RewriteCond %{HTTP_HOST} !^live|chicagoland|suffern|saltwater\. [NC]
++  # ensure only production environment
++  RewriteCond %{ENV:AH_SITE_ENVIRONMENT} prod [NC] # only prod
++  # ensure  for www.
++  RewriteCond %{HTTP_HOST} !^(www|live|live2|chicagoland|suffern|saltwater)\. [NC]
++  RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
++
++  #####################
++  # Redirect to HTTPS
++  #####################
++  RewriteCond %{HTTPS} off
++  RewriteCond %{HTTP:X-Forwarded-Proto} !https
++  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
++
++  # Set "protossl" to "s" if we were accessed via https://.  This is used later
++  # if you enable "www." stripping or enforcement, in order to ensure that
++  # you don't bounce between http and https.
++  RewriteRule ^ - [E=protossl]
++  RewriteCond %{HTTPS} on
++  RewriteRule ^ - [E=protossl:s]
++
++  # Make sure Authorization HTTP header is available to PHP
++  # even when running as CGI or FastCGI.
++  RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
++
++  # Block access to "hidden" directories whose names begin with a period. This
++  # includes directories used by version control systems such as Subversion or
++  # Git to store control files. Files whose names begin with a period, as well
++  # as the control files used by CVS, are protected by the FilesMatch directive
++  # above.
++  #
++  # NOTE: This only works when mod_rewrite is loaded. Without mod_rewrite, it is
++  # not possible to block access to entire directories from .htaccess because
++  # <DirectoryMatch> is not allowed here.
++  #
++  # If you do not have mod_rewrite installed, you should remove these
++  # directories from your webroot or otherwise protect them from being
++  # downloaded.
++  RewriteRule "/\.|^\.(?!well-known/)" - [F]
++
++  # If your site can be accessed both with and without the 'www.' prefix, you
++  # can use one of the following settings to redirect users to your preferred
++  # URL, either WITH or WITHOUT the 'www.' prefix. Choose ONLY one option:
++  #
++  # To redirect all users to access the site WITH the 'www.' prefix,
++  # (http://example.com/foo will be redirected to http://www.example.com/foo)
++  # uncomment the following:
++  # RewriteCond %{HTTP_HOST} .
++  # RewriteCond %{HTTP_HOST} !^www\. [NC]
++  # RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
++  #
++  # To redirect all users to access the site WITHOUT the 'www.' prefix,
++  # (http://www.example.com/foo will be redirected to http://example.com/foo)
++  # uncomment the following:
++  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
++  # RewriteRule ^ http%{ENV:protossl}://%1%{REQUEST_URI} [L,R=301]
++
++  # Modify the RewriteBase if you are using Drupal in a subdirectory or in a
++  # VirtualDocumentRoot and the rewrite rules are not working properly.
++  # For example if your site is at http://example.com/drupal uncomment and
++  # modify the following line:
++  # RewriteBase /drupal
++  #
++  # If your site is running in a VirtualDocumentRoot at http://example.com/,
++  # uncomment the following line:
++  # RewriteBase /
++
++  # Redirect common PHP files to their new locations.
++  RewriteCond %{REQUEST_URI} ^(.*)?/(install.php) [OR]
++  RewriteCond %{REQUEST_URI} ^(.*)?/(rebuild.php)
++  RewriteCond %{REQUEST_URI} !core
++  RewriteRule ^ %1/core/%2 [L,QSA,R=301]
++
++  # Rewrite install.php during installation to see if mod_rewrite is working
++  RewriteRule ^core/install.php core/install.php?rewrite=ok [QSA,L]
++
++  # Pass all requests not referring directly to files in the filesystem to
++  # index.php.
++  RewriteCond %{REQUEST_FILENAME} !-f
++  RewriteCond %{REQUEST_FILENAME} !-d
++  RewriteCond %{REQUEST_URI} !=/favicon.ico
++  RewriteRule ^ index.php [L]
++
++  # For security reasons, deny access to other PHP files on public sites.
++  # Note: The following URI conditions are not anchored at the start (^),
++  # because Drupal may be located in a subdirectory. To further improve
++  # security, you can replace '!/' with '!^/'.
++  # Allow access to PHP files in /core (like authorize.php or install.php):
++  RewriteCond %{REQUEST_URI} !/core/[^/]*\.php$
++
++  # Allow access to test-specific PHP files:
++  RewriteCond %{REQUEST_URI} !/core/modules/system/tests/https?.php
++
++  # Allow access to Statistics module's custom front controller.
++  # Copy and adapt this rule to directly execute PHP files in contributed or
++  # custom modules or to run another PHP application in the same directory.
++  RewriteCond %{REQUEST_URI} !/core/modules/statistics/statistics.php$
++
++  # Allow access to simplesaml paths
++  RewriteCond %{REQUEST_URI} !^/simplesaml
++
++  # Deny access to any other PHP files that do not match the rules above.
++  # Specifically, disallow autoload.php from being served directly.
++  RewriteRule "^(.+/.*|autoload)\.php($|/)" - [F]
++
++  # Rules to correctly serve gzip compressed CSS and JS files.
++  # Requires both mod_rewrite and mod_headers to be enabled.
++  <IfModule mod_headers.c>
++    # Serve gzip compressed CSS files if they exist and the client accepts gzip.
++    RewriteCond %{HTTP:Accept-encoding} gzip
++    RewriteCond %{REQUEST_FILENAME}\.gz -s
++    RewriteRule ^(.*)\.css $1\.css\.gz [QSA]
++
++    # Serve gzip compressed JS files if they exist and the client accepts gzip.
++    RewriteCond %{HTTP:Accept-encoding} gzip
++    RewriteCond %{REQUEST_FILENAME}\.gz -s
++    RewriteRule ^(.*)\.js $1\.js\.gz [QSA]
++
++    # Serve correct content types, and prevent mod_deflate double gzip.
++    RewriteRule \.css\.gz$ - [T=text/css,E=no-gzip:1]
++    RewriteRule \.js\.gz$ - [T=text/javascript,E=no-gzip:1]
++
++    <FilesMatch "(\.js\.gz|\.css\.gz)$">
++      # Serve correct encoding type.
++      Header set Content-Encoding gzip
++      # Force proxies to cache gzipped & non-gzipped css/js files separately.
++      Header append Vary Accept-Encoding
++    </FilesMatch>
++  </IfModule>
++</IfModule>
++
++# Various header fixes.
++<IfModule mod_headers.c>
++  # Disable content sniffing, since it's an attack vector.
++  Header always set X-Content-Type-Options nosniff
++  # Disable Proxy header, since it's an attack vector.
++  RequestHeader unset Proxy
++</IfModule>
+diff --git a/docroot/.htaccess.rej b/docroot/.htaccess.rej
+new file mode 100644
+index 00000000..9bb2d4e4
+--- /dev/null
++++ b/docroot/.htaccess.rej
+@@ -0,0 +1,17 @@
++***************
++*** 149,154 ****
++    RewriteCond %{REQUEST_URI} !/core/[^/]*\.php$
++    # Allow access to test-specific PHP files:
++    RewriteCond %{REQUEST_URI} !/core/modules/system/tests/https?.php
++    # Allow access to Statistics module's custom front controller.
++    # Copy and adapt this rule to directly execute PHP files in contributed or
++    # custom modules or to run another PHP application in the same directory.
++--- 149,156 ----
++    RewriteCond %{REQUEST_URI} !/core/[^/]*\.php$
++    # Allow access to test-specific PHP files:
++    RewriteCond %{REQUEST_URI} !/core/modules/system/tests/https?.php
+++   # Allow access to simplesaml paths.
+++   RewriteCond %{REQUEST_URI} !^/simplesaml
++    # Allow access to Statistics module's custom front controller.
++    # Copy and adapt this rule to directly execute PHP files in contributed or
++    # custom modules or to run another PHP application in the same directory.
+diff --git a/docroot/simplesaml b/docroot/simplesaml
+index 8db7bb61..4e59272a 120000
+--- a/docroot/simplesaml
++++ b/docroot/simplesaml
+@@ -1 +1 @@
+-../simplesamlphp/www
+\ No newline at end of file
++../vendor/simplesamlphp/simplesamlphp/www
+\ No newline at end of file
+diff --git a/patches/htaccess-saml.patch b/patches/htaccess-saml.patch
+new file mode 100644
+index 00000000..f5324bb7
+--- /dev/null
++++ b/patches/htaccess-saml.patch
+@@ -0,0 +1,13 @@
++diff --git docroot/.htaccess docroot/.htaccess
++index 27e18a0..03eabf5 100644
++--- docroot/.htaccess
+++++ docroot/.htaccess
++@@ -149,6 +149,8 @@ AddEncoding gzip svgz
++   RewriteCond %{REQUEST_URI} !/core/[^/]*\.php$
++   # Allow access to test-specific PHP files:
++   RewriteCond %{REQUEST_URI} !/core/modules/system/tests/https?.php
+++  # Allow access to simplesaml paths.
+++  RewriteCond %{REQUEST_URI} !^/simplesaml
++   # Allow access to Statistics module's custom front controller.
++   # Copy and adapt this rule to directly execute PHP files in contributed or
++   # custom modules or to run another PHP application in the same directory.
+diff --git a/simplesamlphp-1.18.2/config/acquia_config.php b/simplesamlphp-1.18.2/config/acquia_config.php
+index af83bd42..77497bbb 100644
+--- a/simplesamlphp-1.18.2/config/acquia_config.php
++++ b/simplesamlphp-1.18.2/config/acquia_config.php
+@@ -20,11 +20,11 @@
+ 
+ // Set some security and other configs that are set above, however we
+ // overwrite them here to keep all changes in one area.
+-$config['technicalcontact_name'] = "Your Name";
+-$config['technicalcontact_email'] = "your_email@yourdomain.com";
++$config['technicalcontact_name'] = "webdepartment";
++$config['technicalcontact_email'] = "webdepartment@nmma.org";
+ 
+ // Change these for your installation.
+-$config['secretsalt'] = 'y0h9d13pki9qdhfm3l5nws4jjn55j6hj';
++$config['secretsalt'] = 'y0h9d13pki9qdhfm3l5nws4jjn55j6hjmdl';
+ $config['auth.adminpassword'] = 'mysupersecretsso';
+ 
+ /**
+@@ -37,7 +37,7 @@
+  *
+  * @link https://github.com/simplesamlphp/simplesamlphp/issues/450
+  */
+-$_SERVER['SERVER_PORT'] = 443;
++ $_SERVER['SERVER_PORT'] = 443;
+ $_SERVER['HTTPS'] = 'true';
+ $protocol = 'https://';
+ $port = ':' . $_SERVER['SERVER_PORT'];
+diff --git a/simplesamlphp-1.18.2/config/authsources.php b/simplesamlphp-1.18.2/config/authsources.php
+index a2b03f08..0d8da0e9 100644
+--- a/simplesamlphp-1.18.2/config/authsources.php
++++ b/simplesamlphp-1.18.2/config/authsources.php
+@@ -18,7 +18,6 @@
+ 
+         // The entity ID of this SP.
+         // Can be NULL/unset, in which case an entity ID is generated based on the metadata URL.
+-
+         'entityID' => null,
+ 
+         // The entity ID of the IdP this SP should contact.
+@@ -58,14 +57,13 @@
+         'dsn' => 'pgsql:host=sql.example.org;port=5432;dbname=simplesaml',
+         'username' => 'simplesaml',
+         'password' => 'secretpassword',
+-        'query' => 'SELECT uid, givenName, email, eduPersonPrincipalName FROM users WHERE uid = :username ' .
+-            'AND password = SHA2(CONCAT((SELECT salt FROM users WHERE uid = :username), :password), 256);',
++        'query' => 'SELECT uid, givenName, email, eduPersonPrincipalName FROM users WHERE uid = :username AND password = SHA2(CONCAT((SELECT salt FROM users WHERE uid = :username), :password), 256);',
+     ],
+     */
+ 
+     /*
+     'example-static' => [
+-        'exampleauth:StaticSource',
++        'exampleauth:Static',
+         'uid' => ['testuser'],
+         'eduPersonAffiliation' => ['member', 'employee'],
+         'cn' => ['Test User'],
+@@ -151,16 +149,17 @@
+     */
+ 
+     /*
+-    // LinkedIn OAuth Authentication API.
++    // Twitter OAuth Authentication API.
+     // Register your application to get an API key here:
+-    //  https://www.linkedin.com/secure/developer
+-    // Attributes definition:
+-    //  https://developer.linkedin.com/docs/fields
+-    'linkedin' => [
+-        'authlinkedin:LinkedIn',
++    //  http://twitter.com/oauth_clients
++    'twitter' => [
++        'authtwitter:Twitter',
+         'key' => 'xxxxxxxxxxxxxxxx',
+         'secret' => 'xxxxxxxxxxxxxxxx',
+-        'attributes' => 'id,first-name,last-name,headline,summary,specialties,picture-url,email-address',
++
++        // Forces the user to enter their credentials to ensure the correct users account is authorized.
++        // Details: https://dev.twitter.com/docs/api/1/get/oauth/authenticate
++        'force_login' => false,
+     ],
+     */
+ 
+diff --git a/simplesamlphp-1.18.2/config/config.php b/simplesamlphp-1.18.2/config/config.php
+index cfc2c7c8..68f57b29 100644
+--- a/simplesamlphp-1.18.2/config/config.php
++++ b/simplesamlphp-1.18.2/config/config.php
+@@ -3,11 +3,9 @@
+  * The configuration of SimpleSAMLphp
+  *
+  */
+-
+- if (file_exists('/var/www/site-php')) {
+-    require_once("/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp/config/acquia_config.php");
+- }
+-
++  if (file_exists('/var/www/site-php')) {
++     require_once("/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp/config/acquia_config.php");
++  }
+ $config = [
+ 
+     /*******************************
+@@ -79,31 +77,6 @@
+     'technicalcontact_name' => 'Administrator',
+     'technicalcontact_email' => 'na@example.org',
+ 
+-    /*
+-     * (Optional) The method by which email is delivered.  Defaults to mail which utilizes the
+-     * PHP mail() function.
+-     *
+-     * Valid options are: mail, sendmail and smtp.
+-     */
+-    //'mail.transport.method' => 'smtp',
+-
+-    /*
+-     * Set the transport options for the transport method specified.  The valid settings are relative to the
+-     * selected transport method.
+-     */
+-    // // smtp mail transport options
+-    // 'mail.transport.options' => [
+-    //     'host' => 'mail.example.org', // required
+-    //     'port' => 25, // optional
+-    //     'username' => 'user@example.org', // optional: if set, enables smtp authentication
+-    //     'password' => 'password', // optional: if set, enables smtp authentication
+-    //     'security' => 'tls', // optional: defaults to no smtp security
+-    // ],
+-    // // sendmail mail transport options
+-    // 'mail.transport.options' => [
+-    //     'path' => '/usr/sbin/sendmail' // optional: defaults to php.ini path
+-    // ],
+-
+     /*
+      * The envelope from address for outgoing emails.
+      * This should be in a domain that has your application's IP addresses in its SPF record
+@@ -293,7 +266,7 @@
+      *
+      * Choose logging handler.
+      *
+-     * Options: [syslog,file,errorlog,stderr]
++     * Options: [syslog,file,errorlog]
+      *
+      */
+     'logging.level' => SimpleSAML\Logger::NOTICE,
+@@ -465,10 +438,16 @@
+      * one of the functionalities below, but in some cases you could run multiple functionalities.
+      * In example when you are setting up a federation bridge.
+      */
+-
+     'enable.saml20-idp' => true,
+     'enable.shib13-idp' => false,
+     'enable.adfs-idp' => false,
++    'enable.wsfed-sp' => false,
++    'enable.authmemcookie' => false,
++
++    /*
++     * Default IdP for WS-Fed.
++     */
++    'default-wsfed-idp' => 'urn:federation:pingfederate:localhost',
+ 
+     /*
+      * Whether SimpleSAMLphp should sign the response or the assertion in SAML 1.1 authentication
+@@ -493,7 +472,7 @@
+      *
+      * 'module.enable' => [
+      *      'exampleauth' => true, // Setting to TRUE enables.
+-     *      'consent' => false, // Setting to FALSE disables.
++     *      'saml' => false, // Setting to FALSE disables.
+      *      'core' => null, // Unset or NULL uses default.
+      * ],
+      *
+@@ -828,15 +807,6 @@
+      */
+     //'theme.header' => 'SimpleSAMLphp'
+ 
+-    /**
+-     * A template controller, if any.
+-     *
+-     * Used to intercept certain parts of the template handling, while keeping away unwanted/unexpected hooks. Set
+-     * the 'theme.controller' configuration option to a class that implements the
+-     * \SimpleSAML\XHTML\TemplateControllerInterface interface to use it.
+-     */
+-    //'theme.controller' => '',
+-
+     /*
+      * Templating options
+      *
+@@ -866,31 +836,6 @@
+      */
+     'production' => true,
+ 
+-    /*
+-     * SimpleSAMLphp modules can host static resources which are served through PHP.
+-     * The serving of the resources can be configured through these settings.
+-     */
+-    'assets' => [
+-        /*
+-         * These settings adjust the caching headers that are sent
+-         * when serving static resources.
+-         */
+-        'caching' => [
+-            /*
+-             * Amount of seconds before the resource should be fetched again
+-             */
+-            'max_age' => 86400,
+-            /*
+-             * Calculate a checksum of every file and send it to the browser
+-             * This allows the browser to avoid downloading assets again in situations
+-             * where the Last-Modified header cannot be trusted,
+-             * for example in cluster setups
+-             *
+-             * Defaults false
+-             */
+-            'etag' => false,
+-        ],
+-    ],
+ 
+ 
+     /*********************
+@@ -1180,3 +1125,4 @@
+      */
+     'store.redis.prefix' => 'SimpleSAMLphp',
+ ];
++include 'acquia_config.php';
