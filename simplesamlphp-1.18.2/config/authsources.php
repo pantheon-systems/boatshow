@@ -18,11 +18,12 @@ $config = [
 
         // The entity ID of this SP.
         // Can be NULL/unset, in which case an entity ID is generated based on the metadata URL.
-        'entityID' => 'okta_sso_drupal',
+
+        'entityID' => null,
 
         // The entity ID of the IdP this SP should contact.
         // Can be NULL/unset, in which case the user will be shown a list of available IdPs.
-        'idp' => 'http://www.okta.com/exk1hyssphtTGcbJB0h8',
+        'idp' => null,
 
         // The URL to the discovery service.
         // Can be NULL/unset, in which case a builtin discovery service will be used.
