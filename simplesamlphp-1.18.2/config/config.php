@@ -76,8 +76,8 @@ $config = [
      * The email address will be used as the recipient address for error reports, and
      * also as the technical contact in generated metadata.
      */
-    'technicalcontact_name' => 'Administrator',
-    'technicalcontact_email' => 'na@example.org',
+    'technicalcontact_name' => 'webdepartment',
+    'technicalcontact_email' => 'webdepartment@nmma.org',
 
     /*
      * (Optional) The method by which email is delivered.  Defaults to mail which utilizes the
@@ -134,7 +134,7 @@ $config = [
      * A possible way to generate a random salt is by running the following command from a unix shell:
      * LC_CTYPE=C tr -c -d '0123456789abcdefghijklmnopqrstuvwxyz' </dev/urandom | dd bs=32 count=1 2>/dev/null;echo
      */
-    'secretsalt' => 'defaultsecretsalt',
+    'secretsalt' => 'ds5g0fz78xn7ocx7leq4hmn2i270t9ie',
 
     /*
      * This password must be kept secret, and modified from the default value 123.
