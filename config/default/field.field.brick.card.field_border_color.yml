@@ -1,0 +1,21 @@
+uuid: 21019ad6-1b25-42fd-94ca-81eff427ff24
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.card
+    - field.storage.brick.field_border_color
+  module:
+    - options
+id: brick.card.field_border_color
+field_name: field_border_color
+entity_type: brick
+bundle: card
+label: 'Border Color'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

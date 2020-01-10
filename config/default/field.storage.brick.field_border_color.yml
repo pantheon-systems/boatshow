@@ -1,0 +1,21 @@
+uuid: 8420e487-2a5c-43cc-ac53-bd5e731bd681
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - options
+id: brick.field_border_color
+field_name: field_border_color
+entity_type: brick
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: nmma_brick_layouts_border_color_allowed_values_function
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
