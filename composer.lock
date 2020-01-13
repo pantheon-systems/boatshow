@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "edf79793dbe5017e4b8490bf8e5fa99d",
+    "content-hash": "ce91691cdc42cd24da17529f05ba7565",
     "packages": [
         {
             "name": "acquia/blt",
@@ -4645,11 +4645,6 @@
                 "phpunit/phpunit": ">=3.7 <6"
             },
             "type": "phpcodesniffer-standard",
-            "extra": {
-                "patches_applied": {
-                    "Fix bad code sniffing in theme file": "https://www.drupal.org/files/issues/2018-05-10/filename-issue-theme-extension-2935388-4.patch"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Drupal\\": "coder_sniffer/Drupal/",

@@ -17,9 +17,6 @@ git:
 deploy:
   tag_source: true
 drush:
-  # remote: '${project.machine_name}.test'
-  # local: self
-  # ci: self
   default_alias: '${drush.aliases.local}'
 multisites:
   - atlanta

@@ -37,10 +37,10 @@ $config['auth.adminpassword'] = 'mysupersecretsso';
  *
  * @link https://github.com/simplesamlphp/simplesamlphp/issues/450
  */
- $_SERVER['SERVER_PORT'] = 443;
+/* $_SERVER['SERVER_PORT'] = 443;
 $_SERVER['HTTPS'] = 'true';
 $protocol = 'https://';
-$port = ':' . $_SERVER['SERVER_PORT'];
+$port = ':' . $_SERVER['SERVER_PORT'];*/
 
 /**
  * Cookies No Cache.
