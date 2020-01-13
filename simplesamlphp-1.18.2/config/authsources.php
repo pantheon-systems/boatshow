@@ -18,12 +18,20 @@ $config = [
 
         // The entity ID of this SP.
         // Can be NULL/unset, in which case an entity ID is generated based on the metadata URL.
+<<<<<<< HEAD
+        'entityID' => 'okta-sso',
+
+        // The entity ID of the IdP this SP should contact.
+        // Can be NULL/unset, in which case the user will be shown a list of available IdPs.
+        'idp' => 'http://www.okta.com/exk1i1y4rgaPKDkB90h8',
+=======
 
         'entityID' => null,
 
         // The entity ID of the IdP this SP should contact.
         // Can be NULL/unset, in which case the user will be shown a list of available IdPs.
         'idp' => null,
+>>>>>>> origin/2.x-develop
 
         // The URL to the discovery service.
         // Can be NULL/unset, in which case a builtin discovery service will be used.
@@ -58,14 +66,13 @@ $config = [
         'dsn' => 'pgsql:host=sql.example.org;port=5432;dbname=simplesaml',
         'username' => 'simplesaml',
         'password' => 'secretpassword',
-        'query' => 'SELECT uid, givenName, email, eduPersonPrincipalName FROM users WHERE uid = :username ' .
-            'AND password = SHA2(CONCAT((SELECT salt FROM users WHERE uid = :username), :password), 256);',
+        'query' => 'SELECT uid, givenName, email, eduPersonPrincipalName FROM users WHERE uid = :username AND password = SHA2(CONCAT((SELECT salt FROM users WHERE uid = :username), :password), 256);',
     ],
     */
 
     /*
     'example-static' => [
-        'exampleauth:StaticSource',
+        'exampleauth:Static',
         'uid' => ['testuser'],
         'eduPersonAffiliation' => ['member', 'employee'],
         'cn' => ['Test User'],
@@ -151,16 +158,17 @@ $config = [
     */
 
     /*
-    // LinkedIn OAuth Authentication API.
+    // Twitter OAuth Authentication API.
     // Register your application to get an API key here:
-    //  https://www.linkedin.com/secure/developer
-    // Attributes definition:
-    //  https://developer.linkedin.com/docs/fields
-    'linkedin' => [
-        'authlinkedin:LinkedIn',
+    //  http://twitter.com/oauth_clients
+    'twitter' => [
+        'authtwitter:Twitter',
         'key' => 'xxxxxxxxxxxxxxxx',
         'secret' => 'xxxxxxxxxxxxxxxx',
-        'attributes' => 'id,first-name,last-name,headline,summary,specialties,picture-url,email-address',
+
+        // Forces the user to enter their credentials to ensure the correct users account is authorized.
+        // Details: https://dev.twitter.com/docs/api/1/get/oauth/authenticate
+        'force_login' => false,
     ],
     */
 

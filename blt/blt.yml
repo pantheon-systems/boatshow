@@ -17,10 +17,6 @@ git:
 deploy:
   tag_source: true
 drush:
-  aliases:
-    # remote: '${project.machine_name}.test'
-    # local: self
-    # ci: self
   default_alias: '${drush.aliases.local}'
 multisites:
   - atlanta
@@ -47,17 +43,15 @@ disable-targets:
     phpcs: { sniff: { all: true } }
     behat: { run: true }
     security: { check: { updates: true } }
-# Completely override sync commands (nmma:noops are to unset OOTB commands)
-# @link https://github.com/acquia/blt/issues/3697
 sync:
   commands:
-    - source:build:composer
-    - drupal:sync:db
-    - drupal:update
-    - "nmma:noop"
-    - "nmma:noop"
-    - "nmma:noop"
-    - "nmma:noop"
+    - 'source:build:composer'
+    - 'drupal:sync:db'
+    - 'drupal:update'
+    - 'nmma:noop'
+    - 'nmma:noop'
+    - 'nmma:noop'
+    - 'nmma:noop'
 modules:
   local:
     enable: [dblog, devel, seckit, views_ui, kint]

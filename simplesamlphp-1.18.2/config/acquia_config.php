@@ -22,14 +22,13 @@
 // overwrite them here to keep all changes in one area.
 $config['technicalcontact_name'] = "webdepartment";
 $config['technicalcontact_email'] = "webdepartment@nmma.org";
-​
+
+
 // Change these for your installation.
-$config['secretsalt'] = 'oowrt02320u032lnwler034j5l20357fjleh';
-$config['auth.adminpassword'] = '@ft3r2d@y';
-​
-$config['admin.protectindexpage'] = TRUE;
-//$config['admin.protectmetadata'] = TRUE;
-​
+$config['secretsalt'] = 'y0h9d13pki9qdhfm3l5nws4jjn55j6hjmdl';
+$config['auth.adminpassword'] = 'mysupersecretsso';
+
+
 /**
  * Support SSL Redirects to SAML login pages.
  *
@@ -41,6 +40,12 @@ $config['admin.protectindexpage'] = TRUE;
  * @link https://github.com/simplesamlphp/simplesamlphp/issues/450
  *
  */
+<<<<<<< HEAD
+/* $_SERVER['SERVER_PORT'] = 443;
+$_SERVER['HTTPS'] = 'true';
+$protocol = 'https://';
+$port = ':' . $_SERVER['SERVER_PORT'];*/
+=======
 // Prevent Varnish from interfering with SimpleSAMLphp.
 // SSL terminated at the ELB / balancer so we correctly set the SERVER_PORT
 // and HTTPS for SimpleSAMLphp baseurl configuration.
@@ -59,6 +64,7 @@ $ah_options = array(
   // "exampletest" or "exampleprod".
   // Change the following line to match your database name.
   'database_name' => 'test',
+>>>>>>> origin/2.x-develop
 
   'session_store' => array(
     // Valid values are "memcache" and "database", database is recommended.
