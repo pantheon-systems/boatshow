@@ -1,5 +1,5 @@
 <?php
-​
+
 /**
  * @file
  * SimpleSamlPhp Acquia Configuration.
@@ -8,7 +8,7 @@
  *
  * All custom changes below. Modify as needed.
  */
-​
+
 /**
  * Defines Acquia account specific options in $config keys.
  *
@@ -17,17 +17,15 @@
  *   - 'store.type: Define the session storage service to use in each
  *     Acquia environment ("defualts to sql").
  */
-​
+
 // Set some security and other configs that are set above, however we
 // overwrite them here to keep all changes in one area.
-$config['technicalcontact_name'] = "webdepartment";
-$config['technicalcontact_email'] = "webdepartment@nmma.org";
-
+$config['technicalcontact_name'] = "Your Name";
+$config['technicalcontact_email'] = "your_email@yourdomain.com";
 
 // Change these for your installation.
-$config['secretsalt'] = 'y0h9d13pki9qdhfm3l5nws4jjn55j6hjmdl';
+$config['secretsalt'] = 'y0h9d13pki9qdhfm3l5nws4jjn55j6hj';
 $config['auth.adminpassword'] = 'mysupersecretsso';
-
 
 /**
  * Support SSL Redirects to SAML login pages.
@@ -38,45 +36,12 @@ $config['auth.adminpassword'] = 'mysupersecretsso';
  * This is a requirement in SimpleSAML when providing a redirect path.
  *
  * @link https://github.com/simplesamlphp/simplesamlphp/issues/450
- *
  */
-<<<<<<< HEAD
-/* $_SERVER['SERVER_PORT'] = 443;
+$_SERVER['SERVER_PORT'] = 443;
 $_SERVER['HTTPS'] = 'true';
 $protocol = 'https://';
-$port = ':' . $_SERVER['SERVER_PORT'];*/
-=======
-// Prevent Varnish from interfering with SimpleSAMLphp.
-// SSL terminated at the ELB / balancer so we correctly set the SERVER_PORT
-// and HTTPS for SimpleSAMLphp baseurl configuration.
-$protocol = 'http://';
-$port = ':80';
-if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
-  $_SERVER['SERVER_PORT'] = 443;
-  $_SERVER['HTTPS'] = 'true';
-  $protocol = 'https://';
-  $port = ':' . $_SERVER['SERVER_PORT'];
-}
-$config['baseurlpath'] = $protocol . $port . '/simplesaml/';
-​
-$ah_options = array(
-  // Use the database "role" without the "stage", e.g., "example", not
-  // "exampletest" or "exampleprod".
-  // Change the following line to match your database name.
-  'database_name' => 'test',
->>>>>>> origin/2.x-develop
+$port = ':' . $_SERVER['SERVER_PORT'];
 
-  'session_store' => array(
-    // Valid values are "memcache" and "database", database is recommended.
-    // Note that the below config will be for only the dev, test, and prod
-    // environments. If you would like to cover additional environments, list
-    // them here.
-    'prod' => 'database',
-    'test' => 'database',
-    'dev'  => 'database',
-  ),
-);
-​
 /**
  * Cookies No Cache.
  *
@@ -85,19 +50,17 @@ $ah_options = array(
  *
  * Warning: This has performance implications for anonymous users.
  *
- * @link https://docs.acquia.com/resource/simplesaml/
+ * @link https://docs.acquia.com/resource/using-simplesamlphp-acquia-cloud-site
  */
-// Commenting out NO_CACHE cookie to prevent Varnish caching bypass.
-// setcookie('NO_CACHE', '1');
-
+// setcookie('NO_CACHE', '1');.
 /**
  * Generate Acquia session storage via hosting creds.json.
  *
- * Session storage defaults using the database for the current request.
+ * Session sorage defaults using the database for the current request.
  *
  * @link https://docs.acquia.com/resource/using-simplesamlphp-acquia-cloud-site/#storing-session-information-using-the-acquia-cloud-sql-database
  */
-​
+
 if (!getenv('AH_SITE_ENVIRONMENT')) {
   // Add / modify your local configuration here.
   $config['store.type'] = 'sql';
@@ -105,24 +68,25 @@ if (!getenv('AH_SITE_ENVIRONMENT')) {
   $config['store.sql.username'] = 'drupal';
   $config['store.sql.password'] = 'drupal';
   $config['store.sql.prefix'] = 'simplesaml';
-  $config['certdir'] = "/var/www/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/simplesamlphp/cert/";
-  $config['metadatadir'] = "/var/www/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/simplesamlphp/metadata";
+  $config['certdir'] = "/var/www/simplesamlphp/cert/";
+  $config['metadatadir'] = "/var/www/simplesamlphp/metadata";
   $config['baseurlpath'] = 'simplesaml/';
   $config['loggingdir'] = '/var/www/simplesamlphp/log/';
-​
-  // Enable as IdP for local Idp domains.
-  if (in_array($_SERVER['SERVER_NAME'], ['local.example.com', 'employee.example.com', 'local.miami.com', 'dev2.boatshownorwalk.com'])) {
-    $config['enable.saml20-idp'] = TRUE;
-  }
+
 }
 elseif (getenv('AH_SITE_ENVIRONMENT')) {
+  // Support multi-site and single site installations at different base URLs.
+  // Overide $config['baseurlpath'] = "https://{yourdomain}/simplesaml/"
+  // to customize the default Acquia configuration.
+  // phpcs:ignore
+  $config['baseurlpath'] = $protocol . $_SERVER['HTTP_HOST'] . $port . '/simplesaml/';
   // Set ACE and ACSF sites based on hosting database and site name.
   $config['certdir'] = "/mnt/www/html/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/simplesamlphp/cert/";
   $config['metadatadir'] = "/mnt/www/html/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/simplesamlphp/metadata";
-  // Base url path already set above.
-   $config['baseurlpath'] = 'simplesaml/';
+  $config['baseurlpath'] = 'simplesaml/';
   // Setup basic logging.
   $config['logging.handler'] = 'file';
+  // phpcs:ignore
   $config['loggingdir'] = dirname(getenv('ACQUIA_HOSTING_DRUPAL_LOG'));
   $config['logging.logfile'] = 'simplesamlphp-' . date('Ymd') . '.log';
   $creds_json = file_get_contents('/var/www/site-php/' . $_ENV['AH_SITE_GROUP'] . '.' . $_ENV['AH_SITE_ENVIRONMENT'] . '/creds.json');

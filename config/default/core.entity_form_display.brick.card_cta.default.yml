@@ -6,6 +6,7 @@ dependencies:
     - eck.eck_type.brick.card_cta
     - entity_browser.browser.media_browser
     - field.field.brick.card_cta.field_background_image
+    - field.field.brick.card_cta.field_border_color
     - field.field.brick.card_cta.field_brick_headline
     - field.field.brick.card_cta.field_link
   module:
@@ -29,6 +30,12 @@ content:
       field_widget_display_settings: {  }
     third_party_settings: {  }
     type: entity_browser_entity_reference
+    region: content
+  field_border_color:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_brick_headline:
     weight: 4

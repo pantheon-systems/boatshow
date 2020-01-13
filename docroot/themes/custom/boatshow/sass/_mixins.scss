@@ -126,7 +126,7 @@ body {
   & {
     & [class~="slab-inverted"],
     & .slab-inverted {
-        @include slab-inverted-reset;
+      @include slab-inverted-reset;
       @media (min-width: $screen-sm) {
         @include slab-inverted;
       }

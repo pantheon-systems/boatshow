@@ -544,6 +544,13 @@ function boatshow_preprocess_eck_entity(&$variables) {
     }
   }
 
+  ////////////////////////////
+  /// Border
+  ////////////////////////////
+  if ($entity->hasField('field_border_color') && !empty($entity->field_border_color->value)) {
+    $variables['attributes']['class'][] = 'borders-' . $entity->field_border_color->value;
+  }
+
   if ($entity->hasField('field_link') && !empty($entity->field_link->uri)) {
     $link_uri = $entity->field_link->uri;
 
