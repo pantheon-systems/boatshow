@@ -40,12 +40,7 @@ $config['auth.adminpassword'] = 'mysupersecretsso';
  * @link https://github.com/simplesamlphp/simplesamlphp/issues/450
  *
  */
-<<<<<<< HEAD
-/* $_SERVER['SERVER_PORT'] = 443;
-$_SERVER['HTTPS'] = 'true';
-$protocol = 'https://';
-$port = ':' . $_SERVER['SERVER_PORT'];*/
-=======
+
 // Prevent Varnish from interfering with SimpleSAMLphp.
 // SSL terminated at the ELB / balancer so we correctly set the SERVER_PORT
 // and HTTPS for SimpleSAMLphp baseurl configuration.
@@ -64,7 +59,7 @@ $ah_options = array(
   // "exampletest" or "exampleprod".
   // Change the following line to match your database name.
   'database_name' => 'test',
->>>>>>> origin/2.x-develop
+
 
   'session_store' => array(
     // Valid values are "memcache" and "database", database is recommended.
