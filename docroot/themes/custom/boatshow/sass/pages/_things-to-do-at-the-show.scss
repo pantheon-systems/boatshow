@@ -79,7 +79,6 @@
   margin: -1em -1em;
 
   .column-item {
-    background: $colorname-lighter-gray;
     border-left: 1em solid white;
     border-top: 1em solid white;
 
@@ -92,6 +91,7 @@
 
   .grid-item--content {
     position: relative;
+    background-color: $colorname-lighter-gray;
 
     & > img {
       width: 100%;
