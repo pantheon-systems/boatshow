@@ -9,12 +9,14 @@ dependencies:
     - field.field.node.dining.field_dining_location
     - field.field.node.dining.field_dining_service
     - field.field.node.dining.field_media
+    - field.field.node.dining.field_weight
     - node.type.dining
   module:
     - content_moderation
     - entity_browser
     - path
     - text
+    - weight
 id: node.dining.default
 targetEntityType: node
 bundle: dining
@@ -77,6 +79,12 @@ content:
       field_widget_replace: false
     region: content
     third_party_settings: {  }
+  field_weight:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: weight_selector
+    region: content
   langcode:
     type: language_select
     weight: 3

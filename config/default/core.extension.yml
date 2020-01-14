@@ -220,6 +220,7 @@ module:
   views_ui: 0
   webform: 0
   webform_ui: 0
+  weight: 0
   workflows: 0
   youtube_import: 0
   menu_link_content: 1
