@@ -1,5 +1,4 @@
 .dining-filters-section {
-
   @include media-breakpoint-up(md) {
     @include slab-reset;
     padding: 0;
@@ -25,35 +24,92 @@
     padding-right: 0;
 
     @include media-breakpoint-up(md) {
-      padding-left: dimension-masthead-x-padding;
-      padding-right: dimension-masthead-x-padding;
+      padding-left: $dimension-masthead-x-padding;
+      padding-right: $dimension-masthead-x-padding;
     }
   }
 }
 
-.view-display-id-dining_options_block  {
+.view-dining  {
+
+  .view-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .views-row {
+    box-sizing: border-box;
+    width: 100%;
+    padding: $dimension-card-padding / 2;
+
+    .node--type-dining {
+      padding: $dimension-card-padding;
+      box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.3);
+      height: 100%;
+    }
+  }
+
+  .title {
+    text-align: center;
+    font-size: 18px;
+    color: $city-color-secondary;
+  }
+
+  .field--name-field-media {
+    text-align: center;
+
+    &.field__items {
+      margin: $dimension-vertical-rhythm-elements 0;
+    }
+  }
+
+  .view-header {
+    padding-bottom: $dimension-vertical-rhythm-elements;
+    margin-bottom: $dimension-vertical-rhythm-elements;
+    border-bottom: 1px solid $colorname-gray-dark;
+  }
+
+  .view-content {
+    margin: 0 (-$dimension-card-padding / 2);
+  }
+
+  .field--name-field-bus-logo {
+    text-align: center;
+
+    img {
+      max-height: 80px;
+      width: auto;
+    }
+  }
+
+  .field--label-inline {
+    .field__label {
+      display: inline-block;
+      width: 14ex;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      &:after {
+        content: ':';
+      }
+    }
+    .field__item {
+      display: inline-block;
+    }
+  }
 
   .featured-dining {
     box-sizing:border-box;
     width: 100%;
-    padding: 30px $dimension-card-padding 0;
-
-    @include media-breakpoint-up(md) {
-      background: #ddd;
-      padding-top: 0;
-    }
 
     @include media-breakpoint-up(lg) {
       width: 66%;
-      float: left;
     }
 
-    .node--type-dining {
-      width: 100%;
-      box-sizing: border-box;
-
-      &:last-child {
-        border-bottom: 0;
+    .views-row {
+      .node--type-dining {
+        background-color: #ddd;
       }
     }
 
@@ -86,78 +142,44 @@
     }
   }
 
-  .field--name-field-media {
-    text-align: center;
-
-    &.field__items {
-      margin: $dimension-vertical-rhythm-elements 0;
-    }
-  }
-
-  .node--type-dining {
-    border-bottom: 1px solid $color-rules;
-    padding-bottom: $dimension-vertical-rhythm-elements;
-    margin-bottom: $dimension-vertical-rhythm-elements;
-
-    @include media-breakpoint-up(md) {
-      // force alignment between items
-      min-height: 500px;
-      margin-top: 30px;
-    }
-  }
-
-  .view-header {
-    padding-bottom: $dimension-vertical-rhythm-elements;
-    margin-bottom: $dimension-vertical-rhythm-elements;
-    border-bottom: 1px solid $colorname-gray-dark;
-  }
-
-  .view-content {
-    padding-top: $dimension-vertical-rhythm-elements;
-  }
-  .views-row {
-    box-sizing: border-box;
-    float: left;
-    display: inline-block;
-    vertical-align: top;
+  .sidebar-dining,
+  .main-dining {
     width: 100%;
-    padding-right: $dimension-card-padding;
-    padding-left: $dimension-card-padding;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
 
+    .views-row {
+      width: 100%;
+      flex-grow: 1;
+      margin: $dimension-card-padding 0;
 
-    @include media-breakpoint-up(md) {
-      width: 33%;
-
-    }
-  }
-
-  .title {
-    text-align: center;
-    font-size: 18px;
-    color: $city-color-secondary;
-  }
-
-  .field--name-field-bus-logo {
-    text-align: center;
-
-    img {
-      max-height: 80px;
-      width: auto;
-    }
-  }
-  .field--label-inline {
-    .field__label {
-      display: inline-block;
-      width: 14ex;
-      text-transform: uppercase;
-      font-weight: bold;
-
-      &:after {
-        content: ':';
+      @include media-breakpoint-up(md) {
+        width: 33%;
       }
     }
-    .field__item {
-      display: inline-block;
+  }
+
+  .sidebar-dining {
+    @include media-breakpoint-up(lg) {
+      width: 33%;
+
+      .views-row {
+        width: 100%;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .main-dining {
+    .views-row-last {
+      @include media-breakpoint-up(md) {
+        max-width: 33%;
+      }
     }
   }
 }
