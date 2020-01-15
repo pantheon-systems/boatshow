@@ -15,6 +15,7 @@ permissions:
   - 'download media'
   - 'restful get nmma_boatfinder_resource'
   - 'search content'
+  - 'unpublish editable content'
   - 'use text format restricted'
   - 'use text format rich_text'
   - 'view all revisions'
