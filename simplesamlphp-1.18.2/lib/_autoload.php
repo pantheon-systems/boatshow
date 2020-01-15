@@ -9,8 +9,10 @@
  */
 
 // SSP is loaded as a separate project
-\Drupal::logger('my_module')->notice(dirname(dirname(__FILE__)) . '/vendor/autoload.php');
-      \Drupal::logger('my_module')->notice(dirname(dirname(__FILE__)) . '/../../autoload.php');
+\Drupal::logger('mysimplesaml')->notice(dirname(dirname(__FILE__)) . '/vendor/autoload.php');
+\Drupal::logger('mysimplesaml')->notice(dirname(dirname(__FILE__)) . '/../../autoload.php');
+\Drupal::logger('mysimplesaml')->notice(dirname(dirname(__FILE__)) . '/../vendor/autoload.php'');
+
 if (file_exists(dirname(dirname(__FILE__)) . '/vendor/autoload.php')) {
     require_once dirname(dirname(__FILE__)) . '/vendor/autoload.php';
 
@@ -18,6 +20,8 @@ if (file_exists(dirname(dirname(__FILE__)) . '/vendor/autoload.php')) {
     // SSP is loaded as a library
     if (file_exists(dirname(dirname(__FILE__)) . '/../../autoload.php')) {
         require_once dirname(dirname(__FILE__)) . '/../../autoload.php';
+    } elseif (file_exists(dirname(dirname(__FILE__)) . '/../vendor/autoload.php')) {
+        require_once dirname(dirname(__FILE__)) . '/../vendor/autoload.php';
     } else {
         throw new Exception('Unable to load Composer autoloader');
     }
