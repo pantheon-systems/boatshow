@@ -8,15 +8,15 @@
   }
 
   .views-row {
-    width: 100%;
+    flex-basis: 100%;
     margin-bottom: 10px;
 
     @include media-breakpoint-up(md) {
-      width: 50%;
+      flex-basis: 50%;
     }
 
     @include media-breakpoint-up(lg) {
-      width: 25%;
+      flex-basis: 25%;
     }
   }
 }
@@ -66,10 +66,6 @@
   .special-offer-title {
     @extend h4;
     text-transform: uppercase;
-  }
-
-  .special-offer-body {
-    word-break: break-word;
   }
 
   .special-offer-booth {
