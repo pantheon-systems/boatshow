@@ -104,7 +104,7 @@
       // features view
       $(context).find('.features-grid .grid-item--content .body').once('features').each(function() {
         maskText($(this), {
-          maxHeight: 250,
+          maxHeight: 400,
           gradientEndColor: '#e7e5e5'
         });
       });
