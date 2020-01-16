@@ -6,6 +6,7 @@ dependencies:
     - eck.eck_type.brick.card
     - field.field.brick.card.field_background_color
     - field.field.brick.card.field_body
+    - field.field.brick.card.field_border_color
     - field.field.brick.card.field_icon
     - field.field.brick.card.field_invert_text
     - field.field.brick.card.field_link
@@ -56,6 +57,7 @@ content:
     region: content
 hidden:
   field_background_color: true
+  field_border_color: true
   field_invert_text: true
   langcode: true
   search_api_excerpt: true

@@ -100,6 +100,14 @@
           gradientEndColor: '#f5f5f5'
         });
       });
+
+      // features view
+      $(context).find('.features-grid .grid-item--content .body').once('features').each(function() {
+        maskText($(this), {
+          maxHeight: 400,
+          gradientEndColor: '#e7e5e5'
+        });
+      });
     }
   };
 })(jQuery, Drupal);
