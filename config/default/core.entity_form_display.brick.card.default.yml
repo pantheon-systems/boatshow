@@ -6,6 +6,7 @@ dependencies:
     - eck.eck_type.brick.card
     - field.field.brick.card.field_background_color
     - field.field.brick.card.field_body
+    - field.field.brick.card.field_border_color
     - field.field.brick.card.field_icon
     - field.field.brick.card.field_invert_text
     - field.field.brick.card.field_link
@@ -32,6 +33,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_border_color:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_icon:
     weight: 3

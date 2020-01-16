@@ -1,4 +1,5 @@
-.view-exhibitors.view-id-exhibitors.view-display-id-block_1 {
+.view-exhibitors.view-id-exhibitors.view-display-id-block_1,
+.view-exhibitors.view-id-exhibitors.view-display-id-block_2 {
 
   table td {
     vertical-align: top;
@@ -9,7 +10,7 @@
       width: 35%;
     }
   }
-  
+
   @include media-breakpoint-down(lg) {
     table, thead, tbody, th, td, tr {
       display: block;

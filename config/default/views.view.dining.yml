@@ -209,17 +209,31 @@ display:
           force_deepest: false
           plugin_id: taxonomy_index_tid
       sorts:
-        field_dining_service_target_id:
-          id: field_dining_service_target_id
-          table: node__field_dining_service
-          field: field_dining_service_target_id
+        field_weight_value:
+          id: field_weight_value
+          table: node__field_weight
+          field: field_weight_value
           relationship: none
           group_type: group
           admin_label: ''
-          order: DESC
+          order: ASC
           exposed: false
           expose:
             label: ''
+          plugin_id: standard
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: node
+          entity_field: title
           plugin_id: standard
       header:
         result:

@@ -11,6 +11,10 @@
  * above.
  */
 if (file_exists('/var/www/site-php')) {
+   $settings['simplesamlphp_dir'] = "/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp";
+}
+
+if (file_exists('/var/www/site-php')) {
   require '/var/www/site-php/discoverboat/' . $site_dir . '-settings.inc';
 }
 

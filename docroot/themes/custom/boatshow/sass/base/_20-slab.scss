@@ -1,4 +1,92 @@
 ////////////////////
+/// Borders Mixins
+////////////////////
+@mixin borders-reset {
+  border: none;
+}
+@mixin borders-white {
+  border: 1px solid $color-slab-white;
+}
+@mixin borders-white-transparency {
+  border: 1px solid $color-slab-white-transparency;
+}
+@mixin borders-light-gray {
+  border: 1px solid $color-slab-light-gray;
+}
+@mixin borders-dark-gray {
+  border: 1px solid $color-slab-dark-gray;
+}
+@mixin borders-city-primary {
+  border: 1px solid $color-slab-city-primary;
+}
+@mixin borders-city-secondary {
+  border: 1px solid $color-slab-city-secondary;
+}
+@mixin borders-city-tertiary {
+  border: 1px solid $color-slab-city-tertiary;
+}
+
+////////////////////
+/// Borders Declarative Classes
+////////////////////
+.borders-white {
+  @include borders-white;
+}
+.borders-white-transparency {
+  @include borders-white-transparency;
+}
+.borders-light-gray {
+  @include borders-light-gray;
+}
+.borders-dark-gray {
+  @include borders-dark-gray;
+}
+.borders-city-primary {
+  @include borders-city-primary;
+}
+.borders-city-secondary {
+  @include borders-city-secondary;
+}
+.borders-city-tertiary {
+  @include borders-city-tertiary;
+}
+
+////////////////////
+/// Border Declarative Classes
+////////////////////
+// DMA
+// @mixin bordersSet() {
+//   & {
+//     &.has-borders {
+//       &.borders-white {
+//         @include borders-white;
+//       }
+//       &.borders-white-transparency {
+//         @include borders-white-transparency;
+//       }
+//       &.borders-light-gray {
+//         @include borders-light-gray;
+//       }
+//       &.borders-dark-gray {
+//         @include borders-dark-gray;
+//       }
+//       &.borders-city-primary {
+//         @include borders-city-primary;
+//       }
+//       &.borders-city-secondary {
+//         @include borders-city-secondary;
+//       }
+//       &.borders-city-tertiary {
+//         @include borders-city-tertiary;
+//       }
+//     }
+//   }
+// }
+
+
+
+
+////////////////////
 /// Slab Mixins
 ////////////////////
 @mixin slab-reset {

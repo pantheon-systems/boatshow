@@ -123,6 +123,25 @@ function nmma_brick_layouts_background_color_allowed_values_function () {
 }
 
 /**
+ * Defines allowed values for config field.storage.brick.field_border_color
+ * @link https://drupal.stackexchange.com/a/242011
+ */
+function nmma_brick_layouts_border_color_allowed_values_function () {
+
+  $options = [
+    'white' => 'white',
+    'white-transparency' => 'white-transparency',
+    'light-gray' => 'light-gray',
+    'dark-gray' => 'dark-gray',
+    'city-primary' => 'city-primary',
+    'city-secondary' => 'city-secondary',
+    'city-tertiary' => 'city-tertiary (where available)'
+  ];
+
+  return $options;
+}
+
+/**
  * Defines allowed values for config field.storage.brick.field_container_type
  * @link https://drupal.stackexchange.com/a/242011
  */

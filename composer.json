@@ -99,6 +99,7 @@
         "drupal/paragraphs": "^1.8",
         "drupal/path_redirect_import": "^1.0@beta",
         "drupal/pathauto": "^1.4",
+        "drupal/publishcontent": "^1.1",
         "drupal/purge": "^3.0@beta",
         "drupal/qa_accounts": "^1.0.0-alpha1",
         "drupal/quicktabs": "^3.0",
@@ -111,6 +112,7 @@
         "drupal/rpt": "1.0-beta1",
         "drupal/seckit": "^1.0.0-alpha2",
         "drupal/shield": "^1.2",
+        "drupal/simplesamlphp_auth": "^3.0",
         "drupal/smart_trim": "^1.1",
         "drupal/structure_sync": "^1.12",
         "drupal/telephone_formatter": "1.x-dev#64f2cbbb440044fce077e5ada35890388321fa5b",
@@ -118,12 +120,14 @@
         "drupal/twig_tweak": "^2.0",
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/video_embed_wistia": "^1.0@rc",
+        "drupal/view_unpublished": "^1.0",
         "drupal/viewfield": "^3.0@alpha",
         "drupal/views_accordion": "^1.1",
         "drupal/views_block_filter_block": "^1.0@beta",
         "drupal/views_current_path": "^1.0@beta",
         "drupal/views_field_view": "^1.0@beta",
         "drupal/webform": "^5.5",
+        "drupal/weight": "^3.1",
         "drupal/xmlsitemap": "1.x-dev#23b04ea6b7a577f5cc9531dcd18488bab01e65a6",
         "drush/drush": "^9.7",
         "giggsey/libphonenumber-for-php": "^8.10",
@@ -154,9 +158,6 @@
             },
             "drupal/clientside_validation_jquery": {
                 "Support inline_form_errors module": "https://www.drupal.org/files/issues/2906132-4.patch"
-            },
-            "drupal/coder": {
-                "Fix bad code sniffing in theme file": "https://www.drupal.org/files/issues/2018-05-10/filename-issue-theme-extension-2935388-4.patch"
             },
             "drupal/config_filter": {
                 "Drush cim doesn't respect config ignore filters [https://www.drupal.org/project/config_ignore/issues/2916654#comment-12635861]": "https://www.drupal.org/files/issues/2018-05-14/collect-config-storage-services-2953769-6.patch"
@@ -249,6 +250,10 @@
             "rm -rf vendor composer.lock docroot/core docroot/modules/contrib docroot/profiles/contrib docroot/themes/contrib",
             "@composer clearcache --ansi",
             "@composer install --ansi"
+        ],
+        "post-drupal-scaffold-cmd": [
+            "cd docroot && patch -p1 <../patches/htaccess-saml.patch",
+            "cd docroot && patch -p1 <../patches/htaccess-saml.patch"
         ]
     }
 }

@@ -544,6 +544,13 @@ function boatshow_preprocess_eck_entity(&$variables) {
     }
   }
 
+  ////////////////////////////
+  /// Border
+  ////////////////////////////
+  if ($entity->hasField('field_border_color') && !empty($entity->field_border_color->value)) {
+    $variables['attributes']['class'][] = 'borders-' . $entity->field_border_color->value;
+  }
+
   if ($entity->hasField('field_link') && !empty($entity->field_link->uri)) {
     $link_uri = $entity->field_link->uri;
 
@@ -1047,38 +1054,45 @@ function boatshow_preprocess_views_view(&$variables) {
   }
 }
 
+/**
+ * Implements template_preprocess_views_VIEW_ID
+ *
+ * @param array $variables
+ * @return void
+ */
 function boatshow_preprocess_views_view_unformatted__dining(&$variables){
   $rows_featured = [];
-  $rows_plain = [];
+  $rows_side = [];
+  $rows_main = [];
+
   foreach ($variables['rows'] as $row) {
     $node = $row['content']['#node'];
+
     // find the service
     $service_id = $node->get('field_dining_service')->getValue();
     $tid = $service_id[0]['target_id'];
     $term = Term::load($tid);
     $service = $term->getName();
 
-    // move the row into one of these arrays
+    // Split featured items into separate array
     if ($service == 'Full Service'){
       $rows_featured[] = $row;
     } else {
-      $rows_plain[] = $row;
+      $rows_main[] = $row;
     }
   }
-  // move all the featured rows into the wrapper.
-  $rows_featured_wrapper = [
-    'content' => [
-      '#type' => 'container',
-      '#attributes' => ['class' => 'featured-dining']
-    ],
-  ];
 
-  // add an equal number of rows to a right column
-  foreach ($rows_featured as $i => $row_featured) {
-    $rows_featured_wrapper['content'][] = $row_featured['content'];
+  // Move non-featured items into additional array for sidebar
+  for ($i = 0; $i < count($rows_featured) - 1; $i++) {
+    $shifted_row = array_shift($rows_main);
+    $rows_side[] = $shifted_row;
   }
 
-  $variables['rows'] = array_merge([$rows_featured_wrapper], $rows_plain);
+  // Output variables to be rendered at:
+  // views-view-unformatted--dining.html.twig
+  $variables['rows_featured'] = $rows_featured;
+  $variables['rows_side'] = $rows_side;
+  $variables['rows_main'] = $rows_main;
 }
 
 /**
