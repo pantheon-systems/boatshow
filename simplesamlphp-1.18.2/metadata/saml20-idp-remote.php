@@ -7,8 +7,8 @@
  * See: https://simplesamlphp.org/docs/stable/simplesamlphp-reference-idp-remote
  */
 
- $metadata['http://www.okta.com/exk1i1y4rgaPKDkB90h8'] = array (
-   'entityid' => 'http://www.okta.com/exk1i1y4rgaPKDkB90h8',
+ $metadata['http://www.okta.com/exk1hyssphtTGcbJB0h8'] = array (
+   'entityid' => 'http://www.okta.com/exk1hyssphtTGcbJB0h8',
    'contacts' =>
    array (
    ),
@@ -18,12 +18,12 @@
      0 =>
      array (
        'Binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
-       'Location' => 'https://nmma.okta.com/app/nmma_ssonorwalk113_1/exk1i1y4rgaPKDkB90h8/sso/saml',
+       'Location' => 'https://nmma.okta.com/app/nmma_drupalshowssookta_1/exk1hyssphtTGcbJB0h8/sso/saml',
      ),
      1 =>
      array (
        'Binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
-       'Location' => 'https://nmma.okta.com/app/nmma_ssonorwalk113_1/exk1i1y4rgaPKDkB90h8/sso/saml',
+       'Location' => 'https://nmma.okta.com/app/nmma_drupalshowssookta_1/exk1hyssphtTGcbJB0h8/sso/saml',
      ),
    ),
    'SingleLogoutService' =>
@@ -35,7 +35,6 @@
    'NameIDFormats' =>
    array (
      0 => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
-     1 => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
    ),
    'keys' =>
    array (
