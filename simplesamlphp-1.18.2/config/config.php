@@ -1123,4 +1123,6 @@ $config = [
      */
     'store.redis.prefix' => 'SimpleSAMLphp',
 ];
+/**
 include 'acquia_config.php';
+**/
