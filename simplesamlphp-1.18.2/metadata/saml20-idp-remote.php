@@ -7,8 +7,9 @@
  * See: https://simplesamlphp.org/docs/stable/simplesamlphp-reference-idp-remote
  */
 
- $metadata['https://www.okta.com/exk1hyssphtTGcbJB0h8'] = array (
-   'entityid' => 'https://www.okta.com/exk1hyssphtTGcbJB0h8',
+
+ $metadata['http://www.okta.com/exk1hyssphtTGcbJB0h8'] = array (
+   'entityid' => 'http://www.okta.com/exk1hyssphtTGcbJB0h8',
    'contacts' =>
    array (
    ),
