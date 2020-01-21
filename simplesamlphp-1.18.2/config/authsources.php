@@ -55,6 +55,47 @@ $config = [
         'signature.algorithm' => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
     ],
 
+    'drupal-sso-jan21-transient-devnorwalk-sp' => [
+        'saml:SP',
+
+        // The entity ID of this SP.
+        // Can be NULL/unset, in which case an entity ID is generated based on the metadata URL.
+
+        'entityID' => 'drupal-sso-jan21-transient-devnorwalk',
+
+        // The entity ID of the IdP this SP should contact.
+        // Can be NULL/unset, in which case the user will be shown a list of available IdPs.
+        'idp' => 'http://www.okta.com/exk1i4ot3rkOfVTvg0h8',
+
+        // The URL to the discovery service.
+        // Can be NULL/unset, in which case a builtin discovery service will be used.
+        'discoURL' => null,
+
+        /*
+         * The attributes parameter must contain an array of desired attributes by the SP.
+         * The attributes can be expressed as an array of names or as an associative array
+         * in the form of 'friendlyName' => 'name'. This feature requires 'name' to be set.
+         * The metadata will then be created as follows:
+         * <md:RequestedAttribute FriendlyName="friendlyName" Name="name" />
+         */
+        /*
+        'name' => [
+            'en' => 'A service',
+            'no' => 'En tjeneste',
+        ],
+
+        'attributes' => [
+            'attrname' => 'urn:oid:x.x.x.x',
+        ],
+        'attributes.required' => [
+            'urn:oid:x.x.x.x',
+        ],
+        */
+
+        'privatekey' => 'dev2.boatshownorwalk.saml.pem',
+        'certificate' => 'dev2.boatshownorwalk.saml.crt',
+        'signature.algorithm' => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
+    ],
 
     /*
     'example-sql' => [
