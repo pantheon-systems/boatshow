@@ -113,14 +113,14 @@ $config = [
      * metadata listing and diagnostics pages.
      * You can also put a hash here; run "bin/pwgen.php" to generate one.
      */
-    'auth.adminpassword' => '123',
+    'auth.adminpassword' => '1234567',
 
     /*
      * Set this options to true if you want to require administrator password to access the web interface
      * or the metadata pages, respectively.
      */
-    'admin.protectindexpage' => false,
-    'admin.protectmetadata' => false,
+    'admin.protectindexpage' => true,
+    'admin.protectmetadata' => true,
 
     /*
      * Set this option to false if you don't want SimpleSAMLphp to check for new stable releases when
@@ -1123,4 +1123,6 @@ $config = [
      */
     'store.redis.prefix' => 'SimpleSAMLphp',
 ];
+/**
 include 'acquia_config.php';
+**/
