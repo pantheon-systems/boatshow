@@ -4,6 +4,10 @@
  *
  */
 
+ if (file_exists('/var/www/site-php')) {
+    require_once("/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp/config/acquia_config.php");
+ }
+
 $config = [
 
     /*******************************
