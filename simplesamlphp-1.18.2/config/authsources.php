@@ -7,26 +7,26 @@ $config = array(
 
         'core:AdminPassword',
     ],
-    'okta-dev-chicagoboatshow-https-transient' => array(
+    'okta-dev-chicagoboatshow-https-transient' => [
         'saml:SP',
         'entityID' => 'okta-dev-chicagoboatshow-https-transient',
-        'certificate' => "../cert/dev2.chicagoboatshow.saml.crt",
-        'privatekey' => "../cert/dev2.chicagoboatshow.saml.pem",
+        'certificate' => '../cert/dev2.chicagoboatshow.saml.crt',
+        'privatekey' => '../cert/dev2.chicagoboatshow.saml.pem',
         'redirect.sign' => TRUE,
         'redirect.validate' => TRUE,
         'idp' => 'http://www.okta.com/exk1i54wg3b6zknNl0h8',
         'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
-    ),
-    'okta-prod-chicagoboatshow-https-transient' => array(
+    ],
+    'okta-prod-chicagoboatshow-https-transient' => [
         'saml:SP',
         'entityID' => 'okta-prod-chicagoboatshow-https-transient',
-        'certificate' => "../cert/chicagoboatshow.saml.crt",
-        'privatekey' => "../cert/chicagoboatshow.saml.pem",
+        'certificate' => '../cert/chicagoboatshow.saml.crt',
+        'privatekey' => '../cert/chicagoboatshow.saml.pem',
         'redirect.sign' => TRUE,
         'redirect.validate' => TRUE,
         'idp' => 'http://www.okta.com/exk1i5506m4s9fdMi0h8',
         'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
-    ),
+    ],
 );
 
 //$config = [
