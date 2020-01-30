@@ -65,7 +65,6 @@
      ),
    ),
  );
-
  $metadata['http://www.okta.com/exk1i5506m4s9fdMi0h8'] = array (
   'entityid' => 'http://www.okta.com/exk1i5506m4s9fdMi0h8',
   'contacts' =>

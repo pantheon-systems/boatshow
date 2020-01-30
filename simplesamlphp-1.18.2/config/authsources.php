@@ -38,9 +38,6 @@ $config = array(
     // and Shibboleth 1.3 IdPs.
 
 
-
-
-
     /*
     'example-sql' => [
         'sqlauth:SQL',
