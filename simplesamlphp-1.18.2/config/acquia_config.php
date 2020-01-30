@@ -22,13 +22,14 @@
 // overwrite them here to keep all changes in one area.
 $config['technicalcontact_name'] = "webdepartment";
 $config['technicalcontact_email'] = "webdepartment@nmma.org";
-
-
+​
 // Change these for your installation.
 $config['secretsalt'] = 'y0h9d13pki9qdhfm3l5nws4jjn55j6hjmdl';
-$config['auth.adminpassword'] = 'mysupersecretsso';
-
-
+$config['auth.adminpassword'] = 'W00g1e';
+​
+$config['admin.protectindexpage'] = TRUE;
+//$config['admin.protectmetadata'] = TRUE;
+​
 /**
  * Support SSL Redirects to SAML login pages.
  *
@@ -40,7 +41,6 @@ $config['auth.adminpassword'] = 'mysupersecretsso';
  * @link https://github.com/simplesamlphp/simplesamlphp/issues/450
  *
  */
-
 // Prevent Varnish from interfering with SimpleSAMLphp.
 // SSL terminated at the ELB / balancer so we correctly set the SERVER_PORT
 // and HTTPS for SimpleSAMLphp baseurl configuration.
@@ -59,7 +59,6 @@ $ah_options = array(
   // "exampletest" or "exampleprod".
   // Change the following line to match your database name.
   'database_name' => 'test',
-
 
   'session_store' => array(
     // Valid values are "memcache" and "database", database is recommended.
@@ -106,7 +105,7 @@ if (!getenv('AH_SITE_ENVIRONMENT')) {
   $config['loggingdir'] = '/var/www/simplesamlphp/log/';
 ​
   // Enable as IdP for local Idp domains.
-  if (in_array($_SERVER['SERVER_NAME'], ['local.example.com', 'employee.example.com', 'local.miami.com', 'dev2.boatshownorwalk.com'])) {
+  if (in_array($_SERVER['SERVER_NAME'], ['local.example.com', 'employee.example.com'])) {
     $config['enable.saml20-idp'] = TRUE;
   }
 }
