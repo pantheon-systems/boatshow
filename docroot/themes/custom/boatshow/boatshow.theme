@@ -239,6 +239,18 @@ function boatshow_form_views_exposed_form_alter(&$form, FormStateInterface $form
   // return FALSE;
   // }
 
+  // DMA: 1/2020
+  if (isset($form['actions'])) {
+    $actions = Array('actionsTop' => Array (
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => 'actions-only-small'
+      ],
+      'actionsTop' => $form['actions']
+    ));
+    $form = array_merge($actions, array_slice($form, 0));
+  }
+
   // Start building out the options for our select list
   $date_options = Array();
   $nodes = $storage->loadMultiple($nids);

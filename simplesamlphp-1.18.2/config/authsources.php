@@ -7,6 +7,7 @@ $config = array(
 
         'core:AdminPassword',
     ],
+
     'default-sp' => [
         'saml:SP',
         'entityID' => null,
@@ -36,6 +37,7 @@ $config = array(
         'redirect.validate' => TRUE,
         'idp' => 'http://www.okta.com/exk1i5506m4s9fdMi0h8',
         'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+
     ],
 );
 

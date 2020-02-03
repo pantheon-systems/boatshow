@@ -20,8 +20,10 @@
 ​
 // Set some security and other configs that are set above, however we
 // overwrite them here to keep all changes in one area.
+
 $config['technicalcontact_name'] = 'webdepartment';
 $config['technicalcontact_email'] = 'webdepartment@nmma.org';
+
 ​
 // Change these for your installation.
 $config['secretsalt'] = 'y0h9d13pki9qdhfm3l5nws4jjn55j6hjmdl';
