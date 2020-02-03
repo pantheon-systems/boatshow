@@ -10,6 +10,7 @@ require_once(dirname(dirname(__FILE__)) . '/lib/_autoload.php');
 function SimpleSAML_exception_handler($exception)
 {
     \SimpleSAML\Module::callHooks('exception_handler', $exception);
+    die("Exception: ".$exception);
 
     if ($exception instanceof \SimpleSAML\Error\Error) {
         $exception->show();
