@@ -105,7 +105,7 @@ if (!getenv('AH_SITE_ENVIRONMENT')) {
   $config['loggingdir'] = '/var/www/simplesamlphp/log/';
 ​
   // Enable as IdP for local Idp domains.
-  if (in_array($_SERVER['SERVER_NAME'], ['local.miamiboatshow.com', 'employee.example.com'])) {
+  if (in_array($_SERVER['SERVER_NAME'], ['local.miamiboatshow.com', 'employee.example.com', 'dev2.chicagoboatshow.com'])) {
     $config['enable.saml20-idp'] = TRUE;
   }
 }
