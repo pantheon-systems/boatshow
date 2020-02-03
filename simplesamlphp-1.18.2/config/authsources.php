@@ -7,6 +7,16 @@ $config = array(
 
         'core:AdminPassword',
     ],
+    'default-sp' => [
+        'saml:SP',
+        'entityID' => null,
+        'certificate' => '../cert/saml.crt',
+        'privatekey' => '../cert/saml.pem',
+        'redirect.sign' => TRUE,
+        'redirect.validate' => TRUE,
+        'idp' => 'http://www.okta.com/exk1i01udoowqSkgi0h8',
+        'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+    ],
     'okta-dev-chicagoboatshow-https-transient' => [
         'saml:SP',
         'entityID' => 'okta-dev-chicagoboatshow-https-transient',
