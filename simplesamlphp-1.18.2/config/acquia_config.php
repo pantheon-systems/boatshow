@@ -14,14 +14,16 @@
  *
  *   - 'store.sql.name': Defines the Acquia Cloud database name which
  *     will store SAML session information.
- *   - 'store.type: Define the session storage service to use in each
+ *   - 'store.type': Define the session storage service to use in each
  *     Acquia environment ("defualts to sql").
  */
 ​
 // Set some security and other configs that are set above, however we
 // overwrite them here to keep all changes in one area.
-$config['technicalcontact_name'] = "webdepartment";
-$config['technicalcontact_email'] = "webdepartment@nmma.org";
+
+$config['technicalcontact_name'] = 'webdepartment';
+$config['technicalcontact_email'] = 'webdepartment@nmma.org';
+
 ​
 // Change these for your installation.
 $config['secretsalt'] = 'y0h9d13pki9qdhfm3l5nws4jjn55j6hjmdl';
@@ -105,7 +107,7 @@ if (!getenv('AH_SITE_ENVIRONMENT')) {
   $config['loggingdir'] = '/var/www/simplesamlphp/log/';
 ​
   // Enable as IdP for local Idp domains.
-  if (in_array($_SERVER['SERVER_NAME'], ['local.example.com', 'employee.example.com'])) {
+  if (in_array($_SERVER['SERVER_NAME'], ['local.miamiboatshow.com', 'employee.example.com', 'dev2.chicagoboatshow.com'])) {
     $config['enable.saml20-idp'] = TRUE;
   }
 }
