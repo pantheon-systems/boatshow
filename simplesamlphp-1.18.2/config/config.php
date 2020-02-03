@@ -5,7 +5,7 @@
  */
 
  if (file_exists('/var/www/site-php')) {
-    require_once('/var/www/html/' . $_ENV['AH_SITE_NAME'] . '/simplesamlphp/config/acquia_config.php');
+   $settings['simplesamlphp_dir'] = "/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp";
  }
 
 $config = [
@@ -440,7 +440,7 @@ $config = [
      * one of the functionalities below, but in some cases you could run multiple functionalities.
      * In example when you are setting up a federation bridge.
      */
-    'enable.saml20-idp' => true,
+    'enable.saml20-idp' => false,
     'enable.shib13-idp' => false,
     'enable.adfs-idp' => false,
     'enable.wsfed-sp' => false,
