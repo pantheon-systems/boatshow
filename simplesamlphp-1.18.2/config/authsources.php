@@ -50,7 +50,27 @@ $config = [
         */
     ],
 
-
+    'okta-dev-chicagoboatshow-https-transient' => [
+        'saml:SP',
+        'entityID' => 'okta-dev-chicagoboatshow-https-transient',
+        'certificate' => '../cert/dev2.chicagoboatshow.saml.crt',
+        'privatekey' => '../cert/dev2.chicagoboatshow.saml.pem',
+        'redirect.sign' => TRUE,
+        'redirect.validate' => TRUE,
+        'idp' => 'http://www.okta.com/exk1i54wg3b6zknNl0h8',
+        'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+      ],
+      'dev-chi-sso-sp' => [
+          'saml:SP',
+          'entityID' => 'dev-chi-transient-sso',
+          'certificate' => '../cert/dev2.chicagoboatshow.saml.crt',
+          'privatekey' => '../cert/dev2.chicagoboatshow.saml.pem',
+          //'redirect.sign' => TRUE,
+          //'redirect.validate' => TRUE,
+          'idp' => 'http://www.okta.com/exk1i71mxzuSwy5Ki0h8 ',
+          //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+          //'idp' => null,
+        ],
     /*
     'example-sql' => [
         'sqlauth:SQL',
