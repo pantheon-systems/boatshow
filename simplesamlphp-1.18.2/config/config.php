@@ -35,7 +35,7 @@ $config = [
     //'baseurlpath' => 'simplesaml/',
 
 
-    'baseurlpath' => "https://" . $_SERVER['HTTP_HOST'] . ":443/simplesaml/",
+    'baseurlpath' => "https://" . $_SERVER['HTTP_HOST'] . "/simplesaml/",
 
 
     /*
