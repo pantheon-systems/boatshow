@@ -5,7 +5,7 @@
  */
 
  if (file_exists('/var/www/site-php')) {
-   $settings['simplesamlphp_dir'] = "/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp";
+   $settings['simplesamlphp_dir'] = "/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp",
  }
 
 $config = [
