@@ -33,7 +33,8 @@ $config = [
      */
      //mjb
     //'baseurlpath' => 'simplesaml/',
-    'baseurlpath' => "https://" . $_SERVER['HTTP_HOST'] . ":443/simplesaml/";
+
+    'baseurlpath' => 'https://' . $_SERVER['HTTP_HOST'] . ':443/simplesaml/',
 
     /*
      * The 'application' configuration array groups a set configuration options
