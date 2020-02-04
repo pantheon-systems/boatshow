@@ -183,7 +183,7 @@ IGVezl2GnehhLt7m',
 
 /**  Dev Chicago https transient dev chi sso   */
 $metadata['http://www.okta.com/exk1i71mxzuSwy5Ki0h8'] = array (
-  'entityid' => 'dev-chi-transient-sso',
+  'entityid' => 'http://www.okta.com/exk1i71mxzuSwy5Ki0h8',
   'contacts' =>
   array (
   ),
@@ -210,7 +210,6 @@ $metadata['http://www.okta.com/exk1i71mxzuSwy5Ki0h8'] = array (
   'NameIDFormats' =>
   array (
     0 => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
-    1 => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
   ),
   'keys' =>
   array (
