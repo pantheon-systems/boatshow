@@ -5,7 +5,7 @@
  */
 
  if (file_exists('/var/www/site-php')) {
-   $settings['simplesamlphp_dir'] = "/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp";
+   $settings['simplesamlphp_dir'] = "/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp",
  }
 
 $config = [
@@ -33,7 +33,8 @@ $config = [
      */
      //mjb
     //'baseurlpath' => 'simplesaml/',
-    'baseurlpath' => 'https://' . $_SERVER['HTTP_HOST'] . ':443/simplesaml/';
+
+    'baseurlpath' => 'https://' . $_SERVER['HTTP_HOST'] . ':443/simplesaml/',
 
     /*
      * The 'application' configuration array groups a set configuration options
