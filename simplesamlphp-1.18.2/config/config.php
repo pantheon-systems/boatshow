@@ -31,7 +31,9 @@ $config = [
      * external url, no matter where you come from (direct access or via the
      * reverse proxy).
      */
-    'baseurlpath' => 'simplesaml/',
+     //mjb
+    //'baseurlpath' => 'simplesaml/',
+    'baseurlpath' => 'https://' . $_SERVER['HTTP_HOST'] . ':443/simplesaml/';
 
     /*
      * The 'application' configuration array groups a set configuration options

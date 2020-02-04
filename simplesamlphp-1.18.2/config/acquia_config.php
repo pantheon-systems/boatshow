@@ -121,7 +121,8 @@ elseif (getenv('AH_SITE_ENVIRONMENT')) {
   $config['certdir'] = "/mnt/www/html/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/simplesamlphp/cert/";
   $config['metadatadir'] = "/mnt/www/html/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/simplesamlphp/metadata";
   // Base url path already set above.
-   $config['baseurlpath'] = 'simplesaml/';
+  //mjb removed because set above
+   //$config['baseurlpath'] = 'simplesaml/';
   // Setup basic logging.
   $config['logging.handler'] = 'file';
   $config['loggingdir'] = dirname(getenv('ACQUIA_HOSTING_DRUPAL_LOG'));
