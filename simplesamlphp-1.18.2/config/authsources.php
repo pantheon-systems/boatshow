@@ -67,7 +67,7 @@ $config = [
           'privatekey' => '../cert/dev2.chicagoboatshow.saml.pem',
           //'redirect.sign' => TRUE,
           //'redirect.validate' => TRUE,
-          'idp' => 'http://www.okta.com/exk1i71mxzuSwy5Ki0h8 ',
+          'idp' => 'http://www.okta.com/exk1i71mxzuSwy5Ki0h8',
           //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
           //'idp' => null,
         ],
