@@ -46,8 +46,13 @@ $config['admin.protectindexpage'] = TRUE;
 // Prevent Varnish from interfering with SimpleSAMLphp.
 // SSL terminated at the ELB / balancer so we correctly set the SERVER_PORT
 // and HTTPS for SimpleSAMLphp baseurl configuration.
-$protocol = 'http://';
-$port = ':80';
+//commented out mjb
+//$protocol = 'http://';
+//$port = ':80';
+
+$protocol = 'https://';
+$port = ':443';
+
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
   $_SERVER['SERVER_PORT'] = 443;
   $_SERVER['HTTPS'] = 'true';
