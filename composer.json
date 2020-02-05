@@ -105,7 +105,7 @@
         "drupal/quicktabs": "^3.0",
         "drupal/rabbit_hole": "^1.0",
         "drupal/rebuild_cache_access": "^1.5",
-        "drupal/recaptcha": "^2.4",
+        "drupal/recaptcha": "^2.5",
         "drupal/redirect": "^1.4",
         "drupal/restui": "^1.15",
         "drupal/robotstxt": "^1.1",
