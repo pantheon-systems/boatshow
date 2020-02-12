@@ -1100,6 +1100,7 @@ $config = [
      *
      * The default datastore is 'phpsession'.
      */
+     
     'store.type'                    => 'sql',
 
     /*
