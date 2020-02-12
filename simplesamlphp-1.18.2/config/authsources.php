@@ -65,10 +65,11 @@ $config = [
           'entityID' => 'dev-chi-transient-sso',
           'certificate' => '../cert/dev2.chicagoboatshow.saml.crt',
           'privatekey' => '../cert/dev2.chicagoboatshow.saml.pem',
-          //'redirect.sign' => TRUE,
-          //'redirect.validate' => TRUE,
+          'redirect.sign' => TRUE,
+          'redirect.validate' => TRUE,
           'idp' => 'http://www.okta.com/exk1i71mxzuSwy5Ki0h8',
           //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+          'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
           //'idp' => null,
         ],
     /*
