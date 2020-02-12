@@ -7,6 +7,10 @@
  * See: https://simplesamlphp.org/docs/stable/simplesamlphp-reference-idp-remote
  */
 
+ if (file_exists('/var/www/site-php')) {
+   require("/mnt/gfs/{$_ENV['AH_SITE_NAME']}/config/saml/saml20-idp-remote.php");
+ }
+ 
 /**   Dev Chicagoboatshow Https Transient **/
  $metadata['http://www.okta.com/exk1i54wg3b6zknNl0h8'] = array (
    'entityid' => 'http://www.okta.com/exk1i54wg3b6zknNl0h8',
