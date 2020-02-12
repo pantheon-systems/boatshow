@@ -389,15 +389,17 @@ $config = [
      * Ensure that you have the required PDO database driver installed
      * for your connection string.
      */
-    'database.dsn' => 'mysql:host=localhost;dbname=saml',
+    'database.dsn' => 'mysql:host=localhost;dbname=chicago',
 
     /*
      * SQL database credentials
      */
-    'database.username' => 'simplesamlphp',
-    'database.password' => 'secret',
+    // 'database.username' => 'simplesamlphp',
+    // 'database.password' => 'secret',
+    // 'database.options' => [],
+    'database.username' => 's53750',
+    'database.password' => '5YmiWTMZabNYaoP',
     'database.options' => [],
-
     /*
      * (Optional) Table prefix
      */
@@ -1100,7 +1102,7 @@ $config = [
      *
      * The default datastore is 'phpsession'.
      */
-     
+
     'store.type'                    => 'sql',
 
     /*
