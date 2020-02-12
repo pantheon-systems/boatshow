@@ -1100,7 +1100,8 @@ $config = [
      *
      * The default datastore is 'phpsession'.
      */
-    'store.type'                    => 'phpsession',
+     
+    'store.type'                    => 'sql',
 
     /*
      * The DSN the sql datastore should connect to.
