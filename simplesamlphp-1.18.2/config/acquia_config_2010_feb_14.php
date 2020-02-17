@@ -14,7 +14,7 @@
  *
  *   - 'store.sql.name': Defines the Acquia Cloud database name which
  *     will store SAML session information.
- *   - 'store.type: Define the session storage service to use in each
+ *   - 'store.type': Define the session storage service to use in each
  *     Acquia environment ("defualts to sql").
  */
 ​
@@ -46,8 +46,15 @@ $config['admin.protectindexpage'] = TRUE;
 // Prevent Varnish from interfering with SimpleSAMLphp.
 // SSL terminated at the ELB / balancer so we correctly set the SERVER_PORT
 // and HTTPS for SimpleSAMLphp baseurl configuration.
-$protocol = 'http://';
-$port = ':80';
+//commented out mjb
+//$protocol = 'http://';
+//$port = ':80';
+
+$_SERVER['SERVER_PORT'] = 443;
+$_SERVER['HTTPS'] = 'true';
+$protocol = 'https://';
+$port = ':' . $_SERVER['SERVER_PORT'];
+
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
   $_SERVER['SERVER_PORT'] = 443;
   $_SERVER['HTTPS'] = 'true';
@@ -107,7 +114,7 @@ if (!getenv('AH_SITE_ENVIRONMENT')) {
   $config['loggingdir'] = '/var/www/simplesamlphp/log/';
 ​
   // Enable as IdP for local Idp domains.
-  if (in_array($_SERVER['SERVER_NAME'], ['local.example.com', 'employee.example.com'])) {
+  if (in_array($_SERVER['SERVER_NAME'], ['local.miamiboatshow.com', 'employee.example.com', 'dev2.chicagoboatshow.com'])) {
     $config['enable.saml20-idp'] = TRUE;
   }
 }
@@ -116,7 +123,8 @@ elseif (getenv('AH_SITE_ENVIRONMENT')) {
   $config['certdir'] = "/mnt/www/html/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/simplesamlphp/cert/";
   $config['metadatadir'] = "/mnt/www/html/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/simplesamlphp/metadata";
   // Base url path already set above.
-   $config['baseurlpath'] = 'simplesaml/';
+  //mjb removed because set above
+   //$config['baseurlpath'] = 'simplesaml/';
   // Setup basic logging.
   $config['logging.handler'] = 'file';
   $config['loggingdir'] = dirname(getenv('ACQUIA_HOSTING_DRUPAL_LOG'));
