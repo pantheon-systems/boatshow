@@ -20,11 +20,9 @@
 ​
 // Set some security and other configs that are set above, however we
 // overwrite them here to keep all changes in one area.
-
 $config['technicalcontact_name'] = 'webdepartment';
 $config['technicalcontact_email'] = 'webdepartment@nmma.org';
 
-​
 // Change these for your installation.
 $config['secretsalt'] = 'y0h9d13pki9qdhfm3l5nws4jjn55j6hjmdl';
 $config['auth.adminpassword'] = 'W00g1e';
@@ -60,7 +58,8 @@ $ah_options = array(
   // Use the database "role" without the "stage", e.g., "example", not
   // "exampletest" or "exampleprod".
   // Change the following line to match your database name.
-  'database_name' => 'chicago',
+  'database_name' => 'discoverboat',
+
 
   'session_store' => array(
     // Valid values are "memcache" and "database", database is recommended.
