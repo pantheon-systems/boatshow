@@ -3,7 +3,9 @@
  * The configuration of SimpleSAMLphp
  *
  */
-
+ if (file_exists('/var/www/site-php')) {
+    require_once("/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp/config/acquia_config.php");
+ }
 $config = [
 
     /*******************************
@@ -1143,7 +1145,7 @@ $config = [
      *
      * The default datastore is 'phpsession'.
      */
-    'store.type'                    => 'phpsession',
+    'store.type'                    => 'sql',
 
     /*
      * The DSN the sql datastore should connect to.
