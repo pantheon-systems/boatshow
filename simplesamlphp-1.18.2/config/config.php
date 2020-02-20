@@ -5,9 +5,9 @@
  */
 
  if (file_exists('/var/www/site-php')) {
-   $settings['simplesamlphp_dir'] = "/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp";
+    require_once("/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp/config/acquia_config.php");
  }
-
+ 
 $config = [
 
     /*******************************
