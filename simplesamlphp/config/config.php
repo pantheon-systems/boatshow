@@ -3,9 +3,7 @@
  * The configuration of SimpleSAMLphp
  *
  */
- if (file_exists('/var/www/site-php')) {
-    require_once("/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp/config/acquia_config.php");
- }
+
 $config = [
 
     /*******************************
@@ -1177,4 +1175,7 @@ $config = [
      */
     'store.redis.prefix' => 'SimpleSAMLphp',
 ];
-include 'acquia_config.php';
+//include 'acquia_config.php';
+if (file_exists('/var/www/site-php')) {
+   require_once("/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp/config/acquia_config.php");
+}
