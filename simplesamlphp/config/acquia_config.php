@@ -58,7 +58,7 @@ $ah_options = array(
   // Use the database "role" without the "stage", e.g., "example", not
   // "exampletest" or "exampleprod".
   // Change the following line to match your database name.
-  'database_name' => 'test',
+  'database_name' => 'discoverboat',
 
   'session_store' => array(
     // Valid values are "memcache" and "database", database is recommended.
