@@ -1,5 +1,5 @@
 <?php
-​
+
 /**
  * @file
  * SimpleSamlPhp Acquia Configuration.
@@ -8,7 +8,7 @@
  *
  * All custom changes below. Modify as needed.
  */
-​
+
 /**
  * Defines Acquia account specific options in $config keys.
  *
@@ -17,19 +17,19 @@
  *   - 'store.type: Define the session storage service to use in each
  *     Acquia environment ("defualts to sql").
  */
-​
+
 // Set some security and other configs that are set above, however we
 // overwrite them here to keep all changes in one area.
 $config['technicalcontact_name'] = "Test Name";
 $config['technicalcontact_email'] = "test.name@example.com";
-​
+
 // Change these for your installation.
 $config['secretsalt'] = 'AddYourSaltStringHere';
 $config['auth.adminpassword'] = 'ChangeThisPlease';
-​
+
 $config['admin.protectindexpage'] = TRUE;
 //$config['admin.protectmetadata'] = TRUE;
-​
+
 /**
  * Support SSL Redirects to SAML login pages.
  *
@@ -53,7 +53,7 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROT
   $port = ':' . $_SERVER['SERVER_PORT'];
 }
 $config['baseurlpath'] = $protocol . $port . '/simplesaml/';
-​
+
 $ah_options = array(
   // Use the database "role" without the "stage", e.g., "example", not
   // "exampletest" or "exampleprod".
@@ -70,7 +70,7 @@ $ah_options = array(
     'dev'  => 'database',
   ),
 );
-​
+
 /**
  * Cookies No Cache.
  *
@@ -91,7 +91,7 @@ $ah_options = array(
  *
  * @link https://docs.acquia.com/resource/using-simplesamlphp-acquia-cloud-site/#storing-session-information-using-the-acquia-cloud-sql-database
  */
-​
+
 if (!getenv('AH_SITE_ENVIRONMENT')) {
   // Add / modify your local configuration here.
   $config['store.type'] = 'sql';
@@ -103,8 +103,8 @@ if (!getenv('AH_SITE_ENVIRONMENT')) {
   $config['metadatadir'] = "/var/www/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/simplesamlphp/metadata";
   $config['baseurlpath'] = 'simplesaml/';
   $config['loggingdir'] = '/var/www/simplesamlphp/log/';
-​
-  // Enable as IdP for local Idp domains.
+  
+// Enable as IdP for local Idp domains.
   if (in_array($_SERVER['SERVER_NAME'], ['local.example.com', 'employee.example.com'])) {
     $config['enable.saml20-idp'] = TRUE;
   }
