@@ -49,7 +49,7 @@ $config = [
         ],
         */
     ],
-    
+
     'okta-dev-chicagoboatshow-https-transient' => [
         'saml:SP',
         'entityID' => 'okta-dev-chicagoboatshow-https-transient',
@@ -72,6 +72,17 @@ $config = [
           //'idp' => null,
         ],
 
+        'dev-atl-sso-sp' => [
+            'saml:SP',
+            'entityID' => 'dev-atl-emailaddress-sso',
+            'certificate' => '../cert/dev2.atlantaboatshow.saml.crt',
+            'privatekey' => '../cert/dev2.atlantaboatshow.saml.pem',
+            'redirect.sign' => TRUE,
+            'redirect.validate' => TRUE,
+            'idp' => 'http://www.okta.com/exk1icy4vdm4tABQN0h8',
+            //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+            //'idp' => null,
+          ],
     /*
     'example-sql' => [
         'sqlauth:SQL',
