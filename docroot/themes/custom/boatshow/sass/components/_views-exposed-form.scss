@@ -1,4 +1,5 @@
 $bp-filters-stack: $screen-lg;
+$bp-filters-stack-sm: $screen-sm;
 
 .brick--type--exposed-filters {
   @include mobileSlabReset;
@@ -13,7 +14,7 @@ $bp-filters-stack: $screen-lg;
     .form-checkboxes {
       display: flex;
       align-items: flex-start;
-      order: 1;
+      // DMA order: 1;
       flex-wrap: wrap;
       justify-content: space-around;
       width: 100%;
@@ -24,7 +25,7 @@ $bp-filters-stack: $screen-lg;
     // Top level item
     >.form-item {
       flex: 1 0 300px;
-      order: 1;
+      // DMA order: 1;
       overflow-y: auto;
       overflow-x: hidden;
       box-sizing:border-box;
@@ -50,6 +51,14 @@ $bp-filters-stack: $screen-lg;
         margin: 20px 0 0;
         padding: 0 10px;
         box-sizing: border-box;
+      }
+    }
+    .actions-only-small {
+      display: flex;
+      flex: 1 0 100%;
+      width: 100%;
+      @media (min-width: $bp-filters-stack-sm) {
+        display: none;
       }
     }
   }
@@ -111,7 +120,7 @@ $bp-filters-stack: $screen-lg;
 
   .filter-buttons {
     width: 100%;
-    order: 0;
+    // DMA order: 0;
     display: flex;
     background: $color-slab-white;
     color: $color-text;
@@ -141,10 +150,10 @@ $bp-filters-stack: $screen-lg;
     width: 100%;
     display: flex;
     flex: 1 0 100%;
-    order: 0;
+    // DMA order: 0;
 
     @media (min-width: $bp-filters-stack) {
-      order: 100;
+      // DMA order: 100;
       justify-self: flex-end;
       justify-content: flex-end;
       text-align: right;
@@ -152,6 +161,21 @@ $bp-filters-stack: $screen-lg;
       & .js-form-submit {
         margin-top: $dimension-vertical-rhythm-elements;
       }
+    }
+
+    @media (max-width: $bp-filters-stack-sm) {
+      input[type="submit"] {
+        padding-left: 0.1em;
+        padding-right: 0.1em;
+      }
+    }
+
+    input[type="submit"][data-drupal-selector="edit-reset"] {
+      background: transparent;
+      border-color: transparent;
+      cursor: pointer;
+      color: $color-links;
+      text-decoration: underline;
     }
 
     .js-form-submit {
@@ -170,17 +194,17 @@ $bp-filters-stack: $screen-lg;
       }
 
       //reset button
-      &[id='edit-reset'] {
-        background: transparent;
-        border-color: transparent;
-        cursor: pointer;
-        color: $color-links;
-        text-decoration: underline;
-      }
+      // DMA &[id='edit-reset'] {
+      //   background: transparent;
+      //   border-color: transparent;
+      //   cursor: pointer;
+      //   color: $color-links;
+      //   text-decoration: underline;
+      // }
       // submit button
       &[id='edit-submit-seminar-view']{
         @media (min-width: $bp-filters-stack) {
-          order: 5;
+          // DMA order: 5;
         }
       }
     }

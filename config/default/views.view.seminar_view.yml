@@ -62,20 +62,56 @@ display:
         options:
           submit_button: 'Apply Filters'
           reset_button: true
-          reset_button_label: 'Clear all filters'
+          reset_button_label: 'Clear filters'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
-          input_required: false
           text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: rich_text
           bef:
             general:
-              allow_secondary: false
-              secondary_label: 'Advanced options'
               autosubmit: false
               autosubmit_exclude_textfield: false
               autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+            filter:
+              field_smnr_class_type_target_id:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              field_smnr_seminar_date_value:
+                plugin_id: default
+                advanced:
+                  collapsible: false
+                  is_secondary: false
+              field_topics_target_id:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              field_smnr_speaker_target_id:
+                plugin_id: default
+                advanced:
+                  collapsible: false
+                  is_secondary: false
+              field_smnr_level_target_id:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
             field_smnr_class_type_target_id:
               bef_format: bef
               more_options:
@@ -114,7 +150,7 @@ display:
                 is_secondary: false
                 rewrite:
                   filter_rewrite_values: ''
-          text_input_required_format: rich_text
+          input_required: false
       pager:
         type: none
         options:

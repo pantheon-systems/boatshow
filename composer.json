@@ -44,7 +44,7 @@
         "drupal/advagg": "^4.0",
         "drupal/anchor_link": "^1.6",
         "drupal/auto_entitylabel": "^2.1@beta",
-        "drupal/better_exposed_filters": "^3.0@alpha",
+        "drupal/better_exposed_filters": "^4.0",
         "drupal/block_field": "^1.0@alpha",
         "drupal/bricks": "^1.7-beta1",
         "drupal/captcha": "1.x-dev#1d21e6864ced543312d8d819a170c3553281b485",
@@ -105,7 +105,7 @@
         "drupal/quicktabs": "^3.0",
         "drupal/rabbit_hole": "^1.0",
         "drupal/rebuild_cache_access": "^1.5",
-        "drupal/recaptcha": "^2.4",
+        "drupal/recaptcha": "^2.5",
         "drupal/redirect": "^1.4",
         "drupal/restui": "^1.15",
         "drupal/robotstxt": "^1.1",
@@ -123,7 +123,7 @@
         "drupal/view_unpublished": "^1.0",
         "drupal/viewfield": "^3.0@alpha",
         "drupal/views_accordion": "^1.1",
-        "drupal/views_block_filter_block": "^1.0@beta",
+        "drupal/views_block_filter_block": "^1.0",
         "drupal/views_current_path": "^1.0@beta",
         "drupal/views_field_view": "^1.0@beta",
         "drupal/webform": "^5.5",
@@ -147,9 +147,6 @@
             "drupal/core": "-p2"
         },
         "patches": {
-            "drupal/better_exposed_filters": {
-                "Notice: Undefined index: #summary_attributes in template_preprocess_details() (line 244 of core/includes/form.inc)": "https://www.drupal.org/files/issues/2019-01-25/bef-summary-attributes-3001967-9.patch"
-            },
             "drupal/bricks": {
                 "Layout entity wrapper is missing [https://www.drupal.org/project/bricks/issues/2952523]": "https://www.drupal.org/files/issues/2018-04-12/bricks-layout_entity_wrapper-2952523-3.patch"
             },
@@ -252,6 +249,7 @@
             "@composer install --ansi"
         ],
         "post-drupal-scaffold-cmd": [
+            "cd docroot && patch -p1 <../patches/htaccess-saml.patch",
             "cd docroot && patch -p1 <../patches/htaccess-saml.patch",
             "cd docroot && patch -p1 <../patches/htaccess-saml.patch"
         ]
