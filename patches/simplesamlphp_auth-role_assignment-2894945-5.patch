@@ -1,0 +1,19 @@
+diff --git a/modules/contrib/simplesamlphp_auth/src/Service/SimplesamlphpDrupalAuth.php b/modules/contrib/simplesamlphp_auth/src/Service/SimplesamlphpDrupalAuth.php
+index de367cc8c..1735de03a 100644
+--- a/modules/contrib/simplesamlphp_auth/src/Service/SimplesamlphpDrupalAuth.php
++++ b/modules/contrib/simplesamlphp_auth/src/Service/SimplesamlphpDrupalAuth.php
+@@ -118,12 +118,13 @@ public function __construct(SimplesamlphpAuthManager $simplesaml_auth, ConfigFac
+   public function externalLoginRegister($authname) {
+     $account = $this->externalauth->login($authname, 'simplesamlphp_auth');
+     if (!$account) {
++      $is_new_account = TRUE;
+       $account = $this->externalRegister($authname);
+     }
+ 
+     if ($account) {
+       // Determine if roles should be evaluated upon login.
+-      if ($this->config->get('role.eval_every_time')) {
++      if ($this->config->get('role.eval_every_time') || isset($is_new_account)) {
+         $this->roleMatchSync($account);
+       }
+     }
