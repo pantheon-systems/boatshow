@@ -99,6 +99,7 @@
         "drupal/paragraphs": "^1.8",
         "drupal/path_redirect_import": "^1.0@beta",
         "drupal/pathauto": "^1.4",
+        "drupal/permissions_by_term": "^2.18",
         "drupal/publishcontent": "^1.1",
         "drupal/purge": "^3.0@beta",
         "drupal/qa_accounts": "^1.0.0-alpha1",
