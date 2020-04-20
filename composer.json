@@ -99,6 +99,7 @@
         "drupal/paragraphs": "^1.8",
         "drupal/path_redirect_import": "^1.0@beta",
         "drupal/pathauto": "^1.4",
+        "drupal/permissions_by_term": "^2.18",
         "drupal/publishcontent": "^1.1",
         "drupal/purge": "^3.0@beta",
         "drupal/qa_accounts": "^1.0.0-alpha1",
@@ -112,7 +113,7 @@
         "drupal/rpt": "1.0-beta1",
         "drupal/seckit": "^1.0.0-alpha2",
         "drupal/shield": "^1.2",
-        "drupal/simplesamlphp_auth": "^3.0",
+        "drupal/simplesamlphp_auth": "^3.1",
         "drupal/smart_trim": "^1.1",
         "drupal/structure_sync": "^1.12",
         "drupal/telephone_formatter": "1.x-dev#64f2cbbb440044fce077e5ada35890388321fa5b",
@@ -121,7 +122,7 @@
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/video_embed_wistia": "^1.0@rc",
         "drupal/view_unpublished": "^1.0",
-        "drupal/viewfield": "^3.0@alpha",
+        "drupal/viewfield": "^3.0",
         "drupal/views_accordion": "^1.1",
         "drupal/views_block_filter_block": "^1.0",
         "drupal/views_current_path": "^1.0@beta",
@@ -162,6 +163,9 @@
             "drupal/config_ignore": {
                 "Support for export filtering via Drush [https://www.drupal.org/project/config_ignore/issues/2857247]": "https://www.drupal.org/files/issues/2019-09-27/support-for-export-2857247-38.patch"
             },
+            "drupal/content_access": {
+                "Undefined index: anonymous in content_access_get_role_gid": "./patches/content_access-role-2782813-19.patch"
+            },
             "drupal/core": {
                 "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch",
                 "Exception thrown by responsive srcset images when the image is not yet in the file system (such as with Stage File Proxy) [https://www.drupal.org/project/drupal/issues/2827921]": "https://www.drupal.org/files/issues/2827921-remove-missing-responsive-image-width-exception.patch"
@@ -187,9 +191,6 @@
             },
             "drupal/redirect": {
                 "Redirect hashes created when not retaining the query string": "https://www.drupal.org/files/issues/2018-06-01/2976930-redirect-hashes-created-when-not-retaining-the-query-string-2.patch"
-            },
-            "drupal/viewfield": {
-                "Duplicate reference field types": "https://www.drupal.org/files/issues/2900913-5-viewfield-fix-duplicates.patch"
             },
             "drupal/xmlsitemap": {
                 "Rebuild always include all link types": "https://www.drupal.org/files/issues/2018-05-25/2745695-10.xmlsitemap-rebuild-all-entities.patch",

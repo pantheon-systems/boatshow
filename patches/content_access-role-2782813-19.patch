@@ -1,0 +1,17 @@
+diff --git a/content_access.module b/content_access.module
+index 9658efa..ff8c256 100644
+--- a/content_access.module
++++ b/content_access.module
+@@ -691,7 +691,11 @@ function content_access_get_role_gid($role) {
+   $config = \Drupal::configFactory()->getEditable('content_access.settings');
+   $roles_gids = $config->get('content_access_roles_gids');
+
+-  return $roles_gids[$role];
++  if (isset($roles_gids[$role])) {
++    $roles_gids[$role];
++  }
++
++  return NULL;;
+ }
+
+ /**
