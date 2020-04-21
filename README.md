@@ -14,7 +14,7 @@ This is the home of [National Marine Manufacturers Association](https://www.nmma
 This readme serves as an entry point to the project documentation. Please refer to additional documentation in the 'docs' directory for more detail.
 
 - [Local Development General Requirements](docs/local_requirements.md)
-- [Setup Guide](docs/setup-guide)
+- [Setup Guide](docs/setup-guide.md)
 - [BLT and Dependency Management](docs/blt-and-dependency-management.md)
 - [Drupal Configuration Management](docs/config-management.md)
 - [Git and Code Deployment Process](docs/git-and-code-deployment-process.md)
