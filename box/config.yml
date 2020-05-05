@@ -10,6 +10,7 @@ vagrant_synced_folders:
     destination: /var/www/boatshow
     type: nfs
     mount_options: ['actimeo=2']
+ansible_python_interpreter: /usr/bin/python
 drupal_build_composer_project: false
 drupal_build_composer: false
 drupal_composer_path: false
