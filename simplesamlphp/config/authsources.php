@@ -49,30 +49,57 @@ $config = [
         ],
         */
     ],
+/* Dev Atlantaboatshow emailaddress sso  */
+            'dev-atl-sso-sp' => [
+                'saml:SP',
+                'entityID' => 'dev-atl-emailaddress-sso',
+                'certificate' => '../cert/dev2.atlantaboatshow.saml.crt',
+                'privatekey' => '../cert/dev2.atlantaboatshow.saml.pem',
+                'redirect.sign' => TRUE,
+                'redirect.validate' => TRUE,
+                'idp' => 'http://www.okta.com/exk1icy4vdm4tABQN0h8',
+                //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+                //'idp' => null,
+              ],
 
-    'dev-chi-sso-sp' => [
-        'saml:SP',
-        'entityID' => 'dev-chi-emailaddress-sso',
-        'certificate' => '../cert/dev2.chicagoboatshow.saml.crt',
-        'privatekey' => '../cert/dev2.chicagoboatshow.saml.pem',
-        'redirect.sign' => TRUE,
-        'redirect.validate' => TRUE,
-        'idp' => 'http://www.okta.com/exk1iojw727CSlSg10h8',
-        //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
-        //'idp' => null,
-      ],
+/* Dev Chicagoboatshow emailaddress sso  */
+      'dev-chi-sso-sp' => [
+          'saml:SP',
+          'entityID' => 'dev-chi-emailaddress-sso',
+          'certificate' => '../cert/dev2.chicagoboatshow.saml.crt',
+          'privatekey' => '../cert/dev2.chicagoboatshow.saml.pem',
+          'redirect.sign' => TRUE,
+          'redirect.validate' => TRUE,
+          'idp' => 'http://www.okta.com/exk1iojw727CSlSg10h8',
+          //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+          //'idp' => null,
+        ],
 
-        'dev-atl-sso-sp' => [
-            'saml:SP',
-            'entityID' => 'dev-atl-emailaddress-sso',
-            'certificate' => '../cert/dev2.atlantaboatshow.saml.crt',
-            'privatekey' => '../cert/dev2.atlantaboatshow.saml.pem',
-            'redirect.sign' => TRUE,
-            'redirect.validate' => TRUE,
-            'idp' => 'http://www.okta.com/exk1icy4vdm4tABQN0h8',
-            //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
-            //'idp' => null,
-          ],
+/* Stage Atlantaboatshow emailaddress sso  */
+            'stage-atl-sso-sp' => [
+                'saml:SP',
+                'entityID' => 'stage-atl-emailaddress-sso',
+                'certificate' => '../cert/stage2.atlantaboatshow.saml.crt',
+                'privatekey' => '../cert/stage2.atlantaboatshow.saml.pem',
+                'redirect.sign' => TRUE,
+                'redirect.validate' => TRUE,
+                'idp' => 'http://www.okta.com/exk1ioq7xivS9OtcR0h8',
+                //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+                //'idp' => null,
+              ],
+
+/* Stage Chicagoboatshow emailaddress sso  */
+      'stage-chi-sso-sp' => [
+          'saml:SP',
+          'entityID' => 'stage-chi-emailaddress-sso',
+          'certificate' => '../cert/stage2.chicagoboatshow.saml.crt',
+          'privatekey' => '../cert/stage2.chicagoboatshow.saml.pem',
+          'redirect.sign' => TRUE,
+          'redirect.validate' => TRUE,
+          'idp' => 'http://www.okta.com/exk1iorgg6ixa2IAS0h8',
+          //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+          //'idp' => null,
+        ],
     /*
     'example-sql' => [
         'sqlauth:SQL',
