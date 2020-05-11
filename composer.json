@@ -120,6 +120,7 @@
         "drupal/twig_field": "^1.0",
         "drupal/twig_tweak": "^2.0",
         "drupal/ultimate_cron": "^2.0@alpha",
+        "drupal/username_enumeration_prevention": "^1.0",
         "drupal/video_embed_wistia": "^1.0@rc",
         "drupal/view_unpublished": "^1.0",
         "drupal/viewfield": "^3.0",
