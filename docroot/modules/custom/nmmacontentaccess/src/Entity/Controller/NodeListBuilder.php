@@ -91,7 +91,11 @@ class NodeListBuilder extends EntityListBuilder {
     /* @var $entity \Drupal\nmmacontentaccess\Entity\NmmaNode */
     //$row['id'] = $entity->id();
     //$row['name'] = $entity->toLink()->toString();
-    $row['node_id'] = Node::load($entity->node_id[0]->getValue()['target_id'])->get('title')->value;
+    if (Node::load($entity->node_id[0]->getValue()['target_id'])->get('title')->value) {
+      $row['node_id'] = Node::load($entity->node_id[0]->getValue()['target_id'])->get('title')->value;
+    } else {
+      $row['node_id'] = '';
+    }
     //$row['node_id'] = $entity->node_id->values['target_id'];
     //$row['role'] = $entity->role->value;
     //$row['roles'] = 'sdfasdf';
