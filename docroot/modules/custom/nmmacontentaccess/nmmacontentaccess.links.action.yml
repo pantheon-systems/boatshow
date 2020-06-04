@@ -1,0 +1,11 @@
+# All action links for this module
+
+nmmacontentaccess.nmmanode_add:
+  # Which route will be called by the link
+  route_name: nmmacontentaccess.nmmanode_add
+  title: 'Add Content Node Editing Restriction'
+
+  # Where will the link appear, defined by route name.
+  appears_on:
+    - entity.nmmacontentaccess_node.collection
+    - entity.nmmacontentaccess_node.canonical

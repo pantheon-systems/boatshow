@@ -1,0 +1,10 @@
+'delete NmmaNode entity':
+  title: Delete entity content.
+'add NmmaNode entity':
+  title: Add entity content
+'view NmmaNode entity':
+  title: View entity content
+'edit NmmaNode entity':
+  title: Edit entity content
+'administer NmmaNode entity':
+  title: Administer settings

@@ -1,0 +1,67 @@
+# This file brings everything together. Very nifty!
+
+# Route name can be used in several places; e.g. links, redirects, and local
+# actions.
+entity.nmmacontentaccess_node.canonical:
+  path: '/nmmacontentaccess_node/{nmmacontentaccess_node}'
+  defaults:
+    # Calls the view controller, defined in the annotation of the nmmacontentaccess_node
+    # entity. This marks this route as belonging to this entity type.
+    _entity_view: 'nmmacontentaccess_node'
+    _title: 'Nmmanode content'
+  requirements:
+    # Calls the access controller of the entity, passing in the suffix ('view')
+    # as the $operation parameter to checkAccess().
+    _entity_access: 'nmmacontentaccess_node.view'
+
+entity.nmmacontentaccess_node.collection:
+  path: '/nmmacontentaccess_node/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the nmmacontentaccess_node entity.
+    _entity_list: 'nmmacontentaccess_node'
+    _title: 'Nmmanode list'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view Nmmanode entity'
+
+nmmacontentaccess.nmmanode_add:
+  path: '/nmmacontentaccess_node/add'
+  defaults:
+    # Calls the form.add controller, defined in the nmmacontentaccess_node entity.
+    _entity_form: nmmacontentaccess_node.default
+    _title: 'Add Nmmanode'
+  requirements:
+    # Use the entity's access controller. _entity_create_access tells the router
+    # to use the access controller's checkCreateAccess() method instead of
+    # checkAccess().
+    _entity_create_access: 'nmmacontentaccess_node'
+
+entity.nmmacontentaccess_node.edit_form:
+  path: '/nmmacontentaccess_node/{nmmacontentaccess_node}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the nmmacontentaccess_node entity.
+    _entity_form: nmmacontentaccess_node.default
+    _title: 'Edit Nmmanode'
+  requirements:
+    # Calls the access controller of the entity, passing in the suffix
+    # ('update') as the $operation parameter to checkAccess().
+    _entity_access: 'nmmacontentaccess_node.update'
+
+entity.nmmacontentaccess_node.delete_form:
+  path: '/nmmacontentaccess_node/{nmmacontentaccess_node}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the nmmacontentaccess_node entity.
+    _entity_form: nmmacontentaccess_node.delete
+    _title: 'Delete Nmmanode'
+  requirements:
+    # Calls the access controller of the entity, passing in the suffix
+    # ('delete') as the $operation parameter to checkAccess().
+    _entity_access: 'nmmacontentaccess_node.delete'
+
+nmmacontentaccess.nmmanode_settings:
+  path: '/admin/structure/nmmacontentaccess_node_settings'
+  defaults:
+    _form: '\Drupal\nmmacontentaccess\Form\NmmaNodeSettingsForm'
+    _title: 'Nmmanode settings'
+  requirements:
+    _permission: 'administer nmmanode entity'
