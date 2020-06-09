@@ -1,5 +1,11 @@
 <?php
 
+use Drupal\Core\Session\AccountInterface;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Access\AccessResultInterface;
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\node\NodeInterface;
 /**
  * @file
  * Contains Drupal\nmmacontentaccess\nmmacontentaccess.module.
@@ -43,3 +49,21 @@
  * @see config_entity_example
  * }
  */
+
+ /**
+ * Implements hook_node_access().
+ *
+ * Enforces our access rules for custom workflow target content to force updates
+ * only if the user is targeted in the user select field
+ */
+ function nmmacontentaccess_node_access($node, $op, $account) {
+   // If a node is being updated
+   if ($op == 'update' || $op == 'delete') {
+     // If the user select field exists on this node
+     if (!in_array('PR', $account->getRoles())) {
+           return AccessResult::forbidden();
+     }
+   }
+   // Else ignore altering access
+   //return NODE_ACCESS_IGNORE;
+}

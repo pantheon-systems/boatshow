@@ -2,6 +2,7 @@
 
 namespace Drupal\nmmacontentaccess\Form;
 
+use Drupal\node\Entity\Node;
 use Drupal\Core\Entity\ContentEntityConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
@@ -17,7 +18,12 @@ class NmmaNodeDeleteForm extends ContentEntityConfirmFormBase {
    * {@inheritdoc}
    */
   public function getQuestion() {
-    return $this->t('Are you sure you want to delete entity %name?', ['%name' => $this->entity->label()]);
+    if ($this->entity->node_id[0]) {
+      $see = Node::load($this->entity->node_id[0]->getValue()['target_id'])->get('title')->value;
+    } else {
+      $see = 'zzzzz';
+    }
+    return $this->t('Are you sure you want to delete entity %name?', ['%name' => $see]);
   }
 
   /**
@@ -45,11 +51,11 @@ class NmmaNodeDeleteForm extends ContentEntityConfirmFormBase {
     $entity = $this->getEntity();
     $entity->delete();
 
-    $this->logger('nmmacontentaccess')->notice('@type: deleted %title.',
-      [
-        '@type' => $this->entity->bundle(),
-        '%title' => $this->entity->label(),
-      ]);
+    // $this->logger('nmmacontentaccess')->notice('@type: deleted %title.',
+    //   [
+    //     '@type' => $this->entity->bundle(),
+    //     '%title' => $this->entity->label(),
+    //   ]);
     $form_state->setRedirect('entity.nmmacontentaccess_node.collection');
   }
 

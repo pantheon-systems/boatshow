@@ -59,7 +59,8 @@ class NodeListBuilder extends EntityListBuilder {
    */
   public function render() {
     $build['description'] = [
-      '#markup' => $this->t('NmmaNodeAccess Example implements a NmmaNodeAccess node model. These NmmaNodeAccess nodes are fieldable entities. You can manage the fields on the <a href="@adminlink">NmmaNodeAccess content nodes admin page</a>.  GOING TO REMOVE THIS TEXT ALTOGETHER.  CORY/JAMES, WOULD YOU MIND CONTRIBUTING TO WHAT THE TEXT SHOULD BE?', [
+      '#markup' => $this->t('Restrict node editing access by role for component pages ', [
+        //'#markup' => $this->t('NmmaNodeAccess Example implements a NmmaNodeAccess node model. These NmmaNodeAccess nodes are fieldable entities. You can manage the fields on the <a href="@adminlink">NmmaNodeAccess content nodes admin page</a>.  GOING TO REMOVE THIS TEXT ALTOGETHER.  CORY/JAMES, WOULD YOU MIND CONTRIBUTING TO WHAT THE TEXT SHOULD BE?', [
         '@adminlink' => $this->urlGenerator->generateFromRoute('nmmacontentaccess.nmmanode_settings'),
       ]),
     ];
@@ -76,8 +77,9 @@ class NodeListBuilder extends EntityListBuilder {
    * and inserts the 'edit' and 'delete' links as defined for the entity type.
    */
   public function buildHeader() {
-    //$header['id'] = $this->t('NmmaNodeID');
+    $header['id'] = $this->t('NmmaNodeID');
     //$header['name'] = $this->t('Name');
+    //$header['name'] = $this->t('First Name');
     $header['node_id'] = $this->t('Node');
     //$header['role'] = $this->t('Role');
     //$header['roles'] = $this->t('Roles');
@@ -89,9 +91,9 @@ class NodeListBuilder extends EntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\nmmacontentaccess\Entity\NmmaNode */
-    //$row['id'] = $entity->id();
+    $row['id'] = $entity->id();
     //$row['name'] = $entity->toLink()->toString();
-
+    //$row['first_name'] = $entity->value;
     if ($entity->node_id[0]) {
       $row['node_id'] = Node::load($entity->node_id[0]->getValue()['target_id'])->get('title')->value;
     } else {
@@ -100,7 +102,7 @@ class NodeListBuilder extends EntityListBuilder {
     //$row['node_id'] = $entity->node_id->values['target_id'];
     //$row['role'] = $entity->role->value;
     //$row['roles'] = 'sdfasdf';
-    //var_dump($entity->node_id[0]->getValue()['target_id']);
+    //var_dump($entity);
     return $row + parent::buildRow($entity);
   }
 

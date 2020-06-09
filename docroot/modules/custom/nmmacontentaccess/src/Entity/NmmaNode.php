@@ -235,8 +235,15 @@ class NmmaNode extends ContentEntityBase implements NmmaNodeInterface {
         ->setLabel(t('Content Node Name'))
         ->setDescription(t('The name of the content node'))
         ->setRevisionable(TRUE)
+        ->setRequired(TRUE)
         ->setSetting('target_type', 'node')
         ->setSetting('handler', 'default')
+        ->setSetting('handler_settings', [
+          'target_bundles' => [
+            'article' => 'article',
+            'component_page' => 'component_page'
+            ]
+          ])
         ->setTranslatable(FALSE)
         ->setDisplayOptions('view', [
           'label' => 'inline',
@@ -253,7 +260,10 @@ class NmmaNode extends ContentEntityBase implements NmmaNodeInterface {
             'autocomplete_type' => 'tags',
             'placeholder' => '',
           ],
-        ]);
+        ])
+        ->setDisplayConfigurable('form', TRUE)
+        ->setDisplayConfigurable('view', TRUE);
+
     // $fields['first_name'] = BaseFieldDefinition::create('string')
     //   ->setLabel(t('First Name'))
     //   ->setDescription(t('The first name of the NmmaNode entity.'))
@@ -342,7 +352,9 @@ class NmmaNode extends ContentEntityBase implements NmmaNodeInterface {
         ->setDisplayOptions('form', [
           'type' => 'options_buttons',
           'weight' => 5,
-        ]);
+        ])
+        ->setDisplayConfigurable('form', TRUE)
+        ->setDisplayConfigurable('view', TRUE);
     // $fields['langcode'] = BaseFieldDefinition::create('language')
     //   ->setLabel(t('Language code'))
     //   ->setDescription(t('The language code of ContentEntityExample entity.'));
