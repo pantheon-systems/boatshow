@@ -241,3 +241,5 @@ publishcontent: 1.1.0
 view_unpublished: 1.0.0-alpha1
 weight: 3.1.0
 username_enumeration_prevention: 1.0.0
+nmmacontentaccess: 0.0.0
+update: 8.7.3

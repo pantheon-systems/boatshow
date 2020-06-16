@@ -78,11 +78,7 @@ class NodeListBuilder extends EntityListBuilder {
    */
   public function buildHeader() {
     $header['id'] = $this->t('NmmaNodeID');
-    //$header['name'] = $this->t('Name');
-    //$header['name'] = $this->t('First Name');
     $header['node_id'] = $this->t('Node');
-    //$header['role'] = $this->t('Role');
-    //$header['roles'] = $this->t('Roles');
     return $header + parent::buildHeader();
   }
 
@@ -92,17 +88,12 @@ class NodeListBuilder extends EntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\nmmacontentaccess\Entity\NmmaNode */
     $row['id'] = $entity->id();
-    //$row['name'] = $entity->toLink()->toString();
-    //$row['first_name'] = $entity->value;
     if ($entity->node_id[0]) {
       $row['node_id'] = Node::load($entity->node_id[0]->getValue()['target_id'])->get('title')->value;
     } else {
       $row['node_id'] = '';
     }
-    //$row['node_id'] = $entity->node_id->values['target_id'];
-    //$row['role'] = $entity->role->value;
-    //$row['roles'] = 'sdfasdf';
-    //var_dump($entity);
+
     return $row + parent::buildRow($entity);
   }
 

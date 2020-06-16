@@ -51,11 +51,6 @@ class NmmaNodeDeleteForm extends ContentEntityConfirmFormBase {
     $entity = $this->getEntity();
     $entity->delete();
 
-    // $this->logger('nmmacontentaccess')->notice('@type: deleted %title.',
-    //   [
-    //     '@type' => $this->entity->bundle(),
-    //     '%title' => $this->entity->label(),
-    //   ]);
     $form_state->setRedirect('entity.nmmacontentaccess_node.collection');
   }
 

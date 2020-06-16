@@ -1,10 +1,13 @@
 <?php
 
+use Drupal\Core\Access;
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Access\AccessResultInterface;
+use Drupal\Core\Entity\EntityListBuilder;
+use Drupal\Core\Entity\ContentEntityForm;
 
-use Drupal\Core\Access\AccessResult;
 use Drupal\node\NodeInterface;
 /**
  * @file
@@ -58,12 +61,28 @@ use Drupal\node\NodeInterface;
  */
  function nmmacontentaccess_node_access($node, $op, $account) {
    // If a node is being updated
-   if ($op == 'update' || $op == 'delete') {
+
+   $allowedRoles = \Drupal::entityManager()
+         ->getStorage('nmmacontentaccess_node')
+         ->loadByProperties(['node_id' => $node->id()]);
+   $access = AccessResult::neutral();
+   if (!empty($allowedRoles)) {
+     \Drupal::logger('nmmacontentaccess')->notice("there are allowed roles");
+     $allowedRoles = array_shift($allowedRoles);
+     $allowedRoles = $allowedRoles->get('roles')->getValue();
+     $result=array_intersect(array_column($allowedRoles, 'target_id'),$account->getRoles());
+     // var_dump($allowedRoles);
+     // var_dump($account->getRoles());
+     // var_dump($result);
+     // var_dump($op);
+     // var_dump($node->id());
+     if (($op == 'update' || $op == 'delete') && empty($result))  {
      // If the user select field exists on this node
-     if (!in_array('PR', $account->getRoles())) {
-           return AccessResult::forbidden();
+        \Drupal::logger('nmmacontentaccess')->notice("setting access to forbidden");
+           drupal_set_message(t('Your user role has not been given access to this node.'));
+           $access = AccessResult::forbidden();
      }
    }
    // Else ignore altering access
-   //return NODE_ACCESS_IGNORE;
+           return $access;
 }

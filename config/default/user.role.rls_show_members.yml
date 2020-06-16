@@ -83,6 +83,7 @@ permissions:
   - 'delete terms in vehicle_product_type'
   - 'edit any brick entities'
   - 'edit any carousel_slides content'
+  - 'edit any component_page content'
   - 'edit any contact_profile content'
   - 'edit any document media'
   - 'edit any exhibitor content'
