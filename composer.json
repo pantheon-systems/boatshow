@@ -47,7 +47,7 @@
         "drupal/better_exposed_filters": "^4.0",
         "drupal/block_field": "^1.0@alpha",
         "drupal/bricks": "^1.7-beta1",
-        "drupal/captcha": "1.x-dev#1d21e6864ced543312d8d819a170c3553281b485",
+        "drupal/captcha": "^1.0",
         "drupal/cer": "^4.0@alpha",
         "drupal/chosen": "^2.5",
         "drupal/ckeditor_accordion": "^1.1",
