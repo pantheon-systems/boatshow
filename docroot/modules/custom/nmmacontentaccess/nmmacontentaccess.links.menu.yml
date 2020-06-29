@@ -1,0 +1,12 @@
+# Define the menu links for this module
+
+entity.nmmacontentaccess_node.collection:
+  title: 'Content Node editing restrictions'
+  route_name: entity.nmmacontentaccess_node.collection
+  description: 'Manage Content Node Editing Restrictions'
+  parent: system.admin_config_system
+nmmacontentaccess_node.admin.structure.settings:
+  title: 'nmmacontentaccess_node settings'
+  description: 'Configure nmmacontentaccess_node'
+  route_name:  nmmacontentaccess.nmmanode_settings
+  parent: system.admin_structure

@@ -56,6 +56,7 @@ permissions:
   - 'delete terms in dining_service'
   - 'delete terms in sponsors'
   - 'edit any brick entities'
+  - 'edit any component_page content'
   - 'edit any contact_profile content'
   - 'edit any dining content'
   - 'edit any document media'

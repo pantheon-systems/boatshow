@@ -1,0 +1,22 @@
+# Define the 'local' links for the module
+
+nmmanode.settings_tab:
+  route_name: nmmacontentaccess.nmmanode_settings
+  title: Settings
+  base_route: nmmacontentaccess.nmmanode_settings
+
+nmmanode.view:
+  route_name: entity.nmmacontentaccess_node.canonical
+  base_route: entity.nmmacontentaccess_node.canonical
+  title: View
+
+nmmanode.page_edit:
+  route_name: entity.nmmacontentaccess_node.edit_form
+  base_route: entity.nmmacontentaccess_node.canonical
+  title: Edit
+
+nmmanode.delete_confirm:
+  route_name:  entity.nmmacontentaccess_node.delete_form
+  base_route:  entity.nmmacontentaccess_node.canonical
+  title: Delete
+  weight: 10

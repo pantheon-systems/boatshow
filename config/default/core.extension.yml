@@ -40,7 +40,6 @@ module:
   consumers: 0
   contact: 0
   contact_storage: 0
-  content_access: 0
   content_lock: 0
   content_moderation: 0
   contextual: 0
@@ -148,6 +147,7 @@ module:
   nmma_video: 0
   nmma_webform_marine_question: 0
   nmma_webform_override_recipients: 0
+  nmmacontentaccess: 0
   node: 0
   openapi: 0
   openapi_ui: 0
