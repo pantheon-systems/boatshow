@@ -100,6 +100,247 @@ $config = [
           //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
           //'idp' => null,
         ],
+
+/* Prod Atlantaboatshow emailaddress sso  */
+      'prod-atl-sso-sp' => [
+          'saml:SP',
+          'entityID' => 'prod-atl-emailaddress-sso',
+          'certificate' => '../cert/www.atlantaboatshow.saml.crt',
+          'privatekey' => '../cert/www.atlantaboatshow.saml.pem',
+          'redirect.sign' => TRUE,
+          'redirect.validate' => TRUE,
+          'idp' => 'http://www.okta.com/exk1iyxsrnkFKZWDK0h8',
+          //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+          //'idp' => null,
+        ],
+/* Prod atlanticcity emailaddress sso  */
+'prod-ac-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-ac-emailaddress-sso',
+    'certificate' => '../cert/www.acboatshow.saml.crt',
+    'privatekey' => '../cert/www.acboatshow.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j69n78bjlEtEu0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod baltimore emailaddress sso  */
+'prod-bal-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-bal-emailaddress-sso',
+    'certificate' => '../cert/www.baltimoreboatshow.saml.crt',
+    'privatekey' => '../cert/www.baltimoreboatshow.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j69pecopUNcbo0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod Chicagoboatshow emailaddress sso  */
+      'prod-chi-sso-sp' => [
+          'saml:SP',
+          'entityID' => 'prod-chi-emailaddress-sso',
+          'certificate' => '../cert/www.chicagoboatshow.saml.crt',
+          'privatekey' => '../cert/www.chicagoboatshow.saml.pem',
+          'redirect.sign' => TRUE,
+          'redirect.validate' => TRUE,
+          'idp' => 'http://www.okta.com/exk1izxfjgive944K0h8',
+          //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+          //'idp' => null,
+        ],
+/* Prod chicagoland emailaddress sso  */
+'prod-chilnd-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-chilnd-emailaddress-sso',
+    'certificate' => '../cert/chicagoland.sportshows.saml.crt',
+    'privatekey' => '../cert/chicagoland.sportshows.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6gkkf8uGufO80h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod kansascity emailaddress sso  */
+'prod-kc-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-kc-emailaddress-sso',
+    'certificate' => '../cert/www.kansascitysportshow.saml.crt',
+    'privatekey' => '../cert/www.kansascitysportshow.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6egyj999g3cH0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod louisville emailaddress sso  */
+'prod-lvl-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-lvl-emailaddress-sso',
+    'certificate' => '../cert/www.louisvilleboatshow.saml.crt',
+    'privatekey' => '../cert/www.louisvilleboatshow.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6eimhwhREwbA0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod miami emailaddress sso  */
+'prod-mia-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-mia-emailaddress-sso',
+    'certificate' => '../cert/www.miamiboatshow.saml.crt',
+    'privatekey' => '../cert/www.miamiboatshow.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6ge1z6m3HiyC0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod minneapolis emailaddress sso  */
+'prod-min-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-min-emailaddress-sso',
+    'certificate' => '../cert/www.minneapolisboatshow.saml.crt',
+    'privatekey' => '../cert/www.minneapolisboatshow.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6gfsce76yZ9N0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod nashville emailaddress sso  */
+'prod-nsh-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-nsh-emailaddress-sso',
+    'certificate' => '../cert/www.nashvilleboatshow.saml.crt',
+    'privatekey' => '../cert/www.nashvilleboatshow.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6gfees6xiW6d0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod newengland emailaddress sso  */
+'prod-ne-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-ne-emailaddress-sso',
+    'certificate' => '../cert/www.newenglandboatshow.saml.crt',
+    'privatekey' => '../cert/www.newenglandboatshow.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6gfdsuyQuoer0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod newyork emailaddress sso  */
+'prod-ny-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-ny-emailaddress-sso',
+    'certificate' => '../cert/www.nyboatshow.saml.crt',
+    'privatekey' => '../cert/www.nyboatshow.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6ggn621twJd90h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod northwest emailaddress sso  */
+'prod-nw-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-nw-emailaddress-sso',
+    'certificate' => '../cert/www.northwestsportshow.saml.crt',
+    'privatekey' => '../cert/www.northwestsportshow.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6gguxtTnFYqz0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod norwalk emailaddress sso  */
+'prod-nor-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-nor-emailaddress-sso',
+    'certificate' => '../cert/www.boatshownorwalk.saml.crt',
+    'privatekey' => '../cert/www.boatshownorwalk.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6eca9k6xZ3Y30h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod saltwater emailaddress sso  */
+'prod-sw-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-sw-emailaddress-sso',
+    'certificate' => '../cert/saltwater.sportshows.saml.crt',
+    'privatekey' => '../cert/saltwater.sportshows.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6gijlmOWyqfV0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod sportshows emailaddress sso  */
+'prod-ss-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-ss-emailaddress-sso',
+    'certificate' => '../cert/www.sportshows.saml.crt',
+    'privatekey' => '../cert/www.sportshows.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6gigv58S0xER0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod stlouis emailaddress sso  */
+'prod-stl-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-stl-emailaddress-sso',
+    'certificate' => '../cert/www.stlouisboatshow.saml.crt',
+    'privatekey' => '../cert/www.stlouisboatshow.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6gkoi4Pp5AZv0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod suffern emailaddress sso  */
+'prod-sfn-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-sfn-emailaddress-sso',
+    'certificate' => '../cert/suffern.sportshows.saml.crt',
+    'privatekey' => '../cert/suffern.sportshows.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6gkytePfmEdH0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+/* Prod tampa emailaddress sso  */
+'prod-tmp-sso-sp' => [
+    'saml:SP',
+    'entityID' => 'prod-tmp-emailaddress-sso',
+    'certificate' => '../cert/www.tampaboatshow.saml.crt',
+    'privatekey' => '../cert/www.tampaboatshow.saml.pem',
+    'redirect.sign' => TRUE,
+    'redirect.validate' => TRUE,
+    'idp' => 'http://www.okta.com/exk1j6gkstvpxykSW0h8',
+    //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+    //'idp' => null,
+  ],
+
+
+
+
+
+
+
+
+
+
+
+
     /*
     'example-sql' => [
         'sqlauth:SQL',
