@@ -243,3 +243,4 @@ weight: 3.1.0
 username_enumeration_prevention: 1.0.0
 nmmacontentaccess: 0.0.0
 update: 8.7.3
+simplesamlphp_auth: 3.1.0
