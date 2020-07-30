@@ -1,0 +1,5 @@
+name: 'nmma_boating_guide_download'
+type: module
+description: 'nmma_boating_guide_download'
+core: 8.x
+package: 'NMMA'

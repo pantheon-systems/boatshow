@@ -77,10 +77,11 @@ use Drupal\node\NodeInterface;
      // var_dump($op);
      // var_dump($node->id());
      if (($op == 'update' || $op == 'delete') && empty($result))  {
-     // If the user select field exists on this node
-        \Drupal::logger('nmmacontentaccess')->notice("setting access to forbidden");
-           drupal_set_message(t('Your user role has not been given access to this node.'));
-           $access = AccessResult::forbidden();
+       // If the user select field exists on this node
+          //\Drupal::logger('nmmacontentaccess')->notice("setting access to forbidden");
+             //drupal_set_message('this is the opt:' . $op);
+             //drupal_set_message(t('Your user role has not been given access to this node.'));
+             $access = AccessResult::forbidden();
      }
    }
    // Else ignore altering access

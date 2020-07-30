@@ -24,6 +24,7 @@ module:
   bricks_inline: 0
   captcha: 0
   cer: 0
+  change_author_action: 0
   chosen: 0
   chosen_lib: 0
   ckeditor: 0
@@ -135,6 +136,7 @@ module:
   module_filter: 0
   module_missing_message_fixer: 0
   nmma_blocks: 0
+  nmma_boating_guide_download: 0
   nmma_brick_layouts: 0
   nmma_clipboardjs: 0
   nmma_exhibitor_article: 0
@@ -192,6 +194,7 @@ module:
   shortcut: 0
   simple_oauth: 0
   simple_oauth_extras: 0
+  simplesamlphp_auth: 0
   smart_trim: 0
   structure_sync: 0
   syslog: 0
@@ -227,6 +230,7 @@ module:
   menu_link_content: 1
   xmlsitemap: 1
   content_translation: 10
+  externalauth: 10
   views: 10
   paragraphs: 11
   lightning: 1000

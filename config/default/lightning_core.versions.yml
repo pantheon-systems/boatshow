@@ -243,4 +243,12 @@ weight: 3.1.0
 username_enumeration_prevention: 1.0.0
 nmmacontentaccess: 0.0.0
 update: 8.7.3
+webform_attachment: 5.5.0
+webform_scheduled_email: 5.5.0
+webform_example_handler: 5.5.0
+webform_examples: 5.5.0
+webform_templates: 5.5.0
+nmma_boating_guide_download: 0.0.0
+externalauth: 1.2.0
 simplesamlphp_auth: 3.1.0
+change_author_action: 1.0.0-alpha1

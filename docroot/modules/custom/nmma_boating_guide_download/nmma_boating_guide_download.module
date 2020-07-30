@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Contains nmma_boating_guide_download.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\webform\Utility\WebformFormHelper;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Drupal\media\MediaInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Drupal\media\Entity\Media;
+use Drupal\file\Entity\File;
+
+
+function nmma_boating_guide_download_form_webform_submission_boating_guide_add_form_alter(&$form, FormStateInterface $form_state) {
+    foreach (array_keys($form['actions']) as $action) {
+      if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+        $form['actions'][$action]['#submit'][] = 'nmma_boating_guide_download_node_form_submit';
+      }
+    }
+}
+
+function nmma_boating_guide_download_node_form_submit($form, FormStateInterface $form_state) {
+
+  \Drupal::logger('nmma boating guide download')->notice('boating_guide_download submit ') ;
+
+}
