@@ -1,4 +1,3 @@
-verbose: 1
 types:
   block_content: {  }
   colossal_menu_link: {  }
@@ -12,6 +11,7 @@ types:
   feeds_feed: {  }
   file: {  }
   media: {  }
+  nmmacontentaccess_node: {  }
   node:
     '*': '*'
   redirect: {  }
@@ -63,6 +63,9 @@ form_op_lock:
   media:
     mode: 0
     values: {  }
+  nmmacontentaccess_node:
+    mode: 0
+    values: {  }
   node:
     mode: 0
     values: {  }
@@ -96,5 +99,4 @@ form_op_lock:
   brick:
     mode: 0
     values: {  }
-_core:
-  default_config_hash: 6Ka3T1c-CIjEUO1Q64NXKksLthkMhj53a6zy4RJBtkc
+verbose: 0

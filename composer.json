@@ -49,6 +49,7 @@
         "drupal/bricks": "^1.7-beta1",
         "drupal/captcha": "^1.0",
         "drupal/cer": "^4.0@alpha",
+        "drupal/change_author_action": "^1.0",
         "drupal/chosen": "^2.5",
         "drupal/ckeditor_accordion": "^1.1",
         "drupal/clientside_validation": "1.x-dev#d65b355a086812d7d3c84945da2a5df01b7815cf",
