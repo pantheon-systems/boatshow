@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "775714d0630c5323dc78f35838e25774",
+    "content-hash": "55500ccd705112810d08e42846fdb6b9",
     "packages": [
         {
             "name": "acquia/blt",
@@ -12443,7 +12443,7 @@
                 "shasum": "5894aa067fba19a3452ed8ce749f33bd9ae91907"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^8"
             },
             "type": "drupal-module",
             "extra": {
