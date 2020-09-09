@@ -157,9 +157,6 @@
             "drupal/clientside_validation_jquery": {
                 "Support inline_form_errors module": "https://www.drupal.org/files/issues/2906132-4.patch"
             },
-            "drupal/config_filter": {
-                "Drush cim doesn't respect config ignore filters [https://www.drupal.org/project/config_ignore/issues/2916654#comment-12635861]": "https://www.drupal.org/files/issues/2018-05-14/collect-config-storage-services-2953769-6.patch"
-            },
             "drupal/config_ignore": {
                 "Support for export filtering via Drush [https://www.drupal.org/project/config_ignore/issues/2857247]": "https://www.drupal.org/files/issues/2019-09-27/support-for-export-2857247-38.patch"
             },
@@ -250,8 +247,6 @@
             "@composer install --ansi"
         ],
         "post-drupal-scaffold-cmd": [
-            "cd docroot && patch -p1 <../patches/htaccess-saml.patch",
-            "cd docroot && patch -p1 <../patches/htaccess-saml.patch",
             "cd docroot && patch -p1 <../patches/htaccess-saml.patch"
         ]
     }
