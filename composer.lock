@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "5487d7fba4309e260620369e441509e5",
-=======
-    "content-hash": "55500ccd705112810d08e42846fdb6b9",
->>>>>>> origin/2.x-develop
     "packages": [
         {
             "name": "acquia/blt",
@@ -3287,89 +3283,6 @@
                     "homepage": "https://www.drupal.org/user/736644"
                 },
                 {
-<<<<<<< HEAD
-=======
-                    "name": "japerry",
-                    "homepage": "https://www.drupal.org/user/45640"
-                },
-                {
-                    "name": "jmoreira",
-                    "homepage": "https://www.drupal.org/user/2374486"
-                },
-                {
-                    "name": "kolafson",
-                    "homepage": "https://www.drupal.org/user/822402"
-                },
-                {
-                    "name": "nerdstein",
-                    "homepage": "https://www.drupal.org/user/1557710"
-                },
-                {
-                    "name": "vlad.pavlovic",
-                    "homepage": "https://www.drupal.org/user/92673"
-                }
-            ],
-            "description": "Allows Drupal websites to connect with Acquia.",
-            "homepage": "https://www.drupal.org/project/acquia_connector",
-            "support": {
-                "source": "https://git.drupalcode.org/project/acquia_connector"
-            }
-        },
-        {
-            "name": "drupal/acquia_lift",
-            "version": "4.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/acquia_lift.git",
-                "reference": "8.x-4.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/acquia_lift-8.x-4.0.zip",
-                "reference": "8.x-4.0",
-                "shasum": "b367a6677c883ade990aafff7be2f589e64f75f7"
-            },
-            "require": {
-                "drupal/core": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-4.x": "4.x-dev",
-                    "dev-8.x-4.x": "4.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-4.0",
-                    "datestamp": "1576112285",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Dave.Ingram",
-                    "homepage": "https://www.drupal.org/user/352282"
-                },
-                {
-                    "name": "JakeWilund",
-                    "homepage": "https://www.drupal.org/user/1448388"
-                },
-                {
-                    "name": "abarrios",
-                    "homepage": "https://www.drupal.org/user/109765"
-                },
-                {
-                    "name": "acquia",
-                    "homepage": "https://www.drupal.org/user/1231722"
-                },
-                {
->>>>>>> origin/2.x-develop
                     "name": "japerry",
                     "homepage": "https://www.drupal.org/user/45640"
                 },
@@ -6253,11 +6166,7 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-<<<<<<< HEAD
                     "version": "8.x-1.8",
-=======
-                    "version": "8.x-1.13",
->>>>>>> origin/2.x-develop
                     "datestamp": "1595445195",
                     "security-coverage": {
                         "status": "covered",
@@ -6285,13 +6194,10 @@
                     "homepage": "https://www.drupal.org/user/3580850"
                 },
                 {
-<<<<<<< HEAD
                     "name": "RenatoG",
                     "homepage": "https://www.drupal.org/user/3326031"
                 },
                 {
-=======
->>>>>>> origin/2.x-develop
                     "name": "diamondsea",
                     "homepage": "https://www.drupal.org/user/430714"
                 },
@@ -11824,7 +11730,6 @@
             }
         },
         {
-<<<<<<< HEAD
             "name": "drupal/search_api_solr",
             "version": "1.2.0",
             "source": {
@@ -11904,8 +11809,6 @@
             }
         },
         {
-=======
->>>>>>> origin/2.x-develop
             "name": "drupal/seckit",
             "version": "1.1.0",
             "source": {
