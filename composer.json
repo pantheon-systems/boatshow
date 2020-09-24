@@ -34,7 +34,6 @@
         "acquia/drupal-spec-tool": "^2.0.0",
         "acquia/lightning": "^3.1.0",
         "drupal/acquia_connector": "^1.5.0",
-        "drupal/acquia_lift": "^4.0",
         "drupal/acquia_purge": "^1.0-beta3",
         "drupal/address": "^1.7",
         "drupal/addtoany": "^1.9",
@@ -80,6 +79,9 @@
         "drupal/honeypot": "^1.27",
         "drupal/iframe": "^1.9",
         "drupal/imageapi_optimize": "^2.0@alpha",
+        "drupal/imageapi_optimize_binaries": "^1.0",
+        "drupal/imageapi_optimize_resmushit": "^1.0",
+        "drupal/imageapi_optimize_tinypng": "^1.1",
         "drupal/imagemagick": "^2.3",
         "drupal/lightning_media": "^3.12",
         "drupal/link_attributes": "^1.9",
@@ -87,6 +89,7 @@
         "drupal/marketo_ma": "^2.0",
         "drupal/media_entity_browser": "2.x-dev#c75921d3af90f1b6dc052cd2edf037116227acf8",
         "drupal/media_entity_download": "^2.0@beta",
+        "drupal/media_entity_file_replace": "^1.0",
         "drupal/memcache": "2.0-alpha7",
         "drupal/menu_breadcrumb": "^1.7",
         "drupal/menu_item_extras": "^2.2",
@@ -96,7 +99,6 @@
         "drupal/migrate_tools": "^4.0@beta",
         "drupal/module_filter": "^3.1",
         "drupal/module_missing_message_fixer": "^1.1",
-        "drupal/nodeaccess": "^1.0",
         "drupal/paragraphs": "^1.8",
         "drupal/path_redirect_import": "^1.0@beta",
         "drupal/pathauto": "^1.4",
@@ -158,9 +160,6 @@
             },
             "drupal/clientside_validation_jquery": {
                 "Support inline_form_errors module": "https://www.drupal.org/files/issues/2906132-4.patch"
-            },
-            "drupal/config_filter": {
-                "Drush cim doesn't respect config ignore filters [https://www.drupal.org/project/config_ignore/issues/2916654#comment-12635861]": "https://www.drupal.org/files/issues/2018-05-14/collect-config-storage-services-2953769-6.patch"
             },
             "drupal/config_ignore": {
                 "Support for export filtering via Drush [https://www.drupal.org/project/config_ignore/issues/2857247]": "https://www.drupal.org/files/issues/2019-09-27/support-for-export-2857247-38.patch"
@@ -252,8 +251,6 @@
             "@composer install --ansi"
         ],
         "post-drupal-scaffold-cmd": [
-            "cd docroot && patch -p1 <../patches/htaccess-saml.patch",
-            "cd docroot && patch -p1 <../patches/htaccess-saml.patch",
             "cd docroot && patch -p1 <../patches/htaccess-saml.patch"
         ]
     }
