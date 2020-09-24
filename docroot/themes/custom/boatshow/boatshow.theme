@@ -449,7 +449,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
   ////////////////////////////
   /// Dividers
   ////////////////////////////
-  if ($entity && $entity->hasField('field_enable_dividers') && $entity->field_enable_dividers->value === '1') {
+  if ($entity->hasField('field_enable_dividers') && $entity->field_enable_dividers->value === '1') {
     $variables['attributes']['class'][] = 'enable-dividers';
     $variables['enable_dividers'] = true;
   }
@@ -457,14 +457,14 @@ function boatshow_preprocess_eck_entity(&$variables) {
   ////////////////////////////
   /// Collapsible
   ////////////////////////////
-  if ($entity && $entity->hasField('field_collapsible') && $entity->field_collapsible->value === '1') {
+  if ($entity->hasField('field_collapsible') && $entity->field_collapsible->value === '1') {
     $variables['attributes']['class'][] = 'collapsible';
     $variables['collapsible'] = true;
   }
   ////////////////////////////
   /// Container Type
   ////////////////////////////
-  if ($entity && $entity->hasField('field_container_type')) {
+  if ($entity->hasField('field_container_type')) {
     $container_type = $entity->field_container_type->value;
     $variables['container_type'] = $container_type;
 
@@ -478,7 +478,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
   ////////////////////////////
   /// Invert Text
   ////////////////////////////
-  if ($entity && $entity->hasField('field_invert_text') && $entity->field_invert_text->value === '1') {
+  if ($entity->hasField('field_invert_text') && $entity->field_invert_text->value === '1') {
     $variables['attributes']['class'][] = 'slab-inverted';
     $variables['invert_text'] = true;
   }
@@ -486,8 +486,8 @@ function boatshow_preprocess_eck_entity(&$variables) {
   ////////////////////////////
   /// Hide Page Title (Masthead)
   ////////////////////////////
-  if ($entity && $entity->hasField('field_hide_page_title')){
-    if ($entity && $entity->field_hide_page_title->value == '0') {
+  if ($entity->hasField('field_hide_page_title')){
+    if ($entity->field_hide_page_title->value == '0') {
       $variables['attributes']['class'][] = 'has-page-title';
       $variables['field_hide_page_title'] = false;
     } else {
@@ -498,7 +498,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
   ////////////////////////////
   /// Vertical Pull
   ////////////////////////////
-    if ($entity && $entity->hasField('field_vertical_pull') && !empty($entity->field_vertical_pull->value) && $entity->field_vertical_pull->value != 'none') {
+    if ($entity->hasField('field_vertical_pull') && !empty($entity->field_vertical_pull->value) && $entity->field_vertical_pull->value != 'none') {
       $variables['vertical_pull'] = $entity->field_vertical_pull->value;
       $variables['attributes']['class'][] = 'vertical-'.$entity->field_vertical_pull->value;
     }
@@ -506,14 +506,14 @@ function boatshow_preprocess_eck_entity(&$variables) {
   ////////////////////////////
   /// Headline Effect
   ////////////////////////////
-  if ($entity && $entity->hasField('field_headline_effect') && !empty($entity->field_headline_effect->value)) {
+  if ($entity->hasField('field_headline_effect') && !empty($entity->field_headline_effect->value)) {
     $variables['headline_effect_class'] = 'headline-effect-' . $entity->field_headline_effect->value;
   }
 
   ////////////////////////////
   /// Background Color
   ////////////////////////////
-  if ($entity && $entity->hasField('field_background_color') && !empty($entity->field_background_color->value)) {
+  if ($entity->hasField('field_background_color') && !empty($entity->field_background_color->value)) {
 
     $variables['background_color'] = $entity->field_background_color->value;
     $variables['attributes']['class'][] = 'has-background-color';
@@ -521,7 +521,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
     $variables['attributes']['class'][] = 'slab-' . $entity->field_background_color->value;
   }
 
-  if ($entity && $entity->hasField('field_background_image')) {
+  if ($entity->hasField('field_background_image')) {
     if (!empty($entity->field_background_image->getValue())) {
       $background_image_media_id = $entity->field_background_image->first()->getValue()['target_id'];
 
@@ -559,11 +559,11 @@ function boatshow_preprocess_eck_entity(&$variables) {
   ////////////////////////////
   /// Border
   ////////////////////////////
-  if ($entity && $entity->hasField('field_border_color') && !empty($entity->field_border_color->value)) {
+  if ($entity->hasField('field_border_color') && !empty($entity->field_border_color->value)) {
     $variables['attributes']['class'][] = 'borders-' . $entity->field_border_color->value;
   }
 
-  if ($entity && $entity->hasField('field_link') && !empty($entity->field_link->uri)) {
+  if ($entity->hasField('field_link') && !empty($entity->field_link->uri)) {
     $link_uri = $entity->field_link->uri;
 
     $link_url = \Drupal\Core\Url::fromUri($link_uri)->toString();
@@ -575,8 +575,8 @@ function boatshow_preprocess_eck_entity(&$variables) {
   ////////////////////////////
   /// Media
   ////////////////////////////
-  if ($entity && $entity->hasField('field_media')) {
-    if ($entity && $entity->field_media->getValue()) {
+  if ($entity->hasField('field_media')) {
+    if ($entity->field_media->getValue()) {
       $variables['attributes']['class'][] = 'has-media';
     }
   }
@@ -586,7 +586,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
   /// Icon
   /// only supports fontawesome icons e.g. 'fa-car'
   ////////////////////////////
-  if ($entity && $entity->hasField('field_icon')) {
+  if ($entity->hasField('field_icon')) {
     $requested_icon = $entity->field_icon->value;
 
     if (!empty($requested_icon)) {
@@ -615,7 +615,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
   /////////////////////////
   /// Headline
   /////////////////////////
-  if ($entity && $entity->hasField('field_brick_headline') && !empty($entity->field_brick_headline->value)) {
+  if ($entity->hasField('field_brick_headline') && !empty($entity->field_brick_headline->value)) {
     $headline_title = $entity->field_brick_headline->value;
     $variables['headline_title'] = html_entity_decode($headline_title);
   }
@@ -623,7 +623,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
   /////////////////////////
   /// Vertical Padding
   /////////////////////////
-  if ($entity && $entity->hasField('field_vertical_padding')) {
+  if ($entity->hasField('field_vertical_padding')) {
     if (!empty($entity->field_vertical_padding->value)) {
       $vertical_padding = $entity->field_vertical_padding->value;
     }
@@ -635,7 +635,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
   }
 
   // Set data-map-id attr
-  if ($entity && $entity->hasField('field_map_id')) {
+  if ($entity->hasField('field_map_id')) {
     if (!empty($entity->field_map_id->value)) {
 
       $map_id = $entity->field_map_id->value;
@@ -644,7 +644,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
   }
 
   // Set data-lat and data-lng attrs
-  if ($entity && $entity->hasField('field_geolocation')) {
+  if ($entity->hasField('field_geolocation')) {
     if (!empty($entity->field_geolocation->value)) {
 
       $lat = $entity->get('field_geolocation')->lat;
@@ -654,7 +654,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
     }
   }
 
-  if ($entity && $entity->bundle() == '3_col_card') {
+  if ($entity->bundle() == '3_col_card') {
 
     // Get title.
     if (!$entity->get('field_3_col_card_title')->isEmpty()) {
@@ -678,7 +678,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
     // }
   }
 
-  if ($entity && $entity->bundle() == 'landing_page_grid_card') {
+  if ($entity->bundle() == 'landing_page_grid_card') {
     $tsr_image = $entity->get('field_lpg_media')->getValue();
     $image_id = $tsr_image[0]['target_id'];
     $link = $entity->get('field_lpg_url')->getValue();
@@ -700,7 +700,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
     }
   }
 
-  if ($entity && $entity->bundle() == 'media') {
+  if ($entity->bundle() == 'media') {
     $entity = $variables['entity']['#brick'];
     $cover = $entity->get('field_image_cover')->getValue();
 
@@ -722,7 +722,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
       }
     }
 
-    if ($entity && $entity->hasField('field_media_options')) {
+    if ($entity->hasField('field_media_options')) {
       // Options from list select field
       $options = ['center', 'full_width'];
       $option_value = $entity->get('field_media_options')->value;
@@ -733,11 +733,11 @@ function boatshow_preprocess_eck_entity(&$variables) {
     }
   }
 
-  if ($entity && $entity->bundle() == 'photo_gallery') {
+  if ($entity->bundle() == 'photo_gallery') {
     $variables['attributes']['class'][] = 'content-slider';
   }
 
-  if ($entity && $entity->bundle() == 'ad_item') {
+  if ($entity->bundle() == 'ad_item') {
     $entity = $variables['entity']['#brick'];
 
     if (!$entity->get('field_image')->isEmpty()) {
@@ -748,9 +748,9 @@ function boatshow_preprocess_eck_entity(&$variables) {
   }
 
   // Map bundle
-  if ($entity && $entity->bundle() === 'map') {
+  if ($entity->bundle() === 'map') {
     // set map zoom attr
-    if ($entity && $entity->hasField('field_map_zoom')) {
+    if ($entity->hasField('field_map_zoom')) {
       if (!empty($entity->field_map_zoom->value)) {
         $variables['attributes']['data-map-zoom'][] = $entity->field_map_zoom->value;
       }
@@ -758,15 +758,15 @@ function boatshow_preprocess_eck_entity(&$variables) {
   }
 
   // Arrival Location template vars
-  if ($entity && $entity->bundle() === 'arrival_location') {
-    if ($entity && $entity->hasField('field_location_address')) {
+  if ($entity->bundle() === 'arrival_location') {
+    if ($entity->hasField('field_location_address')) {
       if (!empty($entity->field_location_address->value)) {
         $variables['location_address'] = $entity->field_location_address->value;
       }
     }
 
     // Set data-marker-label attr
-    if ($entity && $entity->hasField('field_marker_label')) {
+    if ($entity->hasField('field_marker_label')) {
       if (!empty($entity->field_marker_label->value)) {
 
         $marker_label = $entity->field_marker_label->value;
@@ -775,7 +775,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
       }
     }
 
-    if ($entity && $entity->hasField('field_location_features')) {
+    if ($entity->hasField('field_location_features')) {
       if (!empty($entity->get('field_location_features')->getValue())) {
         $location_features = [];
 
@@ -788,8 +788,8 @@ function boatshow_preprocess_eck_entity(&$variables) {
     }
   }
 
-  if ($entity && $entity->bundle() === 'countdown') {
-    if ($entity && $entity->hasField('field_countdown_to')) {
+  if ($entity->bundle() === 'countdown') {
+    if ($entity->hasField('field_countdown_to')) {
       if (!empty($entity->field_countdown_to->value)) {
 
         // Either site default timezone or user timezone
@@ -804,7 +804,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
   }
 
   // Only set contextual links if brick bundle is not section or layout
-  if ($entity && $entity->bundle() !== 'section' && $entity->bundle() !== 'layout') {
+  if ($entity->bundle() !== 'section' && $entity->bundle() !== 'layout') {
     // Add contextual links.
     if (\Drupal::currentUser()->hasPermission('access contextual links')) {
       $url = $entity->toUrl('edit-form');
