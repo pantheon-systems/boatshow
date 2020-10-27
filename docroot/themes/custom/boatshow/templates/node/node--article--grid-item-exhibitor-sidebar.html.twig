@@ -31,7 +31,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
         </div>
 
         {% if content.field_article_category.0 %}
-        <div class="article-cat"> | {{ node.field_article_category.0.entity.name.value }}</div>
+        <div class="article-cat"> | {{ node.field_article_category.0.content.name.value }}</div>
         {% endif %}
 
       </div>

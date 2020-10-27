@@ -8,9 +8,9 @@ set classes = [
   {{ context_links }}
   <div class="container">
     <section class="brick brick--type--headline-brick section-header {% if invert_text %} slab-inverted {% endif %}">
-      {% if entity.field_brick_headline[0] is not empty %}
+      {% if content.field_brick_headline[0] is not empty %}
         <h2>
-          <span>{{entity.field_brick_headline}}</span>
+          <span>{{content.field_brick_headline}}</span>
         </h2>
       {% endif %}
     </section>
@@ -23,7 +23,7 @@ set classes = [
               <span class="filter-btn close-filters">&times;</span>
             </div>
           {% endif%}
-          {{entity.field_block}}
+          {{content.field_block}}
         </div>
       </section>
     </div>

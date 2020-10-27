@@ -92,6 +92,8 @@ module:
   image_captcha: 0
   image_widget_crop: 0
   imageapi_optimize: 0
+  imageapi_optimize_binaries: 0
+  imageapi_optimize_resmushit: 0
   imagemagick: 0
   inline_entity_form: 0
   inline_form_errors: 0
@@ -152,6 +154,7 @@ module:
   nmmacontentaccess: 0
   node: 0
   openapi: 0
+  openapi_jsonapi: 0
   openapi_ui: 0
   openapi_ui_redoc: 0
   openapi_ui_swagger: 0
@@ -164,6 +167,7 @@ module:
   path: 0
   path_redirect_import: 0
   pathauto: 0
+  path_alias: 0
   publishcontent: 0
   purge: 0
   purge_drush: 0

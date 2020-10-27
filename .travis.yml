@@ -4,7 +4,7 @@ dist: xenial
 # Adjust the version of PHP to match your production environment.
 # Making this version number greater than the production environment can have unintended consequences
 # including a non-functional prod environment.
-php: "7.2"
+php: "7.3"
 
 env:
   global:
@@ -69,18 +69,18 @@ deploy:
     skip_cleanup: true
     on:
       branch: 2.x-develop
-      php: 7.2
+      php: 7.3
   # Deploy release/* branch to stage
   - provider: script
     script: blt artifact:deploy --branch "stage" -n
     skip_cleanup: true
     on:
       branch: release/*
-      php: 7.2
+      php: 7.3
   # Deploy release/* branch to stage
   - provider: script
     script: blt artifact:deploy --branch "stage" -n
     skip_cleanup: true
     on:
       branch: hotfix/*
-      php: 7.2
+      php: 7.3

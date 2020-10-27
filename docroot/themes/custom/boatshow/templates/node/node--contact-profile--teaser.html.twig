@@ -86,7 +86,7 @@
   {{ title_suffix }}
   <div{{ content_attributes.addClass('node__content') }}>
     <div class="image-wrap pull-left">
-      {% if content.field_profile_image.0['#item'].entity.uri is not empty %}
+      {% if content.field_profile_image.0['#item'].content.uri is not empty %}
         {{ content.field_profile_image }}
       {% else %}
         <img src='/{{ directory }}/images/na.jpg' />

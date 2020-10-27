@@ -45,8 +45,8 @@ set classes = [
   {% block content %}
     <div class="row">
       <div class="col-12-xs col-5-sm image-wrap">
-        {% if content.field_image.0['#item'].entity.uri %}
-          <img src="{{ file_url(content.field_image.0['#item'].entity.uri.value) }}" alt="{{ content.field_image.0['#item'].alt }}">
+        {% if content.field_image.0['#item'].content.uri %}
+          <img src="{{ file_url(content.field_image.0['#item'].content.uri.value) }}" alt="{{ content.field_image.0['#item'].alt }}">
         {% endif %}
       </div>
       <div class="col-12-xs col-7-sm text-wrap">

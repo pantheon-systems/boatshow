@@ -1,0 +1,4 @@
+nmma_tickets.admin_settings_tab:
+  route_name: nmma_tickets.settings
+  title: Settings
+  base_route: nmma_tickets.settings
