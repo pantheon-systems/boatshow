@@ -701,7 +701,7 @@ function boatshow_preprocess_eck_entity(&$variables) {
   }
 
   if ($entity && $entity->bundle() == 'media') {
-    $entity = $variables['content']['#brick'];
+    $entity = $variables['eck_entity'];
     $cover = $entity->get('field_image_cover')->getValue();
 
     if ($cover && $cover[0]['value'] == '1') {
@@ -1119,6 +1119,3 @@ function boatshowtheme_suggestions_taxonomy_term_alter(array &$suggestions, arra
   $suggestions[] = 'taxonomy_term__' . $term->bundle() . '__' . $sanitized_view_mode;
   $suggestions[] = 'taxonomy_term__' . $term->id() . '__' . $sanitized_view_mode;
 }
-
-//comment
-
