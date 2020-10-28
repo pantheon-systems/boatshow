@@ -1,0 +1,5 @@
+nmma_tickets.settings:
+  title: 'NMMA Tickets Settings'
+  parent: system.admin_config_services
+  description: 'Please enter the Ticket ID pulled in from the Interactive Ticketing code'
+  route_name: nmma_tickets.settings

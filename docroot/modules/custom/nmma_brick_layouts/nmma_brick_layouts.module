@@ -38,8 +38,8 @@ function nmma_brick_layouts_theme() {
  * Implements hook_preprocess_HOOK().
  */
 function nmma_brick_layouts_preprocess_eck_entity (&$variables) {
-  if (isset($variables['entity']['#layout'])) {
-    $variables['attributes']['class'][] = 'brick-with-nmma-layout--' . $variables['entity']['#layout'];
+  if (isset($variables['content']['#layout'])) {
+    $variables['attributes']['class'][] = 'brick-with-nmma-layout--' . $variables['content']['#layout'];
   }
 }
 

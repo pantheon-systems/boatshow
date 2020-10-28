@@ -3,7 +3,7 @@
   {% if headline_title is not empty %}
     <h2{% if headline_effect_class is not empty %} class="{{headline_effect_class}}"{% endif %}><span>{{ headline_title|raw }}</span></h2>
   {% endif %}
-  {% if entity.field_brick_subhead[0] is not empty %}
-    <div class="subheading">{{ entity.field_brick_subhead }}</div>
+  {% if content.field_brick_subhead[0] is not empty %}
+    <div class="subheading">{{ content.field_brick_subhead }}</div>
   {% endif %}
 </section>

@@ -3,7 +3,7 @@
   <div class="location-marker-label">
     <div class="marker-label-content">{{ marker_label }}</div>
   </div>
-  <div class="location-title">{{ entity.field_location_title }}</div>
+  <div class="location-title">{{ content.field_location_title }}</div>
   <div class="location-address">{{ location_address }}</div>
 
   {% if location_features is defined %}
@@ -40,9 +40,9 @@
   </div>
   {% endif %}
   <div class="location-links">
-    {{entity.field_paragraphs}}
+    {{content.field_paragraphs}}
   </div>
-  <div class="location-image">{{ entity.field_image }}</div>
+  <div class="location-image">{{ content.field_image }}</div>
 
   <div class="location-disclaimer">
     {% if 'handicap_parking' in location_features and ('parking' not in location_features) %}

@@ -1,0 +1,7 @@
+nmma_tickets.settings:
+  path: '/admin/config/nmma_tickets/ticketing'
+  defaults:
+    _form: '\Drupal\nmma_tickets\Form\TicketsConfigurationForm'
+    _title: 'nmma_tickets configuration screen'
+  requirements:
+    _permission: 'administer site configuration'

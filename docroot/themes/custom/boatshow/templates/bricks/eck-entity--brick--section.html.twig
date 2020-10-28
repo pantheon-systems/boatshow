@@ -16,10 +16,10 @@
   {% endif %}
 
     <div class="brick--fields">
-      {{ entity|without('childs')}}
+      {{ content|without('childs')}}
     </div>
     <div class="brick--children">
-      {{ entity.childs }}
+      {{ content.childs }}
     </div>
 
   {% if container_type == 'expand' %}

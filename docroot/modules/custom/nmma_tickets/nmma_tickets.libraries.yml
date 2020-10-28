@@ -1,0 +1,4 @@
+nmma-tickets:
+  version: 1.x
+  js:
+    js/nmma_tickets.js: {}

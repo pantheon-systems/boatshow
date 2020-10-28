@@ -9,18 +9,18 @@
     {{ context_links }}
     <!-- TINY + XS AD (216x50px) -->
     <div class="pencil-ad pencil-ad-216">
-        <iframe src="{{ entity.field_small_ad_zone|render|striptags|trim }}&isframe=true" width="216" height="50" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        <iframe src="{{ content.field_small_ad_zone|render|striptags|trim }}&isframe=true" width="216" height="50" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
     </div>
 
     <!-- SMALL AD (468x50px) -->
     <div class="pencil-ad pencil-ad-468">
-        <iframe src="{{ entity.field_medium_ad_zone|render|striptags|trim }}&isframe=true" width="468" height="50" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        <iframe src="{{ content.field_medium_ad_zone|render|striptags|trim }}&isframe=true" width="468" height="50" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
     </div>
 
     <!-- MED AD (940x50px) -->
     <div class="pencil-ad pencil-ad-940">
         <div class="pencil-ad-closed">
-            <iframe src="{{ entity.field_large_ad_zone|render|striptags|trim }}&isframe=true" width="940" height="50" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            <iframe src="{{ content.field_large_ad_zone|render|striptags|trim }}&isframe=true" width="940" height="50" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
         </div>
     </div>
 </section>

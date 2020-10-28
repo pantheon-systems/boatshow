@@ -5,7 +5,7 @@
   {% else %}
   <div class="card-header">
   {% endif %}
-    {{entity.field_media}}
+    {{content.field_media}}
     {{icon_markup}}
   {% if primary_cta_url is not empty %}
   </a>
@@ -13,8 +13,8 @@
   </div>
   {% endif %}
   <div class="card-body">
-    {{entity.field_body}}
-    {{entity.childs}}
-    {{entity.field_link}}
+    {{content.field_body}}
+    {{content.childs}}
+    {{content.field_link}}
   </div>
 </section>

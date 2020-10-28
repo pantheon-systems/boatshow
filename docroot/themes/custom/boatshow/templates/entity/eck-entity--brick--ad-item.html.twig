@@ -4,7 +4,7 @@
 
 <section {{ attributes.addClass(classes) }}>
   {{ context_links }}
-  <a href="{{ entity.field_ad_link|render|striptags|trim }}">
+  <a href="{{ content.field_ad_link|render|striptags|trim }}">
     {% if image_path is not empty %}
       <img src={{ image_path }} class="img-responsive" />
     {% endif %}

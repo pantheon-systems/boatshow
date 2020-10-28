@@ -26,7 +26,7 @@
  * @see template_preprocess_block()
  */
 #}
-{% set bg = content.field_image.0['#item'].entity.uri ? file_url(content.field_image.0['#item'].entity.uri.value) : '' %}
+{% set bg = content.field_image.0['#item'].content.uri ? file_url(content.field_image.0['#item'].content.uri.value) : '' %}
 {%
 set classes = [
   'block',

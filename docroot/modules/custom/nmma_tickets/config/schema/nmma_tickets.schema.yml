@@ -1,0 +1,10 @@
+nmma_tickets.settings:
+  type: config_object
+  label: 'NMMA Ticket Settings'
+  mapping:
+    ticket_url_path:
+      type: text
+      label: 'https://secure.interactiveticketing.com/[PLACE_URL_SECTION_HERE]'
+    ticket_id:
+      type: text
+      label: 'Ticket ID'

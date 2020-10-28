@@ -1,0 +1,5 @@
+name: NMMA tickets
+type: module
+description: 'Ticket functionality'
+core_version_requirement: ^8 || ^9
+configure: nmma_tickets.settings

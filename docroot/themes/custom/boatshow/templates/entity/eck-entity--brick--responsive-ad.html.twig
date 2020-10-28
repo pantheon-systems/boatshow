@@ -7,16 +7,16 @@
     {{ context_links }}
     <!-- TINY AD (216x68px) -->
     <div class="responsive-ad responsive-ad-216">
-        <iframe src="{{ entity.field_small_ad_zone|render|striptags|trim }}" width="234" height="60" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        <iframe src="{{ content.field_small_ad_zone|render|striptags|trim }}" width="234" height="60" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
     </div>
 
     <!-- SMALL AD (468x60px) -->
     <div class="responsive-ad responsive-ad-468">
-        <iframe src="{{ entity.field_medium_ad_zone|render|striptags|trim }}" width="468" height="60" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        <iframe src="{{ content.field_medium_ad_zone|render|striptags|trim }}" width="468" height="60" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
     </div>
 
     <!-- MED/LG AD (728x90px) -->
     <div class="responsive-ad responsive-ad-728">
-        <iframe src="{{ entity.field_large_ad_zone|render|striptags|trim }}" width="728" height="90" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        <iframe src="{{ content.field_large_ad_zone|render|striptags|trim }}" width="728" height="90" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
     </div>
 </section>
