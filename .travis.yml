@@ -34,7 +34,7 @@ addons:
 before_install:
   # Disable xdebug.
   - phpenv config-rm xdebug.ini
-  - composer self-update
+  - composer self-update  --rollback
   - composer validate --no-check-all --ansi
   - composer install
   - nvm install 9.11.2
