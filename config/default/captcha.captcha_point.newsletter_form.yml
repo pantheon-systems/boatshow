@@ -3,5 +3,5 @@ langcode: en
 status: true
 dependencies: {  }
 formId: newsletter_form
-captchaType: recaptcha/reCAPTCHA
+captchaType: image_captcha/Image
 label: newsletter_form

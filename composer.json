@@ -36,7 +36,7 @@
         "drupal/acquia_connector": "^1.5.0",
         "drupal/acquia_purge": "^1.0-beta3",
         "drupal/address": "^1.7",
-        "drupal/addtoany": "^1.9",
+        "drupal/addtoany": "^1.14",
         "drupal/admin_toolbar": "^1.0",
         "drupal/admin_toolbar_tools": "^1.0",
         "drupal/adminimal_admin_toolbar": "^1.7",

@@ -233,8 +233,8 @@ installed_extras:
   - memcached
   - nodejs
   - xdebug
-  - drupalconsole
-php_version: '7.2'
+#  - drupalconsole  Disable this temporarily until bug is fixed 
+php_version: '7.3'
 php_xdebug_version: 2.7.2
 php_packages_extra:
   - 'php{{ php_version }}-bz2'

@@ -67,7 +67,7 @@ use Drupal\node\NodeInterface;
          ->loadByProperties(['node_id' => $node->id()]);
    $access = AccessResult::neutral();
    if (!empty($allowedRoles)) {
-     \Drupal::logger('nmmacontentaccess')->notice("there are allowed roles");
+     // \Drupal::logger('nmmacontentaccess')->notice("there are allowed roles");
      $allowedRoles = array_shift($allowedRoles);
      $allowedRoles = $allowedRoles->get('roles')->getValue();
      $result=array_intersect(array_column($allowedRoles, 'target_id'),$account->getRoles());
