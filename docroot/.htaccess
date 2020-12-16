@@ -4,6 +4,7 @@
 
 # Protect files and directories from prying eyes.
 <FilesMatch "\.(engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|twig|tpl(\.php)?|xtmpl|yml)(~|\.sw[op]|\.bak|\.orig|\.save)?$|^(\.(?!well-known).*|Entries.*|Repository|Root|Tag|Template|composer\.(json|lock)|web\.config)$|cron\.php|install\.php|update\.php|^(CHANGELOG|COPYRIGHT|INSTALL.*|LICENSE|MAINTAINERS|README|UPDATE).txt$|^#.*#$|\.php(~|\.sw[op]|\.bak|\.orig|\.save)$">
+
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>
@@ -30,6 +31,13 @@ AddEncoding gzip svgz
 # PHP 7, Apache 1 and 2.
 <IfModule mod_php7.c>
   php_value assert.active                   0
+  php_flag session.auto_start               off
+  php_value mbstring.http_input             pass
+  php_value mbstring.http_output            pass
+  php_flag mbstring.encoding_translation    off
+  # PHP 5.6 has deprecated $HTTP_RAW_POST_DATA and produces warnings if this is
+  # not set.
+  php_value always_populate_raw_post_data   -1
 </IfModule>
 
 # Requires mod_expires to be enabled.
@@ -61,6 +69,27 @@ AddEncoding gzip svgz
 # Various rewrite rules.
 <IfModule mod_rewrite.c>
   RewriteEngine on
+
+  #####################
+  # Redirect to WWW
+  #####################
+  # exclude Acquia domains
+  RewriteCond %{HTTP_HOST} !\.acquia-sites\.com [NC]
+  # exclude urls that begin with word 'live'
+  RewriteCond %{HTTP_HOST} !^live|chicagoland|suffern|saltwater\. [NC]
+  # ensure only production environment
+  RewriteCond %{ENV:AH_SITE_ENVIRONMENT} prod [NC] # only prod
+  # ensure  for www.
+  RewriteCond %{HTTP_HOST} !^(www|live|live2|chicagoland|suffern|saltwater)\. [NC]
+  RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  #####################
+  # Redirect to HTTPS
+  #####################
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP_HOST} !^(dev2.boatshownorwalk)\. [NC]
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # Set "protossl" to "s" if we were accessed via https://.  This is used later
   # if you enable "www." stripping or enforcement, in order to ensure that
@@ -147,7 +176,6 @@ AddEncoding gzip svgz
   RewriteCond %{REQUEST_URI} !/core/modules/statistics/statistics.php$
   # Deny access to any other PHP files that do not match the rules above.
   # Specifically, disallow autoload.php from being served directly.
-
   # RewriteRule "^(.+/.*|autoload)\.php($|/)" - [F]
     RewriteRule "^.+/.*\.php$" - [F]
 
