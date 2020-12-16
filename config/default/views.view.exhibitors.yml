@@ -777,7 +777,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '{{ field_country|replace({"United States":""}) }}<br>'
+            text: '{{ field_country__value|replace({"United States":""}) }}<br>'
             make_link: false
             path: ''
             absolute: false
@@ -3090,7 +3090,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '{{ field_country|replace({"United States":""}) }}<br>'
+            text: '{{ field_country__value|replace({"United States":""}) }}<br>'
             make_link: false
             path: ''
             absolute: false
