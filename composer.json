@@ -29,6 +29,7 @@
         "sort-packages": true
     },
     "require": {
+        "php": ">=7.2",
         "acquia/blt": "^10.1.0",
         "acquia/drupal-spec-tool": "^2.0.0",
         "acquia/lightning": "^3.1.0",
@@ -42,7 +43,7 @@
         "drupal/adminimal_admin_toolbar": "^1.7",
         "drupal/advagg": "^4.0",
         "drupal/anchor_link": "^1.6",
-        "drupal/auto_entitylabel": "^2.1@beta",
+        "drupal/auto_entitylabel": "^3.0@beta",
         "drupal/better_exposed_filters": "^4.0",
         "drupal/block_field": "^1.0@alpha",
         "drupal/bricks": "^1.7-beta1",
@@ -57,7 +58,7 @@
         "drupal/config_ignore": "2.x-dev#2b1740411fd1eb8bb139711be5e10535c40ddbbf",
         "drupal/config_split": "^1.4",
         "drupal/content_access": "^1.0",
-        "drupal/content_lock": "^1.0@alpha",
+        "drupal/content_lock": "^2.2",
         "drupal/core": "^8.6",
         "drupal/cshs": "1.x-dev#e583815ea8f0e11fd32c0b794700547cd3afce8d",
         "drupal/devel": "^2.0",
@@ -138,7 +139,6 @@
         "marketo-api/marketo-rest-client": "dev-master",
         "npm-asset/object-fit-images": "3.2.4",
         "npm-asset/picturefill": "^3.0.3",
-        "php": ">=7.2",
         "symfony/property-access": "^4.3"
     },
     "require-dev": {
