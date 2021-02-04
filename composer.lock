@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dbee1a5b6929fae01f7529ff47086037",
+    "content-hash": "00fe4c39a5dc16ed2ff3d4b146ddfd3f",
     "packages": [
         {
             "name": "acquia/blt",
@@ -8551,6 +8551,59 @@
             }
         },
         {
+            "name": "drupal/jquery_ui_accordion",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/jquery_ui_accordion.git",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/jquery_ui_accordion-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "988a3da3b0bc3042e2f42fd20e401272f8369bbd"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/jquery_ui": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1584106477",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bnjmnm",
+                    "homepage": "https://www.drupal.org/user/2369194"
+                },
+                {
+                    "name": "lauriii",
+                    "homepage": "https://www.drupal.org/user/1078742"
+                },
+                {
+                    "name": "zrpnr",
+                    "homepage": "https://www.drupal.org/user/1448368"
+                }
+            ],
+            "description": "Provides jQuery UI Accordion library.",
+            "homepage": "https://www.drupal.org/project/jquery_ui_accordion",
+            "support": {
+                "source": "https://git.drupalcode.org/project/jquery_ui_accordion"
+            }
+        },
+        {
             "name": "drupal/jquery_ui_draggable",
             "version": "1.2.0",
             "source": {
@@ -8655,6 +8708,59 @@
             "homepage": "https://www.drupal.org/project/jquery_ui_droppable",
             "support": {
                 "source": "https://git.drupalcode.org/project/jquery_ui_droppable"
+            }
+        },
+        {
+            "name": "drupal/jquery_ui_tabs",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/jquery_ui_tabs.git",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/jquery_ui_tabs-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "511ffb8258f60e7e180bed1f7447203423e58da3"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/jquery_ui": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1590102797",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bnjmnm",
+                    "homepage": "https://www.drupal.org/user/2369194"
+                },
+                {
+                    "name": "lauriii",
+                    "homepage": "https://www.drupal.org/user/1078742"
+                },
+                {
+                    "name": "zrpnr",
+                    "homepage": "https://www.drupal.org/user/1448368"
+                }
+            ],
+            "description": "Provides jQuery UI Tabs library.",
+            "homepage": "https://www.drupal.org/project/jquery_ui_tabs",
+            "support": {
+                "source": "https://git.drupalcode.org/project/jquery_ui_tabs"
             }
         },
         {
@@ -10262,34 +10368,34 @@
         },
         {
             "name": "drupal/metatag",
-            "version": "1.14.0",
+            "version": "1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/metatag.git",
-                "reference": "8.x-1.14"
+                "reference": "8.x-1.15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/metatag-8.x-1.14.zip",
-                "reference": "8.x-1.14",
-                "shasum": "9bf9f1517ad015d0c93ca1460e284c557624aa90"
+                "url": "https://ftp.drupal.org/files/projects/metatag-8.x-1.15.zip",
+                "reference": "8.x-1.15",
+                "shasum": "7658d7286fdc075ea72a6ec36aea737b1182b5d8"
             },
             "require": {
-                "drupal/core": "^8.7.7 || ^9",
+                "drupal/core": "^8 || ^9",
                 "drupal/token": "^1.0"
             },
             "require-dev": {
                 "drupal/metatag_dc": "*",
                 "drupal/metatag_open_graph": "*",
-                "drupal/page_manager": "*",
+                "drupal/page_manager": "4.x-dev",
                 "drupal/panelizer": "4.x-dev",
                 "drupal/redirect": "1.x-dev"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.14",
-                    "datestamp": "1597183852",
+                    "version": "8.x-1.15",
+                    "datestamp": "1611210662",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11768,26 +11874,32 @@
         },
         {
             "name": "drupal/quicktabs",
-            "version": "3.0.0-alpha3",
+            "version": "3.0.0-alpha4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/quicktabs.git",
-                "reference": "8.x-3.0-alpha3"
+                "reference": "8.x-3.0-alpha4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/quicktabs-8.x-3.0-alpha3.zip",
-                "reference": "8.x-3.0-alpha3",
-                "shasum": "b40e741e8519f3e0c57372ce77b4d1878613e641"
+                "url": "https://ftp.drupal.org/files/projects/quicktabs-8.x-3.0-alpha4.zip",
+                "reference": "8.x-3.0-alpha4",
+                "shasum": "6f95444322a8950f9d2f1083cde7b92babe07146"
             },
             "require": {
-                "drupal/core": "^8"
+                "drupal/core": "^8.8 || ^9",
+                "drupal/jquery_ui_accordion": "^1.1",
+                "drupal/jquery_ui_tabs": "^1.1"
+            },
+            "require-dev": {
+                "drupal/jquery_ui_accordion": "*",
+                "drupal/jquery_ui_tabs": "*"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.0-alpha3",
-                    "datestamp": "1598392376",
+                    "version": "8.x-3.0-alpha4",
+                    "datestamp": "1608312818",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -11800,12 +11912,14 @@
             ],
             "authors": [
                 {
-                    "name": "Palashvijay4O",
-                    "homepage": "https://www.drupal.org/user/2995945"
+                    "name": "Shelane French",
+                    "homepage": "https://www.drupal.org/u/shelane",
+                    "role": "Maintainer"
                 },
                 {
-                    "name": "Pasqualle",
-                    "homepage": "https://www.drupal.org/user/80733"
+                    "name": "Mike Garthwaite",
+                    "homepage": "https://www.drupal.org/u/systemick",
+                    "role": "Maintainer"
                 },
                 {
                     "name": "ezra-g",
@@ -11840,38 +11954,40 @@
                     "homepage": "https://www.drupal.org/user/153963"
                 }
             ],
-            "description": "Render content with tabs and other display styles",
-            "homepage": "https://www.drupal.org/project/quicktabs",
+            "description": "Render content with tabs and other display styles.",
+            "homepage": "http://drupal.org/project/quicktabs",
             "support": {
-                "source": "https://git.drupalcode.org/project/quicktabs"
+                "source": "https://git.drupalcode.org/project/quicktabs",
+                "issues": "https://www.drupal.org/project/issues/quicktabs"
             }
         },
         {
             "name": "drupal/rabbit_hole",
-            "version": "1.0.0-beta7",
+            "version": "1.0.0-beta10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/rabbit_hole.git",
-                "reference": "8.x-1.0-beta7"
+                "reference": "8.x-1.0-beta10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rabbit_hole-8.x-1.0-beta7.zip",
-                "reference": "8.x-1.0-beta7",
-                "shasum": "392fc458e124847fee2f726dd5bc4ed925fba5e5"
+                "url": "https://ftp.drupal.org/files/projects/rabbit_hole-8.x-1.0-beta10.zip",
+                "reference": "8.x-1.0-beta10",
+                "shasum": "3eb151b7a905bbf0a50d9fe2ecffbca3eeb73ac9"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
             },
             "require-dev": {
+                "drupal/commerce_product": "*",
                 "drupal/file_entity": "*",
                 "drupal/group": "*"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-beta7",
-                    "datestamp": "1591667436",
+                    "version": "8.x-1.0-beta10",
+                    "datestamp": "1610813035",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -11880,7 +11996,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -11908,11 +12024,10 @@
                     "homepage": "https://www.drupal.org/user/22093"
                 }
             ],
-            "description": "Change what happens when viewing entities, e.g. redirect node types that users shouldn't see",
+            "description": "Basic functionality that is shared among the different Rabbit Hole modules.",
             "homepage": "https://www.drupal.org/project/rabbit_hole",
             "support": {
-                "source": "https://cgit.drupalcode.org/rabbit_hole",
-                "issues": "https://www.drupal.org/project/issues/rabbit_hole"
+                "source": "https://git.drupalcode.org/project/rabbit_hole"
             }
         },
         {
@@ -12082,17 +12197,17 @@
         },
         {
             "name": "drupal/restui",
-            "version": "1.18.0",
+            "version": "1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/restui.git",
-                "reference": "8.x-1.18"
+                "reference": "8.x-1.19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/restui-8.x-1.18.zip",
-                "reference": "8.x-1.18",
-                "shasum": "40edbe907d5ec6d6c6a00abd219c7305d90d19e5"
+                "url": "https://ftp.drupal.org/files/projects/restui-8.x-1.19.zip",
+                "reference": "8.x-1.19",
+                "shasum": "71c9aef89976c273f9b9025c9b6200de8c2d226c"
             },
             "require": {
                 "drupal/core": "^8.7.7 || ^9"
@@ -12100,8 +12215,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.18",
-                    "datestamp": "1586170645",
+                    "version": "8.x-1.19",
+                    "datestamp": "1606482499",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -25684,6 +25799,8 @@
         "drupal/migrate_tools": 10,
         "drupal/path_redirect_import": 10,
         "drupal/purge": 10,
+        "drupal/quicktabs": 15,
+        "drupal/rabbit_hole": 10,
         "drupal/telephone_formatter": 20,
         "drupal/ultimate_cron": 15,
         "drupal/video_embed_wistia": 5,

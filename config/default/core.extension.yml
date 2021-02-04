@@ -132,6 +132,8 @@ module:
   menu_link_attributes: 0
   menu_ui: 0
   metatag: 0
+  metatag_open_graph: 0
+  metatag_verification: 0
   migrate: 0
   migrate_plus: 0
   migrate_tools: 0
@@ -165,9 +167,9 @@ module:
   panels: 0
   panels_ipe: 0
   path: 0
+  path_alias: 0
   path_redirect_import: 0
   pathauto: 0
-  path_alias: 0
   publishcontent: 0
   purge: 0
   purge_drush: 0
@@ -213,6 +215,7 @@ module:
   twig_field: 0
   twig_tweak: 0
   ultimate_cron: 0
+  update: 0
   user: 0
   username_enumeration_prevention: 0
   video_embed_field: 0
