@@ -124,7 +124,7 @@
         "drupal/telephone_formatter": "1.x-dev#64f2cbbb440044fce077e5ada35890388321fa5b",
         "drupal/token": "^1.9",
         "drupal/twig_field": "^1.0",
-        "drupal/twig_tweak": "^2.0",
+        "drupal/twig_tweak": "^2.9",
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/username_enumeration_prevention": "^1.0",
         "drupal/video_embed_wistia": "^1.0@rc",
