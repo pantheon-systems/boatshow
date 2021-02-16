@@ -5,6 +5,9 @@ ignored_config_entities:
   6: nmma_forms.settings
   8: feeds.feed_type.exhibitors
   10: simplesamlphp_auth.settings
+  12: 'metatag_open_graph.*'
+  14: 'metatag_verification.*'
+  16: 'metatag_google_cse.*'
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
 enable_export_filtering: true
