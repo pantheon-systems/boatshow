@@ -208,7 +208,7 @@ $brick-card-cta-header-padding: 15px !default;
 $speaker-image-aspect-ratio: 4/3 !default;
 
 /// Site Header
-$site-header-z-index-base: 400 !default;
+$site-header-z-index-base: 99 !default;
 $site-header-breakpoint-main: lg !default;
 $main-navigation-item-padding-mobile: 20px !default;
 $main-navigation-item-gutter-mobile: 30px !default; //todo: match grid
