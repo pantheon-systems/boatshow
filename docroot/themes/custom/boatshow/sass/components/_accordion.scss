@@ -94,3 +94,7 @@ html .ui-button.ui-state-disabled:active {
     content: "\02212";
   }
 }
+
+.ui-dialog .ui-dialog-buttonpane button {
+	background: $city-color-primary;
+}
