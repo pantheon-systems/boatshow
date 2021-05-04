@@ -55,6 +55,21 @@ function boatshow_preprocess_html(&$variables) {
   $city_key = $site_path[1];
 
   $variables['attributes']['class'][] = 'boatshow-city--' . $city_key;
+
+  // Add in no-index header if we are on an acquia dev environmnet.
+  $ah_env = isset($_ENV['AH_SITE_ENVIRONMENT']) ? $_ENV['AH_SITE_ENVIRONMENT'] : NULL;
+  $is_ah_env = (bool) $ah_env;
+  if (!$is_ah_env || ($is_ah_env && $ah_env == 'dev')) {
+    $noindex = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'name' => 'robots',
+        'content' => 'NOINDEX, NOFOLLOW',
+      ],
+    ];
+
+    $variables['page']['#attached']['html_head'][] = [$noindex, 'no-index'];
+  }
 }
 
 /**

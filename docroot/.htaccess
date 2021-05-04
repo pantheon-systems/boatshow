@@ -217,3 +217,10 @@ AddEncoding gzip svgz
 <FilesMatch "\.(iso|swf|pdf)$">
   Header set Cache-Control "max-age=0, private, no-store, no-cache, must-revalidate"
 </FilesMatch>
+
+###########################################################
+## Update Robots.txt for Dev and Test to prevent crawling.
+###########################################################
+
+RewriteCond %{ENV:AH_SITE_ENVIRONMENT} dev [NC] # only dev
+RewriteRule ^robots\.txt$ robots-dev.txt [L]
