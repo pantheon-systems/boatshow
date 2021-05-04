@@ -223,4 +223,5 @@ AddEncoding gzip svgz
 ###########################################################
 
 RewriteCond %{ENV:AH_SITE_ENVIRONMENT} dev [NC] # only dev
+RewriteCond %{ENV:AH_SITE_ENVIRONMENT} test [NC] # only test
 RewriteRule ^robots\.txt$ robots-dev.txt [L]
