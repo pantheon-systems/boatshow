@@ -56,10 +56,10 @@ function boatshow_preprocess_html(&$variables) {
 
   $variables['attributes']['class'][] = 'boatshow-city--' . $city_key;
 
-  // Add in no-index header if we are on an acquia dev environmnet.
+  // Add in no-index header if we are on an acquia dev or test environmnet.
   $ah_env = isset($_ENV['AH_SITE_ENVIRONMENT']) ? $_ENV['AH_SITE_ENVIRONMENT'] : NULL;
   $is_ah_env = (bool) $ah_env;
-  if (!$is_ah_env || ($is_ah_env && $ah_env == 'dev')) {
+  if (!$is_ah_env || ($is_ah_env && $ah_env == 'dev') || ($is_ah_env && $ah_env == 'test')) {
     $noindex = [
       '#tag' => 'meta',
       '#attributes' => [
