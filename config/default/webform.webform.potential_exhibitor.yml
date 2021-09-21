@@ -178,6 +178,7 @@ handlers:
   email_recipient_override:
     id: email
     label: 'Email Recipient Override'
+    notes: ''
     handler_id: email_recipient_override
     status: true
     conditions: {  }
@@ -191,10 +192,10 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: _default
+      from_mail: no-reply@nmma.org
       from_options: {  }
       from_name: _default
-      subject: 'New Potential Exhibitor Submission'
+      subject: 'New Potential Exhibitor Submission from [site:name]'
       body: "<p><strong>{{ webform_token('[webform:element:name:title]', webform_submission, [], options) }}</strong><p> \r\n\r\n<p>{{ webform_token('[webform_submission:values:name]', webform_submission, [], options) }}<p><p> \r\n\r\n  \r\n\r\n<p><strong>{{ webform_token('[webform:element:company_name:title]', webform_submission, [], options) }}</strong><p> \r\n\r\n<p>{{ webform_token('[webform_submission:values:company_name]', webform_submission, [], options) }}<p> \r\n\r\n  \r\n\r\n<p><strong>{{ webform_token('[webform:element:url:title]', webform_submission, [], options) }}</strong><p> \r\n\r\n<p>{{ webform_token('[webform_submission:values:url]', webform_submission, [], options) }}<p> \r\n\r\n  \r\n\r\n<p><strong>{{ webform_token('[webform:element:email:title]', webform_submission, [], options) }}</strong><p> \r\n\r\n<p>{{ webform_token('[webform_submission:values:email]', webform_submission, [], options) }}<p> \r\n\r\n  \r\n\r\n<p><strong>{{ webform_token('[webform:element:phone:title]', webform_submission, [], options) }}</strong><p> \r\n\r\n<p>{{ webform_token('[webform_submission:values:phone]', webform_submission, [], options) }}<p> \r\n\r\n  \r\n\r\n{% if data.marine_question is defined %} \r\n\r\n<p><strong>{{ data.marine_question }}</strong><p> \r\n\r\n{% else %}  \r\n\r\n<p><strong>{{ webform_token('[webform:element:is_marine_based:title]', webform_submission, [], options) }}</strong><p> \r\n\r\n{% endif %} \r\n\r\n<p>{{ webform_token('[webform_submission:values:is_marine_based]', webform_submission, [], options) }}<p> \r\n"
       excluded_elements: {  }
       ignore_access: false
@@ -210,3 +211,5 @@ handlers:
       sender_name: ''
       theme_name: ''
       parameters: {  }
+      exclude_attachments: false
+variants: {  }
