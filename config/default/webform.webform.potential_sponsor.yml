@@ -178,6 +178,7 @@ handlers:
   email_recipient_override:
     id: email
     label: 'Email Recipient Override'
+    notes: ''
     handler_id: email_recipient_override
     status: true
     conditions: {  }
@@ -191,10 +192,10 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: _default
+      from_mail: no-reply@nmma.org
       from_options: {  }
       from_name: _default
-      subject: 'New Potential Sponsor Submission'
+      subject: 'New Potential Sponsor Submission from [site:name]'
       body: _default
       excluded_elements: {  }
       ignore_access: false
@@ -210,3 +211,5 @@ handlers:
       sender_name: ''
       theme_name: ''
       parameters: {  }
+      exclude_attachments: false
+variants: {  }

@@ -53,6 +53,7 @@ function boatshow_preprocess_html(&$variables) {
   $site_path = \Drupal::service('site.path'); // e.g.: 'sites/default'
   $site_path = explode('/', $site_path);
   $city_key = $site_path[1];
+  $variables['city_key'] = $city_key;
 
   $variables['attributes']['class'][] = 'boatshow-city--' . $city_key;
 
