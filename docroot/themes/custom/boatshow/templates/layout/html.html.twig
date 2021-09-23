@@ -5,12 +5,8 @@
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
-      {% if city_key %}
-      <meta name="foo" content="bar">
-      <% endif %>
-      {% if boatshow_city %}
-      <meta name="aaa" content="bay" />
-      <% endif %>
+      {% set loopb = city_key ? 'foo' : 'bar' %}
+      {% set loopk = boatshow_city ? 'aaa' : 'bay' %}
   </head>
   <body{{ attributes }}>
     <div id="skip">
@@ -22,5 +18,7 @@
     {{ page }}
     {{ page_bottom }}
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+      {{ loopb }}
+      {{ loopk }}
   </body>
 </html>
