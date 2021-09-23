@@ -7,7 +7,7 @@
     <js-placeholder token="{{ placeholder_token|raw }}">
       {% set loopb = city_key ? city_key : 'bar' %}
       {% set loopk = (loopb == 'norwalk') ? '<meta name="facebook-domain-verification" content="vr0m8j6gnavc3rp0l293lf25i39vfm">' : '' %}
-      {{ loopk }}
+      {{ loopk|raw }}
   </head>
   <body{{ attributes }}>
     <div id="skip">
