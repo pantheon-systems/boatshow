@@ -76,6 +76,7 @@
         "drupal/feeds_ex": "^1.0@alpha",
         "drupal/feeds_tamper": "^2.0@beta",
         "drupal/field_group": "^3.0@beta",
+        "drupal/file_delete": "^1.0",
         "drupal/geocoder": "^2.0@beta",
         "drupal/geolocation": "^3.0-rc1",
         "drupal/google_tag": "^1.2",
