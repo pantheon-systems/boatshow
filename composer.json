@@ -87,6 +87,7 @@
         "drupal/imageapi_optimize_resmushit": "^1.0",
         "drupal/imageapi_optimize_tinypng": "^1.1",
         "drupal/imagemagick": "^3.1",
+        "drupal/jsonapi_example": "^1.4",
         "drupal/lightning_media": "^3.12",
         "drupal/link_attributes": "^1.9",
         "drupal/linkit": "5.x-dev#1084887a0c4d9f0458c8d60f59ba20c342005101",
