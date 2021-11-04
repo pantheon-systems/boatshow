@@ -1,0 +1,197 @@
+uuid: 0d92a02e-8e5a-4f5a-81a3-14d1dad687dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.smnr_session
+id: node--smnr_session
+disabled: false
+path: node/smnr_session
+resourceType: node--smnr_session
+resourceFields:
+  nid:
+    fieldName: nid
+    publicName: nid
+    enhancer:
+      id: ''
+    disabled: false
+  uuid:
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+    disabled: false
+  vid:
+    fieldName: vid
+    publicName: vid
+    enhancer:
+      id: ''
+    disabled: false
+  langcode:
+    disabled: true
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  type:
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+    disabled: false
+  revision_timestamp:
+    disabled: true
+    fieldName: revision_timestamp
+    publicName: revision_timestamp
+    enhancer:
+      id: ''
+  revision_uid:
+    disabled: true
+    fieldName: revision_uid
+    publicName: revision_uid
+    enhancer:
+      id: ''
+  revision_log:
+    disabled: true
+    fieldName: revision_log
+    publicName: revision_log
+    enhancer:
+      id: ''
+  status:
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+    disabled: false
+  uid:
+    fieldName: uid
+    publicName: uid
+    enhancer:
+      id: ''
+    disabled: false
+  title:
+    fieldName: title
+    publicName: title
+    enhancer:
+      id: ''
+    disabled: false
+  created:
+    disabled: true
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  changed:
+    disabled: true
+    fieldName: changed
+    publicName: changed
+    enhancer:
+      id: ''
+  promote:
+    disabled: true
+    fieldName: promote
+    publicName: promote
+    enhancer:
+      id: ''
+  sticky:
+    disabled: true
+    fieldName: sticky
+    publicName: sticky
+    enhancer:
+      id: ''
+  default_langcode:
+    disabled: true
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: true
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: true
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  moderation_state:
+    disabled: true
+    fieldName: moderation_state
+    publicName: moderation_state
+    enhancer:
+      id: ''
+  scheduled_transition_date:
+    disabled: true
+    fieldName: scheduled_transition_date
+    publicName: scheduled_transition_date
+    enhancer:
+      id: ''
+  scheduled_transition_state:
+    disabled: true
+    fieldName: scheduled_transition_state
+    publicName: scheduled_transition_state
+    enhancer:
+      id: ''
+  metatag:
+    disabled: true
+    fieldName: metatag
+    publicName: metatag
+    enhancer:
+      id: ''
+  path:
+    fieldName: path
+    publicName: path
+    enhancer:
+      id: ''
+    disabled: false
+  rh_action:
+    disabled: true
+    fieldName: rh_action
+    publicName: rh_action
+    enhancer:
+      id: ''
+  rh_redirect:
+    disabled: true
+    fieldName: rh_redirect
+    publicName: rh_redirect
+    enhancer:
+      id: ''
+  rh_redirect_response:
+    disabled: true
+    fieldName: rh_redirect_response
+    publicName: rh_redirect_response
+    enhancer:
+      id: ''
+  rh_redirect_fallback_action:
+    disabled: true
+    fieldName: rh_redirect_fallback_action
+    publicName: rh_redirect_fallback_action
+    enhancer:
+      id: ''
+  menu_link:
+    disabled: true
+    fieldName: menu_link
+    publicName: menu_link
+    enhancer:
+      id: ''
+  field_smnr_location:
+    fieldName: field_smnr_location
+    publicName: field_smnr_location
+    enhancer:
+      id: ''
+    disabled: false
+  field_smnr_speaker:
+    fieldName: field_smnr_speaker
+    publicName: field_smnr_speaker
+    enhancer:
+      id: ''
+    disabled: false
+  field_smnr_seminar_date:
+    fieldName: field_smnr_seminar_date
+    publicName: field_smnr_seminar_date
+    enhancer:
+      id: ''
+    disabled: false
