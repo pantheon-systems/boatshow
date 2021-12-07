@@ -76,6 +76,7 @@ feeds_tamper: 2.0.0-beta1
 field: 8.5.1
 field_ui: 0.0.0
 file: 8.5.1
+file_delete: 1.0.0
 file_mdm: 1.1.0
 file_mdm_exif: 1.1.0
 filter: 8.5.1
@@ -99,6 +100,7 @@ imagemagick: 2.3.0
 inline_entity_form: 0.0.0
 inline_form_errors: 0.0.0
 jsonapi: 1.14.0
+jsonapi_extras: 3.19.0
 kint: 2.1.0
 knockout: 0.0.0
 language: 0.0.0
