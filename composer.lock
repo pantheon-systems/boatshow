@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba860040c986912752920b40e4fe524d",
+    "content-hash": "fc21a79e06e99075eb8e3802251292d3",
     "packages": [
         {
             "name": "acquia/blt",
@@ -288,6 +288,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "The best of Drupal, curated by Acquia",
+            "abandoned": true,
             "time": "2020-09-16T21:37:40+00:00"
         },
         {
@@ -891,7 +892,7 @@
             "version": "3.5.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:jquery/jquery-dist.git",
+                "url": "https://github.com/jquery/jquery-dist.git",
                 "reference": "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215"
             },
             "dist": {
@@ -8126,6 +8127,50 @@
             ],
             "support": {
                 "source": "https://git.drupalcode.org/project/honeypot"
+            }
+        },
+        {
+            "name": "drupal/http_cache_control",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/http_cache_control.git",
+                "reference": "8.x-2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/http_cache_control-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "7c528eedf27be54943c84e61474b3d6ff855a767"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.0",
+                    "datestamp": "1591254259",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Waihi",
+                    "homepage": "https://www.drupal.org/user/188162"
+                }
+            ],
+            "description": "Module for controlling HTTP Cache Control response headers.",
+            "homepage": "https://www.drupal.org/project/http_cache_control",
+            "support": {
+                "source": "https://git.drupalcode.org/project/http_cache_control"
             }
         },
         {
@@ -20690,6 +20735,7 @@
                 "riak",
                 "simplesamlphp"
             ],
+            "abandoned": true,
             "time": "2019-12-03T08:28:45+00:00"
         },
         {
@@ -22128,7 +22174,7 @@
                     "type": "tidelift"
                 }
             ],
-            "abandoned": "use `EnglishInflector` from the String component instead",
+            "abandoned": "EnglishInflector from the String component",
             "time": "2020-05-20T17:43:50+00:00"
         },
         {
@@ -24025,6 +24071,7 @@
                 }
             ],
             "description": "A robust cross-platform utility for normalizing, comparing and modifying file paths.",
+            "abandoned": "symfony/filesystem",
             "time": "2015-12-17T08:42:14+00:00"
         },
         {
@@ -25914,7 +25961,6 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
-            "abandoned": true,
             "time": "2018-10-04T04:07:39+00:00"
         },
         {
