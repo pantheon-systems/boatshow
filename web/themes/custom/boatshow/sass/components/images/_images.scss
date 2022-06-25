@@ -1,0 +1,23 @@
+.brick--type--wrapper,
+.has-background {
+  position: relative;
+}
+
+.image-cover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  .fake-bg {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  & + div,
+  & + section {
+    position: relative;
+  }
+}

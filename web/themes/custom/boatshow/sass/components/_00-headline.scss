@@ -1,0 +1,112 @@
+///////////////////
+/// Mixins
+///////////////////
+
+// Provides the 2-weight headline effect
+@mixin headline-effect-thickthin {
+  font-weight: $headline-effect-thickthin-weight-thin;
+  text-transform: uppercase;
+
+  @if ($headline-effect-thickthin-color) {
+    color: $headline-effect-thickthin-color;
+  }
+
+  & span,
+  & b,
+  & i,
+  & strong,
+  & em {
+    font-style: normal;
+    font-weight: $headline-effect-thickthin-weight-thick;
+  }
+}
+
+// Legacy mixin/classname
+@mixin headline-effect-city-color {
+  @include headline-effect-city-color-primary;
+}
+
+@mixin headline-effect-city-color-primary {
+  color: $city-color-primary;
+}
+
+@mixin headline-effect-city-color-secondary {
+  color: $city-color-secondary;
+}
+
+@mixin headline-effect-city-color-tertiary {
+  color: $city-color-tertiary;
+}
+
+
+@mixin headline-effect-labelmaker {
+  & span,
+  & b,
+  & strong,
+  & i,
+  & em {
+    @include subtle-text-shadow;
+    font-weight: inherit;
+    font-style: inherit;
+    display: inline-block;
+    text-transform: uppercase;
+    background-color: $city-color-primary;
+    color: $color-text-inverted;
+    padding: 0.3em 1ex;
+  }
+}
+
+///////////////////
+/// Declarative classes
+///////////////////
+
+.headline-effect-thickthin {
+  @include headline-effect-thickthin;
+}
+
+// Legacy mixin/classname
+.headline-effect-city-color {
+  @include headline-effect-city-color;
+}
+
+.headline-effect-city-color-primary {
+  @include headline-effect-city-color-primary;
+}
+
+.headline-effect-city-color-secondary {
+  @include headline-effect-city-color-secondary;
+}
+
+.headline-effect-city-color-tertiary {
+  @include headline-effect-city-color-tertiary;
+}
+
+.headline-effect-labelmaker {
+  @include headline-effect-labelmaker;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 1.875em;
+
+  h2 {
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+  }
+
+  .subheading {
+    font-size: 16px;
+    font-weight: $font-weight-normal;
+    color: $color-headings;
+    line-height: 1.2;
+    margin: 1.25em 0 0 0;
+  }
+
+  &.slab-inverted,
+  .slab-inverted & {
+    h2 {
+      @include subtle-text-shadow;
+    }
+  }
+}

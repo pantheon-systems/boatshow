@@ -1,0 +1,1137 @@
+<?php
+
+/**
+ * @file
+ * Theme specific functionality.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Component\Utility\Xss;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Site\Settings;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
+use Drupal\node\Entity\Node;
+use Drupal\views\ViewExecutable;
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function boatshow_preprocess_html(&$variables) {
+  $path = \Drupal::service('path.current')->getPath();
+  $alias = trim(\Drupal::service('path.alias_manager')
+    ->getAliasByPath($path), '/');
+  // Body classes for sidebars.
+  if (isset($variables['page']['sidebar_first']) && isset($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-both');
+  }
+  elseif (isset($variables['page']['sidebar_first'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-first');
+  }
+  elseif (isset($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-second');
+  }
+  else {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-none');
+  }
+  // Alias path class.
+  $alias_class = preg_replace("/\//", '-', $alias);
+  if (!empty($alias_class) && strpos($alias_class, 'node') !== 0) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('alias--' . $alias_class);
+  }
+  // If is homepage.
+  $variables['attributes']['class'][] = \Drupal::service('path.matcher')
+    ->isFrontPage() ? 'frontpage' : '';
+  // Node type class.
+  $variables['attributes']['class'][] = isset($variables['node_type']) ? 'nodetype--' . $variables['node_type'] : '';
+  // Logged in class.
+  $variables['attributes']['class'][] = $variables['logged_in'] ? 'logged-in' : 'logged-out';
+
+  $site_path = \Drupal::service('site.path'); // e.g.: 'sites/default'
+  $site_path = explode('/', $site_path);
+  $city_key = $site_path[1];
+  $variables['city_key'] = $city_key;
+
+  $variables['attributes']['class'][] = 'boatshow-city--' . $city_key;
+
+  // Add in no-index header if we are on an acquia dev or test environmnet.
+  $ah_env = isset($_ENV['AH_SITE_ENVIRONMENT']) ? $_ENV['AH_SITE_ENVIRONMENT'] : NULL;
+  $is_ah_env = (bool) $ah_env;
+  if (!$is_ah_env || ($is_ah_env && $ah_env == 'dev') || ($is_ah_env && $ah_env == 'test')) {
+    $noindex = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'name' => 'robots',
+        'content' => 'NOINDEX, NOFOLLOW',
+      ],
+    ];
+
+    $variables['page']['#attached']['html_head'][] = [$noindex, 'no-index'];
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function boatshow_preprocess_page(&$variables) {
+  // Check if page is panel pages.
+  $route_options = \Drupal::routeMatch()->getRouteObject()->getOptions();
+  if (isset($route_options['parameters']['page_manager_page'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('page-panel');
+  }
+  else {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('page-standard');
+  }
+
+  $site_path = \Drupal::service('site.path'); // e.g.: 'sites/default'
+  $site_path = explode('/', $site_path);
+  $city_key = $site_path[1];
+
+  $variables['boatshow_city'] = $city_key;
+
+  // Add check for front page
+  $variables['is_front_page'] = \Drupal::service('path.matcher')->isFrontPage();
+}
+
+/**
+ * Implements hook_library_info_alter
+ * Dynamically rewrite the stylesheet to point to the city stylesheet if it exists
+ */
+function boatshow_library_info_alter (&$libraries, $extension) {
+  if ($extension === 'boatshow') {
+
+    $site_path = \Drupal::service('site.path'); // e.g.: 'sites/default'
+    $site_path = explode('/', $site_path);
+    $city_key = $site_path[1];
+
+    $city_stylesheet_path = 'assets-dist/css/city-' . $city_key . '.css';
+
+    $theme_path = DRUPAL_ROOT . '/' . \Drupal::theme()->getActiveTheme()->getPath();
+
+    $full_path_to_stylesheet = $theme_path . '/' . $city_stylesheet_path;
+
+    if (file_exists($full_path_to_stylesheet)) {
+      $libraries['city_stylesheet']['css']['theme'] = [
+        $city_stylesheet_path => []
+      ];
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function boatshow_preprocess_block(&$variables) {
+  // Custom block type helper classes.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    $bundle = $variables['elements']['content']['#block_content']->bundle();
+    $bundle_class = str_replace('_', '-', $bundle);
+    if (isset($variables['attributes']['class'])) {
+      $variables['attributes']['class'][] = Html::cleanCssIdentifier('block--bundle-' . $bundle_class);
+      $variables['attributes']['data-bundle-class'] = $bundle_class;
+    }
+  }
+  // Add identified for colossal menu blocks.
+  if (isset($variables['elements']['#base_plugin_id']) &&
+    $variables['elements']['#base_plugin_id'] == 'colossal_menu_block') {
+    $variables['content']['#attributes']['colossal_menu'] = TRUE;
+  }
+
+  // Hide page title block if masthead brick exists
+  if ($variables['plugin_id'] === 'page_title_block') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+
+    // Only for for Component Page content type for now.
+    if ($node instanceof \Drupal\node\NodeInterface && $node->bundle() === 'component_page') {
+      // Get all of node's bricks' IDs
+      $node_bricks = $node->get('field_component_bricks')->getValue();
+
+      // Query for all masthead brick IDs
+      $query = \Drupal::entityQuery('brick')
+      ->condition('type', 'masthead');
+      $masthead_brick_ids = $query->execute();
+
+      if (!empty($node_bricks) && !empty($masthead_brick_ids)) {
+        // Check for a match
+        foreach ($node_bricks as $brick) {
+          if (in_array($brick['target_id'], $masthead_brick_ids)) {
+            // stop block from rendering
+            $variables['content'] = [];
+            break;
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function boatshow_theme_suggestions_menu_alter(&$suggestions, array $variables) {
+  if (!empty($variables['attributes']['colossal_menu'])) {
+    $suggestions[] = 'colossal_menu';
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function boatshow_preprocess_node(&$variables) {
+
+  $node = $variables['node'];
+
+  if ($node->bundle() === 'seminar' && $variables['view_mode'] === 'full') {
+    $variables['seminar_detail_page_sessions'] = views_embed_view('seminar_sessions', 'seminar_detail_page_sessions', $node->id());
+    $variables['seminar_detail_page_speakers'] = views_embed_view('seminar_speakers', 'seminar_detail_page_speakers', $node->id());
+
+  }
+
+  if ($node->bundle() === 'speaker' && $variables['view_mode'] === 'teaser') {
+    $current_page_node = \Drupal::routeMatch()->getParameter('node');
+    $exclude_seminar_id = NULL;
+
+    if ($current_page_node->bundle() === 'seminar') {
+      $exclude_seminar_id = $current_page_node->id();
+    }
+
+    // Other seminars preflight check for nonzero results
+
+    $view_executable = \Drupal\views\Views::getView('speaker_other_seminars');
+    $view_executable->setDisplay('speaker_teaser');
+    $view_executable->setArguments([$node->id(), $exclude_seminar_id]);
+    $view_executable->execute();
+
+    if (count($view_executable->result)) {
+      // No need to us views_embed_view as we've already built the view programatically
+      $variables['other_seminars'] = $view_executable->render();
+    }
+  }
+
+  if ($node->bundle() === 'article') {
+    if ($node->field_website && $node->field_website->uri) {
+      $variables['read_more_url'] = $node->field_website->uri;
+    }
+  }
+
+  // Helper variables for multiple nodes.
+  if (!empty($variables['elements']['#entity_type'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('entity--type-' . $variables['elements']['#entity_type']);
+  }
+
+  // Set offer type class for special offer teasers
+  if ($node->bundle() === 'special_offer') {
+    if ($node->hasField('field_offer_type') && !empty($node->field_offer_type->value)) {
+      $offer_type = $node->field_offer_type->value;
+      $variables['attributes']['class'][] = 'special-offer-' . $offer_type;
+    }
+  }
+}
+
+
+function boatshow_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // https://atendesigngroup.com/blog/drupal-8-views-entity-reference-exposed-filter-select-list
+
+  // If not the view we are looking, move on
+  if ($form['#id'] !== 'views-exposed-form-seminar-view-block-2') {
+   return FALSE;
+  }
+  // Query nodes
+  $storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
+  $query = $storage->getQuery();
+
+  // Gather published seminars nodes and sort by title
+  $nids = $query->condition('type', 'seminar')
+   ->condition('status', 1)
+   ->sort('title')
+   ->execute();
+
+  // If there are no nodes, move on
+  // DMA
+  // if (!$nids) {
+  // return FALSE;
+  // }
+
+  // DMA: 1/2020
+  if (isset($form['actions'])) {
+    $actions = Array('actionsTop' => Array (
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => 'actions-only-small'
+      ],
+      'actionsTop' => $form['actions']
+    ));
+    $form = array_merge($actions, array_slice($form, 0));
+  }
+
+  // Start building out the options for our select list
+  $date_options = Array();
+  $nodes = $storage->loadMultiple($nids);
+
+
+  $date_options = Array(); // Array('' => 'All Dates'); //(default option)
+  $speaker_options = Array(); // Array('' => 'All Speakers'); //(default option)
+  // Compile lists of options
+  foreach ($nodes as $node) {
+    $sessions = $node->get('field_smnr_seminar_session')->referencedEntities();
+    foreach ($sessions as $session){
+      // Dates
+      $date = $session->get('field_smnr_seminar_date')->getValue()[0]['value'];
+      $time = strtotime($date);
+      $date_options[date('Y-m-d 00:00:00', $time).'|'.date('Y-m-d 23:59:00', $time)] = date('l, M d', $time);
+      // Speakers
+      $speakers = $session->get('field_smnr_speaker')->referencedEntities();
+      foreach($speakers as $speaker){
+        $speaker_options[$speaker->id()] = $speaker->getTitle();
+      }
+    }
+  }
+
+
+  $radio_array = Array (
+    '#type' => 'radios',
+    '#multiple' => false,
+    '#options' => Array(),
+    '#default_value' => Array(),
+    '#theme' => 'form-item',
+    // not collapsble
+    // '#title' => 'title',
+    // '#theme_wrappers' => Array('container' => Array( )),
+    // Collapsible
+    '#theme_wrappers' => Array(
+      'details' => Array(
+        '#title' => '',
+        '#description' => NULL,
+        '#attributes'=> Array(
+          'class' => Array('form-item')
+        ),
+        '#summary_attributes' => Array(),
+        '#value' => NULL
+      )
+    )
+  );
+
+  ksort($date_options);
+  $field_date_radios = $radio_array;
+  $field_date_radios['#options'] = $date_options;
+  $field_date_radios['#theme_wrappers']['details']['#title'] = 'Date';
+  $field_date_radios['#theme_wrappers']['details']['id'] = 'Date';
+
+  asort($speaker_options);
+  $field_speaker_radios = $radio_array;
+  $field_speaker_radios['#options'] = $speaker_options;
+  $field_speaker_radios['#theme_wrappers']['details']['#title'] = 'Speaker';
+  $field_speaker_radios['#theme_wrappers']['details']['id'] = 'Speaker';
+
+  //Insert fields immediately after the ones they're meant to replace.
+  $new_form = Array();
+  foreach ($form as $k => $v){
+
+    $new_form[$k] = $v;
+    if ($k == 'field_smnr_speaker_target_id') {
+      $new_form['field_speaker_radios'] = $field_speaker_radios;
+    }elseif ($k == 'field_smnr_seminar_date_value') {
+      $new_form['field_date_radios'] = $field_date_radios;
+    }
+  }
+  // replace the form and end
+  $form = $new_form;
+
+  // Set classes for filter form items
+  $form['field_smnr_class_type_target_id']['#theme_wrappers']['details']['#attributes']['class'][] = 'seminar-filter--class-type';
+  $form['field_date_radios']['#theme_wrappers']['details']['#attributes']['class'][] = 'seminar-filter--date';
+  $form['field_topics_target_id']['#theme_wrappers']['details']['#attributes']['class'][] = 'seminar-filter--topic';
+  $form['field_speaker_radios']['#theme_wrappers']['details']['#attributes']['class'][] = 'seminar-filter--speaker';
+  $form['field_smnr_level_target_id']['#theme_wrappers']['details']['#attributes']['class'][] = 'seminar-filter--level';
+
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for \Drupal\node\NodeForm.
+ *
+ * Changes vertical tabs to container and adds meta information.
+ * Code borrowed from Seven theme.
+ */
+function boatshow_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  $node = $form_state->getFormObject()->getEntity();
+  $form['#theme'] = ['node_edit_form'];
+  $form['advanced']['#type'] = 'container';
+  $is_new = !$node->isNew() ? format_date($node->getChangedTime(), 'short') : t('Not saved yet');
+  $form['meta'] = [
+    '#attributes' => ['class' => ['entity-meta__header']],
+    '#type'       => 'container',
+    '#group'      => 'advanced',
+    '#weight'     => -100,
+    'published'   => [
+      '#type'       => 'html_tag',
+      '#tag'        => 'h3',
+      '#value'      => $node->isPublished() ? t('Published') : t('Not published'),
+      '#access'     => !$node->isNew(),
+      '#attributes' => [
+        'class' => 'entity-meta__title',
+      ],
+    ],
+    'changed'     => [
+      '#type'               => 'item',
+      '#wrapper_attributes' => [
+        'class' => [
+          'entity-meta__last-saved',
+          'container-inline',
+        ],
+      ],
+      '#markup'             => '<h4 class="label inline">' . t('Last saved') . '</h4> ' . $is_new,
+    ],
+    'author'      => [
+      '#type'               => 'item',
+      '#wrapper_attributes' => [
+        'class' => [
+          'author',
+          'container-inline',
+        ],
+      ],
+      '#markup'             => '<h4 class="label inline">' . t('Author') . '</h4> ' . $node->getOwner()
+        ->getUsername(),
+    ],
+  ];
+  $form['revision_information']['#type'] = 'container';
+  $form['revision_information']['#group'] = 'meta';
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function boatshow_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (!empty($variables['elements']['#id']) && isset($variables['elements']['#id'])) {
+    $suggestions[] = 'block__' . $variables['elements']['#id'];
+  }
+
+  if (isset($variables['elements']['content']['#block_content'])) {
+    $bundle = $variables['elements']['content']['#block_content']->bundle();
+    $view_mode = $variables['elements']['#configuration']['view_mode'];
+    $block_name = str_replace(' ', '', $variables['elements']['content']['#block_content']->label());
+
+    array_splice($suggestions, 1, 0, 'block__bundle__' . $bundle);
+    array_splice($suggestions, 0, 1, 'block__' . strtolower($block_name));
+    array_splice($suggestions, 0, 1, 'block__bundle__' . $bundle . '__' . $view_mode);
+  }
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function boatshow_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  $site_path = \Drupal::service('site.path'); // e.g.: 'sites/default'
+  $site_path = explode('/', $site_path);
+  $city_key = $site_path[1];
+
+  $variables['boatshow_city'] = $city_key;
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $suggestions[] = 'page__front__' . $city_key;
+  }
+  else {
+    $suggestions[] = 'page__' . $city_key;
+  }
+  return $suggestions;
+}
+
+/**
+ * Implements hook_preprocess_entity().
+ */
+function boatshow_preprocess_eck_entity(&$variables) {
+
+
+  // Make the current page title available as a variable
+  // @see https://drupal.stackexchange.com/questions/193764/how-to-get-the-front-page-title-in-page-html-twig
+  $request = \Drupal::request();
+  $route_match = \Drupal::routeMatch();
+  $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+  $variables['current_page_title'] = $page_title;
+  $entity = $variables['eck_entity'];
+
+  // Add ID
+  if ($entity && $entity->hasField('field_id_anchor') && !empty($entity->field_id_anchor->value)) {
+    $variables['attributes']['id'] = $entity->field_id_anchor->value;
+  }
+  // Prepare to add classes
+  if (!isset($variables['attributes']['class'])) {
+    $variables['attributes']['class'] = [];
+  }
+
+  ////////////////////////////
+  /// Dividers
+  ////////////////////////////
+  if ($entity && $entity->hasField('field_enable_dividers') && $entity->field_enable_dividers->value === '1') {
+    $variables['attributes']['class'][] = 'enable-dividers';
+    $variables['enable_dividers'] = true;
+  }
+
+  ////////////////////////////
+  /// Collapsible
+  ////////////////////////////
+  if ($entity && $entity->hasField('field_collapsible') && $entity->field_collapsible->value === '1') {
+    $variables['attributes']['class'][] = 'collapsible';
+    $variables['collapsible'] = true;
+  }
+  ////////////////////////////
+  /// Container Type
+  ////////////////////////////
+  if ($entity && $entity->hasField('field_container_type')) {
+    $container_type = $entity->field_container_type->value;
+    $variables['container_type'] = $container_type;
+
+    $variables['attributes']['class'][] = 'container-type--'.$container_type;
+    // Normal containers get the container class applied to the element
+    if ($container_type === 'normal') {
+      $variables['attributes']['class'][] = 'container';
+    }
+  }
+
+  ////////////////////////////
+  /// Invert Text
+  ////////////////////////////
+  if ($entity && $entity->hasField('field_invert_text') && $entity->field_invert_text->value === '1') {
+    $variables['attributes']['class'][] = 'slab-inverted';
+    $variables['invert_text'] = true;
+  }
+
+  ////////////////////////////
+  /// Hide Page Title (Masthead)
+  ////////////////////////////
+  if ($entity && $entity->hasField('field_hide_page_title')){
+    if ($entity && $entity->field_hide_page_title->value == '0') {
+      $variables['attributes']['class'][] = 'has-page-title';
+      $variables['field_hide_page_title'] = false;
+    } else {
+      $variables['field_hide_page_title'] = true;
+    }
+
+  }
+  ////////////////////////////
+  /// Vertical Pull
+  ////////////////////////////
+    if ($entity && $entity->hasField('field_vertical_pull') && !empty($entity->field_vertical_pull->value) && $entity->field_vertical_pull->value != 'none') {
+      $variables['vertical_pull'] = $entity->field_vertical_pull->value;
+      $variables['attributes']['class'][] = 'vertical-'.$entity->field_vertical_pull->value;
+    }
+
+  ////////////////////////////
+  /// Headline Effect
+  ////////////////////////////
+  if ($entity && $entity->hasField('field_headline_effect') && !empty($entity->field_headline_effect->value)) {
+    $variables['headline_effect_class'] = 'headline-effect-' . $entity->field_headline_effect->value;
+  }
+
+  ////////////////////////////
+  /// Background Color
+  ////////////////////////////
+  if ($entity && $entity->hasField('field_background_color') && !empty($entity->field_background_color->value)) {
+
+    $variables['background_color'] = $entity->field_background_color->value;
+    $variables['attributes']['class'][] = 'has-background-color';
+
+    $variables['attributes']['class'][] = 'slab-' . $entity->field_background_color->value;
+  }
+
+  if ($entity && $entity->hasField('field_background_image')) {
+    if (!empty($entity->field_background_image->getValue())) {
+      $background_image_media_id = $entity->field_background_image->first()->getValue()['target_id'];
+
+      $background_image_media_entity = \Drupal::entityTypeManager()->getStorage('media')->load($background_image_media_id);
+
+      if (isset($background_image_media_entity->image)) {
+        $background_image_file_id = $background_image_media_entity->image->first()->getValue()['target_id'];
+
+        $background_image_file_entity = \Drupal\file\Entity\File::load($background_image_file_id);
+
+        switch($entity->bundle()) {
+          case 'card_cta':
+            $responsive_image_id = 'grid';
+            break;
+          default:
+            $responsive_image_id = 'scale_simple';
+        }
+
+        $background_image_render_array = [
+          '#theme' => 'responsive_image',
+          '#responsive_image_style_id' => $responsive_image_id,
+          '#uri' => $background_image_file_entity->getFileUri(),
+          '#attributes' => [
+            'class' => [
+              'brick-background-image'
+            ]
+          ]
+        ];
+
+        $variables['brick_background_image'] = $background_image_render_array;
+      }
+    }
+  }
+
+  ////////////////////////////
+  /// Border
+  ////////////////////////////
+  if ($entity && $entity->hasField('field_border_color') && !empty($entity->field_border_color->value)) {
+    $variables['attributes']['class'][] = 'borders-' . $entity->field_border_color->value;
+  }
+
+  if ($entity && $entity->hasField('field_link') && !empty($entity->field_link->uri)) {
+    $link_uri = $entity->field_link->uri;
+
+    $link_url = \Drupal\Core\Url::fromUri($link_uri)->toString();
+
+    // Set primary call-to-action URL
+    $variables['primary_cta_url'] = $link_url;
+  }
+
+  ////////////////////////////
+  /// Media
+  ////////////////////////////
+  if ($entity && $entity->hasField('field_media')) {
+    if ($entity && $entity->field_media->getValue()) {
+      $variables['attributes']['class'][] = 'has-media';
+    }
+  }
+
+
+  ////////////////////////////
+  /// Icon
+  /// only supports fontawesome icons e.g. 'fa-car'
+  ////////////////////////////
+  if ($entity && $entity->hasField('field_icon')) {
+    $requested_icon = $entity->field_icon->value;
+
+    if (!empty($requested_icon)) {
+
+      if(strpos($requested_icon, 'fa-') === 0) {
+        $icon_markup = [
+          '#markup' => t('<i class="icon-markup fa @requested_icon"></i>', [
+            '@requested_icon' => $requested_icon
+          ])
+        ];
+        $variables['attributes']['class'][] = 'has-icon';
+      }
+      else {
+        $icon_markup = [
+          '#markup' => t('<!-- Unknown icon: @requested_icon -->', [
+            '@requested_icon' => $requested_icon
+          ])
+        ];
+      }
+
+      $variables['icon_markup'] = $icon_markup;
+
+    }
+  }
+
+  /////////////////////////
+  /// Headline
+  /////////////////////////
+  if ($entity && $entity->hasField('field_brick_headline') && !empty($entity->field_brick_headline->value)) {
+    $headline_title = $entity->field_brick_headline->value;
+    $variables['headline_title'] = html_entity_decode($headline_title);
+  }
+
+  /////////////////////////
+  /// Vertical Padding
+  /////////////////////////
+  if ($entity && $entity->hasField('field_vertical_padding')) {
+    if (!empty($entity->field_vertical_padding->value)) {
+      $vertical_padding = $entity->field_vertical_padding->value;
+    }
+    else {
+      $vertical_padding = 'none';
+    }
+
+    $variables['attributes']['class'][] = 'section-vertical-padding-' . $vertical_padding;
+  }
+
+  // Set data-map-id attr
+  if ($entity && $entity->hasField('field_map_id')) {
+    if (!empty($entity->field_map_id->value)) {
+
+      $map_id = $entity->field_map_id->value;
+      $variables['attributes']['data-map-id'][] = $map_id;
+    }
+  }
+
+  // Set data-lat and data-lng attrs
+  if ($entity && $entity->hasField('field_geolocation')) {
+    if (!empty($entity->field_geolocation->value)) {
+
+      $lat = $entity->get('field_geolocation')->lat;
+      $lng = $entity->get('field_geolocation')->lng;
+      $variables['attributes']['data-lat'][] = $lat;
+      $variables['attributes']['data-lng'][] = $lng;
+    }
+  }
+
+  if ($entity && $entity->bundle() == '3_col_card') {
+
+    // Get title.
+    if (!$entity->get('field_3_col_card_title')->isEmpty()) {
+      $title = $entity->get('field_3_col_card_title')->getValue()[0]['value'];
+      $variables['card_title'] = html_entity_decode($title);
+    }
+
+    // if (!$entity->get('field_3_col_card_image')->isEmpty()) {
+      // $tsr_image = $entity->get('field_3_col_card_image')->getValue();
+      // $image_id = $tsr_image[0]['target_id'];
+
+      // $media = Media::load($image_id);
+      // if (!is_null($media)) {
+      //   $file = $media->get('image')->getValue();
+      //   $file_id = $file[0]['target_id'];
+
+      //   $image_file = File::load($file_id);
+      //   $path = $image_file->getFileUri();
+      //   // $variables['path'] = file_create_url($path);
+      // }
+    // }
+  }
+
+  if ($entity && $entity->bundle() == 'landing_page_grid_card') {
+    $tsr_image = $entity->get('field_lpg_media')->getValue();
+    $image_id = $tsr_image[0]['target_id'];
+    $link = $entity->get('field_lpg_url')->getValue();
+    $url = Url::fromUri($link[0]['uri']);
+
+    $media = Media::load($image_id);
+    if (!is_null($media)) {
+      $file = $media->get('image')->getValue();
+      $file_id = $file[0]['target_id'];
+
+      $image_file = File::load($file_id);
+      $path = $image_file->getFileUri();
+
+      $style = \Drupal::entityTypeManager()
+        ->getStorage('image_style')
+        ->load('cropped_grid_item');
+      $variables['path'] = $style->buildUrl($path);
+      $variables['link'] = $url;
+    }
+  }
+
+  if ($entity && $entity->bundle() == 'media') {
+    $entity = $variables['eck_entity'];
+    $cover = $entity->get('field_image_cover')->getValue();
+
+    if ($cover && $cover[0]['value'] == '1') {
+      $image = $entity->get('field_brick_media')->getValue();
+      if (!empty($image[0])) {
+        $image_id = $image[0]['target_id'];
+
+        $media = Media::load($image_id);
+        if (!is_null($media)) {
+          $file = $media->get('image')->getValue();
+          $file_id = $file[0]['target_id'];
+
+          $image_file = File::load($file_id);
+          $path = $image_file->getFileUri();
+
+          $variables['image_bkgrnd'] = file_create_url($path);
+        }
+      }
+    }
+
+    if ($entity && $entity->hasField('field_media_options')) {
+      // Options from list select field
+      $options = ['center', 'full_width'];
+      $option_value = $entity->get('field_media_options')->value;
+
+      if (in_array($option_value, $options)) {
+        $variables['attributes']['class'][] = 'media-' . $option_value;
+      }
+    }
+  }
+
+  if ($entity && $entity->bundle() == 'photo_gallery') {
+    $variables['attributes']['class'][] = 'content-slider';
+  }
+
+  if ($entity && $entity->bundle() == 'ad_item') {
+    $entity = $variables['eck_entity'];
+
+    if (!$entity->get('field_image')->isEmpty()) {
+      $image = $entity->get('field_image')->entity;
+      $path = $image->getFileUri();
+      $variables['image_path'] = file_create_url($path);
+    }
+  }
+
+  // Map bundle
+  if ($entity && $entity->bundle() === 'map') {
+    // set map zoom attr
+    if ($entity && $entity->hasField('field_map_zoom')) {
+      if (!empty($entity->field_map_zoom->value)) {
+        $variables['attributes']['data-map-zoom'][] = $entity->field_map_zoom->value;
+      }
+    }
+  }
+
+  // Arrival Location template vars
+  if ($entity && $entity->bundle() === 'arrival_location') {
+    if ($entity && $entity->hasField('field_location_address')) {
+      if (!empty($entity->field_location_address->value)) {
+        $variables['location_address'] = $entity->field_location_address->value;
+      }
+    }
+
+    // Set data-marker-label attr
+    if ($entity && $entity->hasField('field_marker_label')) {
+      if (!empty($entity->field_marker_label->value)) {
+
+        $marker_label = $entity->field_marker_label->value;
+        $variables['attributes']['data-marker-label'][] = $marker_label;
+        $variables['marker_label'] = $marker_label;
+      }
+    }
+
+    if ($entity && $entity->hasField('field_location_features')) {
+      if (!empty($entity->get('field_location_features')->getValue())) {
+        $location_features = [];
+
+        foreach ($entity->get('field_location_features')->getValue() as $feature) {
+          array_push($location_features, $feature['value']);
+        }
+
+        $variables['location_features'] = $location_features;
+      }
+    }
+  }
+
+  if ($entity && $entity->bundle() === 'countdown') {
+    if ($entity && $entity->hasField('field_countdown_to')) {
+      if (!empty($entity->field_countdown_to->value)) {
+
+        // Either site default timezone or user timezone
+        $timezone = drupal_get_user_timezone();
+        $dt = new \DateTime($entity->field_countdown_to->value, new \DateTimeZone('UTC'));
+        $dt->setTimeZone(new \DateTimeZone($timezone));
+
+        // Format as iso8601 for JS parsing
+        $variables['countdown_date'] = $dt->format('c');
+      }
+    }
+  }
+
+  // Only set contextual links if brick bundle is not section or layout
+  if ($entity && $entity->bundle() !== 'section' && $entity->bundle() !== 'layout') {
+    // Add contextual links.
+    if (\Drupal::currentUser()->hasPermission('access contextual links')) {
+      $url = $entity->toUrl('edit-form');
+      $url->setOption('query', \Drupal::service('redirect.destination')->getAsArray());
+      $variables['context_links'] = [
+        '#theme' => 'links__contextual',
+        '#links' => [
+          [
+            'title' => t('Edit'),
+            'url' => $url,
+          ],
+        ],
+        '#attributes' => [
+          'class' => [
+            'custom-contextual-links',
+          ],
+        ],
+      ];
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_entity().
+ */
+function boatshow_preprocess_media (&$variables) {
+
+  $media =& $variables['elements']['#media'];
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  $variables['bundle'] = $media->bundle();
+
+  if ( $variables['elements']['#view_mode'] === 'document_list' ) {
+
+    if (!isset($variables['attributes']['class'])) {
+      $variables['attributes']['class'] = [];
+    }
+
+    if (!empty($media->field_document->getValue())) {
+      $fid = $media->field_document->getValue()[0]['target_id'];
+      $file = \Drupal\file\Entity\File::load($fid);
+
+      $variables['file_filesize_human'] = _human_readable_filesize($file->filesize->value, 2);
+
+      $variables['media_file_url'] = $file->url();
+      $variables['media_download_url'] = Url::fromRoute(
+        'media_entity_download.download',
+        [
+          'media' => $media->id(),
+        ]
+      );
+
+      if ($media->hasField('field_description') && isset($media->get('field_description')->value)) {
+        $variables['description'] = $media->get('field_description')->value;
+      }
+
+      $variables['file_filemime'] = $file->filemime->value;
+
+      // Assign classes based on file type
+      if (stripos($file->filemime->value, 'application/pdf') !== FALSE) {
+        $variables['attributes']['class'][] = 'document-list-icon-pdf';
+      }
+
+      // Assign classes based on file type
+      else if (
+        (stripos($file->filemime->value, 'application/vnd.ms-excel') !== FALSE)
+        || (stripos($file->filemime->value, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'))
+        || (stripos($file->filemime->value, 'text/csv') !== FALSE)
+      ) {
+        $variables['attributes']['class'][] = 'document-list-icon-excel';
+      }
+
+      else if (
+        (stripos($file->filemime->value, 'application/msword') !== FALSE)
+        || (stripos($file->filemime->value, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') !== FALSE)
+      ) {
+        $variables['attributes']['class'][] = 'document-list-icon-word';
+      }
+
+      else if (
+        (stripos($file->filemime->value, 'application/vnd.ms-powerpoint') !== FALSE)
+        || (stripos($file->filemime->value, 'application/vnd.openxmlformats-officedocument.presentationml.presentation') !== FALSE)
+      ) {
+        $variables['attributes']['class'][] = 'document-list-icon-powerpoint';
+      }
+
+      else if (stripos($file->filemime->value, 'application/zip') !== FALSE) {
+        $variables['attributes']['class'][] = 'document-list-icon-zip';
+      }
+    }
+  }
+}
+/**
+ * Convert a byte number into a human readable string e.g. 33082 -> 33.08KB
+ * @link http://jeffreysambells.com/2012/10/25/human-readable-filesize-php
+ */
+function _human_readable_filesize ($bytes, $decimals = 2) {
+  $size = array('B','KB','MB','GB','TB','PB','EB','ZB','YB');
+  $factor = floor((strlen($bytes) - 1) / 3);
+  return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$size[$factor];
+}
+
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function boatshow_preprocess_field(&$variables) {
+  if ($variables['element']['#field_name'] == 'field_component_bricks') {
+    $nid = $variables['element']['#object']->id();
+
+    $node = Node::load($nid);
+    if (isset($node->get('field_component_bricks')->getValue()[0])) {
+      $first_brick = $node->get('field_component_bricks')->getValue()[0]['target_id'];
+      $entity = \Drupal::entityTypeManager()->getStorage('brick')->load($first_brick);
+    }
+  }
+  if ($variables['element']['#field_name'] == 'field_disruptor_cta') {
+    $variables['items'][0]['content']['#options']['attributes']['class'][] = 'button';
+  }
+  if ($variables['element']['#field_name'] == 'field_brick_link') {
+    $variables['items'][0]['content']['#options']['attributes']['class'][] = 'button--secondary';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for "paragraph".
+ */
+function boatshow_preprocess_paragraph__faq_item(&$variables) {
+  $variables['paragraph_index'] = NULL;
+
+  // Set paragraph item index to be used in template for aria-controls attribute
+  foreach ($variables['paragraph']->getParentEntity()->field_paragraphs->getValue() as $index => $item) {
+    if ($item['target_id'] === $variables['paragraph']->id()) {
+      $variables['paragraph_index'] = $index;
+      break;
+    }
+  }
+}
+
+/**
+ * Prepares variables for unformatted summary view templates.
+ *
+ * Default template: views-view-summary-unformatted.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - view: A ViewExecutable object.
+ *   - rows: The raw row data.
+ *   - options: An array of options. Each option contains:
+ *     - separator: A string to be placed between inline fields to keep them
+ *       visually distinct.
+ */
+function boatshow_preprocess_views_view_summary_unformatted(&$variables) {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $variables['view'];
+  if ($view->id() == 'exhibitors') {
+    $argument = $view->argument[$view->build_info['summary_level']];
+
+    $url_options = [];
+
+    if (!empty($view->exposed_raw_input)) {
+      $url_options['query'] = $view->exposed_raw_input;
+    }
+
+    $count = 0;
+    $active_urls = [
+      // Force system path.
+      \Drupal::url('<current>', [], ['alias' => TRUE]),
+      // Could be an alias.
+      \Drupal::url('<current>'),
+    ];
+    $active_urls = array_combine($active_urls, $active_urls);
+    $variables['active_url'] = \Drupal::url('<current>');
+
+    // Determine the active filter.
+    $active_filter = isset($_GET['filter']) ? $_GET['filter'] : '';
+    $variables['active_url_is_link'] = !empty($_GET['filter']);
+
+    // Collect all arguments for each row, to be able to alter them for example
+    // by the validator. This is not done per single argument value, because
+    // this could cause performance problems.
+    $row_args = [];
+    foreach ($variables['rows'] as $id => $row) {
+      $row_args[$id] = $argument->summaryArgument($row);
+    }
+    $argument->processSummaryArguments($row_args);
+
+    foreach ($variables['rows'] as $id => $row) {
+      // Only false on first time.
+      if ($count++) {
+        $variables['rows'][$id]->separator = Xss::filterAdmin($variables['options']['separator']);
+      }
+      $variables['rows'][$id]->attributes = [];
+      $variables['rows'][$id]->link = $argument->summaryName($row);
+      $args = $view->args;
+      $args[$argument->position] = $row_args[$id];
+
+      if (!empty($argument->options['summary_options']['base_path'])) {
+        $base_path = $argument->options['summary_options']['base_path'];
+        $tokens = $view->getDisplay()->getArgumentsTokens();
+        $base_path = $argument->globalTokenReplace($base_path, $tokens);
+        // @todo Views should expect and store a leading /. See:
+        //   https://www.drupal.org/node/2423913
+        $url = Url::fromUserInput('/' . $base_path);
+        try {
+          /** @var \Symfony\Component\Routing\Route $route */
+          $route = \Drupal::service('router.route_provider')->getRouteByName($url->getRouteName());
+          $route_variables = $route->compile()->getVariables();
+          $parameters = $url->getRouteParameters();
+
+          foreach ($route_variables as $variable_name) {
+            $parameters[$variable_name] = array_shift($args);
+          }
+
+          $url->setRouteParameters($parameters);
+        }
+        catch (Exception $e) {
+          // If the given route doesn't exist, default to <front>.
+          $url = Url::fromRoute('<front>');
+        }
+      }
+      else {
+        $url = $view->getUrl($args)->setOptions($url_options);
+      }
+
+      $this_url = $url->toString();
+      $base_url = substr($this_url, 1);
+
+      $url_parts = explode('/', $base_url);
+      $url_parts[0] = substr(\Drupal::service('path.alias_manager')->getAliasByPath(\Drupal::service('path.current')->getPath()),1) . '/';
+      $base_url = implode($url_parts);
+
+      $this_filter = substr($this_url, -1);
+
+      $variables['rows'][$id]->url = '/' . str_replace('/', '?filter=', $base_url);
+      $variables['rows'][$id]->count = intval($row->{$argument->count_alias});
+      $variables['rows'][$id]->active = ($this_filter == $active_filter);
+      $variables['rows'][$id]->attributes = new Attribute($variables['rows'][$id]->attributes);
+    }
+  }
+}
+
+/**
+ * Prepares variables for view templates.
+ *
+ * Default template: views-view.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - view: The ViewExecutable object.
+ */
+function boatshow_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+  if ($view->id() == 'seminars' && $view->current_display == 'block_1') {
+    // Show featured seminars if no filters are applied.
+    if ($view->exposed_raw_input['seminar_schedule'] !== 'All' ||
+      (count($view->exposed_raw_input) > 1)) {
+      $variables['filters_applied'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_views_VIEW_ID
+ *
+ * @param array $variables
+ * @return void
+ */
+function boatshow_preprocess_views_view_unformatted__dining(&$variables){
+  $rows_featured = [];
+  $rows_side = [];
+  $rows_main = [];
+
+  foreach ($variables['rows'] as $row) {
+    $node = $row['content']['#node'];
+
+    // find the service
+    $service_id = $node->get('field_dining_service')->getValue();
+    $tid = $service_id[0]['target_id'];
+    $term = Term::load($tid);
+    $service = $term->getName();
+
+    // Split featured items into separate array
+    if ($service == 'Full Service'){
+      $rows_featured[] = $row;
+    } else {
+      $rows_main[] = $row;
+    }
+  }
+
+  // Move non-featured items into additional array for sidebar
+  for ($i = 0; $i < count($rows_featured) - 1; $i++) {
+    $shifted_row = array_shift($rows_main);
+    $rows_side[] = $shifted_row;
+  }
+
+  // Output variables to be rendered at:
+  // views-view-unformatted--dining.html.twig
+  $variables['rows_featured'] = $rows_featured;
+  $variables['rows_side'] = $rows_side;
+  $variables['rows_main'] = $rows_main;
+}
+
+/**
+ * Implements hook_theme_suggestions_taxonomy_term_alter().
+ */
+function boatshowtheme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables) {
+  /** @var \Drupal\taxonomy\TermInterface $term */
+  $term = $variables['elements']['#taxonomy_term'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+  // Add view mode theme suggestions.
+  $suggestions[] = 'taxonomy_term__' . $sanitized_view_mode;
+  $suggestions[] = 'taxonomy_term__' . $term->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'taxonomy_term__' . $term->id() . '__' . $sanitized_view_mode;
+}

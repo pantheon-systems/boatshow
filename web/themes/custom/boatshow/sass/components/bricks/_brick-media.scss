@@ -1,0 +1,12 @@
+.brick--type--media {
+  &.media-center img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+ &.media-full_width img {
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,239 @@
+.boatfinder .container {
+  //
+}
+
+.search-form {
+  background: $colorname-lighter-gray;
+  width: 60%;
+  margin: 0 auto 2rem;
+  padding: 2.5rem 2.5rem 1rem;
+
+  .form-item {
+    label {
+      display: block;
+      font-size: $font-size-body-copy-xsmall;
+
+      &[for="edit-certified"] {
+        padding-left: 0;
+        padding-top: 0.5rem;
+
+        i {
+          position: relative;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.search-form-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+
+  #boatfinder-model-wrapper,
+  .form-item {
+    flex: 1 1 0;
+    padding: 0;
+  }
+
+  .form-item-make,
+  .form-item-type {
+    .chosen-container {
+      width: 80% !important;
+    }
+  }
+
+  .chosen-container {
+    padding-right: 2em;
+    box-sizing: border-box;
+    // Need to override chosen plugin's JS-set widths.
+    width: 100% !important;
+  }
+
+  .chosen-single,
+  .chosen-container-active .chosen-single {
+    border-color: #ccc;
+    border-radius: 0;
+    border-width: 2px;
+    color: $color-button-secondary-text;
+    font-weight: $font-weight-normal;
+  }
+
+  .chosen-container-single .chosen-single div b {
+    width: 9px;
+  }
+
+  .form-submit {
+    margin-right: 2em;
+  }
+
+  @include media-breakpoint-down(lg) {
+    display: block;
+    margin-bottom: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+
+    &:last-child {
+      text-align: center;
+    }
+
+    .form-submit {
+      margin-right: 0;
+      margin-bottom: 1em;
+    }
+
+    .form-item-make,
+    .form-item-type {
+      .chosen-container {
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+.search-results-grid {
+  & > div {
+    display: flex;
+    flex-wrap: wrap;
+    // Compensate for the borders on the cards.
+    margin-left: -1.5rem;
+  }
+}
+
+.search-result {
+  width: 33.3333%;
+  background: $colorname-lighter-gray;
+  border-bottom: 1.5rem solid $colorname-white;
+  border-left: 1.5rem solid $colorname-white;
+  box-sizing: border-box;
+
+  @include media-breakpoint-down(md) {
+    width: 50%;
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
+}
+
+.search-result-text {
+  padding: .5em 6%;
+  position: relative;
+
+  .boat-name a {
+    color: $colorname-alizarin-red;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+  }
+
+  .boat-length,
+  .booth {
+    display: inline-block;
+    font-size: $font-size-body-copy-small;
+  }
+
+  .boat-length {
+    &::after {
+      content: "|";
+      color: $colorname-picton-blue;
+      margin: 0 0.5em;
+    }
+  }
+
+  .boat-link {
+    text-align: right;
+
+    a {
+      display: inline-block;
+      border: 1px solid $colorname-picton-blue;
+      border-radius: 50%;
+      width: 1.5em;
+      height: 1.5em;
+      text-align: center;
+      line-height: 1.5em;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.boat-details {
+  h1 {
+    color: $colorname-alizarin-red;
+    text-align: center;
+  }
+}
+
+.boat-details-text {
+  .details {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.details-section {
+  &.main,
+  &.specifications,
+  &.engine {
+    box-sizing: border-box;
+    flex-basis: 50%;
+    padding: 0 2em 2em 2em;
+
+    @include media-breakpoint-down(md) {
+      flex-basis: 100%;
+      padding-top: 2em;
+    }
+  }
+
+  &.main {
+    @include media-breakpoint-down(md) {
+      background: $colorname-lighter-gray;
+    }
+  }
+
+  &.dealer {
+    background: $colorname-lighter-gray;
+    flex-basis: 100%;
+    padding: 1.5em 2em;
+  }
+}
+
+.details-header {
+  color: #666;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  font-weight: $font-weight-semibold;
+}
+
+.details-field {
+  .label,
+  .field {
+    display: inline-block;
+    width: 50%;
+  }
+
+  .label {
+    font-weight: $font-weight-bold;
+  }
+
+  .field {
+    //
+  }
+
+  &.name,
+  &.address,
+  &.phones {
+    margin-bottom: 1em;
+    line-height: 1.2;
+  }
+
+  &.name {
+    font-weight: $font-weight-bold;
+  }
+}

@@ -1,0 +1,20 @@
+<section {{ attributes.addClass('card') }}>
+  {{ context_links }}
+  {% if primary_cta_url is not empty %}
+  <a href="{{ primary_cta_url }}" class="card-header" >
+  {% else %}
+  <div class="card-header">
+  {% endif %}
+    {{content.field_media}}
+    {{icon_markup}}
+  {% if primary_cta_url is not empty %}
+  </a>
+  {% else %}
+  </div>
+  {% endif %}
+  <div class="card-body">
+    {{content.field_body}}
+    {{content.childs}}
+    {{content.field_link}}
+  </div>
+</section>

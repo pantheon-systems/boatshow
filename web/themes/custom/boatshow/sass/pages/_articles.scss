@@ -1,0 +1,121 @@
+.node--type-article {
+  .submitted {
+    font-style: italic;
+    display: inline-block;
+  }
+
+  .article-cat {
+    display: inline-block;
+
+    & > div {
+      display: inline-block;
+    }
+  }
+}
+
+.node--type-article.node--view-mode-full {
+
+  .content {
+    margin-top: 1rem;
+
+    .field--name-field-article-image {
+      float: none;
+      margin-right: 0;
+      max-width: 100%;
+
+      @include media-breakpoint-up(sm) {
+        float: left;
+        max-width: 40%;
+        margin: 0 2rem 2rem 0;
+      }
+
+      @include media-breakpoint-up(lg) {
+        max-width: 380px;
+      }
+    }
+
+    .field--name-field-video-url {
+      margin-bottom: 2rem;
+    }
+
+    .field--name-field-contacts {
+      .field__label {
+        font-weight: bold;
+        font-size: 1.125rem;
+      }
+    }
+
+  }
+}
+
+
+.node--type-article.node--view-mode-grid-item, .node--type-article.node--view-mode-grid-item-exhibitor, .node--type-article.node--view-mode-grid-item-exhibitor-sidebar {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid $colorname-lighter-gray;
+
+  .col-1 {
+    padding: 1em 0 1em 0;
+  }
+
+  .col-2 {
+    padding: 1em 0 1em 0;
+  }
+
+  h2 {
+    text-transform: none;
+    font-size: 1.125rem;
+    line-height: normal;
+
+    a {
+      color: $city-color-secondary;
+    }
+  }
+
+  .article-cat-image-wrap {
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .content {
+    .field--name-field-article-teaser {
+      display: inline;
+
+      p {
+        display: inline;
+      }
+    }
+
+    a.read-more {
+      white-space: nowrap;
+      color: $city-color-secondary;
+
+      span.chevron {
+        &:before {
+          @include fa-icon;
+          content: "\f054";
+          padding-left: 0.275em;
+          padding-right: 0.675em;
+          font-size: .675rem;
+       }
+      }
+    }
+
+    a.addtoany {
+      white-space: nowrap;
+
+      span.social {
+        &:before {
+          @include fa-icon;
+          content: "\f1e0";
+          padding-left: 0.275em;
+       }
+      }
+    }
+
+
+  }
+
+}

@@ -1,0 +1,299 @@
+$bp-filters-stack: $screen-lg;
+$bp-filters-stack-sm: $screen-sm;
+
+.brick--type--exposed-filters {
+  @include mobileSlabReset;
+  @include mobileVerticalPadReset;
+  position: relative;
+  z-index: 100;
+
+  // Nested filters, ie Seminars page
+  .form--inline {
+    &,
+    // Inline checkbox filters, ie Food & Beverage page
+    .form-checkboxes {
+      display: flex;
+      align-items: flex-start;
+      // DMA order: 1;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      width: 100%;
+      @media (min-width: $bp-filters-stack) {
+        align-content: center;
+      }
+    }
+    // Top level item
+    >.form-item {
+      flex: 1 0 300px;
+      // DMA order: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      box-sizing:border-box;
+      margin: 0 10px 20px;
+      display: block;
+      @media (min-width: $bp-filters-stack) {
+        display: inline-block;
+        flex: 1 0 5%;
+        padding-left: 0;
+        padding-right: 0;
+        max-height: 300px;
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+
+      .form-item {
+        width: 100%;
+        margin: 20px 0 0;
+        padding: 0 10px;
+        box-sizing: border-box;
+      }
+    }
+    .actions-only-small {
+      display: flex;
+      flex: 1 0 100%;
+      width: 100%;
+      @media (min-width: $bp-filters-stack-sm) {
+        display: none;
+      }
+    }
+  }
+
+  .form-item {
+    display: inline-block;
+    flex: 1 0 150px;
+    min-width: 150px;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .js-hide {
+    display: none;
+  }
+
+  // Collapsible boxes
+  details {
+    &,
+    & summary {
+      padding-left:0;
+      background-image: none;
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+
+      &::-webkit-details-marker {
+        display:none;
+      }
+    }
+    summary {
+      border: 1px solid $colorname-light-gray;
+      box-sizing: border-box;
+    }
+
+    &[open] {
+      padding-bottom: 20px;
+      border: 1px solid $colorname-light-gray;
+
+      summary {
+        border: 0;
+      }
+    }
+    summary[role="button"] {
+      float:left;
+      width: 100%;
+      text-align: center;
+      background: $color-slab-light-gray;
+      color: $city-color-secondary;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      box-shadow: 0 15px 15px #fff;
+    }
+  }
+
+  .filter-buttons {
+    width: 100%;
+    // DMA order: 0;
+    display: flex;
+    background: $color-slab-white;
+    color: $color-text;
+    flex: 0;
+    justify-content: space-between;
+
+    .filter-btn {
+      flex: 0;
+      cursor: pointer;
+      display: block;
+      white-space: nowrap;
+      padding: 0 0 1em;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      .fa {
+        margin-right: 1ex;
+
+        &:before {
+          color: $color-text;
+        }
+      }
+    }
+  }
+
+  .form-actions {
+    width: 100%;
+    display: flex;
+    flex: 1 0 100%;
+    // DMA order: 0;
+
+    @media (min-width: $bp-filters-stack) {
+      // DMA order: 100;
+      justify-self: flex-end;
+      justify-content: flex-end;
+      text-align: right;
+
+      & .js-form-submit {
+        margin-top: $dimension-vertical-rhythm-elements;
+      }
+    }
+
+    @media (max-width: $bp-filters-stack-sm) {
+      input[type="submit"] {
+        padding-left: 0.1em;
+        padding-right: 0.1em;
+      }
+    }
+
+    input[type="submit"][data-drupal-selector="edit-reset"] {
+      background: transparent;
+      border-color: transparent;
+      cursor: pointer;
+      color: $color-links;
+      text-decoration: underline;
+    }
+
+    .js-form-submit {
+      display: inline-block;
+      vertical-align: baseline;
+      flex: 1 0 50%;
+      min-width: 50%; // reset huge min from .button
+
+      &.js-hide {
+        display: none;
+      }
+
+      @media (min-width: $bp-filters-stack) {
+        min-width: unset;
+        flex: 0 1 auto;
+      }
+
+      //reset button
+      // DMA &[id='edit-reset'] {
+      //   background: transparent;
+      //   border-color: transparent;
+      //   cursor: pointer;
+      //   color: $color-links;
+      //   text-decoration: underline;
+      // }
+      // submit button
+      &[id='edit-submit-seminar-view']{
+        @media (min-width: $bp-filters-stack) {
+          // DMA order: 5;
+        }
+      }
+    }
+  }
+
+  &.collapsible {
+
+    &.collapse{
+      .form-actions {
+        display: none;
+      }
+    }
+
+    .form-item[open] ~ .form-actions {
+      display: flex;
+    }
+  }
+
+  %input-alt-checkbox {
+    //this is the input element
+    display: none;
+
+    + .option {
+      vertical-align: middle;
+      font-size: 16px;
+      min-height: 1.3em;
+      padding-left: 3em;
+      padding-top: .5em;
+      box-sizing: border-box;
+      width: 100%;
+      display: block;
+      position: relative;
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: '';
+        display: inline-block;
+        height: 1.3em;
+        width: 1.3em;
+        border: 1px solid $colorname-gray-darkest;
+        border-radius: 3px;
+        vertical-align: middle;
+        margin-right: 1em;
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: bold;
+        line-height: 1.3;
+        color: $color-text-inverted;
+      }
+    }
+    &:checked {
+      + .option {
+        &:before {
+          background: $city-color-secondary;
+        }
+      }
+    }
+  }
+
+  .form-checkbox,
+  .form-radio {
+    @extend %input-alt-checkbox;
+  }
+
+  .section-header {
+    h2 {
+      font-size: rem-calc(20px);
+      @media (min-width: $screen-sm) {
+        font-size: rem-calc(35px);
+      }
+    }
+  }
+
+  .section-vertical-padding-both {
+    @include mobileVerticalPadReset;
+  }
+}
+
+.views-exposed-form {
+  width: 100%;
+
+  &[id="views-exposed-form-seminar-view-block-2"]{
+    // These fields are replaced by form alter fields and then updated via jQuery
+    // They need to be in the DOM, but hidden
+    .form-item-field-smnr-seminar-date-value-min,
+    .form-item-field-smnr-seminar-date-value-max,
+    .form-item-field-smnr-speaker-target-id {
+      display: none;
+    }
+  }
+}

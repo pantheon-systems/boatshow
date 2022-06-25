@@ -1,0 +1,19 @@
+///////////////////////////////
+/// 1. City Override Variables
+///////////////////////////////
+$city-color-primary: #0e753c;
+$city-color-secondary: #0075bf;
+$city-color-tertiary: #0075bf;
+
+$seminar-filter--hide-class-type: true;
+$seminar-filter--hide-topic: true;
+$seminar-filter--hide-level: true;
+
+///////////////////////////////
+/// 2. Include Stylesheet
+///////////////////////////////
+@import 'styles';
+
+///////////////////////////////
+/// 3. City Override CSS Rules
+///////////////////////////////

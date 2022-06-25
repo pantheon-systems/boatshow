@@ -1,0 +1,15 @@
+// NOTE: Not sure if it's safe to use this, but I don't have a lot of options
+// for targeting the FAQ heading at the moment. Wonder if we can make a twig
+// for this.
+.block-views-blockfaq-block-1 {
+  padding-top: 3.75rem;
+
+  h2::before {
+    content: '\0074';
+    font-family: "boatshow-icons";
+    display: block;
+    color: $colorname-picton-blue;
+    font-size: rem-calc(32px);
+    text-transform: initial;
+  }
+}

@@ -1,0 +1,50 @@
+.news-section {
+  padding-top: 0;
+
+  .col-8-lg .section-header {
+    h2 {
+      font-size: 2.1875rem;
+      font-weight: bold;
+    }
+  }
+
+  .col-4-lg .section-header {
+    h2 {
+      font-size: 1.875rem;
+      font-weight: 500;
+    }
+  }
+
+
+  .view-display-id-exhibitor_news_block .node--type-article.node--view-mode-grid-item-exhibitor {
+    h2 {
+      font-size: 1rem;
+    }
+  }
+
+}
+
+.news-row > .col-12-xs {
+  padding-top: 45px;
+}
+
+.news-row > .col-4-lg {
+  background-color: #f5f5f5;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.view-article-views {
+
+  article.row {
+    margin-bottom: 1em;
+  }
+
+}
+
+// Global?
+.field--name-field-brick-link {
+  margin: 1em auto;
+  text-align: center;
+}
+

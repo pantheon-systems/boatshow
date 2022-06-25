@@ -1,0 +1,15 @@
+<div class="{{ attributes.class }}">
+  {{ context_links }}
+  <div class="grid-item--article">
+    {% if card_title is not empty %}
+      <div class="title">{{ card_title|raw }}</div>
+    {% endif %}
+    <div class="grid-item--content">
+      {{ content.field_3_col_card_image }}
+      {{ content.field_3_col_card_icon }}
+      <div class="body">
+        {{ content.field_3_col_card_text }}
+      </div>
+    </div>
+  </div>
+</div>

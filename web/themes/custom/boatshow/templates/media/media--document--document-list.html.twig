@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'media',
+    'media--type-' ~ bundle|replace('_','-'),
+    'media--view-mode-' ~ view_mode|replace('_','-'),
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  {{ title_suffix.contextual_links }}
+  {% if content %}
+    {{ content }}
+  {% endif %}
+  <div class="media-content">
+    <a href="{{media_file_url}}" target="_blank" class="document-filetype">
+      <span class="sr-only">{{ file_filemime }}</span>
+    </a>
+    <a href="{{media_file_url}}" target="_blank" class="document-text">
+      <h4 class="document-label">{{ name }}</h4>
+      {% if description is defined %}
+        <div class="document-description">{{ description }}</div>
+      {% endif %}
+      <div class="document-filesize">{{ file_filesize_human }}</div>
+    </a>
+    <a href="{{media_download_url}}" class="document-download-button" target="_blank">
+      <span class="sr-only">{{'Download'|t}}</span>
+    </a>
+  </div>
+</article>

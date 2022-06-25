@@ -1,0 +1,73 @@
+fonts:
+  version: 1.0.0
+  css:
+    theme:
+      '//fonts.googleapis.com/css?family=Open+Sans:400,700,300': {type: external} # external font
+fontawesome:
+  version: 4.7.0
+  css:
+    component:
+      '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css': {type: external}
+default_global_styles:
+  version: 1.0.0
+  css:
+    theme:
+      assets-dist/css/styles.css: {}
+javascript:
+  version: 1.0.0
+  js:
+    assets-dist/js/header.js: {}
+    assets-dist/js/object-fit-init.js: {}
+    assets-dist/js/advertisements.js: {}
+    assets-dist/js/featuresFilter.js: {}
+    assets-dist/js/carousel.js: {}
+    assets-dist/js/newsletter.js: {}
+    assets-dist/js/getting-to-the-show.js: {}
+    assets-dist/js/seminarview.js: {}
+    assets-dist/js/seniority-points.js: {}
+    assets-dist/js/read-more.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+    - core/jquery.cookie
+    - core/jquery.ui
+    - boatshow/responsive_image_polyfills
+
+faq_list:
+  js:
+    assets-dist/js/faq.js: {}
+
+slick_carousel:
+  js:
+    ../../../libraries/slick-carousel/slick/slick.min.js: {}
+  css:
+    theme:
+      ../../../libraries/slick-carousel/slick/slick.css: {}
+  dependencies:
+    - core/jquery
+
+countdown_timer:
+  js:
+    js/libraries/jCountdown/jquery.jcountdown.min.js: {minified: external}
+    assets-dist/js/countdown.js: {}
+  dependencies:
+    - core/jquery
+
+# object fit and srcset polyfills
+responsive_image_polyfills:
+  js:
+    ../../../libraries/object-fit-images/dist/ofi.min.js: {}
+    ../../../libraries/picturefill/dist/picturefill.min.js: {}
+
+#
+# City site-specific libraries
+# Overridden by boatshow_library_info_alter
+#
+city_stylesheet:
+  version: 1.0.0
+  css:
+    theme:
+      assets-dist/css/styles.css: {}

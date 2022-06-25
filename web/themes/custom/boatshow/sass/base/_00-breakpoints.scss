@@ -1,0 +1,200 @@
+
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+
+@mixin media-breakpoint-up($size) {
+  @if      ($size == "sm") {
+    @media (min-width: $screen-sm) { @content; }
+  }
+  @else if ($size == "md") {
+    @media (min-width: $screen-md) { @content; }
+  }
+  @else if ($size == "lg") {
+    @media (min-width: $screen-lg) { @content; }
+  }
+  @else if ($size == "xl") {
+    @media (min-width: $screen-xl) { @content; }
+  }
+}
+
+@mixin media-breakpoint-down($size) {
+  @if      ($size == "sm") {
+    @media (max-width: $screen-sm - 1px) { @content; }
+  }
+  @else if ($size == "md") {
+    @media (max-width: $screen-md - 1px) { @content; }
+  }
+  @else if ($size == "lg") {
+    @media (max-width: $screen-lg - 1px) { @content; }
+  }
+  @else if ($size == "xl") {
+    @media (max-width: $screen-xl - 1px) { @content; }
+  }
+}
+
+@mixin media-breakpoint-only($size) {
+  @if      ($size == "xs") {
+    @media (max-width: $screen-sm - 1px) { @content; }
+  }
+  @else if ($size == "sm") {
+    @media (min-width: $screen-sm) and (max-width: $screen-md - 1px) { @content; }
+  }
+  @else if ($size == "md") {
+    @media (min-width: $screen-md) and (max-width: $screen-lg - 1px) { @content; }
+  }
+  @else if ($size == "lg") {
+    @media (min-width: $screen-lg) and (max-width: $screen-xl - 1px) { @content; }
+  }
+}
+
+.screen-sm-only,
+.screen-md-only,
+.screen-lg-only,
+.screen-xl-only {
+  display: none;
+}
+
+.screen-sm-up,
+.screen-md-up,
+.screen-lg-up,
+.screen-xl-up {
+  display: none;
+}
+
+//
+// Responsive breakpoints
+//
+
+// Mobile and Above: > 576px
+
+@include media-breakpoint-up(sm) {
+  .screen-xs-only {
+    display: none;
+  }
+
+  .screen-sm-up {
+    display: block;
+
+    &.flex {
+      display: flex;
+    }
+  }
+
+  .screen-sm-up-hidden {
+    display: none;
+  }
+}
+
+// Mobile Only: 576px - 767px
+
+@include media-breakpoint-only(sm) {
+  .screen-sm-only {
+    display: block;
+
+    &.flex {
+      display: flex;
+    }
+  }
+
+  .screen-sm-only-hidden {
+    display: none;
+  }
+}
+
+// Tablet and Above: > 768px
+
+@include media-breakpoint-up(md) {
+  .screen-xs-only {
+    display: none;
+  }
+
+  .screen-md-up {
+    display: block;
+
+    &.flex {
+      display: flex;
+    }
+  }
+
+  .screen-md-up-hidden {
+    display: none;
+  }
+}
+
+// Tablet Only: 768px - 991px
+
+@include media-breakpoint-only(md) {
+  .screen-md-only {
+    display: block;
+
+    &.flex {
+      display: flex;
+    }
+  }
+
+  .screen-md-only-hidden {
+    display: none;
+  }
+}
+
+// Desktop and Above: > 992px
+
+@include media-breakpoint-up(lg) {
+  .screen-xs-only {
+    display: none;
+  }
+
+  .screen-lg-up {
+    display: block;
+
+    &.flex {
+      display: flex;
+    }
+  }
+
+  .screen-lg-up-hidden {
+    display: none;
+  }
+}
+
+// Desktop Only: 992px - 1199px
+
+@include media-breakpoint-only(lg) {
+  .screen-lg-only {
+    display: block;
+
+    &.flex {
+      display: flex;
+    }
+  }
+
+  .screen-lg-only-hidden {
+    display: none;
+  }
+}
+
+// Large and Above: > 1200px
+
+@include media-breakpoint-up(xl) {
+  .screen-xl-only {
+    display: block;
+
+    &.flex {
+      display: flex;
+    }
+  }
+
+  .screen-xl-up {
+    display: block;
+
+    &.flex {
+      display: flex;
+    }
+  }
+
+  .screen-xl-up-hidden {
+    display: none;
+  }
+}

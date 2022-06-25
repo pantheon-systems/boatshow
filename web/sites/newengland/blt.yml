@@ -1,0 +1,14 @@
+project:
+  local:
+    hostname: local.newenglandboatshow.com
+    protocol: https
+  machine_name: newengland
+  human_name: newengland
+drush:
+  aliases:
+    local: self
+    remote: newengland.dev2
+cm:
+  allow-overrides: false
+  # Possible values: core-only, config-split, features, none.
+  strategy: none

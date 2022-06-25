@@ -1,0 +1,38 @@
+{% set classes = [
+'node',
+'node--type-' ~ node.bundle|clean_class,
+view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+] %}
+<div class="container">
+<article {{ attributes.addClass(classes) }}>
+  {{ content.addtoany }}
+  <header>
+    {{ title_prefix }}
+    <h1 class="headline-effect-city-color">{{ label }}</h1>
+    {{ title_suffix }}
+
+    <div class="submitted">
+      {{ node.created.value|date('n/j/Y') }}
+    </div>
+
+    {% if content.field_article_category.0 %}
+    <div class="article-cat"> | {{ content.field_article_category }}</div>
+    {% endif %}
+
+  </header>
+
+  <div class="content">
+    {{ content.field_video_url }}
+    {{ content.field_article_image }}
+    {{ content.field_article_body }}
+    {% if read_more_url %}
+      <p><a href="{{read_more_url}}" target="_blank">Click Here to View Details</a></p>
+    {% endif %}
+    {{ content.field_contacts }}
+  </div>
+
+<!-- /content -->
+
+</article>
+<!-- /article #node -->
+</div>

@@ -1,0 +1,250 @@
+/////////////////////////
+/// City Variables
+/////////////////////////
+$city-color-primary: magenta !default;
+$city-color-secondary: magenta !default;
+$city-color-tertiary: $city-color-secondary !default;
+
+///////////////////////////
+// Fonts
+// Font variables with semantic names related to their purpose
+///////////////////////////
+$font-primary: 'CircularStd', 'Helvetica', sans-serif !default;
+$font-headings: $font-primary !default;
+
+///////////////////////////
+// Color Names
+// These have no semantic value and should only be used to populate other variables
+///////////////////////////
+
+// Template grays
+$colorname-black: #000 !default;
+$colorname-gray-darkest: #1c1b1f !default;
+$colorname-gray-dark: #303b41 !default;
+$colorname-dark-gray: lighten($colorname-black, 20%) !default; // #333333;
+$colorname-gray-emperor: #5f5f5f !default;
+$colorname-med-gray: lighten($colorname-black, 40%) !default; // #666666;
+$colorname-gray-unleaded: #7f7f7f !default;
+$colorname-gray-oslo: #979da0 !default;
+$colorname-gray-medium: #a2a2a2 !default;
+$colorname-miami-gray: #4d4d4d !default;
+$colorname-gray-chateau: #a3a9ac !default;
+$colorname-light-gray: lighten($colorname-black, 70%) !default; // #b3b3b3;
+$colorname-gray-silver-sand-alt: #bdc2c7 !default;
+$colorname-gray-silver-sand: #c0c4c6 !default;
+$colorname-gray-iron: #d6d8d9 !default;
+$colorname-gray: #d8d8d8 !default;
+$colorname-lighter-gray: #e7e5e5 !default;
+$colorname-gray-wild-sand: #f5f5f5 !default;
+$colorname-off-white: lighten($colorname-black, 97%) !default; // #f7f7f7;
+$colorname-white: #fff !default;
+
+
+// Other colors
+$colorname-alizarin-red: #e61b3a !default;
+$colorname-confetti-yellow: #e8ed57 !default;
+$colorname-picton-blue: #1fb9eb !default;
+$colorname-aqua: #00a4c6 !default;
+$colorname-blue: #004e9c !default;
+$colorname-monza-red: #d90a0a !default;
+
+///////////////////////////
+// Colors
+// Color variables with semantic names related to their purpose
+///////////////////////////
+
+// Utility color variables ///////////////
+$color-text: $colorname-miami-gray !default;
+$color-text-inverted: $colorname-white !default;
+$color-headings: $color-text !default;
+$color-links: $city-color-secondary !default;
+$color-links-icon: $city-color-primary !default;
+
+// Colors - General
+$color-header-bg: rgba($colorname-black, 0.4) !default;
+
+// Slabs
+$color-slab-white: $colorname-white !default;
+$color-slab-white-transparency: rgba($colorname-white, 0.8) !default;
+$color-slab-light-gray: $colorname-gray-wild-sand !default;
+$color-slab-dark-gray: $colorname-gray-emperor !default;
+$color-slab-city-primary: rgba($city-color-primary, 0.8) !default;
+$color-slab-city-secondary: rgba($city-color-secondary, 0.8) !default;
+$color-slab-city-tertiary: rgba($city-color-tertiary, 0.8) !default;
+
+// Colors - Forms
+$color-status-error: $colorname-monza-red !default;
+
+$color-form-text-disabled: $colorname-gray-silver-sand !default;
+$color-form-text-placeholder: $colorname-gray-oslo !default;
+
+// Transition animations
+$transition-speed: 0.3s;
+$transition-style: ease-in-out;
+
+// Button Variables
+$button-border-radius: 5px !default;
+$button-border-width: 2px !default;
+
+$color-button-primary-fill: $city-color-primary !default;
+$color-button-primary-text: $colorname-white !default;
+$color-button-primary-border: $colorname-white !default;
+
+$color-button-secondary-fill: transparent !default;
+$color-button-secondary-text: $city-color-primary !default;
+// TODO: Make a color var for this gray.
+$color-button-secondary-border: $city-color-primary !default;
+
+$color-button-clear-fill: transparent !default;
+$color-button-clear-text: $colorname-white !default;
+$color-button-clear-border: $colorname-white !default;
+
+$color-button-hero-fill: rgba(0, 0, 0, 0.1) !default;
+$color-button-hero-text: $colorname-white !default;
+$color-button-hero-border: $colorname-white !default;
+
+$color-button-disabled-fill: $colorname-gray-iron !default;
+$color-button-disabled-text: $colorname-gray-chateau !default;
+$color-button-disabled-border: transparent !default;
+
+// Input Variables
+$color-input-default-fill: $colorname-white !default;
+$color-input-default-text: $colorname-gray-dark !default;
+$color-input-default-border: $colorname-gray !default;
+$color-input-default-border-focus: $colorname-aqua !default;
+$color-input-default-border-error: $color-status-error !default;
+
+$color-input-submittable-fill: $colorname-white !default;
+$color-input-submittable-text: $color-form-text-placeholder !default;
+$color-input-submittable-border: $city-color-primary !default;
+
+$color-input-submittable-clear-fill: transparent !default;
+$color-input-submittable-clear-border: $colorname-gray !default;
+
+$color-input-disabled-fill: $colorname-white !default;
+$color-input-disabled-border: $colorname-gray !default;
+
+// Rules
+$color-rules: rgba($colorname-black, 0.5);
+$color-rules-inverted: rgba($colorname-white, 0.5);
+
+// Font Sizes
+$font-size-breakpoint-main: md !default;
+$font-line-height-standard: 1.6em !default;
+
+$font-size-body-copy: 16px !default;
+$font-size-body-copy-small: 14px !default;
+$font-size-body-copy-xsmall: 12px !default;
+
+$font-size-h1: rem-calc(40px) !default;
+$font-size-h1-small: rem-calc(18px) !default;
+
+$font-size-h2: rem-calc(35px) !default;
+$font-size-h2-small: rem-calc(28px) !default;
+
+$font-size-h3: rem-calc(30px) !default;
+$font-size-h3-small: rem-calc(20px) !default;
+
+$font-size-h4: rem-calc(20px) !default;
+$font-size-h4-small: rem-calc(18px) !default;
+
+$font-size-h5: rem-calc(18px) !default;
+$font-size-h5-small: rem-calc(14px) !default;
+
+$font-size-h6: rem-calc(18px) !default;
+$font-size-h6-small: rem-calc(14px) !default;
+
+$font-size-article-headline: 16px !default;
+$font-size-article-headline-small: 14px !default;
+$font-size-article-headline-xsmall: 10px !default;
+
+$font-size-quote: 24px !default;
+
+$font-size-button: 16px !default;
+$font-size-button-small: 13px !default;
+$font-size-button-xsmall: 12px !default;
+
+$font-size-input: 10px !default;
+$font-size-input-large: 12px !default;
+$font-size-input-xlarge: 14px !default;
+
+$font-weight-thin: 400 !default;
+$font-weight-light: 400 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 800 !default;
+
+// Dimensions
+
+$dimension-button-width: 242px !default;
+
+$dimension-button-height: 52px !default;
+$dimension-button-height-small: 44px !default;
+$dimension-button-height-xsmall: 36px !default;
+
+$dimension-input-height: 36px !default;
+$dimension-input-height-large: 46px !default;
+$dimension-input-height-xlarge: 56px !default;
+
+$site-maxout-width: 1600px !default;
+
+$dimension-vertical-rhythm-elements: 30px !default;
+$dimension-vertical-rhythm-sections: 45px !default;
+
+/// Brick: Card
+$dimension-card-padding: 30px !default;
+$dimension-section-vertical-padding: $dimension-vertical-rhythm-sections !default;
+$dimension-section-horizontal-padding: $dimension-section-vertical-padding !default;
+$brick-card-aspect-ratio: 16 / 9 !default;
+$brick-card-icon-color: $city-color-primary !default;
+$brick-card-icon-size: 60px !default;
+
+/// Brick: Card CTA
+$brick-card-cta-aspect-ratio: 4 / 3 !default;
+$brick-card-cta-header-padding: 15px !default;
+
+/// Speakers
+$speaker-image-aspect-ratio: 4/3 !default;
+
+/// Site Header
+$site-header-z-index-base: 99 !default;
+$site-header-breakpoint-main: lg !default;
+$main-navigation-item-padding-mobile: 20px !default;
+$main-navigation-item-gutter-mobile: 30px !default; //todo: match grid
+
+// Buttons in the header or footer
+$header-footer-button-font-size: 15px;
+
+// Effect: Contrast Headline
+$headline-effect-thickthin-weight-thin: $font-weight-normal !default;
+$headline-effect-thickthin-weight-thick: $font-weight-bold !default;
+$headline-effect-thickthin-color: $city-color-primary !default;
+
+// Contextual links
+$context-btn-bg-color: $city-color-secondary !default;
+$context-btn-fg-color: $color-text-inverted !default;
+$context-btn-border-color: $color-text-inverted !default;
+$context-show-links: true !default;
+
+// Masthead Settings
+$masthead-min-height: 515px !default;
+
+// Footer
+$footer-social-icon-size: 48px !default;
+$footer-social-icon-spacing: 20px !default;
+$footer-social-icon-color-foreground-default: $colorname-white !default;
+$footer-social-icon-color-background-default: transparent !default;
+$footer-social-icon-color-foreground-hover: $colorname-white !default;
+$footer-social-icon-color-background-hover: $city-color-primary !default;
+
+// Getting to the show
+$map-marker-text-color: $city-color-primary !default;
+$arrival-location-icon-color: $city-color-primary !default;
+
+// Seminar filter display
+$seminar-filter--hide-class-type: false !default;
+$seminar-filter--hide-date: false !default;
+$seminar-filter--hide-topic: false !default;
+$seminar-filter--hide-speaker: false !default;
+$seminar-filter--hide-level: false !default;

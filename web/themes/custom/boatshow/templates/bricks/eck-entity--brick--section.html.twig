@@ -1,0 +1,32 @@
+{% if 'contract' in container_type  %}
+<div class="container">
+{% endif %}
+
+<section {{ attributes }}>
+  {{ context_links }}
+
+  {% if brick_background_image is not empty %}
+  <div class="brick--background-image">
+    {{ brick_background_image }}
+  </div>
+  {% endif %}
+
+  {% if container_type == 'expand' %}
+  <div class="container">
+  {% endif %}
+
+    <div class="brick--fields">
+      {{ content|without('childs')}}
+    </div>
+    <div class="brick--children">
+      {{ content.childs }}
+    </div>
+
+  {% if container_type == 'expand' %}
+  </div>
+  {% endif %}
+</section>
+
+{% if 'contract' in container_type %}
+</div>
+{% endif %}

@@ -1,0 +1,466 @@
+.section-vertical-padding-top {
+  padding-top: $dimension-section-vertical-padding;
+}
+
+.section-vertical-padding-bottom {
+  padding-bottom: $dimension-section-vertical-padding;
+}
+
+.section-vertical-padding-both {
+  @extend .section-vertical-padding-top;
+  @extend .section-vertical-padding-bottom;
+}
+
+.brick--type--section {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+  &.container-type--expand {
+    max-width: $site-maxout-width;
+  }
+
+  &.container-type--contract-more {
+    max-width: 1000px;
+  }
+
+  @include media-breakpoint-up('sm') {
+    &.container-type--contract,
+    &.container-type--contract-more {
+      padding-right: $dimension-section-horizontal-padding;
+      padding-left: $dimension-section-horizontal-padding;
+    }
+  }
+
+  @include media-breakpoint-down('sm') {
+    &.container-type--contract,
+    &.container-type--contract-more {
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+  }
+}
+
+.brick--background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  & > img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @include object-fit-cover;
+  }
+}
+
+.brick--type--card {
+
+  // Aspect ratio trick for image
+  .field--name-field-media {
+    width: 100%;
+
+    & > article {
+      width: 100%;
+      padding-top: 100% / $brick-card-aspect-ratio;
+      position: relative;
+    }
+
+    & > article > .field--name-image,
+    & > article > .field--name-image > img {
+      height: 100%;
+      width: 100%;
+    }
+
+    & > article > .field--name-image > img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include object-fit-cover;
+    }
+
+  }
+
+  .card-header {
+    display: block; //Sometimes this is an <a> element
+    position: relative;
+
+    & .icon-markup {
+      color: $brick-card-icon-color;
+      font-size: $brick-card-icon-size;
+      line-height: 1;
+      display: inline-block;
+
+      &::before {
+        color: inherit; //override a nasty global color setting of i::before
+      }
+    }
+  }
+
+  // Has icon but no media
+  &.has-icon:not(.has-media) {
+    & .card-header {
+      text-align: center;
+      padding-top: $dimension-card-padding / 2;
+
+      @include media-breakpoint-up('sm') {
+        padding-top: 20px;
+      }
+    }
+
+    & .card-body {
+      padding-top: $dimension-card-padding / 2;
+
+      @include media-breakpoint-up('sm') {
+        padding-top: 20px;
+      }
+    }
+  }
+
+  // Has icon and media
+  &.has-media.has-icon .card-header {
+    & .icon-markup {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+
+  .card-body {
+    //todo: this may need a class to control it, as some cards are left-aligned (e.g. on hotels page)
+    text-align: center;
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  // Padding on body for cards with backgrounds (we assume these need to stand out somewhat)
+  &.has-background-color .card-body {
+    padding: $dimension-card-padding / 2;
+
+    @include media-breakpoint-up('sm') {
+      padding: $dimension-card-padding;
+    }
+  }
+
+  // Apply button style to link
+  .field--name-field-link {
+    margin-top: 20px; //DQA
+  }
+  .field--name-field-link > a {
+    @include button--secondary;
+  }
+}
+
+.brick--type--card-cta {
+  & .card-cta-header {
+    @include slab-inverted;
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-top: 100% / $brick-card-cta-aspect-ratio;
+
+    & > img {
+      @include object-fit-cover;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+    }
+
+    // gradient effect
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 75%;
+      background-image: linear-gradient(to top, rgba($city-color-primary, 1) 0%, rgba($city-color-primary, 0) 100%);
+      z-index: 2;
+      clip-path: polygon(0% 100%, 0% 84%, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    & > .headline {
+      box-sizing: border-box;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      padding: $brick-card-cta-header-padding;
+      text-align: center;
+      z-index: 3;
+    }
+  }
+
+  & .card-cta-body {
+    @include slab-white;
+    text-align: center;
+    padding: $dimension-card-padding;
+  }
+
+  & .field--name-field-link a {
+    @include button--secondary;
+  }
+}
+
+/////////////////////////
+/// MASTHEAD BRICK
+/////////////////////////
+
+$dimension-masthead-y-padding: $dimension-card-padding * 1.5 !default;
+$dimension-masthead-x-padding: 0 !default;
+$dimension-masthead-min-height: 515px !default;
+$dimension-masthead-vertical-pull: .40 * $dimension-masthead-min-height !default;
+
+.brick--type--masthead {
+  max-width: $site-maxout-width;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  min-height: 150px;
+
+  @include media-breakpoint-up(md) {
+    min-height: 400px;
+
+    &:not(.has-page-title) > .container {
+      padding-top: 250px;
+    }
+  }
+
+  > .container {
+    position: relative;
+    z-index: 12;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 0;
+
+    @media (min-width: $screen-sm) {
+      padding: $dimension-masthead-y-padding $dimension-masthead-x-padding;
+      padding-top: 120px;
+    }
+  }
+
+  >.brick--background-image {
+    position: relative;
+    height: 41vw;
+
+    @media (min-width: $screen-sm) {
+      position: absolute;
+      height: 100%;
+    }
+  }
+
+  //
+  // In order for the page title to behave consistently between mobile
+  // and desktop designs, it has to be positioned absolute
+  // to the background image brick.
+  //
+  // Padding (above: .has-page-title) occupies space on larger screens.
+  //
+
+  .page-title {
+    @include headline-effect-labelmaker;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    z-index: 14;
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+    top: 70px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    @media (min-width: $screen-sm) {
+      position: relative;
+      padding: 45px 0;
+      transform: translateX(-50%);
+      top: 0;
+    }
+
+    span {
+      padding-right: 1em;
+      padding-left: 1em;
+    }
+  }
+  .brick--children {
+    width: 100%;
+  }
+
+  &.vertical-pull {
+
+    @media (min-width: $screen-sm) {
+      margin-bottom: -1 * $dimension-masthead-vertical-pull;
+
+      >.container {
+        padding-bottom: $dimension-masthead-vertical-pull + $dimension-masthead-y-padding;
+      }
+
+      + .container {
+        .brick:first-child {
+          z-index: 100; // keep next child above the masthead Z
+        }
+      }
+    }
+  }
+
+  &.vertical-push {
+    margin-bottom: $dimension-masthead-vertical-pull;
+  }
+}
+
+// This is only displayed in the "download list" brick currently, so we keep it in this file
+$document-list-icon-size: 1.15em !default;
+$document-list-icon-container-size: 1.5em !default;
+$document-list-icon-top-adjust: 0.3em !default;
+
+.media--view-mode-document-list {
+  line-height: 1.2;
+
+  & .media-content {
+    display: flex;
+    justify-content: flex-start;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: $city-color-primary;
+      }
+    }
+    .document-filetype,
+    .document-download-button {
+      flex: 0 1 $document-list-icon-container-size;
+      width: $document-list-icon-container-size;
+      position: relative;
+      top: $document-list-icon-top-adjust;
+      text-align: left;
+    }
+    .document-text {
+      flex: 1 0 auto;
+      max-width: 85%;
+    }
+  }
+
+  // Document Icons
+
+  & .document-filetype:before {
+    @include fa-icon;
+    font-size: $document-list-icon-size;
+    content: $fa-var-file-o;
+    color: $color-text;
+  }
+
+  &.document-list-icon-pdf .document-filetype:before {
+    content: $fa-var-file-pdf-o;
+    color: $bc-adobe; //adobe acrobat
+  }
+
+  &.document-list-icon-excel .document-filetype:before {
+    content: $fa-var-file-excel-o;
+    color: $bc-microsoft-2;
+  }
+
+  &.document-list-icon-word .document-filetype:before {
+    content: $fa-var-file-word-o;
+    color: $bc-microsoft-3;
+  }
+
+  &.document-list-icon-powerpoint .document-filetype:before {
+    content: $fa-var-file-powerpoint-o;
+    color: $bc-microsoft;
+  }
+
+  &.document-list-icon-zip .document-filetype:before {
+    content: $fa-var-file-zip-o;
+  }
+
+  // Download Icon
+  & .document-download-button {
+    text-align: right;
+
+    @media (min-width: $screen-sm) {
+      // Provide some virtual spacing between columns
+      text-align: left;
+      width: 75px;
+      padding-left: 10px;
+    }
+
+    &:before {
+      @include fa-icon;
+      font-size: $document-list-icon-size;
+      content: $fa-var-download;
+      color: inherit;
+    }
+  }
+
+  & .document-label,
+  & .document-filesize {
+    font-weight: inherit;
+    font-size: 1em;
+  }
+
+  & .document-label {
+    color: inherit;
+    padding: 0;
+  }
+
+  & .document-filesize,
+  & .document-description {
+    color: inherit;
+    margin-top: -0.2em;
+    font-size: 0.9em;
+  }
+}
+
+.brick--type--document-list {
+  margin-bottom: $dimension-vertical-rhythm-elements;
+
+  // The headline
+  & > h3 {
+    padding: 0;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+  }
+
+  // The list items
+  .field--name-field-media-unlimited.field__items > .field__item {
+    margin-bottom: 1em;
+    font-size: 14px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.field--name-field-3-col-card-image  {
+  .field--name-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-top: 100% / $brick-card-cta-aspect-ratio;
+
+    & > img {
+      @include object-fit-cover;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

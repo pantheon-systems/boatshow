@@ -1,0 +1,205 @@
+.region-footer {
+  margin-top: 40px;
+
+  .button {
+    font-size: $header-footer-button-font-size;
+  }
+
+  .field--type-bricks {
+    width: 100%;
+    // Footer content.
+    .nmma-layout {
+      &.four-column {
+        flex-wrap: inherit;
+        @include media-breakpoint-down(lg) {
+          column-count: 2;
+          display: block;
+          .column-item {
+            width: 100%;
+          }
+        }
+        @include media-breakpoint-down(sm) {
+          flex-direction: column;
+          display: flex;
+        }
+        .column-item {
+          margin-bottom: 20px;
+          &:first-child {
+            img {
+              width: 242px;
+            }
+          }
+
+          @include media-breakpoint-up(xl) {
+            display: flex;
+            &:first-child {
+              min-width: 380px;
+            }
+            &:nth-child(3) {
+              min-width: 220px;
+            }
+            &:nth-child(2) {
+              min-width: 180px;
+            }
+            &:last-child {
+              min-width: 380px;
+              .brick {
+                justify-content: flex-end;
+                display: flex;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ul {
+    @extend .no-ul-list;
+  }
+}
+
+.region-footer {
+    a:not([class*="button"]) {
+      text-decoration: underline;
+    }
+
+  .sponsors-block {
+    margin: 70px 0 60px;
+    text-align: center;
+    a {
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+    .featured-text,
+    .grid-text {
+      width: 100%;
+      float: left;
+      font-size: 20px;
+      font-weight: $font-weight-light;
+      color: $colorname-black;
+    }
+    .featured-logo {
+      margin: 25px 0 65px;
+    }
+    a.sponsor-link {
+      display: inline-block;
+    }
+    img.sponsor-logo {
+      display: inline-block;
+      margin: 25px 15px 0;
+    }
+  }
+
+  .brick {
+    width: 100%;
+    ul {
+      li,
+      label {
+        color: $colorname-white;
+        font-size: 14px;
+        display: block;
+        line-height: 1.2;
+        margin: 0;
+        font-weight: $font-weight-light;
+        // TODO: :first-child here replaces the .first class. If we ever
+        // get a chance to do some housekeeping we should remove it (and
+        // the .proxi-bold class it's paired with) from the template.
+        &:first-child {
+          font-weight: $font-weight-bold;
+        }
+      }
+      margin-top: 30px;
+    }
+    input[type='checkbox'] {
+      float: left;
+      margin: 1px 5px 1px 0px;
+    }
+
+  }
+
+  .special-brick-signup-socials {
+    text-align: left;
+
+    @media (min-width: $screen-lg) {
+      text-align: center;
+    }
+  }
+
+  .footer-social {
+    & {
+      margin-top: 20px;
+    }
+
+    & ul,
+    & ul > li {
+      // Reset List Styles
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    & ul {
+      margin-top: 0;
+      display: block;
+      margin-left: $footer-social-icon-spacing / -2;
+      margin-right: $footer-social-icon-spacing / -2;
+    }
+
+    & ul > li {
+      display: inline-block;
+      margin: 0 $footer-social-icon-spacing / 2;
+    }
+
+    & ul > li > a {
+      display: flex; // Flex magic to center the icon
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      height: $footer-social-icon-size;
+      width: $footer-social-icon-size;
+
+      color: $footer-social-icon-color-foreground-default;
+      background-color: $footer-social-icon-color-background-default;
+
+      transition: all $transition-speed $transition-style;
+
+      &::after {
+        @include fa-icon;
+        color: inherit;
+        transition: all $transition-speed $transition-style;
+        font-size: $footer-social-icon-size * 0.75;
+      }
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+
+      // Icons are selected based on the URL of the link. If this doesn't prove to be usable, we can switch to manually managed class names.
+      &[href*="facebook"]::after {
+        content: $fa-var-facebook;
+      }
+
+      &[href*="twitter"]::after {
+        content: $fa-var-twitter;
+      }
+
+      &[href*="instagram"]::after {
+        content: $fa-var-instagram;
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: 45px;
+    color: $colorname-white;
+    font-weight: $font-weight-light;
+    font-size: 14px;
+    a {
+      text-decoration: underline;
+    }
+  }
+}

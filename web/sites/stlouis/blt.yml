@@ -1,0 +1,14 @@
+project:
+  local:
+    hostname: local.stlouisboatshow.com
+    protocol: https
+  machine_name: stlouis
+  human_name: stlouis
+drush:
+  aliases:
+    local: self
+    remote: stlouis.dev2
+cm:
+  allow-overrides: false
+  # Possible values: core-only, config-split, features, none.
+  strategy: none

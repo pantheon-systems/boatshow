@@ -1,0 +1,214 @@
+////////////////////
+/// Borders Mixins
+////////////////////
+@mixin borders-reset {
+  border: none;
+}
+@mixin borders-white {
+  border: 1px solid $color-slab-white;
+}
+@mixin borders-white-transparency {
+  border: 1px solid $color-slab-white-transparency;
+}
+@mixin borders-light-gray {
+  border: 1px solid $color-slab-light-gray;
+}
+@mixin borders-dark-gray {
+  border: 1px solid $color-slab-dark-gray;
+}
+@mixin borders-city-primary {
+  border: 1px solid $color-slab-city-primary;
+}
+@mixin borders-city-secondary {
+  border: 1px solid $color-slab-city-secondary;
+}
+@mixin borders-city-tertiary {
+  border: 1px solid $color-slab-city-tertiary;
+}
+
+////////////////////
+/// Borders Declarative Classes
+////////////////////
+.borders-white {
+  @include borders-white;
+}
+.borders-white-transparency {
+  @include borders-white-transparency;
+}
+.borders-light-gray {
+  @include borders-light-gray;
+}
+.borders-dark-gray {
+  @include borders-dark-gray;
+}
+.borders-city-primary {
+  @include borders-city-primary;
+}
+.borders-city-secondary {
+  @include borders-city-secondary;
+}
+.borders-city-tertiary {
+  @include borders-city-tertiary;
+}
+
+////////////////////
+/// Border Declarative Classes
+////////////////////
+// DMA
+// @mixin bordersSet() {
+//   & {
+//     &.has-borders {
+//       &.borders-white {
+//         @include borders-white;
+//       }
+//       &.borders-white-transparency {
+//         @include borders-white-transparency;
+//       }
+//       &.borders-light-gray {
+//         @include borders-light-gray;
+//       }
+//       &.borders-dark-gray {
+//         @include borders-dark-gray;
+//       }
+//       &.borders-city-primary {
+//         @include borders-city-primary;
+//       }
+//       &.borders-city-secondary {
+//         @include borders-city-secondary;
+//       }
+//       &.borders-city-tertiary {
+//         @include borders-city-tertiary;
+//       }
+//     }
+//   }
+// }
+
+
+
+
+////////////////////
+/// Slab Mixins
+////////////////////
+@mixin slab-reset {
+  background-color: transparent;
+}
+@mixin slab-white {
+  background-color: $color-slab-white;
+}
+
+@mixin slab-white-transparency {
+  background-color: $color-slab-white-transparency;
+}
+
+@mixin slab-light-gray {
+  background-color: $color-slab-light-gray;
+}
+
+@mixin slab-dark-gray {
+  background-color: $color-slab-dark-gray;
+}
+
+@mixin slab-city-primary {
+  background-color: $color-slab-city-primary;
+}
+
+@mixin slab-city-secondary {
+  background-color: $color-slab-city-secondary;
+}
+
+@mixin slab-city-tertiary {
+  background-color: $color-slab-city-tertiary;
+}
+
+@mixin slab-inverted {
+  &,
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6,
+  & .subheading * {
+    color: $color-text-inverted;
+  }
+
+  & a {
+    &,
+    &:hover,
+    &:focus {
+      color: $color-text-inverted;
+    }
+  }
+}
+@mixin slab-inverted-reset {
+  &,
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6,
+  & .subheading * {
+    color: $color-text;
+    text-shadow: none;
+  }
+
+  & a {
+    &,
+    &:hover,
+    &:focus {
+      color: $color-text;
+      box-shadow: none;
+    }
+  }
+}
+
+////////////////////
+/// Slab Declarative Classes
+////////////////////
+.slab-white {
+  @include slab-white;
+}
+
+.slab-white-transparency {
+  @include slab-white-transparency;
+}
+
+.slab-light-gray {
+  @include slab-light-gray;
+}
+
+.slab-dark-gray {
+  @include slab-dark-gray;
+}
+
+.slab-city-primary {
+  @include slab-city-primary;
+}
+
+.slab-city-secondary {
+  @include slab-city-secondary;
+}
+
+.slab-city-tertiary {
+  @include slab-city-tertiary;
+}
+
+[class~="slab-inverted"] {
+  @include slab-inverted;
+}
+
+////////////////////////////
+/// LEGACY SLAB NAMES - *-background
+////////////////////////////
+.gray-background {
+  @extend .slab-dark-gray;
+}
+
+.light-gray-background {
+  @extend .slab-light-gray;
+}
+
+.white-background {
+  @extend .slab-white;
+}

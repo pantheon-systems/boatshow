@@ -1,0 +1,25 @@
+<section class="section-header">
+  {{ title_prefix }}
+  {{ context_links }}
+  {% if content.field_brick_headline is not empty %}
+    <h2 class="small">{{ content.field_brick_headline }}</h2>
+  {% endif %}
+
+  {{ title_suffix }}
+
+  {% if content.field_brick_subhead is not empty %}
+    <p>{{ content.field_brick_subhead }}</p>
+  {% endif %}
+</section>
+
+<section class="grid">
+  <div class="content">
+    {{ content.field_brick_viewfield }}
+  </div>
+  {% if content.field_brick_link is not empty %}
+    <div class="grid-footer">
+      {{ content.field_brick_link }}
+    </div>
+  {% endif %}
+</section>
+

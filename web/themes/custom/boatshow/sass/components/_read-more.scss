@@ -1,0 +1,33 @@
+.content-mask {
+  padding-bottom: 10px;
+
+  .content-mask-inner {
+    overflow: hidden;
+    position: relative;
+
+    .content-mask-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 80px;
+      width: 100%;
+    }
+  }
+
+  &.expanded .content-mask-inner {
+    height: auto !important;
+
+    .content-mask-overlay {
+      background: none !important;
+    }
+  }
+}
+
+.read-more-button {
+  @include button--small;
+  min-width: 90px;
+  height: auto;
+  margin-top: 10px;
+  padding: 2px 8px;
+  line-height: inherit;
+}

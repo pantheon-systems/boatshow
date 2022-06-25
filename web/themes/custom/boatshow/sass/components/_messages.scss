@@ -1,0 +1,28 @@
+.drupal-messages {
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid white;
+
+  @include borderradius();
+
+  @extend .tmp-shadow;
+
+  ol {
+    @extend .no-ul-list;
+  }
+
+  &.messages--status {
+    background: $colorname-off-white;
+    color: $colorname-dark-gray;
+  }
+
+  &.messages--warning {
+    background: rgba($colorname-confetti-yellow, 0.3);
+    color: $colorname-dark-gray;
+  }
+
+  &.messages--error {
+    background: rgba($colorname-alizarin-red, 0.3);
+    color: $colorname-alizarin-red;
+  }
+}

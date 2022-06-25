@@ -1,0 +1,22 @@
+.node--type-media {
+  .node__content {
+    .field--type-video-embed-field {
+      &.field__item {
+        &:after {
+          content: '';
+          margin: 20px 0;
+          height: 6px;
+          background: #ededed;
+          position: relative;
+          width: 100%;
+          clear: both;
+          display: block;
+        }
+        .video-embed-field-responsive-video {
+          max-width: 580px;
+          margin: 60px auto 0;
+        }
+      }
+    }
+  }
+}

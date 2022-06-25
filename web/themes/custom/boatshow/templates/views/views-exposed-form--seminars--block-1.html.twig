@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Theme override of a views exposed form.
+ *
+ * Available variables:
+ * - form: A render element representing the form.
+ *
+ * @see template_preprocess_views_exposed_form()
+ */
+#}
+{% if q is not empty %}
+  {#
+    This ensures that, if clean URLs are off, the 'q' is added first,
+    as a hidden form element, so that it shows up first in the POST URL.
+  #}
+{{ q }}
+{% endif %}
+<div class="sem-filters clearfix">
+  <div class="topic-filters col-12-sm">
+     {{ form.field_topics_target_id }}
+  </div>
+  <div class="schedule-filters">
+    <div class="flex-container">
+      <div class="sem-date-filter col-6-sm col-12-xs">
+        {{ form.seminar_schedule }}
+      </div>
+      <div class="sem-speaker-filter col-6-sm col-12-xs">
+        <h4 class="filter-name">View Complete List of Speakers:</h4>
+        <a class="btn btn-default btn-action" href="/seminars-speakers" title="View All Speakers">
+            View All Speakers <i class="fa fa-angle-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  {{ form|without('field_topics_target_id', 'seminar_schedule') }}
+</div>
+// comment

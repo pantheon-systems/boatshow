@@ -1,0 +1,69 @@
+
+.teaser-block-type {
+  h2 {
+    font-size: 16px;
+    font-weight: $font-weight-bold;
+    color: $colorname-black;
+    line-height: 1.2;
+    text-align: left;
+    padding: 0;
+    margin: 0 0 15px 0;
+    width: 100%;
+  }
+  .image-wrap {
+    max-width: 100px;
+    margin-right: 15px;
+  }
+
+  .text-wrap {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    .field--name-body {
+      font-size: 13px;
+      font-weight: $font-weight-normal;
+      color: $colorname-black;
+      line-height: 1.2;
+      p {
+        margin: 0;
+      }
+      margin: 10px 0;
+    }
+    .field--name-field-link {
+      a {
+        font-size: 14px;
+        font-weight: $font-weight-semibold;
+        line-height: 1.2;
+        text-align: left;
+        text-transform: lowercase;
+        &::after {
+          @include fa-icon;
+          font-size: 10px;
+          content: $fa-var-chevron-right;
+          color: $city-color-primary;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  &.column {
+    .row {
+      flex-direction: column;
+      min-width: 200px;
+      .image-wrap {
+        max-width: 100%;
+        width: 100%;
+      }
+      .text-wrap {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Not sure this is the right place for this, but good enough for now.
+.block-page-title-block {
+  @include headline-effect-labelmaker;
+  text-align: center;
+}
