@@ -14,14 +14,21 @@ class GeolocationViewsCommonMapTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'node',
     'field',
     'views',
     'taxonomy',
     'geolocation',
     'geolocation_demo',
+    'geolocation_google_maps',
+    'geolocation_google_maps_demo',
   ];
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
 
   /**
    * Tests the boundary filter.

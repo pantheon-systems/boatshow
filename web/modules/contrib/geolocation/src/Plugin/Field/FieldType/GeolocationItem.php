@@ -7,6 +7,7 @@ use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\TypedData\DataDefinition;
 use Drupal\Core\TypedData\MapDataDefinition;
+use Drupal\geolocation\TypedData\GeolocationComputed;
 
 /**
  * Plugin implementation of the 'geolocation' field type.
@@ -97,6 +98,12 @@ class GeolocationItem extends FieldItemBase {
     $properties['data'] = MapDataDefinition::create()
       ->setLabel(t('Meta data'));
 
+    $properties['value'] = DataDefinition::create('string')
+      ->setLabel(t('Computed lat,lng value'))
+      ->setComputed(TRUE)
+      ->setInternal(FALSE)
+      ->setClass(GeolocationComputed::class);
+
     return $properties;
   }
 
@@ -104,8 +111,8 @@ class GeolocationItem extends FieldItemBase {
    * {@inheritdoc}
    */
   public static function generateSampleValue(FieldDefinitionInterface $field_definition) {
-    $values['lat'] = rand(-90, 90) - rand(0, 999999) / 1000000;
-    $values['lng'] = rand(-180, 180) - rand(0, 999999) / 1000000;
+    $values['lat'] = rand(-89, 90) - rand(0, 999999) / 1000000;
+    $values['lng'] = rand(-179, 180) - rand(0, 999999) / 1000000;
     return $values;
   }
 
@@ -116,21 +123,6 @@ class GeolocationItem extends FieldItemBase {
     $lat = $this->get('lat')->getValue();
     $lng = $this->get('lng')->getValue();
     return $lat === NULL || $lat === '' || $lng === NULL || $lng === '';
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setValue($values, $notify = TRUE) {
-    parent::setValue($values, $notify);
-
-    // If the values being set do not contain lat_sin, lat_cos or lng_rad,
-    // recalculate them.
-    if ((empty($values['lat_sin']) || empty($values['lat_cos']) || empty($values['lat_rad'])) && !$this->isEmpty()) {
-      $this->get('lat_sin')->setValue(sin(deg2rad(trim($this->get('lat')->getValue()))), FALSE);
-      $this->get('lat_cos')->setValue(cos(deg2rad(trim($this->get('lat')->getValue()))), FALSE);
-      $this->get('lng_rad')->setValue(deg2rad(trim($this->get('lng')->getValue())), FALSE);
-    }
   }
 
   /**
@@ -157,11 +149,39 @@ class GeolocationItem extends FieldItemBase {
   /**
    * {@inheritdoc}
    */
+  public function setValue($values, $notify = TRUE) {
+    parent::setValue($values, $notify);
+
+    // If the values being set do not contain lat_sin, lat_cos or lng_rad,
+    // recalculate them.
+    if (
+      (
+        empty($values['lat_sin'])
+        || empty($values['lat_cos'])
+        || empty($values['lat_rad'])
+      )
+      && !$this->isEmpty()
+    ) {
+      $this->get('lat_sin')->setValue(sin(deg2rad(trim($this->get('lat')->getValue()))), FALSE);
+      $this->get('lat_cos')->setValue(cos(deg2rad(trim($this->get('lat')->getValue()))), FALSE);
+      $this->get('lng_rad')->setValue(deg2rad(trim($this->get('lng')->getValue())), FALSE);
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function onChange($property_name, $notify = TRUE) {
     parent::onChange($property_name, $notify);
 
     // Update the calculated properties if lat or lng changed.
-    if ($property_name == 'lat' || $property_name == 'lng') {
+    if (
+      (
+        $property_name == 'lat'
+        || $property_name == 'lng'
+      )
+      && !$this->isEmpty()
+    ) {
       $this->get('lat_sin')->setValue(sin(deg2rad(trim($this->get('lat')->getValue()))), FALSE);
       $this->get('lat_cos')->setValue(cos(deg2rad(trim($this->get('lat')->getValue()))), FALSE);
       $this->get('lng_rad')->setValue(deg2rad(trim($this->get('lng')->getValue())), FALSE);
@@ -174,6 +194,78 @@ class GeolocationItem extends FieldItemBase {
   public function preSave() {
     $this->get('lat')->setValue(trim($this->get('lat')->getValue()));
     $this->get('lng')->setValue(trim($this->get('lng')->getValue()));
+  }
+
+  /**
+   * Transform sexagesimal notation to float.
+   *
+   * Sexagesimal means a string like - X° Y' Z"
+   *
+   * @param string $sexagesimal
+   *   String in DMS notation.
+   *
+   * @return float|false
+   *   The regular float notation or FALSE if not sexagesimal.
+   */
+  public static function sexagesimalToDecimal($sexagesimal = '') {
+    $pattern = "/(?<degree>-?\d{1,3})°[ ]?((?<minutes>\d{1,2})')?[ ]?((?<seconds>(\d{1,2}|\d{1,2}\.\d+))\")?/";
+    preg_match($pattern, $sexagesimal, $gps_matches);
+    if (
+    !empty($gps_matches)
+    ) {
+      $value = $gps_matches['degree'];
+      if (!empty($gps_matches['minutes'])) {
+        $value += $gps_matches['minutes'] / 60;
+      }
+      if (!empty($gps_matches['seconds'])) {
+        $value += $gps_matches['seconds'] / 3600;
+      }
+    }
+    else {
+      return FALSE;
+    }
+    return $value;
+  }
+
+  /**
+   * Transform decimal notation to sexagesimal.
+   *
+   * Sexagesimal means a string like - X° Y' Z"
+   *
+   * @param float|string $decimal
+   *   Either float or float-castable location.
+   *
+   * @return string
+   *   The sexagesimal notation or FALSE on error.
+   */
+  public static function decimalToSexagesimal($decimal = '') {
+    $negative = FALSE;
+    $decimal = (float) $decimal;
+
+    if ($decimal < 0) {
+      $negative = TRUE;
+      $decimal = abs($decimal);
+    }
+
+    $degrees = floor($decimal);
+    $rest = $decimal - $degrees;
+    $minutes = floor($rest * 60);
+    $rest = $rest * 60 - $minutes;
+    $seconds = round($rest * 60, 4);
+
+    $value = $degrees . '°';
+    if (!empty($minutes)) {
+      $value .= ' ' . $minutes . '\'';
+    }
+    if (!empty($seconds)) {
+      $value .= ' ' . $seconds . '"';
+    }
+
+    if ($negative) {
+      $value = '-' . $value;
+    }
+
+    return $value;
   }
 
 }

@@ -14,7 +14,7 @@ class GeolocationViewsProximityByEntityTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'node',
     'field',
     'views',
@@ -22,6 +22,11 @@ class GeolocationViewsProximityByEntityTest extends BrowserTestBase {
     'geolocation',
     'geolocation_demo',
   ];
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
 
   /**
    * Tests the proximity sort.

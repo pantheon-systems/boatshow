@@ -18,25 +18,45 @@ class GeolocationFieldTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = [
+  protected static $modules = [
     'field',
     'node',
     'taxonomy',
     'geolocation',
+    'geolocation_google_maps',
     'geolocation_demo',
   ];
 
+  /**
+   * {@inheritdoc}
+   */
   protected $field;
+
+  /**
+   * {@inheritdoc}
+   */
   protected $webUser;
+
+  /**
+   * {@inheritdoc}
+   */
   protected $articleCreator;
 
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected $defaultTheme = 'stark';
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUp(): void {
     parent::setUp();
 
-    $this->articleCreator = $this->drupalCreateUser(['create geolocation_default_article content', 'edit own geolocation_default_article content']);
+    $this->articleCreator = $this->drupalCreateUser([
+      'create geolocation_default_article content',
+      'edit own geolocation_default_article content',
+    ]);
     $this->drupalLogin($this->articleCreator);
   }
 
@@ -74,11 +94,11 @@ class GeolocationFieldTest extends BrowserTestBase {
     ];
 
     // Test if the raw lat, lng values are found on the page.
-    $this->drupalPostForm(NULL, $edit, t('Save'));
+    $this->submitForm($edit, t('Save'));
     $this->assertSession()->responseContains($lat);
     $this->assertSession()->responseContains($lng);
 
-    // TODO: Figure out the actually created NID instead of guessing.
+    // @todo Figure out the actually created NID instead of guessing.
     $this->drupalGet('node/101/edit');
 
     $this->assertSession()->responseContains(htmlspecialchars($lat_sexagesimal, ENT_QUOTES));
@@ -90,71 +110,9 @@ class GeolocationFieldTest extends BrowserTestBase {
     ];
 
     // Test if the raw lat, lng values are found on the page.
-    $this->drupalPostForm(NULL, $edit, t('Save'));
+    $this->submitForm($edit, t('Save'));
     $this->assertSession()->responseContains($lat);
     $this->assertSession()->responseContains($lng);
-  }
-
-  /**
-   * Helper function for testGeolocationField().
-   */
-  public function xxtestGeolocationFieldGeocoderWidgetEmptyRequired() {
-
-    EntityFormDisplay::load('node.geolocation_default_article.default')
-      ->setComponent('field_geolocation_demo_single', [
-        'type' => 'geolocation_googlegeocoder',
-      ])
-      ->save();
-
-    EntityViewDisplay::load('node.geolocation_default_article.default')
-      ->setComponent('field_geolocation_demo_single', [
-        'type' => 'geolocation_latlng',
-        'weight' => 1,
-      ])
-      ->save();
-
-    // Display creation form.
-    $this->drupalGet('node/add/geolocation_default_article');
-    $this->assertSession()->fieldExists("field_geolocation_demo_single[0][lat]");
-    $this->assertSession()->fieldExists("field_geolocation_demo_single[0][lng]");
-
-    $edit = [
-      'title[0][value]' => $this->randomMachineName(),
-    ];
-
-    $this->drupalPostForm(NULL, $edit, t('Save'));
-    $this->assertSession()->pageTextContains('No location has been selected yet for required field Geolocation');
-  }
-
-  /**
-   * Helper function for testGeolocationField().
-   */
-  public function xxtestGeolocationFieldHtml5WidgetEmptyRequired() {
-
-    EntityFormDisplay::load('node.geolocation_default_article.default')
-      ->setComponent('field_geolocation_demo_single', [
-        'type' => 'geolocation_html5',
-      ])
-      ->save();
-
-    EntityViewDisplay::load('node.geolocation_default_article.default')
-      ->setComponent('field_geolocation_demo_single', [
-        'type' => 'geolocation_latlng',
-        'weight' => 1,
-      ])
-      ->save();
-
-    // Display creation form.
-    $this->drupalGet('node/add/geolocation_default_article');
-    $this->assertSession()->fieldExists("field_geolocation_demo_single[0][lat]");
-    $this->assertSession()->fieldExists("field_geolocation_demo_single[0][lng]");
-
-    $edit = [
-      'title[0][value]' => $this->randomMachineName(),
-    ];
-
-    $this->drupalPostForm(NULL, $edit, t('Save'));
-    $this->assertSession()->pageTextContains('No location could be determined for required field Geolocation.');
   }
 
 }

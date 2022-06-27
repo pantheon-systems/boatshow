@@ -8,25 +8,26 @@ use Drupal\Core\Entity\Entity\EntityViewDisplay;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
 
 /**
- * Tests the Google Geocoder Token Formatter functionality.
+ * Tests the Token Formatter functionality.
  *
  * @group geolocation
  */
-class GeolocationTokenFormatterTest extends GeolocationGoogleJavascriptTestBase {
+class GeolocationTokenFormatterTest extends GeolocationJavascriptTestBase {
 
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'node',
     'field',
+    'filter',
     'geolocation',
   ];
 
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->drupalCreateContentType(['type' => 'article', 'name' => 'Article']);
@@ -46,7 +47,7 @@ class GeolocationTokenFormatterTest extends GeolocationGoogleJavascriptTestBase 
 
     EntityFormDisplay::load('node.article.default')
       ->setComponent('field_geolocation', [
-        'type' => 'geolocation_googlegeocoder',
+        'type' => 'geolocation_latlng',
       ])
       ->save();
 
@@ -79,22 +80,25 @@ class GeolocationTokenFormatterTest extends GeolocationGoogleJavascriptTestBase 
    * Tests the token formatter.
    */
   public function testGeocoderTokenizedTestReplacement() {
-    $this->drupalGetFilterGoogleKey('node/1');
+    $this->drupalGet('node/1');
     $this->assertSession()->responseContains('<span class="geolocation-latlng">52, 47</span>');
 
     EntityViewDisplay::load('node.article.default')
       ->setComponent('field_geolocation', [
         'type' => 'geolocation_token',
         'settings' => [
-          'tokenized_text' => '<h1 class="testingtitle">[geolocation_current_item:data:title]</h1><div class="testing">[geolocation_current_item:lat]/[geolocation_current_item:lng]</div>',
+          'tokenized_text' => [
+            'value' => 'Title: [geolocation_current_item:data:title] Lat/Lng: [geolocation_current_item:lat]/[geolocation_current_item:lng]',
+            'format' => filter_default_format(),
+          ],
         ],
         'weight' => 1,
       ])
       ->save();
 
-    $this->drupalGetFilterGoogleKey('node/1');
-    $this->assertSession()->responseContains('<div class="testing">52/47</div>');
-    $this->assertSession()->responseContains('<h1 class="testingtitle">My home</h1>');
+    $this->drupalGet('node/1');
+    $this->assertSession()->responseContains('Lat/Lng: 52/47');
+    $this->assertSession()->responseContains('Title: My home');
   }
 
 }

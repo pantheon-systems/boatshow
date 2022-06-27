@@ -14,7 +14,7 @@ class GeolocationViewsBoundaryTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'node',
     'field',
     'views',
@@ -31,9 +31,14 @@ class GeolocationViewsBoundaryTest extends BrowserTestBase {
   protected $viewsPath = 'geolocation-demo/boundary-filter-fixed-values';
 
   /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
+
+  /**
    * Tests the boundary filter.
    */
-  public function testProximityNoLocations() {
+  public function testBoundaryNoLocations() {
     $this->drupalGet($this->viewsPath);
     $this->assertSession()->statusCodeEquals(200);
   }

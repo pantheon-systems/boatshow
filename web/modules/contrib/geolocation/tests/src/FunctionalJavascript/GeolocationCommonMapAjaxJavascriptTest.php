@@ -13,17 +13,19 @@ use Drupal\Core\Entity\Entity\EntityFormDisplay;
  *
  * @group geolocation
  */
-class GeolocationCommonMapAjaxJavascriptTest extends GeolocationGoogleJavascriptTestBase {
+class GeolocationCommonMapAjaxJavascriptTest extends GeolocationJavascriptTestBase {
 
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'node',
+    'user',
     'field',
     'views',
     'views_test_config',
     'geolocation',
+    'geolocation_google_maps',
     'geolocation_test_views',
   ];
 
@@ -37,7 +39,7 @@ class GeolocationCommonMapAjaxJavascriptTest extends GeolocationGoogleJavascript
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->drupalCreateContentType(['type' => 'article', 'name' => 'Article']);
@@ -109,20 +111,20 @@ class GeolocationCommonMapAjaxJavascriptTest extends GeolocationGoogleJavascript
    * Tests the CommonMap style.
    */
   public function testCommonMap() {
-    $this->drupalGetFilterGoogleKey('geolocation-common-map-ajax-test');
+    $this->drupalGet('geolocation-common-map-ajax-test');
 
-    $this->assertSession()->elementExists('css', '.geolocation-common-map-container');
-    $this->assertSession()->elementExists('css', '.geolocation-common-map-locations');
+    $this->assertSession()->elementExists('css', '.geolocation-map-container');
+    $this->assertSession()->elementExists('css', '.geolocation-location');
 
     // If Google works, either gm-style or gm-err-container will be present.
-    $this->assertSession()->elementExists('css', '.geolocation-common-map-container [class^="gm-"]');
+    $this->assertSession()->elementExists('css', '.geolocation-map-container [class^="gm-"]');
   }
 
   /**
    * Tests the CommonMap style.
    */
   public function testCommonMapAjax() {
-    $this->drupalGetFilterGoogleKey('geolocation-common-map-ajax-test');
+    $this->drupalGet('geolocation-common-map-ajax-test');
 
     $session = $this->getSession();
 
@@ -142,8 +144,8 @@ class GeolocationCommonMapAjaxJavascriptTest extends GeolocationGoogleJavascript
     $this->assertSession()->assertWaitOnAjaxRequest();
 
     $html = $session->getPage()->getHtml();
-    $this->assertContains('Location 1', $html);
-    $this->assertNotContains('Location 3', $html);
+    $this->assertStringContainsString('Location 1', $html);
+    $this->assertStringNotContainsString('Location 3', $html);
   }
 
 }

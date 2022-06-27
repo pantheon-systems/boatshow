@@ -12,25 +12,27 @@ use Drupal\Core\Entity\Entity\EntityFormDisplay;
  *
  * @group geolocation
  */
-class GeolocationGoogleGeocoderWidgetTest extends GeolocationGoogleJavascriptTestBase {
+class GeolocationGoogleGeocoderWidgetTest extends GeolocationJavascriptTestBase {
 
+  /**
+   * {@inheritdoc}
+   */
   public $adminUser;
 
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'node',
     'field',
-    'views',
     'geolocation',
-    'geolocation_test_views',
+    'geolocation_google_maps',
   ];
 
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->adminUser = $this->drupalCreateUser([
@@ -127,12 +129,12 @@ class GeolocationGoogleGeocoderWidgetTest extends GeolocationGoogleJavascriptTes
   public function testGeocoderWidgetMapPresent() {
     $this->drupalLogin($this->adminUser);
 
-    $this->drupalGetFilterGoogleKey('node/3/edit');
+    $this->drupalGet('node/3/edit');
 
-    $this->assertSession()->elementExists('css', '.geolocation-map-canvas');
+    $this->assertSession()->elementExists('css', '.geolocation-map-container');
 
     // If Google works, either gm-style or gm-err-container will be present.
-    $this->assertSession()->elementExists('css', '.geolocation-map-canvas [class^="gm-"]');
+    $this->assertSession()->elementExists('css', '.geolocation-map-container [class^="gm-"]');
   }
 
   /**
@@ -151,7 +153,7 @@ class GeolocationGoogleGeocoderWidgetTest extends GeolocationGoogleJavascriptTes
 
     $this->drupalLogin($this->adminUser);
 
-    $this->drupalGetFilterGoogleKey('node/add/article');
+    $this->drupalGet('node/add/article');
 
     $page = $this->getSession()->getPage();
     $page->findField('Title')->setValue('I am new');
