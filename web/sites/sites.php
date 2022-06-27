@@ -57,10 +57,10 @@
  */
 
  // Atlanta
- $sites['local.atlantaboatshow.com'] = 'atlanta';
- $sites['dev2.atlantaboatshow.com'] = 'atlanta';
- $sites['stage2.atlantaboatshow.com'] = 'atlanta';
- $sites['live2.atlantaboatshow.com'] = 'atlanta';
+$sites['local.atlantaboatshow.com'] = 'atlanta';
+ $sites['dev-atlanta-boat-show.pantheonsite.io'] = 'atlanta';
+ $sites['stage-atlanta-boat-show.pantheonsite.io'] = 'atlanta';
+ $sites['live-atlanta-boat-show.pantheonsite.io'] = 'atlanta';
  $sites['www.atlantaboatshow.com'] = 'atlanta';
 
  // Atlantic City
