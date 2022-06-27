@@ -3,29 +3,6 @@
 // @codingStandardsIgnoreFile
 
 /**
- * Load multisite configuration, if available.
- * On Acquia Cloud, this include file configures Drupal to use the correct
- * database in each site environment (Dev, Stage, or Prod). To use this
- * settings.php for development on your local workstation, set $db_url
- * (Drupal 5 or 6) or $databases (Drupal 7 or 8) as described in comments
- * above.
- */
-if (file_exists('/var/www/site-php')) {
-   $settings['simplesamlphp_dir'] = "/var/www/html/" . $_ENV['AH_SITE_NAME'] . "/simplesamlphp";
-}
-
-if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/discoverboat/' . $site_dir . '-settings.inc';
-}
-
-/**
- * permanently set  website temporary files directory to fix feeds import error in production
- * https://docs.acquia.com/acquia-cloud/manage/files/broken/
-*/
-$config['system.file']['path']['temporary'] =
-"/mnt/gfs/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/tmp";
-
-/**
  * @file
  * Drupal site-specific configuration file.
  *
@@ -111,7 +88,7 @@ $config['system.file']['path']['temporary'] =
  * ];
  * @endcode
  */
-// $databases = [];
+$databases = [];
 
 /**
  * Customizing database settings.
@@ -127,6 +104,16 @@ $config['system.file']['path']['temporary'] =
  * specify a database file name in a directory that is writable by the
  * webserver.  For most other drivers, you must specify a
  * username, password, host, and database name.
+ *
+ * Drupal core implements drivers for mysql, pgsql, and sqlite. Other drivers
+ * can be provided by contributed or custom modules. To use a contributed or
+ * custom driver, the "namespace" property must be set to the namespace of the
+ * driver. The code in this namespace must be autoloadable prior to connecting
+ * to the database, and therefore, prior to when module root namespaces are
+ * added to the autoloader. To add the driver's namespace to the autoloader,
+ * set the "autoload" property to the PSR-4 base directory of the driver's
+ * namespace. This is optional for projects managed with Composer if the
+ * driver's namespace is in Composer's autoloader.
  *
  * Transaction support is enabled by default for all drivers that support it,
  * including MySQL. To explicitly disable it, set the 'transactions' key to
@@ -247,34 +234,34 @@ $config['system.file']['path']['temporary'] =
  *     'database' => '/path/to/databasefilename',
  *   ];
  * @endcode
+ *
+ * Sample Database configuration format for a driver in a contributed module:
+ * @code
+ *   $databases['default']['default'] = [
+ *     'driver' => 'mydriver',
+ *     'namespace' => 'Drupal\mymodule\Driver\Database\mydriver',
+ *     'autoload' => 'modules/mymodule/src/Driver/Database/mydriver/',
+ *     'database' => 'databasename',
+ *     'username' => 'sqlusername',
+ *     'password' => 'sqlpassword',
+ *     'host' => 'localhost',
+ *     'prefix' => '',
+ *   ];
+ * @endcode
  */
 
 /**
  * Location of the site configuration files.
  *
- * The $config_directories array specifies the location of file system
- * directories used for configuration data. On install, the "sync" directory is
- * created. This is used for configuration imports. The "active" directory is
- * not created by default since the default storage for active configuration is
- * the database rather than the file system. (This can be changed. See "Active
- * configuration settings" below).
+ * The $settings['config_sync_directory'] specifies the location of file system
+ * directory used for syncing configuration data. On install, the directory is
+ * created. This is used for configuration imports.
  *
- * The default location for the "sync" directory is inside a randomly-named
- * directory in the public files path. The setting below allows you to override
- * the "sync" location.
- *
- * If you use files for the "active" configuration, you can tell the
- * Configuration system where this directory is located by adding an entry with
- * array key CONFIG_ACTIVE_DIRECTORY.
- *
- * Example:
- * @code
- *   $config_directories = [
- *     CONFIG_SYNC_DIRECTORY => '/directory/outside/webroot',
- *   ];
- * @endcode
+ * The default location for this directory is inside a randomly-named
+ * directory in the public files path. The setting below allows you to set
+ * its location.
  */
-// $config_directories = [];
+# $settings['config_sync_directory'] = '/directory/outside/webroot';
 
 /**
  * Settings:
@@ -303,7 +290,7 @@ $config['system.file']['path']['temporary'] =
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = file_get_contents(DRUPAL_ROOT . '/../salt.txt');
+$settings['hash_salt'] = '';
 
 /**
  * Deployment identifier.
@@ -365,11 +352,10 @@ $settings['update_free_access'] = FALSE;
  * configuration requires the IP addresses of all remote proxies to be
  * specified in $settings['reverse_proxy_addresses'] to work correctly.
  *
- * Enable this setting to get Drupal to determine the client IP from
- * the X-Forwarded-For header (or $settings['reverse_proxy_header'] if set).
- * If you are unsure about this setting, do not have a reverse proxy,
- * or Drupal operates in a shared hosting environment, this setting
- * should remain commented out.
+ * Enable this setting to get Drupal to determine the client IP from the
+ * X-Forwarded-For header. If you are unsure about this setting, do not have a
+ * reverse proxy, or Drupal operates in a shared hosting environment, this
+ * setting should remain commented out.
  *
  * In order for this setting to be used you must specify every possible
  * reverse proxy IP address in $settings['reverse_proxy_addresses'].
@@ -385,37 +371,38 @@ $settings['update_free_access'] = FALSE;
  * Specify every reverse proxy IP address in your environment.
  * This setting is required if $settings['reverse_proxy'] is TRUE.
  */
-# $settings['reverse_proxy_addresses'] = array('a.b.c.d', ...);
+# $settings['reverse_proxy_addresses'] = ['a.b.c.d', ...];
 
 /**
- * Set this value if your proxy server sends the client IP in a header
- * other than X-Forwarded-For.
+ * Reverse proxy trusted headers.
+ *
+ * Sets which headers to trust from your reverse proxy.
+ *
+ * Common values are:
+ * - \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL
+ * - \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
+ *
+ * Note the default value of
+ * @code
+ * \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL | \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
+ * @endcode
+ * is not secure by default. The value should be set to only the specific
+ * headers the reverse proxy uses. For example:
+ * @code
+ * \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL
+ * @endcode
+ * This would trust the following headers:
+ * - X_FORWARDED_FOR
+ * - X_FORWARDED_HOST
+ * - X_FORWARDED_PROTO
+ * - X_FORWARDED_PORT
+ *
+ * @see \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL
+ * @see \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
+ * @see \Symfony\Component\HttpFoundation\Request::setTrustedProxies
  */
-# $settings['reverse_proxy_header'] = 'X_CLUSTER_CLIENT_IP';
+# $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL | \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED;
 
-/**
- * Set this value if your proxy server sends the client protocol in a header
- * other than X-Forwarded-Proto.
- */
-# $settings['reverse_proxy_proto_header'] = 'X_FORWARDED_PROTO';
-
-/**
- * Set this value if your proxy server sends the client protocol in a header
- * other than X-Forwarded-Host.
- */
-# $settings['reverse_proxy_host_header'] = 'X_FORWARDED_HOST';
-
-/**
- * Set this value if your proxy server sends the client protocol in a header
- * other than X-Forwarded-Port.
- */
-# $settings['reverse_proxy_port_header'] = 'X_FORWARDED_PORT';
-
-/**
- * Set this value if your proxy server sends the client protocol in a header
- * other than Forwarded.
- */
-# $settings['reverse_proxy_forwarded_header'] = 'FORWARDED';
 
 /**
  * Page caching:
@@ -456,7 +443,7 @@ $settings['update_free_access'] = FALSE;
  *
  * @see \Drupal\Core\Form\FormCache::setCache()
  */
- $settings['form_cache_expiration'] = 3600;
+# $settings['form_cache_expiration'] = 21600;
 
 /**
  * Class Loader.
@@ -560,6 +547,19 @@ if ($settings['hash_salt']) {
 # $settings['file_private_path'] = '';
 
 /**
+ * Temporary file path:
+ *
+ * A local file system path where temporary files will be stored. This directory
+ * must be absolute, outside of the Drupal installation directory and not
+ * accessible over the web.
+ *
+ * If this is not set, the default for the operating system will be used.
+ *
+ * @see \Drupal\Component\FileSystem\FileSystem::getOsTemporaryDirectory()
+ */
+# $settings['file_temp_path'] = '/tmp';
+
+/**
  * Session write interval:
  *
  * Set the minimum interval between each session write to database.
@@ -620,25 +620,6 @@ if ($settings['hash_salt']) {
 # ini_set('pcre.recursion_limit', 200000);
 
 /**
- * Active configuration settings.
- *
- * By default, the active configuration is stored in the database in the
- * {config} table. To use a different storage mechanism for the active
- * configuration, do the following prior to installing:
- * - Create an "active" directory and declare its path in $config_directories
- *   as explained under the 'Location of the site configuration files' section
- *   above in this file. To enhance security, you can declare a path that is
- *   outside your document root.
- * - Override the 'bootstrap_config_storage' setting here. It must be set to a
- *   callable that returns an object that implements
- *   \Drupal\Core\Config\StorageInterface.
- * - Override the service definition 'config.storage.active'. Put this
- *   override in a services.yml file in the same directory as settings.php
- *   (definitions in this file will override service definition defaults).
- */
-# $settings['bootstrap_config_storage'] = ['Drupal\Core\Config\BootstrapConfigStorageFactory', 'getFileStorage'];
-
-/**
  * Configuration overrides.
  *
  * To globally override specific configuration values for this site,
@@ -660,9 +641,7 @@ if ($settings['hash_salt']) {
  * configuration values in settings.php will not fire any of the configuration
  * change events.
  */
-# $config['system.file']['path']['temporary'] = '/tmp';
 # $config['system.site']['name'] = 'My Drupal site';
-# $config['system.theme']['default'] = 'stark';
 # $config['user.settings']['anonymous'] = 'Visitor';
 
 /**
@@ -688,9 +667,9 @@ if ($settings['hash_salt']) {
  *
  * Remove the leading hash signs if you would like to alter this functionality.
  */
-$config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
-$config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
-$config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
+# $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
+# $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
+# $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
 
 /**
  * Load services definition file.
@@ -752,10 +731,6 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * example.org, with all subdomains included.
  */
 
-$settings['trusted_host_patterns'] = array(
-  '^.+$'
-);
-
 /**
  * The default list of directories that will be ignored by Drupal's file API.
  *
@@ -763,7 +738,7 @@ $settings['trusted_host_patterns'] = array(
  * with common frontend tools and recursive scanning of directories looking for
  * extensions.
  *
- * @see file_scan_directory()
+ * @see \Drupal\Core\File\FileSystemInterface::scanDirectory()
  * @see \Drupal\Core\Extension\ExtensionDiscovery::scanDirectory()
  */
 $settings['file_scan_ignore_directories'] = [
@@ -790,70 +765,33 @@ $settings['entity_update_batch_size'] = 50;
  */
 $settings['entity_update_backup'] = TRUE;
 
-/* ////////////////////////////////
-/// BEGIN NMMA CUSTOMIZATIONS
-//////////////////////////////// */
-
-/*
- * Enable Memcache
- */
-
-if (isset($settings['memcache']['servers'])) {
-  // Memcache settings
-  $settings['cache']['bins']['bootstrap'] = 'cache.backend.memcache';
-  $settings['cache']['bins']['discovery'] = 'cache.backend.memcache';
-  $settings['cache']['bins']['config'] = 'cache.backend.memcache';
-  // Use memcache as the default bin
-  $settings['cache']['default'] = 'cache.backend.memcache';
-  $settings['memcache']['stampede_protection'] = TRUE;
-}
-
 /**
- * Acquia Purge Settings
- */
-$settings['acquia_purge_https'] = TRUE;
-$settings['acquia_purge_http'] = FALSE;
-$settings['acquia_purge_log_success'] = FALSE;
-
-/**
- * Random hash for encryption module.
+ * Node migration type.
  *
- * This is a dependency of the Marketo MA module
+ * This is used to force the migration system to use the classic node migrations
+ * instead of the default complete node migrations. The migration system will
+ * use the classic node migration only if there are existing migrate_map tables
+ * for the classic node migrations and they contain data. These tables may not
+ * exist if you are developing custom migrations and do not want to use the
+ * complete node migrations. Set this to TRUE to force the use of the classic
+ * node migrations.
  */
-$settings['encryption_key'] = 'D34Sl2EL+Eig0GMtI65ulImGQbDw0yfeZdA1MLlPm0w=';
+$settings['migrate_node_migrate_type_classic'] = FALSE;
 
 /**
- * Private file path.
+ * Load local development override configuration, if available.
+ *
+ * Create a settings.local.php file to override variables on secondary (staging,
+ * development, etc.) installations of this site.
+ *
+ * Typical uses of settings.local.php include:
+ * - Disabling caching.
+ * - Disabling JavaScript/CSS compression.
+ * - Rerouting outgoing emails.
+ *
+ * Keep this code block at the end of this file to take full effect.
  */
-if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
-  $settings['file_private_path'] = '/mnt/files/' . $_ENV['AH_SITE_GROUP'] . '.' . $_ENV['AH_SITE_ENVIRONMENT'] . '/' . $site_path . '/files-private';
-}
-else {
-  $settings['file_private_path'] = DRUPAL_ROOT . '/../files-private/' . $site_dir;
-}
-
-/**
- * Location of the site configuration files.
- */
-
-// Set TRUE to ignore the BLT OOTB config split settings from vendor/acquia/blt/settings/config.settings.php
-$blt_override_config_directories = TRUE;
-
-$config_directories = [
-  CONFIG_SYNC_DIRECTORY => DRUPAL_ROOT . "/../config/default"
-];
-
-/**
- * Configuration Split
- */
-
-// Keep this off for all sites, and enable on a per-site basis by setting to TRUE in `sites/*/settings/show_overrides.php` for each multisite which needs it
-$config['config_split.config_split.show_overrides']['status'] = FALSE;
-
-// Manual override to point config_split.config_split.show_overrides to ../config/show_overrides/*
-$config['config_split.config_split.show_overrides']['folder'] = '../config/show_overrides/' . $site_dir;
-
-/**
- * Install Profile
- */
-$settings['install_profile'] = 'minimal';
+#
+# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+#   include $app_root . '/' . $site_path . '/settings.local.php';
+# }
