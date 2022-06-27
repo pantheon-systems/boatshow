@@ -1,0 +1,14 @@
+name: Form Block IP Address (FBIP)
+type: module
+description: Keeps a track of from submissions of all monitored forms and blocks IP address when thresholds are reached
+dependencies:
+  - ban
+configure: fbip.fbip_settings_form
+# core: 8.x
+package: Other
+
+# Information added by Drupal.org packaging script on 2015-12-15
+version: '8.x-1.0'
+core: '8.x'
+project: 'fbip'
+datestamp: 1450162147

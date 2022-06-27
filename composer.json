@@ -1,18 +1,269 @@
 {
-    "name": "acquia/blt-project",
-    "description": "Project template for Drupal 8 sites built with BLT.",
+    "name": "pantheon-upstreams/drupal-project",
+    "description": "Install Drupal 9 with Composer on Pantheon.",
     "type": "project",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "license": "GPL-2.0-only",
-    "repositories": {
-        "drupal": {
+    "license": "MIT",
+    "repositories": [
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
-        "asset-packagist": {
+        {
+            "type": "package",
+            "package": {
+                "name": "harvesthq/chosen",
+                "version": "1.8.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/harvesthq/chosen/releases/download/v1.8.2/chosen_v1.8.2.zip",
+                    "type": "zip"
+                },
+                "require": {
+                    "composer/installers": "^1.2.0"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "jquery_validation/jqueryvalidate",
+                "version": "1.17.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/jquery-validation/jquery-validation/releases/download/1.17.0/jquery-validation-1.17.0.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        }
+    ],
+    "require": {
+        "acquia/blt": "^11.7.0",
+        "acquia/drupal-spec-tool": ">=2.0.0",
+        "acquia/lightning": "~4.1.0",
+        "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/acquia_connector": "^1.5.0",
+        "drupal/acquia_purge": "^1.1",
+        "drupal/address": "~1.0",
+        "drupal/addtoany": "^1.9",
+        "drupal/admin_toolbar": "^3.0",
+        "drupal/adminimal_admin_toolbar": "^1.11",
+        "drupal/adminimal_theme": "^1.3",
+        "drupal/anchor_link": "^2.5",
+        "drupal/auto_entitylabel": "^2.1@beta",
+        "drupal/better_exposed_filters": "^5.0@beta",
+        "drupal/block_field": "^1.0",
+        "drupal/bricks": "^1.7",
+        "drupal/captcha": "^1.0",
+        "drupal/cer": "^4.0@alpha",
+        "drupal/checklistapi": "^2.0",
+        "drupal/chosen": "^2.5",
+        "drupal/ckeditor_accordion": "^1.3",
+        "drupal/ckeditor_readmore": "^2.0",
+        "drupal/clientside_validation": "^3.0@RC",
+        "drupal/cog": "^1.0.0",
+        "drupal/colossal_menu": "^1.1",
+        "drupal/config_filter": "^1.6",
+        "drupal/config_ignore": "^2.3",
+        "drupal/config_split": "^1.3",
+        "drupal/core-composer-scaffold": "^8.8",
+        "drupal/core-recommended": "^8.8.0",
+        "drupal/cshs": "1.x",
+        "drupal/devel": "^2.0.0",
+        "drupal/dynamic_entity_reference": "^1.0",
+        "drupal/easy_breadcrumb": "^1.15",
+        "drupal/eck": "^1.0@alpha",
+        "drupal/editor_advanced_link": "^1.4",
+        "drupal/editor_file": "1.x",
+        "drupal/embed": "^1.4",
+        "drupal/entity_clone": "^1.0@beta",
+        "drupal/environment_indicator": "^4.0",
+        "drupal/faqfield": "^1.1",
+        "drupal/fbip": "^1.0",
+        "drupal/features": "^3.7.0",
+        "drupal/feeds": "^3.0@beta",
+        "drupal/field_group": "^3.1",
+        "drupal/flood_control": "^2.1",
+        "drupal/flood_settings": "^1.0@alpha",
+        "drupal/flood_unblock": "^1.5",
+        "drupal/geocoder": "^2.22",
+        "drupal/geolocation": "1.x",
+        "drupal/gtm": "^1.6",
+        "drupal/honeypot": "^1.27",
+        "drupal/iframe": "^1.9",
+        "drupal/imageapi_optimize": "^2.0",
+        "drupal/imageapi_optimize_resmushit": "^1.0",
+        "drupal/imagemagick": "^3.1",
+        "drupal/jquery_ui": "^1.4",
+        "drupal/jquery_ui_draggable": "^1.2",
+        "drupal/jquery_ui_droppable": "^1.2",
+        "drupal/layout_builder_modal": "^1.1",
+        "drupal/layout_discovery_override": "^1.0",
+        "drupal/lightning_media": "^4.6",
+        "drupal/linkit": "^5.0@beta",
+        "drupal/login_security": "1.x",
+        "drupal/marketo_ma": "2.x",
+        "drupal/media_entity_browser": "2.x",
+        "drupal/media_entity_download": "^2.0",
+        "drupal/media_responsive_thumbnail": "^1.1",
+        "drupal/memcache": "^2.3",
+        "drupal/menu_breadcrumb": "^1.7",
+        "drupal/menu_item_extras": "^2.14",
+        "drupal/menu_link_attributes": "^1.2",
+        "drupal/metatag": "^1.5",
+        "drupal/migrate_source_csv": "^2.0",
+        "drupal/migrate_tools": "^4.0",
+        "drupal/module_filter": "^3.2",
+        "drupal/module_missing_message_fixer": "^1.1",
+        "drupal/path_redirect_import": "^1.0@beta",
+        "drupal/pathauto": "^1.1",
+        "drupal/purge": "^3.0",
+        "drupal/qa_accounts": "^1.0.0-alpha1",
+        "drupal/rabbit_hole": "^1.0",
+        "drupal/recaptcha": "^2.5",
+        "drupal/recreate_block_content": "^2.1",
+        "drupal/redirect": "^1.2",
+        "drupal/restui": "^1.19",
+        "drupal/robotstxt": "^1.1",
+        "drupal/rpt": "^1.0@beta",
+        "drupal/scheduler": "^1.3",
+        "drupal/search_api_page": "1.x",
+        "drupal/seckit": "^1.0.0-alpha2",
+        "drupal/seo_checklist": "^4.1",
+        "drupal/shield": "^1.4",
+        "drupal/shortcode": "^2.0",
+        "drupal/simple_oauth": "^4.4",
+        "drupal/smart_trim": "^1.2",
+        "drupal/stage_file_proxy": "^1.0",
+        "drupal/structure_sync": "^2.0",
+        "drupal/telephone_formatter": "^1.1",
+        "drupal/twig_field": "^1.0",
+        "drupal/twig_tweak": "^2.9",
+        "drupal/ultimate_cron": "^2.0@alpha",
+        "drupal/video_embed_wistia": "^1.0",
+        "drupal/viewfield": "^3.0@alpha",
+        "drupal/views_accordion": "^1.1",
+        "drupal/views_block_filter_block": "^1.0",
+        "drupal/views_current_path": "^2.0",
+        "drupal/views_infinite_scroll": "^1.8",
+        "drupal/webform": "^5.25",
+        "drupal/xmlsitemap": "dev-1.x",
+        "drush/drush": "^10",
+        "harvesthq/chosen": "^1.8",
+        "jquery_validation/jqueryvalidate": "~1.0",
+        "marketo-api/marketo-rest-client": "dev-master",
+        "npm-asset/object-fit-images": "^3.2",
+        "npm-asset/overlayscrollbars": "^1.12",
+        "sunra/php-simple-html-dom-parser": "^1.5.2",
+        "tinify/tinify": "^1.5.2"
+    },
+    "require-dev": {
+        "acquia/blt-require-dev": "11.x-dev",
+        "drupal/console": "^1.0",
+        "drupal/devel": "^2.0.0",
+        "geerlingguy/drupal-vm": "^4.8"
+
+    },
+    "replace": {
+        "webflo/drupal-core-require-dev": "*"
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "./web"
+            },
+            "file-mapping": {
+                "[web-root]/sites/default/default.services.yml": {
+                    "mode": "replace",
+                    "path": "web/core/assets/scaffold/files/default.services.yml",
+                    "overwrite": false
+                },
+                "[web-root]/sites/default/default.settings.php": {
+                    "mode": "replace",
+                    "path": "web/core/assets/scaffold/files/default.settings.php",
+                    "overwrite": false
+                }
+            }
+        },
+        "enable-patching": true,
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "drush/Commands/{$name}": [
+                "type:drupal-drush"
+            ]
+        },
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+          "drupal/admin_toolbar": {
+              "Route view.media_library.page does not exist": "https://www.drupal.org/files/issues/2021-06-10/3218206-admin_toolbar-route_view_media_library_page-2.patch"
+          },
+          "drupal/fbip": {
+                "Argument 2 passed to fbip_validator() must be an instance of FormStateInterface": "https://www.drupal.org/files/issues/fbip-2635716-4.patch"
+            },
+            "drupal/clientside_validation_jquery": {
+                "Support inline_form_errors module": "https://www.drupal.org/files/issues/2906132-4.patch"
+            },
+            "drupal/clientside_validation": {
+                "Add the library JS files locally instead of relying on CDN so big pipe works.": "./patches/clientside_validation-add-library.patch"
+            },
+            "drupal/core": {
+                "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch",
+                "Contextual links of reusable content blocks are not displayed when rendering entities built via Layout Builder [https://www.drupal.org/project/drupal/issues/3020876]": "https://www.drupal.org/files/issues/2020-02-22/contextual_links_layout_builder_0.patch",
+                "PHP message: Error: Call to a member function getEntityTypeId() on null (Layout Builder)": "https://www.drupal.org/files/issues/2019-08-17/drupal-layout_builder_inline_block_empty_block_error-3049332-8.7.x-11.patch",
+                "Exception thrown by responsive srcset images when the image is not yet in the file system": "https://www.drupal.org/files/issues/2827921-remove-missing-responsive-image-width-exception.patch"
+            },
+            "drupal/redirect": {
+                "Redirect hashes created when not retaining the query string": "https://www.drupal.org/files/issues/2018-06-01/2976930-redirect-hashes-created-when-not-retaining-the-query-string-2.patch"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "grasmash/drupal-security-warning": true,
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "oomphinc/composer-installers-extender": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "acquia/blt": true,
+            "drupal/console-extend-plugin": true
         }
     },
     "autoload": {
@@ -25,240 +276,14 @@
             "Drupal\\Tests\\PHPUnit\\": "tests/phpunit/src/"
         }
     },
-    "config": {
-        "sort-packages": true
-    },
-    "require": {
-        "php": ">=7.2",
-        "acquia/blt": "^10.1.0",
-        "acquia/drupal-spec-tool": "^2.0.0",
-        "acquia/lightning": "^3.1.0",
-        "acquia/memcache-settings": "*",
-        "drupal/acquia_connector": "^1.5.0",
-        "drupal/acquia_purge": "^1.0-beta3",
-        "drupal/address": "^1.9",
-        "drupal/addtoany": "^1.14",
-        "drupal/admin_toolbar": "^1.0",
-        "drupal/admin_toolbar_tools": "^1.0",
-        "drupal/adminimal_admin_toolbar": "^1.7",
-        "drupal/advagg": "^4.0",
-        "drupal/anchor_link": "^1.6",
-        "drupal/auto_entitylabel": "^3.0@beta",
-        "drupal/better_exposed_filters": "^4.0",
-        "drupal/block_field": "^1.0@alpha",
-        "drupal/bricks": "^1.7-beta1",
-        "drupal/captcha": "^1.0",
-        "drupal/cer": "^4.0@alpha",
-        "drupal/change_author_action": "^1.0",
-        "drupal/chosen": "^2.5",
-        "drupal/ckeditor_accordion": "^1.1",
-        "drupal/clientside_validation": "1.x-dev#d65b355a086812d7d3c84945da2a5df01b7815cf",
-        "drupal/cog": "^1.0.0",
-        "drupal/colossal_menu": "^1.1",
-        "drupal/config_filter": "^1.8",
-        "drupal/config_ignore": "2.x-dev#2b1740411fd1eb8bb139711be5e10535c40ddbbf",
-        "drupal/config_split": "^1.7",
-        "drupal/content_access": "^1.0",
-        "drupal/content_lock": "^2.2",
-        "drupal/core": "^8.6",
-        "drupal/cshs": "1.x-dev#e583815ea8f0e11fd32c0b794700547cd3afce8d",
-        "drupal/devel": "^2.0",
-        "drupal/devel_entity_updates": "^1.0",
-        "drupal/dropzonejs": "^2.4",
-        "drupal/easy_breadcrumb": "^1.8",
-        "drupal/eck": "^1.0@alpha",
-        "drupal/editor_advanced_link": "^1.4",
-        "drupal/editor_file": "1.x-dev#83e4af15b3b8fd66390ae1545ccdfe6d1986dda9",
-        "drupal/encryption": "^1.0",
-        "drupal/faqfield": "^1.1",
-        "drupal/features": "^3.8.0",
-        "drupal/feeds": "3.x-dev#bb5a46ed51968af8e72bbf05e7c9ddf4fad7e4da",
-        "drupal/feeds_ex": "^1.0@alpha",
-        "drupal/feeds_tamper": "^2.0@beta",
-        "drupal/field_group": "^3.0@beta",
-        "drupal/file_delete": "^1.0",
-        "drupal/geocoder": "^2.0@beta",
-        "drupal/geolocation": "^3.0-rc1",
-        "drupal/google_tag": "^1.2",
-        "drupal/honeypot": "^1.27",
-        "drupal/http_cache_control": "^2.0",
-        "drupal/iframe": "^1.21",
-        "drupal/imageapi_optimize": "^2.0@alpha",
-        "drupal/imageapi_optimize_binaries": "^1.0",
-        "drupal/imageapi_optimize_resmushit": "^1.0",
-        "drupal/imageapi_optimize_tinypng": "^1.1",
-        "drupal/imagemagick": "^3.1",
-        "drupal/jsonapi_example": "^1.4",
-        "drupal/jsonapi_extras": "^3.19",
-        "drupal/lightning_media": "^3.12",
-        "drupal/link_attributes": "^1.9",
-        "drupal/linkit": "5.x-dev#1084887a0c4d9f0458c8d60f59ba20c342005101",
-        "drupal/marketo_ma": "^2.0",
-        "drupal/media_entity_browser": "2.x-dev#c75921d3af90f1b6dc052cd2edf037116227acf8",
-        "drupal/media_entity_download": "^2.0@beta",
-        "drupal/media_entity_file_replace": "^1.0",
-        "drupal/menu_breadcrumb": "^1.7",
-        "drupal/menu_item_extras": "^2.13",
-        "drupal/menu_link_attributes": "^1.0",
-        "drupal/metatag": "^1.15",
-        "drupal/migrate_plus": "^4.0",
-        "drupal/migrate_tools": "^4.0@beta",
-        "drupal/module_filter": "^3.1",
-        "drupal/module_missing_message_fixer": "^1.1",
-        "drupal/paragraphs": "^1.8",
-        "drupal/path_redirect_import": "^1.0@beta",
-        "drupal/pathauto": "^1.4",
-        "drupal/permissions_by_term": "^2.18",
-        "drupal/publishcontent": "^1.1",
-        "drupal/purge": "^3.0@beta",
-        "drupal/qa_accounts": "^1.0.0-alpha1",
-        "drupal/quicktabs": "^3.0@alpha",
-        "drupal/rabbit_hole": "^1.0@beta",
-        "drupal/rebuild_cache_access": "^1.5",
-        "drupal/recaptcha": "^2.5",
-        "drupal/redirect": "^1.4",
-        "drupal/restui": "^1.19",
-        "drupal/robotstxt": "^1.1",
-        "drupal/rpt": "^1.0",
-        "drupal/seckit": "^1.0.0-alpha2",
-        "drupal/shield": "^1.2",
-        "drupal/simplesamlphp_auth": "^3.1",
-        "drupal/smart_trim": "^1.1",
-        "drupal/structure_sync": "^2.0",
-        "drupal/telephone_formatter": "1.x-dev#64f2cbbb440044fce077e5ada35890388321fa5b",
-        "drupal/token": "^1.9",
-        "drupal/twig_field": "^1.0",
-        "drupal/twig_tweak": "^2.9",
-        "drupal/ultimate_cron": "^2.0@alpha",
-        "drupal/username_enumeration_prevention": "^1.0",
-        "drupal/video_embed_wistia": "^1.0@rc",
-        "drupal/view_unpublished": "^1.0",
-        "drupal/viewfield": "^3.0",
-        "drupal/views_accordion": "^1.1",
-        "drupal/views_block_filter_block": "^1.0",
-        "drupal/views_current_path": "^2.0",
-        "drupal/views_field_view": "^1.0@beta",
-        "drupal/webform": "^5.23",
-        "drupal/weight": "^3.1",
-        "drupal/xmlsitemap": "1.x-dev#23b04ea6b7a577f5cc9531dcd18488bab01e65a6",
-        "drush/drush": "^9.7",
-        "giggsey/libphonenumber-for-php": "^8.10",
-        "marketo-api/marketo-rest-client": "dev-master",
-        "npm-asset/object-fit-images": "3.2.4",
-        "npm-asset/picturefill": "^3.0.3",
-        "symfony/property-access": "^4.3"
-    },
-    "require-dev": {
-        "acquia/blt-require-dev": "^10.0.0-alpha1",
-        "geerlingguy/drupal-vm": "^5.0"
-    },
-    "extra": {
-        "enable-patching": true,
-        "composer-exit-on-patch-failure": true,
-        "patchLevel": {
-            "drupal/core": "-p2"
-        },
-        "patches": {
-            "drupal/bricks": {
-                "Layout entity wrapper is missing [https://www.drupal.org/project/bricks/issues/2952523]": "https://www.drupal.org/files/issues/2018-04-12/bricks-layout_entity_wrapper-2952523-3.patch"
-            },
-            "drupal/clientside_validation": {
-                "Add the library JS files locally instead of relying on CDN so big pipe works.": "./patches/clientside_validation-add-library.patch"
-            },
-            "drupal/clientside_validation_jquery": {
-                "Support inline_form_errors module": "https://www.drupal.org/files/issues/2906132-4.patch"
-            },
-            "drupal/config_ignore": {
-                "Support for export filtering via Drush [https://www.drupal.org/project/config_ignore/issues/2857247]": "https://www.drupal.org/files/issues/2019-09-27/support-for-export-2857247-38.patch"
-            },
-            "drupal/content_access": {
-                "Undefined index: anonymous in content_access_get_role_gid": "./patches/content_access-role-2782813-19.patch"
-            },
-            "drupal/core": {
-                "Create a theme suggestion for taxonomy terms by view mode": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch",
-                "Exception thrown by responsive srcset images when the image is not yet in the file system (such as with Stage File Proxy) [https://www.drupal.org/project/drupal/issues/2827921]": "https://www.drupal.org/files/issues/2827921-remove-missing-responsive-image-width-exception.patch"
-            },
-            "drupal/fbip": {
-                "Argument 2 passed to fbip_validator() must be an instance of FormStateInterface": "https://www.drupal.org/files/issues/fbip-2635716-4.patch"
-            },
-            "drupal/feeds": {
-                "Entity Processor shows actions but uses wrong id [https://www.drupal.org/project/feeds/issues/3078857]": "https://www.drupal.org/files/issues/2019-09-03/3078857-2.patch",
-                "HACK: ALWAYS CLEAN during processing": "./patches/feeds-always-clean.patch"
-            },
-            "drupal/lightning_media": {
-                "Entity browser reordering of files broken in lightning 8.x-2.16 [https://www.drupal.org/project/lightning_media/issues/2901225]": "https://www.drupal.org/files/issues/2901225_20_lightning-media-module.patch"
-            },
-            "drupal/linkit": {
-                "Link shown after the autocomplete selection is the bare node/xxx link": "https://www.drupal.org/files/issues/2018-03-09/2877535-7.linkit.Link-shown-after-the-autocomplete-selection-is-the-bare-nodexxx-link-not-the-alias.patch"
-            },
-            "drupal/marketo_ma": {
-                "HACK: check for rest array key before accessing array": "./patches/marketo-ma-rest-array-check.patch"
-            },
-            "drupal/migrate_tools": {
-                "Migrate support for deleting items no longer in the incoming data": "https://www.drupal.org/files/issues/2019-05-31/2809433-153.patch"
-            },
-            "drupal/redirect": {
-                "Redirect hashes created when not retaining the query string": "https://www.drupal.org/files/issues/2018-06-01/2976930-redirect-hashes-created-when-not-retaining-the-query-string-2.patch"
-            },
-            "drupal/xmlsitemap": {
-                "Rebuild always include all link types": "https://www.drupal.org/files/issues/2018-05-25/2745695-10.xmlsitemap-rebuild-all-entities.patch",
-                "Add Drush 9 Support": "https://www.drupal.org/files/issues/2018-04-30/xmlsitemap--2968172-drush-9-support--2.patch"
-            }
-        },
-        "installer-types": [
-            "bower-asset",
-            "npm-asset"
-        ],
-        "installer-paths": {
-            "docroot/core": [
-                "type:drupal-core"
-            ],
-            "docroot/modules/contrib/{$name}": [
-                "type:drupal-module"
-            ],
-            "docroot/modules/custom/{$name}": [
-                "type:drupal-custom-module"
-            ],
-            "docroot/profiles/contrib/{$name}": [
-                "type:drupal-profile"
-            ],
-            "docroot/profiles/custom/{$name}": [
-                "type:drupal-custom-profile"
-            ],
-            "docroot/themes/contrib/{$name}": [
-                "type:drupal-theme"
-            ],
-            "docroot/themes/custom/{$name}": [
-                "type:drupal-custom-theme"
-            ],
-            "docroot/libraries/{$name}": [
-                "type:drupal-library",
-                "type:bower-asset",
-                "type:npm-asset"
-            ],
-            "drush/Commands/{$name}": [
-                "type:drupal-drush"
-            ]
-        },
-        "drupal-scaffold": {
-            "initial": {
-                "sites/default/default.services.yml": "sites/default/services.yml",
-                "sites/default/default.settings.php": "sites/default/settings.php"
-            }
-        }
-    },
     "scripts": {
         "post-create-project-cmd": [
             "blt internal:create-project:init-repo"
         ],
-        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
         "nuke": [
-            "rm -rf vendor composer.lock docroot/core docroot/modules/contrib docroot/profiles/contrib docroot/themes/contrib",
+            "rm -rf vendor composer.lock web/core web/modules/contrib web/profiles/contrib web/themes/contrib",
             "@composer clearcache --ansi",
             "@composer install --ansi"
-        ],
-        "post-drupal-scaffold-cmd": [
-            "cd docroot && patch -p1 <../patches/htaccess-saml.patch"
         ]
     }
 }

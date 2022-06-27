@@ -1,0 +1,11 @@
+name: Registration Password Token
+type: module
+description: 'Provides user password token during registration.'
+package: 'User Access & Authentication'
+core: 8.x
+configure: entity.user.admin_form
+
+# Information added by Drupal.org packaging script on 2020-02-04
+version: '8.x-1.0'
+project: 'rpt'
+datestamp: 1580798416

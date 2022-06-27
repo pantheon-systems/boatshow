@@ -1,0 +1,26 @@
+{
+    "name": "marketo-api/marketo-rest-client",
+    "description": "A PHP client for the Marketo.com REST API",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.3",
+        "guzzle/guzzle": "~3.8",
+        "commerceguys/guzzle-oauth2-plugin": "~1.0"
+    },
+    "replace": {
+        "marketo-api/marketo-rest-client": "0.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CSD\\Marketo\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Daniel Chesterton"
+        }
+    ]
+}
