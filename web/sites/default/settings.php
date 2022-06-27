@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Load services definition file.
  */
@@ -13,15 +14,7 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  *      a local development environment, to insure that
  *      the site settings remain consistent.
  */
-
 include __DIR__ . "/settings.pantheon.php";
-
-/**
- * Config split settings
- * vendor/acquia/blt/settings/config.settings.php
- */
-
-// include __DIR__ . "/config.settings.php";
 
 /**
  * If there is a local settings file, then include it
