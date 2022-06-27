@@ -59,7 +59,7 @@
  // Atlanta
 $sites['local.atlantaboatshow.com'] = 'atlanta';
  $sites['dev-atlanta-boat-show.pantheonsite.io'] = 'atlanta';
- $sites['stage-atlanta-boat-show.pantheonsite.io'] = 'atlanta';
+ $sites['test-atlanta-boat-show.pantheonsite.io'] = 'atlanta';
  $sites['live-atlanta-boat-show.pantheonsite.io'] = 'atlanta';
  $sites['www.atlantaboatshow.com'] = 'atlanta';
 
