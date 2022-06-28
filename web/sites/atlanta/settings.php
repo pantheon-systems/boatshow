@@ -20,7 +20,9 @@ include __DIR__ . "/settings.pantheon.php";
  * Config split settings
  * vendor/acquia/blt/settings/config.settings.php
  */
-
+$config_directories = [
+  CONFIG_SYNC_DIRECTORY => DRUPAL_ROOT . '/config/sync',
+];
 // include __DIR__ . "/config.settings.php";
 
 /**
