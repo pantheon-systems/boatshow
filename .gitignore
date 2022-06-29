@@ -48,7 +48,7 @@
 # Sites that do not have any Composer-managed custom modules do
 # not need to use any of the `modules/custom` rules below.
 # ------------------------------------------------------------------
-# /web/modules/custom/*
+web/modules/custom/*
 #!/web/modules/custom/module_in_repo
 
 
@@ -97,3 +97,5 @@
 
 # Ignore .env files as they are personal
 #/.env
+# OS X
+.DS_Store
