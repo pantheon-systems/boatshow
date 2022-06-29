@@ -5,16 +5,18 @@
 # Pantheon commits a settings.php for environment-specific settings.
 # Place local settings in settings.local.php
 # # /web/sites/*/settings.local.php
-#/web/sites/*/services*.yml
-#!/web/sites/*/services.pantheon.*.yml
-#!/web/sites/*/services.yml
+/web/sites/*/services*.yml
+!/web/sites/*/services.pantheon.*.yml
+!/web/sites/*/services.yml
 
 # Ignore paths that contain user-generated content.
-#/web/sites/*/files
-#/web/sites/*/private
+/web/sites/*/files
+/web/sites/*
+/web/sites/atlanta/*
+/web/sites/*/private
 
 # Ignore SimpleTest multi-site environment.
-#/web/sites/simpletest
+/web/sites/simpletest
 
 
 # Ignore custom modules managed by Composer.
@@ -55,19 +57,19 @@
 # See the "installer-paths" section in the top-level composer.json
 # file.
 # ------------------------------------------------------------------
-#/drush/Commands/contrib/
-#/web/core/
-#/web/modules/contrib/
-#/web/themes/contrib/
-#/web/profiles/contrib/
-#/web/libraries/
-#/web/private/scripts/quicksilver
+/drush/Commands/contrib/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+/web/private/scripts/quicksilver
 
 
 # Generally you should only ignore the root vendor directory. It's important
 # that core/assets/vendor and any other vendor directories within contrib or
 # custom module, theme, etc., are not ignored unless you purposely do so.
-#/vendor/
+/vendor/
 
 # Ignore other scaffold files
 #
